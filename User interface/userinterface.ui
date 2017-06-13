@@ -604,7 +604,7 @@ border-radius:15px;
                 </widget>
                </item>
                <item row="7" column="1">
-                <widget class="QComboBox" name="comboBox">
+                <widget class="QComboBox" name="sexComboBox">
                  <property name="font">
                   <font>
                    <family>georgia</family>
@@ -612,6 +612,9 @@ border-radius:15px;
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">width:150px;
@@ -655,7 +658,7 @@ align-content:center;</string>
                 </widget>
                </item>
                <item row="11" column="1">
-                <widget class="QDateEdit" name="dateofbirthLineEdit">
+                <widget class="QDateEdit" name="dateofbirthDateEdit">
                  <property name="font">
                   <font>
                    <family>georgia</family>
@@ -704,7 +707,7 @@ align-content:center;</string>
                 </widget>
                </item>
                <item row="12" column="1">
-                <widget class="QTextEdit" name="addressLineEdit">
+                <widget class="QTextEdit" name="addressTextEdit">
                  <property name="font">
                   <font>
                    <family>georgia</family>
@@ -1404,9 +1407,9 @@ margin:auto;
   <tabstop>fullnameLineEdit</tabstop>
   <tabstop>fathernameLineEdit</tabstop>
   <tabstop>mothernameLineEdit</tabstop>
-  <tabstop>comboBox</tabstop>
-  <tabstop>dateofbirthLineEdit</tabstop>
-  <tabstop>addressLineEdit</tabstop>
+  <tabstop>sexComboBox</tabstop>
+  <tabstop>dateofbirthDateEdit</tabstop>
+  <tabstop>addressTextEdit</tabstop>
   <tabstop>emailLineEdit</tabstop>
   <tabstop>mobileLineEdit</tabstop>
   <tabstop>bloodgroupLineEdit</tabstop>

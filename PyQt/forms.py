@@ -1,10 +1,6 @@
-# -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'userinterface.ui'
-#
-# Created by: PyQt4 UI code generator 4.11.4
-#
-# WARNING! All changes made in this file will be lost!
+import icon_res_rc
+import sqlite3
 
 from PyQt4 import QtCore, QtGui
 
@@ -806,6 +802,8 @@ class Ui_MainWindow(object):
         self.mytab.setTabText(self.mytab.indexOf(self.Attendence), _translate("MainWindow", "Attendence", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Attendence), _translate("MainWindow", "Not eligible", None))
 
+        self.submitPushButton.clicked.connect(self.get_enroll_form_data())
+
         # self.sexComboBox.setEditable(True)
         # self.sexComboBox.lineEdit().setReadOnly(True);
         # self.sexComboBox.lineEdit().setAlignment(QtCore.Qt.AlignCenter);
@@ -818,20 +816,22 @@ class Ui_MainWindow(object):
         self.fullname = self.fullnameLineEdit.displayText()
         self.fathername = self.fathernameLineEdit.displayText()
         self.mothername = self.mothernameLineEdit.displayText()
-        self.sex = self.sexComboBox.itemText();
+        self.sex = self.sexComboBox.currentText();
         self.dateofbirth = self.dateofbirthDateEdit.text();
-        self.address = self.addressTextEdit.toPlainText()
+        self.address = self.addressLineEdit.toPlainText()
         self.email = self.emailLineEdit.displayText()
         self.mobilenum = self.mobileLineEdit.displayText()
         self.bloodgroup = self.bloodgroupLineEdit.displayText()
         self.bankname = self.banknameLineEdit.displayText()
         self.bankbranch = self.bankbranchLineEdit.displayText()
         self.accountname = self.accountnameLineEdit.displayText()
+        self.accountnum = self.accountnumLineEdit.displayText()
         self.isfccode = self.isfccodeLineEdit.displayText()
         self.institutionname = self.institutionLineEdit.displayText()
         self.unit = self.unitLineEdit.displayText()
 
 
+        enrol_student(self,enrol_no=self.enrolmentnum ,aadhar= self.aadhaarnum ,sfname=self.fullname , ffname=self.fathername , mfname=self.mothername , sex=self.sex , date_of_birth= self.dateofbirth , address=self.address , email= self.email , mobile= self.mobilenum , blood_group= self.bloodgroup , bank_name= self.bankname , branch= self.bankbranch , acc_name= self.accountname , acc_no=self.accountnum ,isfc_code=self.isfccode , institution=self.institutionname , units= self.unit)
 
 
 
@@ -840,67 +840,73 @@ class Ui_MainWindow(object):
 
 
 
-                # import pymysql
-                # class enroll:
-                #     conn = pymysql.connect("localhost", "root", "Chinnu@123", "ncc")
-                #     cur = conn.cursor()
-                #     def enrol_student(self,enrol_no,aadhar,cfname,cmname,clname,ffname,fmname,flname,mfname,mmname,mlname,s_name,f_name,m_name,date_of_birth,sex,blood_group,address,gmail,mobile,bank_name,branch,acc_name,acc_no,ifsc_code,institution,units):
-                #         add = ("insert into enrolment "
-                #                "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
-                #         sql=(enrol_no,aadhar,cfname,cmname,clname,ffname,fmname,flname,mfname,mmname,mlname,s_name,f_name,m_name,date_of_birth,sex,blood_group,address,gmail,mobile,bank_name,branch,acc_name,acc_no,ifsc_code,institution,units)
-                #         self.cur.execute(add,sql)
-                #         self.conn.commit()
-                #         print("sucessfully inserted")
-                #     def dropping_table(self,table_name):
-                #         self.cur.execute("drop table %s",(table_name))
-                #         self.conn.commit()
-                #         print(table_name+"sucessfully deleted")
-                #     def search_by_enrolmentid(self,enrol_id):
-                #         self.cur.execute("select * from enrolment where enrolment_no=%s",(enrol_id))
-                #         return(self.cur.fetchone())
-                #     def creat_table(self):
-                #         details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,aadhar bigint(12),sfname varchar(30) not null,
-                #         smname varchar(30) default '',slname varchar(20) default '',ffname varchar(30) not null,fmname varchar(30) default '',
-                #         flname varchar(20) default '',mfname varchar(30) not null,mmname varchar(30) default '',mlname varchar(20) default '',
-                #         s_name varchar(50) default '',f_name varchar(50) default '',m_name varchar(50) default '',date_of_birth date,sex char(6),
-                #         blood_group char(3),address varchar(200) not null,g_mail varchar(50)  default '',mobile bigint(10) ,bank_name varchar(30) default '',
-                #         branch varchar(20) default '',acc_name varchar(50) default '',acc_no bigint(16),ifsc_code varchar(11),
-                #         institution char(20) not null  default '',units varchar(10) not null  default '',primary key(enrolment_no))"""
-                #         self.cur.execute(details)
-                #         print("table created sucessfully")
-                #         self.conn.commit()
-                #
-                #     def search_particular_fields(self,con,con1,*fields):
-                #         sql="select "
-                #         for i in range(len(fields)):
-                #             if i != len(fields) and i != 0:
-                #                 sql = sql + ","
-                #             sql = sql + fields[i]
-                #         sql = sql + " from enrolment"
-                #         if (con !=0):
-                #             sql = sql + " where enrolment_no='" + con1 + "'"
-                #         self.cur.execute(sql)
-                #         results=self.cur.fetchall()
-                #         return(results)
+# class enroll:
+#     conn = pymysql.connect("localhost", "root", "Chinnu@123", "ncc")
+#     cur = conn.cursor()
+#     def enrol_student(self,enrol_no,aadhar,cfname,cmname,clname,ffname,fmname,flname,mfname,mmname,mlname,s_name,f_name,m_name,date_of_birth,sex,blood_group,address,gmail,mobile,bank_name,branch,acc_name,acc_no,ifsc_code,institution,units):
+#         add = ("insert into enrolment "
+#                "values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)")
+#         sql=(enrol_no,aadhar,cfname,cmname,clname,ffname,fmname,flname,mfname,mmname,mlname,s_name,f_name,m_name,date_of_birth,sex,blood_group,address,gmail,mobile,bank_name,branch,acc_name,acc_no,ifsc_code,institution,units)
+#         self.cur.execute(add,sql)
+#         self.conn.commit()
+#         print("sucessfully inserted")
+#     def dropping_table(self,table_name):
+#         self.cur.execute("drop table %s",(table_name))
+#         self.conn.commit()
+#         print(table_name+"sucessfully deleted")
+#     def search_by_enrolmentid(self,enrol_id):
+#         self.cur.execute("select * from enrolment where enrolment_no=%s",(enrol_id))
+#         return(self.cur.fetchone())
+#     def creat_table(self):
+#         details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,aadhar bigint(12),sfname varchar(30) not null,
+#         smname varchar(30) default '',slname varchar(20) default '',ffname varchar(30) not null,fmname varchar(30) default '',
+#         flname varchar(20) default '',mfname varchar(30) not null,mmname varchar(30) default '',mlname varchar(20) default '',
+#         s_name varchar(50) default '',f_name varchar(50) default '',m_name varchar(50) default '',date_of_birth date,sex char(6),
+#         blood_group char(3),address varchar(200) not null,g_mail varchar(50)  default '',mobile bigint(10) ,bank_name varchar(30) default '',
+#         branch varchar(20) default '',acc_name varchar(50) default '',acc_no bigint(16),isfc_code varchar(11),
+#         institution char(20) not null  default '',units varchar(10) not null  default '',primary key(enrolment_no))"""
+#         self.cur.execute(details)
+#         print("table created sucessfully")
+#         self.conn.commit()
+#
+#     def search_particular_fields(self,con,con1,*fields):
+#         sql="select "
+#         for i in range(len(fields)):
+#             if i != len(fields) and i != 0:
+#                 sql = sql + ","
+#             sql = sql + fields[i]
+#         sql = sql + " from enrolment"
+#         if (con !=0):
+#             sql = sql + " where enrolment_no='" + con1 + "'"
+#         self.cur.execute(sql)
+#         results=self.cur.fetchall()
+#         return(results)
 
 
-                #
-                # print("this works" "Even this also");
-                # dbobj = pymysql.connect(host='localhost' , user='root' , passwd='')
-                # cur  =  dbobj.cursor()
-                # cur.execute('CREATE database ncc');
-                # details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,aadhar bigint(12),sfname varchar(30) not null,
-                #         smname varchar(30) default '',slname varchar(20) default '',ffname varchar(30) not null,fmname varchar(30) default '',
-                #         flname varchar(20) default '',mfname varchar(30) not null,mmname varchar(30) default '',mlname varchar(20) default '',
-                #         s_name varchar(50) default '',f_name varchar(50) default '',m_name varchar(50) default '',date_of_birth date,sex char(6),
-                #         blood_group char(3),address varchar(200) not null,g_mail varchar(50)  default '',mobile bigint(10) ,bank_name varchar(30) default '',
-                #         branch varchar(20) default '',acc_name varchar(50) default '',acc_no bigint(16),ifsc_code varchar(11),
-                #         institution char(20) not null  default '',units varchar(10) not null  default '',primary key(enrolment_no))"""
-                # cur.execute(details)
-                # print("Table created successfully !");
 
 
-import icon_res_rc
+
+def enrol_student(self,enrol_no='',aadhar='',sfname='',smname='',slname='',ffname='',fmname='',flname='',mfname='',mmname='',mlname='',s_name='',f_name='',m_name='',date_of_birth='',sex='',blood_group='',address='',email='',mobile='',bank_name='',branch='',acc_name='',acc_no='',isfc_code='',institution='',units=''):
+        conn = sqlite3.connect("ncc.db")
+        cur = conn.cursor();
+
+        details = """create table  if not exists enrolment(enrolment_no varchar(13) not null,aadhar bigint(12),sfname varchar(30) not null,
+                smname varchar(30) default '',slname varchar(20) default '',ffname varchar(30) not null,fmname varchar(30) default '',
+                flname varchar(20) default '',mfname varchar(30) not null,mmname varchar(30) default '',mlname varchar(20) default '',
+                s_name varchar(50) default '',f_name varchar(50) default '',m_name varchar(50) default '',date_of_birth date,sex char(6),
+                blood_group char(3),address varchar(200) not null,email varchar(50)  default '',mobile bigint(10) ,bank_name varchar(30) default '',
+                branch varchar(20) default '',acc_name varchar(50) default '',acc_no bigint(16),isfc_code varchar(11),
+                institution char(20) not null  default '',units varchar(10) not null  default '',primary key(enrolment_no))"""
+        cur.execute(details)
+
+        add = ("insert into enrolment values({},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{})".format(enrol_no,aadhar,sfname,smname,slname,ffname,fmname,flname,mfname,mmname,mlname,s_name,f_name,m_name,date_of_birth,sex,blood_group,address,email,mobile,bank_name,branch,acc_name,acc_no,isfc_code,institution,units))
+
+        cur.execute(add)
+        conn.commit()
+        conn.close();
+        print("sucessfully inserted")
+
+
 
 if __name__ == "__main__":
     import sys
@@ -910,4 +916,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>827</height>
+    <width>1304</width>
+    <height>874</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -144,8 +144,8 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1141</width>
-             <height>1230</height>
+             <width>1245</width>
+             <height>1206</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -388,31 +388,6 @@ border-radius:10px;
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_2">
-               <item row="2" column="0">
-                <widget class="QLabel" name="accountnumLabel">
-                 <property name="font">
-                  <font>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Account No.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="banknameLineEdit">
-                 <property name="font">
-                  <font>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="1">
                 <widget class="QLineEdit" name="bankbranchLineEdit">
                  <property name="font">
@@ -424,28 +399,14 @@ border-radius:10px;
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="accountnumLineEdit">
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="banknameLineEdit">
                  <property name="font">
                   <font>
                    <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="bankbranchLabel">
-                 <property name="font">
-                  <font>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Branch</string>
                  </property>
                 </widget>
                </item>
@@ -463,6 +424,71 @@ border-radius:10px;
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="accountnumLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Account No.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="bankbranchLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Branch</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="accountnumLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="isfccodeLabel">
+                 <property name="font">
+                  <font>
+                   <family>MS Shell Dlg 2</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>ISFC code</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="isfccodeLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -474,7 +500,7 @@ border-radius:10px;
 font-family:georgia;
 font-weight:bold;
 margin:2px;
-background-image:url(:/icons/light_green_grad.svg);
+background-color:white;
 border-radius:15px;
 }
 
@@ -946,38 +972,90 @@ margin-bottom:5px;</string>
               </property>
              </spacer>
             </item>
-            <item row="3" column="0">
+            <item row="3" column="0" alignment="Qt::AlignHCenter">
              <widget class="Line" name="line">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">width:10px;</string>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
              </widget>
             </item>
-            <item row="12" column="0">
+            <item row="12" column="0" alignment="Qt::AlignHCenter">
              <widget class="Line" name="line_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>10</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
              </widget>
             </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="ncclogoLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>330</height>
+               </size>
+              </property>
+              <property name="sizeIncrement">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-size:10px;</string>
+               <string notr="true">background-size:10px;
+font-size:50%;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::WinPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
               </property>
               <property name="text">
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="Icons/icon-res.qrc">:/icons/ncc1.jpg</pixmap>
+               <pixmap resource="../Icons/icon-res.qrc">:/icons/ncc1.jpg</pixmap>
               </property>
               <property name="scaledContents">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -1110,7 +1188,8 @@ text-shadow:0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(18
   <tabstop>scrollArea</tabstop>
  </tabstops>
  <resources>
-  <include location="Icons/icon-res.qrc"/>
+  <include location="../Icons/icon-res.qrc"/>
+  <include location="../Icons/icon-res.qrc"/>
  </resources>
  <connections/>
 </ui>

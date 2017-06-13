@@ -387,9 +387,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-195</y>
              <width>1095</width>
-             <height>1295</height>
+             <height>1256</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -475,7 +475,7 @@ border-radius:15px;
                 <widget class="QLineEdit" name="aadhaarLineEdit">
                  <property name="font">
                   <font>
-                   <pointsize>-1</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -487,9 +487,7 @@ border-radius:15px;
                   <bool>true</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-height:25px;
-font-size:18px;</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string/>
@@ -522,9 +520,15 @@ font-size:18px;</string>
                </item>
                <item row="4" column="1">
                 <widget class="QLineEdit" name="fullnameLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:18px;	</string>
+                  <string notr="true"/>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -569,9 +573,15 @@ font-size:18px;	</string>
                </item>
                <item row="6" column="1">
                 <widget class="QLineEdit" name="mothernameLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:18px;	</string>
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>
@@ -698,10 +708,13 @@ align-content:center;</string>
                  <property name="font">
                   <font>
                    <family>georgia</family>
-                   <pointsize>10</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>
@@ -725,9 +738,15 @@ align-content:center;</string>
                </item>
                <item row="13" column="1">
                 <widget class="QLineEdit" name="emailLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:20px;</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string/>
@@ -754,9 +773,15 @@ font-size:20px;</string>
                </item>
                <item row="14" column="1">
                 <widget class="QLineEdit" name="mobileLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:20px;</string>
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>
@@ -782,22 +807,27 @@ font-size:20px;</string>
                 <widget class="QLineEdit" name="bloodgroupLineEdit">
                  <property name="font">
                   <font>
-                   <pointsize>-1</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:20px;</string>
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
                 <widget class="QLineEdit" name="fathernameLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:18px;	</string>
+                  <string notr="true"/>
                  </property>
                 </widget>
                </item>
@@ -821,9 +851,15 @@ font-size:18px;	</string>
                </item>
                <item row="0" column="1">
                 <widget class="QLineEdit" name="enrollmentnumLineEdit">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font-weight:bold;
-font-size:18px;	</string>
+                  <string notr="true"/>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -1162,7 +1198,7 @@ border-radius:10px;
                 <widget class="QLineEdit" name="institutionLineEdit">
                  <property name="font">
                   <font>
-                   <pointsize>14</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1263,7 +1299,7 @@ margin:auto;
                 <widget class="QLineEdit" name="unitLineEdit">
                  <property name="font">
                   <font>
-                   <pointsize>14</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>

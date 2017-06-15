@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>ncc2.png</file>
     <file>close line.png</file>
     <file>blue.png</file>
     <file>blueish_grad.png</file>

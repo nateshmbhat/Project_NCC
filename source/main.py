@@ -2,8 +2,7 @@
 import sqlite3
 from PyQt4 import QtCore, QtGui
 import ENROLMENT_FORM
-from using_the_sqlite3 import Ui_MainWindow
-
+from userinterface import *
 
 class enrollment(object):
 

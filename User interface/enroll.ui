@@ -100,9 +100,9 @@
       <property name="tabBarAutoHide" stdset="0">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="Enroll">
+      <widget class="QWidget" name="Enrol">
        <property name="styleSheet">
-        <string notr="true">#Enroll{
+        <string notr="true">#Enrol{
 background-image:url(:/icons/image-blur.png);
 background-position:center;
 }</string>
@@ -112,10 +112,10 @@ background-position:center;
          <normaloff>../../Pictures/Screenshots/Screenshot (113).png</normaloff>../../Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
-        <string>Enrollment form</string>
+        <string>Enrolment form</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Enrollment form for NCC</string>
+        <string>Enrolment form for NCC</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="12" column="0" alignment="Qt::AlignHCenter">
@@ -187,7 +187,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
          </widget>
         </item>
         <item row="0" column="0" alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="enrolltitleLabel">
+         <widget class="QLabel" name="enroltitleLabel">
           <property name="font">
            <font>
             <pointsize>-1</pointsize>
@@ -209,7 +209,7 @@ text-decoration:underlined;
 text-shadow:0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;</string>
           </property>
           <property name="text">
-           <string>Enrollment Form</string>
+           <string>Enrolment Form</string>
           </property>
          </widget>
         </item>
@@ -697,7 +697,7 @@ border-radius:10px;
                 </widget>
                </item>
                <item row="5" column="0">
-                <widget class="QLabel" name="isfccodeLabel">
+                <widget class="QLabel" name="ifsccodeLabel">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -710,12 +710,12 @@ border-radius:10px;
                   <string notr="true">background-color:transparent;</string>
                  </property>
                  <property name="text">
-                  <string>ISFC code</string>
+                  <string>IFSC code</string>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
-                <widget class="QLineEdit" name="isfccodeLineEdit">
+                <widget class="QLineEdit" name="ifsccodeLineEdit">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -942,10 +942,10 @@ background-color:transparent;
              </widget>
             </item>
             <item row="2" column="1" alignment="Qt::AlignHCenter">
-             <widget class="QFrame" name="enrollformFrame">
+             <widget class="QFrame" name="enrolformFrame">
               <property name="styleSheet">
                <string notr="true">
-#enrollformFrame{
+#enrolformFrame{
 font-family:georgia;
 font-weight:bold;
 margin:2px;
@@ -959,7 +959,7 @@ border-radius:15px;
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
-              <layout class="QFormLayout" name="Enroll_form">
+              <layout class="QFormLayout" name="Enrol_form">
                <property name="sizeConstraint">
                 <enum>QLayout::SetMinimumSize</enum>
                </property>
@@ -985,7 +985,7 @@ border-radius:15px;
                 <number>10</number>
                </property>
                <item row="0" column="0">
-                <widget class="QLabel" name="enrollmentnumLabel">
+                <widget class="QLabel" name="enrolmentnumLabel">
                  <property name="font">
                   <font>
                    <family>georgia</family>
@@ -1003,7 +1003,7 @@ border-radius:15px;
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QLineEdit" name="enrollmentnumLineEdit">
+                <widget class="QLineEdit" name="enrolmentnumLineEdit">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -1559,7 +1559,7 @@ font-size:50%;</string>
  </customwidgets>
  <tabstops>
   <tabstop>searchPushButton</tabstop>
-  <tabstop>enrollmentnumLineEdit</tabstop>
+  <tabstop>enrolmentnumLineEdit</tabstop>
   <tabstop>aadhaarLineEdit</tabstop>
   <tabstop>fullnameLineEdit</tabstop>
   <tabstop>fathernameLineEdit</tabstop>
@@ -1574,7 +1574,7 @@ font-size:50%;</string>
   <tabstop>bankbranchLineEdit</tabstop>
   <tabstop>accountnameLineEdit</tabstop>
   <tabstop>accountnumLineEdit</tabstop>
-  <tabstop>isfccodeLineEdit</tabstop>
+  <tabstop>ifsccodeLineEdit</tabstop>
   <tabstop>institutionLineEdit</tabstop>
   <tabstop>unitLineEdit</tabstop>
   <tabstop>submitPushButton</tabstop>

@@ -23,8 +23,8 @@ class enroll:
         sql="select * from enrolment where enrolment_no="+"'"+enrol_id+"'"
         self.cur.execute(sql)
         return(self.cur.fetchone())
-    def creat_table(self):
-        details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,aadhar bigint(12),sfname varchar(30) not null,
+    def create_table(self):
+        details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,rank varchar(25) not null,aadhar bigint(12),sfname varchar(30) not null,
         smname varchar(30) default '',slname varchar(20) default '',ffname varchar(30) not null,fmname varchar(30) default '',
         flname varchar(20) default '',mfname varchar(30) not null,mmname varchar(30) default '',mlname varchar(20) default '',
         s_name varchar(50) default '',f_name varchar(50) default '',m_name varchar(50) default '',date_of_birth date,sex char(6),

@@ -2,14 +2,22 @@
 import sqlite3
 from PyQt4 import QtCore, QtGui
 import ENROLMENT_FORM
+<<<<<<< HEAD
 from userinterface import *
 
+=======
+from using_the_sqlite3 import Ui_MainWindow
+
+#Note:delete ncc.db file  Uncomment the line number '15' only if u changed anything in create_table function in the ENROLMENT_FORM.py file
+>>>>>>> 19461524e0f805395b57d38cc4c268a5e52fe5ca
 class enrollment(object):
 
     def __init__(self,ui):
         self.ui = ui ;
         self.ui.submitPushButton.clicked.connect(self.get_enroll_form_data);
         self.ui.searchPushButton.clicked.connect(self.display);
+        obj=ENROLMENT_FORM.enroll()
+        #obj.create_table()
 
 
     def display(self):

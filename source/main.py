@@ -1,24 +1,8 @@
-from numpy.distutils.system_info import umfpack_info
+
 import sqlite3
-from userinterface import *  ;
 from PyQt4 import QtCore, QtGui
 import ENROLMENT_FORM
-
-#
-# try:
-#     _fromUtf8 = QtCore.QString.fromUtf8
-# except AttributeError:
-#     def _fromUtf8(s):
-#         return s
-#
-# try:
-#     _encoding = QtGui.QApplication.UnicodeUTF8
-#     def _translate(context, text, disambig):
-#         return QtGui.QApplication.translate(context, text, disambig, _encoding)
-# except AttributeError:
-#     def _translate(context, text, disambig):
-#         return QtGui.QApplication.translate(context, text, disambig)
-#
+from using_the_sqlite3 import Ui_MainWindow
 
 
 class enrollment(object):
@@ -33,27 +17,28 @@ class enrollment(object):
         obj=ENROLMENT_FORM.enroll()
 
         tuple=obj.search_by_enrolmentid(self.ui.searchbyenLineEdit.displayText())
-        dateyear=int(tuple[14][6]+tuple[14][7]+tuple[14][8]+tuple[14][9])
-        datemonth=int(tuple[14][3]+tuple[14][4])
-        dateday=int(tuple[14][0]+tuple[14][1])
-        self.enrolmentnumLineEdit.setText(tuple[0]);
-        self.aadhaarLineEdit.setText(str(tuple[1]));
-        self.fullnameLineEdit.setText(tuple[2]);
-        self.fathernameLineEdit.setText(tuple[5]);
-        self.mothernameLineEdit.setText(tuple[8]);
-        self.sexComboBox.setItemText(1,tuple[15])
-        self.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear,datemonth,dateday))
-        self.addressLineEdit.setText(tuple[17])
-        self.emailLineEdit.setText(tuple[18]);
-        self.mobileLineEdit.setText(str(tuple[19]));
-        self.bloodgroupLineEdit.setText(tuple[16]);
-        self.banknameLineEdit.setText(tuple[20]);
-        self.bankbranchLineEdit.setText(tuple[21]);
-        self.accountnameLineEdit.setText(tuple[22]);
-        self.accountnumLineEdit.setText(str(tuple[23]));
-        self.ifsccodeLineEdit.setText(tuple[24]);
-        self.institutionLineEdit.setText(tuple[25]);
-        self.unitLineEdit.setText(tuple[26]);
+        dateyear=int(tuple[15][6]+tuple[15][7]+tuple[15][8]+tuple[15][9])
+        datemonth=int(tuple[15][3]+tuple[15][4])
+        dateday=int(tuple[15][0]+tuple[15][1])
+        self.ui.enrolmentnumLineEdit.setText(tuple[0]);
+        self.ui.rankLineEdit.setText(tuple[1])
+        self.ui.aadhaarLineEdit.setText(str(tuple[2]));
+        self.ui.fullnameLineEdit.setText(tuple[3]);
+        self.ui.fathernameLineEdit.setText(tuple[6]);
+        self.ui.mothernameLineEdit.setText(tuple[9]);
+        self.ui.sexComboBox.setItemText(1,tuple[16])
+        self.ui.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear,datemonth,dateday))
+        self.ui.addressTextEdit.setText(tuple[18]);
+        self.ui.emailLineEdit.setText(tuple[19]);
+        self.ui.mobileLineEdit.setText(str(tuple[20]));
+        self.ui.bloodgroupLineEdit.setText(tuple[17]);
+        self.ui.banknameLineEdit.setText(tuple[21]);
+        self.ui.bankbranchLineEdit.setText(tuple[22]);
+        self.ui.accountnameLineEdit.setText(tuple[23]);
+        self.ui.accountnumLineEdit.setText(str(tuple[24]));
+        self.ui.ifsccodeLineEdit.setText(tuple[25]);
+        self.ui.institutionLineEdit.setText(tuple[26]);
+        self.ui.unitLineEdit.setText(tuple[27]);
 
 
 
@@ -107,5 +92,4 @@ if __name__ == "__main__":
 
     MainWindow.show()
 
-    sys.exit(app.exec_())
-
+sys.exit(app.exec_())

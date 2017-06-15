@@ -1,7 +1,8 @@
 import pymysql
 import sqlite3
 
-
+#In this even though  create table is correct u hv to call that function before using
+#because we r not calling it after it is changed so once u delete the ncc.db file and then call the create table and then use
 class enroll:
     conn = sqlite3.connect("ncc.db")
     cur = conn.cursor()

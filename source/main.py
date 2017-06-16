@@ -1,40 +1,49 @@
-
+from numpy.distutils.system_info import umfpack_info
 import sqlite3
+from userinterface import *  ;
 from PyQt4 import QtCore, QtGui
 import ENROLMENT_FORM
-<<<<<<< HEAD
-from userinterface import *
 
-=======
-from using_the_sqlite3 import Ui_MainWindow
+#
+# try:
+#     _fromUtf8 = QtCore.QString.fromUtf8
+# except AttributeError:
+#     def _fromUtf8(s):
+#         return s
+#
+# try:
+#     _encoding = QtGui.QApplication.UnicodeUTF8
+#     def _translate(context, text, disambig):
+#         return QtGui.QApplication.translate(context, text, disambig, _encoding)
+# except AttributeError:
+#     def _translate(context, text, disambig):
+#         return QtGui.QApplication.translate(context, text, disambig)
+#
 
-#Note:delete ncc.db file  Uncomment the line number '15' only if u changed anything in create_table function in the ENROLMENT_FORM.py file
->>>>>>> 19461524e0f805395b57d38cc4c268a5e52fe5ca
+
 class enrollment(object):
 
     def __init__(self,ui):
         self.ui = ui ;
         self.ui.submitPushButton.clicked.connect(self.get_enroll_form_data);
         self.ui.searchPushButton.clicked.connect(self.display);
-        obj=ENROLMENT_FORM.enroll()
-        #obj.create_table()
 
 
     def display(self):
         obj=ENROLMENT_FORM.enroll()
 
         tuple=obj.search_by_enrolmentid(self.ui.searchbyenLineEdit.displayText())
-        dateyear=int(tuple[15][6]+tuple[15][7]+tuple[15][8]+tuple[15][9])
-        datemonth=int(tuple[15][3]+tuple[15][4])
-        dateday=int(tuple[15][0]+tuple[15][1])
+        dateyear = int(tuple[15][6] + tuple[15][7] + tuple[15][8] + tuple[15][9])
+        datemonth = int(tuple[15][3] + tuple[15][4])
+        dateday = int(tuple[15][0] + tuple[15][1])
         self.ui.enrolmentnumLineEdit.setText(tuple[0]);
         self.ui.rankLineEdit.setText(tuple[1])
         self.ui.aadhaarLineEdit.setText(str(tuple[2]));
         self.ui.fullnameLineEdit.setText(tuple[3]);
         self.ui.fathernameLineEdit.setText(tuple[6]);
         self.ui.mothernameLineEdit.setText(tuple[9]);
-        self.ui.sexComboBox.setItemText(1,tuple[16])
-        self.ui.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear,datemonth,dateday))
+        self.ui.sexComboBox.setItemText(1, tuple[16])
+        self.ui.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear, datemonth, dateday))
         self.ui.addressTextEdit.setText(tuple[18]);
         self.ui.emailLineEdit.setText(tuple[19]);
         self.ui.mobileLineEdit.setText(str(tuple[20]));
@@ -99,4 +108,5 @@ if __name__ == "__main__":
 
     MainWindow.show()
 
-sys.exit(app.exec_())
+    sys.exit(app.exec_())
+

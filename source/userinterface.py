@@ -898,6 +898,8 @@ class Ui_MainWindow(object):
         self.mytab.setTabText(self.mytab.indexOf(self.Attendence), _translate("MainWindow", "Attendence", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Attendence), _translate("MainWindow", "Not eligible", None))
 
+
+
 from PyQt4 import QtWebKit
 import icon_res_rc
 

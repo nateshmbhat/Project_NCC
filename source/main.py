@@ -45,12 +45,12 @@ class enrollment(object):
         datemonth = int(tuple[15][3] + tuple[15][4])
         dateday = int(tuple[15][0] + tuple[15][1])
         self.ui.enrolmentnumLineEdit.setText(tuple[0]);
-        self.ui.rankComboBox.setItemText(1,tuple[1])
+        self.ui.rankComboBox.setCurrentIndex(self.ui.rankComboBox.findText(tuple[1]));
         self.ui.aadhaarLineEdit.setText(str(tuple[2]));
         self.ui.fullnameLineEdit.setText(tuple[3]);
         self.ui.fathernameLineEdit.setText(tuple[6]);
         self.ui.mothernameLineEdit.setText(tuple[9]);
-        self.ui.sexComboBox.setItemText(1, tuple[16])
+        self.ui.sexComboBox.setCurrentIndex(self.ui.sexComboBox.findText(tuple[16]))
         self.ui.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear, datemonth, dateday))
         self.ui.addressTextEdit.setText(tuple[18]);
         self.ui.emailLineEdit.setText(tuple[19]);

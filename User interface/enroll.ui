@@ -227,12 +227,12 @@ background-color:transparent;
 }</string>
           </property>
           <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
+           <enum>QFrame::NoFrame</enum>
           </property>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QLineEdit" name="searchbyenLineEdit">
+          <widget class="QLineEdit" name="searchbyfieldLineEdit">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -346,7 +346,7 @@ width:230;</string>
             <rect>
              <x>0</x>
              <y>30</y>
-             <width>121</width>
+             <width>141</width>
              <height>17</height>
             </rect>
            </property>
@@ -374,9 +374,9 @@ font-weight:bold;
           <widget class="QRadioButton" name="aadhaarnumRadioButton">
            <property name="geometry">
             <rect>
-             <x>120</x>
+             <x>170</x>
              <y>30</y>
-             <width>111</width>
+             <width>131</width>
              <height>17</height>
             </rect>
            </property>
@@ -389,26 +389,6 @@ font-weight:bold;
            </property>
            <property name="text">
             <string>Aadhaar No.</string>
-           </property>
-          </widget>
-          <widget class="QRadioButton" name="nameRadioButton">
-           <property name="geometry">
-            <rect>
-             <x>230</x>
-             <y>30</y>
-             <width>71</width>
-             <height>17</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color:transparent;
-color:white;
-font-family:georgia;
-font-weight:bold;
-</string>
-           </property>
-           <property name="text">
-            <string>Name</string>
            </property>
           </widget>
          </widget>
@@ -445,9 +425,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-544</y>
+             <y>0</y>
              <width>1121</width>
-             <height>1303</height>
+             <height>1329</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -535,7 +515,7 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -560,18 +540,6 @@ border-radius:15px;
                  </property>
                  <property name="text">
                   <string>Rank</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="rankLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
                  </property>
                 </widget>
                </item>
@@ -616,7 +584,7 @@ border-radius:15px;
                   <bool>true</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -658,7 +626,7 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -697,7 +665,7 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -730,7 +698,7 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -766,9 +734,7 @@ border-radius:15px;
                   <enum>Qt::LeftToRight</enum>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">width:150px;
-text-align:center;
-align-content:center;</string>
+                  <string notr="true">width:100px;</string>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -866,7 +832,7 @@ align-content:center;</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -972,158 +938,57 @@ align-content:center;</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="rankComboBox">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Cadet (CDT)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Lance Corporal (LCPL)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Corporal (CPL)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Sergent (SGT)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Company Sergent Major (CSM)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Junior Under Officer (JUO)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Senior Under Officer (SUO)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
-            <item row="7" column="1" alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="bankdetailsLabel">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="autoFillBackground">
-               <bool>false</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-
-font-size:25px;
-background-color:transparent;
-color:yellow;
-border-width:2px;
-border-color:black;
-border-style:groove;
-margin-bottom:5px;</string>
-              </property>
-              <property name="text">
-               <string>Bank Details</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <spacer name="horizontalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="9" column="1">
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="6" column="1">
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="12" column="1">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="13" column="1" alignment="Qt::AlignHCenter">
-             <widget class="Line" name="line_2">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-                <horstretch>0</horstretch>
-                <verstretch>10</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>600</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1" alignment="Qt::AlignHCenter">
-             <widget class="Line" name="line">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>600</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">width:10px;</string>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <spacer name="horizontalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="14" column="1">
-             <spacer name="horizontalSpacer_10">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="8" column="1" alignment="Qt::AlignHCenter">
+            <item row="9" column="1" alignment="Qt::AlignHCenter">
              <widget class="QFrame" name="bankformFrame">
               <property name="font">
                <font>
@@ -1157,6 +1022,9 @@ border-radius:10px;
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -1206,6 +1074,9 @@ border-radius:10px;
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
                 </widget>
                </item>
                <item row="5" column="0">
@@ -1236,6 +1107,9 @@ border-radius:10px;
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
                 </widget>
                </item>
                <item row="2" column="0">
@@ -1252,7 +1126,7 @@ border-radius:10px;
                   <string notr="true">background-color:transparent;</string>
                  </property>
                  <property name="text">
-                  <string>Name</string>
+                  <string>Account name</string>
                  </property>
                 </widget>
                </item>
@@ -1265,6 +1139,9 @@ border-radius:10px;
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -1296,12 +1173,210 @@ border-radius:10px;
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
                 </widget>
                </item>
               </layout>
              </widget>
             </item>
-            <item row="15" column="1" alignment="Qt::AlignHCenter">
+            <item row="3" column="1">
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="15" column="1">
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="1">
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="13" column="1">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="10" column="1">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="14" column="1" alignment="Qt::AlignHCenter">
+             <widget class="Line" name="line_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>10</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="8" column="1" alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="bankdetailsLabel">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="acceptDrops">
+               <bool>false</bool>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+
+font-size:25px;
+background-color:transparent;
+color:yellow;
+border-width:2px;
+border-color:black;
+border-style:groove;
+margin-bottom:5px;</string>
+              </property>
+              <property name="text">
+               <string>Bank Details</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1" alignment="Qt::AlignHCenter">
+             <widget class="Line" name="line">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">width:10px;</string>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="ncclogoLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>330</height>
+               </size>
+              </property>
+              <property name="sizeIncrement">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>8</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-size:10px;
+font-size:50%;
+background-color:transparent;</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Plain</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="16" column="1" alignment="Qt::AlignHCenter">
              <widget class="QFrame" name="instFrame">
               <property name="styleSheet">
                <string notr="true">#instFrame
@@ -1321,6 +1396,9 @@ background-color:transparent;
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
                  </property>
                 </widget>
                </item>
@@ -1404,6 +1482,9 @@ background-color:transparent;
                    <bold>true</bold>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="3">
@@ -1453,52 +1534,18 @@ background-color:transparent;
               </layout>
              </widget>
             </item>
-            <item row="0" column="1" alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="ncclogoLabel">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
+            <item row="6" column="1">
+             <spacer name="horizontalSpacer_11">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-              <property name="maximumSize">
+              <property name="sizeHint" stdset="0">
                <size>
-                <width>300</width>
-                <height>330</height>
+                <width>40</width>
+                <height>20</height>
                </size>
               </property>
-              <property name="sizeIncrement">
-               <size>
-                <width>100</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>8</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-size:10px;
-font-size:50%;
-background-color:transparent;</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::NoFrame</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Plain</enum>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="pixmap">
-               <pixmap resource="../Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
-              </property>
-              <property name="scaledContents">
-               <bool>true</bool>
-              </property>
-             </widget>
+             </spacer>
             </item>
            </layout>
           </widget>
@@ -1581,7 +1628,7 @@ background-color:transparent;</string>
   <tabstop>submitPushButton</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>mytab</tabstop>
-  <tabstop>searchbyenLineEdit</tabstop>
+  <tabstop>searchbyfieldLineEdit</tabstop>
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>

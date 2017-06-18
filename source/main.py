@@ -29,15 +29,23 @@ class enrollment(object):
         self.ui.searchPushButton.clicked.connect(self.display);
 
 
+
     def display(self):
         obj=ENROLMENT_FORM.enroll()
 
-        tuple=obj.search_by_enrolmentid(self.ui.searchbyenLineEdit.displayText())
+        if self.ui.aadhaarnumRadioButton.isChecked():
+            field = 'aadhaarnum';
+        elif self.ui.enrolmentnumRadioButton.isChecked():
+            field = 'enrolmentnum'
+
+
+
+        tuple=obj.search_by_field(field,self.ui.searchbyfieldLineEdit.displayText())
         dateyear = int(tuple[15][6] + tuple[15][7] + tuple[15][8] + tuple[15][9])
         datemonth = int(tuple[15][3] + tuple[15][4])
         dateday = int(tuple[15][0] + tuple[15][1])
         self.ui.enrolmentnumLineEdit.setText(tuple[0]);
-        self.ui.rankLineEdit.setText(tuple[1])
+        self.ui.rankComboBox.setItemText(1,tuple[1])
         self.ui.aadhaarLineEdit.setText(str(tuple[2]));
         self.ui.fullnameLineEdit.setText(tuple[3]);
         self.ui.fathernameLineEdit.setText(tuple[6]);
@@ -61,7 +69,7 @@ class enrollment(object):
     def get_enroll_form_data(self):
         self.enrolmentnum = self.ui.enrolmentnumLineEdit.displayText();
         self.aadhaarnum = self.ui.aadhaarLineEdit.displayText()
-        self.rank = self.ui.rankLineEdit.displayText() ;
+        self.rank = self.ui.rankComboBox.currentText();
         self.fullname = self.ui.fullnameLineEdit.displayText()
         self.fathername = self.ui.fathernameLineEdit.displayText()
         self.mothername = self.ui.mothernameLineEdit.displayText()

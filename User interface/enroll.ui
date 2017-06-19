@@ -101,6 +101,11 @@
        <bool>false</bool>
       </property>
       <widget class="QWidget" name="Enrol">
+       <property name="font">
+        <font>
+         <stylestrategy>PreferAntialias</stylestrategy>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">#Enrol{
 background-image:url(:/icons/image-blur.png);
@@ -425,9 +430,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-570</y>
              <width>1121</width>
-             <height>1329</height>
+             <height>1330</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -742,6 +747,9 @@ border-radius:15px;
                    <height>16</height>
                   </size>
                  </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
                  <item>
                   <property name="text">
                    <string>Male</string>
@@ -923,21 +931,6 @@ border-radius:15px;
                  </property>
                 </widget>
                </item>
-               <item row="16" column="1">
-                <widget class="QLineEdit" name="bloodgroupLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                </widget>
-               </item>
                <item row="2" column="1">
                 <widget class="QComboBox" name="rankComboBox">
                  <property name="font">
@@ -947,6 +940,12 @@ border-radius:15px;
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="editable">
+                  <bool>false</bool>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
                  </property>
                  <item>
                   <property name="text">
@@ -981,6 +980,70 @@ border-radius:15px;
                  <item>
                   <property name="text">
                    <string>Senior Under Officer (SUO)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QComboBox" name="bloodgroupComboBox">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">height:25px;width:25%;</string>
+                 </property>
+                 <property name="sizeAdjustPolicy">
+                  <enum>QComboBox::AdjustToMinimumContentsLengthWithIcon</enum>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>O+</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>O-</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>A+</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>A-</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>B+</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>B-</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>AB+</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>AB-</string>
                   </property>
                  </item>
                 </widget>
@@ -1352,6 +1415,7 @@ margin-bottom:5px;</string>
               <property name="font">
                <font>
                 <pointsize>8</pointsize>
+                <stylestrategy>PreferAntialias</stylestrategy>
                </font>
               </property>
               <property name="styleSheet">
@@ -1564,21 +1628,6 @@ background-color:transparent;
        <attribute name="toolTip">
         <string>Do YOGA everyday</string>
        </attribute>
-       <widget class="QWebView" name="webView">
-        <property name="geometry">
-         <rect>
-          <x>9</x>
-          <y>-1</y>
-          <width>1111</width>
-          <height>861</height>
-         </rect>
-        </property>
-        <property name="url">
-         <url>
-          <string>about:blank</string>
-         </url>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="Attendence">
        <attribute name="icon">
@@ -1598,13 +1647,6 @@ background-color:transparent;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>searchPushButton</tabstop>
   <tabstop>enrolmentnumLineEdit</tabstop>
@@ -1617,7 +1659,6 @@ background-color:transparent;
   <tabstop>addressTextEdit</tabstop>
   <tabstop>emailLineEdit</tabstop>
   <tabstop>mobileLineEdit</tabstop>
-  <tabstop>bloodgroupLineEdit</tabstop>
   <tabstop>banknameLineEdit</tabstop>
   <tabstop>bankbranchLineEdit</tabstop>
   <tabstop>accountnameLineEdit</tabstop>
@@ -1627,7 +1668,6 @@ background-color:transparent;
   <tabstop>unitLineEdit</tabstop>
   <tabstop>submitPushButton</tabstop>
   <tabstop>scrollArea</tabstop>
-  <tabstop>mytab</tabstop>
   <tabstop>searchbyfieldLineEdit</tabstop>
  </tabstops>
  <resources>

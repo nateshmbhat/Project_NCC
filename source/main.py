@@ -55,7 +55,7 @@ class enrollment(object):
         self.ui.addressTextEdit.setText(tuple[18]);
         self.ui.emailLineEdit.setText(tuple[19]);
         self.ui.mobileLineEdit.setText(str(tuple[20]));
-        self.ui.bloodgroupLineEdit.setText(tuple[17]);
+        self.ui.bloodgroupComboBox.setCurrentIndex(self.ui.bloodgroupComboBox.findText(tuple[17]));
         self.ui.banknameLineEdit.setText(tuple[21]);
         self.ui.bankbranchLineEdit.setText(tuple[22]);
         self.ui.accountnameLineEdit.setText(tuple[23]);
@@ -78,7 +78,7 @@ class enrollment(object):
         self.address = self.ui.addressTextEdit.toPlainText()
         self.email = self.ui.emailLineEdit.displayText()
         self.mobilenum = self.ui.mobileLineEdit.displayText()
-        self.bloodgroup = self.ui.bloodgroupLineEdit.displayText()
+        self.bloodgroup = self.ui.bloodgroupComboBox.currentText()
         self.bankname = self.ui.banknameLineEdit.displayText()
         self.bankbranch = self.ui.bankbranchLineEdit.displayText()
         self.accountname = self.ui.accountnameLineEdit.displayText()
@@ -107,11 +107,6 @@ if __name__ == "__main__":
 
 
     myobj = enrollment(ui);
-
-
-
-
-
 
 
     MainWindow.show()

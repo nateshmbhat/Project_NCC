@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>ncc2.png</file>
+    <file>close line.png</file>
+    <file>blue.png</file>
+    <file>blueish_grad.png</file>
+    <file>graywood.png</file>
+    <file>green_grad.png</file>
+    <file>ncc1.png</file>
+    <file>simple_grad.png</file>
+    <file>image-blur.png</file>
+  </qresource>
+</RCC>

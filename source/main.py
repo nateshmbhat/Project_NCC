@@ -66,6 +66,8 @@ class enrollment(object):
 
 
 
+
+
     def get_enroll_form_data(self):
         self.enrolmentnum = self.ui.enrolmentnumLineEdit.displayText();
         self.aadhaarnum = self.ui.aadhaarLineEdit.displayText()
@@ -95,7 +97,6 @@ class enrollment(object):
                           self.accountnum, self.ifsccode
                           , self.institutionname
                           , self.unit)
-
 
 
 if __name__ == "__main__":

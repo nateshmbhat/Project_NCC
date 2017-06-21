@@ -430,7 +430,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-570</y>
+             <y>-571</y>
              <width>1121</width>
              <height>1330</height>
             </rect>
@@ -803,8 +803,18 @@ border-radius:15px;
                    <day>1</day>
                   </date>
                  </property>
+                 <property name="minimumDateTime">
+                  <datetime>
+                   <hour>0</hour>
+                   <minute>0</minute>
+                   <second>0</second>
+                   <year>1900</year>
+                   <month>9</month>
+                   <day>14</day>
+                  </datetime>
+                 </property>
                  <property name="displayFormat">
-                  <string>dd/MM/yyyy</string>
+                  <string>dd/MMM/yyyy</string>
                  </property>
                  <property name="calendarPopup">
                   <bool>true</bool>

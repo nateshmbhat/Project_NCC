@@ -864,6 +864,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.submitPushButton, self.scrollArea)
         MainWindow.setTabOrder(self.scrollArea, self.searchbyfieldLineEdit)
 
+
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "NCC", None))
         self.submitPushButton.setText(_translate("MainWindow", "Submit", None))

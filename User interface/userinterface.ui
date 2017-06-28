@@ -155,9 +155,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-591</y>
+             <y>-351</y>
              <width>1124</width>
-             <height>1423</height>
+             <height>1456</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -230,13 +230,13 @@ border-radius:15px;
                   <string>Mandatory field</string>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enrolment No.  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:red;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -272,13 +272,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Rank</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -346,7 +346,7 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::NoFrame</enum>
@@ -358,7 +358,7 @@ border-radius:15px;
                   <enum>Qt::PlainText</enum>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -403,13 +403,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Full Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -445,13 +445,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -481,13 +481,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -517,13 +517,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Sex</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -564,6 +564,58 @@ border-radius:15px;
                  </item>
                 </widget>
                </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="dateofbirthLabel">
+                 <property name="font">
+                  <font>
+                   <family>georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Date of Birth</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QDateEdit" name="dateofbirthDateEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="frame">
+                  <bool>true</bool>
+                 </property>
+                 <property name="buttonSymbols">
+                  <enum>QAbstractSpinBox::UpDownArrows</enum>
+                 </property>
+                 <property name="date">
+                  <date>
+                   <year>2000</year>
+                   <month>1</month>
+                   <day>1</day>
+                  </date>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MMM/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
                <item row="13" column="0">
                 <widget class="QLabel" name="addressLabel">
                  <property name="font">
@@ -575,13 +627,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Residential Address &amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -597,27 +649,6 @@ border-radius:15px;
                  </property>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="14" column="0">
-                <widget class="QLabel" name="emailLabel">
-                 <property name="font">
-                  <font>
-                   <family>georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
-                 </property>
-                 <property name="text">
-                  <string>Email</string>
-                 </property>
-                 <property name="margin">
-                  <number>2</number>
                  </property>
                 </widget>
                </item>
@@ -650,13 +681,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Mobile</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -686,13 +717,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Blood Group</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -760,8 +791,8 @@ border-radius:15px;
                  </item>
                 </widget>
                </item>
-               <item row="11" column="0">
-                <widget class="QLabel" name="dateofbirthLabel">
+               <item row="14" column="0">
+                <widget class="QLabel" name="emailLabel">
                  <property name="font">
                   <font>
                    <family>georgia</family>
@@ -771,44 +802,13 @@ border-radius:15px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
-                  <string>Date of Birth</string>
+                  <string>Email</string>
                  </property>
                  <property name="margin">
-                  <number>2</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="1">
-                <widget class="QDateEdit" name="dateofbirthDateEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>14</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="frame">
-                  <bool>true</bool>
-                 </property>
-                 <property name="buttonSymbols">
-                  <enum>QAbstractSpinBox::UpDownArrows</enum>
-                 </property>
-                 <property name="date">
-                  <date>
-                   <year>2000</year>
-                   <month>1</month>
-                   <day>1</day>
-                  </date>
-                 </property>
-                 <property name="displayFormat">
-                  <string>dd/MMM/yyyy</string>
-                 </property>
-                 <property name="calendarPopup">
-                  <bool>true</bool>
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -881,13 +881,13 @@ border-radius:10px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Account name</string>
                  </property>
-                 <property name="margin">
-                  <number>3</number>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -917,13 +917,13 @@ border-radius:10px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Account No.</string>
                  </property>
-                 <property name="margin">
-                  <number>3</number>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -938,13 +938,13 @@ border-radius:10px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>IFSC code</string>
                  </property>
-                 <property name="margin">
-                  <number>3</number>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -974,13 +974,13 @@ border-radius:10px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Bank Name</string>
                  </property>
-                 <property name="margin">
-                  <number>3</number>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -995,13 +995,13 @@ border-radius:10px;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>Branch</string>
                  </property>
-                 <property name="margin">
-                  <number>3</number>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -1045,10 +1045,13 @@ background-color:transparent;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Institution &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt; *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -1063,10 +1066,13 @@ background-color:transparent;
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;</string>
+                  <string notr="true">background-color:transparent;margin:3px;</string>
                  </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unit &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt; *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
                  </property>
                 </widget>
                </item>

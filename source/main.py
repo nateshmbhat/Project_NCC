@@ -53,9 +53,37 @@ class logic():
     def check_enrol_form_data(self):
         proceed = True;
 
-        if ui.enrolmentnumLineEdit.displayText()=='':
-            ui.enrolmentnumLineEdit.setStyleSheet('background-color:#FF8A8A')
-            ui.enrolmentnumLineEdit.setPlaceholderText('Compulsory')
+        def set_margin_red_style(obj):
+            try:
+                obj.setStyleSheet('border-color:red;border-width:2px;border-style:groove;')
+                obj.setPlaceholderText('Mandatory field')
+            except:
+                pass;
+
+
+        for i in [ui.enrolmentnumLineEdit , ui.fullnameLineEdit , ui.fathernameLineEdit , ui.mothernameLineEdit , ui.addressTextEdit , ui.institutionLineEdit , ui.unitLineEdit ]:
+
+            if i==ui.addressTextEdit:
+                if i.toPlainText()=='':
+                    proceed=False;
+                    set_margin_red_style(i)
+
+            elif  i.displayText()=='':
+                proceed = False
+                set_margin_red_style(i)
+
+            else:
+                i.setStyleSheet('')
+                i.setPlaceholderText('')
+
+        if proceed :
+            ui.addressTextEdit.setStyleSheet('')
+            self.get_enroll_form_data()
+
+        else:
+            QtGui.QMessageBox.warning(ui.Enrol , 'Warning','\nMandatory fields should not be empty.\n\nMake sure that all the mandatory fields are filled.' ,'OK');
+
+
 
 
 

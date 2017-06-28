@@ -2879,25 +2879,25 @@ height:30px;
                    <widget class="QLineEdit" name="valuelineEdit">
                     <property name="font">
                      <font>
-                      <family>MS Shell Dlg 2</family>
-                      <pointsize>12</pointsize>
-                      <weight>50</weight>
+                      <family>georgia</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#valuelineEdit{
 	background-color: rgb(255, 255, 255);
-	color: rgb(85, 0, 0);
-	font: 12pt &quot;MS Shell Dlg 2&quot;;
+	font: 14pt &quot;georgia&quot;;
+	color:rgb(35, 82, 255);
+	font-weight:bold;	
 	width:100%;
-height:30px;
+	height:30px;
 }
 #valuelineEdit:hover{
-	color:rgb(0, 85, 255);
 	background-color:rgb(214, 214, 214);
-	font: 14pt &quot;georgia&quot;;
+	
 }</string>
                     </property>
                    </widget>

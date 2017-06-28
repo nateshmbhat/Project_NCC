@@ -2,6 +2,11 @@ from PyQt4.QtGui import QDialog, QPushButton
 import ENROLMENT_FORM
 from userinterface import Ui_MainWindow
 from PyQt4 import QtCore, QtGui
+import pandas as pd ;
+
+
+
+
 
 class logic():
     def __init__(self):
@@ -16,7 +21,7 @@ class logic():
         ui.greatercondition.clicked.connect(self.congreater)
         ui.lessercondition.clicked.connect(self.conlesser)
         ui.querycondition.clicked.connect(self.conquery)
-        ui.submitPushButton.clicked.connect(self.get_enroll_form_data);
+        ui.submitPushButton.clicked.connect(self.check_enrol_form_data);
         ui.searchPushButton.clicked.connect(self.display);
 
 
@@ -41,6 +46,17 @@ class logic():
         ui.accountnumCheckBox.stateChanged.connect(lambda :self.querycheckboxes(ui.accountnumCheckBox))
         ui.ifsccodeCheckBox.stateChanged.connect(lambda :self.querycheckboxes(ui.ifsccodeCheckBox))
         ui.selectallCheckBox.stateChanged.connect(self.queryselectall);
+
+
+
+
+    def check_enrol_form_data(self):
+        proceed = True;
+
+        if ui.enrolmentnumLineEdit.displayText()=='':
+            ui.enrolmentnumLineEdit.setStyleSheet('background-color:#FF8A8A')
+            ui.enrolmentnumLineEdit.setPlaceholderText('Compulsory')
+
 
 
     def queryselectall(self):
@@ -149,6 +165,7 @@ font-weight:bold;
 
 
     def get_enroll_form_data(self):
+
         self.enrolmentnum = ui.enrolmentnumLineEdit.displayText();
         self.aadhaarnum = ui.aadhaarLineEdit.displayText()
         self.rank = ui.rankComboBox.currentText()
@@ -266,6 +283,9 @@ font-weight:bold;
 
             sql = sql.strip();
             if len(sql) and sql[-1]==',': sql = sql[0:-1] ;
+            if not sql :
+                sql = '*';
+                ui.selectallCheckBox.setChecked(True);
 
 
         sql1= str(ui.conditionsentrylabel.text())
@@ -290,6 +310,8 @@ font-weight:bold;
             blood_group,address,g_mail,mobile,bank_name,branch,
             acc_name,acc_no,ifsc_code,institution,units"""+sql[9:len(sql)]
             print(sql)
+
+
         tup=ENROLMENT_FORM.enroll().execute(sql)
         self.table(tup,sql)
     def congreater(self):
@@ -323,12 +345,6 @@ font-weight:bold;
             sql= sql.strip()
             if sql.rfind(' ')>0:ui.conditionsentrylabel.setText(sql[0:sql.rfind(' ')])
             else : ui.conditionsentrylabel.setText('');
-            # for i in range(len(sql)-1,3,-1):
-                # if (sql[i]=='r' and sql[i-1]=='o') or (sql[i]=='d' and sql[i-1]=='n' and sql[i-2]=='a') or sql[i]=='(' or sql[i]==')' or sql[i]=='=' or sql[i]=='>' or sql[i]=='<'or sql[i]==' ':
-                #     ui.conditionsentrylabel.setText(sql[0:i])
-                #     break;
-                # elif i>5:
-                #     ui.conditionsentrylabel.setText("")
 
 
     def conclear(self):

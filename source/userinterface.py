@@ -1706,23 +1706,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.conditionlistcombobox)
         self.valuelineEdit = QtGui.QLineEdit(self.frame)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(12)
-        font.setBold(False)
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        font.setBold(True)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(75)
         self.valuelineEdit.setFont(font)
         self.valuelineEdit.setStyleSheet(_fromUtf8("#valuelineEdit{\n"
 "    background-color: rgb(255, 255, 255);\n"
-"    color: rgb(85, 0, 0);\n"
-"    font: 12pt \"MS Shell Dlg 2\";\n"
+"    font: 14pt \"georgia\";\n"
+"    color:rgb(35, 82, 255);\n"
+"    font-weight:bold;    \n"
 "    width:100%;\n"
-"height:30px;\n"
+"    height:30px;\n"
 "}\n"
 "#valuelineEdit:hover{\n"
-"    color:rgb(0, 85, 255);\n"
 "    background-color:rgb(214, 214, 214);\n"
-"    font: 14pt \"georgia\";\n"
+"    \n"
 "}"))
         self.valuelineEdit.setObjectName(_fromUtf8("valuelineEdit"))
         self.horizontalLayout_3.addWidget(self.valuelineEdit)

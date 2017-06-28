@@ -1,8 +1,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 source/__pycache__/userinterface.cpython-35.pyc
 =======
+=======
+>>>>>>> 13df2fadc8648765364b44a2ce33e35ecaae53a9
 =======
 >>>>>>> 13df2fadc8648765364b44a2ce33e35ecaae53a9
 # Byte-compiled / optimized / DLL files
@@ -107,6 +110,7 @@ ENV/
 # mypy
 .mypy_cache/
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 13df2fadc8648765364b44a2ce33e35ecaae53a9
 source/__pycache__/userinterface.cpython-35.pyc
 source/__pycache__/icon_res_rc.cpython-35.pyc
@@ -114,5 +118,7 @@ source/__pycache__/userinterface.cpython-35.pyc
 source/__pycache__/ENROLMENT_FORM.cpython-35.pyc
 *.pyc
 *.pyc
+=======
+>>>>>>> 13df2fadc8648765364b44a2ce33e35ecaae53a9
 =======
 >>>>>>> 13df2fadc8648765364b44a2ce33e35ecaae53a9

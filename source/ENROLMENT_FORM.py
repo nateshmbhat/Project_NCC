@@ -1,4 +1,3 @@
-import pymysql
 import sqlite3
 
 
@@ -19,10 +18,12 @@ class enroll:
         self.cur.execute("drop table %s",(table_name))
         self.conn.commit()
         print(table_name+"sucessfully deleted")
-    def search_by_enrolmentid(self,enrol_id):
-        sql="select * from enrolment where enrolment_no="+"'"+enrol_id+"'"
+
+    def search_by_field(self, field, id):
+        sql = "select * from enrolment where {}=".format(field) + "'" + id + "'"
         self.cur.execute(sql)
-        return(self.cur.fetchone())
+        return (self.cur.fetchone())
+
     def create_table(self):
         details="""create table  if not exists enrolment(enrolment_no varchar(13) not null,rank varchar(25) not null,aadhar bigint(12),student_name varchar(30) not null,
         smname varchar(30) default '',slname varchar(20) default '',fathers_name varchar(30) not null,fmname varchar(30) default '',
@@ -34,6 +35,7 @@ class enroll:
         self.cur.execute(details)
         print("table created sucessfully")
         self.conn.commit()
+
 
     def search_particular_fields(self,con,con1,*fields):
         sql="select "
@@ -47,6 +49,8 @@ class enroll:
         self.cur.execute(sql)
         results=self.cur.fetchall()
         return(results)
+
+
     def execute(self,sql):
         self.cur.execute(sql)
         return(self.cur.fetchall())

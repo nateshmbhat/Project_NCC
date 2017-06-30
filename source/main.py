@@ -3,6 +3,7 @@ import append_excel
 import forms
 from PyQt4 import QtCore, QtGui
 from userinterface import Ui_MainWindow
+import icon_res_rc
 
 
 class logic():

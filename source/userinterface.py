@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1078, 825)
+        MainWindow.resize(1231, 886)
         MainWindow.setMinimumSize(QtCore.QSize(704, 599))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -297,7 +297,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -789, 1019, 1378))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1172, 1378))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1894,10 +1894,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
         self.label_2 = QtGui.QLabel(self.Forms)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Colonna MT"))
         font.setPointSize(-1)
         self.label_2.setFont(font)
         self.label_2.setStyleSheet(_fromUtf8("background-color:transparent;\n"
-"font-size:50px;\n"
+"font-size:60px;\n"
 "color:blue;"))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.verticalLayout_5.addWidget(self.label_2, QtCore.Qt.AlignHCenter)
@@ -1945,6 +1946,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.verticalLayout_5.addWidget(self.label_3, QtCore.Qt.AlignHCenter)
         self.entryBox = QtGui.QTextEdit(self.Forms)
+        self.entryBox.setMinimumSize(QtCore.QSize(800, 0))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(14)
@@ -1958,8 +1960,11 @@ class Ui_MainWindow(object):
 "color:black;\n"
 "width:40%;"))
         self.entryBox.setObjectName(_fromUtf8("entryBox"))
-        self.verticalLayout_5.addWidget(self.entryBox)
+        self.verticalLayout_5.addWidget(self.entryBox, QtCore.Qt.AlignHCenter)
         self.webView_2 = QtWebKit.QWebView(self.Forms)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Colonna MT"))
+        self.webView_2.setFont(font)
         self.webView_2.setStyleSheet(_fromUtf8("background-color:transparent;"))
         self.webView_2.setUrl(QtCore.QUrl(_fromUtf8("about:blank")))
         self.webView_2.setObjectName(_fromUtf8("webView_2"))
@@ -1971,7 +1976,7 @@ class Ui_MainWindow(object):
         font.setPointSize(-1)
         self.generate_excell_sheetPushButton.setFont(font)
         self.generate_excell_sheetPushButton.setStyleSheet(_fromUtf8("\n"
-"#Button_1{\n"
+"#generate_excell_sheetPushButton{\n"
 "background-color: rgb(255, 255, 255);\n"
 "    border-color: rgb(0, 0, 127);\n"
 "border-radius:10px;\n"
@@ -1981,7 +1986,7 @@ class Ui_MainWindow(object):
 "font-size:25px;\n"
 "color:rgb(85, 170, 255);\n"
 "}\n"
-"#Button_1:hover{\n"
+"#generate_excell_sheetPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
 "border-color:rgb(255, 255, 255);\n"
 "border-radius:10px;\n"
@@ -2000,7 +2005,7 @@ class Ui_MainWindow(object):
         font.setPointSize(-1)
         self.open_in_pdfPushButton.setFont(font)
         self.open_in_pdfPushButton.setStyleSheet(_fromUtf8("\n"
-"#Button_2{\n"
+"#open_in_pdfPushButton{\n"
 "background-color: rgb(255, 255, 255);\n"
 "    border-color: rgb(0, 0, 127);\n"
 "border-radius:10px;\n"
@@ -2010,7 +2015,7 @@ class Ui_MainWindow(object):
 "font-size:25px;\n"
 "color:rgb(85, 170, 255);\n"
 "}\n"
-"#Button_2:hover{\n"
+"#open_in_pdfPushButton:hover{\n"
 "    background-color: rgb(85, 170, 255);\n"
 "border-color:rgb(255, 255, 255);\n"
 "border-radius:10px;\n"
@@ -2036,7 +2041,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -2165,6 +2170,7 @@ class Ui_MainWindow(object):
         self.mytab.setTabText(self.mytab.indexOf(self.Forms), _translate("MainWindow", "Forms", None))
 
 from PyQt4 import QtWebKit
+import icon_res_rc
 
 if __name__ == "__main__":
     import sys

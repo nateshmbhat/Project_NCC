@@ -444,8 +444,8 @@ font-weight:bold;
             margin:3px 6px;
             font-weight:bold;
             text-align:center;
-            padding-left:2px;
-            padding-right:2px;
+            padding-left:4px;
+            padding-right:4px;
         }
         
 
@@ -465,7 +465,8 @@ font-weight:bold;
             background-color: #7100b2;
 
             text-align-last: center;
-
+            padding-right: 3px;
+            padding-left: 2px;
             font-size: 120%;
 
             color: white;

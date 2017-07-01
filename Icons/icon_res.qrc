@@ -1,9 +1,39 @@
 <RCC>
   <qresource prefix="icons">
+    <file>pinky_shade.png</file>
+    <file>BlueShades2.jpg</file>
+    <file>images.jpg</file>
+    <file>images-1.jpg</file>
+    <file>images-2.jpg</file>
+    <file>images-3.jpg</file>
+    <file>images-5.jpg</file>
+    <file>images-6.jpg</file>
+    <file>images-7.jpg</file>
+    <file>images-11.jpg</file>
+    <file>images-13.jpg</file>
+    <file>images-18.jpg</file>
+    <file>images-23.jpg</file>
+    <file>images-27.jpg</file>
+    <file>images-35.jpg</file>
+    <file>oHrjXXO.jpg</file>
+    <file>simple_grad.png</file>
+    <file>beveled_indented_squares_seamless_wallpaper_background_lavender.jpg</file>
+    <file>beveled_indented_squares_seamless_wallpaper_background_purple.jpg</file>
+    <file>BlueShades2.jpg</file>
+    <file>images-11.jpg</file>
+    <file>images-13.jpg</file>
+    <file>images-14.jpg</file>
+    <file>images-15.jpg</file>
+    <file>images-18.jpg</file>
+    <file>images-23.jpg</file>
+    <file>images-30.jpg</file>
+    <file>images-35.jpg</file>
+    <file>nice-red-backgrounds_thumb.jpg</file>
+    <file>oHrjXXO.jpg</file>
+    <file>BlueShades2.jpg</file>
+    <file>images-3.jpg</file>
     <file>ncc2.png</file>
     <file>close line.png</file>
-    <file>blue.png</file>
-    <file>blueish_grad.png</file>
     <file>graywood.png</file>
     <file>green_grad.png</file>
     <file>ncc1.png</file>

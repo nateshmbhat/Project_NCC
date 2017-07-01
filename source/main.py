@@ -6,6 +6,7 @@ from userinterface import Ui_MainWindow
 import icon_res_rc
 
 
+
 class logic():
     def __init__(self):
         ENROLMENT_FORM.enroll().create_table()
@@ -46,7 +47,19 @@ class logic():
         ui.ifsccodeCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.ifsccodeCheckBox))
         ui.selectallCheckBox.stateChanged.connect(self.queryselectall);
         ui.generate_excell_sheetPushButton.clicked.connect(self.fun)
-        
+
+
+        ui.selectpicturePushButton.clicked.connect(self.picselect)
+
+
+
+
+    def picselect(self):
+        filename =  QtGui.QFileDialog.getOpenFileName(ui.Enrol , 'Select the candidate picture' ,'.')
+        print("Filename = ",filename)
+
+        ui.selectpictureLabel.setPixmap(QtGui.QPixmap(filename))
+
         
 
 
@@ -451,7 +464,7 @@ font-weight:bold;
 
         tr{
 
-            background-color: rgb(213, 213, 213);
+            background-color: rgba(213, 213, 213,100);
            # background-color:transparent;
             text-align-last: center;
             color:black;

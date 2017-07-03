@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>974</width>
-    <height>842</height>
+    <width>1099</width>
+    <height>927</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -302,8 +302,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>915</width>
+             <y>-7</y>
+             <width>1040</width>
              <height>1899</height>
             </rect>
            </property>
@@ -911,14 +911,11 @@ color:white;</string>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
                  </property>
-                 <property name="inputMask">
-                  <string>0000 0000 0000; </string>
-                 </property>
                  <property name="text">
-                  <string>  </string>
+                  <string/>
                  </property>
                  <property name="maxLength">
-                  <number>14</number>
+                  <number>32767</number>
                  </property>
                  <property name="frame">
                   <bool>true</bool>
@@ -2192,8 +2189,7 @@ background-color:transparent;
              </property>
              <property name="styleSheet">
               <string notr="true">background-color:rgba(228, 92, 255,100);
-color:chartreuse;
-</string>
+color:chartreuse;</string>
              </property>
              <property name="text">
               <string>Enroll</string>
@@ -2211,10 +2207,13 @@ color:chartreuse;
            </item>
            <item row="4" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetFixedSize</enum>
+             </property>
              <item alignment="Qt::AlignLeft">
               <widget class="QRadioButton" name="enrolmentnumRadioButton">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -2256,7 +2255,7 @@ font-weight:bold;
              <item alignment="Qt::AlignLeft">
               <widget class="QRadioButton" name="aadhaarnumRadioButton">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -2302,7 +2301,7 @@ font-weight:bold;
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
+                 <width>20</width>
                  <height>20</height>
                 </size>
                </property>
@@ -2422,7 +2421,7 @@ width:230;</string>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
+                 <width>20</width>
                  <height>20</height>
                 </size>
                </property>

@@ -265,8 +265,9 @@ class logic():
 
         ui.submitPushButton.clicked.connect(self.check_enrol_form_data)
 
-        ui.searchPushButton.clicked.connect(lambda :self.display(ui.searchPushButton))
+        ui.enrolPushButton.pressed.connect(self.enrol_button_pressed)
 
+        ui.aadhaarnumRadioButton.toggled.connect(self.enrol_adhaar_radio_change)
 
         self.sql = ''
 
@@ -297,6 +298,8 @@ class logic():
         ui.NullcertRadioButton.setChecked(True)
 
         ui.enrolmentCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.enrolmentCheckBox))
+
+        ui.searchPushButton.clicked.connect(lambda :self.display(ui.searchPushButton))
 
         ui.rankCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.rankCheckBox))
 
@@ -415,6 +418,14 @@ class logic():
 
     def checklogic(self):
         ui.NULLCampsCheckBox.setChecked(False)
+
+
+
+    def enrol_button_pressed(self):
+        ui.searchbyfieldLineEdit.clear()
+        self.enable_form_elements();
+        ui.submitPushButton.show()
+
 
 
 
@@ -712,13 +723,11 @@ font-weight:bold;
             i.setDisabled(False);
 
 
-
     def display(self , obj): # this executes when the Search button is pressed
-        ui.enrolPushButton.setChecked(False)
 
         if obj.objectName()=='searchPushButton':
             if ui.searchbyfieldLineEdit.displayText()=='':
-                QtGui.QMessageBox.warning(ui.enrolformFrame ,"Warning" , "\n\nSearch field should not be entry while searching",'OK')
+                QtGui.QMessageBox.warning(ui.enrolformFrame ,"Warning" , "\n\nSearch field should not be empty while searching",'OK')
                 return ;
 
             self.disable_form_elements() ;
@@ -727,13 +736,28 @@ font-weight:bold;
 
         obj = ENROLMENT_FORM.enroll()
 
+        search_field_text = ui.searchbyfieldLineEdit.displayText()
+
         if ui.aadhaarnumRadioButton.isChecked():
             self.field = 'Aadhar_Number'
+            if len(search_field_text)==12:
+                search_field_text = search_field_text[:4]+' '+search_field_text[4:8]+' '+search_field_text[8:]
+
+
         elif ui.enrolmentnumRadioButton.isChecked():
             self.field = 'Enrolment_Number'
 
 
-        tuple = obj.search_by_field(self.field, ui.searchbyfieldLineEdit.displayText())
+        ui.enrolPushButton.setChecked(False)
+
+        tuple = obj.search_by_field(self.field, search_field_text);
+
+        # if tuple==None:
+        #     QtGui.QMessageBox.warning(ui.enrolformFrame, "Not found",
+        #                               "\n\nSpecified Enrolment number was not found", 'OK')
+        #     return ;
+
+
         print(tuple)
         months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
         dateyear = int(tuple[7][7] + tuple[7][8] + tuple[7][9] + tuple[7][10])
@@ -799,6 +823,18 @@ font-weight:bold;
         ui.micrLineEdit.setText(str(tuple[24]))
         ui.institutionComboBox.setCurrentIndex(ui.institutionComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
+
+
+
+    def enrol_adhaar_radio_change(self):
+        if ui.aadhaarnumRadioButton.isChecked():
+            ui.searchbyfieldLineEdit.clear();
+            ui.searchbyfieldLineEdit.setMaxLength(14)
+
+        elif ui.enrolmentnumRadioButton.isChecked():
+            ui.searchbyfieldLineEdit.clear()
+            ui.searchbyfieldLineEdit.setMaxLength(1000)
+
 
 
 

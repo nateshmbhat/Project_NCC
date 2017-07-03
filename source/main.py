@@ -3,9 +3,9 @@ from PyQt4.QtGui import QDialog, QPushButton
 import ENROLMENT_FORM
 import os
 from userinterface import Ui_MainWindow, _fromUtf8
-
+import pandas as pd
 from PyQt4 import QtCore, QtGui
-
+import sqlite3
 import shutil
 import forms
 import append_excel
@@ -265,8 +265,7 @@ class logic():
 
         ui.submitPushButton.clicked.connect(self.check_enrol_form_data)
 
-        ui.searchPushButton.clicked.connect(self.display)
-
+        ui.searchPushButton.clicked.connect(lambda :self.display(ui.searchPushButton))
 
 
         self.sql = ''
@@ -285,11 +284,13 @@ class logic():
 
         ui.datequeryDateEdit.hide()
 
-        ui.mobileLineEdit.setValidator(QtGui.QIntValidator())
+        ui.mobileLineEdit.setValidator(QtGui.QDoubleValidator())
 
-        ui.accountnumLineEdit.setValidator(QtGui.QIntValidator())
+        ui.accountnumLineEdit.setValidator(QtGui.QDoubleValidator())
 
-        ui.micrLineEdit.setValidator(QtGui.QIntValidator())
+        ui.micrLineEdit.setValidator(QtGui.QDoubleValidator())
+
+        ui.micrLineEdit.setValidator(QtGui.QDoubleValidator())
 
         ui.vegRadioButton.setChecked(True)
 
@@ -364,6 +365,8 @@ class logic():
         ui.vegRadioButton.setChecked(True)
 
         ui.NullcertRadioButton.setChecked(True)
+
+
 
 
 
@@ -471,9 +474,9 @@ class logic():
         proceed = True;
         sql="select Student_name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText()+"'"
         tup=ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0:
+        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
-                                      'Enrolment number must be unique.\n some one already have the same enrolment number',
+                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number',
                                       'OK');
             return
 
@@ -489,7 +492,7 @@ class logic():
 
         mailid = ui.emailLineEdit.displayText()
 
-        if '@' not in mailid or (mailid.rfind('.') < mailid.rfind('@')):
+        if len(mailid) and  ('@' not in mailid or (mailid.rfind('.') -  mailid.rfind('@'))<2):
             QtGui.QMessageBox.warning(ui.Enrol , "Warning" , "\n\nPlease make sure that the entered Email address is a valid one." ,'OK')
 
             return
@@ -520,8 +523,8 @@ class logic():
         if proceed: #This runs only if all the non-null fields are filled.
 
             ui.addressTextEdit.setStyleSheet('')
-
-            if len(ui.aadhaarLineEdit.displayText().strip())!=12:
+            print(len(ui.aadhaarLineEdit.displayText()))
+            if len(ui.aadhaarLineEdit.displayText().strip())!=14:
                 proceed=False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           "\nValid Aadhaar Number should be 12 digits long.\n\n Please make sure that it's a valid 12 digit Aadhaar number",
@@ -684,7 +687,43 @@ font-weight:bold;
 
 }""")
 
-    def display(self):
+
+    def disable_form_elements(self):
+
+        for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox , QtGui.QCheckBox , QtGui.QRadioButton,QtGui.QTextEdit)):
+            i.setDisabled(True);
+
+        for i in ui.bankformFrame.findChildren(QtGui.QLineEdit):
+            i.setDisabled(True);
+
+        for i in ui.instFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox)):
+            i.setDisabled(True);
+
+    def enable_form_elements(self):
+
+        for i in ui.enrolformFrame.findChildren(
+                (QtGui.QLineEdit, QtGui.QComboBox, QtGui.QCheckBox, QtGui.QRadioButton, QtGui.QTextEdit)):
+            i.setDisabled(False);
+
+        for i in ui.bankformFrame.findChildren(QtGui.QLineEdit):
+            i.setDisabled(False);
+
+        for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
+            i.setDisabled(False);
+
+
+
+    def display(self , obj): # this executes when the Search button is pressed
+
+
+        if obj.objectName()=='searchPushButton':
+            if ui.searchbyfieldLineEdit.displayText()=='':
+                QtGui.QMessageBox.warning(ui.enrolformFrame ,"Warning" , "\n\nSearch field should not be entry while searching",'OK')
+                return ;
+
+            self.disable_form_elements() ;
+            ui.submitPushButton.hide()
+
 
         obj = ENROLMENT_FORM.enroll()
 
@@ -692,6 +731,7 @@ font-weight:bold;
             self.field = 'Aadhar_Number'
         elif ui.enrolmentnumRadioButton.isChecked():
             self.field = 'Enrolment_Number'
+
 
         tuple = obj.search_by_field(self.field, ui.searchbyfieldLineEdit.displayText())
         print(tuple)
@@ -759,6 +799,8 @@ font-weight:bold;
         ui.micrLineEdit.setText(str(tuple[24]))
         ui.institutionComboBox.setCurrentIndex(ui.institutionComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
+
+
 
     def get_enroll_form_data(self):
 
@@ -839,7 +881,8 @@ font-weight:bold;
 
         obj=ENROLMENT_FORM.enroll()
 
-        obj.enrol_student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
+        if ui.updateentryCheckBox.isChecked():
+            obj.update_student_details(self.enrolmentnum , self.rank, self.aadhaarnum, self.fullname, self.fathername,
 
                           self.mothername,self.sex,self.dateofbirth,self.address,
 
@@ -847,7 +890,33 @@ font-weight:bold;
 
                           ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
 
-                          self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit)
+                          self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit);
+
+
+
+        else:
+
+            obj.enrol_student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
+
+                              self.mothername,self.sex,self.dateofbirth,self.address,
+
+                              self.email,self.mobilenum, self.bloodgroup,self.certificate,self.campsattended,self.extracurricularactivities
+
+                              ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
+
+                              self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit)
+
+
+        con = sqlite3.connect("ncc.db")
+        data = pd.read_sql("select * from enrolment" ,con)
+        try:
+            data.to_csv(r'All candidate details.csv')
+        except(PermissionError):
+            print("The csv file is already open. It needs to be closed before updating it.")
+
+
+
+
     def table1(self, res, msg):
 
         html3 = """

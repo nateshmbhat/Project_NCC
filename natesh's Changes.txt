@@ -1,2 +1,4 @@
 Changed Button_1 to generate_excell_sheetPushButton
 Changed Button_2 to open_in_pdfPushButton
+
+Radio buttons of veg and certificate clashes fixed

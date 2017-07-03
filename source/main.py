@@ -714,7 +714,7 @@ font-weight:bold;
 
 
     def display(self , obj): # this executes when the Search button is pressed
-
+        ui.enrolPushButton.setChecked(False)
 
         if obj.objectName()=='searchPushButton':
             if ui.searchbyfieldLineEdit.displayText()=='':
@@ -905,6 +905,8 @@ font-weight:bold;
                               ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
 
                               self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit)
+
+            QtGui.QToolTip.showText(QtCore.QPoint(100,200) ,"INSERTED SUCCESSFULLY")
 
 
         con = sqlite3.connect("ncc.db")

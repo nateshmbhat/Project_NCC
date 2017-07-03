@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1248, 907)
+        MainWindow.resize(974, 842)
         MainWindow.setMinimumSize(QtCore.QSize(844, 628))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -102,140 +102,70 @@ class Ui_MainWindow(object):
 "text-shadow:0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;"))
         self.enroltitleLabel.setObjectName(_fromUtf8("enroltitleLabel"))
         self.gridLayout.addWidget(self.enroltitleLabel, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.searchFrame = QtGui.QFrame(self.Enrol)
-        self.searchFrame.setMinimumSize(QtCore.QSize(0, 45))
-        self.searchFrame.setStyleSheet(_fromUtf8("#searchFrame{\n"
-"background-color:transparent;\n"
-"}"))
-        self.searchFrame.setFrameShape(QtGui.QFrame.NoFrame)
-        self.searchFrame.setFrameShadow(QtGui.QFrame.Raised)
-        self.searchFrame.setObjectName(_fromUtf8("searchFrame"))
-        self.searchbyfieldLineEdit = QtGui.QLineEdit(self.searchFrame)
-        self.searchbyfieldLineEdit.setGeometry(QtCore.QRect(0, 0, 251, 26))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        self.submitbuttonFrame = QtGui.QFrame(self.Enrol)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchbyfieldLineEdit.sizePolicy().hasHeightForWidth())
-        self.searchbyfieldLineEdit.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(-1)
-        self.searchbyfieldLineEdit.setFont(font)
-        self.searchbyfieldLineEdit.setStyleSheet(_fromUtf8("border-radius:2px;\n"
-"font-size:20px;\n"
-"width:230;"))
-        self.searchbyfieldLineEdit.setText(_fromUtf8(""))
-        self.searchbyfieldLineEdit.setObjectName(_fromUtf8("searchbyfieldLineEdit"))
-        self.searchPushButton = QtGui.QPushButton(self.searchFrame)
-        self.searchPushButton.setGeometry(QtCore.QRect(250, 0, 91, 27))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHeightForWidth(self.submitbuttonFrame.sizePolicy().hasHeightForWidth())
+        self.submitbuttonFrame.setSizePolicy(sizePolicy)
+        self.submitbuttonFrame.setStyleSheet(_fromUtf8("background-color:transparent;"))
+        self.submitbuttonFrame.setObjectName(_fromUtf8("submitbuttonFrame"))
+        self.gridLayout_11 = QtGui.QGridLayout(self.submitbuttonFrame)
+        self.gridLayout_11.setObjectName(_fromUtf8("gridLayout_11"))
+        self.submitPushButton = QtGui.QPushButton(self.submitbuttonFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.searchPushButton.sizePolicy().hasHeightForWidth())
-        self.searchPushButton.setSizePolicy(sizePolicy)
-        self.searchPushButton.setMinimumSize(QtCore.QSize(0, 8))
-        self.searchPushButton.setMaximumSize(QtCore.QSize(16777215, 27))
-        self.searchPushButton.setAutoFillBackground(False)
-        self.searchPushButton.setStyleSheet(_fromUtf8("#searchPushButton\n"
-"{\n"
-"    -moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
-"    -webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
-"    box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
-"    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));\n"
-"    background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
-"    background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
-"    background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
-"    background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
-"    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);\n"
-"    background-color:#007dc1;\n"
-"    -moz-border-radius:13px;\n"
-"    -webkit-border-radius:13px;;\n"
-"    border:1px solid #124d77;\n"
-"    display:inline-block;\n"
-"    cursor:pointer;\n"
-"    color:#ffffff;\n"
-"    font-family:georgia;\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"    text-shadow:0px 1px 0px #154682;\n"
+        sizePolicy.setHeightForWidth(self.submitPushButton.sizePolicy().hasHeightForWidth())
+        self.submitPushButton.setSizePolicy(sizePolicy)
+        self.submitPushButton.setMinimumSize(QtCore.QSize(600, 0))
+        self.submitPushButton.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.submitPushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.submitPushButton.setStyleSheet(_fromUtf8("#submitPushButton{\n"
+"color:white;\n"
+"font-size:30px;\n"
+"font-family:georgia;\n"
+"width:80px;\n"
+"height:40px;\n"
+"border-style:dashed;\n"
+"border-color:black;\n"
+"border-width:2px;\n"
+"border-radius:20px;\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(9, 41, 4, 255), stop:0.085 rgba(2, 79, 0, 255), stop:0.19 rgba(50, 147, 22, 255), stop:0.275 rgba(236, 191, 49, 255), stop:0.39 rgba(243, 61, 34, 255), stop:0.555 rgba(135, 81, 60, 255), stop:0.667 rgba(121, 75, 255, 255), stop:0.825 rgba(164, 255, 244, 255), stop:0.885 rgba(104, 222, 71, 255), stop:1 rgba(93, 128, 0, 255))\n"
 "}\n"
 "\n"
-"#searchPushButton:hover\n"
+"#submitPushButton:hover\n"
 "{\n"
-"    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));\n"
-"    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
-"    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
-"    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
-"    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
-"    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);\n"
-"    background-color:#0061a7;\n"
+"color:black;\n"
+"font-size:30px;\n"
+"font-family:georgia;\n"
+"width:80px;\n"
+"height:40px;\n"
+"border-style:dotted;\n"
+"border-color:black;\n"
+"border-width:2px;\n"
+"border-radius:20px;\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255))\n"
 "}\n"
 ""))
-        self.searchPushButton.setCheckable(False)
-        self.searchPushButton.setAutoDefault(False)
-        self.searchPushButton.setDefault(False)
-        self.searchPushButton.setObjectName(_fromUtf8("searchPushButton"))
-        self.enrolmentnumRadioButton = QtGui.QRadioButton(self.searchFrame)
-        self.enrolmentnumRadioButton.setGeometry(QtCore.QRect(0, 30, 141, 17))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enrolmentnumRadioButton.sizePolicy().hasHeightForWidth())
-        self.enrolmentnumRadioButton.setSizePolicy(sizePolicy)
+        self.submitPushButton.setCheckable(False)
+        self.submitPushButton.setDefault(False)
+        self.submitPushButton.setFlat(False)
+        self.submitPushButton.setObjectName(_fromUtf8("submitPushButton"))
+        self.gridLayout_11.addWidget(self.submitPushButton, 2, 0, 1, 1)
+        self.updateentryCheckBox = QtGui.QCheckBox(self.submitbuttonFrame)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(10)
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.enrolmentnumRadioButton.setFont(font)
-        self.enrolmentnumRadioButton.setStyleSheet(_fromUtf8("#enrolmentnumRadioButton\n"
-"{\n"
-"background-color:transparent;\n"
-"color:white;\n"
-"font-family:georgia;\n"
-"font-weight:bold;\n"
-"}\n"
-"\n"
-"#enrolmentnumRadioButton:hover\n"
-"{\n"
-"background-color:transparent;\n"
-"color:yellow;\n"
-"font-family:georgia;\n"
-"font-weight:bold;\n"
-"}\n"
-""))
-        self.enrolmentnumRadioButton.setChecked(True)
-        self.enrolmentnumRadioButton.setObjectName(_fromUtf8("enrolmentnumRadioButton"))
-        self.aadhaarnumRadioButton = QtGui.QRadioButton(self.searchFrame)
-        self.aadhaarnumRadioButton.setGeometry(QtCore.QRect(170, 30, 131, 17))
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.aadhaarnumRadioButton.sizePolicy().hasHeightForWidth())
-        self.aadhaarnumRadioButton.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.aadhaarnumRadioButton.setFont(font)
-        self.aadhaarnumRadioButton.setStyleSheet(_fromUtf8("#aadhaarnumRadioButton\n"
-"{\n"
-"background-color:transparent;\n"
-"color:white;\n"
-"font-family:georgia;\n"
-"font-weight:bold;\n"
-"}\n"
-"\n"
-"#aadhaarnumRadioButton:hover\n"
-"{\n"
-"background-color:transparent;\n"
-"color:yellow;\n"
-"font-family:georgia;\n"
-"font-weight:bold;\n"
-"}\n"
-""))
-        self.aadhaarnumRadioButton.setObjectName(_fromUtf8("aadhaarnumRadioButton"))
-        self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
+        self.updateentryCheckBox.setFont(font)
+        self.updateentryCheckBox.setStyleSheet(_fromUtf8("color:white;"))
+        self.updateentryCheckBox.setObjectName(_fromUtf8("updateentryCheckBox"))
+        self.gridLayout_11.addWidget(self.updateentryCheckBox, 1, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.gridLayout.addWidget(self.submitbuttonFrame, 7, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 2, 0, 1, 1)
         self.scrollArea = QtGui.QScrollArea(self.Enrol)
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -253,7 +183,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1189, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 915, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -266,20 +196,10 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_3 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem, 1, 0, 1, 1)
-        self.line = QtGui.QFrame(self.scrollAreaWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
-        self.line.setSizePolicy(sizePolicy)
-        self.line.setMinimumSize(QtCore.QSize(600, 0))
-        self.line.setStyleSheet(_fromUtf8("width:10px;"))
-        self.line.setFrameShape(QtGui.QFrame.HLine)
-        self.line.setFrameShadow(QtGui.QFrame.Sunken)
-        self.line.setObjectName(_fromUtf8("line"))
-        self.gridLayout_3.addWidget(self.line, 10, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem1, 1, 0, 1, 1)
+        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem2, 12, 0, 1, 1)
         self.horizontalLayout_12 = QtGui.QHBoxLayout()
         self.horizontalLayout_12.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
         self.horizontalLayout_12.setObjectName(_fromUtf8("horizontalLayout_12"))
@@ -363,10 +283,20 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addLayout(self.gridLayout_8)
         self.horizontalLayout_12.addLayout(self.verticalLayout_9)
         self.gridLayout_3.addLayout(self.horizontalLayout_12, 2, 0, 1, 1)
-        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem1, 7, 0, 1, 1)
-        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem2, 12, 0, 1, 1)
+        self.line = QtGui.QFrame(self.scrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
+        self.line.setSizePolicy(sizePolicy)
+        self.line.setMinimumSize(QtCore.QSize(600, 0))
+        self.line.setStyleSheet(_fromUtf8("width:10px;"))
+        self.line.setFrameShape(QtGui.QFrame.HLine)
+        self.line.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line.setObjectName(_fromUtf8("line"))
+        self.gridLayout_3.addWidget(self.line, 10, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem3 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem3, 7, 0, 1, 1)
         self.instFrame = QtGui.QFrame(self.scrollAreaWidgetContents)
         self.instFrame.setStyleSheet(_fromUtf8("#instFrame\n"
 "{\n"
@@ -388,8 +318,8 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.institutionLabel.setObjectName(_fromUtf8("institutionLabel"))
         self.gridLayout_4.addWidget(self.institutionLabel, 0, 3, 1, 1)
-        spacerItem3 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem3, 1, 1, 1, 1)
+        spacerItem4 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem4, 1, 1, 1, 1)
         self.unitLineEdit = QtGui.QLineEdit(self.instFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -411,10 +341,10 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.label.setObjectName(_fromUtf8("label"))
         self.gridLayout_4.addWidget(self.label, 1, 3, 1, 1)
-        spacerItem4 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem4, 1, 0, 1, 1)
         spacerItem5 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem5, 0, 6, 1, 1)
+        self.gridLayout_4.addItem(spacerItem5, 1, 0, 1, 1)
+        spacerItem6 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem6, 0, 6, 1, 1)
         self.institutionComboBox = QtGui.QComboBox(self.instFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -1091,56 +1021,6 @@ class Ui_MainWindow(object):
         self.accountnameLabel.setObjectName(_fromUtf8("accountnameLabel"))
         self.gridLayout_2.addWidget(self.accountnameLabel, 3, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.gridLayout_3.addWidget(self.bankformFrame, 15, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem6 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem6, 22, 0, 1, 1)
-        spacerItem7 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem7, 13, 0, 1, 1)
-        spacerItem8 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem8, 17, 0, 1, 1)
-        self.line_2 = QtGui.QFrame(self.scrollAreaWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(10)
-        sizePolicy.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
-        self.line_2.setSizePolicy(sizePolicy)
-        self.line_2.setMinimumSize(QtCore.QSize(600, 0))
-        self.line_2.setFrameShape(QtGui.QFrame.HLine)
-        self.line_2.setFrameShadow(QtGui.QFrame.Sunken)
-        self.line_2.setObjectName(_fromUtf8("line_2"))
-        self.gridLayout_3.addWidget(self.line_2, 20, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem9 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem9, 16, 0, 1, 1)
-        self.bankdetailsLabel = QtGui.QLabel(self.scrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setPointSize(-1)
-        self.bankdetailsLabel.setFont(font)
-        self.bankdetailsLabel.setAcceptDrops(False)
-        self.bankdetailsLabel.setAutoFillBackground(False)
-        self.bankdetailsLabel.setStyleSheet(_fromUtf8("\n"
-"#bankdetailsLabel{\n"
-"font-size:25px;\n"
-"background-color:transparent;\n"
-"color:yellow;\n"
-"border-width:2px;\n"
-"border-color:black;\n"
-"border-style:groove;\n"
-"margin-bottom:5px;\n"
-"}\n"
-"\n"
-"#bankdetailsLabel:hover\n"
-"{\n"
-"font-size:25px;\n"
-"background-color:transparent;\n"
-"color:purple;\n"
-"border-width:2px;\n"
-"border-color:yellow;\n"
-"border-style:groove;\n"
-"margin-bottom:5px;\n"
-"\n"
-"\n"
-"}"))
-        self.bankdetailsLabel.setObjectName(_fromUtf8("bankdetailsLabel"))
-        self.gridLayout_3.addWidget(self.bankdetailsLabel, 14, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.formFrame = QtGui.QFrame(self.scrollAreaWidgetContents)
         self.formFrame.setStyleSheet(_fromUtf8("background-color:transparent;"))
         self.formFrame.setObjectName(_fromUtf8("formFrame"))
@@ -1183,72 +1063,227 @@ class Ui_MainWindow(object):
         self.nonvegRadioButton.setObjectName(_fromUtf8("nonvegRadioButton"))
         self.gridLayout_10.addWidget(self.nonvegRadioButton, 0, 2, 1, 1)
         self.gridLayout_3.addWidget(self.formFrame, 4, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.gridLayout.addWidget(self.scrollArea, 3, 0, 1, 1)
+        spacerItem7 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem7, 22, 0, 1, 1)
+        spacerItem8 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem8, 13, 0, 1, 1)
+        spacerItem9 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem9, 17, 0, 1, 1)
         spacerItem10 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem10, 2, 0, 1, 1)
-        self.submitbuttonFrame = QtGui.QFrame(self.Enrol)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.submitbuttonFrame.sizePolicy().hasHeightForWidth())
-        self.submitbuttonFrame.setSizePolicy(sizePolicy)
-        self.submitbuttonFrame.setStyleSheet(_fromUtf8("background-color:transparent;"))
-        self.submitbuttonFrame.setObjectName(_fromUtf8("submitbuttonFrame"))
-        self.gridLayout_11 = QtGui.QGridLayout(self.submitbuttonFrame)
-        self.gridLayout_11.setObjectName(_fromUtf8("gridLayout_11"))
-        self.submitPushButton = QtGui.QPushButton(self.submitbuttonFrame)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.submitPushButton.sizePolicy().hasHeightForWidth())
-        self.submitPushButton.setSizePolicy(sizePolicy)
-        self.submitPushButton.setMinimumSize(QtCore.QSize(600, 0))
-        self.submitPushButton.setMaximumSize(QtCore.QSize(500, 16777215))
-        self.submitPushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.submitPushButton.setStyleSheet(_fromUtf8("#submitPushButton{\n"
-"color:white;\n"
-"font-size:30px;\n"
-"font-family:georgia;\n"
-"width:80px;\n"
-"height:40px;\n"
-"border-style:dashed;\n"
-"border-color:black;\n"
+        self.gridLayout_3.addItem(spacerItem10, 16, 0, 1, 1)
+        self.bankdetailsLabel = QtGui.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.bankdetailsLabel.setFont(font)
+        self.bankdetailsLabel.setAcceptDrops(False)
+        self.bankdetailsLabel.setAutoFillBackground(False)
+        self.bankdetailsLabel.setStyleSheet(_fromUtf8("\n"
+"#bankdetailsLabel{\n"
+"font-size:25px;\n"
+"background-color:transparent;\n"
+"color:yellow;\n"
 "border-width:2px;\n"
-"border-radius:20px;\n"
-"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(9, 41, 4, 255), stop:0.085 rgba(2, 79, 0, 255), stop:0.19 rgba(50, 147, 22, 255), stop:0.275 rgba(236, 191, 49, 255), stop:0.39 rgba(243, 61, 34, 255), stop:0.555 rgba(135, 81, 60, 255), stop:0.667 rgba(121, 75, 255, 255), stop:0.825 rgba(164, 255, 244, 255), stop:0.885 rgba(104, 222, 71, 255), stop:1 rgba(93, 128, 0, 255))\n"
+"border-color:black;\n"
+"border-style:groove;\n"
+"margin-bottom:5px;\n"
 "}\n"
 "\n"
-"#submitPushButton:hover\n"
+"#bankdetailsLabel:hover\n"
 "{\n"
-"color:black;\n"
-"font-size:30px;\n"
-"font-family:georgia;\n"
-"width:80px;\n"
-"height:40px;\n"
-"border-style:dotted;\n"
-"border-color:black;\n"
+"font-size:25px;\n"
+"background-color:transparent;\n"
+"color:purple;\n"
 "border-width:2px;\n"
-"border-radius:20px;\n"
-"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255))\n"
-"}\n"
-""))
-        self.submitPushButton.setCheckable(False)
-        self.submitPushButton.setDefault(False)
-        self.submitPushButton.setFlat(False)
-        self.submitPushButton.setObjectName(_fromUtf8("submitPushButton"))
-        self.gridLayout_11.addWidget(self.submitPushButton, 2, 0, 1, 1)
-        self.updateentryCheckBox = QtGui.QCheckBox(self.submitbuttonFrame)
+"border-color:yellow;\n"
+"border-style:groove;\n"
+"margin-bottom:5px;\n"
+"\n"
+"\n"
+"}"))
+        self.bankdetailsLabel.setObjectName(_fromUtf8("bankdetailsLabel"))
+        self.gridLayout_3.addWidget(self.bankdetailsLabel, 14, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.line_2 = QtGui.QFrame(self.scrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(10)
+        sizePolicy.setHeightForWidth(self.line_2.sizePolicy().hasHeightForWidth())
+        self.line_2.setSizePolicy(sizePolicy)
+        self.line_2.setMinimumSize(QtCore.QSize(600, 0))
+        self.line_2.setFrameShape(QtGui.QFrame.HLine)
+        self.line_2.setFrameShadow(QtGui.QFrame.Sunken)
+        self.line_2.setObjectName(_fromUtf8("line_2"))
+        self.gridLayout_3.addWidget(self.line_2, 20, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.gridLayout.addWidget(self.scrollArea, 3, 0, 1, 1)
+        self.searchFrame = QtGui.QFrame(self.Enrol)
+        self.searchFrame.setMinimumSize(QtCore.QSize(0, 45))
+        self.searchFrame.setStyleSheet(_fromUtf8("#searchFrame{\n"
+"background-color:transparent;\n"
+"}"))
+        self.searchFrame.setFrameShape(QtGui.QFrame.NoFrame)
+        self.searchFrame.setFrameShadow(QtGui.QFrame.Raised)
+        self.searchFrame.setObjectName(_fromUtf8("searchFrame"))
+        self.gridLayout_13 = QtGui.QGridLayout(self.searchFrame)
+        self.gridLayout_13.setObjectName(_fromUtf8("gridLayout_13"))
+        self.enrolPushButton = QtGui.QPushButton(self.searchFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.enrolPushButton.sizePolicy().hasHeightForWidth())
+        self.enrolPushButton.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
+        font.setPointSize(30)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.enrolPushButton.setFont(font)
+        self.enrolPushButton.setStyleSheet(_fromUtf8("background-color:rgba(228, 92, 255,100);\n"
+"color:chartreuse;\n"
+""))
+        self.enrolPushButton.setCheckable(True)
+        self.enrolPushButton.setChecked(True)
+        self.enrolPushButton.setFlat(False)
+        self.enrolPushButton.setObjectName(_fromUtf8("enrolPushButton"))
+        self.gridLayout_13.addWidget(self.enrolPushButton, 0, 1, 1, 1)
+        self.horizontalLayout_9 = QtGui.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(_fromUtf8("horizontalLayout_9"))
+        self.enrolmentnumRadioButton = QtGui.QRadioButton(self.searchFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.enrolmentnumRadioButton.sizePolicy().hasHeightForWidth())
+        self.enrolmentnumRadioButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.updateentryCheckBox.setFont(font)
-        self.updateentryCheckBox.setStyleSheet(_fromUtf8("color:white;"))
-        self.updateentryCheckBox.setObjectName(_fromUtf8("updateentryCheckBox"))
-        self.gridLayout_11.addWidget(self.updateentryCheckBox, 1, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.gridLayout.addWidget(self.submitbuttonFrame, 7, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.enrolmentnumRadioButton.setFont(font)
+        self.enrolmentnumRadioButton.setStyleSheet(_fromUtf8("#enrolmentnumRadioButton\n"
+"{\n"
+"background-color:transparent;\n"
+"color:white;\n"
+"font-family:georgia;\n"
+"font-weight:bold;\n"
+"}\n"
+"\n"
+"#enrolmentnumRadioButton:hover\n"
+"{\n"
+"background-color:transparent;\n"
+"color:yellow;\n"
+"font-family:georgia;\n"
+"font-weight:bold;\n"
+"}\n"
+""))
+        self.enrolmentnumRadioButton.setChecked(True)
+        self.enrolmentnumRadioButton.setObjectName(_fromUtf8("enrolmentnumRadioButton"))
+        self.horizontalLayout_9.addWidget(self.enrolmentnumRadioButton, QtCore.Qt.AlignLeft)
+        self.aadhaarnumRadioButton = QtGui.QRadioButton(self.searchFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.aadhaarnumRadioButton.sizePolicy().hasHeightForWidth())
+        self.aadhaarnumRadioButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.aadhaarnumRadioButton.setFont(font)
+        self.aadhaarnumRadioButton.setStyleSheet(_fromUtf8("#aadhaarnumRadioButton\n"
+"{\n"
+"background-color:transparent;\n"
+"color:white;\n"
+"font-family:georgia;\n"
+"font-weight:bold;\n"
+"}\n"
+"\n"
+"#aadhaarnumRadioButton:hover\n"
+"{\n"
+"background-color:transparent;\n"
+"color:yellow;\n"
+"font-family:georgia;\n"
+"font-weight:bold;\n"
+"}\n"
+""))
+        self.aadhaarnumRadioButton.setObjectName(_fromUtf8("aadhaarnumRadioButton"))
+        self.horizontalLayout_9.addWidget(self.aadhaarnumRadioButton, QtCore.Qt.AlignLeft)
+        spacerItem11 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem11)
+        self.gridLayout_13.addLayout(self.horizontalLayout_9, 4, 0, 1, 1)
+        self.horizontalLayout_6 = QtGui.QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
+        self.searchbyfieldLineEdit = QtGui.QLineEdit(self.searchFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.searchbyfieldLineEdit.sizePolicy().hasHeightForWidth())
+        self.searchbyfieldLineEdit.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.searchbyfieldLineEdit.setFont(font)
+        self.searchbyfieldLineEdit.setStyleSheet(_fromUtf8("border-radius:2px;\n"
+"font-size:20px;\n"
+"width:230;"))
+        self.searchbyfieldLineEdit.setText(_fromUtf8(""))
+        self.searchbyfieldLineEdit.setObjectName(_fromUtf8("searchbyfieldLineEdit"))
+        self.horizontalLayout_6.addWidget(self.searchbyfieldLineEdit)
+        self.searchPushButton = QtGui.QPushButton(self.searchFrame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.searchPushButton.sizePolicy().hasHeightForWidth())
+        self.searchPushButton.setSizePolicy(sizePolicy)
+        self.searchPushButton.setMinimumSize(QtCore.QSize(100, 8))
+        self.searchPushButton.setMaximumSize(QtCore.QSize(16777215, 27))
+        self.searchPushButton.setAutoFillBackground(False)
+        self.searchPushButton.setStyleSheet(_fromUtf8("#searchPushButton\n"
+"{\n"
+"    -moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
+"    -webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
+"    box-shadow:inset 0px 1px 0px 0px #54a3f7;\n"
+"    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7));\n"
+"    background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
+"    background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
+"    background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
+"    background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);\n"
+"    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);\n"
+"    background-color:#007dc1;\n"
+"    -moz-border-radius:13px;\n"
+"    -webkit-border-radius:13px;;\n"
+"    border:1px solid #124d77;\n"
+"    display:inline-block;\n"
+"    cursor:pointer;\n"
+"    color:#ffffff;\n"
+"    font-family:georgia;\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"    text-shadow:0px 1px 0px #154682;\n"
+"}\n"
+"\n"
+"#searchPushButton:hover\n"
+"{\n"
+"    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));\n"
+"    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);\n"
+"    background-color:#0061a7;\n"
+"}\n"
+""))
+        self.searchPushButton.setCheckable(False)
+        self.searchPushButton.setAutoDefault(False)
+        self.searchPushButton.setDefault(False)
+        self.searchPushButton.setObjectName(_fromUtf8("searchPushButton"))
+        self.horizontalLayout_6.addWidget(self.searchPushButton, QtCore.Qt.AlignLeft)
+        spacerItem12 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem12)
+        self.gridLayout_13.addLayout(self.horizontalLayout_6, 0, 0, 1, 1)
+        spacerItem13 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_13.addItem(spacerItem13, 0, 2, 1, 1)
+        self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
@@ -2724,8 +2759,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.sheetnameComboBox)
         self.gridLayout_9.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
         self.verticalLayout_5.addLayout(self.gridLayout_9)
-        spacerItem11 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout_5.addItem(spacerItem11)
+        spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout_5.addItem(spacerItem14)
         self.horizontalLayout_11.addLayout(self.verticalLayout_5)
         self.mytab.addTab(self.Forms, _fromUtf8(""))
         self.UploadData = QtGui.QWidget()
@@ -2913,11 +2948,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "NCC", None))
         self.enroltitleLabel.setText(_translate("MainWindow", "Enrolment Form", None))
-        self.searchbyfieldLineEdit.setPlaceholderText(_translate("MainWindow", "Search by", None))
-        self.searchPushButton.setToolTip(_translate("MainWindow", "<html><head/><body><p>Click to search</p></body></html>", None))
-        self.searchPushButton.setText(_translate("MainWindow", "Search", None))
-        self.enrolmentnumRadioButton.setText(_translate("MainWindow", "Enrolment No.", None))
-        self.aadhaarnumRadioButton.setText(_translate("MainWindow", "Aadhaar No.", None))
+        self.submitPushButton.setText(_translate("MainWindow", "Submit", None))
+        self.updateentryCheckBox.setText(_translate("MainWindow", "Update Entry", None))
         self.pushButton.setStyleSheet(_translate("MainWindow", "background-color:transparent;", None))
         self.selectpicturePushButton.setToolTip(_translate("MainWindow", "Select the picture of the candidate", None))
         self.selectpicturePushButton.setText(_translate("MainWindow", "Select Picture", None))
@@ -2980,11 +3012,15 @@ class Ui_MainWindow(object):
         self.banknameLabel.setText(_translate("MainWindow", "Bank Name", None))
         self.accountnumLabel.setText(_translate("MainWindow", "Account No.", None))
         self.accountnameLabel.setText(_translate("MainWindow", "Account name", None))
-        self.bankdetailsLabel.setText(_translate("MainWindow", "Bank Details", None))
         self.vegRadioButton.setText(_translate("MainWindow", "Veg", None))
         self.nonvegRadioButton.setText(_translate("MainWindow", "Non-Veg", None))
-        self.submitPushButton.setText(_translate("MainWindow", "Submit", None))
-        self.updateentryCheckBox.setText(_translate("MainWindow", "Update Entry", None))
+        self.bankdetailsLabel.setText(_translate("MainWindow", "Bank Details", None))
+        self.enrolPushButton.setText(_translate("MainWindow", "Enroll", None))
+        self.enrolmentnumRadioButton.setText(_translate("MainWindow", "Enrolment No.", None))
+        self.aadhaarnumRadioButton.setText(_translate("MainWindow", "Aadhaar No.", None))
+        self.searchbyfieldLineEdit.setPlaceholderText(_translate("MainWindow", "Search by", None))
+        self.searchPushButton.setToolTip(_translate("MainWindow", "<html><head/><body><p>Click to search</p></body></html>", None))
+        self.searchPushButton.setText(_translate("MainWindow", "Search", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Enrol), _translate("MainWindow", "Enrolment form", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Enrol), _translate("MainWindow", "Enrolment form for NCC", None))
         self.specialAchievementsCheckBox.setText(_translate("MainWindow", "Special_Achievements", None))
@@ -3111,7 +3147,6 @@ class Ui_MainWindow(object):
         self.savedataPushButton.setText(_translate("MainWindow", "Save", None))
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Save as Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.UploadData), _translate("MainWindow", "Upload Data", None))
-
 
 from PyQt4 import QtWebKit
 import icon_res_rc

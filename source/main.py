@@ -293,6 +293,8 @@ class logic():
 
         ui.micrLineEdit.setValidator(QtGui.QDoubleValidator())
 
+        ui.aadhaarLineEdit.setValidator(QtGui.QDoubleValidator())
+
         ui.vegRadioButton.setChecked(True)
 
         ui.NullcertRadioButton.setChecked(True)
@@ -487,7 +489,7 @@ class logic():
         tup=ENROLMENT_FORM.enroll().execute(sql)
         if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
-                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number',
+                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
                                       'OK');
             return
 
@@ -535,7 +537,7 @@ class logic():
 
             ui.addressTextEdit.setStyleSheet('')
             print(len(ui.aadhaarLineEdit.displayText()))
-            if len(ui.aadhaarLineEdit.displayText().strip())!=14:
+            if len(ui.aadhaarLineEdit.displayText().strip())!=12:
                 proceed=False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           "\nValid Aadhaar Number should be 12 digits long.\n\n Please make sure that it's a valid 12 digit Aadhaar number",
@@ -740,8 +742,8 @@ font-weight:bold;
 
         if ui.aadhaarnumRadioButton.isChecked():
             self.field = 'Aadhar_Number'
-            if len(search_field_text)==12:
-                search_field_text = search_field_text[:4]+' '+search_field_text[4:8]+' '+search_field_text[8:]
+            # if len(search_field_text)==12:
+            #     search_field_text = search_field_text[:4]+' '+search_field_text[4:8]+' '+search_field_text[8:]
 
 
         elif ui.enrolmentnumRadioButton.isChecked():
@@ -826,14 +828,18 @@ font-weight:bold;
 
 
 
+
+
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
             ui.searchbyfieldLineEdit.clear();
-            ui.searchbyfieldLineEdit.setMaxLength(14)
+            ui.searchbyfieldLineEdit.setValidator(QtGui.QDoubleValidator())
+            ui.searchbyfieldLineEdit.setMaxLength(12)
 
         elif ui.enrolmentnumRadioButton.isChecked():
             ui.searchbyfieldLineEdit.clear()
             ui.searchbyfieldLineEdit.setMaxLength(1000)
+            ui.searchbyfieldLineEdit.setValidator(None)
 
 
 

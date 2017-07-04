@@ -302,7 +302,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-7</y>
+             <y>0</y>
              <width>1040</width>
              <height>1899</height>
             </rect>
@@ -2318,6 +2318,12 @@ font-weight:bold;
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>0</height>
+                </size>
                </property>
                <property name="font">
                 <font>

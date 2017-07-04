@@ -273,6 +273,7 @@ class logic():
 
         self.candidphoto=''
 
+
         ui.selectpicturePushButton.clicked.connect(self.picselect)
 
         ui.bloodgroupqueryComboBox.hide()
@@ -371,8 +372,8 @@ class logic():
 
         ui.NullcertRadioButton.setChecked(True)
 
-
-
+        if not os.path.exists(r'candidate photos'):
+            os.mkdir(r'candidate photos');
 
 
 
@@ -711,6 +712,8 @@ font-weight:bold;
 
         for i in ui.instFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox)):
             i.setDisabled(True);
+        ui.submitPushButton.hide()
+        ui.updateentryCheckBox.hide()
 
     def enable_form_elements(self):
 
@@ -724,6 +727,9 @@ font-weight:bold;
         for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
             i.setDisabled(False);
 
+        ui.submitPushButton.show()
+        ui.updateentryCheckBox.show()
+
 
     def display(self , obj): # this executes when the Search button is pressed
 
@@ -733,7 +739,7 @@ font-weight:bold;
                 return ;
 
             self.disable_form_elements() ;
-            ui.submitPushButton.hide()
+
 
 
         obj = ENROLMENT_FORM.enroll()

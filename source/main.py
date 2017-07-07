@@ -3,19 +3,26 @@ from PyQt4.QtGui import QDialog, QPushButton
 import ENROLMENT_FORM
 import os
 from userinterface import Ui_MainWindow, _fromUtf8
-import pandas as pd
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore, QtGui, QtWebKit
 import sqlite3
 import shutil
 import forms
-import append_excel
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 from tempfile import TemporaryFile
 from xlwt import Workbook
-
-import main
-import userinterface
-
 
 class append:
     book = Workbook()
@@ -115,7 +122,7 @@ class append:
         self.book.save(TemporaryFile())
 
     def form4(self,tup):
-        Camp_Nominal_roll = ['Enrolment_Number','Aadhar_Number','Rank', 'student_Name', "Fathers_Name",'Address'
+        Camp_Nominal_roll = ['Enrolment_Number','Aadhar_Number','Rank', 'student_Name', "Fathers_Name",'Address',
                              'Institution', 'Vegitarian','Bank_Name','Branch',
                              'Account_Name','Account_Number','IFSC_Code',
                              'Year of training','Able to swim or not']
@@ -219,13 +226,8 @@ class append:
             self.book.save('Forms.xls')
             self.book.save(TemporaryFile())
 
-
-
-
-
-
-class logic():
-    def __init__(self):
+class logic(QtCore.QObject):
+    def gs(self):
 
         ENROLMENT_FORM.enroll().create_table_Enrolment()
 
@@ -373,7 +375,77 @@ class logic():
         ui.NullcertRadioButton.setChecked(True)
 
         if not os.path.exists(r'candidate photos'):
-            os.mkdir(r'candidate photos');
+            os.mkdir(r'candidate photos')
+        ui.openPushButton.clicked.connect(self.openuploaddata)
+
+
+    def openuploaddata(self):
+        if ui.institutionuploaddatacomboBox.currentText() == "Select Institution":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
+                                      'Select any one Instituon from combo box.',
+                                      'OK')
+        elif ui.typecomboBox.currentText() == "Select Type":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
+                                      'Select the Type of Data you want to upload.',
+                                      'OK')
+        else:
+            spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+            ui.gridLayout_12.addItem(spacerItem15, 0, 2, 1, 1)
+
+            sql="""select Enrolment_Number from enrolment where Institution='"""+ui.institutionuploaddatacomboBox.currentText()+"'"
+            tup=ENROLMENT_FORM.enroll().execute(sql)
+            self.label=[]
+            self.lineEdit=[]
+            self.lineEditObjectnames=[]
+            self.labelObjectnames=[]
+            i=0
+            if len(tup)<1:
+                QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                          'There is no one student in the institution '+ui.institutionuploaddatacomboBox.currentText()+'.',
+                                          'OK')
+                return
+            else:
+                for i in range(len(tup)):
+                    for j in range(2):
+
+                        if i==0:
+                            if j==0:
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_2))
+                                self.label[i].setStyleSheet(_fromUtf8("background-color:darkorange;\n"
+                                                                      "color:white;\n"
+                                                                      "font-size:25px;font-weight:bold;\n"
+                                                                      ""))
+                                self.label[i].setObjectName(_fromUtf8("enrolmentuploaddataLabel" + str(i)))
+                                ui.gridLayout_12.addWidget(self.label[i], i, j, 1, 1)
+                                self.label[i].setText(_translate("MainWindow","Enrolment Numbers", None))
+                            elif j==1:
+                                self.lineEdit.append(QtGui.QLabel(ui.scrollAreaWidgetContents_2))
+                                self.lineEdit[i].setStyleSheet(_fromUtf8("background-color:darkorange;\n"
+                                                                      "color:white;\n"
+                                                                      "font-size:25px;font-weight:bold;\n"
+                                                                      ""))
+                                self.lineEdit[i].setObjectName(_fromUtf8("enrolmentuploaddataLabel" + str(i)))
+                                ui.gridLayout_12.addWidget(self.lineEdit[i], i, j, 1, 1)
+                                self.lineEdit[i].setText(_translate("MainWindow", ui.typecomboBox.currentText(), None))
+                        else:
+                            if j==0:
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_2))
+                                self.label[i].setStyleSheet(_fromUtf8("background-color:darkblue;font-size:15px;font-weight:bold;"
+                                                                      "height:30px;color:white;"))
+                                self.label[i].setObjectName(_fromUtf8("enrolmentuploaddataLabel"+str(i)))
+                                self.labelObjectnames.append("enrolmentuploaddataLabel"+str(i))
+                                ui.gridLayout_12.addWidget(self.label[i], i, j, 1, 1)
+                                self.label[i].setText(_translate("MainWindow", tup[i][0], None))
+                            elif j==1:
+                                self.lineEdit.append(QtGui.QLineEdit(ui.scrollAreaWidgetContents_2))
+                                self.lineEdit[i].setStyleSheet(_fromUtf8("background-color:darkgray;font-size:15px;font-weight:bold;"
+                                                                      "height:30px;color:white;"))
+                                self.lineEdit[i].setObjectName(_fromUtf8("uploaddatalineEdit" + str(i)))
+                                self.lineEditObjectnames.append("uploaddatalineEdit" + str(i))
+                                ui.gridLayout_12.addWidget(self.lineEdit[i], i, j, 1, 1)
+                spacerItem16 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+                ui.gridLayout_12.addItem(spacerItem16, i+1, 2, 1, 1)
+
 
 
 
@@ -829,7 +901,7 @@ font-weight:bold;
         ui.accountnameLineEdit.setText(tuple[22])
         ui.ifsccodeLineEdit.setText(tuple[23])
         ui.micrLineEdit.setText(str(tuple[24]))
-        ui.institutionComboBox.setCurrentIndex(ui.institutionComboBox.findText(tuple[25]))
+        ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
 
 
@@ -886,7 +958,7 @@ font-weight:bold;
 
         self.ifsccode = ui.ifsccodeLineEdit.displayText()
 
-        self.institutionname = ui.institutionComboBox.currentText()
+        self.institutionname = ui.institutionenrollComboBox.currentText()
 
         self.unit = ui.unitLineEdit.displayText()
 
@@ -1460,6 +1532,9 @@ font-weight:bold;
                                       '\nPlease select any one of the fields.',
                                       'OK')
 
+    @QtCore.pyqtSlot(str)
+    def pri(self,msg):
+        print(msg)
 
 if __name__ == "__main__":
     import sys
@@ -1472,7 +1547,9 @@ if __name__ == "__main__":
 
     ui.setupUi(MainWindow)
 
-    myobj = logic();
+    myobj = logic()
+
+    myobj.gs()
 
     MainWindow.show()
 

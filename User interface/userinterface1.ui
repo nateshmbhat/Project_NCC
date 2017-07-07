@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
-    <height>927</height>
+    <width>844</width>
+    <height>628</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -86,7 +86,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -303,7 +303,7 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1040</width>
+             <width>785</width>
              <height>1899</height>
             </rect>
            </property>
@@ -406,7 +406,7 @@ background-color:transparent;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="../Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
+                 <pixmap resource="../Documents/CODES/ncc/Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -678,7 +678,7 @@ color:white;</string>
                 </spacer>
                </item>
                <item row="0" column="4">
-                <widget class="QComboBox" name="institutionComboBox">
+                <widget class="QComboBox" name="institutionenrollComboBox">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -4747,7 +4747,7 @@ background-color:transparent;</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_7">
               <item>
-               <widget class="QComboBox" name="institutioncomboBox">
+               <widget class="QComboBox" name="institutionuploaddatacomboBox">
                 <property name="font">
                  <font>
                   <pointsize>-1</pointsize>
@@ -4764,6 +4764,16 @@ color: rgb(0, 0, 127);</string>
                 <item>
                  <property name="text">
                   <string>Select Institution</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SIT</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sarvodaya PU College</string>
                  </property>
                 </item>
                </widget>
@@ -4866,15 +4876,34 @@ border-radius:12px;
             </widget>
            </item>
            <item>
-            <widget class="QWebView" name="webView_3">
+            <widget class="QScrollArea" name="scrollArea_2">
+             <property name="minimumSize">
+              <size>
+               <width>784</width>
+               <height>422</height>
+              </size>
+             </property>
              <property name="styleSheet">
               <string notr="true">background-color:transparent;</string>
              </property>
-             <property name="url">
-              <url>
-               <string>about:blank</string>
-              </url>
+             <property name="widgetResizable">
+              <bool>true</bool>
              </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>782</width>
+                <height>420</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <layout class="QGridLayout" name="gridLayout_12"/>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item>
@@ -4974,7 +5003,8 @@ border-width:2px;
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Icons/icon_res.qrc"/>
+  <include location="../Documents/CODES/ncc/Icons/icon_res.qrc"/>
+  <include location="../Documents/CODES/ncc/Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

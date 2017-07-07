@@ -1,4 +1,3 @@
-<<<<<<< HEAD:source/All candidate details.csv
 ,Enrolment_Number,Rank,Aadhar_Number,student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit
 0,kar1,Lance Corporal (LCPL),7456 3453 4523,dlasfds,APPANNA,AMMAMMA,Male,01/Jan/2000,afdasfdasfdasf,,3463453534,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,tygh
 1,kar2,Cadet (CDT),232323232323,asdf,dsfadsf,dsfdas,Female,01/Jan/2000,asdfsadfa,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdf
@@ -6,12 +5,6 @@
 3,kar4,Cadet (CDT),2224 2325 42  ,Natesh,appa,amma,Female,01/Jan/2000,"address,hello its me	",,8933289348,O+,NULL,NULL,asdfds,fdasfdas,01/Jan/2000,dsfdsgadsgadsgff,veg,dsfghad,afasf,dasfdsfds,34543534534,sdfgdg43534,233434345,Sarvodaya PU College,kadfs
 4,dads,Cadet (CDT),3242 3423 4242,dsadfs,adfsf,dfas,Male,01/Jan/2000,dasfdsf,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,dasfadsf
 5,dasf,Lance Corporal (LCPL),2093 4782 7342,natesh,appa,amma,Male,01/Jan/2000,afdasfdasfdasf,,4444444444,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,kjhv
-=======
-,Enrolment_Number,Rank,Aadhar_Number,student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit
-0,kar1,Lance Corporal (LCPL),7456 3453 4523,dlasfds,APPANNA,AMMAMMA,Male,01/Jan/2000,afdasfdasfdasf,,3463453534,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,tygh
-1,kar2,Cadet (CDT),232323232323,asdf,dsfadsf,dsfdas,Female,01/Jan/2000,asdfsadfa,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdf
-2,kar3,Cadet (CDT),232323232323,asdf,dsfadsf,dsfdas,Female,01/Jan/2000,asdfsadfa,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdf
-3,kar4,Cadet (CDT),2224 2325 42  ,Natesh,appa,amma,Female,01/Jan/2000,"address,hello its me	",,8933289348,O+,NULL,NULL,asdfds,fdasfdas,01/Jan/2000,dsfdsgadsgadsgff,veg,dsfghad,afasf,dasfdsfds,34543534534,sdfgdg43534,233434345,Sarvodaya PU College,kadfs
-4,dads,Cadet (CDT),3242 3423 4242,dsadfs,adfsf,dfas,Male,01/Jan/2000,dasfdsf,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,dasfadsf
-5,dasf,Lance Corporal (LCPL),2093 4782 7342,natesh,appa,amma,Male,01/Jan/2000,afdasfdasfdasf,,4444444444,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,kjhv
->>>>>>> ae1b642c28e2080a3349dee7950fbc90dc02be70:source/All candidate details.csv
+6,abcd,Cadet (CDT),444444444444,Natesh,bhat,amma,Male,01/Jan/2000,hklfdksafkds,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,fasfsdfds
+7,abcde,Corporal (CPL),123456456123,Natesh,Hi,Hello,Male,01/Jan/2000,				dasfadsfdsf,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdfsfd
+8,hjg,Cadet (CDT),345555555555,dsafdsf,dasfdasfdasf,dsfdsf,Male,01/Jan/2000,fdasfasdfasd,,,O+,NULL,NULL,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,fdasfdsf

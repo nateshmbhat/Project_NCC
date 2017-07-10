@@ -60,11 +60,12 @@ class enroll:
     def create_table_marks_A_cert(self):
         self.conn=sqlite3.connect("ncc.db")
         self.cur=self.conn.cursor()
-        sql="""create table if not exist A_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
-        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
-        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
-        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
-        Part4_SplSubjects_Total int(3),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        sql="""create table if not exists A_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar,
+        Rank varchar,Stident_Name varchar,Fathers_Name varchar,Date_Of_Birth date,Enrol_Date date,Cams_Attended varchar,
+        Date_Of_Discharge date,Parade_Attendance_Year1 varchar,Parade_Attendance_Year2 varchar,Part1_Drill_Written varchar,
+        Part1_Drill_Practical varchar,Part1_Drill_Total varchar,Part2_WT_Written varchar,Part2_WT_Practical varchar,
+        Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
+        Part4_SplSubjects_Total varchar,GrandTotal varchar,Granding varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
         print("table created sucessfully")
         self.conn.commit()
@@ -72,11 +73,12 @@ class enroll:
     def create_table_marks_B_cert(self):
         self.conn=sqlite3.connect("ncc.db")
         self.cur=self.conn.cursor()
-        sql="""create table if not exist B_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
-        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
-        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
-        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
-        Part4_SplSubjects_Total int(3),Bonus_Marks_Certificate_A int(2),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        sql="""create table if not exists B_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
+        Rank varchar,Stident_Name varchar,Fathers_Name varchar,Date_Of_Birth date,Enrol_Date date,Cams_Attended varchar,
+        Date_Of_Discharge date,Parade_Attendance_Year1 varchar,Parade_Attendance_Year2 varchar,Part1_Drill_Written varchar,
+        Part1_Drill_Practical varchar,Part1_Drill_Total varchar,Part2_WT_Written varchar,Part2_WT_Practical varchar,
+        Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
+        Part4_SplSubjects_Total varchar,Bonus_Marks_Certificate intvarchar,GrandTotal varchar,Granding varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
         print("table created sucessfully")
         self.conn.commit()
@@ -84,11 +86,12 @@ class enroll:
     def create_table_marks_C_cert(self):
         self.conn=sqlite3.connect("ncc.db")
         self.cur=self.conn.cursor()
-        sql="""create table if not exist C_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
-        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
-        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
-        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
-        Part4_SplSubjects_Total int(3),Bonus_Marks_Certificate_A int(2),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        sql="""create table if not exists C_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
+        Rank varchar,Stident_Name varchar,Fathers_Name varchar,Date_Of_Birth date,Enrol_Date date,Cams_Attended varchar,
+        Date_Of_Discharge date,Parade_Attendance_Year1 varchar,Parade_Attendance_Year2 varchar,Part1_Drill_Written varchar,
+        Part1_Drill_Practical varchar,Part1_Drill_Total varchar,Part2_WT_Written varchar,Part2_WT_Practical varchar,
+        Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
+        Part4_SplSubjects_Total varchar,Bonus_Marks_Certificate intvarchar,GrandTotal varchar,Granding varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
         print("table created sucessfully")
         self.conn.commit()
@@ -119,3 +122,18 @@ class enroll:
         self.cur = self.conn.cursor()
         self.cur.execute(sql)
         return(self.cur.fetchall())
+    def insertionexecute(self,sql):
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        self.cur.execute(sql)
+        self.conn.commit()
+        print("sucessfully inserted")
+        self.conn.close()
+    def delete_by_Enrolment(self,table,enrolment_no):
+        sql="delete from "+table +" where Enrolment_Number='"+enrolment_no+"'"
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        self.cur.execute(sql)
+        self.conn.commit()
+        print("sucessfully inserted")
+        self.conn.close()

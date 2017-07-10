@@ -23,187 +23,111 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 from tempfile import TemporaryFile
-from xlwt import Workbook
+from openpyxl import Workbook
 
 class append:
-    book = Workbook()
-    def insert(self,tuple,n):
-        if n is 1:
-            self.form1(tuple)
-        elif n is 2:
-            self.form2(tuple)
-        elif n is 3:
-            self.form3(tuple)
-        elif n is 4:
-            self.form4(tuple)
-        elif n is 5:
-            self.form5(tuple)
-        elif n is 6:
-            self.form6(tuple)
-        elif n is 7:
-            self.form7(tuple)
-        elif n is 8:
-            self.form8(tuple)
+    CADET_DETAILS = ['Enrolment_Number', 'Aadhar_Number', 'student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+                     'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
+                     'Unit']
+    YOGA_DAY = ['Rank', 'Student_name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
+    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_name', "Fathers_name",
+                              "Date_of_Birth", "Institution", 'Address', 'Mobile', 'Aadhar',
+                              'Bank_Name', 'Branch', 'IFSC_code', 'Account_Name', 'Account_Number', 'MICR',
+                              'Certificate', 'Camps_Attended', 'Extra_Curricular_Activities',
+                              'Special_Achievements', 'Email', 'Blood Blood_Group', 'Remarks', 'course grading']
+    Camp_Nominal_roll = ['Enrolment_Number', 'Aadhar_Number', 'Rank', 'student_Name', "Fathers_Name", 'Address',
+                         'Institution', 'Vegitarian', 'Bank_Name', 'Branch',
+                         'Account_Name', 'Account_Number', 'IFSC_Code',
+                         'Year of training', 'Able to swim or not']
+    Scholarship_NR = ['Enrolment_Number', 'Rank', 'Unit', 'Institution', 'Bank_Name', 'Branch', 'Account_Name',
+                      'Account_Number', 'IFSC_Code', 'MICR'
+        , 'SC', 'ST', 'OBC', 'Period of Trg', 'Examination on pass Date/Month/Year',
+                      'Science,Arts,Commerce in case of stream SD/SW cadets only', 'Maximum marks', 'Minimum marks',
+                      'Percentage', '10% Bonus marks secured to SC/ST/OBC applicant', '% of marks', 'Position obtained']
+    A_certe_NR_for_High_school_JDJW = ['Enrolment_Number', 'Rank', 'student_Name',
+                                       "Fathers_Name", "Date_Of_Birth", 'Enrol_Date',
+                                       'Date of Discharge', 'Details of Camps attended',
+                                       'Parade Attendance% Year I', 'Parade Attendance% Year II',
+                                       'Part-I-Drill written(30)', 'Part-I-Drill practical(60)',
+                                       'Part-I-Drill Total(90)', 'Part-II:WT Written(40)',
+                                       'Part-II:WT Practical(20)', 'Part-II:WT Total(60)',
+                                       'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(115)',
+                                       'Part-IV:Spl Subjects practical(30)', 'Part-IV:Spl Subjects Total(150)',
+                                       'Grand Total(500)', 'Grading',
+                                       'Signature of cadet: Written common subject',
+                                       'Signature of cadet: Written Spl subject',
+                                       'Signature of cadet: Practical']
+    B_certe_NR_SDSW = ['Enrolment_Number.', 'Rank', 'student_Name', "Fathers_Name",
+                       "Date_Of_Birth", 'Enrol_Date', 'Photo'
+        , 'Date of Discharge', 'Details of Camps attended',
+                       'Parade Attendance% Year I', 'Parade Attendance% Year II',
+                       'Part-I-Drill written(10)', 'Part-I-Drill practical(80)', 'Part-I-Drill Total(90)',
+                       'Part-II:WT Written(35)', 'Part-II:WT Practical(25)', 'Part-II:WT Total(60)',
+                       'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(105)',
+                       'Part-IV:Spl Subjects practical(45)', 'Part-IV:Spl Subjects Total(150)',
+                       'Bonus Marks Certific', 'Grand Total(500)', 'Grading',
+                       'Signature of cadet: Written common subject', 'Signature of cadet: Written Spl subject',
+                       'Signature of cadet: Practical']
+    C_certe_NR_SDSW = ['Enrolment_Number.', 'Rank', 'student_Name', "Fathers_Name",
+                       "Date_Of_Birth", 'Enrol_Date', 'Photo',
+                       'Date of Discharge', 'Details of Camps attended',
+                       'Parade Attendance% III Year', 'Part-I-Drill written(10)',
+                       'Part-I-Drill practical(50)', 'Part-I-Drill Total(60)', 'Part-II:WT Written(10)',
+                       'Part-II:WT Practical(55)', 'Part-II:WT Total(65)', 'Part-III:Misc written(225)',
+                       'Part-IV:Spl Subjects written(105)', 'Part-IV:Spl Subjects practical(45)',
+                       'Part-IV:Spl Subjects Total(150)', 'Grand Total(500)', 'Bonus Marks max-Total-50',
+                       'Grading', 'Signature of cadet: Written common subject',
+                       'Signature of cadet: Written Spl subject', 'Signature of cadet: Practical']
 
+    def insert(self,tup,n,filename):
+        book = Workbook()
+        sheet = book.active
+        if n==1:
+            for i in range(len(self.CADET_DETAILS)):
+                sheet.cell(row=1, column=i + 1).value = self.CADET_DETAILS[i]
+        elif n==2:
+            for i in range(len(self.YOGA_DAY)):
+                sheet.cell(row=1, column=i + 1).value = self.YOGA_DAY[i]
+        elif n==3:
+            for i in range(len(self.Enrolment_Nominal_roll)):
+                sheet.cell(row=1, column=i + 1).value = self.Enrolment_Nominal_roll[i]
+        elif n==4:
+            for i in range(len(self.Camp_Nominal_roll)):
+                sheet.cell(row=1, column=i + 1).value = self.Camp_Nominal_roll[i]
+        elif n==5:
+            for i in range(len(self.Scholarship_NR)):
+                sheet.cell(row=1, column=i + 1).value = self.Scholarship_NR[i]
+        elif n==6:
+            for i in range(len(self.A_certe_NR_for_High_school_JDJW)):
+                sheet.cell(row=1, column=i + 1).value = self.A_certe_NR_for_High_school_JDJW[i]
+        elif n==7:
+            for i in range(len(self.B_certe_NR_SDSW)):
+                sheet.cell(row=1, column=i + 1).value = self.B_certe_NR_SDSW[i]
+        elif n==8:
+            for i in range(len(self.C_certe_NR_SDSW)):
+                sheet.cell(row=1, column=i + 1).value = self.C_certe_NR_SDSW[i]
 
-
-    def form1(self,tup):
-        CADET_DETAILS = ['Enrolment_Number', 'Aadhar_Number', 'student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
-                         'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
-                         'Unit']
-        len_cadet_details = len(CADET_DETAILS)
-        print(len_cadet_details)
-        sheet = self.book.add_sheet('YOGA DAY')
-        for i in range(len_cadet_details):
-            sheet.write(0, i, CADET_DETAILS[i])
         for i in range(len(tup)):
             for j in range(len(tup[i])):
-                sheet.write(i + 1, j, str(tup[i][j]))
-        self.book.save(TemporaryFile())
+                sheet.cell(row=i + 2, column=j+1).value= str(tup[i][j])
+        book.save(filename)
+        book.save(TemporaryFile())
+    def insertupdate(self,tup,n,filename):
+        book=openpyxl.load_workbook(filename)
+        sheet = book.active
+        for i in tup:
+            sheet.append(i)
+        book.save(filename)
+        book.save(TemporaryFile())
 
-        self.book.save(TemporaryFile())
-
-    def form2(self, tup):
-        YOGA_DAY = ['Rank', 'Student_name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
-        len_YOGA_DAY = len(YOGA_DAY)
-        print(len_YOGA_DAY)
-        sheet = self.book.add_sheet('YOGA DAY')
-        for i in range(len_YOGA_DAY):
-            sheet.write(0, i, YOGA_DAY[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i+1,j,str(tup[i][j]))
-        self.book.save('Forms.xls')
-        self.book.save(TemporaryFile())
-
-    def form3(self,tup):
-        Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_name', "Fathers_name",
-                                  "Date_of_Birth","Institution", 'Address', 'Mobile', 'Aadhar',
-                                  'Bank_Name', 'Branch', 'IFSC_code','Account_Name', 'Account_Number', 'MICR',
-                                  'Certificate','Camps_Attended', 'Extra_Curricular_Activities',
-                                  'Special_Achievements','Email','Blood Blood_Group','Remarks', 'course grading']
-        len_Enrolment_Nominal_roll = len(Enrolment_Nominal_roll)
-        print(len_Enrolment_Nominal_roll)
-        sheet = self.book.add_sheet('Enrolment Nominal roll')
-        for i in range(len_Enrolment_Nominal_roll):
-            sheet.write(0, i, Enrolment_Nominal_roll[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i+1,j,str(tup[i][j]))
-        self.book.save('Forms.xls')
-        self.book.save(TemporaryFile())
-
-    def form4(self,tup):
-        Camp_Nominal_roll = ['Enrolment_Number','Aadhar_Number','Rank', 'student_Name', "Fathers_Name",'Address',
-                             'Institution', 'Vegitarian','Bank_Name','Branch',
-                             'Account_Name','Account_Number','IFSC_Code',
-                             'Year of training','Able to swim or not']
-        len_Camp_Nominal_roll = len(Camp_Nominal_roll)
-        print(len_Camp_Nominal_roll)
-        sheet = self.book.add_sheet('Camp Nominal roll')
-        for i in range(len_Camp_Nominal_roll):
-            sheet.write(0, i, Camp_Nominal_roll[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i+1,j,str(tup[i][j]))
-            self.book.save('Forms.xls')
-            self.book.save(TemporaryFile())
-
-    def form5(self,tup):
-        Scholarship_NR =['Enrolment_Number','Rank', 'Unit','Institution','Bank_Name','Branch','Account_Name',
-                         'Account_Number','IFSC_Code','MICR'
-                          ,'SC','ST','OBC', 'Period of Trg', 'Examination on pass Date/Month/Year',
-                          'Science,Arts,Commerce in case of stream SD/SW cadets only', 'Maximum marks','Minimum marks',
-                          'Percentage', '10% Bonus marks secured to SC/ST/OBC applicant', '% of marks','Position obtained']
-        len_Scholarship_NR = len(Scholarship_NR)
-        print(len_Scholarship_NR)
-        sheet = self.book.add_sheet('Scholarship NR')
-        for i in range(len_Scholarship_NR):
-            sheet.write(0, i, Scholarship_NR[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i+1,j,str(tup[i][j]))
-            self.book.save('Forms.xls')
-            self.book.save(TemporaryFile())
-
-    def form6(self,tup):
-        A_certe_NR_for_High_school_JDJW = ['Enrolment_Number',  'Rank', 'student_Name',
-                                           "Fathers_Name", "Date_Of_Birth", 'Enrol_Date',
-                                           'Date of Discharge', 'Details of Camps attended',
-                                           'Parade Attendance% Year I', 'Parade Attendance% Year II',
-                                           'Part-I-Drill written(30)', 'Part-I-Drill practical(60)',
-                                           'Part-I-Drill Total(90)', 'Part-II:WT Written(40)',
-                                           'Part-II:WT Practical(20)', 'Part-II:WT Total(60)',
-                                           'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(115)',
-                                           'Part-IV:Spl Subjects practical(30)', 'Part-IV:Spl Subjects Total(150)',
-                                           'Grand Total(500)', 'Grading',
-                                           'Signature of cadet: Written common subject',
-                                           'Signature of cadet: Written Spl subject',
-                                           'Signature of cadet: Practical']
-        len_A_certe_NR_for_High_school_JDJW = len(A_certe_NR_for_High_school_JDJW)
-        print(len_A_certe_NR_for_High_school_JDJW)
-        sheet = self.book.add_sheet('A certe NR for High school JDJW')
-        for i in range(len_A_certe_NR_for_High_school_JDJW):
-            sheet.write(0, i, A_certe_NR_for_High_school_JDJW[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i+1,j,str(tup[i][j]))
-            self.book.save('Forms.xls')
-            self.book.save(TemporaryFile())
-
-
-
-    def form7(self,tup):
-        B_certe_NR_SDSW = ['Enrolment_Number.','Rank', 'student_Name', "Fathers_Name",
-                           "Date_Of_Birth", 'Enrol_Date', 'Photo'
-                            ,'Date of Discharge', 'Details of Camps attended',
-                           'Parade Attendance% Year I', 'Parade Attendance% Year II',
-                           'Part-I-Drill written(10)', 'Part-I-Drill practical(80)', 'Part-I-Drill Total(90)',
-                           'Part-II:WT Written(35)', 'Part-II:WT Practical(25)', 'Part-II:WT Total(60)',
-                           'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(105)',
-                           'Part-IV:Spl Subjects practical(45)', 'Part-IV:Spl Subjects Total(150)',
-                           'Bonus Marks Certific', 'Grand Total(500)', 'Grading',
-                           'Signature of cadet: Written common subject', 'Signature of cadet: Written Spl subject',
-                           'Signature of cadet: Practical']
-        len_B_certe_NR_SDSW = len(B_certe_NR_SDSW)
-        print(len_B_certe_NR_SDSW)
-        sheet = self.book.add_sheet('B_certe_NR_SDSW')
-        for i in range(len_B_certe_NR_SDSW):
-            sheet.write(0, i, B_certe_NR_SDSW[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i + 1, j, str(tup[i][j]))
-            self.book.save('Forms.xls')
-            self.book.save(TemporaryFile())
-
-    def form8(self,tup):
-        C_certe_NR_SDSW = ['Enrolment_Number.', 'Rank', 'student_Name', "Fathers_Name",
-                           "Date_Of_Birth", 'Enrol_Date','Photo',
-                           'Date of Discharge', 'Details of Camps attended',
-                           'Parade Attendance% III Year',  'Part-I-Drill written(10)',
-                           'Part-I-Drill practical(50)', 'Part-I-Drill Total(60)', 'Part-II:WT Written(10)',
-                           'Part-II:WT Practical(55)', 'Part-II:WT Total(65)', 'Part-III:Misc written(225)',
-                           'Part-IV:Spl Subjects written(105)', 'Part-IV:Spl Subjects practical(45)',
-                           'Part-IV:Spl Subjects Total(150)', 'Grand Total(500)', 'Bonus Marks max-Total-50',
-                           'Grading', 'Signature of cadet: Written common subject',
-                           'Signature of cadet: Written Spl subject', 'Signature of cadet: Practical']
-        len_C_certe_NR_SDSW = len(C_certe_NR_SDSW)
-        print(len_C_certe_NR_SDSW)
-        sheet = self.book.add_sheet('C_certe_NR_SDSW')
-        for i in range(len_C_certe_NR_SDSW):
-            sheet.write(0, i, C_certe_NR_SDSW[i])
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.write(i + 1, j, str(tup[i][j]))
-            self.book.save('Forms.xls')
-            self.book.save(TemporaryFile())
-
-
-
-class logic:
+class logic():
     def __init__(self):
         ui.save_data_excelPushButton.hide()
+        ENROLMENT_FORM.enroll().create_table_marks_A_cert()
 
+        ENROLMENT_FORM.enroll().create_table_marks_B_cert()
+
+        ENROLMENT_FORM.enroll().create_table_marks_C_cert()
         ENROLMENT_FORM.enroll().create_table_Enrolment()
 
         ui.NullcertRadioButton.setChecked(True)
@@ -343,7 +267,6 @@ class logic:
 
         if not os.path.exists(r'candidate photos'):
             os.mkdir(r'candidate photos')
-
         ui.openPushButton.clicked.connect(self.openuploaddata)
 
         ui.savedataPushButton.clicked.connect(self.saveuploadeddata)
@@ -352,110 +275,122 @@ class logic:
 
         ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
 
-        self.set_institutions_list()
+        ui.appendDataPushButton.clicked.connect(self.appenddata)
 
-        ui.settings_addinstitutionPushButton.clicked.connect(lambda : (ui.settings_addinstitutionPushButton.hide(),ui.removeinstitutionPushButton.hide(),ui.settings_instLineEdit.show(),ui.settings_addPushButton.show(),ui.settings_backinstPushButton.show()))
-
-        ui.settings_addPushButton.clicked.connect(lambda:self.institution_add_or_remove(ui.settings_addPushButton))
-
-        ui.removeinstitutionPushButton.clicked.connect(lambda:self.institution_add_or_remove(ui.removeinstitutionPushButton))
-
-        ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
-
-
-
-
-
-
-
-
-    def institution_add_or_remove(self , button):
-        if button.text()=='Add':
-            if not ui.settings_instLineEdit.displayText():
-                QtGui.QMessageBox.warning(ui.Settings,"Empty field",'\n\nPlease enter an institution name and click "Add" to add it to the present list',"OK")
-                return
-
-            inst_name = ui.settings_instLineEdit.displayText()
-            with open('institutions.txt','a') as f:
-                f.write('\n'+inst_name);
-
-            self.set_institutions_list()
-
-
-        if button.text()=='Remove':
-
-            selectedItem= ui.settings_institutionListWidget.currentItem()
-            if not selectedItem:
-                QtGui.QMessageBox.warning(ui.Settings, "Nothing Selected",
-                                          '\n\nPlease select an institution first, to remove it.',
-                                          "OK")
-                return
-
-
-            if QtGui.QMessageBox.question(ui.Settings,"Are you sure ?",'\n\nAre you sure you want to remove this Institution from the list of institutions ? \nThe changes are irreversible ! \nClick "Yes" to remove it.','Yes','No') == 0:
-                with open('institutions.txt','r') as f:
-                    instlist = []
-                    for i in f:
-                        instlist.append(i.strip())
-
-            selected_text = selectedItem.text()
-            instlist.remove(selected_text)
-
-            with open('institutions.txt','w') as f:
-                f.writelines("\n".join(instlist))
-                f.truncate()
-            self.set_institutions_list()
-
-
-
-
-
-    def set_institutions_list(self):
-        ui.settings_institutionListWidget.clear()
-        ui.settings_addinstitutionPushButton.show()
-        ui.removeinstitutionPushButton.show()
-        ui.settings_backinstPushButton.show()
-
-        with open('institutions.txt','r+') as f:
-            instlist = []
-            for i in f:
-                instlist.append(i.strip())
-
-        ui.settings_institutionListWidget.setSpacing(3)
-        for inst in instlist:
-            item = QtGui.QListWidgetItem()
-            item.setText(inst)
-            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
-            font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Garamond"))
-            font.setPointSize(15)
-            font.setBold(True)
-            font.setWeight(75)
-            item.setFont(font)
-            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-            brush.setStyle(QtCore.Qt.Dense3Pattern)
-            item.setBackground(brush)
-            ui.settings_institutionListWidget.addItem(item)
-
-        ui.settings_instLineEdit.hide()
-        ui.settings_addPushButton.hide()
-        ui.settings_backinstPushButton.hide()
-
-
-
+        ui.updateExelPushButton.clicked.connect(self.fun1)
 
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Add Camps" or ui.typecomboBox.currentText()=="Add Remarks" or ui.typecomboBox.currentText()=="Add Extra Activities":
             ui.save_data_excelPushButton.hide()
         else:
             ui.save_data_excelPushButton.show()
+
+    def appenddata(self):
+        check=[]
+        if ui.typecomboBox.currentText() == "Upload Marks(A)":
+            check = "select * from A_cert_marks where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'"
+        if ui.typecomboBox.currentText() == "Upload Marks(B)":
+            check = "select * from B_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+        if ui.typecomboBox.currentText() == "Upload Marks(C)":
+            check = "select * from C_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+        tup = ENROLMENT_FORM.enroll().execute(check)
+        print(tup)
+
+        data = []
+        for i in range(len(self.lineEditObjectnames)):
+            data.append([])
+            for j in range(len(self.lineEditObjectnames[i])):
+                txt = self.lineEdit[i][j].text()
+                data[i].append(txt)
+        for i in range(len(data)):
+            flag=0
+            sql=""
+            for k in range(len(data)):
+                if len(data[k]) < 1:
+                    continue
+                for l in range(len(tup)):
+                    if tup[l][0] == data[k][0]:
+                        flag=1
+            if flag==0:
+                if len(data[i]) < 1:
+                    continue
+                if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                    sql = "insert into A_cert_marks values("
+                if ui.typecomboBox.currentText() == "Upload Marks(B)":
+                    sql = "insert into B_cert_marks values("
+                if ui.typecomboBox.currentText() == "Upload Marks(C)":
+                    sql = "insert into C_cert_marks values("
+
+                for j in range(len(data[i])):
+                    sql = sql + "'" + data[i][j] + "',"
+                sql = sql + "'" + ui.institutionuploaddatacomboBox.currentText() + "')"
+                ENROLMENT_FORM.enroll().insertionexecute(sql)
+                print(sql)
+            else:
+                if len(data[i]) < 1:
+                    continue
+                if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                    ENROLMENT_FORM.enroll().delete_by_Enrolment("A_cert_marks",data[i][0])
+                if ui.typecomboBox.currentText() == "Upload Marks(B)":
+                    ENROLMENT_FORM.enroll().delete_by_Enrolment("B_cert_marks", data[i][0])
+                if ui.typecomboBox.currentText() == "Upload Marks(C)":
+                    ENROLMENT_FORM.enroll().delete_by_Enrolment("C_cert_marks", data[i][0])
+
+                if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                    sql = "insert into A_cert_marks values("
+                if ui.typecomboBox.currentText() == "Upload Marks(B)":
+                    sql = "insert into B_cert_marks values("
+                if ui.typecomboBox.currentText() == "Upload Marks(C)":
+                    sql = "insert into C_cert_marks values("
+
+                for j in range(len(data[i])):
+                    sql = sql + "'" + data[i][j] + "',"
+                sql = sql + "'" + ui.institutionuploaddatacomboBox.currentText() + "')"
+                ENROLMENT_FORM.enroll().insertionexecute(sql)
+                print(sql)
+
     def saveuploadeddata(self):
+        check = []
+        if ui.typecomboBox.currentText() == "Upload Marks(A)":
+            check = "select * from A_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+        if ui.typecomboBox.currentText() == "Upload Marks(B)":
+            check = "select * from B_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+        if ui.typecomboBox.currentText() == "Upload Marks(C)":
+            check = "select * from C_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+        tup = ENROLMENT_FORM.enroll().execute(check)
+        print(tup)
+
         data=[]
         for i in range(len(self.lineEditObjectnames)):
             data.append([])
             for j in range(len(self.lineEditObjectnames[i])):
                 txt=self.lineEdit[i][j].text()
                 data[i].append(txt)
+        for i in range(len(data)):
+            if len(data[i])<1:
+                continue
+            for j in range(len(tup)):
+                if tup[j][0]==data[i][0]:
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
+                                              'Marks for some enrolment numbers already exist \nIf you want to add\nplease use append.',
+                                              'OK')
+                    return
+        sql=""
+        for i in range(len(data)):
+            if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                sql = "insert into A_cert_marks values("
+            if ui.typecomboBox.currentText() == "Upload Marks(B)":
+                sql = "insert into B_cert_marks values("
+            if ui.typecomboBox.currentText() == "Upload Marks(C)":
+                sql = "insert into C_cert_marks values("
+            if len(data[i])<1:
+                continue
+            for j in range(len(data[i])):
+                sql=sql+"'"+data[i][j]+"',"
+            sql=sql+"'"+ui.institutionuploaddatacomboBox.currentText()+"')"
+            ENROLMENT_FORM.enroll().insertionexecute(sql)
+            print(sql)
+
     def saveexceluploadeddata(self):
         self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
         data=[]
@@ -488,8 +423,6 @@ class logic:
     lineEdit = []
     lineEditObjectnames = []
     labelObjectnames = []
-
-
     def openuploaddata(self):
 
         for i in range(len(self.label)):
@@ -514,7 +447,18 @@ class logic:
             sql1 = """select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
             tup=ENROLMENT_FORM.enroll().execute(sql)
             tup1=ENROLMENT_FORM.enroll().execute(sql1)
+            sql2=""
 
+            if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                sql2 = """select Enrolment_Number from A_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            elif ui.typecomboBox.currentText() == "Upload Marks(B)":
+                sql2 = """select Enrolment_Number from B_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            elif ui.typecomboBox.currentText() == "Upload Marks(C)":
+                sql2 = """select Enrolment_Number from C_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            self.tupple=ENROLMENT_FORM.enroll().execute(sql2)
+            print(tup)
+            print(tup1)
+            print(self.tupple)
             self.labelheading3 = [['Enrolment_Number', 'Rool_Number', 'Rank               ', 'Student_Name', 'Fathers_name', 'Date_Of_Birth',
                            'Enrol_Date',  'Camps_Attended','Date_Of_Discharge','1 year','2 year','Written(30)',
                            'Practical(60)','Total(90)','Written(40)','Practical(20)','Total(60)','Written(200)','Written(115)',
@@ -545,8 +489,9 @@ class logic:
                 return
             else:
                 if self.position == 0 or self.position == 1 or self.position == 2:
-
+                    self.flag=0
                     for i in range(len(tup)+2):
+                        self.flag=0
                         self.lineEdit.append([])
                         self.lineEditObjectnames.append([])
                         if i == 0:
@@ -577,6 +522,23 @@ class logic:
                                 self.label[len(self.label) - 1].setText(
                                     _translate("MainWindow", self.labelheading2[self.position][p], None))
                             continue
+                        k=l=0
+                        for k in range(len(tup)):
+                            for l in range(len(self.tupple)):
+                                if tup[k][0]==self.tupple[l][0]:
+                                    self.flag=1
+                                    sql3=""
+                                    if ui.typecomboBox.currentText() == "Upload Marks(A)":
+                                        sql3="select * from A_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
+                                    elif ui.typecomboBox.currentText() == "Upload Marks(B)":
+                                        sql3 = "select * from B_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
+                                    elif ui.typecomboBox.currentText() == "Upload Marks(C)":
+                                        sql3 = "select * from C_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
+                                    self.find=ENROLMENT_FORM.enroll().execute(sql3)
+                                    break
+
+                            if self.flag==1:
+                                break
                         for j in range(len(self.labelheading3[self.position])):
                             if i == 2:
                                 self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
@@ -606,20 +568,32 @@ class logic:
 
                                 self.lineEditObjectnames[i].append("uploaddatalineEdit" + str(i))
                                 ui.gridLayout_12.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
-                                flag=0
-                                if i<len(tup1)+2:
-                                    if j<len(tup1[i-2])+1:
-                                        if self.labelheading3[self.position][j] == "Enrolment_Number":
+                                if self.flag==1:
+                                    if self.find[0][0]==tup1[i-1][0]:
+                                        if self.find[0][j]!="":
                                             self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                _translate("MainWindow", tup1[i - 2][0], None))
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                        elif self.labelheading3[self.position][j]!="Rool_Number":
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                _translate("MainWindow", tup1[i-2][j-1], None))
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                    else:
-                                        self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
-                                            _translate("MainWindow",self.labelheading3[self.position][j], None))
+                                                _translate("MainWindow", self.find[0][j], None))
+                                        else:
+                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
+                                                _translate("MainWindow", self.labelheading3[self.position][j], None))
+                                else:
+                                    if i < len(tup1) + 2:
+                                        if j<len(tup1[i-2])+1:
+                                            if self.labelheading3[self.position][j] == "Enrolment_Number":
+                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
+                                                    _translate("MainWindow", tup1[i - 2][0], None))
+                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
+                                            elif self.labelheading3[self.position][j]!="Rool_Number":
+                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
+                                                    _translate("MainWindow", tup1[i-2][j-1], None))
+                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
+                                        else:
+                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
+                                                _translate("MainWindow",self.labelheading3[self.position][j], None))
+                        if self.flag==1:
+                            tup.pop(k)
+
+
 
 
                 else:
@@ -664,11 +638,6 @@ class logic:
                 ui.gridLayout_12.addItem(spacerItem15, i+1, j+1, 1, 1)
                 self.vali=i
                 self.valj=j
-                print(self.labelObjectnames)
-                print(self.lineEditObjectnames)
-
-
-
 
     def conditionscomboboxlogic(self):
         text=ui.conditionlistcombobox.currentText()
@@ -700,17 +669,80 @@ class logic:
     def checklogic(self):
         ui.NULLCampsCheckBox.setChecked(False)
 
-
-
     def enrol_button_pressed(self):
         ui.searchbyfieldLineEdit.clear()
         self.enable_form_elements();
         ui.submitPushButton.show()
+    def fun1(self):
+        if ui.comboBox.currentText()=="-Select":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'Please select a form.',
+                                      'OK')
+            return
+        if ui.entryBox.toPlainText()=="":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'Please enter the enrolment numbers.',
+                                      'OK')
+            return
+        self.formname=""
+        self.formname = QtGui.QFileDialog.getOpenFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File")
+        if self.formname=="":
+            return
+        x = ui.entryBox.toPlainText()
+        s = ''
+        enrolno = []
+        for i in x:
+            if i is ' ':
+                enrolno.append(s)
+                s = ''
+            else:
+                s = s + i
+        enrolno.append(s)
+        sql = """"""
+        n = int(ui.comboBox.currentIndex())
+        if n is 1:
+            sql = forms.form1()
 
-
-
-
+        elif n is 2:
+            sql = forms.form2()
+        elif n is 3:
+            sql = forms.form3()
+        elif n is 4:
+            sql = forms.form4()
+        elif n is 5:
+            sql = forms.form5()
+        elif n is 6:
+            sql = forms.form6()
+        elif n is 7:
+            sql = forms.form7()
+        elif n is 8:
+            sql = forms.form8()
+        for i in range(len(enrolno)):
+            sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
+            if i != len(enrolno) - 1:
+                sql = sql + "or"
+        print(sql)
+        obj = ENROLMENT_FORM.enroll()
+        tup = obj.execute(sql)
+        print(tup)
+        obj1 = append()
+        obj1.insertupdate(tup, n, self.formname)
+        self.table1(tup, sql)
     def fun(self):
+        if ui.comboBox.currentText()=="-Select":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'Please select a form.',
+                                      'OK')
+            return
+        if ui.entryBox.toPlainText()=="":
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'Please enter the enrolment numbers.',
+                                      'OK')
+            return
+        self.formname=""
+        self.formname = QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File" ,filter=".xlsx")
+        if self.formname=="":
+            return
         x = ui.entryBox.toPlainText()
         s = ''
         enrolno = []
@@ -751,7 +783,7 @@ class logic:
         tup = obj.execute(sql)
         print(tup)
         obj1 = append()
-        obj1.insert(tup, n)
+        obj1.insert(tup, n,self.formname)
         self.table1(tup,sql)
 
 
@@ -1741,8 +1773,6 @@ font-weight:bold;
     @QtCore.pyqtSlot(str)
     def pri(self,msg):
         print(msg)
-
-
 
 if __name__ == "__main__":
     import sys

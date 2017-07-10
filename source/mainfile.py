@@ -288,7 +288,6 @@ class logic():
 
         ui.settings_addPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.settings_addPushButton))
 
-
         ui.removeinstitutionPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.removeinstitutionPushButton))
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
@@ -302,22 +301,83 @@ class logic():
 
 
     def init_settings(self):
-        """Sets all the parameters from the settings file """
+        """Sets all the parameters from the settings file"""
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         self.institutionlist = self.settings.value('institutionlist').split(',,,')
         self.set_institutions_list()
 
 
-
+        """List of all forms in the forms tab"""
         self.formslist = self.settings.value('formslist').strip().split(',,,');
         ui.formsComboBox.clear()
         ui.formsComboBox.addItems(self.formslist)
 
 
+        '''This is the list of all the types of entry forms in data entry tab'''
         self.dataentrytypes = self.settings.value('dataentrytypes').strip().split(',,,')
         ui.typecomboBox.clear()
         ui.typecomboBox.addItems(self.dataentrytypes)
 
+
+        '''List of forms and fields in the settings tab'''
+        self.settings_formslist = self.settings.value('settings_formslist').strip().split(',,,')
+        ui.settings_formslist.clear()
+
+        ui.settings_formslist.setSpacing(1)
+
+        for inst in self.settings_formslist:
+            item = QtGui.QListWidgetItem()
+            item.setText(inst)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Garamond"))
+            font.setPointSize(15)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense3Pattern)
+            item.setBackground(brush)
+            ui.settings_formslist.addItem(item)
+
+
+
+        ui.settings_addformPushButton.clicked.connect(self.settings_form_field_add)
+        ui.settings_addfieldPushButton.clicked.connect(self.settings_form_field_add)
+
+
+
+        '''List of all the fields under different forms '''
+
+        self.marksA_fieldslist,self.marksB_fieldslist,self.marksC_fieldslist,self.camps_fieldslist,self.extraactivities_fieldslist,self.remarks_fieldslist=[
+            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+             'Date of Birth',
+             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(30)',
+             'Practical(60)', 'Total(90)', 'Written(40)', 'Practical(20)', 'Total(60)', 'Written(200)',
+             'Written(115)',
+             'Practical(25)', "Total(150)", 'Grand Total(500)', 'Grading'],
+            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+             'Date Of Birth',
+             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
+             'Practical(80)', 'Total(90)', 'Written(35)', 'Practical(25)', 'Total(60)', 'Written(200)',
+             'Written(105)',
+             'Practical(45)', "Total(150)", 'Total(25)', 'Grand Total(500)', 'Grading'],
+            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+             'Date Of Birth',
+             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
+             'Practical(50)', 'Total(60)', 'Written(10)', 'Practical(55)', 'Total(65)',
+             'Written(225)', 'Written(105)', 'Practical(45)', "Total(150)", 'Total(50)', 'Grand Total(500)',
+             'Grading'],
+            ["Enrolment Number", 'Camps attended'], ["Enrolment Number", 'Extra Activities'],
+            ["Enrolment Number", 'Remarks']]
+
+
+
+
+def settings_form_field_add(self):
+    '''Called when Add form or Add field buttons of the settings tab are clicked'''
+    if not ui.settings_addformLineEdit.displayText():
+        QtGui.QMessageBox.warning(ui.Settings,'Entry field is blank','\nEnter the name of the new form in the Entrybox that you wish to add and then Click "Add Form"' , 'OK')
 
 
 
@@ -371,6 +431,7 @@ class logic():
 
 
 
+
     def set_institutions_list(self):
 
         """
@@ -384,7 +445,7 @@ class logic():
         ui.settings_backinstPushButton.show()
 
 
-        ui.settings_institutionListWidget.setSpacing(3)
+        ui.settings_institutionListWidget.setSpacing(1)
 
         for inst in self.institutionlist:
             item = QtGui.QListWidgetItem()
@@ -715,7 +776,7 @@ class logic():
                                 self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
                                 if self.labelheading3[self.position][j] == "Enrolment_Number":
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("background-color:darkorange;font-size:20px;font-weight:bold;"
+                                        _fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
                                                   "height:30px;color:white;"))
                                 else:
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(

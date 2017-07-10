@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1205</width>
-    <height>884</height>
+    <width>1127</width>
+    <height>964</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -60,7 +60,7 @@
     </font>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QTabWidget" name="mytab">
       <property name="enabled">
        <bool>true</bool>
@@ -308,7 +308,7 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1146</width>
+             <width>1068</width>
              <height>1899</height>
             </rect>
            </property>
@@ -4312,9 +4312,9 @@ background-position:centre;
        </attribute>
        <layout class="QGridLayout" name="gridLayout_15">
         <item row="0" column="0" alignment="Qt::AlignHCenter">
-         <widget class="QFrame" name="frame">
+         <widget class="QFrame" name="formsframe">
           <property name="styleSheet">
-           <string notr="true">#frame{
+           <string notr="true">#formsframe{
 background-color:transparent;
 }</string>
           </property>
@@ -4494,9 +4494,6 @@ width:400%;
                 </widget>
                </item>
               </layout>
-             </item>
-             <item row="1" column="1">
-              <layout class="QHBoxLayout" name="horizontalLayout_15"/>
              </item>
             </layout>
            </item>
@@ -4729,8 +4726,8 @@ border-radius:12px;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>1159</width>
-               <height>616</height>
+               <width>1081</width>
+               <height>696</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -4901,353 +4898,640 @@ background-position:center;
        <attribute name="title">
         <string>Settings</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_14">
-        <item row="4" column="1">
-         <layout class="QGridLayout" name="gridLayout_12">
-          <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <widget class="QListWidget" name="listWidget">
-              <item>
-               <property name="text">
-                <string>Cadet details</string>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <item>
+         <widget class="QScrollArea" name="SettingsScrollArea">
+          <property name="styleSheet">
+           <string notr="true">#SettingsScrollArea
+{
+	background-color:transparent;
+}</string>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="settingsscrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>-141</y>
+             <width>1066</width>
+             <height>1018</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#settingsscrollAreaWidgetContents
+{
+	background-color:transparent;
+}</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_14">
+            <item row="0" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QWidget" name="settingsmainframewidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>514</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settingsmainframewidget{
+
+background-color:transparent;
+
+}</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="bottomMargin">
+                <number>0</number>
                </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Yoga Day</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Enrolment Nominal roll</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Camp Nominal roll</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Scholarship NR</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>A certe NR for high school JDJW</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>B certe NR SDSW</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>C certe NR SDSW</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>C certe NR SDSW</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Speciman signature of cadets</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>TADA to cadets camps</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>TADA to cadets for exam</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Marks (A)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Marks (B)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Marks (C)</string>
-               </property>
-              </item>
+               <item>
+                <widget class="QFrame" name="frame_2">
+                 <property name="styleSheet">
+                  <string notr="true">#frame_2{
+background-color:transparent;
+}</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="settings_institutionlistLabel">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>19</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icons/image-blur.png);
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Institution List</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <item>
+                     <widget class="QLineEdit" name="settings_instLineEdit">
+                      <property name="minimumSize">
+                       <size>
+                        <width>350</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>13</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="autoFillBackground">
+                       <bool>false</bool>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Enter the institution name to add it</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="settings_addPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                        <underline>false</underline>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Add</string>
+                      </property>
+                      <property name="default">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="settings_backinstPushButton">
+                      <property name="maximumSize">
+                       <size>
+                        <width>37</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Back</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QPushButton" name="settings_addinstitutionPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Add Institution</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="removeinstitutionPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Remove</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QListWidget" name="settings_institutionListWidget">
+                    <property name="minimumSize">
+                     <size>
+                      <width>500</width>
+                      <height>285</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>333</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Sunken</enum>
+                    </property>
+                    <property name="resizeMode">
+                     <enum>QListView::Fixed</enum>
+                    </property>
+                    <property name="spacing">
+                     <number>3</number>
+                    </property>
+                    <property name="viewMode">
+                     <enum>QListView::ListMode</enum>
+                    </property>
+                    <property name="uniformItemSizes">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sortingEnabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_11">
-              <item>
-               <widget class="QPushButton" name="pushButton_2">
-                <property name="text">
-                 <string>PushButton</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="3">
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <widget class="QListWidget" name="listWidget_2"/>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_16">
-              <item>
-               <widget class="QPushButton" name="pushButton_5">
-                <property name="text">
-                 <string>PushButton</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="1" alignment="Qt::AlignHCenter|Qt::AlignTop">
-         <widget class="QWidget" name="settingsmainframewidget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>514</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">#settingsmainframewidget{
-
-background-color:transparent;
-
+            <item row="2" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QWidget" name="formsandfieldsgridwidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>550</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#formsandfieldsgridwidget
+{
+	background-color:transparent;
 }</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item alignment="Qt::AlignHCenter|Qt::AlignTop">
-            <widget class="QFrame" name="frame_2">
-             <property name="styleSheet">
-              <string notr="true">#frame_2{
-background-color:transparent;
-}</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_16">
-              <item row="1" column="0">
-               <widget class="QListWidget" name="settings_institutionListWidget">
-                <property name="minimumSize">
-                 <size>
-                  <width>500</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Sunken</enum>
-                </property>
-                <property name="resizeMode">
-                 <enum>QListView::Fixed</enum>
-                </property>
-                <property name="spacing">
-                 <number>3</number>
-                </property>
-                <property name="viewMode">
-                 <enum>QListView::ListMode</enum>
-                </property>
-                <property name="uniformItemSizes">
-                 <bool>true</bool>
-                </property>
-                <property name="sortingEnabled">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <widget class="QLineEdit" name="settings_instLineEdit">
-                  <property name="minimumSize">
-                   <size>
-                    <width>350</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Georgia</family>
-                    <pointsize>13</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="autoFillBackground">
-                   <bool>false</bool>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Enter the institution name to add it</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="settings_addPushButton">
-                  <property name="font">
-                   <font>
-                    <family>Georgia</family>
-                    <pointsize>12</pointsize>
-                    <weight>50</weight>
-                    <italic>false</italic>
-                    <bold>false</bold>
-                    <underline>false</underline>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Add</string>
-                  </property>
-                  <property name="default">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignHCenter">
-                 <widget class="QPushButton" name="settings_backinstPushButton">
-                  <property name="maximumSize">
-                   <size>
-                    <width>37</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Georgia</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Back</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QPushButton" name="settings_addinstitutionPushButton">
-                  <property name="font">
-                   <font>
-                    <family>Georgia</family>
-                    <pointsize>12</pointsize>
-                    <weight>50</weight>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Add Institution</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="removeinstitutionPushButton">
-                  <property name="font">
-                   <font>
-                    <family>Georgia</family>
-                    <pointsize>12</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Remove</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="settings_institutionlistLabel">
-                <property name="font">
-                 <font>
-                  <family>Caladea</family>
-                  <pointsize>19</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border-image: url(:/icons/image-blur.png);
-color:white;</string>
-                </property>
-                <property name="text">
-                 <string>Institution List</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="1" alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="label_2">
-          <property name="minimumSize">
-           <size>
-            <width>400</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Caladea</family>
-            <pointsize>19</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">border-image: url(:/icons/image-blur.png);
+              </property>
+              <layout class="QGridLayout" name="gridLayout_12">
+               <item row="0" column="1" colspan="2">
+                <widget class="QLabel" name="formsandfieldsLabel">
+                 <property name="minimumSize">
+                  <size>
+                   <width>400</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Caladea</family>
+                   <pointsize>22</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                   <stylestrategy>PreferAntialias</stylestrategy>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-image: url(:/icons/image-blur.png);
 color:white;
 margin:2px 8px;
 text-align:center;</string>
-          </property>
-          <property name="text">
-           <string>Forms and Fields Management</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
+                 </property>
+                 <property name="text">
+                  <string>Forms and Fields Management</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,1,0">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="font">
+                    <font>
+                     <family>Times New Roman</family>
+                     <pointsize>18</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(230, 255, 0, 255), stop:1 rgba(85, 104, 255, 150));</string>
+                   </property>
+                   <property name="text">
+                    <string>Forms</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QListWidget" name="settings_formslist">
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>300</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>475</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Cadet details</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Georgia</family>
+                      <pointsize>15</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                      <stylestrategy>PreferDefault</stylestrategy>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="background">
+                     <brush brushstyle="Dense3Pattern">
+                      <color alpha="255">
+                       <red>98</red>
+                       <green>255</green>
+                       <blue>0</blue>
+                      </color>
+                     </brush>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Yoga Day</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Enrolment Nominal roll</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Camp Nominal roll</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Scholarship NR</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>A certe NR for high school JDJW</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>15</pointsize>
+                     </font>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>B certe NR SDSW</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>C certe NR SDSW</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>C certe NR SDSW</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Speciman signature of cadets</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>TADA to cadets camps</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>TADA to cadets for exam</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Marks (A)</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Marks (B)</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Marks (C)</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QLineEdit" name="settings_addformLineEdit">
+                     <property name="font">
+                      <font>
+                       <family>Georgia</family>
+                       <pointsize>13</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Enter New Form name</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="2">
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_5">
+                   <property name="font">
+                    <font>
+                     <family>Times New Roman</family>
+                     <pointsize>18</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.767, y2:0.773, stop:0 rgba(0, 203, 5, 252), stop:1 rgba(255, 77, 127, 150));</string>
+                   </property>
+                   <property name="text">
+                    <string>Fields</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QListWidget" name="settings_fieldslist">
+                   <property name="minimumSize">
+                    <size>
+                     <width>400</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>474</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Enrolment number</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Century</family>
+                      <pointsize>11</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="textAlignment">
+                     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+                    </property>
+                    <property name="background">
+                     <brush brushstyle="Dense4Pattern">
+                      <color alpha="255">
+                       <red>170</red>
+                       <green>170</green>
+                       <blue>255</blue>
+                      </color>
+                     </brush>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>age</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Gender</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>afads</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>dasfadsfadsf</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>adsfdas</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>dasfasdf</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>dasfsdafas</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>dasfghhgdaf</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_16">
+                   <item>
+                    <widget class="QLineEdit" name="settings_addfieldLineEdit">
+                     <property name="font">
+                      <font>
+                       <family>Georgia</family>
+                       <pointsize>13</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="placeholderText">
+                      <string>Enter New Field name</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="2">
+                <widget class="QPushButton" name="settings_addfieldPushButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Gabriola</family>
+                   <pointsize>19</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Add Field</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QPushButton" name="settings_addformPushButton">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>25</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Gabriola</family>
+                   <pointsize>18</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Add Form</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
          </widget>
-        </item>
-        <item row="1" column="1">
-         <spacer name="horizontalSpacer_14">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -5269,7 +5553,7 @@ text-align:center;</string>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -269,6 +269,13 @@ class logic():
             os.mkdir(r'candidate photos')
         ui.openPushButton.clicked.connect(self.openuploaddata)
 
+        with open('institutions.txt','r+') as f:
+            instlist = []
+            for i in f:
+                instlist.append(i.strip())
+
+        ui.institutionenrollComboBox.addItems(instlist)
+
         ui.savedataPushButton.clicked.connect(self.saveuploadeddata)
 
         ui.save_data_excelPushButton.clicked.connect(self.saveexceluploadeddata)
@@ -278,6 +285,100 @@ class logic():
         ui.appendDataPushButton.clicked.connect(self.appenddata)
 
         ui.updateExelPushButton.clicked.connect(self.fun1)
+
+        self.set_institutions_list()
+
+        ui.settings_addinstitutionPushButton.clicked.connect(lambda: (
+        ui.settings_addinstitutionPushButton.hide(), ui.removeinstitutionPushButton.hide(),
+        ui.settings_instLineEdit.show(), ui.settings_addPushButton.show(), ui.settings_backinstPushButton.show()))
+
+
+        ui.settings_addPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.settings_addPushButton))
+
+
+        ui.removeinstitutionPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.removeinstitutionPushButton))
+
+        ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
+
+
+
+    def institution_add_or_remove(self, button):
+        if button.text() == 'Add':
+            if not ui.settings_instLineEdit.displayText():
+                QtGui.QMessageBox.warning(ui.Settings, "Empty field",
+                                          '\n\nPlease enter an institution name and click "Add" to add it to the present list',
+                                          "OK")
+                return
+
+            inst_name = ui.settings_instLineEdit.displayText()
+            with open('institutions.txt', 'a') as f:
+                f.write('\n' + inst_name);
+
+            self.set_institutions_list()
+
+        if button.text() == 'Remove':
+
+            selectedItem = ui.settings_institutionListWidget.currentItem()
+            if not selectedItem:
+                QtGui.QMessageBox.warning(ui.Settings, "Nothing Selected",
+                                          '\n\nPlease select an institution first, to remove it.',
+                                          "OK")
+                return
+
+            if QtGui.QMessageBox.question(ui.Settings, "Are you sure ?",
+                                          '\n\nAre you sure you want to remove this Institution from the list of institutions ? \nThe changes are irreversible ! \nClick "Yes" to remove it.',
+                                          'Yes', 'No') == 0:
+                with open('institutions.txt', 'r') as f:
+                    instlist = []
+                    for i in f:
+                        instlist.append(i.strip())
+
+                selected_text = selectedItem.text()
+                instlist.remove(selected_text)
+
+
+                with open('institutions.txt', 'w') as f:
+                    f.writelines("\n".join(instlist))
+                    f.truncate()
+                self.set_institutions_list()
+
+        ui.settings_instLineEdit.clear()
+
+
+
+    def set_institutions_list(self):
+        ui.settings_institutionListWidget.clear()
+        ui.settings_addinstitutionPushButton.show()
+        ui.removeinstitutionPushButton.show()
+        ui.settings_backinstPushButton.show()
+
+        with open('institutions.txt', 'r+') as f:
+            instlist = []
+            for i in f:
+                instlist.append(i.strip())
+
+        ui.settings_institutionListWidget.setSpacing(3)
+        for inst in instlist:
+            item = QtGui.QListWidgetItem()
+            item.setText(inst)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Garamond"))
+            font.setPointSize(15)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense3Pattern)
+            item.setBackground(brush)
+            ui.settings_institutionListWidget.addItem(item)
+
+        ui.settings_instLineEdit.hide()
+        ui.settings_addPushButton.hide()
+        ui.settings_backinstPushButton.hide()
+
+
+
 
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Add Camps" or ui.typecomboBox.currentText()=="Add Remarks" or ui.typecomboBox.currentText()=="Add Extra Activities":
@@ -349,6 +450,8 @@ class logic():
                 ENROLMENT_FORM.enroll().insertionexecute(sql)
                 print(sql)
 
+
+
     def saveuploadeddata(self):
         check = []
         if ui.typecomboBox.currentText() == "Upload Marks(A)":
@@ -391,6 +494,8 @@ class logic():
             ENROLMENT_FORM.enroll().insertionexecute(sql)
             print(sql)
 
+
+
     def saveexceluploadeddata(self):
         self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
         data=[]
@@ -423,6 +528,10 @@ class logic():
     lineEdit = []
     lineEditObjectnames = []
     labelObjectnames = []
+
+
+
+
     def openuploaddata(self):
 
         for i in range(len(self.label)):
@@ -639,6 +748,8 @@ class logic():
                 self.vali=i
                 self.valj=j
 
+
+
     def conditionscomboboxlogic(self):
         text=ui.conditionlistcombobox.currentText()
         """if text=="Rank" or text=="Institution" or text=="Blood_Group" or text=="Sex" or text=="Enrol_Date" or text=="Date_Of_Birth":"""
@@ -728,6 +839,9 @@ class logic():
         obj1 = append()
         obj1.insertupdate(tup, n, self.formname)
         self.table1(tup, sql)
+
+
+
     def fun(self):
         if ui.comboBox.currentText()=="-Select":
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',

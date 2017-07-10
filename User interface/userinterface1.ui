@@ -307,7 +307,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-489</y>
+             <y>-1449</y>
              <width>1084</width>
              <height>1899</height>
             </rect>
@@ -695,16 +695,6 @@ color:white;</string>
                    <bold>true</bold>
                   </font>
                  </property>
-                 <item>
-                  <property name="text">
-                   <string>Sarvodaya PU College</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Sit</string>
-                  </property>
-                 </item>
                 </widget>
                </item>
               </layout>

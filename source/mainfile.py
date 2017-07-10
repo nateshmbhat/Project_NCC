@@ -259,7 +259,7 @@ class logic():
 
         ui.conditionlistcombobox.currentIndexChanged.connect(self.conditionscomboboxlogic)
 
-        ui.saveExelPushButton.clicked.connect(self.fun)
+        ui.saveExelPushButton.clicked.connect(self.saveExcelfuntion)
 
         ui.vegRadioButton.setChecked(True)
 
@@ -279,7 +279,7 @@ class logic():
 
         ui.appendDataPushButton.clicked.connect(self.appenddata)
 
-        ui.updateExelPushButton.clicked.connect(self.fun1)
+        ui.updateExelPushButton.clicked.connect(self.update_excel_function)
 
         ui.settings_addinstitutionPushButton.clicked.connect(lambda: (
             ui.settings_addinstitutionPushButton.hide(), ui.removeinstitutionPushButton.hide(),
@@ -296,10 +296,28 @@ class logic():
 
 
 
-        self.settings = QtCore.QSettings('settings.ini',QtCore.QSettings.IniFormat)
-        self.institutionlist = self.settings.value('institutionlist').split(',,,')
+        self.init_settings()
 
+
+
+
+    def init_settings(self):
+        """Sets all the parameters from the settings file """
+        self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
+        self.institutionlist = self.settings.value('institutionlist').split(',,,')
         self.set_institutions_list()
+
+
+
+        self.formslist = self.settings.value('formslist').strip().split(',,,');
+        ui.formsComboBox.clear()
+        ui.formsComboBox.addItems(self.formslist)
+
+
+        self.dataentrytypes = self.settings.value('dataentrytypes').strip().split(',,,')
+        ui.typecomboBox.clear()
+        ui.typecomboBox.addItems(self.dataentrytypes)
+
 
 
 
@@ -551,9 +569,6 @@ class logic():
     lineEditObjectnames = []
     labelObjectnames = []
 
-
-
-
     def openuploaddata(self):
 
         for i in range(len(self.label)):
@@ -567,18 +582,18 @@ class logic():
         self.labelObjectnames = []
         if ui.institutionuploaddatacomboBox.currentText() == "Select Institution":
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                      'Select an Institution from the Institution list.',
+                                      'Select an Institutioon from institution list to continue.',
                                       'OK')
         elif ui.typecomboBox.currentText() == "Select Type":
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                       'Select the Type of Data you want to upload.',
                                       'OK')
         else:
-            sql=r"""select Enrolment_Number from enrolment where Institution='"""+ui.institutionuploaddatacomboBox.currentText()+"'"
-            sql1 = r"""select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            tup=ENROLMENT_FORM.enroll().execute(sql)
-            tup1=ENROLMENT_FORM.enroll().execute(sql1)
-            sql2=""
+            sql = """select Enrolment_Number from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            sql1 = """select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            tup = ENROLMENT_FORM.enroll().execute(sql)
+            tup1 = ENROLMENT_FORM.enroll().execute(sql1)
+            sql2 = ""
 
             if ui.typecomboBox.currentText() == "Upload Marks(A)":
                 sql2 = """select Enrolment_Number from A_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
@@ -586,121 +601,135 @@ class logic():
                 sql2 = """select Enrolment_Number from B_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
             elif ui.typecomboBox.currentText() == "Upload Marks(C)":
                 sql2 = """select Enrolment_Number from C_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            self.tupple=ENROLMENT_FORM.enroll().execute(sql2)
+            self.tupple = ENROLMENT_FORM.enroll().execute(sql2)
             print(tup)
             print(tup1)
             print(self.tupple)
-            self.labelheading3 = [['Enrolment_Number', 'Rool_Number', 'Rank               ', 'Student_Name', 'Fathers_name', 'Date_Of_Birth',
-                           'Enrol_Date',  'Camps_Attended','Date_Of_Discharge','1 year','2 year','Written(30)',
-                           'Practical(60)','Total(90)','Written(40)','Practical(20)','Total(60)','Written(200)','Written(115)',
-                           'Practical(25)',"Total(150)",'Grand Total(500)','Grading'],
-                                  ['Enrolment_Number', 'Rool_Number', '        Rank       ', 'Student_Name', 'Fathers_name', 'Date_Of_Birth',
-                           'Enrol_Date', 'Camps_Attended', 'Date_Of_Discharge','1 year','2 year','Written(10)',
-                           'Practical(80)','Total(90)','Written(35)','Practical(25)','Total(60)','Written(200)','Written(105)',
-                           'Practical(45)',"Total(150)",'Total(25)','Grand Total(500)','Grading'],
-                                  ['Enrolment_Number', 'Rool_Number', 'Rank               ', 'Student_Name', 'Fathers_name','Date_Of_Birth',
-                                   'Enrol_Date', 'Camps_Attended', 'Date_Of_Discharge', '1 year', '2 year','Written(10)',
-                                   'Practical(50)', 'Total(60)', 'Written(10)', 'Practical(55)', 'Total(65)',
-                                   'Written(225)', 'Written(105)','Practical(45)', "Total(150)",'Total(50)','Grand Total(500)','Grading'],
-                                  ["EnrolMent_Number",'Camps_attended'],["Enrolment_Number",'Extra Activities'],["Enrolment_Number",'Remarks']]
-            self.labelheading1=[[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','Marks Obtained',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-                                [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','Marks Obtained',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
-                                [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','Marks Obtained', ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']]
-            self.labelheading2=[[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','Part-1:Drill',' ',' ','Part-2:WT',' ',' ','Part-3:Misc','Part-4:Spl Subjects',' ',' ',' ',' '],
-                               [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ','Part-3:Misc', 'Part-4:Spl Subjects', ' ',' ', 'Bonus Marks(A-cert)', ' ', ' '],
-                               [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ','Part-3:Misc', 'Part-4:Spl Subjects', ' ',' ', 'Bonus Marks(A-cert)', ' ', ' ']]
+            self.labelheading3 = [
+                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+                 'Date of Birth',
+                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(30)',
+                 'Practical(60)', 'Total(90)', 'Written(40)', 'Practical(20)', 'Total(60)', 'Written(200)',
+                 'Written(115)',
+                 'Practical(25)', "Total(150)", 'Grand Total(500)', 'Grading'],
+                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+                 'Date Of Birth',
+                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
+                 'Practical(80)', 'Total(90)', 'Written(35)', 'Practical(25)', 'Total(60)', 'Written(200)',
+                 'Written(105)',
+                 'Practical(45)', "Total(150)", 'Total(25)', 'Grand Total(500)', 'Grading'],
+                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
+                 'Date Of Birth',
+                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
+                 'Practical(50)', 'Total(60)', 'Written(10)', 'Practical(55)', 'Total(65)',
+                 'Written(225)', 'Written(105)', 'Practical(45)', "Total(150)", 'Total(50)', 'Grand Total(500)',
+                 'Grading'],
+                ["Enrolment Number", 'Camps attended'], ["Enrolment Number", 'Extra Activities'],
+                ["Enrolment Number", 'Remarks']]
+            self.labelheading1 = [
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
+                 ' ', ' ', ' ', ' ', ' '],
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
+                 ' ', ' ', ' ', ' ', ' '],
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
+                 ' ', ' ', ' ', ' ', ' ']]
+            self.labelheading2 = [
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
+                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', ' ', ' '],
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
+                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', 'Bonus Marks(A-cert)', ' ', ' '],
+                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
+                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', 'Bonus Marks(A-cert)', ' ', ' ']]
 
-            self.position=ui.typecomboBox.currentIndex()-1
+            self.position = ui.typecomboBox.currentIndex() - 1
 
-            i=j=0
-            if len(tup)<1:
+            i = j = 0
+            if len(tup) < 1:
                 QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                          'There is no one student in the institution '+ui.institutionuploaddatacomboBox.currentText()+'.',
+                                          'There is no one student in the institution ' + ui.institutionuploaddatacomboBox.currentText() + '.',
                                           'OK')
                 return
             else:
                 if self.position == 0 or self.position == 1 or self.position == 2:
-                    self.flag=0
-                    for i in range(len(tup)+2):
-                        self.flag=0
+                    self.flag = 0
+                    for i in range(len(tup) + 2):
+                        self.flag = 0
                         self.lineEdit.append([])
                         self.lineEditObjectnames.append([])
                         if i == 0:
                             for p in range(len(self.labelheading1[self.position])):
-                                self.label.append(QtGui.QLabel(ui.uploaddatamainframe))
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
                                 self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
-                                                                                        "color:white;\n"
                                                                                         "font-size:30px;font-weight:bold;position:fixed;\n"
                                                                                         ""))
                                 self.label[len(self.label) - 1].setObjectName(
                                     _fromUtf8("enrolmentuploaddataLabel" + str(i)))
                                 self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_12.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
+                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
                                 self.label[len(self.label) - 1].setText(
                                     _translate("MainWindow", self.labelheading1[self.position][p], None))
                             continue
                         if i == 1:
                             for p in range(len(self.labelheading2[self.position])):
-                                self.label.append(QtGui.QLabel(ui.uploaddatamainframe))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8(
-                                                                                        "color:white;\n"
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
                                                                                         "font-size:25px;font-weight:bold;\n"
                                                                                         ""))
                                 self.label[len(self.label) - 1].setObjectName(
                                     _fromUtf8("enrolmentuploaddataLabel" + str(i)))
                                 self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_12.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
+                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
                                 self.label[len(self.label) - 1].setText(
                                     _translate("MainWindow", self.labelheading2[self.position][p], None))
                             continue
-                        k=l=0
+                        k = l = 0
                         for k in range(len(tup)):
                             for l in range(len(self.tupple)):
-                                if tup[k][0]==self.tupple[l][0]:
-                                    self.flag=1
-                                    sql3=""
+                                if tup[k][0] == self.tupple[l][0]:
+                                    self.flag = 1
+                                    sql3 = ""
                                     if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                                        sql3="select * from A_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
+                                        sql3 = "select * from A_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
                                     elif ui.typecomboBox.currentText() == "Upload Marks(B)":
                                         sql3 = "select * from B_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
                                     elif ui.typecomboBox.currentText() == "Upload Marks(C)":
                                         sql3 = "select * from C_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
-                                    self.find=ENROLMENT_FORM.enroll().execute(sql3)
+                                    self.find = ENROLMENT_FORM.enroll().execute(sql3)
                                     break
 
-                            if self.flag==1:
+                            if self.flag == 1:
                                 break
                         for j in range(len(self.labelheading3[self.position])):
                             if i == 2:
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("color:white;\n"
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
                                                                                         "font-size:20px;font-weight:bold;\n"
                                                                                         ""))
                                 self.label[len(self.label) - 1].setObjectName(
                                     _fromUtf8("enrolmentuploaddataLabel" + str(i)))
                                 self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_12.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
+                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
                                 self.label[len(self.label) - 1].setText(
                                     _translate("MainWindow", self.labelheading3[self.position][j], None))
                             else:
-                                self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents_3))
-                                if self.labelheading3[self.position][j]=="Enrolment_Number":
+                                self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
+                                if self.labelheading3[self.position][j] == "Enrolment_Number":
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
                                         _fromUtf8("background-color:darkorange;font-size:20px;font-weight:bold;"
                                                   "height:30px;color:white;"))
                                 else:
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("font-size:15px;font-weight:bold;height:30px;color:white;"))
+                                        _fromUtf8("font-size:15px;font-weight:bold;height:30px;"))
                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setObjectName(
                                     _fromUtf8("uploaddatalineEdit" + str(i)))
 
                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setAlignment(QtCore.Qt.AlignCenter)
 
                                 self.lineEditObjectnames[i].append("uploaddatalineEdit" + str(i))
-                                ui.gridLayout_12.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
-                                if self.flag==1:
-                                    if self.find[0][0]==tup1[i-1][0]:
-                                        if self.find[0][j]!="":
+                                ui.gridLayout_18.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
+                                if self.flag == 1:
+                                    if self.find[0][0] == tup1[i - 1][0]:
+                                        if self.find[0][j] != "":
                                             self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
                                                 _translate("MainWindow", self.find[0][j], None))
                                         else:
@@ -708,67 +737,72 @@ class logic():
                                                 _translate("MainWindow", self.labelheading3[self.position][j], None))
                                 else:
                                     if i < len(tup1) + 2:
-                                        if j<len(tup1[i-2])+1:
+                                        if j < len(tup1[i - 2]) + 1:
                                             if self.labelheading3[self.position][j] == "Enrolment_Number":
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
                                                     _translate("MainWindow", tup1[i - 2][0], None))
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                            elif self.labelheading3[self.position][j]!="Rool_Number":
+                                            elif self.labelheading3[self.position][j] != "Rool_Number":
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                    _translate("MainWindow", tup1[i-2][j-1], None))
+                                                    _translate("MainWindow", tup1[i - 2][j - 1], None))
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
                                         else:
                                             self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
-                                                _translate("MainWindow",self.labelheading3[self.position][j], None))
-                        if self.flag==1:
+                                                _translate("MainWindow", self.labelheading3[self.position][j], None))
+                        if self.flag == 1:
                             tup.pop(k)
 
 
 
 
                 else:
-                    for i in range(0,len(tup)):
+                    for i in range(0, len(tup)):
                         self.lineEdit.append([])
                         self.lineEditObjectnames.append([])
                         for j in range(len(self.labelheading3[self.position])):
-                            if i==0:
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                self.label[len(self.label)-1].setStyleSheet(_fromUtf8(
-                                                                      "color:white;\n"
-                                                                      "font-size:25px;font-weight:bold;\n"
-                                                                      ""))
-                                self.label[len(self.label)-1].setObjectName(_fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                self.label[len(self.label)-1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_12.addWidget(self.label[len(self.label)-1], i, j, 1, 1)
-                                self.label[len(self.label)-1].setText(_translate("MainWindow",self.labelheading3[self.position][j], None))
+                            if i == 0:
+                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
+                                                                                        "color:white;\n"
+                                                                                        "font-size:25px;font-weight:bold;\n"
+                                                                                        ""))
+                                self.label[len(self.label) - 1].setObjectName(
+                                    _fromUtf8("enrolmentuploaddataLabel" + str(i)))
+                                self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
+                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
+                                self.label[len(self.label) - 1].setText(
+                                    _translate("MainWindow", self.labelheading3[self.position][j], None))
                             else:
-                                if j==0:
-                                    self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                    self.label[len(self.label)-1].setStyleSheet(_fromUtf8(";font-size:15px;font-weight:bold;"
-                                                                          "height:30px;color:white;"))
-                                    self.label[len(self.label)-1].setObjectName(_fromUtf8("enrolmentuploaddataLabel"+str(i)))
-                                    self.labelObjectnames.append("enrolmentuploaddataLabel"+str(i))
+                                if j == 0:
+                                    self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
+                                    self.label[len(self.label) - 1].setStyleSheet(
+                                        _fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
+                                                  "height:30px;color:white;"))
+                                    self.label[len(self.label) - 1].setObjectName(
+                                        _fromUtf8("enrolmentuploaddataLabel" + str(i)))
+                                    self.labelObjectnames.append("enrolmentuploaddataLabel" + str(i))
                                     self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                    ui.gridLayout_12.addWidget(self.label[len(self.label)-1], i, j, 1, 1)
-                                    self.label[len(self.label)-1].setText(_translate("MainWindow", tup[i][0], None))
+                                    ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
+                                    self.label[len(self.label) - 1].setText(_translate("MainWindow", tup[i][0], None))
                                 else:
-                                    self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents_3))
-                                    self.lineEdit[i][len(self.lineEdit[i])-1].setStyleSheet(_fromUtf8("background-color:darkgray;font-size:15px;font-weight:bold;"
-                                                                          "height:30px;color:white;"))
-                                    self.lineEdit[i][len(self.lineEdit[i])-1].setObjectName(_fromUtf8("uploaddatalineEdit" + str(i)))
+                                    self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
+                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
+                                        _fromUtf8("background-color:darkgray;font-size:15px;font-weight:bold;"
+                                                  "height:30px;color:white;"))
+                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setObjectName(
+                                        _fromUtf8("uploaddatalineEdit" + str(i)))
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setAlignment(QtCore.Qt.AlignCenter)
                                     self.lineEditObjectnames[i].append("uploaddatalineEdit" + str(i))
-                                    ui.gridLayout_12.addWidget(self.lineEdit[i][len(self.lineEdit[i])-1], i, j, 1, 1)
+                                    ui.gridLayout_18.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
                                         _translate("MainWindow", self.labelheading3[self.position][j], None))
 
                 spacerItem16 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-                ui.gridLayout_12.addItem(spacerItem16, i+1,j+1, 1, 1)
+                ui.gridLayout_18.addItem(spacerItem16, i + 1, j + 1, 1, 1)
                 spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-                ui.gridLayout_12.addItem(spacerItem15, i+1, j+1, 1, 1)
-                self.vali=i
-                self.valj=j
-
+                ui.gridLayout_18.addItem(spacerItem15, i + 1, j + 1, 1, 1)
+                self.vali = i
+                self.valj = j
 
 
     def conditionscomboboxlogic(self):
@@ -805,8 +839,8 @@ class logic():
         ui.searchbyfieldLineEdit.clear()
         self.enable_query_checkbox_elements();
         ui.submitPushButton.show()
-    def fun1(self):
-        if ui.comboBox.currentText()=="-Select":
+    def update_excel_function(self):
+        if ui.formsComboBox.currentText()=="-Select":
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'Please select a form.',
                                       'OK')
@@ -831,7 +865,7 @@ class logic():
                 s = s + i
         enrolno.append(s)
         sql = """"""
-        n = int(ui.comboBox.currentIndex())
+        n = int(ui.formsComboBox.currentIndex())
         if n is 1:
             sql = forms.form1()
 
@@ -863,8 +897,8 @@ class logic():
 
 
 
-    def fun(self):
-        if ui.comboBox.currentText()=="-Select":
+    def saveExcelfuntion(self):
+        if ui.formsComboBox.currentText()=="-Select":
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'Please select a form.',
                                       'OK')
@@ -890,7 +924,7 @@ class logic():
         enrolno.append(s)
         print(enrolno)
         sql = """"""
-        n = int(ui.comboBox.currentIndex())
+        n = int(ui.formsComboBox.currentIndex())
         print(n)
         if n is 1:
             sql = forms.form1()

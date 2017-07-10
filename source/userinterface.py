@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1449, 1084, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1084, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2816,7 +2816,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName(_fromUtf8("scrollArea_2"))
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1081, 551))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1081, 498))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.verticalLayout_6 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
@@ -2830,7 +2830,7 @@ class Ui_MainWindow(object):
         self.dataentryScrollArea.setWidgetResizable(True)
         self.dataentryScrollArea.setObjectName(_fromUtf8("dataentryScrollArea"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1061, 531))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1061, 478))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
         self.verticalLayout_7 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_7.setObjectName(_fromUtf8("verticalLayout_7"))
@@ -2841,6 +2841,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.dataentryScrollArea)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.verticalLayout.addWidget(self.scrollArea_2)
+        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem17)
+        spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem18)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.uploaddatamainframe)
@@ -2903,29 +2907,17 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.save_data_excelPushButton)
         self.appendDataPushButton = QtGui.QPushButton(self.uploaddatamainframe)
         font = QtGui.QFont()
-        font.setPointSize(-1)
+        font.setFamily(_fromUtf8("Comic Sans MS"))
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
         self.appendDataPushButton.setFont(font)
-        self.appendDataPushButton.setStyleSheet(_fromUtf8("#appendDataPushButton{\n"
-"font-size:20px;\n"
-"background-image: url(:/icons/images-1.jpg);\n"
-"border-radius:15px;\n"
-"color: rgb(0, 170, 255);\n"
-"border-style:solid;\n"
-"border-color:white;\n"
-"border-width:2px;\n"
-"border-radius:12px;\n"
-"}\n"
-"#appendDataPushButton:hover{\n"
-"font-size:25px;\n"
-"    color: rgb(0, 170, 255);\n"
-"    background-image: url(:/icons/close line.png);\n"
-"padding-top:-8px;\n"
-"border-style:solid;\n"
-"    border-color: rgb(0, 170, 255);\n"
-"border-width:2px;\n"
-"border-radius:15px;\n"
-"border-radius:12px;\n"
-"}"))
+        self.appendDataPushButton.setStyleSheet(_fromUtf8("\n"
+"color:black;\n"
+"font: 75 16pt \"Comic Sans MS\";\n"
+"font-weight:bold;\n"
+"height:30px;"))
         self.appendDataPushButton.setObjectName(_fromUtf8("appendDataPushButton"))
         self.horizontalLayout_8.addWidget(self.appendDataPushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_8)

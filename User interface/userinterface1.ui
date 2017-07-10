@@ -307,7 +307,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1449</y>
+             <y>0</y>
              <width>1084</width>
              <height>1899</height>
             </rect>
@@ -4837,7 +4837,7 @@ border-radius:12px;
                 <x>0</x>
                 <y>0</y>
                 <width>1081</width>
-                <height>551</height>
+                <height>498</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -4860,7 +4860,7 @@ background-color:darkblue;
                     <x>0</x>
                     <y>0</y>
                     <width>1061</width>
-                    <height>531</height>
+                    <height>478</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -4874,6 +4874,32 @@ background-color:darkblue;
               </layout>
              </widget>
             </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -4955,31 +4981,19 @@ border-width:2px;
               <widget class="QPushButton" name="appendDataPushButton">
                <property name="font">
                 <font>
-                 <pointsize>-1</pointsize>
+                 <family>Comic Sans MS</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">#appendDataPushButton{
-font-size:20px;
-background-image: url(:/icons/images-1.jpg);
-border-radius:15px;
-color: rgb(0, 170, 255);
-border-style:solid;
-border-color:white;
-border-width:2px;
-border-radius:12px;
-}
-#appendDataPushButton:hover{
-font-size:25px;
-	color: rgb(0, 170, 255);
-	background-image: url(:/icons/close line.png);
-padding-top:-8px;
-border-style:solid;
-	border-color: rgb(0, 170, 255);
-border-width:2px;
-border-radius:15px;
-border-radius:12px;
-}</string>
+                <string notr="true">
+color:black;
+font: 75 16pt &quot;Comic Sans MS&quot;;
+font-weight:bold;
+height:30px;</string>
                </property>
                <property name="text">
                 <string>Append</string>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'userinterface1.ui'
+# Form implementation generated from reading ui file 'C:\Users\Natesh\Documents\GitHub\Project_NCC\User interface\userinterface1.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -25,8 +25,8 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(844, 628)
-        MainWindow.setMinimumSize(QtCore.QSize(844, 628))
+        MainWindow.resize(1143, 811)
+        MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(12)
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setAutoFillBackground(False)
@@ -45,12 +45,15 @@ class Ui_MainWindow(object):
         MainWindow.setDockOptions(QtGui.QMainWindow.AllowTabbedDocks|QtGui.QMainWindow.AnimatedDocks)
         MainWindow.setProperty("toolTipDuration", 0)
         self.centralwidget = QtGui.QWidget(MainWindow)
+        font = QtGui.QFont()
+        font.setUnderline(True)
+        self.centralwidget.setFont(font)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.centralwidget)
         self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
         self.mytab = QtGui.QTabWidget(self.centralwidget)
         self.mytab.setEnabled(True)
-        self.mytab.setMinimumSize(QtCore.QSize(826, 599))
+        self.mytab.setMinimumSize(QtCore.QSize(826, 678))
         font = QtGui.QFont()
         font.setBold(True)
         font.setItalic(False)
@@ -183,7 +186,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 785, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -489, 1084, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -328,6 +331,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.unitLineEdit.setFont(font)
         self.unitLineEdit.setStyleSheet(_fromUtf8(""))
+        self.unitLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.unitLineEdit.setObjectName(_fromUtf8("unitLineEdit"))
         self.gridLayout_4.addWidget(self.unitLineEdit, 1, 4, 1, 1)
         self.label = QtGui.QLabel(self.instFrame)
@@ -353,6 +357,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.institutionenrollComboBox.setFont(font)
         self.institutionenrollComboBox.setObjectName(_fromUtf8("institutionenrollComboBox"))
+        self.institutionenrollComboBox.addItem(_fromUtf8(""))
         self.institutionenrollComboBox.addItem(_fromUtf8(""))
         self.gridLayout_4.addWidget(self.institutionenrollComboBox, 0, 4, 1, 1)
         self.gridLayout_3.addWidget(self.instFrame, 21, 0, 1, 1, QtCore.Qt.AlignHCenter)
@@ -456,8 +461,9 @@ class Ui_MainWindow(object):
         self.aadhaarLineEdit.setStyleSheet(_fromUtf8(""))
         self.aadhaarLineEdit.setInputMethodHints(QtCore.Qt.ImhDigitsOnly)
         self.aadhaarLineEdit.setText(_fromUtf8(""))
-        self.aadhaarLineEdit.setMaxLength(32767)
+        self.aadhaarLineEdit.setMaxLength(12)
         self.aadhaarLineEdit.setFrame(True)
+        self.aadhaarLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.aadhaarLineEdit.setCursorMoveStyle(QtCore.Qt.VisualMoveStyle)
         self.aadhaarLineEdit.setObjectName(_fromUtf8("aadhaarLineEdit"))
         self.Enrol_form.setWidget(3, QtGui.QFormLayout.FieldRole, self.aadhaarLineEdit)
@@ -482,6 +488,7 @@ class Ui_MainWindow(object):
         self.fullnameLineEdit.setStyleSheet(_fromUtf8("b"))
         self.fullnameLineEdit.setInputMethodHints(QtCore.Qt.ImhDigitsOnly)
         self.fullnameLineEdit.setText(_fromUtf8(""))
+        self.fullnameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.fullnameLineEdit.setObjectName(_fromUtf8("fullnameLineEdit"))
         self.Enrol_form.setWidget(5, QtGui.QFormLayout.FieldRole, self.fullnameLineEdit)
         self.fathernameLabel = QtGui.QLabel(self.enrolformFrame)
@@ -503,6 +510,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.fathernameLineEdit.setFont(font)
         self.fathernameLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.fathernameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.fathernameLineEdit.setObjectName(_fromUtf8("fathernameLineEdit"))
         self.Enrol_form.setWidget(6, QtGui.QFormLayout.FieldRole, self.fathernameLineEdit)
         self.mothernameLabel = QtGui.QLabel(self.enrolformFrame)
@@ -524,6 +532,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.mothernameLineEdit.setFont(font)
         self.mothernameLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.mothernameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.mothernameLineEdit.setObjectName(_fromUtf8("mothernameLineEdit"))
         self.Enrol_form.setWidget(7, QtGui.QFormLayout.FieldRole, self.mothernameLineEdit)
         self.sexLabel = QtGui.QLabel(self.enrolformFrame)
@@ -617,6 +626,7 @@ class Ui_MainWindow(object):
         self.emailLineEdit.setFont(font)
         self.emailLineEdit.setStyleSheet(_fromUtf8(""))
         self.emailLineEdit.setText(_fromUtf8(""))
+        self.emailLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.emailLineEdit.setObjectName(_fromUtf8("emailLineEdit"))
         self.Enrol_form.setWidget(14, QtGui.QFormLayout.FieldRole, self.emailLineEdit)
         self.mobileLabel = QtGui.QLabel(self.enrolformFrame)
@@ -640,6 +650,7 @@ class Ui_MainWindow(object):
         self.mobileLineEdit.setStyleSheet(_fromUtf8(""))
         self.mobileLineEdit.setText(_fromUtf8(""))
         self.mobileLineEdit.setMaxLength(10)
+        self.mobileLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.mobileLineEdit.setObjectName(_fromUtf8("mobileLineEdit"))
         self.Enrol_form.setWidget(15, QtGui.QFormLayout.FieldRole, self.mobileLineEdit)
         self.bloodgroupLabel = QtGui.QLabel(self.enrolformFrame)
@@ -898,6 +909,7 @@ class Ui_MainWindow(object):
         self.ifsccodeLineEdit.setFont(font)
         self.ifsccodeLineEdit.setStyleSheet(_fromUtf8("b"))
         self.ifsccodeLineEdit.setMaxLength(11)
+        self.ifsccodeLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.ifsccodeLineEdit.setObjectName(_fromUtf8("ifsccodeLineEdit"))
         self.gridLayout_2.addWidget(self.ifsccodeLineEdit, 5, 1, 1, 1)
         self.ifsccodeLabel = QtGui.QLabel(self.bankformFrame)
@@ -932,6 +944,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.bankbranchLineEdit.setFont(font)
         self.bankbranchLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.bankbranchLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.bankbranchLineEdit.setObjectName(_fromUtf8("bankbranchLineEdit"))
         self.gridLayout_2.addWidget(self.bankbranchLineEdit, 2, 1, 1, 1)
         self.banknameLineEdit = QtGui.QLineEdit(self.bankformFrame)
@@ -942,6 +955,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.banknameLineEdit.setFont(font)
         self.banknameLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.banknameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.banknameLineEdit.setObjectName(_fromUtf8("banknameLineEdit"))
         self.gridLayout_2.addWidget(self.banknameLineEdit, 0, 1, 1, 1)
         self.accountnameLineEdit = QtGui.QLineEdit(self.bankformFrame)
@@ -952,6 +966,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.accountnameLineEdit.setFont(font)
         self.accountnameLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.accountnameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.accountnameLineEdit.setObjectName(_fromUtf8("accountnameLineEdit"))
         self.gridLayout_2.addWidget(self.accountnameLineEdit, 3, 1, 1, 1)
         self.micrLabel = QtGui.QLabel(self.bankformFrame)
@@ -997,6 +1012,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.accountnumLineEdit.setFont(font)
         self.accountnumLineEdit.setStyleSheet(_fromUtf8("b"))
+        self.accountnumLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.accountnumLineEdit.setObjectName(_fromUtf8("accountnumLineEdit"))
         self.gridLayout_2.addWidget(self.accountnumLineEdit, 4, 1, 1, 1)
         self.micrLineEdit = QtGui.QLineEdit(self.bankformFrame)
@@ -1007,6 +1023,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.micrLineEdit.setFont(font)
         self.micrLineEdit.setMaxLength(9)
+        self.micrLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.micrLineEdit.setObjectName(_fromUtf8("micrLineEdit"))
         self.gridLayout_2.addWidget(self.micrLineEdit, 7, 1, 1, 1)
         self.accountnameLabel = QtGui.QLabel(self.bankformFrame)
@@ -1287,7 +1304,7 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addItem(spacerItem13, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
         self.Query = QtGui.QWidget()
         self.Query.setStyleSheet(_fromUtf8("\n"
@@ -2301,6 +2318,7 @@ class Ui_MainWindow(object):
 "}"))
         self.institutionqueryComboBox.setObjectName(_fromUtf8("institutionqueryComboBox"))
         self.institutionqueryComboBox.addItem(_fromUtf8(""))
+        self.institutionqueryComboBox.addItem(_fromUtf8(""))
         self.horizontalLayout_3.addWidget(self.institutionqueryComboBox)
         self.rankqueryComboBox = QtGui.QComboBox(self.frame)
         self.rankqueryComboBox.setStyleSheet(_fromUtf8("#rankqueryComboBox{\n"
@@ -2511,7 +2529,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addLayout(self.verticalLayout_4, 0, 0, 1, 1)
         self.gridLayout_5.addWidget(self.widget, 0, 0, 1, 1)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Query, icon2, _fromUtf8(""))
         self.Forms = QtGui.QWidget()
         self.Forms.setStyleSheet(_fromUtf8("#Forms{\n"
@@ -2520,30 +2538,15 @@ class Ui_MainWindow(object):
 "\n"
 "}"))
         self.Forms.setObjectName(_fromUtf8("Forms"))
-        self.horizontalLayout_11 = QtGui.QHBoxLayout(self.Forms)
-        self.horizontalLayout_11.setObjectName(_fromUtf8("horizontalLayout_11"))
-        self.verticalLayout_5 = QtGui.QVBoxLayout()
-        self.verticalLayout_5.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
-        self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
-        self.label_12 = QtGui.QLabel(self.Forms)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
-        self.label_12.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Colonna MT"))
-        font.setPointSize(48)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_12.setFont(font)
-        self.label_12.setStyleSheet(_fromUtf8("background-color:transparent;\n"
-"color:blue;"))
-        self.label_12.setObjectName(_fromUtf8("label_12"))
-        self.verticalLayout_5.addWidget(self.label_12, QtCore.Qt.AlignHCenter)
-        self.horizontalLayout_4 = QtGui.QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
-        self.comboBox = QtGui.QComboBox(self.Forms)
+        self.gridLayout_15 = QtGui.QGridLayout(self.Forms)
+        self.gridLayout_15.setObjectName(_fromUtf8("gridLayout_15"))
+        self.frame1 = QtGui.QFrame(self.Forms)
+        self.frame1.setStyleSheet(_fromUtf8("background-color:transparent;"))
+        self.frame1.setObjectName(_fromUtf8("frame1"))
+        self.gridLayout_17 = QtGui.QGridLayout(self.frame1)
+        self.gridLayout_17.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
+        self.gridLayout_17.setObjectName(_fromUtf8("gridLayout_17"))
+        self.comboBox = QtGui.QComboBox(self.frame1)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Comic Sans MS"))
         font.setPointSize(15)
@@ -2565,9 +2568,8 @@ class Ui_MainWindow(object):
         self.comboBox.addItem(_fromUtf8(""))
         self.comboBox.addItem(_fromUtf8(""))
         self.comboBox.setItemText(12, _fromUtf8(""))
-        self.horizontalLayout_4.addWidget(self.comboBox, QtCore.Qt.AlignHCenter)
-        self.verticalLayout_5.addLayout(self.horizontalLayout_4)
-        self.label_3 = QtGui.QLabel(self.Forms)
+        self.gridLayout_17.addWidget(self.comboBox, 2, 0, 1, 1)
+        self.label_3 = QtGui.QLabel(self.frame1)
         font = QtGui.QFont()
         font.setPointSize(-1)
         self.label_3.setFont(font)
@@ -2575,8 +2577,8 @@ class Ui_MainWindow(object):
 "background-color:transparent;\n"
 "color:black;"))
         self.label_3.setObjectName(_fromUtf8("label_3"))
-        self.verticalLayout_5.addWidget(self.label_3, QtCore.Qt.AlignHCenter)
-        self.entryBox = QtGui.QTextEdit(self.Forms)
+        self.gridLayout_17.addWidget(self.label_3, 3, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.entryBox = QtGui.QTextEdit(self.frame1)
         self.entryBox.setMinimumSize(QtCore.QSize(800, 0))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Caladea"))
@@ -2590,73 +2592,20 @@ class Ui_MainWindow(object):
 "border-style:groove;\n"
 "color:black;"))
         self.entryBox.setObjectName(_fromUtf8("entryBox"))
-        self.verticalLayout_5.addWidget(self.entryBox, QtCore.Qt.AlignHCenter)
-        self.webView_2 = QtWebKit.QWebView(self.Forms)
+        self.gridLayout_17.addWidget(self.entryBox, 4, 0, 1, 2)
+        self.webView_2 = QtWebKit.QWebView(self.frame1)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Colonna MT"))
         self.webView_2.setFont(font)
         self.webView_2.setStyleSheet(_fromUtf8("background-color:transparent;"))
         self.webView_2.setUrl(QtCore.QUrl(_fromUtf8("about:blank")))
         self.webView_2.setObjectName(_fromUtf8("webView_2"))
-        self.verticalLayout_5.addWidget(self.webView_2)
+        self.gridLayout_17.addWidget(self.webView_2, 5, 0, 1, 2, QtCore.Qt.AlignHCenter)
         self.gridLayout_9 = QtGui.QGridLayout()
         self.gridLayout_9.setObjectName(_fromUtf8("gridLayout_9"))
-        self.horizontalLayout_15 = QtGui.QHBoxLayout()
-        self.horizontalLayout_15.setObjectName(_fromUtf8("horizontalLayout_15"))
-        self.gridLayout_9.addLayout(self.horizontalLayout_15, 2, 1, 1, 1)
         self.horizontalLayout_14 = QtGui.QHBoxLayout()
         self.horizontalLayout_14.setObjectName(_fromUtf8("horizontalLayout_14"))
-        self.excelfilenameLineEdit = QtGui.QLineEdit(self.Forms)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.excelfilenameLineEdit.setFont(font)
-        self.excelfilenameLineEdit.setStyleSheet(_fromUtf8("#excelfilenameLineEdit{\n"
-"border-radius:10px;\n"
-"height:30px;\n"
-"border-width:2px;\n"
-"border-color:white;\n"
-"border-style:solid;\n"
-"width:200%;\n"
-"}\n"
-"#excelfilenameLineEdit:hover{\n"
-"border-radius:10px;\n"
-"height:30px;\n"
-"border-width:2px;\n"
-"border-color:deeppink;\n"
-"border-style:solid;\n"
-"width:200%;\n"
-"}"))
-        self.excelfilenameLineEdit.setObjectName(_fromUtf8("excelfilenameLineEdit"))
-        self.horizontalLayout_14.addWidget(self.excelfilenameLineEdit)
-        self.sheetnameLineEdit = QtGui.QLineEdit(self.Forms)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.sheetnameLineEdit.setFont(font)
-        self.sheetnameLineEdit.setStyleSheet(_fromUtf8("#sheetnameLineEdit{\n"
-"border-radius:10px;\n"
-"height:30px;\n"
-"border-width:2px;\n"
-"border-color:white;\n"
-"border-style:solid;\n"
-"width:200%;\n"
-"}\n"
-"#sheetnameLineEdit:hover{\n"
-"border-radius:10px;\n"
-"height:30px;\n"
-"border-width:2px;\n"
-"border-color:deeppink;\n"
-"border-style:solid;\n"
-"width:200%;\n"
-"}"))
-        self.sheetnameLineEdit.setObjectName(_fromUtf8("sheetnameLineEdit"))
-        self.horizontalLayout_14.addWidget(self.sheetnameLineEdit)
-        self.saveExelPushButton = QtGui.QPushButton(self.Forms)
+        self.saveExelPushButton = QtGui.QPushButton(self.frame1)
         font = QtGui.QFont()
         font.setPointSize(-1)
         font.setBold(True)
@@ -2695,7 +2644,7 @@ class Ui_MainWindow(object):
 ""))
         self.saveExelPushButton.setObjectName(_fromUtf8("saveExelPushButton"))
         self.horizontalLayout_14.addWidget(self.saveExelPushButton)
-        self.updateExelPushButton = QtGui.QPushButton(self.Forms)
+        self.updateExelPushButton = QtGui.QPushButton(self.frame1)
         font = QtGui.QFont()
         font.setPointSize(-1)
         font.setBold(True)
@@ -2732,53 +2681,46 @@ class Ui_MainWindow(object):
 ""))
         self.updateExelPushButton.setObjectName(_fromUtf8("updateExelPushButton"))
         self.horizontalLayout_14.addWidget(self.updateExelPushButton)
-        self.gridLayout_9.addLayout(self.horizontalLayout_14, 2, 0, 1, 1)
-        self.horizontalLayout_2 = QtGui.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-        self.excelfilenameComboBox = QtGui.QComboBox(self.Forms)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.excelfilenameComboBox.setFont(font)
-        self.excelfilenameComboBox.setStyleSheet(_fromUtf8("height:25px;border-radius:10px;"))
-        self.excelfilenameComboBox.setObjectName(_fromUtf8("excelfilenameComboBox"))
-        self.excelfilenameComboBox.addItem(_fromUtf8(""))
-        self.excelfilenameComboBox.addItem(_fromUtf8(""))
-        self.horizontalLayout_2.addWidget(self.excelfilenameComboBox)
-        self.sheetnameComboBox = QtGui.QComboBox(self.Forms)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.sheetnameComboBox.setFont(font)
-        self.sheetnameComboBox.setStyleSheet(_fromUtf8("height:25px;border-radius:10px;"))
-        self.sheetnameComboBox.setObjectName(_fromUtf8("sheetnameComboBox"))
-        self.sheetnameComboBox.addItem(_fromUtf8(""))
-        self.sheetnameComboBox.addItem(_fromUtf8(""))
-        self.horizontalLayout_2.addWidget(self.sheetnameComboBox)
-        self.gridLayout_9.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
-        self.verticalLayout_5.addLayout(self.gridLayout_9)
+        self.gridLayout_9.addLayout(self.horizontalLayout_14, 1, 0, 1, 1)
+        self.horizontalLayout_15 = QtGui.QHBoxLayout()
+        self.horizontalLayout_15.setObjectName(_fromUtf8("horizontalLayout_15"))
+        self.gridLayout_9.addLayout(self.horizontalLayout_15, 1, 1, 1, 1)
+        self.gridLayout_17.addLayout(self.gridLayout_9, 6, 0, 1, 2)
         spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout_5.addItem(spacerItem14)
-        self.horizontalLayout_11.addLayout(self.verticalLayout_5)
+        self.gridLayout_17.addItem(spacerItem14, 7, 0, 1, 1)
+        self.label_12 = QtGui.QLabel(self.frame1)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Colonna MT"))
+        font.setPointSize(48)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_12.setFont(font)
+        self.label_12.setStyleSheet(_fromUtf8("background-color:transparent;\n"
+"color:blue;"))
+        self.label_12.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
+        self.label_12.setObjectName(_fromUtf8("label_12"))
+        self.gridLayout_17.addWidget(self.label_12, 1, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.gridLayout_15.addWidget(self.frame1, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.mytab.addTab(self.Forms, _fromUtf8(""))
-        self.UploadData = QtGui.QWidget()
-        self.UploadData.setStyleSheet(_fromUtf8("#UploadData{\n"
+        self.DataEntry = QtGui.QWidget()
+        self.DataEntry.setStyleSheet(_fromUtf8("#UploadData{\n"
 "background-image: url(:/icons/wallup-39684.png);\n"
 "background-position:center;\n"
 "background-repeat:none;\n"
 "\n"
 "}"))
-        self.UploadData.setObjectName(_fromUtf8("UploadData"))
-        self.horizontalLayout = QtGui.QHBoxLayout(self.UploadData)
+        self.DataEntry.setObjectName(_fromUtf8("DataEntry"))
+        self.horizontalLayout = QtGui.QHBoxLayout(self.DataEntry)
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.uploaddatamainframe = QtGui.QFrame(self.UploadData)
+        self.uploaddatamainframe = QtGui.QFrame(self.DataEntry)
         self.uploaddatamainframe.setStyleSheet(_fromUtf8("#uploaddatamainframe\n"
 "{\n"
-"    background-color:transparent;\n"
+"    background-image:url(:/icons/wallup-39684.png)\n"
 "}"))
         self.uploaddatamainframe.setObjectName(_fromUtf8("uploaddatamainframe"))
         self.verticalLayout = QtGui.QVBoxLayout(self.uploaddatamainframe)
@@ -2797,8 +2739,9 @@ class Ui_MainWindow(object):
 "color:white;\n"
 "background-color:transparent;"))
         self.label_4.setObjectName(_fromUtf8("label_4"))
-        self.verticalLayout.addWidget(self.label_4, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.verticalLayout.addWidget(self.label_4)
         self.uploaddatainstiframe = QtGui.QFrame(self.uploaddatamainframe)
+        self.uploaddatainstiframe.setMaximumSize(QtCore.QSize(16777215, 51))
         self.uploaddatainstiframe.setStyleSheet(_fromUtf8("#uploaddatainstiframe\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -2820,7 +2763,7 @@ class Ui_MainWindow(object):
         self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
         self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
         self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
-        self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
+        self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox, QtCore.Qt.AlignTop)
         self.typecomboBox = QtGui.QComboBox(self.uploaddatainstiframe)
         font = QtGui.QFont()
         font.setPointSize(-1)
@@ -2838,26 +2781,22 @@ class Ui_MainWindow(object):
         self.typecomboBox.addItem(_fromUtf8(""))
         self.typecomboBox.addItem(_fromUtf8(""))
         self.typecomboBox.addItem(_fromUtf8(""))
-        self.typecomboBox.addItem(_fromUtf8(""))
-        self.horizontalLayout_7.addWidget(self.typecomboBox)
+        self.horizontalLayout_7.addWidget(self.typecomboBox, QtCore.Qt.AlignTop)
         self.openPushButton = QtGui.QPushButton(self.uploaddatainstiframe)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Comic Sans MS"))
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setPointSize(-1)
         self.openPushButton.setFont(font)
-        self.openPushButton.setStyleSheet(_fromUtf8("#open{\n"
+        self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
 "font-size:20px;\n"
 "background-image: url(:/icons/images-1.jpg);\n"
 "border-radius:15px;\n"
-"color:white;\n"
+"color: rgb(0, 170, 255);\n"
 "border-style:solid;\n"
 "border-color:white;\n"
 "border-width:2px;\n"
 "border-radius:12px;\n"
 "}\n"
-"#open:hover{\n"
+"#openPushButton:hover{\n"
 "font-size:25px;\n"
 "    color: rgb(0, 170, 255);\n"
 "    background-image: url(:/icons/close line.png);\n"
@@ -2869,21 +2808,36 @@ class Ui_MainWindow(object):
 "border-radius:12px;\n"
 "}"))
         self.openPushButton.setObjectName(_fromUtf8("openPushButton"))
-        self.horizontalLayout_7.addWidget(self.openPushButton)
+        self.horizontalLayout_7.addWidget(self.openPushButton, QtCore.Qt.AlignTop)
         self.verticalLayout.addWidget(self.uploaddatainstiframe, QtCore.Qt.AlignTop)
+        spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem15)
+        spacerItem16 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem16)
         self.scrollArea_2 = QtGui.QScrollArea(self.uploaddatamainframe)
         self.scrollArea_2.setMinimumSize(QtCore.QSize(784, 422))
         self.scrollArea_2.setStyleSheet(_fromUtf8("background-color:transparent;"))
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName(_fromUtf8("scrollArea_2"))
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 782, 420))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1081, 551))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.verticalLayout_6 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
+        self.scrollArea_3 = QtGui.QScrollArea(self.scrollAreaWidgetContents_2)
+        self.scrollArea_3.setStyleSheet(_fromUtf8("background-color:darkblue;"))
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollArea_3.setObjectName(_fromUtf8("scrollArea_3"))
+        self.scrollAreaWidgetContents_3 = QtGui.QWidget()
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1061, 531))
+        self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
+        self.verticalLayout_7 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_7.setObjectName(_fromUtf8("verticalLayout_7"))
         self.gridLayout_12 = QtGui.QGridLayout()
         self.gridLayout_12.setObjectName(_fromUtf8("gridLayout_12"))
-        self.verticalLayout_6.addLayout(self.gridLayout_12)
+        self.verticalLayout_7.addLayout(self.gridLayout_12)
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_6.addWidget(self.scrollArea_3)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.verticalLayout.addWidget(self.scrollArea_2)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
@@ -2946,17 +2900,147 @@ class Ui_MainWindow(object):
 "}"))
         self.save_data_excelPushButton.setObjectName(_fromUtf8("save_data_excelPushButton"))
         self.horizontalLayout_8.addWidget(self.save_data_excelPushButton)
+        self.appendDataPushButton = QtGui.QPushButton(self.uploaddatamainframe)
+        font = QtGui.QFont()
+        font.setPointSize(-1)
+        self.appendDataPushButton.setFont(font)
+        self.appendDataPushButton.setStyleSheet(_fromUtf8("#appendDataPushButton{\n"
+"font-size:20px;\n"
+"background-image: url(:/icons/images-1.jpg);\n"
+"border-radius:15px;\n"
+"color: rgb(0, 170, 255);\n"
+"border-style:solid;\n"
+"border-color:white;\n"
+"border-width:2px;\n"
+"border-radius:12px;\n"
+"}\n"
+"#appendDataPushButton:hover{\n"
+"font-size:25px;\n"
+"    color: rgb(0, 170, 255);\n"
+"    background-image: url(:/icons/close line.png);\n"
+"padding-top:-8px;\n"
+"border-style:solid;\n"
+"    border-color: rgb(0, 170, 255);\n"
+"border-width:2px;\n"
+"border-radius:15px;\n"
+"border-radius:12px;\n"
+"}"))
+        self.appendDataPushButton.setObjectName(_fromUtf8("appendDataPushButton"))
+        self.horizontalLayout_8.addWidget(self.appendDataPushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_8)
         self.horizontalLayout.addWidget(self.uploaddatamainframe)
-        self.mytab.addTab(self.UploadData, _fromUtf8(""))
-        self.verticalLayout_2.addWidget(self.mytab)
+        self.mytab.addTab(self.DataEntry, _fromUtf8(""))
+        self.Settings = QtGui.QWidget()
+        self.Settings.setStyleSheet(_fromUtf8("#Settings{\n"
+"background-image:url(:/icons/Gradient Wallpaper HD 17 Color hd background hd screensavers hd ....png);\n"
+"background-position:center;\n"
+"}"))
+        self.Settings.setObjectName(_fromUtf8("Settings"))
+        self.gridLayout_14 = QtGui.QGridLayout(self.Settings)
+        self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
+        self.settingsmainframewidget = QtGui.QWidget(self.Settings)
+        self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
+        self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
+"\n"
+"background-color:transparent;\n"
+"\n"
+"}"))
+        self.settingsmainframewidget.setObjectName(_fromUtf8("settingsmainframewidget"))
+        self.verticalLayout_8 = QtGui.QVBoxLayout(self.settingsmainframewidget)
+        self.verticalLayout_8.setObjectName(_fromUtf8("verticalLayout_8"))
+        self.frame_2 = QtGui.QFrame(self.settingsmainframewidget)
+        self.frame_2.setStyleSheet(_fromUtf8("#frame_2{\n"
+"background-color:transparent;\n"
+"}"))
+        self.frame_2.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtGui.QFrame.Raised)
+        self.frame_2.setObjectName(_fromUtf8("frame_2"))
+        self.gridLayout_16 = QtGui.QGridLayout(self.frame_2)
+        self.gridLayout_16.setObjectName(_fromUtf8("gridLayout_16"))
+        self.settings_institutionListWidget = QtGui.QListWidget(self.frame_2)
+        self.settings_institutionListWidget.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.settings_institutionListWidget.setFrameShadow(QtGui.QFrame.Sunken)
+        self.settings_institutionListWidget.setResizeMode(QtGui.QListView.Fixed)
+        self.settings_institutionListWidget.setViewMode(QtGui.QListView.ListMode)
+        self.settings_institutionListWidget.setUniformItemSizes(True)
+        self.settings_institutionListWidget.setObjectName(_fromUtf8("settings_institutionListWidget"))
+        self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
+        self.horizontalLayout_4 = QtGui.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
+        self.settings_instLineEdit = QtGui.QLineEdit(self.frame_2)
+        self.settings_instLineEdit.setMinimumSize(QtCore.QSize(350, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.settings_instLineEdit.setFont(font)
+        self.settings_instLineEdit.setAutoFillBackground(False)
+        self.settings_instLineEdit.setObjectName(_fromUtf8("settings_instLineEdit"))
+        self.horizontalLayout_4.addWidget(self.settings_instLineEdit)
+        self.settings_addPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        self.settings_addPushButton.setFont(font)
+        self.settings_addPushButton.setDefault(False)
+        self.settings_addPushButton.setObjectName(_fromUtf8("settings_addPushButton"))
+        self.horizontalLayout_4.addWidget(self.settings_addPushButton)
+        self.settings_backinstPushButton = QtGui.QPushButton(self.frame_2)
+        self.settings_backinstPushButton.setMaximumSize(QtCore.QSize(37, 16777215))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        self.settings_backinstPushButton.setFont(font)
+        self.settings_backinstPushButton.setObjectName(_fromUtf8("settings_backinstPushButton"))
+        self.horizontalLayout_4.addWidget(self.settings_backinstPushButton, QtCore.Qt.AlignHCenter)
+        self.gridLayout_16.addLayout(self.horizontalLayout_4, 5, 0, 1, 1)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.settings_addinstitutionPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.settings_addinstitutionPushButton.setFont(font)
+        self.settings_addinstitutionPushButton.setObjectName(_fromUtf8("settings_addinstitutionPushButton"))
+        self.horizontalLayout_2.addWidget(self.settings_addinstitutionPushButton)
+        self.removeinstitutionPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        self.removeinstitutionPushButton.setFont(font)
+        self.removeinstitutionPushButton.setObjectName(_fromUtf8("removeinstitutionPushButton"))
+        self.horizontalLayout_2.addWidget(self.removeinstitutionPushButton)
+        self.gridLayout_16.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
+        self.settings_institutionlistLabel = QtGui.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
+        font.setPointSize(19)
+        font.setBold(True)
+        font.setWeight(75)
+        self.settings_institutionlistLabel.setFont(font)
+        self.settings_institutionlistLabel.setStyleSheet(_fromUtf8("border-image: url(:/icons/image-blur.png);\n"
+"color:white;"))
+        self.settings_institutionlistLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.settings_institutionlistLabel.setObjectName(_fromUtf8("settings_institutionlistLabel"))
+        self.gridLayout_16.addWidget(self.settings_institutionlistLabel, 0, 0, 1, 1)
+        self.verticalLayout_8.addWidget(self.frame_2, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 1, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.mytab.addTab(self.Settings, _fromUtf8(""))
+        self.verticalLayout_2.addWidget(self.mytab, QtCore.Qt.AlignHCenter)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(MainWindow)
         self.statusbar.setObjectName(_fromUtf8("statusbar"))
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(3)
+        self.mytab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -2970,6 +3054,7 @@ class Ui_MainWindow(object):
         self.institutionLabel.setText(_translate("MainWindow", "<html><head/><body><p>Institution &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\"> </span></p></body></html>", None))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p>Unit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\"> *</span></p></body></html>", None))
         self.institutionenrollComboBox.setItemText(0, _translate("MainWindow", "Sarvodaya PU College", None))
+        self.institutionenrollComboBox.setItemText(1, _translate("MainWindow", "Sit", None))
         self.enrolmentnumLabel.setToolTip(_translate("MainWindow", "Mandatory field", None))
         self.enrolmentnumLabel.setText(_translate("MainWindow", "<html><head/><body><p>Enrolment No.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:red;\">*</span></p></body></html>", None))
         self.rankLabel.setText(_translate("MainWindow", "Rank", None))
@@ -3107,6 +3192,7 @@ class Ui_MainWindow(object):
         self.bloodgroupqueryComboBox.setItemText(6, _translate("MainWindow", "AB+", None))
         self.bloodgroupqueryComboBox.setItemText(7, _translate("MainWindow", "AB-", None))
         self.institutionqueryComboBox.setItemText(0, _translate("MainWindow", "Sit", None))
+        self.institutionqueryComboBox.setItemText(1, _translate("MainWindow", "Sarvodaya PU College", None))
         self.rankqueryComboBox.setItemText(0, _translate("MainWindow", "Cadet (CDT)", None))
         self.rankqueryComboBox.setItemText(1, _translate("MainWindow", "Lance Corporal (LCPL)", None))
         self.rankqueryComboBox.setItemText(2, _translate("MainWindow", "Corporal  (CPL)", None))
@@ -3122,7 +3208,6 @@ class Ui_MainWindow(object):
         self.querycondition.setText(_translate("MainWindow", "Query", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Query), _translate("MainWindow", "Query", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Query), _translate("MainWindow", "Do YOGA everyday", None))
-        self.label_12.setText(_translate("MainWindow", "Choose your Form", None))
         self.comboBox.setItemText(0, _translate("MainWindow", "-Select", None))
         self.comboBox.setItemText(1, _translate("MainWindow", "Cadet details", None))
         self.comboBox.setItemText(2, _translate("MainWindow", "Yoga day", None))
@@ -3136,14 +3221,9 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(10, _translate("MainWindow", "TADA to cadets camps", None))
         self.comboBox.setItemText(11, _translate("MainWindow", "TADA to cadets for exam", None))
         self.label_3.setText(_translate("MainWindow", "Enter Enrollment numbers", None))
-        self.excelfilenameLineEdit.setPlaceholderText(_translate("MainWindow", "Enter FileName", None))
-        self.sheetnameLineEdit.setPlaceholderText(_translate("MainWindow", "Enter SheetName", None))
         self.saveExelPushButton.setText(_translate("MainWindow", "Save Exel", None))
         self.updateExelPushButton.setText(_translate("MainWindow", "Update Exel", None))
-        self.excelfilenameComboBox.setItemText(0, _translate("MainWindow", "Select File Name", None))
-        self.excelfilenameComboBox.setItemText(1, _translate("MainWindow", "New File", None))
-        self.sheetnameComboBox.setItemText(0, _translate("MainWindow", "Select Sheet Name", None))
-        self.sheetnameComboBox.setItemText(1, _translate("MainWindow", "New Sheet", None))
+        self.label_12.setText(_translate("MainWindow", "Choose your Form", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Forms), _translate("MainWindow", "Forms", None))
         self.label_4.setText(_translate("MainWindow", "Select Institution and the Type Of Data", None))
         self.institutionuploaddatacomboBox.setItemText(0, _translate("MainWindow", "Select Institution", None))
@@ -3153,14 +3233,22 @@ class Ui_MainWindow(object):
         self.typecomboBox.setItemText(1, _translate("MainWindow", "Upload Marks(A)", None))
         self.typecomboBox.setItemText(2, _translate("MainWindow", "Upload Marks(B)", None))
         self.typecomboBox.setItemText(3, _translate("MainWindow", "Upload Marks(C)", None))
-        self.typecomboBox.setItemText(4, _translate("MainWindow", "Attendance", None))
-        self.typecomboBox.setItemText(5, _translate("MainWindow", "Camps", None))
-        self.typecomboBox.setItemText(6, _translate("MainWindow", "Extra Activities", None))
-        self.typecomboBox.setItemText(7, _translate("MainWindow", "Add Remarks", None))
+        self.typecomboBox.setItemText(4, _translate("MainWindow", "Add Camps", None))
+        self.typecomboBox.setItemText(5, _translate("MainWindow", "Add Extra Activities", None))
+        self.typecomboBox.setItemText(6, _translate("MainWindow", "Add Remarks", None))
         self.openPushButton.setText(_translate("MainWindow", "Open", None))
         self.savedataPushButton.setText(_translate("MainWindow", "Save", None))
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Save as Excel", None))
-        self.mytab.setTabText(self.mytab.indexOf(self.UploadData), _translate("MainWindow", "Upload Data", None))
+        self.appendDataPushButton.setText(_translate("MainWindow", "Append", None))
+        self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
+        self.settings_institutionListWidget.setSortingEnabled(False)
+        self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
+        self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
+        self.settings_backinstPushButton.setText(_translate("MainWindow", "Back", None))
+        self.settings_addinstitutionPushButton.setText(_translate("MainWindow", "Add Institution", None))
+        self.removeinstitutionPushButton.setText(_translate("MainWindow", "Remove", None))
+        self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
+        self.mytab.setTabText(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
 
 from PyQt4 import QtWebKit
 import icon_res_rc

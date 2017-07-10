@@ -22,7 +22,7 @@ class enroll:
     def update_student_details(self ,*fields):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
-        add = r"update enrolment set Enrolment_Number='{0}',Rank='{1}',Aadhar_Number='{2}',student_Name='{3}',Fathers_Name='{4}',Mothers_Name='{5}' ,Sex='{6}',Date_Of_Birth='{7}', Address = '{8}' ,Email='{9}' , Mobile_Number='{10}' , Blood_Group='{11}' ,Certificate='{12}' ,Camps_Attended='{13}' ,Extra_Curricular_Activities='{14}', Special_Achievements='{15}' , Enrol_Date='{16}' ,Remarks='{17}', Vegitarian='{18}' , Bank_Name='{19}', Branch='{20}' ,Account_Name='{21}',  Account_Number='{22}',   IFSC_Code='{23}',  MICR='{24}',  Institution='{25}',  Unit='{26}'  where Enrolment_Number='{0}'".format(fields[0],fields[1],fields[2],fields[3],fields[4],fields[5],fields[6],fields[7],fields[8],fields[9],fields[10],fields[11],fields[12],fields[13],fields[14],fields[15],fields[16],fields[17],fields[18],fields[19],fields[20],fields[21],fields[22],fields[23],fields[24],fields[25],fields[26],fields[0])
+        add = "update enrolment set Enrolment_Number='{0}',Rank='{1}',Aadhar_Number='{2}',student_Name='{3}',Fathers_Name='{4}',Mothers_Name='{5}' ,Sex='{6}',Date_Of_Birth='{7}', Address = '{8}' ,Email='{9}' , Mobile_Number='{10}' , Blood_Group='{11}' ,Certificate='{12}' ,Camps_Attended='{13}' ,Extra_Curricular_Activities='{14}', Special_Achievements='{15}' , Enrol_Date='{16}' ,Remarks='{17}', Vegitarian='{18}' , Bank_Name='{19}', Branch='{20}' ,Account_Name='{21}',  Account_Number='{22}',   IFSC_Code='{23}',  MICR='{24}',  Institution='{25}',  Unit='{26}'  where Enrolment_Number='{0}'".format(fields[0],fields[1],fields[2],fields[3],fields[4],fields[5],fields[6],fields[7],fields[8],fields[9],fields[10],fields[11],fields[12],fields[13],fields[14],fields[15],fields[16],fields[17],fields[18],fields[19],fields[20],fields[21],fields[22],fields[23],fields[24],fields[25],fields[26],fields[0])
         print(add)
         self.cur.execute(add)
         self.conn.commit()
@@ -57,13 +57,57 @@ class enroll:
         print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
-
+    def create_table_marks_A_cert(self):
+        self.conn=sqlite3.connect("ncc.db")
+        self.cur=self.conn.cursor()
+        sql="""create table if not exist A_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
+        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
+        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
+        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
+        Part4_SplSubjects_Total int(3),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        self.cur.execute(sql)
+        print("table created sucessfully")
+        self.conn.commit()
+        self.conn.close()
+    def create_table_marks_B_cert(self):
+        self.conn=sqlite3.connect("ncc.db")
+        self.cur=self.conn.cursor()
+        sql="""create table if not exist B_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
+        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
+        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
+        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
+        Part4_SplSubjects_Total int(3),Bonus_Marks_Certificate_A int(2),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        self.cur.execute(sql)
+        print("table created sucessfully")
+        self.conn.commit()
+        self.conn.close()
+    def create_table_marks_C_cert(self):
+        self.conn=sqlite3.connect("ncc.db")
+        self.cur=self.conn.cursor()
+        sql="""create table if not exist C_cert_marks(Enrolment_Number varchar(13) not null,Roll_Number varchar(8),
+        Parade_Attendance_Year1 int(3),Parade_Attendance_Year2 int(3),Part1_Drill_Written int(2),
+        Part1_Drill_Practical int(2),Part1_Drill_Total int(2),Part2_WT_Written int(2),Part2_WT_Practical int(2),
+        Part2_WT_Total int(2),Part3_Misc_Written int(2),Part4_SplSubjects_Written int(3),Part4_SplSubjects_Practical int(2),
+        Part4_SplSubjects_Total int(3),Bonus_Marks_Certificate_A int(2),GrandTotal int(3),Granding int(3),primary key(Enrolment_Number))"""
+        self.cur.execute(sql)
+        print("table created sucessfully")
+        self.conn.commit()
+        self.conn.close()
+    def create_table_Attendance(self):
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        sql = """create table if not exist Attendance(Enrolment_Number varchar(13) not null,
+        ,primary key(Enrolment_Number))"""
+        self.cur.execute(sql)
+        print("table created sucessfully")
+        self.conn.commit()
+        self.conn.close()
     def search_particular_fields(self,con,con1,*fields):
         sql="select "
         for i in range(len(fields)):
             if i != len(fields) and i != 0:
                 sql = sql + ","
-            sql = sql + fields[i]
+            sql = sql + fields[i]   
         sql = sql + " from enrolment"
         if (con !=0):
             sql = sql + " where Enrolment_Number='" + con1 + "'"

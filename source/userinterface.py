@@ -2820,10 +2820,15 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.verticalLayout_6 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
-        self.scrollArea_3 = QtGui.QScrollArea(self.scrollAreaWidgetContents_2)
-        self.scrollArea_3.setStyleSheet(_fromUtf8("background-color:darkblue;"))
-        self.scrollArea_3.setWidgetResizable(True)
-        self.scrollArea_3.setObjectName(_fromUtf8("scrollArea_3"))
+        self.dataentryScrollArea = QtGui.QScrollArea(self.scrollAreaWidgetContents_2)
+        self.dataentryScrollArea.setStyleSheet(_fromUtf8("#dataentryScrollArea\n"
+"{\n"
+"\n"
+"background-color:darkblue;\n"
+"\n"
+"}"))
+        self.dataentryScrollArea.setWidgetResizable(True)
+        self.dataentryScrollArea.setObjectName(_fromUtf8("dataentryScrollArea"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
         self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1061, 531))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
@@ -2832,8 +2837,8 @@ class Ui_MainWindow(object):
         self.gridLayout_12 = QtGui.QGridLayout()
         self.gridLayout_12.setObjectName(_fromUtf8("gridLayout_12"))
         self.verticalLayout_7.addLayout(self.gridLayout_12)
-        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
-        self.verticalLayout_6.addWidget(self.scrollArea_3)
+        self.dataentryScrollArea.setWidget(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_6.addWidget(self.dataentryScrollArea)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.verticalLayout.addWidget(self.scrollArea_2)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()

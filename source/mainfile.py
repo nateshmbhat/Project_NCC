@@ -565,8 +565,8 @@ class logic():
                                       'Select the Type of Data you want to upload.',
                                       'OK')
         else:
-            sql="""select Enrolment_Number from enrolment where Institution='"""+ui.institutionuploaddatacomboBox.currentText()+"'"
-            sql1 = """select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            sql=r"""select Enrolment_Number from enrolment where Institution='"""+ui.institutionuploaddatacomboBox.currentText()+"'"
+            sql1 = r"""select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
             tup=ENROLMENT_FORM.enroll().execute(sql)
             tup1=ENROLMENT_FORM.enroll().execute(sql1)
             sql2=""
@@ -585,7 +585,7 @@ class logic():
                            'Enrol_Date',  'Camps_Attended','Date_Of_Discharge','1 year','2 year','Written(30)',
                            'Practical(60)','Total(90)','Written(40)','Practical(20)','Total(60)','Written(200)','Written(115)',
                            'Practical(25)',"Total(150)",'Grand Total(500)','Grading'],
-                                  ['Enrolment_Number', 'Rool_Number', 'Rank               ', 'Student_Name', 'Fathers_name', 'Date_Of_Birth',
+                                  ['Enrolment_Number', 'Rool_Number', '        Rank       ', 'Student_Name', 'Fathers_name', 'Date_Of_Birth',
                            'Enrol_Date', 'Camps_Attended', 'Date_Of_Discharge','1 year','2 year','Written(10)',
                            'Practical(80)','Total(90)','Written(35)','Practical(25)','Total(60)','Written(200)','Written(105)',
                            'Practical(45)',"Total(150)",'Total(25)','Grand Total(500)','Grading'],
@@ -619,7 +619,7 @@ class logic():
                         if i == 0:
                             for p in range(len(self.labelheading1[self.position])):
                                 self.label.append(QtGui.QLabel(ui.uploaddatamainframe))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
                                                                                         "color:white;\n"
                                                                                         "font-size:30px;font-weight:bold;position:fixed;\n"
                                                                                         ""))
@@ -633,7 +633,7 @@ class logic():
                         if i == 1:
                             for p in range(len(self.labelheading2[self.position])):
                                 self.label.append(QtGui.QLabel(ui.uploaddatamainframe))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8(
                                                                                         "color:white;\n"
                                                                                         "font-size:25px;font-weight:bold;\n"
                                                                                         ""))
@@ -664,8 +664,7 @@ class logic():
                         for j in range(len(self.labelheading3[self.position])):
                             if i == 2:
                                 self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
-                                                                                        "color:white;\n"
+                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("color:white;\n"
                                                                                         "font-size:20px;font-weight:bold;\n"
                                                                                         ""))
                                 self.label[len(self.label) - 1].setObjectName(
@@ -682,7 +681,7 @@ class logic():
                                                   "height:30px;color:white;"))
                                 else:
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("background-color:darkgray;font-size:15px;font-weight:bold;height:30px;color:white;"))
+                                        _fromUtf8("font-size:15px;font-weight:bold;height:30px;color:white;"))
                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setObjectName(
                                     _fromUtf8("uploaddatalineEdit" + str(i)))
 
@@ -725,7 +724,7 @@ class logic():
                         for j in range(len(self.labelheading3[self.position])):
                             if i==0:
                                 self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                self.label[len(self.label)-1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
+                                self.label[len(self.label)-1].setStyleSheet(_fromUtf8(
                                                                       "color:white;\n"
                                                                       "font-size:25px;font-weight:bold;\n"
                                                                       ""))
@@ -736,7 +735,7 @@ class logic():
                             else:
                                 if j==0:
                                     self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents_3))
-                                    self.label[len(self.label)-1].setStyleSheet(_fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
+                                    self.label[len(self.label)-1].setStyleSheet(_fromUtf8(";font-size:15px;font-weight:bold;"
                                                                           "height:30px;color:white;"))
                                     self.label[len(self.label)-1].setObjectName(_fromUtf8("enrolmentuploaddataLabel"+str(i)))
                                     self.labelObjectnames.append("enrolmentuploaddataLabel"+str(i))

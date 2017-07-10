@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1084, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1449, 1084, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -356,6 +356,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.institutionenrollComboBox.setFont(font)
+        self.institutionenrollComboBox.setEditable(False)
         self.institutionenrollComboBox.setObjectName(_fromUtf8("institutionenrollComboBox"))
         self.gridLayout_4.addWidget(self.institutionenrollComboBox, 0, 4, 1, 1)
         self.gridLayout_3.addWidget(self.instFrame, 21, 0, 1, 1, QtCore.Qt.AlignHCenter)
@@ -2246,6 +2247,7 @@ class Ui_MainWindow(object):
 "    font: 14pt \"georgia\";\n"
 "width:130%;\n"
 "}"))
+        self.conditionlistcombobox.setMaxVisibleItems(20)
         self.conditionlistcombobox.setObjectName(_fromUtf8("conditionlistcombobox"))
         self.conditionlistcombobox.addItem(_fromUtf8(""))
         self.conditionlistcombobox.addItem(_fromUtf8(""))
@@ -3025,6 +3027,9 @@ class Ui_MainWindow(object):
         self.gridLayout_16.addWidget(self.settings_institutionlistLabel, 0, 0, 1, 1)
         self.verticalLayout_8.addWidget(self.frame_2, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 1, 1, 1, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.verticalLayout_5 = QtGui.QVBoxLayout()
+        self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
+        self.gridLayout_14.addLayout(self.verticalLayout_5, 1, 1, 1, 1)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
         self.verticalLayout_2.addWidget(self.mytab, QtCore.Qt.AlignHCenter)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -3033,7 +3038,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(3)
+        self.mytab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

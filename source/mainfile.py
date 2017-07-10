@@ -281,8 +281,6 @@ class logic():
 
         ui.updateExelPushButton.clicked.connect(self.fun1)
 
-        self.set_institutions_list()
-
         ui.settings_addinstitutionPushButton.clicked.connect(lambda: (
             ui.settings_addinstitutionPushButton.hide(), ui.removeinstitutionPushButton.hide(),
             ui.settings_instLineEdit.show(), ui.settings_addPushButton.show(), ui.settings_backinstPushButton.show()))
@@ -297,18 +295,11 @@ class logic():
 
 
 
-        """  The below lines add the institution list to the combo box of institutions of various tabs"""
-        with open('institutions.txt','r+') as f:
-            instlist = []
-            for i in f:
-                instlist.append(i.strip())
 
-        ui.institutionenrollComboBox.addItems(instlist)
+        self.settings = QtCore.QSettings('settings.ini',QtCore.QSettings.IniFormat)
+        self.institutionlist = self.settings.value('institutionlist').split(',,,')
 
-        ui.institutionqueryComboBox.addItems(instlist)
-
-        ui.institutionuploaddatacomboBox.addItems(instlist)
-
+        self.set_institutions_list()
 
 
 
@@ -316,6 +307,8 @@ class logic():
 
 
     def institution_add_or_remove(self, button):
+
+
         if button.text() == 'Add':
             if not ui.settings_instLineEdit.displayText():
                 QtGui.QMessageBox.warning(ui.Settings, "Empty field",
@@ -324,10 +317,14 @@ class logic():
                 return
 
             inst_name = ui.settings_instLineEdit.displayText()
-            with open('institutions.txt', 'a') as f:
-                f.write('\n' + inst_name);
+
+            self.institutionlist.append(inst_name)
+
+            self.settings.setValue('institutionlist',",,,".join(self.institutionlist))
 
             self.set_institutions_list()
+
+
 
         if button.text() == 'Remove':
 
@@ -341,37 +338,37 @@ class logic():
             if QtGui.QMessageBox.question(ui.Settings, "Are you sure ?",
                                           '\n\nAre you sure you want to remove this Institution from the list of institutions ? \nThe changes are irreversible ! \nClick "Yes" to remove it.',
                                           'Yes', 'No') == 0:
-                with open('institutions.txt', 'r') as f:
-                    instlist = []
-                    for i in f:
-                        instlist.append(i.strip())
+
 
                 selected_text = selectedItem.text()
-                instlist.remove(selected_text)
 
+                self.institutionlist.remove(selected_text)
 
-                with open('institutions.txt', 'w') as f:
-                    f.writelines("\n".join(instlist))
-                    f.truncate()
+                self.settings.setValue('institutionlist' , ",,,".join(self.institutionlist))
+
                 self.set_institutions_list()
+
 
         ui.settings_instLineEdit.clear()
 
 
 
     def set_institutions_list(self):
+
+        """
+            Manages the hiding and showing of the buttons in the Institution list in the settings tab and also sets the institutions for all the comboboxes which have institutions
+            This function is called whenever an item is added or removed to the institution list
+        """
+
         ui.settings_institutionListWidget.clear()
         ui.settings_addinstitutionPushButton.show()
         ui.removeinstitutionPushButton.show()
         ui.settings_backinstPushButton.show()
 
-        with open('institutions.txt', 'r+') as f:
-            instlist = []
-            for i in f:
-                instlist.append(i.strip())
 
         ui.settings_institutionListWidget.setSpacing(3)
-        for inst in instlist:
+
+        for inst in self.institutionlist:
             item = QtGui.QListWidgetItem()
             item.setText(inst)
             item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
@@ -385,6 +382,18 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense3Pattern)
             item.setBackground(brush)
             ui.settings_institutionListWidget.addItem(item)
+
+
+
+        ui.institutionenrollComboBox.clear()
+        ui.institutionenrollComboBox.addItems(self.institutionlist)
+
+        ui.institutionqueryComboBox.clear()
+        ui.institutionqueryComboBox.addItems(self.institutionlist)
+
+        ui.institutionuploaddatacomboBox.clear()
+        ui.institutionuploaddatacomboBox.addItems(self.institutionlist)
+
 
         ui.settings_instLineEdit.hide()
         ui.settings_addPushButton.hide()

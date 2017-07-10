@@ -269,12 +269,7 @@ class logic():
             os.mkdir(r'candidate photos')
         ui.openPushButton.clicked.connect(self.openuploaddata)
 
-        with open('institutions.txt','r+') as f:
-            instlist = []
-            for i in f:
-                instlist.append(i.strip())
 
-        ui.institutionenrollComboBox.addItems(instlist)
 
         ui.savedataPushButton.clicked.connect(self.saveuploadeddata)
 
@@ -289,8 +284,8 @@ class logic():
         self.set_institutions_list()
 
         ui.settings_addinstitutionPushButton.clicked.connect(lambda: (
-        ui.settings_addinstitutionPushButton.hide(), ui.removeinstitutionPushButton.hide(),
-        ui.settings_instLineEdit.show(), ui.settings_addPushButton.show(), ui.settings_backinstPushButton.show()))
+            ui.settings_addinstitutionPushButton.hide(), ui.removeinstitutionPushButton.hide(),
+            ui.settings_instLineEdit.show(), ui.settings_addPushButton.show(), ui.settings_backinstPushButton.show()))
 
 
         ui.settings_addPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.settings_addPushButton))
@@ -299,6 +294,24 @@ class logic():
         ui.removeinstitutionPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.removeinstitutionPushButton))
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
+
+
+
+        """  The below lines add the institution list to the combo box of institutions of various tabs"""
+        with open('institutions.txt','r+') as f:
+            instlist = []
+            for i in f:
+                instlist.append(i.strip())
+
+        ui.institutionenrollComboBox.addItems(instlist)
+
+        ui.institutionqueryComboBox.addItems(instlist)
+
+        ui.institutionuploaddatacomboBox.addItems(instlist)
+
+
+
+
 
 
 
@@ -545,7 +558,7 @@ class logic():
         self.labelObjectnames = []
         if ui.institutionuploaddatacomboBox.currentText() == "Select Institution":
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                      'Select any one Instituon from combo box.',
+                                      'Select an Institution from the Institution list.',
                                       'OK')
         elif ui.typecomboBox.currentText() == "Select Type":
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
@@ -782,7 +795,7 @@ class logic():
 
     def enrol_button_pressed(self):
         ui.searchbyfieldLineEdit.clear()
-        self.enable_form_elements();
+        self.enable_query_checkbox_elements();
         ui.submitPushButton.show()
     def fun1(self):
         if ui.comboBox.currentText()=="-Select":
@@ -1126,7 +1139,7 @@ font-weight:bold;
 }""")
 
 
-    def disable_form_elements(self):
+    def disable_query_checkbox_elements(self):
 
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox , QtGui.QCheckBox , QtGui.QRadioButton,QtGui.QTextEdit)):
             i.setDisabled(True);
@@ -1139,7 +1152,7 @@ font-weight:bold;
         ui.submitPushButton.hide()
         ui.updateentryCheckBox.hide()
 
-    def enable_form_elements(self):
+    def enable_query_checkbox_elements(self):
 
         for i in ui.enrolformFrame.findChildren(
                 (QtGui.QLineEdit, QtGui.QComboBox, QtGui.QCheckBox, QtGui.QRadioButton, QtGui.QTextEdit)):
@@ -1162,7 +1175,7 @@ font-weight:bold;
                 QtGui.QMessageBox.warning(ui.enrolformFrame ,"Warning" , "\n\nSearch field should not be empty while searching",'OK')
                 return ;
 
-            self.disable_form_elements() ;
+            self.disable_query_checkbox_elements() ;
 
 
 

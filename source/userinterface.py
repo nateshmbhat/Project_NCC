@@ -2315,8 +2315,6 @@ class Ui_MainWindow(object):
 "width:130%;\n"
 "}"))
         self.institutionqueryComboBox.setObjectName(_fromUtf8("institutionqueryComboBox"))
-        self.institutionqueryComboBox.addItem(_fromUtf8(""))
-        self.institutionqueryComboBox.addItem(_fromUtf8(""))
         self.horizontalLayout_3.addWidget(self.institutionqueryComboBox)
         self.rankqueryComboBox = QtGui.QComboBox(self.frame)
         self.rankqueryComboBox.setStyleSheet(_fromUtf8("#rankqueryComboBox{\n"
@@ -3038,7 +3036,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -3187,8 +3185,6 @@ class Ui_MainWindow(object):
         self.bloodgroupqueryComboBox.setItemText(5, _translate("MainWindow", "B-", None))
         self.bloodgroupqueryComboBox.setItemText(6, _translate("MainWindow", "AB+", None))
         self.bloodgroupqueryComboBox.setItemText(7, _translate("MainWindow", "AB-", None))
-        self.institutionqueryComboBox.setItemText(0, _translate("MainWindow", "Sit", None))
-        self.institutionqueryComboBox.setItemText(1, _translate("MainWindow", "Sarvodaya PU College", None))
         self.rankqueryComboBox.setItemText(0, _translate("MainWindow", "Cadet (CDT)", None))
         self.rankqueryComboBox.setItemText(1, _translate("MainWindow", "Lance Corporal (LCPL)", None))
         self.rankqueryComboBox.setItemText(2, _translate("MainWindow", "Corporal  (CPL)", None))

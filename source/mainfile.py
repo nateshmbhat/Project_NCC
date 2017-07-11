@@ -292,8 +292,7 @@ class logic():
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
 
-
-
+        ui.settings_formsListWidget.itemClicked.connect(lambda: self.settings_form_item_clicked(ui.settings_formsListWidget.currentItem()))
 
         self.init_settings()
 
@@ -336,12 +335,12 @@ class logic():
 
         '''List of all the fields under Dataentry Types '''
 
-        self.marksA_fieldslist = self.settings.value('marksA_fieldslist')
-        self.marksB_fieldslist= self.settings.value('marksB_fieldslist')
-        self.marksC_fieldslist = self.settings.value('marksC_fieldslist')
-        self.camps_fieldslist = self.settings.value('camps_fieldslist')
-        self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist')
-        self.remarks_fieldslist = self.settings.value('remarks_fieldslist')
+        self.marksA_fieldslist = self.settings.value('marksA_fieldslist').split(',,,')
+        self.marksB_fieldslist= self.settings.value('marksB_fieldslist').split(',,,')
+        self.marksC_fieldslist = self.settings.value('marksC_fieldslist').split(',,,')
+        self.camps_fieldslist = self.settings.value('camps_fieldslist').split(',,,')
+        self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist').split(',,,')
+        self.remarks_fieldslist = self.settings.value('remarks_fieldslist').split(',,,')
 
 
 
@@ -350,36 +349,75 @@ class logic():
 #           NOT SQL FIELDS
 
 
-        self.CADET_DETAILS_notsql_fieldslist= self.settings.value('CADET_DETAILS_notsql_fieldslist')
-        self.CADET_DETAILS_notsql_fieldslist=self.settings.value('YOGA_DAY_notsql_fieldslist')
-        self.Enrolment_Nominal_roll_notsql_fieldslist=self.settings.value('Enrolment_Nominal_roll_notsql_fieldslist')
-        self.Camp_Nominal_roll_notsql_fieldslist = self.settings.value('Camp_Nominal_roll_notsql_fieldslist')
-        self.Scholarship_NR_notsql_fieldslist =self.settings.value('Scholarship_NR_notsql_fieldslist')
-        self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_High_school_JDJW_notsql_fieldslist')
-        self.B_certe_NR_SDSW_notsql_fieldslist= self.settings.value('B_certe_NR_SDSW_notsql_fieldslist')
-        self.C_certe_NR_SDSW_notsql_fieldslist =self.settings.value('C_certe_NR_SDSW_notsql_fieldslist')
+        self.CADET_DETAILS_notsql_fieldslist= self.settings.value('CADET_DETAILS_notsql_fieldslist').split(',,,')
+        self.YOGA_DAY_notsql_fieldslist=self.settings.value('YOGA_DAY_notsql_fieldslist').split(',,,')
+        self.Enrolment_Nominal_roll_notsql_fieldslist=self.settings.value('Enrolment_Nominal_roll_notsql_fieldslist').split(',,,')
+        self.Camp_Nominal_roll_notsql_fieldslist = self.settings.value('Camp_Nominal_roll_notsql_fieldslist').split(',,,')
+        self.Scholarship_NR_notsql_fieldslist =self.settings.value('Scholarship_NR_notsql_fieldslist').split(',,,')
+        self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_High_school_JDJW_notsql_fieldslist').split(',,,')
+        self.B_certe_NR_SDSW_notsql_fieldslist= self.settings.value('B_certe_NR_SDSW_notsql_fieldslist').split(',,,')
+        self.C_certe_NR_SDSW_notsql_fieldslist =self.settings.value('C_certe_NR_SDSW_notsql_fieldslist').split(',,,')
 
 
 
         # SQL FIELDS
 
-        self.CADET_DETAILS_sql_fieldslist = self.settings.value('CADET_DETAILS_sql_fieldslist')
-        self.CADET_DETAILS_sql_fieldslist = self.settings.value('YOGA_DAY_sql_fieldslist')
-        self.Enrolment_Nominal_roll_sql_fieldslist = self.settings.value('Enrolment_Nominal_roll_sql_fieldslist')
-        self.Camp_Nominal_roll_sql_fieldslist = self.settings.value('Camp_Nominal_roll_sql_fieldslist')
-        self.Scholarship_NR_sql_fieldslist = self.settings.value('Scholarship_NR_sql_fieldslist')
-        self.A_certe_NR_for_High_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_High_school_JDJW_sql_fieldslist')
-        self.B_certe_NR_SDSW_sql_fieldslist = self.settings.value('B_certe_NR_SDSW_sql_fieldslist')
-        self.C_certe_NR_SDSW_sql_fieldslist = self.settings.value('C_certe_NR_SDSW_sql_fieldslist')
+        self.CADET_DETAILS_sql_fieldslist = self.settings.value('CADET_DETAILS_sql_fieldslist').split(',,,')
+        self.YOGA_DAY_sql_fieldslist = self.settings.value('YOGA_DAY_sql_fieldslist').split(',,,')
+        self.Enrolment_Nominal_roll_sql_fieldslist = self.settings.value('Enrolment_Nominal_roll_sql_fieldslist').split(',,,')
+        self.Camp_Nominal_roll_sql_fieldslist = self.settings.value('Camp_Nominal_roll_sql_fieldslist').split(',,,')
+        self.Scholarship_NR_sql_fieldslist = self.settings.value('Scholarship_NR_sql_fieldslist').split(',,,')
+        self.A_certe_NR_for_High_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_High_school_JDJW_sql_fieldslist').split(',,,')
+        self.B_certe_NR_SDSW_sql_fieldslist = self.settings.value('B_certe_NR_SDSW_sql_fieldslist').split(',,,')
+        self.C_certe_NR_SDSW_sql_fieldslist = self.settings.value('C_certe_NR_SDSW_sql_fieldslist').split(',,,')
 
 
 
 
 
+    def settings_form_item_clicked(self,obj):
+        """This function executes when even any item of the forms list of settings tab is clicked and then sends the fields of the corresponding
+        Form as a list to the set_fields_list function which will put it in the fields list
+        """
+
+        myrefsql = {'Cadet details':self.CADET_DETAILS_sql_fieldslist  , 'Yoga day': self.YOGA_DAY_sql_fieldslist , 'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist ,
+                    'Camp Nominal roll':self.Camp_Nominal_roll_sql_fieldslist , 'Scholarship NR': self.Scholarship_NR_sql_fieldslist , 'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_sql_fieldslist , 'B certe NR SDSW' : self.B_certe_NR_SDSW_sql_fieldslist ,'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist }
+        
+        myrefnotsql = {'Cadet details':self.CADET_DETAILS_notsql_fieldslist  , 'Yoga day': self.YOGA_DAY_notsql_fieldslist , 'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist ,
+                    'Camp Nominal roll':self.Camp_Nominal_roll_notsql_fieldslist , 'Scholarship NR': self.Scholarship_NR_notsql_fieldslist , 'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist , 'B certe NR SDSW' : self.B_certe_NR_SDSW_notsql_fieldslist ,'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist }
+
+
+
+        self.set_fields_list(myrefnotsql.get(obj.text()))
+
+
+
+
+    def set_fields_list(self , mylist):
+
+        ui.settings_fieldsListwidget.clear()
+        ui.settings_fieldsListwidget.setSpacing(1)
+        for ele in mylist:
+            item = QtGui.QListWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            item.setText(ele)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Caladea"))
+            font.setPointSize(14)
+            font.setBold(False)
+            font.setItalic(True)
+            font.setWeight(60)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(170, 170, 255, 200))
+            brush.setStyle(QtCore.Qt.Dense4Pattern)
+            item.setBackground(brush)
+            ui.settings_fieldsListwidget.addItem(item)
 
 
 
     def set_forms_list(self):
+        """Sets the style and label for the list items in formsListWidget of settings"""
+
         for inst in self.formslist:
             item = QtGui.QListWidgetItem()
             item.setText(inst)

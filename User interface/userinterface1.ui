@@ -4926,6 +4926,19 @@ background-position:center;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="settingsmainframewidget" native="true">
               <property name="minimumSize">
@@ -5215,16 +5228,18 @@ text-align:center;</string>
                    <property name="styleSheet">
                     <string notr="true">background-color:rgb(229, 229, 229);</string>
                    </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
                    <item>
                     <property name="text">
                      <string>Cadet details</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Georgia</family>
-                      <pointsize>15</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
                       <stylestrategy>PreferDefault</stylestrategy>
                       <kerning>true</kerning>
                      </font>
@@ -5265,7 +5280,7 @@ text-align:center;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>15</pointsize>
+                      <pointsize>11</pointsize>
                      </font>
                     </property>
                    </item>
@@ -5297,21 +5312,6 @@ text-align:center;</string>
                    <item>
                     <property name="text">
                      <string>TADA to cadets for exam</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Marks (A)</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Marks (B)</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Marks (C)</string>
                     </property>
                    </item>
                   </widget>
@@ -5367,6 +5367,24 @@ text-align:center;</string>
                   </widget>
                  </item>
                  <item>
+                  <widget class="QComboBox" name="settings_fieldsComboBox">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>14</pointsize>
+                    </font>
+                   </property>
+                   <property name="maxVisibleItems">
+                    <number>20</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>This item</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
                   <widget class="QListWidget" name="settings_fieldsListwidget">
                    <property name="minimumSize">
                     <size>
@@ -5383,16 +5401,32 @@ text-align:center;</string>
                    <property name="styleSheet">
                     <string notr="true">background-color:rgb(229, 229, 229);</string>
                    </property>
+                   <property name="dragDropMode">
+                    <enum>QAbstractItemView::NoDragDrop</enum>
+                   </property>
+                   <property name="defaultDropAction">
+                    <enum>Qt::MoveAction</enum>
+                   </property>
+                   <property name="movement">
+                    <enum>QListView::Static</enum>
+                   </property>
+                   <property name="spacing">
+                    <number>1</number>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
                    <item>
                     <property name="text">
                      <string>Enrolment number</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Century</family>
-                      <pointsize>11</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <family>Caladea</family>
+                      <pointsize>14</pointsize>
+                      <weight>50</weight>
+                      <italic>true</italic>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="textAlignment">
@@ -5400,7 +5434,7 @@ text-align:center;</string>
                     </property>
                     <property name="background">
                      <brush brushstyle="Dense4Pattern">
-                      <color alpha="255">
+                      <color alpha="200">
                        <red>170</red>
                        <green>170</green>
                        <blue>255</blue>
@@ -5524,19 +5558,6 @@ text-align:center;</string>
                </item>
               </layout>
              </widget>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </widget>

@@ -385,7 +385,7 @@ class logic():
 
         # These are used to get the object for the corresponding field string which is selected or clicked in the forms list of the settings tab
 
-        self.myrefsql = {'Cadet details': self.CADET_DETAILS_sql_fieldslist, 'Yoga day': self.YOGA_DAY_sql_fieldslist,
+        self.nametolistsql = {'Cadet details': self.CADET_DETAILS_sql_fieldslist, 'Yoga day': self.YOGA_DAY_sql_fieldslist,
                          'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist,
                          'Camp Nominal roll': self.Camp_Nominal_roll_sql_fieldslist,
                          'Scholarship NR': self.Scholarship_NR_sql_fieldslist,
@@ -393,7 +393,7 @@ class logic():
                          'B certe NR SDSW': self.B_certe_NR_SDSW_sql_fieldslist,
                          'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist}
 
-        self.myrefnotsql = {'Cadet details': self.CADET_DETAILS_notsql_fieldslist,
+        self.nametolistnotsql = {'Cadet details': self.CADET_DETAILS_notsql_fieldslist,
                             'Yoga day': self.YOGA_DAY_notsql_fieldslist,
                             'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist,
                             'Camp Nominal roll': self.Camp_Nominal_roll_notsql_fieldslist,
@@ -401,6 +401,25 @@ class logic():
                             'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist,
                             'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
                             'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
+
+        self.nametoobjectnamesql = {'Cadet details': 'CADET_DETAILS_sql_fieldslist', 'Yoga day': 'YOGA_DAY_sql_fieldslist',
+                         'Enrollment Nominal roll': 'Enrolment_Nominal_roll_sql_fieldslist',
+                         'Camp Nominal roll': 'Camp_Nominal_roll_sql_fieldslist',
+                         'Scholarship NR': 'Scholarship_NR_sql_fieldslist',
+                         'A certe NR for high school JDJW': 'A_certe_NR_for_High_school_JDJW_sql_fieldslist',
+                         'B certe NR SDSW': 'B_certe_NR_SDSW_sql_fieldslist',
+                         'C certe NR SDSW': 'C_certe_NR_SDSW_sql_fieldslist'
+        }
+
+        self.nametoobjectnamenotsql = {'Cadet details': 'CADET_DETAILS_notsql_fieldslist', 'Yoga day': 'YOGA_DAY_notsql_fieldslist',
+                         'Enrollment Nominal roll': 'Enrolment_Nominal_roll_notsql_fieldslist',
+                         'Camp Nominal roll': 'Camp_Nominal_roll_notsql_fieldslist',
+                         'Scholarship NR': 'Scholarship_NR_notsql_fieldslist',
+                         'A certe NR for high school JDJW': 'A_certe_NR_for_High_school_JDJW_notsql_fieldslist',
+                         'B certe NR SDSW': 'B_certe_NR_SDSW_notsql_fieldslist',
+                         'C certe NR SDSW': 'C_certe_NR_SDSW_notsql_fieldslist'
+
+        }
 
 
 
@@ -411,7 +430,7 @@ class logic():
         ui.settings_addfieldPushButton.clicked.connect(
             lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
         ui.settings_formsListWidget.itemClicked.connect(
-            lambda: (ui.settings_addfieldPushButton.show(),self.set_fields_list(self.myrefnotsql.get(ui.settings_formsListWidget.currentItem().text()) , self.myrefsql.get(ui.settings_formsListWidget.currentItem().text()))))
+            lambda: (ui.settings_addfieldPushButton.show(),self.set_fields_list(self.nametolistnotsql.get(ui.settings_formsListWidget.currentItem().text()) , self.nametolistsql.get(ui.settings_formsListWidget.currentItem().text()))))
 
 
     def settings_form_item_clicked(self):
@@ -525,7 +544,7 @@ class logic():
         if obj.objectName() == 'settings_addfieldPushButton':
 
             if ui.settings_fieldsknownRadioButton.isHidden():
-                def addform_lineedit_combobox_decide():
+                def addfield_lineedit_combobox_decide():
                     if ui.settings_fieldsknownRadioButton.isChecked():
                         ui.settings_fieldsComboBox.show()
                         ui.settings_addfieldLineEdit.hide()
@@ -534,7 +553,7 @@ class logic():
                         ui.settings_fieldsComboBox.hide()
                         ui.settings_addfieldLineEdit.show()
 
-                ui.settings_fieldsknownRadioButton.toggled.connect(addform_lineedit_combobox_decide)
+                ui.settings_fieldsknownRadioButton.toggled.connect(addfield_lineedit_combobox_decide)
 
 
                 ui.settings_fieldsknownRadioButton.show()
@@ -544,13 +563,24 @@ class logic():
 
 
             else:
-                if QtGui.QMessageBox.question(ui.Settings,'Are You Sure ? ' , 'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.','Yes','No')==0:
+                selectedfield = ui.settings_formsListWidget.currentItem().text()
+                if ui.settings_fieldsknownRadioButton.isChecked():
+                    if QtGui.QMessageBox.question(ui.Settings,'Are You Sure ? ' , 'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.','Yes','No')==0:
 
-                    selectedfield = ui.settings_formsListWidget.currentItem().text()
-                    self.myrefsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
-                    self.settings.setValue()
+                        self.nametolistsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
+                        self.settings.setValue(self.nametoobjectnamesql.get(selectedfield),',,,'.join(self.nametolistsql.get(selectedfield)))
+                        self.set_fields_list(self.nametolistnotsql.get(selectedfield) , self.nametolistsql.get(selectedfield))
+                        return
 
+                else:
+                    if not ui.settings_addfieldLineEdit.displayText():
+                        QtGui.QMessageBox.warning(ui.Settings , 'Empty Field !','Make sure that the field entry box is not empty before seleting "Add field". Enter a field name in the Editing box provided and click "Add form" to add it to the fields list' , 'OK')
+                        return
 
+                    if QtGui.QMessageBox.question(ui.Settings, 'Are You Sure ? ' , 'Are you sure that you want to add the entered field to the list of fields of the corresponding form ? This will add the field through out the software.','Yes','No')==0:
+                        self.nametolistnotsql.get(selectedfield).append(ui.settings_addfieldLineEdit.displayText())
+                        self.settings.setValue(self.nametoobjectnamenotsql.get(selectedfield) , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
+                        self.set_fields_list(self.nametolistnotsql.get(selectedfield) , self.nametolistsql.get(selectedfield))
 
 
 
@@ -1421,6 +1451,10 @@ font-weight:bold;
 
         for i in ui.instFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox)):
             i.setDisabled(True);
+        ui.dateofbirthDateEdit.setDisabled(True)
+        ui.enroldateDateEdit.setDisabled(True)
+        ui.vegRadioButton.setDisabled(True)
+        ui.nonvegRadioButton.setDisabled(True)
         ui.submitPushButton.hide()
         ui.updateentryCheckBox.hide()
 
@@ -1436,6 +1470,10 @@ font-weight:bold;
         for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
             i.setDisabled(False);
 
+        ui.dateofbirthDateEdit.setDisabled(False)
+        ui.enroldateDateEdit.setDisabled(False)
+        ui.vegRadioButton.setDisabled(False)
+        ui.nonvegRadioButton.setDisabled(False)
         ui.submitPushButton.show()
         ui.updateentryCheckBox.show()
 

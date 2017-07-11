@@ -26,16 +26,16 @@ from tempfile import TemporaryFile
 from openpyxl import Workbook
 
 class append:
-    CADET_DETAILS = ['Enrolment_Number', 'Aadhar_Number', 'student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+    CADET_DETAILS = ['Enrolment_Number', 'Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
                      'Unit']
-    YOGA_DAY = ['Rank', 'Student_name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
-    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_name', "Fathers_name",
+    YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
+    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_Name', "Fathers_name",
                               "Date_of_Birth", "Institution", 'Address', 'Mobile', 'Aadhar',
                               'Bank_Name', 'Branch', 'IFSC_code', 'Account_Name', 'Account_Number', 'MICR',
                               'Certificate', 'Camps_Attended', 'Extra_Curricular_Activities',
                               'Special_Achievements', 'Email', 'Blood Blood_Group', 'Remarks', 'course grading']
-    Camp_Nominal_roll = ['Enrolment_Number', 'Aadhar_Number', 'Rank', 'student_Name', "Fathers_Name", 'Address',
+    Camp_Nominal_roll = ['Enrolment_Number', 'Aadhar_Number', 'Rank', 'Student_Name', "Fathers_Name", 'Address',
                          'Institution', 'Vegitarian', 'Bank_Name', 'Branch',
                          'Account_Name', 'Account_Number', 'IFSC_Code',
                          'Year of training', 'Able to swim or not']
@@ -44,7 +44,7 @@ class append:
         , 'SC', 'ST', 'OBC', 'Period of Trg', 'Examination on pass Date/Month/Year',
                       'Science,Arts,Commerce in case of stream SD/SW cadets only', 'Maximum marks', 'Minimum marks',
                       'Percentage', '10% Bonus marks secured to SC/ST/OBC applicant', '% of marks', 'Position obtained']
-    A_certe_NR_for_High_school_JDJW = ['Enrolment_Number', 'Rank', 'student_Name',
+    A_certe_NR_for_High_school_JDJW = ['Enrolment_Number', 'Rank', 'Student_Name',
                                        "Fathers_Name", "Date_Of_Birth", 'Enrol_Date',
                                        'Date of Discharge', 'Details of Camps attended',
                                        'Parade Attendance% Year I', 'Parade Attendance% Year II',
@@ -57,7 +57,7 @@ class append:
                                        'Signature of cadet: Written common subject',
                                        'Signature of cadet: Written Spl subject',
                                        'Signature of cadet: Practical']
-    B_certe_NR_SDSW = ['Enrolment_Number.', 'Rank', 'student_Name', "Fathers_Name",
+    B_certe_NR_SDSW = ['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
                        "Date_Of_Birth", 'Enrol_Date', 'Photo'
         , 'Date of Discharge', 'Details of Camps attended',
                        'Parade Attendance% Year I', 'Parade Attendance% Year II',
@@ -68,7 +68,7 @@ class append:
                        'Bonus Marks Certific', 'Grand Total(500)', 'Grading',
                        'Signature of cadet: Written common subject', 'Signature of cadet: Written Spl subject',
                        'Signature of cadet: Practical']
-    C_certe_NR_SDSW = ['Enrolment_Number.', 'Rank', 'student_Name', "Fathers_Name",
+    C_certe_NR_SDSW = ['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
                        "Date_Of_Birth", 'Enrol_Date', 'Photo',
                        'Date of Discharge', 'Details of Camps attended',
                        'Parade Attendance% III Year', 'Part-I-Drill written(10)',
@@ -121,6 +121,7 @@ class append:
         book.save(TemporaryFile())
 
 class logic():
+    flag = 0
     def __init__(self):
         ui.save_data_excelPushButton.hide()
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
@@ -134,33 +135,33 @@ class logic():
 
         ui.vegRadioButton.setChecked(True)
 
-        ui.AACCheckBox.clicked.connect(self.checklogic)
+        ui.AACCheckBox.clicked.connect(lambda :ui.NULLCampsCheckBox.setChecked(False))
 
-        ui.NICCheckBox.clicked.connect(self.checklogic)
+        ui.NICCheckBox.clicked.connect(lambda :ui.NULLCampsCheckBox.setChecked(False))
 
-        ui.CATCCheckBox.clicked.connect(self.checklogic)
+        ui.CATCCheckBox.clicked.connect(lambda :ui.NULLCampsCheckBox.setChecked(False))
 
         ui.NULLCampsCheckBox.clicked.connect(self.checklogicnull)
 
         ui.insertcondition.clicked.connect(self.coninsert)
 
-        ui.clearcondition.clicked.connect(self.conclear)
+        ui.clearcondition.clicked.connect(lambda:ui.conditionsentrylabel.setText(""))
 
         ui.backcondition.clicked.connect(self.conback)
 
-        ui.andcondition.clicked.connect(self.conand)
+        ui.andcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " and "))
 
-        ui.orcondition.clicked.connect(self.conor)
+        ui.orcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " or "))
 
-        ui.equalscondition.clicked.connect(self.conequals)
+        ui.equalscondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "="))
 
-        ui.openbracecondition.clicked.connect(self.conopen)
+        ui.openbracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "("))
 
-        ui.closebracecondition.clicked.connect(self.conclose)
+        ui.closebracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ")"))
 
-        ui.greatercondition.clicked.connect(self.congreater)
+        ui.greatercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ">"))
 
-        ui.lessercondition.clicked.connect(self.conlesser)
+        ui.lessercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "<"))
 
         ui.querycondition.clicked.connect(self.conquery)
 
@@ -301,13 +302,18 @@ class logic():
 
     def init_settings(self):
 
-
-
-
         """Sets all the parameters from the settings file"""
+
+
+
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         self.institutionlist = self.settings.value('institutionlist').split(',,,')
         self.set_institutions_list()
+
+
+        '''ALL STANDARD FIELDS LIST (Fields that are in the master enrolment form )'''
+
+        self.all_enrolment_form_fieldslist = self.settings.value('all_enrolment_form_fieldslist').split(',,,')
 
 
         """List of all forms in the forms tab"""
@@ -328,9 +334,6 @@ class logic():
 
         ui.settings_formsListWidget.setSpacing(1)
         self.set_forms_list()
-
-
-
 
 
         '''List of all the fields under Dataentry Types '''
@@ -374,6 +377,7 @@ class logic():
 
 
         #hiding fields in the settigns_fieldssectoin
+        ui.settings_addfieldPushButton.hide()
         ui.settings_addfieldLineEdit.hide()
         ui.settings_fieldsComboBox.hide()
         ui.settings_fieldsknownRadioButton.hide()
@@ -398,6 +402,8 @@ class logic():
                             'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
                             'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
 
+
+
         # The below lines are used to connect the widgets to the corresponding functions
 
         ui.settings_addformPushButton.clicked.connect(
@@ -405,16 +411,24 @@ class logic():
         ui.settings_addfieldPushButton.clicked.connect(
             lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
         ui.settings_formsListWidget.itemClicked.connect(
-            lambda: self.set_fields_list(self.myrefnotsql.get(ui.settings_formsListWidget.currentItem().text())))
+            lambda: (ui.settings_addfieldPushButton.show(),self.set_fields_list(self.myrefnotsql.get(ui.settings_formsListWidget.currentItem().text()) , self.myrefsql.get(ui.settings_formsListWidget.currentItem().text()))))
+
+
+    def settings_form_item_clicked(self):
+        '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
+        field names in the field tab and also controls the add field combobox
+        '''
 
 
 
-
-    def set_fields_list(self , mylist):
+    def set_fields_list(self , notsqllist , sqllist):
+        """This function is called after a new field is addded to the field list . This function sets the styles for the fields and puts them in the field list of the settings tab"""
 
         ui.settings_fieldsListwidget.clear()
         ui.settings_fieldsListwidget.setSpacing(1)
-        for ele in mylist:
+
+
+        for ele in sqllist:
             item = QtGui.QListWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
             item.setText(ele)
@@ -423,12 +437,44 @@ class logic():
             font.setPointSize(14)
             font.setBold(False)
             font.setItalic(True)
-            font.setWeight(60)
+            font.setWeight(63)
+            item.setFont(font)
+            item.setToolTip('Standard fields')
+            brush = QtGui.QBrush(QtGui.QColor(120, 190, 255, 200))
+            brush.setStyle(QtCore.Qt.Dense4Pattern)
+            item.setBackground(brush)
+            ui.settings_fieldsListwidget.addItem(item)
+
+
+        for ele in notsqllist:
+            if ele in sqllist:
+                continue
+            item = QtGui.QListWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            item.setText(ele)
+            font = QtGui.QFont()
+            item.setToolTip('Non standard fields')
+            font.setFamily(_fromUtf8("Caladea"))
+            font.setPointSize(14)
+            font.setBold(False)
+            font.setItalic(True)
+            font.setWeight(62)
             item.setFont(font)
             brush = QtGui.QBrush(QtGui.QColor(170, 170, 255, 200))
             brush.setStyle(QtCore.Qt.Dense4Pattern)
             item.setBackground(brush)
             ui.settings_fieldsListwidget.addItem(item)
+
+
+        #Set the elements that are not already in the corresponding field into the add field combobox
+
+        ui.settings_fieldsComboBox.clear()
+        print(sqllist)
+
+        for ele in self.all_enrolment_form_fieldslist:
+            if ele not in sqllist:
+                ui.settings_fieldsComboBox.addItem(ele)
+
 
 
 
@@ -496,25 +542,20 @@ class logic():
 
                 ui.settings_fieldsknownRadioButton.setChecked(True)
 
+
             else:
-                print("radio buttons Not hidden")
+                if QtGui.QMessageBox.question(ui.Settings,'Are You Sure ? ' , 'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.','Yes','No')==0:
 
-
-
-
-
-
-
-
-
-
+                    selectedfield = ui.settings_formsListWidget.currentItem().text()
+                    self.myrefsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
+                    self.settings.setValue()
 
 
 
 
 
     def institution_add_or_remove(self, button):
-
+        """Called whenever user clicks on the add or remove button of the institution list in the settings tab"""
 
         if button.text() == 'Add':
             if not ui.settings_instLineEdit.displayText():
@@ -1022,13 +1063,12 @@ class logic():
         ui.AACCheckBox.setChecked(False)
         ui.CATCCheckBox.setChecked(False)
 
-    def checklogic(self):
-        ui.NULLCampsCheckBox.setChecked(False)
 
     def enrol_button_pressed(self):
         ui.searchbyfieldLineEdit.clear()
         self.enable_query_checkbox_elements();
         ui.submitPushButton.show()
+
     def update_excel_function(self):
         if ui.formsComboBox.currentText()=="-Select":
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
@@ -1155,7 +1195,7 @@ class logic():
     def check_enrol_form_data(self):
 
         proceed = True;
-        sql="select Student_name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText()+"'"
+        sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText()+"'"
         tup=ENROLMENT_FORM.enroll().execute(sql)
         if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
@@ -1874,7 +1914,7 @@ font-weight:bold;
 
             if ui.aadhaarCheckBox.isChecked(): sql += 'Adahar_Number,'
 
-            if ui.sfnameCheckBox.isChecked(): sql += 'student_Name,'
+            if ui.sfnameCheckBox.isChecked(): sql += 'Student_Name,'
 
             if ui.ffnameCheckBox.isChecked(): sql += 'Fathers_Name,'
 
@@ -1933,14 +1973,14 @@ font-weight:bold;
 
             if sql1 != "":
 
-                sql = """select Enrolment_Number,Rank,Aadhar_Number,student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+                sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """ + str(
                     ui.conditionsentrylabel.text())
 
             else:
 
-                sql = """select Enrolment_Number,Rank,Aadhar_Number,student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+                sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment"""
 
@@ -1952,7 +1992,7 @@ font-weight:bold;
                 ui.conditionsentrylabel.text())) if sql1 != "" else "select " + sql + " from enrolment ";
 
         if sql[7] == "*":
-            sql = """select Enrolment_Number,Rank,Aadhar_Number,student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+            sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[9:len(sql)]
 
@@ -1962,33 +2002,8 @@ font-weight:bold;
 
         self.table(tup, sql)
 
-    def congreater(self):
 
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ">")
 
-    def conlesser(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "<")
-
-    def conequals(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "=")
-
-    def conopen(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "(")
-
-    def conclose(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ")")
-
-    def conand(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " and ")
-
-    def conor(self):
-
-        ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " or ")
 
     def conback(self):
 
@@ -2024,11 +2039,7 @@ font-weight:bold;
             else:
                 ui.conditionsentrylabel.setText('');
 
-    def conclear(self):
 
-        ui.conditionsentrylabel.setText("")
-
-    flag = 0
 
     def coninsert(self):
 

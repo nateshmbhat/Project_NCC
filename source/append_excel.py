@@ -25,7 +25,7 @@ class append:
 
 
     def form1(self,tup):
-        CADET_DETAILS = ['Aadhar', 'Enrolment_no', 'student_name', "Fathers_Name", "Mothers_Name", 'Sex',
+        CADET_DETAILS = ['Aadhar', 'Enrolment_no', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_of_Birth', 'address', 'G_Mail', 'Mobile', 'Blood_group', 'Institution',
                      'Units']
         len_cadet_details = len(CADET_DETAILS)
@@ -40,7 +40,7 @@ class append:
         self.book.save(TemporaryFile())
 
     def form2(self, tup):
-        YOGA_DAY = ['Rank', 'Student_name', "Fathers_Name", 'Units', 'Institution', 'Date_of_Birth', 'Rem']
+        YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Units', 'Institution', 'Date_of_Birth', 'Rem']
         len_YOGA_DAY = len(YOGA_DAY)
         print(len_YOGA_DAY)
         sheet = self.book.add_sheet('YOGA DAY')
@@ -53,7 +53,7 @@ class append:
         self.book.save(TemporaryFile())
 
     def form3(self,tup):
-        Enrolment_Nominal_roll = ['Units', 'Enrolment_No', 'Rank', 'Student_name', "Fathers_name",
+        Enrolment_Nominal_roll = ['Units', 'Enrolment_No', 'Rank', 'Student_Name', "Fathers_Name",
                                   "Date_of_Birth",
                                   "Institution", 'Class', 'Address', 'Mobile', 'Aadhar',
                                   'Bank_Name', 'Branch', 'IFSC_code','acc_Name', 'acc_no', 'MICR',

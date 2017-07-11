@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1127</width>
-    <height>964</height>
+    <width>1078</width>
+    <height>917</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -308,7 +308,7 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1068</width>
+             <width>1019</width>
              <height>1899</height>
             </rect>
            </property>
@@ -4726,8 +4726,8 @@ border-radius:12px;
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>1081</width>
-               <height>696</height>
+               <width>1032</width>
+               <height>649</height>
               </rect>
              </property>
              <property name="styleSheet">
@@ -4914,8 +4914,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-217</y>
-             <width>1066</width>
+             <y>-264</y>
+             <width>1017</width>
              <height>1094</height>
             </rect>
            </property>
@@ -5108,7 +5108,7 @@ color:white;</string>
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">background-color:rgb(229, 229, 229);</string>
+                     <string notr="true">background-color:rgba(229, 229, 229,200);</string>
                     </property>
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
@@ -5171,7 +5171,7 @@ color:white;</string>
 color:white;</string>
                    </property>
                    <property name="text">
-                    <string>From known fields</string>
+                    <string>Add known fields</string>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -5196,7 +5196,7 @@ color:white;</string>
 color:white;</string>
                    </property>
                    <property name="text">
-                    <string>From Unknown fields</string>
+                    <string>Add Unknown fields</string>
                    </property>
                    <property name="checkable">
                     <bool>true</bool>
@@ -5275,7 +5275,7 @@ text-align:center;</string>
                   <number>3</number>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_4">
+                  <widget class="QLabel" name="settings_formsLabel">
                    <property name="font">
                     <font>
                      <family>Times New Roman</family>
@@ -5285,7 +5285,15 @@ text-align:center;</string>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(230, 255, 0, 255), stop:1 rgba(85, 104, 255, 150));</string>
+                    <string notr="true">#settings_formsLabel
+{
+background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(230, 255, 0, 255), stop:1 rgba(85, 104, 255, 150));
+}
+
+#settings_formsLabel:hover
+{
+	background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(85, 104, 255, 255), stop:1 rgba(230, 255, 0, 150));
+}</string>
                    </property>
                    <property name="text">
                     <string>Forms</string>
@@ -5310,94 +5318,14 @@ text-align:center;</string>
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color:rgb(229, 229, 229);</string>
+                    <string notr="true">background-color:rgba(229, 229, 229,200);</string>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="wordWrap">
                     <bool>true</bool>
                    </property>
-                   <item>
-                    <property name="text">
-                     <string>Cadet details</string>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                      <stylestrategy>PreferDefault</stylestrategy>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="background">
-                     <brush brushstyle="Dense3Pattern">
-                      <color alpha="255">
-                       <red>98</red>
-                       <green>255</green>
-                       <blue>0</blue>
-                      </color>
-                     </brush>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Yoga Day</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Enrolment Nominal roll</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Camp Nominal roll</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Scholarship NR</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>A certe NR for high school JDJW</string>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                     </font>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>B certe NR SDSW</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>C certe NR SDSW</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>C certe NR SDSW</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Speciman signature of cadets</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>TADA to cadets camps</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>TADA to cadets for exam</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                  <item>
@@ -5433,7 +5361,7 @@ text-align:center;</string>
                   <enum>QLayout::SetDefaultConstraint</enum>
                  </property>
                  <item>
-                  <widget class="QLabel" name="label_5">
+                  <widget class="QLabel" name="settings_fieldsLabel">
                    <property name="font">
                     <font>
                      <family>Times New Roman</family>
@@ -5443,7 +5371,15 @@ text-align:center;</string>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.767, y2:0.773, stop:0 rgba(0, 203, 5, 252), stop:1 rgba(255, 77, 127, 150));</string>
+                    <string notr="true">#settings_fieldsLabel 
+{
+background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(229, 0, 254, 150), stop:1 rgba(122, 255, 73, 255));
+}
+
+#settings_fieldsLabel:hover
+{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.767, y2:0.773, stop:0 rgba(0, 203, 5, 200), stop:1 rgba(255, 77, 127, 150))
+}</string>
                    </property>
                    <property name="text">
                     <string>Fields</string>
@@ -5468,7 +5404,10 @@ text-align:center;</string>
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color:rgb(229, 229, 229);</string>
+                    <string notr="true">background-color:rgba(229, 229, 229,200);</string>
+                   </property>
+                   <property name="autoScroll">
+                    <bool>false</bool>
                    </property>
                    <property name="dragDropMode">
                     <enum>QAbstractItemView::NoDragDrop</enum>
@@ -5487,68 +5426,39 @@ text-align:center;</string>
                    </property>
                    <item>
                     <property name="text">
-                     <string>Enrolment number</string>
+                     <string/>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>65</pointsize>
+                     </font>
+                    </property>
+                    <property name="flags">
+                     <set>NoItemFlags</set>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Select a Form from the Forms list to display all the corresponding fields of that form</string>
+                    </property>
+                    <property name="toolTip">
+                     <string>Select a Form</string>
                     </property>
                     <property name="font">
                      <font>
                       <family>Caladea</family>
-                      <pointsize>14</pointsize>
+                      <pointsize>20</pointsize>
                       <weight>50</weight>
                       <italic>true</italic>
                       <bold>false</bold>
+                      <stylestrategy>PreferAntialias</stylestrategy>
                      </font>
                     </property>
                     <property name="textAlignment">
-                     <set>AlignHCenter|AlignVCenter|AlignCenter</set>
+                     <set>AlignLeft|AlignBottom</set>
                     </property>
-                    <property name="background">
-                     <brush brushstyle="Dense4Pattern">
-                      <color alpha="200">
-                       <red>170</red>
-                       <green>170</green>
-                       <blue>255</blue>
-                      </color>
-                     </brush>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>age</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Gender</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>afads</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>dasfadsfadsf</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>adsfdas</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>dasfasdf</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>dasfsdafas</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>dasfghhgdaf</string>
+                    <property name="flags">
+                     <set>ItemIsEnabled</set>
                     </property>
                    </item>
                   </widget>
@@ -5590,76 +5500,6 @@ text-align:center;</string>
                      <property name="maxVisibleItems">
                       <number>20</number>
                      </property>
-                     <item>
-                      <property name="text">
-                       <string>ds</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>f</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>ads</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>fds</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>f</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>dsf</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>sd</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>fds</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>f</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>dsf</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>ds</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>f</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>dsf</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>New Item</string>
-                      </property>
-                     </item>
                     </widget>
                    </item>
                   </layout>

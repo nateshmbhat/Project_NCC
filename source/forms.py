@@ -3,7 +3,7 @@ from xlwt import Workbook
 book = Workbook()
 
 def form1():
-    CADET_DETAILS = ['Enrolment_Number','Aadhar_Number', 'student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+    CADET_DETAILS = ['Enrolment_Number','Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
                      'Unit']
     sql = """select """
@@ -15,7 +15,7 @@ def form1():
     return(sql)
 
 def form2():
-    YOGA_DAY = ['Rank', 'Student_name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
+    YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
 
     sql = """select """
     for i in range(len(YOGA_DAY)):
@@ -26,7 +26,7 @@ def form2():
     return (sql)
 
 def form3():
-    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_name', "Fathers_name",
+    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
                                   "Date_of_Birth","Institution", 'Address', 'Mobile_Number', 'Aadhar_Number',
                                   'Bank_Name', 'Branch', 'IFSC_code','Account_Name', 'Account_Number', 'MICR',
                                   'Certificate','Camps_Attended', 'Extra_Curricular_Activities',
@@ -40,7 +40,7 @@ def form3():
     return (sql)
 
 def form4():
-    Camp_Nominal_roll = ['Enrolment_Number','Aadhar_Number','Rank', 'student_Name', "Fathers_Name",'Address',
+    Camp_Nominal_roll = ['Enrolment_Number','Aadhar_Number','Rank', 'Student_Name', "Fathers_Name",'Address',
                              'Institution', 'Vegitarian','Bank_Name','Branch',
                              'Account_Name','Account_Number','IFSC_Code']
     sql = """select """
@@ -64,7 +64,7 @@ def form5():
     return (sql)
 
 def form6():
-    A_certe_NR_for_High_school_JDJW=['Enrolment_Number','Rank', 'student_Name', "Fathers_Name",
+    A_certe_NR_for_High_school_JDJW=['Enrolment_Number','Rank', 'Student_Name', "Fathers_Name",
                            "Date_Of_Birth", 'Enrol_Date']
     sql = """select """
     for i in range(len(A_certe_NR_for_High_school_JDJW)):
@@ -76,7 +76,7 @@ def form6():
 
 
 def form7():
-    B_certe_NR_SDSW =['Enrolment_Number', 'Rank', 'student_Name', "Fathers_Name",
+    B_certe_NR_SDSW =['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
                            "Date_Of_Birth", 'Enrol_Date']
     sql = """select """
     for i in range(len(B_certe_NR_SDSW)):
@@ -88,7 +88,7 @@ def form7():
 
 
 def form8():
-    C_certe_NR_SDSW=['Enrolment_Number', 'Rank', 'student_Name', "Fathers_Name",
+    C_certe_NR_SDSW=['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
                            "Date_Of_Birth", 'Enrol_Date']
     sql = """select """
     for i in range(len(C_certe_NR_SDSW)):

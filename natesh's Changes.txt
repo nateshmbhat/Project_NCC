@@ -1,8 +1,0 @@
-Changed Button_1 to generate_excell_sheetPushButton
-Changed Button_2 to open_in_pdfPushButton
-
-Radio buttons of veg and certificate clashes fixed
-All the fields will disable when search is done
-All fields will disable automatically once searched.
-Pressing the enrol button again enbles all the input fields
-Submit button dissappers when searching and reappers while enrolling.

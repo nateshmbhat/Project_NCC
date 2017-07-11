@@ -5094,6 +5094,9 @@ color:white;</string>
                       <height>333</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color:rgb(229, 229, 229);</string>
+                    </property>
                     <property name="frameShape">
                      <enum>QFrame::StyledPanel</enum>
                     </property>
@@ -5196,7 +5199,7 @@ text-align:center;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QListWidget" name="settings_formslist">
+                  <widget class="QListWidget" name="settings_formsListWidget">
                    <property name="minimumSize">
                     <size>
                      <width>400</width>
@@ -5208,6 +5211,9 @@ text-align:center;</string>
                      <width>475</width>
                      <height>16777215</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:rgb(229, 229, 229);</string>
                    </property>
                    <item>
                     <property name="text">
@@ -5361,7 +5367,7 @@ text-align:center;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QListWidget" name="settings_fieldslist">
+                  <widget class="QListWidget" name="settings_fieldsListwidget">
                    <property name="minimumSize">
                     <size>
                      <width>400</width>
@@ -5373,6 +5379,9 @@ text-align:center;</string>
                      <width>474</width>
                      <height>16777215</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:rgb(229, 229, 229);</string>
                    </property>
                    <item>
                     <property name="text">

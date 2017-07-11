@@ -320,12 +320,67 @@ class logic():
 
 
         '''List of forms and fields in the settings tab'''
-        self.settings_formslist = self.settings.value('settings_formslist').strip().split(',,,')
-        ui.settings_formslist.clear()
+        self.formslist = self.settings.value('formslist').strip().split(',,,')
+        ui.settings_formsListWidget.clear()
 
-        ui.settings_formslist.setSpacing(1)
+        ui.settings_formsListWidget.setSpacing(1)
+        self.set_forms_list()
 
-        for inst in self.settings_formslist:
+
+
+
+        ui.settings_addformPushButton.clicked.connect(lambda: self.settings_form_field_add(ui.settings_addformPushButton))
+        ui.settings_addfieldPushButton.clicked.connect(lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
+
+
+
+        '''List of all the fields under Dataentry Types '''
+
+        self.marksA_fieldslist = self.settings.value('marksA_fieldslist')
+        self.marksB_fieldslist= self.settings.value('marksB_fieldslist')
+        self.marksC_fieldslist = self.settings.value('marksC_fieldslist')
+        self.camps_fieldslist = self.settings.value('camps_fieldslist')
+        self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist')
+        self.remarks_fieldslist = self.settings.value('remarks_fieldslist')
+
+
+
+        '''List of all fields of all the forms '''
+
+#           NOT SQL FIELDS
+
+
+        self.CADET_DETAILS_notsql_fieldslist= self.settings.value('CADET_DETAILS_notsql_fieldslist')
+        self.CADET_DETAILS_notsql_fieldslist=self.settings.value('YOGA_DAY_notsql_fieldslist')
+        self.Enrolment_Nominal_roll_notsql_fieldslist=self.settings.value('Enrolment_Nominal_roll_notsql_fieldslist')
+        self.Camp_Nominal_roll_notsql_fieldslist = self.settings.value('Camp_Nominal_roll_notsql_fieldslist')
+        self.Scholarship_NR_notsql_fieldslist =self.settings.value('Scholarship_NR_notsql_fieldslist')
+        self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_High_school_JDJW_notsql_fieldslist')
+        self.B_certe_NR_SDSW_notsql_fieldslist= self.settings.value('B_certe_NR_SDSW_notsql_fieldslist')
+        self.C_certe_NR_SDSW_notsql_fieldslist =self.settings.value('C_certe_NR_SDSW_notsql_fieldslist')
+
+
+
+        # SQL FIELDS
+
+        self.CADET_DETAILS_sql_fieldslist = self.settings.value('CADET_DETAILS_sql_fieldslist')
+        self.CADET_DETAILS_sql_fieldslist = self.settings.value('YOGA_DAY_sql_fieldslist')
+        self.Enrolment_Nominal_roll_sql_fieldslist = self.settings.value('Enrolment_Nominal_roll_sql_fieldslist')
+        self.Camp_Nominal_roll_sql_fieldslist = self.settings.value('Camp_Nominal_roll_sql_fieldslist')
+        self.Scholarship_NR_sql_fieldslist = self.settings.value('Scholarship_NR_sql_fieldslist')
+        self.A_certe_NR_for_High_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_High_school_JDJW_sql_fieldslist')
+        self.B_certe_NR_SDSW_sql_fieldslist = self.settings.value('B_certe_NR_SDSW_sql_fieldslist')
+        self.C_certe_NR_SDSW_sql_fieldslist = self.settings.value('C_certe_NR_SDSW_sql_fieldslist')
+
+
+
+
+
+
+
+
+    def set_forms_list(self):
+        for inst in self.formslist:
             item = QtGui.QListWidgetItem()
             item.setText(inst)
             item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
@@ -338,46 +393,31 @@ class logic():
             brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
             brush.setStyle(QtCore.Qt.Dense3Pattern)
             item.setBackground(brush)
-            ui.settings_formslist.addItem(item)
+            ui.settings_formsListWidget.addItem(item)
 
 
 
-        ui.settings_addformPushButton.clicked.connect(self.settings_form_field_add)
-        ui.settings_addfieldPushButton.clicked.connect(self.settings_form_field_add)
+    def settings_form_field_add(self,obj):
+        '''Called when Add form or Add field buttons of the settings tab are clicked'''
 
 
+        '''FORMS'''
+        if obj.objectName() == 'settings_addformPushButton' :
 
-        '''List of all the fields under different forms '''
+            if not ui.settings_addformLineEdit.displayText():
+                QtGui.QMessageBox.warning(ui.Settings,'Entry field is blank','\nEnter the name of the new form in the Entrybox that you wish to add and then Click "Add Form"' , 'OK')
+                return
 
-        self.marksA_fieldslist,self.marksB_fieldslist,self.marksC_fieldslist,self.camps_fieldslist,self.extraactivities_fieldslist,self.remarks_fieldslist=[
-            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-             'Date of Birth',
-             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(30)',
-             'Practical(60)', 'Total(90)', 'Written(40)', 'Practical(20)', 'Total(60)', 'Written(200)',
-             'Written(115)',
-             'Practical(25)', "Total(150)", 'Grand Total(500)', 'Grading'],
-            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-             'Date Of Birth',
-             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
-             'Practical(80)', 'Total(90)', 'Written(35)', 'Practical(25)', 'Total(60)', 'Written(200)',
-             'Written(105)',
-             'Practical(45)', "Total(150)", 'Total(25)', 'Grand Total(500)', 'Grading'],
-            ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-             'Date Of Birth',
-             'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
-             'Practical(50)', 'Total(60)', 'Written(10)', 'Practical(55)', 'Total(65)',
-             'Written(225)', 'Written(105)', 'Practical(45)', "Total(150)", 'Total(50)', 'Grand Total(500)',
-             'Grading'],
-            ["Enrolment Number", 'Camps attended'], ["Enrolment Number", 'Extra Activities'],
-            ["Enrolment Number", 'Remarks']]
+            if QtGui.QMessageBox.question(ui.Settings , 'Are you Sure ? ' , 'Are you sure that you wish to add a New Form ? This will add your form through out the software.',"Yes","No")==0:
+
+                self.formslist.append(ui.settings_addformLineEdit.displayText())
+                self.settings.setValue('formslist',',,,'.join(self.formslist))
+                ui.settings_addformLineEdit.clear()
+                ui.settings_formsListWidget.clear()
+
+                self.set_forms_list()
 
 
-
-
-def settings_form_field_add(self):
-    '''Called when Add form or Add field buttons of the settings tab are clicked'''
-    if not ui.settings_addformLineEdit.displayText():
-        QtGui.QMessageBox.warning(ui.Settings,'Entry field is blank','\nEnter the name of the new form in the Entrybox that you wish to add and then Click "Add Form"' , 'OK')
 
 
 
@@ -428,6 +468,7 @@ def settings_form_field_add(self):
 
 
         ui.settings_instLineEdit.clear()
+
 
 
 
@@ -774,7 +815,7 @@ def settings_form_field_add(self):
                                     _translate("MainWindow", self.labelheading3[self.position][j], None))
                             else:
                                 self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
-                                if self.labelheading3[self.position][j] == "Enrolment_Number":
+                                if self.labelheading3[self.position][j] == "Enrolment Number":
                                     self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
                                         _fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
                                                   "height:30px;color:white;"))
@@ -799,11 +840,11 @@ def settings_form_field_add(self):
                                 else:
                                     if i < len(tup1) + 2:
                                         if j < len(tup1[i - 2]) + 1:
-                                            if self.labelheading3[self.position][j] == "Enrolment_Number":
+                                            if self.labelheading3[self.position][j] == "Enrolment Number":
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
                                                     _translate("MainWindow", tup1[i - 2][0], None))
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                            elif self.labelheading3[self.position][j] != "Rool_Number":
+                                            elif self.labelheading3[self.position][j] != "Rool Number":
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
                                                     _translate("MainWindow", tup1[i - 2][j - 1], None))
                                                 self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)

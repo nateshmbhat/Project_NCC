@@ -4914,9 +4914,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-167</y>
+             <y>-217</y>
              <width>1066</width>
-             <height>1044</height>
+             <height>1094</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5144,7 +5144,7 @@ color:white;</string>
               <property name="minimumSize">
                <size>
                 <width>0</width>
-                <height>550</height>
+                <height>600</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -5157,7 +5157,7 @@ color:white;</string>
                <item row="2" column="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_16">
                  <item>
-                  <widget class="QRadioButton" name="radioButton">
+                  <widget class="QRadioButton" name="settings_fieldsknownRadioButton">
                    <property name="font">
                     <font>
                      <family>Georgia</family>
@@ -5165,14 +5165,24 @@ color:white;</string>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:transparent;
+color:white;</string>
                    </property>
                    <property name="text">
                     <string>From known fields</string>
                    </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QRadioButton" name="radioButton_2">
+                  <widget class="QRadioButton" name="settings_fieldsunknownRadioButton">
                    <property name="font">
                     <font>
                      <family>Georgia</family>
@@ -5181,8 +5191,18 @@ color:white;</string>
                      <bold>true</bold>
                     </font>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:transparent;
+color:white;</string>
+                   </property>
                    <property name="text">
                     <string>From Unknown fields</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
@@ -5207,6 +5227,9 @@ color:white;</string>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="text">
                     <string>Add Field</string>

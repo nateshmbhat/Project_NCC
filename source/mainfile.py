@@ -292,7 +292,7 @@ class logic():
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
 
-        ui.settings_formsListWidget.itemClicked.connect(lambda: self.settings_form_item_clicked(ui.settings_formsListWidget.currentItem()))
+
 
         self.init_settings()
 
@@ -300,6 +300,10 @@ class logic():
 
 
     def init_settings(self):
+
+
+
+
         """Sets all the parameters from the settings file"""
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         self.institutionlist = self.settings.value('institutionlist').split(',,,')
@@ -328,10 +332,6 @@ class logic():
 
 
 
-        ui.settings_addformPushButton.clicked.connect(lambda: self.settings_form_field_add(ui.settings_addformPushButton))
-        ui.settings_addfieldPushButton.clicked.connect(lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
-
-
 
         '''List of all the fields under Dataentry Types '''
 
@@ -346,7 +346,7 @@ class logic():
 
         '''List of all fields of all the forms '''
 
-#           NOT SQL FIELDS
+        #           NOT SQL FIELDS
 
 
         self.CADET_DETAILS_notsql_fieldslist= self.settings.value('CADET_DETAILS_notsql_fieldslist').split(',,,')
@@ -373,22 +373,39 @@ class logic():
 
 
 
+        #hiding fields in the settigns_fieldssectoin
+        ui.settings_addfieldLineEdit.hide()
+        ui.settings_fieldsComboBox.hide()
+        ui.settings_fieldsknownRadioButton.hide()
+        ui.settings_fieldsunknownRadioButton.hide()
 
+        # These are used to get the object for the corresponding field string which is selected or clicked in the forms list of the settings tab
 
-    def settings_form_item_clicked(self,obj):
-        """This function executes when even any item of the forms list of settings tab is clicked and then sends the fields of the corresponding
-        Form as a list to the set_fields_list function which will put it in the fields list
-        """
+        self.myrefsql = {'Cadet details': self.CADET_DETAILS_sql_fieldslist, 'Yoga day': self.YOGA_DAY_sql_fieldslist,
+                         'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist,
+                         'Camp Nominal roll': self.Camp_Nominal_roll_sql_fieldslist,
+                         'Scholarship NR': self.Scholarship_NR_sql_fieldslist,
+                         'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_sql_fieldslist,
+                         'B certe NR SDSW': self.B_certe_NR_SDSW_sql_fieldslist,
+                         'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist}
 
-        myrefsql = {'Cadet details':self.CADET_DETAILS_sql_fieldslist  , 'Yoga day': self.YOGA_DAY_sql_fieldslist , 'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist ,
-                    'Camp Nominal roll':self.Camp_Nominal_roll_sql_fieldslist , 'Scholarship NR': self.Scholarship_NR_sql_fieldslist , 'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_sql_fieldslist , 'B certe NR SDSW' : self.B_certe_NR_SDSW_sql_fieldslist ,'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist }
-        
-        myrefnotsql = {'Cadet details':self.CADET_DETAILS_notsql_fieldslist  , 'Yoga day': self.YOGA_DAY_notsql_fieldslist , 'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist ,
-                    'Camp Nominal roll':self.Camp_Nominal_roll_notsql_fieldslist , 'Scholarship NR': self.Scholarship_NR_notsql_fieldslist , 'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist , 'B certe NR SDSW' : self.B_certe_NR_SDSW_notsql_fieldslist ,'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist }
+        self.myrefnotsql = {'Cadet details': self.CADET_DETAILS_notsql_fieldslist,
+                            'Yoga day': self.YOGA_DAY_notsql_fieldslist,
+                            'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist,
+                            'Camp Nominal roll': self.Camp_Nominal_roll_notsql_fieldslist,
+                            'Scholarship NR': self.Scholarship_NR_notsql_fieldslist,
+                            'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist,
+                            'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
+                            'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
 
+        # The below lines are used to connect the widgets to the corresponding functions
 
-
-        self.set_fields_list(myrefnotsql.get(obj.text()))
+        ui.settings_addformPushButton.clicked.connect(
+            lambda: self.settings_form_field_add(ui.settings_addformPushButton))
+        ui.settings_addfieldPushButton.clicked.connect(
+            lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
+        ui.settings_formsListWidget.itemClicked.connect(
+            lambda: self.set_fields_list(self.myrefnotsql.get(ui.settings_formsListWidget.currentItem().text())))
 
 
 
@@ -415,6 +432,7 @@ class logic():
 
 
 
+
     def set_forms_list(self):
         """Sets the style and label for the list items in formsListWidget of settings"""
 
@@ -432,6 +450,7 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense3Pattern)
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
+
 
 
 
@@ -454,6 +473,38 @@ class logic():
                 ui.settings_formsListWidget.clear()
 
                 self.set_forms_list()
+
+
+
+        if obj.objectName() == 'settings_addfieldPushButton':
+
+            if ui.settings_fieldsknownRadioButton.isHidden():
+                def addform_lineedit_combobox_decide():
+                    if ui.settings_fieldsknownRadioButton.isChecked():
+                        ui.settings_fieldsComboBox.show()
+                        ui.settings_addfieldLineEdit.hide()
+
+                    else:
+                        ui.settings_fieldsComboBox.hide()
+                        ui.settings_addfieldLineEdit.show()
+
+                ui.settings_fieldsknownRadioButton.toggled.connect(addform_lineedit_combobox_decide)
+
+
+                ui.settings_fieldsknownRadioButton.show()
+                ui.settings_fieldsunknownRadioButton.show()
+
+                ui.settings_fieldsknownRadioButton.setChecked(True)
+
+            else:
+                print("radio buttons Not hidden")
+
+
+
+
+
+
+
 
 
 
@@ -506,7 +557,6 @@ class logic():
 
 
         ui.settings_instLineEdit.clear()
-
 
 
 
@@ -1551,13 +1601,13 @@ font-weight:bold;
         if ui.updateentryCheckBox.isChecked():
             obj.update_student_details(self.enrolmentnum , self.rank, self.aadhaarnum, self.fullname, self.fathername,
 
-                          self.mothername,self.sex,self.dateofbirth,self.address,
+                                       self.mothername,self.sex,self.dateofbirth,self.address,
 
-                          self.email,self.mobilenum, self.bloodgroup,self.certificate,self.campsattended,self.extracurricularactivities
+                                       self.email,self.mobilenum, self.bloodgroup,self.certificate,self.campsattended,self.extracurricularactivities
 
-                          ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
+                                       ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
 
-                          self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit);
+                                       self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit);
 
 
 
@@ -2002,12 +2052,12 @@ font-weight:bold;
         if (len(ch2) > 3):
 
             if (ch2[len(ch2) - 1] == ' ' and (ch2[len(ch2) - 2] == 'd' or ch2[len(ch2) - 2] == 'r')) or (
-                    ch2[len(ch2) - 1] == '(' and
+                            ch2[len(ch2) - 1] == '(' and
 
-                (ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
-                        len(ch2) - 2] == ')' or
+                        (ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
+                                len(ch2) - 2] == ')' or
 
-                         ch2[len(ch2) - 2] == 'd')):
+                                 ch2[len(ch2) - 2] == 'd')):
                 print()
 
 

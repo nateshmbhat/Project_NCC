@@ -4914,9 +4914,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-141</y>
+             <y>-167</y>
              <width>1066</width>
-             <height>1018</height>
+             <height>1044</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5154,6 +5154,67 @@ color:white;</string>
 }</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
+               <item row="2" column="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_16">
+                 <item>
+                  <widget class="QRadioButton" name="radioButton">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>9</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>From known fields</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QRadioButton" name="radioButton_2">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>9</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>From Unknown fields</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="settings_addfieldPushButton">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>25</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Gabriola</family>
+                     <pointsize>19</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Add Field</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
                <item row="0" column="1" colspan="2">
                 <widget class="QLabel" name="formsandfieldsLabel">
                  <property name="minimumSize">
@@ -5345,6 +5406,9 @@ text-align:center;</string>
                  <property name="spacing">
                   <number>3</number>
                  </property>
+                 <property name="sizeConstraint">
+                  <enum>QLayout::SetDefaultConstraint</enum>
+                 </property>
                  <item>
                   <widget class="QLabel" name="label_5">
                    <property name="font">
@@ -5364,24 +5428,6 @@ text-align:center;</string>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="settings_fieldsComboBox">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>14</pointsize>
-                    </font>
-                   </property>
-                   <property name="maxVisibleItems">
-                    <number>20</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>This item</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                  <item>
@@ -5485,57 +5531,119 @@ text-align:center;</string>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_16">
+                  <widget class="QLineEdit" name="settings_addfieldLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Enter New Field name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_15">
                    <item>
-                    <widget class="QLineEdit" name="settings_addfieldLineEdit">
+                    <widget class="QComboBox" name="settings_fieldsComboBox">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
                      <property name="font">
                       <font>
                        <family>Georgia</family>
-                       <pointsize>13</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
+                       <pointsize>14</pointsize>
                       </font>
                      </property>
-                     <property name="text">
-                      <string/>
+                     <property name="maxVisibleItems">
+                      <number>20</number>
                      </property>
-                     <property name="placeholderText">
-                      <string>Enter New Field name</string>
-                     </property>
+                     <item>
+                      <property name="text">
+                       <string>ds</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>f</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>ads</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>fds</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>f</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>dsf</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>sd</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>fds</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>f</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>dsf</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>ds</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>f</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>dsf</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
                     </widget>
                    </item>
                   </layout>
                  </item>
                 </layout>
                </item>
-               <item row="3" column="2">
-                <widget class="QPushButton" name="settings_addfieldPushButton">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>25</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Gabriola</family>
-                   <pointsize>19</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Add Field</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
+               <item row="2" column="1">
                 <widget class="QPushButton" name="settings_addformPushButton">
                  <property name="maximumSize">
                   <size>
@@ -5558,6 +5666,19 @@ text-align:center;</string>
                </item>
               </layout>
              </widget>
+            </item>
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>

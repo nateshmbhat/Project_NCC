@@ -304,8 +304,6 @@ class logic():
 
         """Sets all the parameters from the settings file"""
 
-
-
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         self.institutionlist = self.settings.value('institutionlist').split(',,,')
         self.set_institutions_list()
@@ -345,37 +343,6 @@ class logic():
         self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist').split(',,,')
         self.remarks_fieldslist = self.settings.value('remarks_fieldslist').split(',,,')
 
-
-
-        '''List of all fields of all the forms '''
-
-        #           NOT SQL FIELDS
-
-
-        self.Cadet_details_notsql_fieldslist= self.settings.value('Cadet_details_notsql_fieldslist').split(',,,')
-        self.Yoga_day_notsql_fieldslist=self.settings.value('Yoga_day_notsql_fieldslist').split(',,,')
-        self.Enrolment_Nominal_roll_notsql_fieldslist=self.settings.value('Enrolment_Nominal_roll_notsql_fieldslist').split(',,,')
-        self.Camp_Nominal_roll_notsql_fieldslist = self.settings.value('Camp_Nominal_roll_notsql_fieldslist').split(',,,')
-        self.Scholarship_NR_notsql_fieldslist =self.settings.value('Scholarship_NR_notsql_fieldslist').split(',,,')
-        self.A_certe_NR_for_high_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_high_school_JDJW_notsql_fieldslist').split(',,,')
-        self.B_certe_NR_SDSW_notsql_fieldslist= self.settings.value('B_certe_NR_SDSW_notsql_fieldslist').split(',,,')
-        self.C_certe_NR_SDSW_notsql_fieldslist =self.settings.value('C_certe_NR_SDSW_notsql_fieldslist').split(',,,')
-
-
-
-        # SQL FIELDS
-
-        self.Cadet_details_sql_fieldslist = self.settings.value('Cadet_details_sql_fieldslist').split(',,,')
-        self.Yoga_day_sql_fieldslist = self.settings.value('Yoga_day_sql_fieldslist').split(',,,')
-        self.Enrolment_Nominal_roll_sql_fieldslist = self.settings.value('Enrolment_Nominal_roll_sql_fieldslist').split(',,,')
-        self.Camp_Nominal_roll_sql_fieldslist = self.settings.value('Camp_Nominal_roll_sql_fieldslist').split(',,,')
-        self.Scholarship_NR_sql_fieldslist = self.settings.value('Scholarship_NR_sql_fieldslist').split(',,,')
-        self.A_certe_NR_for_high_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_high_school_JDJW_sql_fieldslist').split(',,,')
-        self.B_certe_NR_SDSW_sql_fieldslist = self.settings.value('B_certe_NR_SDSW_sql_fieldslist').split(',,,')
-        self.C_certe_NR_SDSW_sql_fieldslist = self.settings.value('C_certe_NR_SDSW_sql_fieldslist').split(',,,')
-
-
-
         #hiding fields in the settigns_fieldssectoin
         ui.settings_addfieldPushButton.hide()
         ui.settings_addfieldLineEdit.hide()
@@ -383,55 +350,8 @@ class logic():
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
 
-        # These are used to get the object for the corresponding field string which is selected or clicked in the forms list of the settings tab
-
-        # self.nametolistsql = {'Cadet details': self.Cadet_details_sql_fieldslist, 'Yoga day': self.Yoga_day_sql_fieldslist,
-        #                  'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist,
-        #                  'Camp Nominal roll': self.Camp_Nominal_roll_sql_fieldslist,
-        #                  'Scholarship NR': self.Scholarship_NR_sql_fieldslist,
-        #                  'A certe NR for high school JDJW': self.A_certe_NR_for_high_school_JDJW_sql_fieldslist,
-        #                  'B certe NR SDSW': self.B_certe_NR_SDSW_sql_fieldslist,
-        #                  'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist}
-        #
-        # "Cadet details,,,Yoga day,,,Enrollment Nominal roll,,,Camp Nominal roll,,,Scholarship NR,,,A certe NR for high school JDJW,,,B certe NR SDSW,,,C certe NR SDSW,,,Speciman signature of cadets,,,TADA to cadets camps,,,TADA to cadets for exam,,,my new form,,,my another form"
-        #
-        #
-        # self.nametolistnotsql = {'Cadet details': self.Cadet_details_notsql_fieldslist,
-        #                     'Yoga day': self.Yoga_day_notsql_fieldslist,
-        #                     'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist,
-        #                     'Camp Nominal roll': self.Camp_Nominal_roll_notsql_fieldslist,
-        #                     'Scholarship NR': self.Scholarship_NR_notsql_fieldslist,
-        #                     'A certe NR for high school JDJW': self.A_certe_NR_for_high_school_JDJW_notsql_fieldslist,
-        #                     'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
-        #                     'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
-
-        self.nametoobjectnamesql = {'Cadet details': 'Cadet_details_sql_fieldslist', 'Yoga day': 'Yoga_day_sql_fieldslist',
-                         'Enrollment Nominal roll': 'Enrolment_Nominal_roll_sql_fieldslist',
-                         'Camp Nominal roll': 'Camp_Nominal_roll_sql_fieldslist',
-                         'Scholarship NR': 'Scholarship_NR_sql_fieldslist',
-                         'A certe NR for high school JDJW': 'A_certe_NR_for_high_school_JDJW_sql_fieldslist',
-                         'B certe NR SDSW': 'B_certe_NR_SDSW_sql_fieldslist',
-                         'C certe NR SDSW': 'C_certe_NR_SDSW_sql_fieldslist'
-
-        }
-
-
-
-        self.nametoobjectnamenotsql = {'Cadet details': 'Cadet_details_notsql_fieldslist', 'Yoga day': 'Yoga_day_notsql_fieldslist',
-                         'Enrollment Nominal roll': 'Enrolment_Nominal_roll_notsql_fieldslist',
-                         'Camp Nominal roll': 'Camp_Nominal_roll_notsql_fieldslist',
-                         'Scholarship NR': 'Scholarship_NR_notsql_fieldslist',
-                         'A certe NR for high school JDJW': 'A_certe_NR_for_high_school_JDJW_notsql_fieldslist',
-                         'B certe NR SDSW': 'B_certe_NR_SDSW_notsql_fieldslist',
-                         'C certe NR SDSW': 'C_certe_NR_SDSW_notsql_fieldslist'
-
-        }
-
-
         self.nametolistsql ={}
         self.nametolistnotsql = {}
-
-
 
         for form in self.formslist:
 
@@ -444,8 +364,6 @@ class logic():
 
             self.nametolistsql.update({form:sqlfieldlist})
             self.nametolistnotsql.update({form:notsqlfieldlist})
-
-
 
 
         # The below lines are used to connect the widgets to the corresponding functions
@@ -470,8 +388,6 @@ class logic():
         fieldslistnotsql = self.nametolistnotsql.get(selected_text)
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
-
-
 
 
 
@@ -581,9 +497,6 @@ class logic():
                 self.formslist.append(formname)
                 self.settings.setValue('formslist',',,,'.join(self.formslist))
                 self.settings.setValue(formname.replace(' ','_')+'_sql_fieldslist' , '')
-
-                self.nametoobjectnamesql.update({formname:formname.replace(' ','_')+'_sql_fieldslist'})
-                self.nametoobjectnamenotsql.update({formname:formname.replace(' ',"_")+'_notsql_fieldslist'})
 
                 ui.settings_addformLineEdit.clear()
                 ui.settings_formsListWidget.clear()

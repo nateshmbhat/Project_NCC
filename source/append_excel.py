@@ -25,14 +25,14 @@ class append:
 
 
     def form1(self,tup):
-        CADET_DETAILS = ['Aadhar', 'Enrolment_no', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+        Cadet_details = ['Aadhar', 'Enrolment_no', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_of_Birth', 'address', 'G_Mail', 'Mobile', 'Blood_group', 'Institution',
                      'Units']
-        len_cadet_details = len(CADET_DETAILS)
-        print(len_cadet_details)
+        len_Cadet_details = len(Cadet_details)
+        print(len_Cadet_details)
         sheet = self.book.add_sheet('CADET DETAILS')
-        for i in range(len_cadet_details):
-            sheet.write(0, i, CADET_DETAILS[i])
+        for i in range(len_Cadet_details):
+            sheet.write(0, i, Cadet_details[i])
         for i in range(len(tup)):
             for j in range(len(tup[i])):
                 sheet.write(i+1,j,str(tup[i][j]))
@@ -40,12 +40,12 @@ class append:
         self.book.save(TemporaryFile())
 
     def form2(self, tup):
-        YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Units', 'Institution', 'Date_of_Birth', 'Rem']
-        len_YOGA_DAY = len(YOGA_DAY)
-        print(len_YOGA_DAY)
+        Yoga_day = ['Rank', 'Student_Name', "Fathers_Name", 'Units', 'Institution', 'Date_of_Birth', 'Rem']
+        len_Yoga_day = len(Yoga_day)
+        print(len_Yoga_day)
         sheet = self.book.add_sheet('YOGA DAY')
-        for i in range(len_YOGA_DAY):
-            sheet.write(0, i, YOGA_DAY[i])
+        for i in range(len_Yoga_day):
+            sheet.write(0, i, Yoga_day[i])
         for i in range(len(tup)):
             for j in range(len(tup[i])):
                 sheet.write(i+1,j,str(tup[i][j]))
@@ -109,7 +109,7 @@ class append:
             self.book.save(TemporaryFile())
 
     def form6(self,tup):
-        A_certe_NR_for_High_school_JDJW = ['Enrolment No.',  'Rank', 'Name',
+        A_certe_NR_for_high_school_JDJW = ['Enrolment No.',  'Rank', 'Name',
                                            "Father's name", "Date of birth",'Regiment al/CBSE Roll No', 'Date of Enrollment',
                                            'Date of Discharge', 'Details of Camps attended',
                                            'Parade Attendance% Year I', 'Parade Attendance% Year II',
@@ -122,11 +122,11 @@ class append:
                                            'Signature of cadet: Written common subject',
                                            'Signature of cadet: Written Spl subject',
                                            'Signature of cadet: Practical']
-        len_A_certe_NR_for_High_school_JDJW = len(A_certe_NR_for_High_school_JDJW)
-        print(len_A_certe_NR_for_High_school_JDJW)
+        len_A_certe_NR_for_high_school_JDJW = len(A_certe_NR_for_high_school_JDJW)
+        print(len_A_certe_NR_for_high_school_JDJW)
         sheet = self.book.add_sheet('A certe NR for High school JDJW')
-        for i in range(len_A_certe_NR_for_High_school_JDJW):
-            sheet.write(0, i, A_certe_NR_for_High_school_JDJW[i])
+        for i in range(len_A_certe_NR_for_high_school_JDJW):
+            sheet.write(0, i, A_certe_NR_for_high_school_JDJW[i])
         for i in range(len(tup)):
             for j in range(len(tup[i])):
                 sheet.write(i+1,j,str(tup[i][j]))

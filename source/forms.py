@@ -3,24 +3,24 @@ from xlwt import Workbook
 book = Workbook()
 
 def form1():
-    CADET_DETAILS = ['Enrolment_Number','Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+    Cadet_details = ['Enrolment_Number','Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
                      'Unit']
     sql = """select """
-    for i in range(len(CADET_DETAILS)):
-        sql=sql+CADET_DETAILS[i]
-        if i!=len(CADET_DETAILS)-1:
+    for i in range(len(Cadet_details)):
+        sql=sql+Cadet_details[i]
+        if i!=len(Cadet_details)-1:
             sql=sql+","
     sql=sql+" from enrolment where "
     return(sql)
 
 def form2():
-    YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
+    Yoga_day = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
 
     sql = """select """
-    for i in range(len(YOGA_DAY)):
-        sql=sql+YOGA_DAY[i]
-        if i!= len(YOGA_DAY)-1:
+    for i in range(len(Yoga_day)):
+        sql=sql+Yoga_day[i]
+        if i!= len(Yoga_day)-1:
             sql = sql + ","
     sql = sql + " from enrolment where "
     return (sql)
@@ -64,12 +64,12 @@ def form5():
     return (sql)
 
 def form6():
-    A_certe_NR_for_High_school_JDJW=['Enrolment_Number','Rank', 'Student_Name', "Fathers_Name",
+    A_certe_NR_for_high_school_JDJW=['Enrolment_Number','Rank', 'Student_Name', "Fathers_Name",
                            "Date_Of_Birth", 'Enrol_Date']
     sql = """select """
-    for i in range(len(A_certe_NR_for_High_school_JDJW)):
-        sql = sql + A_certe_NR_for_High_school_JDJW[i]
-        if i != len(A_certe_NR_for_High_school_JDJW) - 1:
+    for i in range(len(A_certe_NR_for_high_school_JDJW)):
+        sql = sql + A_certe_NR_for_high_school_JDJW[i]
+        if i != len(A_certe_NR_for_high_school_JDJW) - 1:
             sql = sql + ","
     sql = sql + " from enrolment where "
     return (sql)

@@ -26,10 +26,10 @@ from tempfile import TemporaryFile
 from openpyxl import Workbook
 
 class append:
-    CADET_DETAILS = ['Enrolment_Number', 'Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
+    Cadet_details = ['Enrolment_Number', 'Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
                      'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
                      'Unit']
-    YOGA_DAY = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
+    Yoga_day = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
     Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_Name', "Fathers_name",
                               "Date_of_Birth", "Institution", 'Address', 'Mobile', 'Aadhar',
                               'Bank_Name', 'Branch', 'IFSC_code', 'Account_Name', 'Account_Number', 'MICR',
@@ -44,7 +44,7 @@ class append:
         , 'SC', 'ST', 'OBC', 'Period of Trg', 'Examination on pass Date/Month/Year',
                       'Science,Arts,Commerce in case of stream SD/SW cadets only', 'Maximum marks', 'Minimum marks',
                       'Percentage', '10% Bonus marks secured to SC/ST/OBC applicant', '% of marks', 'Position obtained']
-    A_certe_NR_for_High_school_JDJW = ['Enrolment_Number', 'Rank', 'Student_Name',
+    A_certe_NR_for_high_school_JDJW = ['Enrolment_Number', 'Rank', 'Student_Name',
                                        "Fathers_Name", "Date_Of_Birth", 'Enrol_Date',
                                        'Date of Discharge', 'Details of Camps attended',
                                        'Parade Attendance% Year I', 'Parade Attendance% Year II',
@@ -83,11 +83,11 @@ class append:
         book = Workbook()
         sheet = book.active
         if n==1:
-            for i in range(len(self.CADET_DETAILS)):
-                sheet.cell(row=1, column=i + 1).value = self.CADET_DETAILS[i]
+            for i in range(len(self.Cadet_details)):
+                sheet.cell(row=1, column=i + 1).value = self.Cadet_details[i]
         elif n==2:
-            for i in range(len(self.YOGA_DAY)):
-                sheet.cell(row=1, column=i + 1).value = self.YOGA_DAY[i]
+            for i in range(len(self.Yoga_day)):
+                sheet.cell(row=1, column=i + 1).value = self.Yoga_day[i]
         elif n==3:
             for i in range(len(self.Enrolment_Nominal_roll)):
                 sheet.cell(row=1, column=i + 1).value = self.Enrolment_Nominal_roll[i]
@@ -98,8 +98,8 @@ class append:
             for i in range(len(self.Scholarship_NR)):
                 sheet.cell(row=1, column=i + 1).value = self.Scholarship_NR[i]
         elif n==6:
-            for i in range(len(self.A_certe_NR_for_High_school_JDJW)):
-                sheet.cell(row=1, column=i + 1).value = self.A_certe_NR_for_High_school_JDJW[i]
+            for i in range(len(self.A_certe_NR_for_high_school_JDJW)):
+                sheet.cell(row=1, column=i + 1).value = self.A_certe_NR_for_high_school_JDJW[i]
         elif n==7:
             for i in range(len(self.B_certe_NR_SDSW)):
                 sheet.cell(row=1, column=i + 1).value = self.B_certe_NR_SDSW[i]
@@ -149,19 +149,19 @@ class logic():
 
         ui.backcondition.clicked.connect(self.conback)
 
-        ui.andcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " and "))
+        ui.andcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " and "))
 
-        ui.orcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + " or "))
+        ui.orcondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " or "))
 
-        ui.equalscondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "="))
+        ui.equalscondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "="))
 
-        ui.openbracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "("))
+        ui.openbracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "("))
 
-        ui.closebracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ")"))
+        ui.closebracecondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ")"))
 
-        ui.greatercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ">"))
+        ui.greatercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ">"))
 
-        ui.lessercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + "<"))
+        ui.lessercondition.clicked.connect(lambda :ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "<"))
 
         ui.querycondition.clicked.connect(self.conquery)
 
@@ -352,12 +352,12 @@ class logic():
         #           NOT SQL FIELDS
 
 
-        self.CADET_DETAILS_notsql_fieldslist= self.settings.value('CADET_DETAILS_notsql_fieldslist').split(',,,')
-        self.YOGA_DAY_notsql_fieldslist=self.settings.value('YOGA_DAY_notsql_fieldslist').split(',,,')
+        self.Cadet_details_notsql_fieldslist= self.settings.value('Cadet_details_notsql_fieldslist').split(',,,')
+        self.Yoga_day_notsql_fieldslist=self.settings.value('Yoga_day_notsql_fieldslist').split(',,,')
         self.Enrolment_Nominal_roll_notsql_fieldslist=self.settings.value('Enrolment_Nominal_roll_notsql_fieldslist').split(',,,')
         self.Camp_Nominal_roll_notsql_fieldslist = self.settings.value('Camp_Nominal_roll_notsql_fieldslist').split(',,,')
         self.Scholarship_NR_notsql_fieldslist =self.settings.value('Scholarship_NR_notsql_fieldslist').split(',,,')
-        self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_High_school_JDJW_notsql_fieldslist').split(',,,')
+        self.A_certe_NR_for_high_school_JDJW_notsql_fieldslist =self.settings.value('A_certe_NR_for_high_school_JDJW_notsql_fieldslist').split(',,,')
         self.B_certe_NR_SDSW_notsql_fieldslist= self.settings.value('B_certe_NR_SDSW_notsql_fieldslist').split(',,,')
         self.C_certe_NR_SDSW_notsql_fieldslist =self.settings.value('C_certe_NR_SDSW_notsql_fieldslist').split(',,,')
 
@@ -365,12 +365,12 @@ class logic():
 
         # SQL FIELDS
 
-        self.CADET_DETAILS_sql_fieldslist = self.settings.value('CADET_DETAILS_sql_fieldslist').split(',,,')
-        self.YOGA_DAY_sql_fieldslist = self.settings.value('YOGA_DAY_sql_fieldslist').split(',,,')
+        self.Cadet_details_sql_fieldslist = self.settings.value('Cadet_details_sql_fieldslist').split(',,,')
+        self.Yoga_day_sql_fieldslist = self.settings.value('Yoga_day_sql_fieldslist').split(',,,')
         self.Enrolment_Nominal_roll_sql_fieldslist = self.settings.value('Enrolment_Nominal_roll_sql_fieldslist').split(',,,')
         self.Camp_Nominal_roll_sql_fieldslist = self.settings.value('Camp_Nominal_roll_sql_fieldslist').split(',,,')
         self.Scholarship_NR_sql_fieldslist = self.settings.value('Scholarship_NR_sql_fieldslist').split(',,,')
-        self.A_certe_NR_for_High_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_High_school_JDJW_sql_fieldslist').split(',,,')
+        self.A_certe_NR_for_high_school_JDJW_sql_fieldslist = self.settings.value('A_certe_NR_for_high_school_JDJW_sql_fieldslist').split(',,,')
         self.B_certe_NR_SDSW_sql_fieldslist = self.settings.value('B_certe_NR_SDSW_sql_fieldslist').split(',,,')
         self.C_certe_NR_SDSW_sql_fieldslist = self.settings.value('C_certe_NR_SDSW_sql_fieldslist').split(',,,')
 
@@ -385,41 +385,66 @@ class logic():
 
         # These are used to get the object for the corresponding field string which is selected or clicked in the forms list of the settings tab
 
-        self.nametolistsql = {'Cadet details': self.CADET_DETAILS_sql_fieldslist, 'Yoga day': self.YOGA_DAY_sql_fieldslist,
-                         'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist,
-                         'Camp Nominal roll': self.Camp_Nominal_roll_sql_fieldslist,
-                         'Scholarship NR': self.Scholarship_NR_sql_fieldslist,
-                         'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_sql_fieldslist,
-                         'B certe NR SDSW': self.B_certe_NR_SDSW_sql_fieldslist,
-                         'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist}
+        # self.nametolistsql = {'Cadet details': self.Cadet_details_sql_fieldslist, 'Yoga day': self.Yoga_day_sql_fieldslist,
+        #                  'Enrollment Nominal roll': self.Enrolment_Nominal_roll_sql_fieldslist,
+        #                  'Camp Nominal roll': self.Camp_Nominal_roll_sql_fieldslist,
+        #                  'Scholarship NR': self.Scholarship_NR_sql_fieldslist,
+        #                  'A certe NR for high school JDJW': self.A_certe_NR_for_high_school_JDJW_sql_fieldslist,
+        #                  'B certe NR SDSW': self.B_certe_NR_SDSW_sql_fieldslist,
+        #                  'C certe NR SDSW': self.C_certe_NR_SDSW_sql_fieldslist}
+        #
+        # "Cadet details,,,Yoga day,,,Enrollment Nominal roll,,,Camp Nominal roll,,,Scholarship NR,,,A certe NR for high school JDJW,,,B certe NR SDSW,,,C certe NR SDSW,,,Speciman signature of cadets,,,TADA to cadets camps,,,TADA to cadets for exam,,,my new form,,,my another form"
+        #
+        #
+        # self.nametolistnotsql = {'Cadet details': self.Cadet_details_notsql_fieldslist,
+        #                     'Yoga day': self.Yoga_day_notsql_fieldslist,
+        #                     'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist,
+        #                     'Camp Nominal roll': self.Camp_Nominal_roll_notsql_fieldslist,
+        #                     'Scholarship NR': self.Scholarship_NR_notsql_fieldslist,
+        #                     'A certe NR for high school JDJW': self.A_certe_NR_for_high_school_JDJW_notsql_fieldslist,
+        #                     'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
+        #                     'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
 
-        self.nametolistnotsql = {'Cadet details': self.CADET_DETAILS_notsql_fieldslist,
-                            'Yoga day': self.YOGA_DAY_notsql_fieldslist,
-                            'Enrollment Nominal roll': self.Enrolment_Nominal_roll_notsql_fieldslist,
-                            'Camp Nominal roll': self.Camp_Nominal_roll_notsql_fieldslist,
-                            'Scholarship NR': self.Scholarship_NR_notsql_fieldslist,
-                            'A certe NR for high school JDJW': self.A_certe_NR_for_High_school_JDJW_notsql_fieldslist,
-                            'B certe NR SDSW': self.B_certe_NR_SDSW_notsql_fieldslist,
-                            'C certe NR SDSW': self.C_certe_NR_SDSW_notsql_fieldslist}
-
-        self.nametoobjectnamesql = {'Cadet details': 'CADET_DETAILS_sql_fieldslist', 'Yoga day': 'YOGA_DAY_sql_fieldslist',
+        self.nametoobjectnamesql = {'Cadet details': 'Cadet_details_sql_fieldslist', 'Yoga day': 'Yoga_day_sql_fieldslist',
                          'Enrollment Nominal roll': 'Enrolment_Nominal_roll_sql_fieldslist',
                          'Camp Nominal roll': 'Camp_Nominal_roll_sql_fieldslist',
                          'Scholarship NR': 'Scholarship_NR_sql_fieldslist',
-                         'A certe NR for high school JDJW': 'A_certe_NR_for_High_school_JDJW_sql_fieldslist',
+                         'A certe NR for high school JDJW': 'A_certe_NR_for_high_school_JDJW_sql_fieldslist',
                          'B certe NR SDSW': 'B_certe_NR_SDSW_sql_fieldslist',
                          'C certe NR SDSW': 'C_certe_NR_SDSW_sql_fieldslist'
+
         }
 
-        self.nametoobjectnamenotsql = {'Cadet details': 'CADET_DETAILS_notsql_fieldslist', 'Yoga day': 'YOGA_DAY_notsql_fieldslist',
+
+
+        self.nametoobjectnamenotsql = {'Cadet details': 'Cadet_details_notsql_fieldslist', 'Yoga day': 'Yoga_day_notsql_fieldslist',
                          'Enrollment Nominal roll': 'Enrolment_Nominal_roll_notsql_fieldslist',
                          'Camp Nominal roll': 'Camp_Nominal_roll_notsql_fieldslist',
                          'Scholarship NR': 'Scholarship_NR_notsql_fieldslist',
-                         'A certe NR for high school JDJW': 'A_certe_NR_for_High_school_JDJW_notsql_fieldslist',
+                         'A certe NR for high school JDJW': 'A_certe_NR_for_high_school_JDJW_notsql_fieldslist',
                          'B certe NR SDSW': 'B_certe_NR_SDSW_notsql_fieldslist',
                          'C certe NR SDSW': 'C_certe_NR_SDSW_notsql_fieldslist'
 
         }
+
+
+        self.nametolistsql ={}
+        self.nametolistnotsql = {}
+
+
+
+        for form in self.formslist:
+
+            sqlfieldlist = self.settings.value(form.replace(' ','_')+'_sql_fieldslist')
+            notsqlfieldlist = self.settings.value(form.replace(' ','_')+'_notsql_fieldslist')
+
+            sqlfieldlist = sqlfieldlist.split(',,,') if sqlfieldlist else []
+            notsqlfieldlist = notsqlfieldlist.split(',,,') if notsqlfieldlist else []
+
+
+            self.nametolistsql.update({form:sqlfieldlist})
+            self.nametolistnotsql.update({form:notsqlfieldlist})
+
 
 
 
@@ -429,8 +454,8 @@ class logic():
             lambda: self.settings_form_field_add(ui.settings_addformPushButton))
         ui.settings_addfieldPushButton.clicked.connect(
             lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
-        ui.settings_formsListWidget.itemClicked.connect(
-            lambda: (ui.settings_addfieldPushButton.show(),self.set_fields_list(self.nametolistnotsql.get(ui.settings_formsListWidget.currentItem().text()) , self.nametolistsql.get(ui.settings_formsListWidget.currentItem().text()))))
+        ui.settings_formsListWidget.itemClicked.connect(self.settings_form_item_clicked)
+
 
 
     def settings_form_item_clicked(self):
@@ -438,9 +463,19 @@ class logic():
         field names in the field tab and also controls the add field combobox
         '''
 
+        ui.settings_addfieldPushButton.show()
+        selected_text= ui.settings_formsListWidget.currentItem().text().strip()
+
+        fieldslistsql = self.nametolistsql.get(selected_text)
+        fieldslistnotsql = self.nametolistnotsql.get(selected_text)
+
+        self.set_fields_list(fieldslistsql , fieldslistnotsql)
 
 
-    def set_fields_list(self , notsqllist , sqllist):
+
+
+
+    def set_fields_list(self , sqllist , notsqllist):
         """This function is called after a new field is addded to the field list . This function sets the styles for the fields and puts them in the field list of the settings tab"""
 
         ui.settings_fieldsListwidget.clear()
@@ -526,17 +561,32 @@ class logic():
         '''FORMS'''
         if obj.objectName() == 'settings_addformPushButton' :
 
-            if not ui.settings_addformLineEdit.displayText():
+            if not ui.settings_addformLineEdit.displayText().strip():
                 QtGui.QMessageBox.warning(ui.Settings,'Entry field is blank','\nEnter the name of the new form in the Entrybox that you wish to add and then Click "Add Form"' , 'OK')
                 return
 
             if QtGui.QMessageBox.question(ui.Settings , 'Are you Sure ? ' , 'Are you sure that you wish to add a New Form ? This will add your form through out the software.',"Yes","No")==0:
 
-                self.formslist.append(ui.settings_addformLineEdit.displayText())
+                formname = ui.settings_addformLineEdit.displayText().strip().strip()
+
+                #
+                # if '_' in formname:
+                #     QtGui.QMessageBox.warning(ui.Settings , "Underscore character not allowed( '_' )","The character Underscore '_' is not allowed as part of the form's name. Make sure that you do not include this charecter in the Entered forms name"
+
+
+                if formname in self.formslist:
+                    QtGui.QMessageBox.warning(ui.Settings,'Form already exists','Make sure that the Entered form name is not already in the forms list and Enter a unique name for your Form and click "Add Form"','OK')
+                    return
+
+                self.formslist.append(formname)
                 self.settings.setValue('formslist',',,,'.join(self.formslist))
+                self.settings.setValue(formname.replace(' ','_')+'_sql_fieldslist' , '')
+
+                self.nametoobjectnamesql.update({formname:formname.replace(' ','_')+'_sql_fieldslist'})
+                self.nametoobjectnamenotsql.update({formname:formname.replace(' ',"_")+'_notsql_fieldslist'})
+
                 ui.settings_addformLineEdit.clear()
                 ui.settings_formsListWidget.clear()
-
                 self.set_forms_list()
 
 
@@ -563,38 +613,38 @@ class logic():
 
 
             else:
-                selectedfield = ui.settings_formsListWidget.currentItem().text()
+                selectedfield = ui.settings_formsListWidget.currentItem().text().strip()
                 if ui.settings_fieldsknownRadioButton.isChecked():
                     if QtGui.QMessageBox.question(ui.Settings,'Are You Sure ? ' , 'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.','Yes','No')==0:
 
                         self.nametolistsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
-                        self.settings.setValue(self.nametoobjectnamesql.get(selectedfield),',,,'.join(self.nametolistsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistnotsql.get(selectedfield) , self.nametolistsql.get(selectedfield))
+                        self.settings.setValue(selectedfield.replace(' ','_')+'_sql_fieldslist',',,,'.join(self.nametolistsql.get(selectedfield)))
+                        self.set_fields_list(self.nametolistsql.get(selectedfield) , self.nametolistnotsql.get(selectedfield))
                         return
 
                 else:
-                    if not ui.settings_addfieldLineEdit.displayText():
+                    if not ui.settings_addfieldLineEdit.displayText().strip():
                         QtGui.QMessageBox.warning(ui.Settings , 'Empty Field !','Make sure that the field entry box is not empty before seleting "Add field". Enter a field name in the Editing box provided and click "Add form" to add it to the fields list' , 'OK')
                         return
 
                     if QtGui.QMessageBox.question(ui.Settings, 'Are You Sure ? ' , 'Are you sure that you want to add the entered field to the list of fields of the corresponding form ? This will add the field through out the software.','Yes','No')==0:
-                        self.nametolistnotsql.get(selectedfield).append(ui.settings_addfieldLineEdit.displayText())
-                        self.settings.setValue(self.nametoobjectnamenotsql.get(selectedfield) , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistnotsql.get(selectedfield) , self.nametolistsql.get(selectedfield))
+                        self.nametolistnotsql.get(selectedfield).append(ui.settings_addfieldLineEdit.displayText().strip())
+                        self.settings.setValue(selectedfield.replace(' ','_')+'_notsql_fieldslist' , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
+                        self.set_fields_list(self.nametolistsql.get(selectedfield) , self.nametolistnotsql.get(selectedfield))
 
 
 
     def institution_add_or_remove(self, button):
         """Called whenever user clicks on the add or remove button of the institution list in the settings tab"""
 
-        if button.text() == 'Add':
-            if not ui.settings_instLineEdit.displayText():
+        if button.text().strip() == 'Add':
+            if not ui.settings_instLineEdit.displayText().strip():
                 QtGui.QMessageBox.warning(ui.Settings, "Empty field",
                                           '\n\nPlease enter an institution name and click "Add" to add it to the present list',
                                           "OK")
                 return
 
-            inst_name = ui.settings_instLineEdit.displayText()
+            inst_name = ui.settings_instLineEdit.displayText().strip()
 
             self.institutionlist.append(inst_name)
 
@@ -604,7 +654,7 @@ class logic():
 
 
 
-        if button.text() == 'Remove':
+        if button.text().strip() == 'Remove':
 
             selectedItem = ui.settings_institutionListWidget.currentItem()
             if not selectedItem:
@@ -618,7 +668,7 @@ class logic():
                                           'Yes', 'No') == 0:
 
 
-                selected_text = selectedItem.text()
+                selected_text = selectedItem.text().strip()
 
                 self.institutionlist.remove(selected_text)
 
@@ -702,7 +752,7 @@ class logic():
         for i in range(len(self.lineEditObjectnames)):
             data.append([])
             for j in range(len(self.lineEditObjectnames[i])):
-                txt = self.lineEdit[i][j].text()
+                txt = self.lineEdit[i][j].text().strip()
                 data[i].append(txt)
         for i in range(len(data)):
             flag=0
@@ -768,7 +818,7 @@ class logic():
         for i in range(len(self.lineEditObjectnames)):
             data.append([])
             for j in range(len(self.lineEditObjectnames[i])):
-                txt=self.lineEdit[i][j].text()
+                txt=self.lineEdit[i][j].text().strip()
                 data[i].append(txt)
         for i in range(len(data)):
             if len(data[i])<1:
@@ -815,7 +865,7 @@ class logic():
         for i in range(len(self.lineEditObjectnames)):
             data.append([])
             for j in range(len(self.lineEditObjectnames[i])):
-                txt=self.lineEdit[i][j].text()
+                txt=self.lineEdit[i][j].text().strip()
                 data[i].append(txt)
 
 
@@ -1225,7 +1275,7 @@ class logic():
     def check_enrol_form_data(self):
 
         proceed = True;
-        sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText()+"'"
+        sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText().strip()+"'"
         tup=ENROLMENT_FORM.enroll().execute(sql)
         if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
@@ -1243,7 +1293,7 @@ class logic():
                 pass;
 
 
-        mailid = ui.emailLineEdit.displayText()
+        mailid = ui.emailLineEdit.displayText().strip()
 
         if len(mailid) and  ('@' not in mailid or (mailid.rfind('.') -  mailid.rfind('@'))<2):
             QtGui.QMessageBox.warning(ui.Enrol , "Warning" , "\n\nPlease make sure that the entered Email address is a valid one." ,'OK')
@@ -1261,7 +1311,7 @@ class logic():
                     set_margin_red_style(i)
 
 
-            elif i.displayText() == '':
+            elif i.displayText().strip() == '':
 
                 proceed = False
                 set_margin_red_style(i)
@@ -1276,15 +1326,15 @@ class logic():
         if proceed: #This runs only if all the non-null fields are filled.
 
             ui.addressTextEdit.setStyleSheet('')
-            print(len(ui.aadhaarLineEdit.displayText()))
-            if len(ui.aadhaarLineEdit.displayText().strip())!=12:
+            print(len(ui.aadhaarLineEdit.displayText().strip()))
+            if len(ui.aadhaarLineEdit.displayText().strip().strip())!=12:
                 proceed=False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           "\nValid Aadhaar Number should be 12 digits long.\n\n Please make sure that it's a valid 12 digit Aadhaar number",
                                           'OK')
                 return ;
 
-            if  len(ui.mobileLineEdit.displayText()) and  len(ui.mobileLineEdit.displayText().strip())!=10:
+            if  len(ui.mobileLineEdit.displayText().strip()) and  len(ui.mobileLineEdit.displayText().strip().strip())!=10:
                 proceed = False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           '\n\n\nPlease Enter a Valid 10 digit Mobile number.',
@@ -1481,7 +1531,7 @@ font-weight:bold;
     def display(self , obj): # this executes when the Search button is pressed
 
         if obj.objectName()=='searchPushButton':
-            if ui.searchbyfieldLineEdit.displayText()=='':
+            if ui.searchbyfieldLineEdit.displayText().strip()=='':
                 QtGui.QMessageBox.warning(ui.enrolformFrame ,"Warning" , "\n\nSearch field should not be empty while searching",'OK')
                 return ;
 
@@ -1491,7 +1541,7 @@ font-weight:bold;
 
         obj = ENROLMENT_FORM.enroll()
 
-        search_field_text = ui.searchbyfieldLineEdit.displayText()
+        search_field_text = ui.searchbyfieldLineEdit.displayText().strip()
 
         if ui.aadhaarnumRadioButton.isChecked():
             self.field = 'Aadhar_Number'
@@ -1599,45 +1649,45 @@ font-weight:bold;
 
     def get_enroll_form_data(self):
 
-        self.enrolmentnum = ui.enrolmentnumLineEdit.displayText();
+        self.enrolmentnum = ui.enrolmentnumLineEdit.displayText().strip();
 
-        self.aadhaarnum = ui.aadhaarLineEdit.displayText()
+        self.aadhaarnum = ui.aadhaarLineEdit.displayText().strip()
 
         self.rank = ui.rankComboBox.currentText()
 
-        self.fullname = ui.fullnameLineEdit.displayText()
+        self.fullname = ui.fullnameLineEdit.displayText().strip()
 
-        self.fathername = ui.fathernameLineEdit.displayText()
+        self.fathername = ui.fathernameLineEdit.displayText().strip()
 
-        self.mothername = ui.mothernameLineEdit.displayText()
+        self.mothername = ui.mothernameLineEdit.displayText().strip()
 
         self.sex = ui.sexComboBox.currentText();
 
-        self.dateofbirth = ui.dateofbirthDateEdit.text();
+        self.dateofbirth = ui.dateofbirthDateEdit.text().strip();
 
         self.address = ui.addressTextEdit.toPlainText()
 
-        self.email = ui.emailLineEdit.displayText()
+        self.email = ui.emailLineEdit.displayText().strip()
 
-        self.mobilenum = ui.mobileLineEdit.displayText()
+        self.mobilenum = ui.mobileLineEdit.displayText().strip()
 
         self.bloodgroup = ui.bloodgroupComboBox.currentText()
 
-        self.bankname = ui.banknameLineEdit.displayText()
+        self.bankname = ui.banknameLineEdit.displayText().strip()
 
-        self.bankbranch = ui.bankbranchLineEdit.displayText()
+        self.bankbranch = ui.bankbranchLineEdit.displayText().strip()
 
-        self.accountname = ui.accountnameLineEdit.displayText()
+        self.accountname = ui.accountnameLineEdit.displayText().strip()
 
-        self.accountnum = ui.accountnumLineEdit.displayText()
+        self.accountnum = ui.accountnumLineEdit.displayText().strip()
 
-        self.ifsccode = ui.ifsccodeLineEdit.displayText()
+        self.ifsccode = ui.ifsccodeLineEdit.displayText().strip()
 
         self.institutionname = ui.institutionenrollComboBox.currentText()
 
-        self.unit = ui.unitLineEdit.displayText()
+        self.unit = ui.unitLineEdit.displayText().strip()
 
-        self.enrolldate=ui.enroldateDateEdit.text()
+        self.enrolldate=ui.enroldateDateEdit.text().strip()
 
         self.remarks=ui.remarksTextEdit.toPlainText()
 
@@ -1645,7 +1695,7 @@ font-weight:bold;
 
         self.extracurricularactivities=ui.extraactivitiesTextEdit.toPlainText()
 
-        self.micr=ui.micrLineEdit.displayText()
+        self.micr=ui.micrLineEdit.displayText().strip()
         self.campsattended=""
 
         if self.candidphoto:
@@ -2005,7 +2055,7 @@ font-weight:bold;
 
                 ui.selectallCheckBox.setChecked(True);
 
-        sql1 = str(ui.conditionsentrylabel.text())
+        sql1 = str(ui.conditionsentrylabel.text().strip())
 
         if sql == '*':
 
@@ -2014,7 +2064,7 @@ font-weight:bold;
                 sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """ + str(
-                    ui.conditionsentrylabel.text())
+                    ui.conditionsentrylabel.text().strip())
 
             else:
 
@@ -2027,7 +2077,7 @@ font-weight:bold;
         else:
 
             sql = ("select " + sql + " from enrolment where " + str(
-                ui.conditionsentrylabel.text())) if sql1 != "" else "select " + sql + " from enrolment ";
+                ui.conditionsentrylabel.text().strip())) if sql1 != "" else "select " + sql + " from enrolment ";
 
         if sql[7] == "*":
             sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
@@ -2045,7 +2095,7 @@ font-weight:bold;
 
     def conback(self):
 
-        sql = ui.conditionsentrylabel.text().strip()
+        sql = ui.conditionsentrylabel.text().strip().strip()
 
         ch = sql[-1]
 
@@ -2094,9 +2144,9 @@ font-weight:bold;
         elif ch=="Enrol_Date" or ch=="Date_Of_Birth":
             ch1 =ui.datequeryDateEdit.currentText()
         else:
-            ch1 = ui.valuelineEdit.text()
+            ch1 = ui.valuelineEdit.text().strip()
 
-        ch2 = ui.conditionsentrylabel.text().strip() + ' '
+        ch2 = ui.conditionsentrylabel.text().strip().strip() + ' '
 
         if (len(ch2) > 3):
 
@@ -2130,7 +2180,7 @@ font-weight:bold;
                             if len(ch1) == 10:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text() + ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
 
                             else:
                                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
@@ -2142,7 +2192,7 @@ font-weight:bold;
                             if len(ch1) == 12:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text() + ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
 
                             else:
                                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
@@ -2153,7 +2203,7 @@ font-weight:bold;
 
                         else:
 
-                            ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text() + ch + "=\"" + ch1 + "\"")
+                            ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
 
 
 
@@ -2166,7 +2216,7 @@ font-weight:bold;
                 else:
 
                     ui.conditionsentrylabel.setText(
-                        ui.conditionsentrylabel.text().strip() + ' ' + ch + "=\"" + ch1 + "\"")
+                        ui.conditionsentrylabel.text().strip().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
             else:
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',

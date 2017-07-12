@@ -298,8 +298,6 @@ class logic():
         self.init_settings()
 
 
-
-
     def init_settings(self):
 
         """Sets all the parameters from the settings file"""
@@ -307,7 +305,6 @@ class logic():
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         self.institutionlist = self.settings.value('institutionlist').split(',,,')
         self.set_institutions_list()
-
 
         '''ALL STANDARD FIELDS LIST (Fields that are in the master enrolment form )'''
 
@@ -375,20 +372,20 @@ class logic():
         ui.settings_formsListWidget.itemClicked.connect(self.settings_form_item_clicked)
 
 
-
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
         field names in the field tab and also controls the add field combobox
         '''
-
         ui.settings_addfieldPushButton.show()
         selected_text= ui.settings_formsListWidget.currentItem().text().strip()
 
         fieldslistsql = self.nametolistsql.get(selected_text)
+        fieldslistsql = fieldslistsql if fieldslistsql else []
+
         fieldslistnotsql = self.nametolistnotsql.get(selected_text)
+        fieldslistnotsql = fieldslistnotsql if fieldslistnotsql else []
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
-
 
 
     def set_fields_list(self , sqllist , notsqllist):
@@ -435,7 +432,6 @@ class logic():
             item.setBackground(brush)
             ui.settings_fieldsListwidget.addItem(item)
 
-
         #Set the elements that are not already in the corresponding field into the add field combobox
 
         ui.settings_fieldsComboBox.clear()
@@ -444,9 +440,6 @@ class logic():
         for ele in self.all_enrolment_form_fieldslist:
             if ele not in sqllist:
                 ui.settings_fieldsComboBox.addItem(ele)
-
-
-
 
 
     def set_forms_list(self):
@@ -469,7 +462,6 @@ class logic():
 
 
 
-
     def settings_form_field_add(self,obj):
         '''Called when Add form or Add field buttons of the settings tab are clicked'''
 
@@ -484,10 +476,6 @@ class logic():
             if QtGui.QMessageBox.question(ui.Settings , 'Are you Sure ? ' , 'Are you sure that you wish to add a New Form ? This will add your form through out the software.',"Yes","No")==0:
 
                 formname = ui.settings_addformLineEdit.displayText().strip().strip()
-
-                #
-                # if '_' in formname:
-                #     QtGui.QMessageBox.warning(ui.Settings , "Underscore character not allowed( '_' )","The character Underscore '_' is not allowed as part of the form's name. Make sure that you do not include this charecter in the Entered forms name"
 
 
                 if formname in self.formslist:
@@ -532,7 +520,7 @@ class logic():
 
                         self.nametolistsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
                         self.settings.setValue(selectedfield.replace(' ','_')+'_sql_fieldslist',',,,'.join(self.nametolistsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistsql.get(selectedfield) , self.nametolistnotsql.get(selectedfield))
+                        self.set_fields_list(self.nametolistsql.get(selectedfield) if selectedfield else [] , self.nametolistnotsql.get(selectedfield) if selectedfield else [])
                         return
 
                 else:
@@ -543,7 +531,7 @@ class logic():
                     if QtGui.QMessageBox.question(ui.Settings, 'Are You Sure ? ' , 'Are you sure that you want to add the entered field to the list of fields of the corresponding form ? This will add the field through out the software.','Yes','No')==0:
                         self.nametolistnotsql.get(selectedfield).append(ui.settings_addfieldLineEdit.displayText().strip())
                         self.settings.setValue(selectedfield.replace(' ','_')+'_notsql_fieldslist' , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistsql.get(selectedfield) , self.nametolistnotsql.get(selectedfield))
+                        self.set_fields_list(self.nametolistsql.get(selectedfield) if selectedfield else [] , self.nametolistnotsql.get(selectedfield) if selectedfield else [])
 
 
 

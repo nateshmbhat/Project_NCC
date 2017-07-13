@@ -1,13 +1,11 @@
 import pandas as pd
 import ENROLMENT_FORM
 import os
-from tempfile import TemporaryFile
 import openpyxl
 from userinterface import Ui_MainWindow, _fromUtf8
 from PyQt4 import QtCore, QtGui, QtWebKit
 import sqlite3
 import shutil
-import forms
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -24,102 +22,6 @@ except AttributeError:
 
 from tempfile import TemporaryFile
 from openpyxl import Workbook
-
-class append:
-    Cadet_details = ['Enrolment_Number', 'Aadhar_Number', 'Student_Name', "Fathers_Name", "Mothers_Name", 'Sex',
-                     'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Institution',
-                     'Unit']
-    Yoga_day = ['Rank', 'Student_Name', "Fathers_Name", 'Unit', 'Institution', 'Date_Of_Birth', 'Remarks']
-    Enrolment_Nominal_roll = ['Unit', 'Enrolment_Number', 'Rank', 'Student_Name', "Fathers_name",
-                              "Date_of_Birth", "Institution", 'Address', 'Mobile', 'Aadhar',
-                              'Bank_Name', 'Branch', 'IFSC_code', 'Account_Name', 'Account_Number', 'MICR',
-                              'Certificate', 'Camps_Attended', 'Extra_Curricular_Activities',
-                              'Special_Achievements', 'Email', 'Blood Blood_Group', 'Remarks', 'course grading']
-    Camp_Nominal_roll = ['Enrolment_Number', 'Aadhar_Number', 'Rank', 'Student_Name', "Fathers_Name", 'Address',
-                         'Institution', 'Vegitarian', 'Bank_Name', 'Branch',
-                         'Account_Name', 'Account_Number', 'IFSC_Code',
-                         'Year of training', 'Able to swim or not']
-    Scholarship_NR = ['Enrolment_Number', 'Rank', 'Unit', 'Institution', 'Bank_Name', 'Branch', 'Account_Name',
-                      'Account_Number', 'IFSC_Code', 'MICR'
-        , 'SC', 'ST', 'OBC', 'Period of Trg', 'Examination on pass Date/Month/Year',
-                      'Science,Arts,Commerce in case of stream SD/SW cadets only', 'Maximum marks', 'Minimum marks',
-                      'Percentage', '10% Bonus marks secured to SC/ST/OBC applicant', '% of marks', 'Position obtained']
-    A_certe_NR_for_high_school_JDJW = ['Enrolment_Number', 'Rank', 'Student_Name',
-                                       "Fathers_Name", "Date_Of_Birth", 'Enrol_Date',
-                                       'Date of Discharge', 'Details of Camps attended',
-                                       'Parade Attendance% Year I', 'Parade Attendance% Year II',
-                                       'Part-I-Drill written(30)', 'Part-I-Drill practical(60)',
-                                       'Part-I-Drill Total(90)', 'Part-II:WT Written(40)',
-                                       'Part-II:WT Practical(20)', 'Part-II:WT Total(60)',
-                                       'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(115)',
-                                       'Part-IV:Spl Subjects practical(30)', 'Part-IV:Spl Subjects Total(150)',
-                                       'Grand Total(500)', 'Grading',
-                                       'Signature of cadet: Written common subject',
-                                       'Signature of cadet: Written Spl subject',
-                                       'Signature of cadet: Practical']
-    B_certe_NR_SDSW = ['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
-                       "Date_Of_Birth", 'Enrol_Date', 'Photo'
-        , 'Date of Discharge', 'Details of Camps attended',
-                       'Parade Attendance% Year I', 'Parade Attendance% Year II',
-                       'Part-I-Drill written(10)', 'Part-I-Drill practical(80)', 'Part-I-Drill Total(90)',
-                       'Part-II:WT Written(35)', 'Part-II:WT Practical(25)', 'Part-II:WT Total(60)',
-                       'Part-III:Misc written(200)', 'Part-IV:Spl Subjects written(105)',
-                       'Part-IV:Spl Subjects practical(45)', 'Part-IV:Spl Subjects Total(150)',
-                       'Bonus Marks Certific', 'Grand Total(500)', 'Grading',
-                       'Signature of cadet: Written common subject', 'Signature of cadet: Written Spl subject',
-                       'Signature of cadet: Practical']
-    C_certe_NR_SDSW = ['Enrolment_Number', 'Rank', 'Student_Name', "Fathers_Name",
-                       "Date_Of_Birth", 'Enrol_Date', 'Photo',
-                       'Date of Discharge', 'Details of Camps attended',
-                       'Parade Attendance% III Year', 'Part-I-Drill written(10)',
-                       'Part-I-Drill practical(50)', 'Part-I-Drill Total(60)', 'Part-II:WT Written(10)',
-                       'Part-II:WT Practical(55)', 'Part-II:WT Total(65)', 'Part-III:Misc written(225)',
-                       'Part-IV:Spl Subjects written(105)', 'Part-IV:Spl Subjects practical(45)',
-                       'Part-IV:Spl Subjects Total(150)', 'Grand Total(500)', 'Bonus Marks max-Total-50',
-                       'Grading', 'Signature of cadet: Written common subject',
-                       'Signature of cadet: Written Spl subject', 'Signature of cadet: Practical']
-
-    def insert(self,tup,n,filename):
-        book = Workbook()
-        sheet = book.active
-        if n==1:
-            for i in range(len(self.Cadet_details)):
-                sheet.cell(row=1, column=i + 1).value = self.Cadet_details[i]
-        elif n==2:
-            for i in range(len(self.Yoga_day)):
-                sheet.cell(row=1, column=i + 1).value = self.Yoga_day[i]
-        elif n==3:
-            for i in range(len(self.Enrolment_Nominal_roll)):
-                sheet.cell(row=1, column=i + 1).value = self.Enrolment_Nominal_roll[i]
-        elif n==4:
-            for i in range(len(self.Camp_Nominal_roll)):
-                sheet.cell(row=1, column=i + 1).value = self.Camp_Nominal_roll[i]
-        elif n==5:
-            for i in range(len(self.Scholarship_NR)):
-                sheet.cell(row=1, column=i + 1).value = self.Scholarship_NR[i]
-        elif n==6:
-            for i in range(len(self.A_certe_NR_for_high_school_JDJW)):
-                sheet.cell(row=1, column=i + 1).value = self.A_certe_NR_for_high_school_JDJW[i]
-        elif n==7:
-            for i in range(len(self.B_certe_NR_SDSW)):
-                sheet.cell(row=1, column=i + 1).value = self.B_certe_NR_SDSW[i]
-        elif n==8:
-            for i in range(len(self.C_certe_NR_SDSW)):
-                sheet.cell(row=1, column=i + 1).value = self.C_certe_NR_SDSW[i]
-
-        for i in range(len(tup)):
-            for j in range(len(tup[i])):
-                sheet.cell(row=i + 2, column=j+1).value= str(tup[i][j])
-        book.save(filename)
-        book.save(TemporaryFile())
-    def insertupdate(self,tup,n,filename):
-        book=openpyxl.load_workbook(filename)
-        sheet = book.active
-        for i in tup:
-            sheet.append(i)
-        book.save(filename)
-        book.save(TemporaryFile())
-
 class logic():
     flag = 0
     def __init__(self):
@@ -270,15 +172,11 @@ class logic():
             os.mkdir(r'candidate photos')
         ui.openPushButton.clicked.connect(self.openuploaddata)
 
-
-
         ui.savedataPushButton.clicked.connect(self.saveuploadeddata)
 
         ui.save_data_excelPushButton.clicked.connect(self.saveexceluploadeddata)
 
         ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
-
-        ui.appendDataPushButton.clicked.connect(self.appenddata)
 
         ui.updateExelPushButton.clicked.connect(self.update_excel_function)
 
@@ -294,9 +192,7 @@ class logic():
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
 
 
-
         self.init_settings()
-
 
     def init_settings(self):
 
@@ -371,7 +267,6 @@ class logic():
             lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
         ui.settings_formsListWidget.itemClicked.connect(self.settings_form_item_clicked)
 
-
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
         field names in the field tab and also controls the add field combobox
@@ -386,7 +281,6 @@ class logic():
         fieldslistnotsql = fieldslistnotsql if fieldslistnotsql else []
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
-
 
     def set_fields_list(self , sqllist , notsqllist):
         """This function is called after a new field is addded to the field list . This function sets the styles for the fields and puts them in the field list of the settings tab"""
@@ -441,7 +335,6 @@ class logic():
             if ele not in sqllist:
                 ui.settings_fieldsComboBox.addItem(ele)
 
-
     def set_forms_list(self):
         """Sets the style and label for the list items in formsListWidget of settings"""
 
@@ -456,11 +349,9 @@ class logic():
             font.setWeight(75)
             item.setFont(font)
             brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-            brush.setStyle(QtCore.Qt.Dense3Pattern)
+            brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
-
-
 
     def settings_form_field_add(self,obj):
         '''Called when Add form or Add field buttons of the settings tab are clicked'''
@@ -533,8 +424,6 @@ class logic():
                         self.settings.setValue(selectedfield.replace(' ','_')+'_notsql_fieldslist' , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
                         self.set_fields_list(self.nametolistsql.get(selectedfield) if selectedfield else [] , self.nametolistnotsql.get(selectedfield) if selectedfield else [])
 
-
-
     def institution_add_or_remove(self, button):
         """Called whenever user clicks on the add or remove button of the institution list in the settings tab"""
 
@@ -579,9 +468,6 @@ class logic():
 
 
         ui.settings_instLineEdit.clear()
-
-
-
 
     def set_institutions_list(self):
 
@@ -629,145 +515,75 @@ class logic():
         ui.settings_addPushButton.hide()
         ui.settings_backinstPushButton.hide()
 
-
-
-
     def typecomboboxlogic(self):
-        if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Add Camps" or ui.typecomboBox.currentText()=="Add Remarks" or ui.typecomboBox.currentText()=="Add Extra Activities":
+        if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Camps_Attended" or ui.typecomboBox.currentText()=="Remarks" or ui.typecomboBox.currentText()=="Extra_Curricular_Activities":
             ui.save_data_excelPushButton.hide()
         else:
             ui.save_data_excelPushButton.show()
 
-    def appenddata(self):
-        check=[]
-        if ui.typecomboBox.currentText() == "Upload Marks(A)":
-            check = "select * from A_cert_marks where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'"
-        if ui.typecomboBox.currentText() == "Upload Marks(B)":
-            check = "select * from B_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
-        if ui.typecomboBox.currentText() == "Upload Marks(C)":
-            check = "select * from C_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
-        tup = ENROLMENT_FORM.enroll().execute(check)
-        print(tup)
-
-        data = []
-        for i in range(len(self.lineEditObjectnames)):
-            data.append([])
-            for j in range(len(self.lineEditObjectnames[i])):
-                txt = self.lineEdit[i][j].text().strip()
-                data[i].append(txt)
-        for i in range(len(data)):
-            flag=0
-            sql=""
-            for k in range(len(data)):
-                if len(data[k]) < 1:
-                    continue
-                for l in range(len(tup)):
-                    if tup[l][0] == data[k][0]:
-                        flag=1
-            if flag==0:
-                if len(data[i]) < 1:
-                    continue
-                if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                    sql = "insert into A_cert_marks values("
-                if ui.typecomboBox.currentText() == "Upload Marks(B)":
-                    sql = "insert into B_cert_marks values("
-                if ui.typecomboBox.currentText() == "Upload Marks(C)":
-                    sql = "insert into C_cert_marks values("
-
-                for j in range(len(data[i])):
-                    sql = sql + "'" + data[i][j] + "',"
-                sql = sql + "'" + ui.institutionuploaddatacomboBox.currentText() + "')"
-                ENROLMENT_FORM.enroll().insertionexecute(sql)
-                print(sql)
-            else:
-                if len(data[i]) < 1:
-                    continue
-                if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                    ENROLMENT_FORM.enroll().delete_by_Enrolment("A_cert_marks",data[i][0])
-                if ui.typecomboBox.currentText() == "Upload Marks(B)":
-                    ENROLMENT_FORM.enroll().delete_by_Enrolment("B_cert_marks", data[i][0])
-                if ui.typecomboBox.currentText() == "Upload Marks(C)":
-                    ENROLMENT_FORM.enroll().delete_by_Enrolment("C_cert_marks", data[i][0])
-
-                if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                    sql = "insert into A_cert_marks values("
-                if ui.typecomboBox.currentText() == "Upload Marks(B)":
-                    sql = "insert into B_cert_marks values("
-                if ui.typecomboBox.currentText() == "Upload Marks(C)":
-                    sql = "insert into C_cert_marks values("
-
-                for j in range(len(data[i])):
-                    sql = sql + "'" + data[i][j] + "',"
-                sql = sql + "'" + ui.institutionuploaddatacomboBox.currentText() + "')"
-                ENROLMENT_FORM.enroll().insertionexecute(sql)
-                print(sql)
-
-
-
     def saveuploadeddata(self):
-        check = []
-        if ui.typecomboBox.currentText() == "Upload Marks(A)":
-            check = "select * from A_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
-        if ui.typecomboBox.currentText() == "Upload Marks(B)":
-            check = "select * from B_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
-        if ui.typecomboBox.currentText() == "Upload Marks(C)":
-            check = "select * from C_cert_marks where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
-        tup = ENROLMENT_FORM.enroll().execute(check)
-        print(tup)
+        selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
+        selectedDataType = ui.typecomboBox.currentText()
 
-        data=[]
-        for i in range(len(self.lineEditObjectnames)):
-            data.append([])
-            for j in range(len(self.lineEditObjectnames[i])):
-                txt=self.lineEdit[i][j].text().strip()
-                data[i].append(txt)
-        for i in range(len(data)):
-            if len(data[i])<1:
-                continue
-            for j in range(len(tup)):
-                if tup[j][0]==data[i][0]:
-                    QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                              'Marks for some enrolment numbers already exist \nIf you want to add\nplease use append.',
-                                              'OK')
-                    return
-        sql=""
-        for i in range(len(data)):
-            if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                sql = "insert into A_cert_marks values("
-            if ui.typecomboBox.currentText() == "Upload Marks(B)":
-                sql = "insert into B_cert_marks values("
-            if ui.typecomboBox.currentText() == "Upload Marks(C)":
-                sql = "insert into C_cert_marks values("
-            if len(data[i])<1:
-                continue
-            for j in range(len(data[i])):
-                sql=sql+"'"+data[i][j]+"',"
-            sql=sql+"'"+ui.institutionuploaddatacomboBox.currentText()+"')"
-            ENROLMENT_FORM.enroll().insertionexecute(sql)
-            print(sql)
+        if selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
+            fieldsListSql = self.nametolistsql.get(selectedDataType)
+            fieldsListNotSql = self.nametolistnotsql.get(selectedDataType)
+            if selectedDataType=="A certificate":
+                selectedDataType="A_cert_marks"
+            if selectedDataType=="B certificate":
+                selectedDataType="Bcert_marks"
+            if selectedDataType=="C certificate":
+                selectedDataType="C_cert_marks"
+            sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
+            sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            sqlpresentdata = ENROLMENT_FORM.enroll().execute("select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
 
-
+            flag=0
+            for i in range(len(sqldata)):
+                for k in range(len(sqlpresentdata)):
+                    if sqlpresentdata[k][0] == ui.tableWidget.item(i,0).text():
+                        print("hello")
+                        flag = 1
+                        break
+                if flag == 1:
+                    print("hello")
+                    flag=0
+                    ENROLMENT_FORM.enroll().delete_by_Enrolment(selectedDataType,sqldata[i][0])
+                sql = "insert into " + selectedDataType + " values("
+                for j in range(len(fieldsListSql)):
+                    sql=sql+"'"+str(ui.tableWidget.item(i,j).text())+"'"
+                    if j!=len(fieldsListSql)-1:
+                        sql=sql+","
+                sql=sql+")"
+                ENROLMENT_FORM.enroll().insertionexecute(sql)
+                print("inserted sucessfully")
+        else:
+            sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
+            sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            for i in range(len(sqldata)):
+                sql1 = "update enrolment set " + selectedDataType + "='"+ui.tableWidget.item(i,1).text()+"' where Enrolment_Number='"+sqldata[i][0]+"'"
+                ENROLMENT_FORM.enroll().insertionexecute(sql1)
 
     def saveexceluploadeddata(self):
         self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
         data=[]
-        if ui.typecomboBox.currentText()=="Upload Marks(A)":
+        if ui.typecomboBox.currentText()=="A certificate":
             self.book = openpyxl.load_workbook('A_CERTIFICATES.xlsx')
-        elif ui.typecomboBox.currentText()=="Upload Marks(B)":
-            self.book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
-        elif ui.typecomboBox.currentText()=="Upload Marks(C)":
-            self.book = openpyxl.load_workbook('CC_CERTIFICATES.xlsx')
-        if ui.typecomboBox.currentText()=="Upload Marks(A)":
             self.sheet = self.book.get_sheet_by_name('A')
-        elif ui.typecomboBox.currentText()=="Upload Marks(B)":
+        elif ui.typecomboBox.currentText()=="B certificate":
+            self.book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
             self.sheet = self.book.get_sheet_by_name('B')
-        elif ui.typecomboBox.currentText()=="Upload Marks(C)":
+        elif ui.typecomboBox.currentText()=="C certificate":
+            self.book = openpyxl.load_workbook('CC_CERTIFICATES.xlsx')
             self.sheet = self.book.get_sheet_by_name('C')
-        for i in range(len(self.lineEditObjectnames)):
+
+        for i in range(ui.tableWidget.rowCount()):
             data.append([])
-            for j in range(len(self.lineEditObjectnames[i])):
-                txt=self.lineEdit[i][j].text().strip()
-                data[i].append(txt)
+            for j in range(ui.tableWidget.columnCount()):
+                if ui.tableWidget.item(i,j)!=None:
+                    txt=ui.tableWidget.item(i,j).text()
+                    print(txt)
+                    data[i].append(txt)
 
 
         for row in data:
@@ -775,246 +591,87 @@ class logic():
         self.book.save(self.name)
         self.book.save(TemporaryFile())
 
-    vali=valj=0
-    label = []
-    lineEdit = []
-    lineEditObjectnames = []
-    labelObjectnames = []
-
     def openuploaddata(self):
+        selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
+        selectedDataType = ui.typecomboBox.currentText()
+        sql11="select Enrolment_Number from enrolment where institution='"+selectedInstitutionName+"'"
+        verticalheaderdata=ENROLMENT_FORM.enroll().execute(sql11)
+        verticalheader=[]
+        for i in range(len(verticalheaderdata)):
+            verticalheader.append(verticalheaderdata[i][0])
 
-        for i in range(len(self.label)):
-            self.label[i].hide()
-        for i in range(len(self.lineEdit)):
-            for j in range(len(self.lineEdit[i])):
-                self.lineEdit[i][j].hide()
-        self.label = []
-        self.lineEdit = []
-        self.lineEditObjectnames = []
-        self.labelObjectnames = []
-        if ui.institutionuploaddatacomboBox.currentText() == "Select Institution":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                      'Select an Institutioon from institution list to continue.',
-                                      'OK')
-        elif ui.typecomboBox.currentText() == "Select Type":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                      'Select the Type of Data you want to upload.',
-                                      'OK')
+        if selectedDataType=="A certificate" or selectedDataType=="B certificate" or selectedDataType=="C certificate":
+
+            ui.tableWidget.clearContents()
+            fieldsListSql=self.nametolistsql.get(selectedDataType)
+            fieldsListNotSql=self.nametolistnotsql.get(selectedDataType)
+            if selectedDataType=="A certificate":
+                selectedDataType="A_cert_marks"
+            if selectedDataType=="B certificate":
+                selectedDataType="B_cert_marks"
+            if selectedDataType=="C certificate":
+                selectedDataType="C_cert_marks"
+            sql="""select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='"""+selectedInstitutionName+"'"
+            sqldata=ENROLMENT_FORM.enroll().execute(sql)
+            sqlpresentdata=ENROLMENT_FORM.enroll().execute("select * from "+selectedDataType+" where Institution='"+selectedInstitutionName+"'")
+            ui.tableWidget.setRowCount(len(sqldata))
+            ui.tableWidget.setColumnCount(len(fieldsListSql))
+            ui.tableWidget.setHorizontalHeaderLabels(fieldsListSql)
+            ui.tableWidget.setVerticalHeaderLabels(verticalheader)
+            l=0
+            print(sqldata)
+            print(sqlpresentdata)
+            for i in range(len(sqldata)):
+                flag = 0
+                con = 0
+                for l in range(len(sqlpresentdata)):
+                    if sqldata[i][0]==sqlpresentdata[l][0]:
+                        flag=1
+                        break
+                if flag==0:
+                    for j in range(len(fieldsListSql)):
+                        if j<len(sqldata[i]):
+                            if fieldsListSql[j] == "Roll_Number":
+                                ui.tableWidget.setItem(i, j , QtGui.QTableWidgetItem(""))
+                                con = 1
+                            if con == 0:
+                                ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j]))
+                            if con == 1:
+                                ui.tableWidget.setItem(i, j + 1, QtGui.QTableWidgetItem(sqldata[i][j]))
+                        else:
+                            if j!=len(fieldsListSql)-2:
+                                ui.tableWidget.setItem(i, j+1, QtGui.QTableWidgetItem(""))
+                            if j==len(fieldsListSql)-2:
+                                ui.tableWidget.setItem(i, j + 1, QtGui.QTableWidgetItem(selectedInstitutionName))
+
+                if flag==1:
+                    for j in range(len(sqlpresentdata[l])):
+                        ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqlpresentdata[l][j]))
+                if len(sqlpresentdata)>0:
+                    sqlpresentdata.pop(l)
         else:
-            sql = """select Enrolment_Number from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            sql1 = """select Enrolment_Number,Rank,Student_Name,Fathers_name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where Institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            tup = ENROLMENT_FORM.enroll().execute(sql)
-            tup1 = ENROLMENT_FORM.enroll().execute(sql1)
-            sql2 = ""
-
-            if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                sql2 = """select Enrolment_Number from A_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            elif ui.typecomboBox.currentText() == "Upload Marks(B)":
-                sql2 = """select Enrolment_Number from B_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            elif ui.typecomboBox.currentText() == "Upload Marks(C)":
-                sql2 = """select Enrolment_Number from C_cert_marks where institution='""" + ui.institutionuploaddatacomboBox.currentText() + "'"
-            self.tupple = ENROLMENT_FORM.enroll().execute(sql2)
-            print(tup)
-            print(tup1)
-            print(self.tupple)
-            self.labelheading3 = [
-                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-                 'Date of Birth',
-                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(30)',
-                 'Practical(60)', 'Total(90)', 'Written(40)', 'Practical(20)', 'Total(60)', 'Written(200)',
-                 'Written(115)',
-                 'Practical(25)', "Total(150)", 'Grand Total(500)', 'Grading'],
-                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-                 'Date Of Birth',
-                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
-                 'Practical(80)', 'Total(90)', 'Written(35)', 'Practical(25)', 'Total(60)', 'Written(200)',
-                 'Written(105)',
-                 'Practical(45)', "Total(150)", 'Total(25)', 'Grand Total(500)', 'Grading'],
-                ['Enrolment Number', 'Rool Number', 'Rank               ', 'Student Name', 'Fathers name',
-                 'Date Of Birth',
-                 'Enrol Date', 'Camps Attended', 'Date Of Discharge', '1 year', '2 year', 'Written(10)',
-                 'Practical(50)', 'Total(60)', 'Written(10)', 'Practical(55)', 'Total(65)',
-                 'Written(225)', 'Written(105)', 'Practical(45)', "Total(150)", 'Total(50)', 'Grand Total(500)',
-                 'Grading'],
-                ["Enrolment Number", 'Camps attended'], ["Enrolment Number", 'Extra Activities'],
-                ["Enrolment Number", 'Remarks']]
-            self.labelheading1 = [
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
-                 ' ', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
-                 ' ', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Marks Obtained', ' ', ' ', ' ', ' ', ' ', ' ',
-                 ' ', ' ', ' ', ' ', ' ']]
-            self.labelheading2 = [
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
-                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
-                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', 'Bonus Marks(A-cert)', ' ', ' '],
-                [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'Part-1:Drill', ' ', ' ', 'Part-2:WT', ' ', ' ',
-                 'Part-3:Misc', 'Part-4:Spl Subjects', ' ', ' ', 'Bonus Marks(A-cert)', ' ', ' ']]
-
-            self.position = ui.typecomboBox.currentIndex() - 1
-
-            i = j = 0
-            if len(tup) < 1:
-                QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                          'There is no one student in the institution ' + ui.institutionuploaddatacomboBox.currentText() + '.',
-                                          'OK')
-                return
-            else:
-                if self.position == 0 or self.position == 1 or self.position == 2:
-                    self.flag = 0
-                    for i in range(len(tup) + 2):
-                        self.flag = 0
-                        self.lineEdit.append([])
-                        self.lineEditObjectnames.append([])
-                        if i == 0:
-                            for p in range(len(self.labelheading1[self.position])):
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
-                                                                                        "font-size:30px;font-weight:bold;position:fixed;\n"
-                                                                                        ""))
-                                self.label[len(self.label) - 1].setObjectName(
-                                    _fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
-                                self.label[len(self.label) - 1].setText(
-                                    _translate("MainWindow", self.labelheading1[self.position][p], None))
-                            continue
-                        if i == 1:
-                            for p in range(len(self.labelheading2[self.position])):
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
-                                                                                        "font-size:25px;font-weight:bold;\n"
-                                                                                        ""))
-                                self.label[len(self.label) - 1].setObjectName(
-                                    _fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, p, 1, 1)
-                                self.label[len(self.label) - 1].setText(
-                                    _translate("MainWindow", self.labelheading2[self.position][p], None))
-                            continue
-                        k = l = 0
-                        for k in range(len(tup)):
-                            for l in range(len(self.tupple)):
-                                if tup[k][0] == self.tupple[l][0]:
-                                    self.flag = 1
-                                    sql3 = ""
-                                    if ui.typecomboBox.currentText() == "Upload Marks(A)":
-                                        sql3 = "select * from A_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
-                                    elif ui.typecomboBox.currentText() == "Upload Marks(B)":
-                                        sql3 = "select * from B_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
-                                    elif ui.typecomboBox.currentText() == "Upload Marks(C)":
-                                        sql3 = "select * from C_cert_marks where Enrolment_Number='" + tup[k][0] + "'"
-                                    self.find = ENROLMENT_FORM.enroll().execute(sql3)
-                                    break
-
-                            if self.flag == 1:
-                                break
-                        for j in range(len(self.labelheading3[self.position])):
-                            if i == 2:
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("\n"
-                                                                                        "font-size:20px;font-weight:bold;\n"
-                                                                                        ""))
-                                self.label[len(self.label) - 1].setObjectName(
-                                    _fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
-                                self.label[len(self.label) - 1].setText(
-                                    _translate("MainWindow", self.labelheading3[self.position][j], None))
-                            else:
-                                self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
-                                if self.labelheading3[self.position][j] == "Enrolment Number":
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
-                                                  "height:30px;color:white;"))
-                                else:
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("font-size:15px;font-weight:bold;height:30px;"))
-                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setObjectName(
-                                    _fromUtf8("uploaddatalineEdit" + str(i)))
-
-                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setAlignment(QtCore.Qt.AlignCenter)
-
-                                self.lineEditObjectnames[i].append("uploaddatalineEdit" + str(i))
-                                ui.gridLayout_18.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
-                                if self.flag == 1:
-                                    if self.find[0][0] == tup1[i - 1][0]:
-                                        if self.find[0][j] != "":
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                _translate("MainWindow", self.find[0][j], None))
-                                        else:
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
-                                                _translate("MainWindow", self.labelheading3[self.position][j], None))
-                                else:
-                                    if i < len(tup1) + 2:
-                                        if j < len(tup1[i - 2]) + 1:
-                                            if self.labelheading3[self.position][j] == "Enrolment Number":
-                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                    _translate("MainWindow", tup1[i - 2][0], None))
-                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                            elif self.labelheading3[self.position][j] != "Rool Number":
-                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setText(
-                                                    _translate("MainWindow", tup1[i - 2][j - 1], None))
-                                                self.lineEdit[i][len(self.lineEdit[i]) - 1].setEnabled(False)
-                                        else:
-                                            self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
-                                                _translate("MainWindow", self.labelheading3[self.position][j], None))
-                        if self.flag == 1:
-                            tup.pop(k)
-
-
-
-
-                else:
-                    for i in range(0, len(tup)):
-                        self.lineEdit.append([])
-                        self.lineEditObjectnames.append([])
-                        for j in range(len(self.labelheading3[self.position])):
-                            if i == 0:
-                                self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
-                                self.label[len(self.label) - 1].setStyleSheet(_fromUtf8("background-color:darkblue;\n"
-                                                                                        "color:white;\n"
-                                                                                        "font-size:25px;font-weight:bold;\n"
-                                                                                        ""))
-                                self.label[len(self.label) - 1].setObjectName(
-                                    _fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
-                                self.label[len(self.label) - 1].setText(
-                                    _translate("MainWindow", self.labelheading3[self.position][j], None))
-                            else:
-                                if j == 0:
-                                    self.label.append(QtGui.QLabel(ui.scrollAreaWidgetContents))
-                                    self.label[len(self.label) - 1].setStyleSheet(
-                                        _fromUtf8("background-color:darkorange;font-size:15px;font-weight:bold;"
-                                                  "height:30px;color:white;"))
-                                    self.label[len(self.label) - 1].setObjectName(
-                                        _fromUtf8("enrolmentuploaddataLabel" + str(i)))
-                                    self.labelObjectnames.append("enrolmentuploaddataLabel" + str(i))
-                                    self.label[len(self.label) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                    ui.gridLayout_18.addWidget(self.label[len(self.label) - 1], i, j, 1, 1)
-                                    self.label[len(self.label) - 1].setText(_translate("MainWindow", tup[i][0], None))
-                                else:
-                                    self.lineEdit[i].append(QtGui.QLineEdit(ui.scrollAreaWidgetContents))
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setStyleSheet(
-                                        _fromUtf8("background-color:darkgray;font-size:15px;font-weight:bold;"
-                                                  "height:30px;color:white;"))
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setObjectName(
-                                        _fromUtf8("uploaddatalineEdit" + str(i)))
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setAlignment(QtCore.Qt.AlignCenter)
-                                    self.lineEditObjectnames[i].append("uploaddatalineEdit" + str(i))
-                                    ui.gridLayout_18.addWidget(self.lineEdit[i][len(self.lineEdit[i]) - 1], i, j, 1, 1)
-                                    self.lineEdit[i][len(self.lineEdit[i]) - 1].setPlaceholderText(
-                                        _translate("MainWindow", self.labelheading3[self.position][j], None))
-
-                spacerItem16 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-                ui.gridLayout_18.addItem(spacerItem16, i + 1, j + 1, 1, 1)
-                spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-                ui.gridLayout_18.addItem(spacerItem15, i + 1, j + 1, 1, 1)
-                self.vali = i
-                self.valj = j
+            sql="select Enrolment_Number,"+selectedDataType+" from enrolment where institution='"+selectedInstitutionName+"'"
+            sqldata=ENROLMENT_FORM.enroll().execute(sql)
+            ui.tableWidget.setColumnCount(2)
+            ui.tableWidget.setRowCount(len(sqldata))
+            header=["Enrolment Number"]
+            header.append(selectedDataType)
+            ui.tableWidget.setHorizontalHeaderLabels(header)
+            ui.tableWidget.setVerticalHeaderLabels(verticalheader)
+            for i in range(len(sqldata)):
+                for j in range(len(sqldata[i])):
+                    ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j]))
+        color="darkblue"
+        textcolor="white"
+        for i in range(ui.tableWidget.rowCount()):
+            for j in range(ui.tableWidget.columnCount()):
+                ui.tableWidget.item(i, j).setBackground(QtGui.QColor(color))
+        ui.tableWidget.setStyleSheet("color:black;background-color:transparent;font-weight:bold;font-size:15px;")
+        ui.tableWidget.horizontalHeader().setStyleSheet("color:darkgreen;font-size:20px;font-weight:bold;")
+        ui.tableWidget.verticalHeader().setStyleSheet("color:darkorange;font-size:20px;font-weight:bold")
+        ui.tableWidget.resizeRowsToContents()
+        ui.tableWidget.resizeColumnsToContents()
+        ui.tableWidget.hideColumn(0)
 
 
     def conditionscomboboxlogic(self):
@@ -1044,26 +701,16 @@ class logic():
         ui.AACCheckBox.setChecked(False)
         ui.CATCCheckBox.setChecked(False)
 
-
     def enrol_button_pressed(self):
         ui.searchbyfieldLineEdit.clear()
         self.enable_query_checkbox_elements();
         ui.submitPushButton.show()
 
     def update_excel_function(self):
-        if ui.formsComboBox.currentText()=="-Select":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'Please select a form.',
-                                      'OK')
-            return
         if ui.entryBox.toPlainText()=="":
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'Please enter the enrolment numbers.',
                                       'OK')
-            return
-        self.formname=""
-        self.formname = QtGui.QFileDialog.getOpenFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File")
-        if self.formname=="":
             return
         x = ui.entryBox.toPlainText()
         s = ''
@@ -1075,54 +722,56 @@ class logic():
             else:
                 s = s + i
         enrolno.append(s)
-        sql = """"""
-        n = int(ui.formsComboBox.currentIndex())
-        if n is 1:
-            sql = forms.form1()
+        selectedformname = ui.formsComboBox.currentText()
+        self.listdata = self.nametolistsql.get(selectedformname)
+        self.listheadingdata = self.nametolistnotsql.get(selectedformname)
+        sql = """select """
+        if selectedformname!='A certificate' and selectedformname!="B certificate" and selectedformname!="C certificate":
+            for i in range(len(self.listdata)):
+                sql = sql + self.listdata[i]
+                if i != len(self.listdata) - 1:
+                    sql = sql + ","
+            sql = sql + " from enrolment where "
+        else:
+            tablename=""
+            if selectedformname=="A certificate":
+                tablename="A_cert_marks"
+            elif selectedformname=="B certificate":
+                tablename="B_cert_marks"
+            elif selectedformname=="C certificate":
+                tablename="C_cert_marks"
+            for i in range(len(self.listdata)):
+                sql = sql + self.listdata[i]
+                if i != len(self.listdata) - 1:
+                    sql = sql + ","
+            sql = sql + " from "+tablename+" where "
 
-        elif n is 2:
-            sql = forms.form2()
-        elif n is 3:
-            sql = forms.form3()
-        elif n is 4:
-            sql = forms.form4()
-        elif n is 5:
-            sql = forms.form5()
-        elif n is 6:
-            sql = forms.form6()
-        elif n is 7:
-            sql = forms.form7()
-        elif n is 8:
-            sql = forms.form8()
         for i in range(len(enrolno)):
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
         print(sql)
-        obj = ENROLMENT_FORM.enroll()
-        tup = obj.execute(sql)
+        tup = ENROLMENT_FORM.enroll().execute(sql)
         print(tup)
-        obj1 = append()
-        obj1.insertupdate(tup, n, self.formname)
+        if len(tup)==0:
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'First Enter the feed the data for the respected certificate\nand then generate a form.',
+                                      'OK')
+            return
+        self.formname = ""
+        self.formname = QtGui.QFileDialog.getOpenFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File")
+        if self.formname == "":
+            return
+        book = openpyxl.load_workbook(self.formname)
+        sheet = book.active
+        for i in tup:
+            sheet.append(i)
+        book.save(self.formname)
+        book.save(TemporaryFile())
         self.table1(tup, sql)
 
-
-
     def saveExcelfuntion(self):
-        if ui.formsComboBox.currentText()=="-Select":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'Please select a form.',
-                                      'OK')
-            return
-        if ui.entryBox.toPlainText()=="":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'Please enter the enrolment numbers.',
-                                      'OK')
-            return
-        self.formname=""
-        self.formname = QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File" ,filter=".xlsx")
-        if self.formname=="":
-            return
+
         x = ui.entryBox.toPlainText()
         s = ''
         enrolno = []
@@ -1133,45 +782,60 @@ class logic():
             else:
                 s = s + i
         enrolno.append(s)
-        print(enrolno)
-        sql = """"""
-        n = int(ui.formsComboBox.currentIndex())
-        print(n)
-        if n is 1:
-            sql = forms.form1()
+        selectedformname=ui.formsComboBox.currentText()
+        self.listdata=self.nametolistsql.get(selectedformname)
+        self.listheadingdata = self.nametolistnotsql.get(selectedformname)
+        sql = """select """
+        if selectedformname!='A certificate' and selectedformname!="B certificate" and selectedformname!="C certificate":
+            for i in range(len(self.listdata)):
+                sql = sql + self.listdata[i]
+                if i != len(self.listdata) - 1:
+                    sql = sql + ","
+            sql = sql + " from enrolment where "
+        else:
+            tablename=""
+            if selectedformname=="A certificate":
+                tablename="A_cert_marks"
+            elif selectedformname=="B certificate":
+                tablename="B_cert_marks"
+            elif selectedformname=="C certificate":
+                tablename="C_cert_marks"
+            for i in range(len(self.listdata)):
+                sql = sql + self.listdata[i]
+                if i != len(self.listdata) - 1:
+                    sql = sql + ","
+            sql = sql + " from "+tablename+" where "
 
-        elif n is 2:
-            sql = forms.form2()
-        elif n is 3:
-            sql = forms.form3()
-        elif n is 4:
-            sql = forms.form4()
-        elif n is 5:
-            sql = forms.form5()
-        elif n is 6:
-            sql = forms.form6()
-        elif n is 7:
-            sql = forms.form7()
-        elif n is 8:
-            sql = forms.form8()
         for i in range(len(enrolno)):
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
         print(sql)
-        obj = ENROLMENT_FORM.enroll()
-        tup = obj.execute(sql)
-        print(tup)
-        obj1 = append()
-        obj1.insert(tup, n,self.formname)
+        tup = ENROLMENT_FORM.enroll().execute(sql)
+        if len(tup)==0:
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      'First Enter the feed the data for the respected certificate\nand then generate a form.',
+                                      'OK')
+            return
+        self.formname = ""
+        self.formname = QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File",
+                                                          filter=".xlsx")
+        if self.formname == "":
+            return
+        book = Workbook()
+        sheet = book.active
+        for i in range(len(self.listheadingdata)):
+            sheet.cell(row=1, column=i + 1).value = self.listheadingdata[i]
+        for i in range(len(tup)):
+            for j in range(len(tup[i])):
+                sheet.cell(row=i + 2, column=j+1).value= str(tup[i][j])
+        book.save(self.formname)
+        book.save(TemporaryFile())
         self.table1(tup,sql)
-
-
 
     def picselect(self):
         self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.')
         ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
-
 
     def check_enrol_form_data(self):
 
@@ -1180,9 +844,13 @@ class logic():
         tup=ENROLMENT_FORM.enroll().execute(sql)
         if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
-                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
-                                      'OK');
+                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
             return
+
+
+        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
+            QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
+                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
 
 
         def set_margin_red_style(obj):
@@ -1203,7 +871,7 @@ class logic():
 
 
 
-        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit, ui.fathernameLineEdit, ui.mothernameLineEdit,ui.addressTextEdit, ui.unitLineEdit]:
+        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit, ui.fathernameLineEdit, ui.mothernameLineEdit,ui.addressTextEdit, ui.unitLineEdit , ui.aadhaarLineEdit]:
 
             if i == ui.addressTextEdit:
                 if i.toPlainText() == '':
@@ -1252,8 +920,6 @@ class logic():
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                       '\nMandatory fields should not be empty.\n\nMake sure that all the mandatory fields are filled.',
                                       'OK');
-
-
 
     def queryselectall(self):
 
@@ -1391,7 +1057,6 @@ font-weight:bold;
 
 }""")
 
-
     def disable_query_checkbox_elements(self):
 
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit , QtGui.QComboBox , QtGui.QCheckBox , QtGui.QRadioButton,QtGui.QTextEdit)):
@@ -1428,8 +1093,8 @@ font-weight:bold;
         ui.submitPushButton.show()
         ui.updateentryCheckBox.show()
 
-
     def display(self , obj): # this executes when the Search button is pressed
+
 
         if obj.objectName()=='searchPushButton':
             if ui.searchbyfieldLineEdit.displayText().strip()=='':
@@ -1445,7 +1110,7 @@ font-weight:bold;
         search_field_text = ui.searchbyfieldLineEdit.displayText().strip()
 
         if ui.aadhaarnumRadioButton.isChecked():
-            self.field = 'Aadhar_Number'
+            self.field = 'Aadhaar_Number'
             # if len(search_field_text)==12:
             #     search_field_text = search_field_text[:4]+' '+search_field_text[4:8]+' '+search_field_text[8:]
 
@@ -1505,12 +1170,15 @@ font-weight:bold;
         for i in range(len(tuple[13])):
             if i<len(tuple[13])-2:
                 if tuple[13][i]=='N' and tuple[13][i+1]=='I' and tuple[13][i+2]=='C' :
+                    ui.NULLCampsCheckBox.setChecked(False)
                     ui.NICCheckBox.setChecked(True)
             if i < len(tuple[13]) - 2:
                 if tuple[13][i]=='A' and tuple[13][i+1]=='A' and tuple[13][i+2]=='C':
+                    ui.NULLCampsCheckBox.setChecked(False)
                     ui.AACCheckBox.setChecked(True)
             if i < len(tuple[13]) - 2:
                 if tuple[13][i]=='C' and tuple[13][i+1]=='A' and tuple[13][i+2]=='T' and tuple[13][i+3]=='C':
+                    ui.NULLCampsCheckBox.setChecked(False)
                     ui.CATCCheckBox.setChecked(True)
 
         ui.extraactivitiesTextEdit.setText(tuple[14])
@@ -1530,10 +1198,6 @@ font-weight:bold;
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
 
-
-
-
-
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
             ui.searchbyfieldLineEdit.clear();
@@ -1544,9 +1208,6 @@ font-weight:bold;
             ui.searchbyfieldLineEdit.clear()
             ui.searchbyfieldLineEdit.setMaxLength(1000)
             ui.searchbyfieldLineEdit.setValidator(None)
-
-
-
 
     def get_enroll_form_data(self):
 
@@ -1611,10 +1272,10 @@ font-weight:bold;
         if ui.AACCheckBox.isChecked():
             self.campsattended = self.campsattended + "AAC,"
         if ui.NULLCampsCheckBox.isChecked() and len(self.campsattended)==0:
-            self.campsattended=self.campsattended+"NULL,"
+            self.campsattended=self.campsattended+","
         self.campsattended=self.campsattended[0:-1]
-        print(self.campsattended)
-        self.certificate="NULL"
+
+        self.certificate=""
         if ui.AcertRadioButton.isChecked():
             self.certificate="A"
         if ui.BcertRadioButton.isChecked():
@@ -1661,9 +1322,6 @@ font-weight:bold;
             data.to_csv(r'All candidate details.csv')
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
-
-
-
 
     def table1(self, res, msg):
 
@@ -1901,7 +1559,7 @@ font-weight:bold;
 
             if ui.rankCheckBox.isChecked(): sql += 'Rank,'
 
-            if ui.aadhaarCheckBox.isChecked(): sql += 'Adahar_Number,'
+            if ui.aadhaarCheckBox.isChecked(): sql += 'Aadhaar_Number,'
 
             if ui.sfnameCheckBox.isChecked(): sql += 'Student_Name,'
 
@@ -1962,14 +1620,14 @@ font-weight:bold;
 
             if sql1 != "":
 
-                sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """ + str(
                     ui.conditionsentrylabel.text().strip())
 
             else:
 
-                sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment"""
 
@@ -1981,7 +1639,7 @@ font-weight:bold;
                 ui.conditionsentrylabel.text().strip())) if sql1 != "" else "select " + sql + " from enrolment ";
 
         if sql[7] == "*":
-            sql = """select Enrolment_Number,Rank,Aadhar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
+            sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[9:len(sql)]
 
@@ -1990,9 +1648,6 @@ font-weight:bold;
         tup = ENROLMENT_FORM.enroll().execute(sql)
 
         self.table(tup, sql)
-
-
-
 
     def conback(self):
 
@@ -2027,8 +1682,6 @@ font-weight:bold;
 
             else:
                 ui.conditionsentrylabel.setText('');
-
-
 
     def coninsert(self):
 
@@ -2072,7 +1725,7 @@ font-weight:bold;
 
             if (ch1 != ""):
 
-                if ch == "Aadhar" or ch == "Mobile" or ch == "Account_number":
+                if ch == "Aadhaar" or ch == "Mobile" or ch == "Account_number":
 
                     if ch1.isdigit():
 
@@ -2088,7 +1741,7 @@ font-weight:bold;
                                                           '\nMobile number should contains 10 numbers.',
                                                           'OK');
 
-                        elif ch == "Aadhar":
+                        elif ch == "Aadhaar":
 
                             if len(ch1) == 12:
 
@@ -2097,7 +1750,7 @@ font-weight:bold;
 
                             else:
                                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                                          '\nAadhar number should contains 12 numbers.',
+                                                          '\nAadhaar number should contains 12 numbers.',
                                                           'OK');
 
 
@@ -2128,10 +1781,6 @@ font-weight:bold;
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                       '\nPlease select any one of the fields.',
                                       'OK')
-
-    @QtCore.pyqtSlot(str)
-    def pri(self,msg):
-        print(msg)
 
 if __name__ == "__main__":
     import sys

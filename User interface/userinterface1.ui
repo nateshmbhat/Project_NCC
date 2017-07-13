@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1078</width>
-    <height>917</height>
+    <width>1208</width>
+    <height>894</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -91,7 +91,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -121,7 +121,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -307,8 +307,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-840</y>
-             <width>1019</width>
+             <y>-766</y>
+             <width>1149</width>
              <height>1899</height>
             </rect>
            </property>
@@ -632,6 +632,9 @@ color:white;</string>
                  <property name="styleSheet">
                   <string notr="true"/>
                  </property>
+                 <property name="text">
+                  <string>4KAR</string>
+                 </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
@@ -882,10 +885,10 @@ color:white;</string>
                   <enum>QFrame::NoFrame</enum>
                  </property>
                  <property name="text">
-                  <string>Aadhaar No.</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aadhaar No.  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:red;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="textFormat">
-                  <enum>Qt::PlainText</enum>
+                  <enum>Qt::AutoText</enum>
                  </property>
                  <property name="margin">
                   <number>0</number>
@@ -949,7 +952,7 @@ color:white;</string>
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Full Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Student Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
@@ -1249,6 +1252,9 @@ color:white;</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="placeholderText">
+                  <string>example@mail.com</string>
                  </property>
                 </widget>
                </item>
@@ -2502,7 +2508,7 @@ width:230;</string>
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -3792,7 +3798,7 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
-                      <string>Adahar_Number</string>
+                      <string>Aadhaar_Number</string>
                      </property>
                     </item>
                     <item>
@@ -4113,24 +4119,24 @@ width:130%;
                    <widget class="QLineEdit" name="valuelineEdit">
                     <property name="font">
                      <font>
-                      <family>MS Shell Dlg 2</family>
+                      <family>georgia</family>
                       <pointsize>12</pointsize>
-                      <weight>50</weight>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#valuelineEdit{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;MS Shell Dlg 2&quot;;
+	font: 12pt &quot;georgia&quot;;
+	font-weight:bold;
 	width:130%;
 height:30px;
 }
 #valuelineEdit:hover{
 	color:rgb(0, 85, 255);
-	background-color:rgb(214, 214, 214);
 	font: 14pt &quot;georgia&quot;;
 	width:130%;
 }</string>
@@ -4331,7 +4337,12 @@ background-color:transparent;
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true"/>
+              <string notr="true">#formsComboBox{
+border-radius:10px;
+}
+#formsComboBox:hover{
+	background-color: rgb(121, 0, 182);
+}</string>
              </property>
              <property name="maxVisibleItems">
               <number>20</number>
@@ -4437,7 +4448,7 @@ padding-left:8px;
 padding-right:8px;
 height:30px;
 color:rgb(255, 255, 255);
-font-size:15px;
+font-size:20px;
 padding-top:-10px;
 width:400%;
 }
@@ -4481,7 +4492,7 @@ border-style:solid;
 height:30px;
 font-weight:bold;
 color:rgb(255, 255, 255);
-font-size:15px;
+font-size:20px;
 padding-top:-10px;
 width:175%;
 width:400%;
@@ -4546,7 +4557,7 @@ color:blue;</string>
       <widget class="QWidget" name="DataEntry">
        <property name="styleSheet">
         <string notr="true">#DataEntry{
-	background-image: url(:/icons/wallup-39684.png);
+	background-image: url(:/icons/PF2cI1N.png);
 background-position:center;
 background-repeat:none;
 
@@ -4686,78 +4697,14 @@ border-radius:12px;
            </layout>
           </item>
           <item>
-           <spacer name="horizontalSpacer_16">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_15">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QScrollArea" name="dataentryScrollArea">
+           <widget class="QTableWidget" name="tableWidget">
             <property name="styleSheet">
-             <string notr="true">#dataentryScrollArea{
-	background-color: rgb(0, 0, 127);
-}</string>
+             <string notr="true">background-color:transparent;</string>
             </property>
-            <property name="widgetResizable">
-             <bool>true</bool>
-            </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents_2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>1032</width>
-               <height>649</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#scrollAreaWidgetContents_2{
-	background-color: rgb(0, 0, 127);
-}</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <layout class="QGridLayout" name="gridLayout_18"/>
-              </item>
-             </layout>
-            </widget>
            </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_18">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_17">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -4804,7 +4751,7 @@ padding-top:-5px;
 </string>
               </property>
               <property name="text">
-               <string>Save</string>
+               <string>Save to database</string>
               </property>
              </widget>
             </item>
@@ -4841,44 +4788,7 @@ padding-top:-5px;
 </string>
               </property>
               <property name="text">
-               <string>Save as Excel</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="appendDataPushButton">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#appendDataPushButton{
-font-size:20px;
-	color: rgb(94, 0, 141);
-	background-color:white;
-padding-top:-8px;
-border-style:solid;
-	border-color: rgb(104, 0, 156);
-border-width:2px;
-height:35px;
-border-radius:10px;
-}
-#appendDataPushButton:hover{
-font-size:25px;
-	background-color:rgb(94, 0, 141);
-border-radius:10px;
-color:white;
-border-style:solid;
-border-color:white;
-border-width:2px;
-height:30px;
-padding-top:-5px;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Append</string>
+               <string>Generate Excel</string>
               </property>
              </widget>
             </item>
@@ -4892,6 +4802,7 @@ padding-top:-5px;
        <property name="styleSheet">
         <string notr="true">#Settings{
 background-image:url(:/icons/Gradient Wallpaper HD 17 Color hd background hd screensavers hd ....png);
+	selection-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 255), stop:0.339795 rgba(255, 0, 0, 255), stop:0.339799 rgba(255, 255, 255, 255), stop:0.662444 rgba(255, 255, 255, 255), stop:0.662469 rgba(0, 0, 255, 255), stop:1 rgba(0, 0, 255, 255));
 background-position:center;
 }</string>
        </property>
@@ -4914,8 +4825,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-264</y>
-             <width>1017</width>
+             <y>-287</y>
+             <width>1147</width>
              <height>1094</height>
             </rect>
            </property>
@@ -5568,6 +5479,7 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
+  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

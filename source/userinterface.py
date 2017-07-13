@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1078, 917)
+        MainWindow.resize(1208, 894)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setAutoFillBackground(False)
@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1019, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -766, 1149, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -444,7 +444,7 @@ class Ui_MainWindow(object):
         self.aadhaarLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.aadhaarLabel.setFrameShape(QtGui.QFrame.NoFrame)
-        self.aadhaarLabel.setTextFormat(QtCore.Qt.PlainText)
+        self.aadhaarLabel.setTextFormat(QtCore.Qt.AutoText)
         self.aadhaarLabel.setObjectName(_fromUtf8("aadhaarLabel"))
         self.Enrol_form.setWidget(3, QtGui.QFormLayout.LabelRole, self.aadhaarLabel)
         self.aadhaarLineEdit = QtGui.QLineEdit(self.enrolformFrame)
@@ -1302,7 +1302,7 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addItem(spacerItem13, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
         self.Query = QtGui.QWidget()
         self.Query.setStyleSheet(_fromUtf8("\n"
@@ -2383,22 +2383,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.datequeryDateEdit)
         self.valuelineEdit = QtGui.QLineEdit(self.frame)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
+        font.setFamily(_fromUtf8("georgia"))
         font.setPointSize(12)
-        font.setBold(False)
+        font.setBold(True)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(75)
         self.valuelineEdit.setFont(font)
         self.valuelineEdit.setStyleSheet(_fromUtf8("#valuelineEdit{\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    color: rgb(85, 0, 0);\n"
-"    font: 12pt \"MS Shell Dlg 2\";\n"
+"    font: 12pt \"georgia\";\n"
+"    font-weight:bold;\n"
 "    width:130%;\n"
 "height:30px;\n"
 "}\n"
 "#valuelineEdit:hover{\n"
 "    color:rgb(0, 85, 255);\n"
-"    background-color:rgb(214, 214, 214);\n"
 "    font: 14pt \"georgia\";\n"
 "    width:130%;\n"
 "}"))
@@ -2526,7 +2526,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addLayout(self.verticalLayout_4, 0, 0, 1, 1)
         self.gridLayout_5.addWidget(self.widget, 0, 0, 1, 1)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Query, icon2, _fromUtf8(""))
         self.Forms = QtGui.QWidget()
         self.Forms.setStyleSheet(_fromUtf8("#Forms{\n"
@@ -2550,7 +2550,12 @@ class Ui_MainWindow(object):
         font.setFamily(_fromUtf8("Comic Sans MS"))
         font.setPointSize(15)
         self.formsComboBox.setFont(font)
-        self.formsComboBox.setStyleSheet(_fromUtf8(""))
+        self.formsComboBox.setStyleSheet(_fromUtf8("#formsComboBox{\n"
+"border-radius:10px;\n"
+"}\n"
+"#formsComboBox:hover{\n"
+"    background-color: rgb(121, 0, 182);\n"
+"}"))
         self.formsComboBox.setMaxVisibleItems(20)
         self.formsComboBox.setObjectName(_fromUtf8("formsComboBox"))
         self.gridLayout_17.addWidget(self.formsComboBox, 2, 0, 1, 1)
@@ -2622,7 +2627,7 @@ class Ui_MainWindow(object):
 "padding-right:8px;\n"
 "height:30px;\n"
 "color:rgb(255, 255, 255);\n"
-"font-size:15px;\n"
+"font-size:20px;\n"
 "padding-top:-10px;\n"
 "width:400%;\n"
 "}\n"
@@ -2658,7 +2663,7 @@ class Ui_MainWindow(object):
 "height:30px;\n"
 "font-weight:bold;\n"
 "color:rgb(255, 255, 255);\n"
-"font-size:15px;\n"
+"font-size:20px;\n"
 "padding-top:-10px;\n"
 "width:175%;\n"
 "width:400%;\n"
@@ -2691,7 +2696,7 @@ class Ui_MainWindow(object):
         self.mytab.addTab(self.Forms, _fromUtf8(""))
         self.DataEntry = QtGui.QWidget()
         self.DataEntry.setStyleSheet(_fromUtf8("#DataEntry{\n"
-"    background-image: url(:/icons/wallup-39684.png);\n"
+"    background-image: url(:/icons/PF2cI1N.png);\n"
 "background-position:center;\n"
 "background-repeat:none;\n"
 "\n"
@@ -2765,33 +2770,14 @@ class Ui_MainWindow(object):
         self.openPushButton.setObjectName(_fromUtf8("openPushButton"))
         self.horizontalLayout_7.addWidget(self.openPushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_7)
+        self.tableWidget = QtGui.QTableWidget(self.DataEntry)
+        self.tableWidget.setStyleSheet(_fromUtf8("background-color:transparent;"))
+        self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.verticalLayout.addWidget(self.tableWidget)
         spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.verticalLayout.addItem(spacerItem15)
-        spacerItem16 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem16)
-        self.dataentryScrollArea = QtGui.QScrollArea(self.DataEntry)
-        self.dataentryScrollArea.setStyleSheet(_fromUtf8("#dataentryScrollArea{\n"
-"    background-color: rgb(0, 0, 127);\n"
-"}"))
-        self.dataentryScrollArea.setWidgetResizable(True)
-        self.dataentryScrollArea.setObjectName(_fromUtf8("dataentryScrollArea"))
-        self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1032, 649))
-        self.scrollAreaWidgetContents_2.setStyleSheet(_fromUtf8("#scrollAreaWidgetContents_2{\n"
-"    background-color: rgb(0, 0, 127);\n"
-"}"))
-        self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
-        self.verticalLayout_5 = QtGui.QVBoxLayout(self.scrollAreaWidgetContents_2)
-        self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
-        self.gridLayout_18 = QtGui.QGridLayout()
-        self.gridLayout_18.setObjectName(_fromUtf8("gridLayout_18"))
-        self.verticalLayout_5.addLayout(self.gridLayout_18)
-        self.dataentryScrollArea.setWidget(self.scrollAreaWidgetContents_2)
-        self.verticalLayout.addWidget(self.dataentryScrollArea)
-        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem17)
-        spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem18)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
@@ -2852,41 +2838,13 @@ class Ui_MainWindow(object):
 ""))
         self.save_data_excelPushButton.setObjectName(_fromUtf8("save_data_excelPushButton"))
         self.horizontalLayout_8.addWidget(self.save_data_excelPushButton)
-        self.appendDataPushButton = QtGui.QPushButton(self.DataEntry)
-        font = QtGui.QFont()
-        font.setPointSize(-1)
-        self.appendDataPushButton.setFont(font)
-        self.appendDataPushButton.setStyleSheet(_fromUtf8("#appendDataPushButton{\n"
-"font-size:20px;\n"
-"    color: rgb(94, 0, 141);\n"
-"    background-color:white;\n"
-"padding-top:-8px;\n"
-"border-style:solid;\n"
-"    border-color: rgb(104, 0, 156);\n"
-"border-width:2px;\n"
-"height:35px;\n"
-"border-radius:10px;\n"
-"}\n"
-"#appendDataPushButton:hover{\n"
-"font-size:25px;\n"
-"    background-color:rgb(94, 0, 141);\n"
-"border-radius:10px;\n"
-"color:white;\n"
-"border-style:solid;\n"
-"border-color:white;\n"
-"border-width:2px;\n"
-"height:30px;\n"
-"padding-top:-5px;\n"
-"}\n"
-""))
-        self.appendDataPushButton.setObjectName(_fromUtf8("appendDataPushButton"))
-        self.horizontalLayout_8.addWidget(self.appendDataPushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_8)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.mytab.addTab(self.DataEntry, _fromUtf8(""))
         self.Settings = QtGui.QWidget()
         self.Settings.setStyleSheet(_fromUtf8("#Settings{\n"
 "background-image:url(:/icons/Gradient Wallpaper HD 17 Color hd background hd screensavers hd ....png);\n"
+"    selection-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 255), stop:0.339795 rgba(255, 0, 0, 255), stop:0.339799 rgba(255, 255, 255, 255), stop:0.662444 rgba(255, 255, 255, 255), stop:0.662469 rgba(0, 0, 255, 255), stop:1 rgba(0, 0, 255, 255));\n"
 "background-position:center;\n"
 "}"))
         self.Settings.setObjectName(_fromUtf8("Settings"))
@@ -2900,7 +2858,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -264, 1017, 1094))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -287, 1147, 1094))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -2908,8 +2866,8 @@ class Ui_MainWindow(object):
         self.settingsscrollAreaWidgetContents.setObjectName(_fromUtf8("settingsscrollAreaWidgetContents"))
         self.gridLayout_14 = QtGui.QGridLayout(self.settingsscrollAreaWidgetContents)
         self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
-        spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem19, 1, 0, 1, 1)
+        spacerItem16 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem16, 1, 0, 1, 1)
         self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
         self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
@@ -3209,8 +3167,8 @@ class Ui_MainWindow(object):
         self.settings_addformPushButton.setObjectName(_fromUtf8("settings_addformPushButton"))
         self.gridLayout_12.addWidget(self.settings_addformPushButton, 2, 1, 1, 1)
         self.gridLayout_14.addWidget(self.formsandfieldsgridwidget, 2, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem20, 3, 0, 1, 1)
+        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem17, 3, 0, 1, 1)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -3221,7 +3179,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(4)
+        self.mytab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -3233,6 +3191,7 @@ class Ui_MainWindow(object):
         self.selectpicturePushButton.setToolTip(_translate("MainWindow", "Select the picture of the candidate", None))
         self.selectpicturePushButton.setText(_translate("MainWindow", "Select Picture", None))
         self.institutionLabel.setText(_translate("MainWindow", "<html><head/><body><p>Institution &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\"> </span></p></body></html>", None))
+        self.unitLineEdit.setText(_translate("MainWindow", "4KAR", None))
         self.label.setText(_translate("MainWindow", "<html><head/><body><p>Unit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\"> *</span></p></body></html>", None))
         self.enrolmentnumLabel.setToolTip(_translate("MainWindow", "Mandatory field", None))
         self.enrolmentnumLabel.setText(_translate("MainWindow", "<html><head/><body><p>Enrolment No.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:red;\">*</span></p></body></html>", None))
@@ -3244,9 +3203,9 @@ class Ui_MainWindow(object):
         self.rankComboBox.setItemText(4, _translate("MainWindow", "Company Sergent Major (CSM)", None))
         self.rankComboBox.setItemText(5, _translate("MainWindow", "Junior Under Officer (JUO)", None))
         self.rankComboBox.setItemText(6, _translate("MainWindow", "Senior Under Officer (SUO)", None))
-        self.aadhaarLabel.setText(_translate("MainWindow", "Aadhaar No.", None))
+        self.aadhaarLabel.setText(_translate("MainWindow", "<html><head/><body><p>Aadhaar No.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:red;\">*</span></p></body></html>", None))
         self.aadhaarLineEdit.setPlaceholderText(_translate("MainWindow", "Enter 12 digit aadhaar number", None))
-        self.fullnameLabel.setText(_translate("MainWindow", "<html><head/><body><p>Full Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\">*</span></p></body></html>", None))
+        self.fullnameLabel.setText(_translate("MainWindow", "<html><head/><body><p>Student Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.fathernameLabel.setText(_translate("MainWindow", "<html><head/><body><p>Father\'s Name  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.mothernameLabel.setText(_translate("MainWindow", "<html><head/><body><p>Mother\'s Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.sexLabel.setText(_translate("MainWindow", "Sex", None))
@@ -3256,6 +3215,7 @@ class Ui_MainWindow(object):
         self.dateofbirthDateEdit.setDisplayFormat(_translate("MainWindow", "dd/MMM/yyyy", None))
         self.addressLabel.setText(_translate("MainWindow", "<html><head/><body><p>Residential Address &nbsp;&nbsp;<span style=\" color:#ff0000;\">*</span></p></body></html>", None))
         self.emailLabel.setText(_translate("MainWindow", "Email", None))
+        self.emailLineEdit.setPlaceholderText(_translate("MainWindow", "example@mail.com", None))
         self.mobileLabel.setText(_translate("MainWindow", "Mobile", None))
         self.mobileLineEdit.setPlaceholderText(_translate("MainWindow", "Enter 10 digit mobile number", None))
         self.bloodgroupLabel.setText(_translate("MainWindow", "Blood Group", None))
@@ -3337,8 +3297,8 @@ class Ui_MainWindow(object):
         self.conditionlistcombobox.setItemText(0, _translate("MainWindow", "Select Fields", None))
         self.conditionlistcombobox.setItemText(1, _translate("MainWindow", "Enrolment_Number", None))
         self.conditionlistcombobox.setItemText(2, _translate("MainWindow", "Rank", None))
-        self.conditionlistcombobox.setItemText(3, _translate("MainWindow", "Adahar_Number", None))
-        self.conditionlistcombobox.setItemText(4, _translate("MainWindow", "Student_Name", None))
+        self.conditionlistcombobox.setItemText(3, _translate("MainWindow", "Aadhaar_Number", None))
+        self.conditionlistcombobox.setItemText(4, _translate("MainWindow", "student_Name", None))
         self.conditionlistcombobox.setItemText(5, _translate("MainWindow", "Fathers_Name", None))
         self.conditionlistcombobox.setItemText(6, _translate("MainWindow", "Mothers_Name", None))
         self.conditionlistcombobox.setItemText(7, _translate("MainWindow", "Sex", None))
@@ -3401,9 +3361,8 @@ class Ui_MainWindow(object):
         self.typecomboBox.setItemText(5, _translate("MainWindow", "Add Extra Activities", None))
         self.typecomboBox.setItemText(6, _translate("MainWindow", "Add Remarks", None))
         self.openPushButton.setText(_translate("MainWindow", "Open", None))
-        self.savedataPushButton.setText(_translate("MainWindow", "Save", None))
-        self.save_data_excelPushButton.setText(_translate("MainWindow", "Save as Excel", None))
-        self.appendDataPushButton.setText(_translate("MainWindow", "Append", None))
+        self.savedataPushButton.setText(_translate("MainWindow", "Save to database", None))
+        self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))

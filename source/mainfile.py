@@ -77,7 +77,6 @@ class logic():
 
         self.candidphoto=''
 
-
         ui.selectpicturePushButton.clicked.connect(self.picselect)
 
         ui.bloodgroupqueryComboBox.hide()
@@ -243,6 +242,7 @@ class logic():
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
         ui.settings_removefieldPushButton.hide()
+        ui.settings_removeformPushButton.hide()
 
         self.nametolistsql ={}
         self.nametolistnotsql = {}
@@ -271,6 +271,8 @@ class logic():
         ui.settings_removefieldPushButton.clicked.connect(
             lambda: self.settings_form_field_add_remove(ui.settings_removefieldPushButton))
 
+        ui.settings_removeformPushButton.clicked.connect(lambda:self.settings_form_field_add_remove(ui.settings_removeformPushButton))
+
 
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
@@ -281,6 +283,10 @@ class logic():
 
         selected_text= ui.settings_formsListWidget.currentItem().text().strip()
 
+        if selected_text not in ['Cadet details','Yoga day','Enrolment Nominal roll','Camp Nominal roll','Scholarship NR','A certificate','B certificate','C certificate','Speciman signature of cadets','TADA to cadets camps','TADA to cadets for exam']:
+            ui.settings_removeformPushButton.show()
+        else:ui.settings_removeformPushButton.hide()
+
         fieldslistsql = self.nametolistsql.get(selected_text)
         fieldslistsql = fieldslistsql if fieldslistsql else []
 
@@ -288,6 +294,8 @@ class logic():
         fieldslistnotsql = fieldslistnotsql if fieldslistnotsql else []
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
+
+
 
 
     def set_fields_list(self , sqllist , notsqllist):
@@ -349,6 +357,8 @@ class logic():
             if ele not in sqllist:
                 ui.settings_fieldsComboBox.addItem(ele)
 
+
+
     def set_forms_list(self):
         """Sets the style and label for the list items in formsListWidget of settings"""
         ui.settings_formsListWidget.clear()
@@ -366,6 +376,9 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
+
+        ui.settings_removeformPushButton.hide()
+        
 
     def settings_form_field_add_remove(self,obj):
         '''Called when Add form or Add field buttons of the settings tab are clicked'''
@@ -414,12 +427,26 @@ class logic():
 
 
 
+
+        if obj.objectName() == 'settings_removeformPushButton':
+            if not selectedform:
+                QtGui.QMessageBox.warning(ui.Settings, 'No Form Seleted',
+                                          'Please select a form first before removing it.', 'OK')
+                return
+
+            if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ?' , 'Are you sure that you want to DELETE the form "{}" from the forms list ? This will remove the form throughout the software'.format(selectedform),'Yes','No' )==0:
+
+                self.formslist.remove(selectedform)
+                self.settings.setValue('formslist',',,,'.join(self.formslist))
+                self.set_forms_list()
+
+
+
         if obj.objectName() == 'settings_addfieldPushButton':
             ui.settings_removefieldPushButton.hide()
 
             if ui.settings_fieldsknownRadioButton.isHidden():
                 def addfield_lineedit_combobox_decide():
-
                     if ui.settings_fieldsknownRadioButton.isChecked():
                         ui.settings_fieldsComboBox.show()
                         ui.settings_addfieldLineEdit.hide()
@@ -464,7 +491,6 @@ class logic():
 
 
         if obj.objectName() =='settings_removefieldPushButton':
-
             if not selectedfield:
                 QtGui.QMessageBox.warning(ui.Settings , 'No field seleted','Please select a field first before removing it.','OK')
                 return
@@ -527,8 +553,8 @@ class logic():
 
                 self.set_institutions_list()
 
-
         ui.settings_instLineEdit.clear()
+
 
     def set_institutions_list(self):
 
@@ -536,7 +562,6 @@ class logic():
             Manages the hiding and showing of the buttons in the Institution list in the settings tab and also sets the institutions for all the comboboxes which have institutions
             This function is called whenever an item is added or removed to the institution list
         """
-
         ui.settings_institutionListWidget.clear()
         ui.settings_addinstitutionPushButton.show()
         ui.removeinstitutionPushButton.show()
@@ -576,11 +601,13 @@ class logic():
         ui.settings_addPushButton.hide()
         ui.settings_backinstPushButton.hide()
 
+
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Camps_Attended" or ui.typecomboBox.currentText()=="Remarks" or ui.typecomboBox.currentText()=="Extra_Curricular_Activities":
             ui.save_data_excelPushButton.hide()
         else:
             ui.save_data_excelPushButton.show()
+
 
     def saveuploadeddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
@@ -625,6 +652,7 @@ class logic():
                 sql1 = "update enrolment set " + selectedDataType + "='"+ui.tableWidget.item(i,1).text()+"' where Enrolment_Number='"+sqldata[i][0]+"'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
 
+
     def saveexceluploadeddata(self):
         self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
         data=[]
@@ -651,6 +679,8 @@ class logic():
             self.sheet.append(row)
         self.book.save(self.name)
         self.book.save(TemporaryFile())
+
+
 
     def openuploaddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()

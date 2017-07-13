@@ -242,6 +242,7 @@ class logic():
         ui.settings_fieldsComboBox.hide()
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
+        ui.settings_removefieldPushButton.hide()
 
         self.nametolistsql ={}
         self.nametolistnotsql = {}
@@ -262,16 +263,22 @@ class logic():
         # The below lines are used to connect the widgets to the corresponding functions
 
         ui.settings_addformPushButton.clicked.connect(
-            lambda: self.settings_form_field_add(ui.settings_addformPushButton))
+            lambda: self.settings_form_field_add_remove(ui.settings_addformPushButton))
         ui.settings_addfieldPushButton.clicked.connect(
-            lambda: self.settings_form_field_add(ui.settings_addfieldPushButton))
+            lambda: self.settings_form_field_add_remove(ui.settings_addfieldPushButton))
         ui.settings_formsListWidget.itemClicked.connect(self.settings_form_item_clicked)
+
+        ui.settings_removefieldPushButton.clicked.connect(
+            lambda: self.settings_form_field_add_remove(ui.settings_removefieldPushButton))
+
 
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
         field names in the field tab and also controls the add field combobox
         '''
         ui.settings_addfieldPushButton.show()
+        ui.settings_removefieldPushButton.show()
+
         selected_text= ui.settings_formsListWidget.currentItem().text().strip()
 
         fieldslistsql = self.nametolistsql.get(selected_text)
@@ -282,11 +289,13 @@ class logic():
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
 
+
     def set_fields_list(self , sqllist , notsqllist):
         """This function is called after a new field is addded to the field list . This function sets the styles for the fields and puts them in the field list of the settings tab"""
 
-        ui.settings_fieldsListwidget.clear()
-        ui.settings_fieldsListwidget.setSpacing(1)
+        ui.settings_fieldsListWidget.clear()
+        ui.settings_addfieldLineEdit.clear()
+        ui.settings_fieldsListWidget.setSpacing(1)
 
 
         for ele in sqllist:
@@ -304,7 +313,7 @@ class logic():
             brush = QtGui.QBrush(QtGui.QColor(120, 190, 255, 200))
             brush.setStyle(QtCore.Qt.Dense4Pattern)
             item.setBackground(brush)
-            ui.settings_fieldsListwidget.addItem(item)
+            ui.settings_fieldsListWidget.addItem(item)
 
 
         for ele in notsqllist:
@@ -324,8 +333,13 @@ class logic():
             brush = QtGui.QBrush(QtGui.QColor(170, 170, 255, 200))
             brush.setStyle(QtCore.Qt.Dense4Pattern)
             item.setBackground(brush)
-            ui.settings_fieldsListwidget.addItem(item)
+            ui.settings_fieldsListWidget.addItem(item)
 
+        ui.settings_fieldsknownRadioButton.hide()
+        ui.settings_fieldsunknownRadioButton.hide()
+        ui.settings_removefieldPushButton.show()
+        ui.settings_fieldsComboBox.hide()
+        ui.settings_addfieldLineEdit.hide()
         #Set the elements that are not already in the corresponding field into the add field combobox
 
         ui.settings_fieldsComboBox.clear()
@@ -337,7 +351,7 @@ class logic():
 
     def set_forms_list(self):
         """Sets the style and label for the list items in formsListWidget of settings"""
-
+        ui.settings_formsListWidget.clear()
         for inst in self.formslist:
             item = QtGui.QListWidgetItem()
             item.setText(inst)
@@ -353,12 +367,26 @@ class logic():
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
 
-    def settings_form_field_add(self,obj):
+    def settings_form_field_add_remove(self,obj):
         '''Called when Add form or Add field buttons of the settings tab are clicked'''
+
+        def removefield_button_states():
+            ui.settings_fieldsknownRadioButton.hide()
+            ui.settings_fieldsunknownRadioButton.hide()
+            ui.settings_removefieldPushButton.show()
+            ui.settings_fieldsComboBox.hide()
+            ui.settings_addfieldLineEdit.hide()
+
+
+        selectedform = ui.settings_formsListWidget.currentItem()
+        selectedform = '' if not selectedform else selectedform.text().strip()
+        selectedfield = ui.settings_fieldsListWidget.currentItem()
+        selectedfield = '' if not selectedfield else selectedfield.text().strip()
 
 
         '''FORMS'''
         if obj.objectName() == 'settings_addformPushButton' :
+
 
             if not ui.settings_addformLineEdit.displayText().strip():
                 QtGui.QMessageBox.warning(ui.Settings,'Entry field is blank','\nEnter the name of the new form in the Entrybox that you wish to add and then Click "Add Form"' , 'OK')
@@ -380,49 +408,82 @@ class logic():
                 ui.settings_addformLineEdit.clear()
                 ui.settings_formsListWidget.clear()
                 self.set_forms_list()
+                return
+            else:
+                return
 
 
 
         if obj.objectName() == 'settings_addfieldPushButton':
+            ui.settings_removefieldPushButton.hide()
 
             if ui.settings_fieldsknownRadioButton.isHidden():
                 def addfield_lineedit_combobox_decide():
+
                     if ui.settings_fieldsknownRadioButton.isChecked():
                         ui.settings_fieldsComboBox.show()
                         ui.settings_addfieldLineEdit.hide()
+                        ui.settings_removefieldPushButton.hide()
 
                     else:
                         ui.settings_fieldsComboBox.hide()
                         ui.settings_addfieldLineEdit.show()
 
                 ui.settings_fieldsknownRadioButton.toggled.connect(addfield_lineedit_combobox_decide)
-
-
+                ui.settings_fieldsComboBox.show()
                 ui.settings_fieldsknownRadioButton.show()
                 ui.settings_fieldsunknownRadioButton.show()
-
                 ui.settings_fieldsknownRadioButton.setChecked(True)
 
 
             else:
-                selectedfield = ui.settings_formsListWidget.currentItem().text().strip()
                 if ui.settings_fieldsknownRadioButton.isChecked():
                     if QtGui.QMessageBox.question(ui.Settings,'Are You Sure ? ' , 'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.','Yes','No')==0:
 
-                        self.nametolistsql.get(selectedfield).append(ui.settings_fieldsComboBox.currentText())
-                        self.settings.setValue(selectedfield.replace(' ','_')+'_sql_fieldslist',',,,'.join(self.nametolistsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistsql.get(selectedfield) if selectedfield else [] , self.nametolistnotsql.get(selectedfield) if selectedfield else [])
+                        self.nametolistsql.get(selectedform).append(ui.settings_fieldsComboBox.currentText())
+                        self.settings.setValue(selectedform.replace(' ','_')+'_sql_fieldslist',',,,'.join(self.nametolistsql.get(selectedform)))
+                        self.set_fields_list(self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [] , self.nametolistnotsql.get(selectedform) if self.nametolistnotsql.get(selectedform) else [])
+                        removefield_button_states()
                         return
+                    else:
+                        removefield_button_states()
 
                 else:
                     if not ui.settings_addfieldLineEdit.displayText().strip():
                         QtGui.QMessageBox.warning(ui.Settings , 'Empty Field !','Make sure that the field entry box is not empty before seleting "Add field". Enter a field name in the Editing box provided and click "Add form" to add it to the fields list' , 'OK')
+                        removefield_button_states()
                         return
 
+
                     if QtGui.QMessageBox.question(ui.Settings, 'Are You Sure ? ' , 'Are you sure that you want to add the entered field to the list of fields of the corresponding form ? This will add the field through out the software.','Yes','No')==0:
-                        self.nametolistnotsql.get(selectedfield).append(ui.settings_addfieldLineEdit.displayText().strip())
-                        self.settings.setValue(selectedfield.replace(' ','_')+'_notsql_fieldslist' , ',,,'.join(self.nametolistnotsql.get(selectedfield)))
-                        self.set_fields_list(self.nametolistsql.get(selectedfield) if selectedfield else [] , self.nametolistnotsql.get(selectedfield) if selectedfield else [])
+                        self.nametolistnotsql.get(selectedform).append(ui.settings_addfieldLineEdit.displayText().strip())
+                        self.settings.setValue(selectedform.replace(' ','_')+'_notsql_fieldslist' , ',,,'.join(self.nametolistnotsql.get(selectedform)))
+                        self.set_fields_list(self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [] , self.nametolistnotsql.get(selectedform) if self.nametolistnotsql.get(selectedform) else [])
+                        removefield_button_states()
+                        return
+
+
+        if obj.objectName() =='settings_removefieldPushButton':
+
+            if not selectedfield:
+                QtGui.QMessageBox.warning(ui.Settings , 'No field seleted','Please select a field first before removing it.','OK')
+                return
+
+            if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ? ' , 'Are you sure that you wish to remove the field "{}" from the selected form ? It will remove the field through out the entire software'.format(selectedfield),'Yes','No')==0:
+
+                sqllist = self.nametolistsql.get(selectedform)
+                notsqllist = self.nametolistnotsql.get(selectedform)
+
+                if selectedfield in sqllist:
+                    self.nametolistsql.get(selectedform).remove(selectedfield);
+                    self.settings.setValue(selectedform.replace(' ','_')+'_sql_fieldslist' , ',,,'.join(self.nametolistsql.get(selectedform)))
+                elif selectedfield in notsqllist:
+                    self.nametolistnotsql.get(selectedform).remove(selectedfield);
+                    self.settings.setValue(selectedform.replace(' ', '_') + '_notsql_fieldslist',',,,'.join(self.nametolistnotsql.get(selectedform)))
+
+                self.set_fields_list(self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [],self.nametolistnotsql.get(selectedform) if self.nametolistnotsql.get(selectedform) else [])
+
+
 
     def institution_add_or_remove(self, button):
         """Called whenever user clicks on the add or remove button of the institution list in the settings tab"""

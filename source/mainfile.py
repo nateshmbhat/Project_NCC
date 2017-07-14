@@ -1012,6 +1012,7 @@ class logic():
                                       '\nMandatory fields should not be empty.\n\nMake sure that all the mandatory fields are filled.',
                                       'OK');
 
+
     def queryselectall(self):
 
         if ui.selectallCheckBox.isChecked():
@@ -1059,7 +1060,6 @@ class logic():
                 i.setStyleSheet("#{}".format(i.objectName()) + """
 
                 {
-
                 color:white;
 
                 font:13pt cambria ;
@@ -1557,24 +1557,22 @@ font-weight:bold;
 
             text-align:center;
 
-
-
         }
 
         td{
 
             margin:3px 6px;
-
+            font-family:georgia;
+            background-color:rgba(199, 199, 199, 166);
             text-align:center;
-
 
 
         }
 
         tr{
 
-            background-color: darkgray;
-
+            background-color: rgba(199, 199, 199, 166);
+            
             text-align-last: center;
 
         }
@@ -1583,10 +1581,9 @@ font-weight:bold;
 
         th{
 
-            background-color: #7100b2;
-
+            background-color: rgba(177, 51, 255,50);
+            font-family:gabriola;
             text-align-last: center;
-
             font-size: 120%;
 
             color: white;
@@ -1609,7 +1606,7 @@ font-weight:bold;
 
             if (msg1[i] == ","):
 
-                html3 = html3 + "\n<th>" + mmsg + "</th>\n"
+                html3 = html3 + "\n<th>" + mmsg.replace('_',' ') + "</th>\n"
 
                 mmsg = ""
 

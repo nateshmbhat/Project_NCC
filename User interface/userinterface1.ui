@@ -91,7 +91,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -307,7 +307,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-766</y>
+             <y>-240</y>
              <width>1149</width>
              <height>1899</height>
             </rect>
@@ -529,6 +529,9 @@ background-color:rgba(213, 213, 213,100)</string>
                     </property>
                     <property name="scaledContents">
                      <bool>true</bool>
+                    </property>
+                    <property name="buddy">
+                     <cstring>selectpicturePushButton</cstring>
                     </property>
                    </widget>
                   </item>
@@ -769,6 +772,9 @@ color:white;</string>
                  <property name="margin">
                   <number>0</number>
                  </property>
+                 <property name="buddy">
+                  <cstring>enrolmentnumLineEdit</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="0" column="1">
@@ -811,6 +817,9 @@ color:white;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>rankComboBox</cstring>
                  </property>
                 </widget>
                </item>
@@ -893,6 +902,9 @@ color:white;</string>
                  <property name="margin">
                   <number>0</number>
                  </property>
+                 <property name="buddy">
+                  <cstring>aadhaarLineEdit</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="3" column="1">
@@ -957,6 +969,9 @@ color:white;</string>
                  <property name="margin">
                   <number>0</number>
                  </property>
+                 <property name="buddy">
+                  <cstring>fullnameLineEdit</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="5" column="1">
@@ -980,28 +995,6 @@ color:white;</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="fathernameLabel">
-                 <property name="font">
-                  <font>
-                   <family>georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -1043,6 +1036,9 @@ color:white;</string>
                  <property name="margin">
                   <number>0</number>
                  </property>
+                 <property name="buddy">
+                  <cstring>mothernameLineEdit</cstring>
+                 </property>
                 </widget>
                </item>
                <item row="7" column="1">
@@ -1082,6 +1078,9 @@ color:white;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>sexComboBox</cstring>
                  </property>
                 </widget>
                </item>
@@ -1141,6 +1140,9 @@ color:white;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>dateofbirthDateEdit</cstring>
                  </property>
                 </widget>
                </item>
@@ -1733,6 +1735,31 @@ color:white;</string>
                   </widget>
                  </item>
                 </layout>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="fathernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>fathernameLineEdit</cstring>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -5513,13 +5540,137 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
    <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>enrolmentnumLineEdit</tabstop>
+  <tabstop>rankComboBox</tabstop>
+  <tabstop>aadhaarLineEdit</tabstop>
+  <tabstop>fullnameLineEdit</tabstop>
+  <tabstop>fathernameLineEdit</tabstop>
+  <tabstop>mothernameLineEdit</tabstop>
+  <tabstop>sexComboBox</tabstop>
+  <tabstop>dateofbirthDateEdit</tabstop>
+  <tabstop>addressTextEdit</tabstop>
+  <tabstop>emailLineEdit</tabstop>
+  <tabstop>mobileLineEdit</tabstop>
+  <tabstop>bloodgroupComboBox</tabstop>
+  <tabstop>NullcertRadioButton</tabstop>
+  <tabstop>AcertRadioButton</tabstop>
+  <tabstop>BcertRadioButton</tabstop>
+  <tabstop>CcertRadioButton</tabstop>
+  <tabstop>NULLCampsCheckBox</tabstop>
+  <tabstop>NICCheckBox</tabstop>
+  <tabstop>CATCCheckBox</tabstop>
+  <tabstop>AACCheckBox</tabstop>
+  <tabstop>extraactivitiesTextEdit</tabstop>
+  <tabstop>specialachievementsTextEdit</tabstop>
+  <tabstop>enroldateDateEdit</tabstop>
+  <tabstop>remarksTextEdit</tabstop>
+  <tabstop>vegRadioButton</tabstop>
+  <tabstop>nonvegRadioButton</tabstop>
+  <tabstop>banknameLineEdit</tabstop>
+  <tabstop>bankbranchLineEdit</tabstop>
+  <tabstop>accountnameLineEdit</tabstop>
+  <tabstop>accountnumLineEdit</tabstop>
+  <tabstop>ifsccodeLineEdit</tabstop>
+  <tabstop>micrLineEdit</tabstop>
+  <tabstop>institutionenrollComboBox</tabstop>
+  <tabstop>unitLineEdit</tabstop>
+  <tabstop>updateentryCheckBox</tabstop>
+  <tabstop>submitPushButton</tabstop>
+  <tabstop>searchbyfieldLineEdit</tabstop>
+  <tabstop>enrolmentnumRadioButton</tabstop>
+  <tabstop>aadhaarnumRadioButton</tabstop>
+  <tabstop>searchPushButton</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>enrolPushButton</tabstop>
+  <tabstop>selectpicturePushButton</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>mytab</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>SettingsScrollArea</tabstop>
+  <tabstop>selectallCheckBox</tabstop>
+  <tabstop>enrolmentCheckBox</tabstop>
+  <tabstop>sfnameCheckBox</tabstop>
+  <tabstop>sexCheckBox</tabstop>
+  <tabstop>mfnameCheckBox</tabstop>
+  <tabstop>bloodgroupCheckBox</tabstop>
+  <tabstop>ffnameCheckBox</tabstop>
+  <tabstop>emailCheckBox</tabstop>
+  <tabstop>aadhaarCheckBox</tabstop>
+  <tabstop>addressCheckBox</tabstop>
+  <tabstop>banknameCheckBox</tabstop>
+  <tabstop>bankbranchCheckBox</tabstop>
+  <tabstop>accountnameCheckBox</tabstop>
+  <tabstop>accountnumCheckBox</tabstop>
+  <tabstop>micrCheckBox</tabstop>
+  <tabstop>remarksCheckBox</tabstop>
+  <tabstop>vegitarianCheckBox</tabstop>
+  <tabstop>ifsccodeCheckBox</tabstop>
+  <tabstop>enrollDateCheckBox</tabstop>
+  <tabstop>unitCheckBox</tabstop>
+  <tabstop>institutionCheckBox</tabstop>
+  <tabstop>extraCurricularActivitiesCheckBox</tabstop>
+  <tabstop>campsAttendedCheckBox</tabstop>
+  <tabstop>rankCheckBox</tabstop>
+  <tabstop>mobileCheckBox</tabstop>
+  <tabstop>dateofbirthCheckBox</tabstop>
+  <tabstop>specialAchievementsCheckBox</tabstop>
+  <tabstop>andcondition</tabstop>
+  <tabstop>orcondition</tabstop>
+  <tabstop>openbracecondition</tabstop>
+  <tabstop>closebracecondition</tabstop>
+  <tabstop>equalscondition</tabstop>
+  <tabstop>greatercondition</tabstop>
+  <tabstop>lessercondition</tabstop>
+  <tabstop>backcondition</tabstop>
+  <tabstop>conditionlistcombobox</tabstop>
+  <tabstop>bloodgroupqueryComboBox</tabstop>
+  <tabstop>institutionqueryComboBox</tabstop>
+  <tabstop>rankqueryComboBox</tabstop>
+  <tabstop>sexqueryComboBox</tabstop>
+  <tabstop>datequeryDateEdit</tabstop>
+  <tabstop>valuelineEdit</tabstop>
+  <tabstop>insertcondition</tabstop>
+  <tabstop>clearcondition</tabstop>
+  <tabstop>querycondition</tabstop>
+  <tabstop>webView</tabstop>
+  <tabstop>formsComboBox</tabstop>
+  <tabstop>entryBox</tabstop>
+  <tabstop>webView_2</tabstop>
+  <tabstop>saveExelPushButton</tabstop>
+  <tabstop>updateExelPushButton</tabstop>
+  <tabstop>institutionuploaddatacomboBox</tabstop>
+  <tabstop>typecomboBox</tabstop>
+  <tabstop>openPushButton</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>savedataPushButton</tabstop>
+  <tabstop>save_data_excelPushButton</tabstop>
+  <tabstop>settings_institutionListWidget</tabstop>
+  <tabstop>settings_addinstitutionPushButton</tabstop>
+  <tabstop>removeinstitutionPushButton</tabstop>
+  <tabstop>settings_instLineEdit</tabstop>
+  <tabstop>settings_addPushButton</tabstop>
+  <tabstop>settings_backinstPushButton</tabstop>
+  <tabstop>settings_formsListWidget</tabstop>
+  <tabstop>settings_addformLineEdit</tabstop>
+  <tabstop>settings_addformPushButton</tabstop>
+  <tabstop>settings_removeformPushButton</tabstop>
+  <tabstop>settings_fieldsListWidget</tabstop>
+  <tabstop>settings_addfieldLineEdit</tabstop>
+  <tabstop>settings_fieldsComboBox</tabstop>
+  <tabstop>settings_fieldsknownRadioButton</tabstop>
+  <tabstop>settings_fieldsunknownRadioButton</tabstop>
+  <tabstop>settings_addfieldPushButton</tabstop>
+  <tabstop>settings_removefieldPushButton</tabstop>
+ </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

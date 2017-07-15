@@ -1,4 +1,7 @@
+import msvcrt
 import pandas as pd
+from PyQt4.QtGui import QPushButton, QComboBox
+
 import ENROLMENT_FORM
 import os
 import openpyxl
@@ -189,10 +192,7 @@ class logic():
         ui.removeinstitutionPushButton.clicked.connect(lambda: self.institution_add_or_remove(ui.removeinstitutionPushButton))
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
-
-
         self.init_settings()
-
     def init_settings(self):
 
         """Sets all the parameters from the settings file"""
@@ -204,6 +204,10 @@ class logic():
         '''ALL STANDARD FIELDS LIST (Fields that are in the master enrolment form )'''
 
         self.all_enrolment_form_fieldslist = self.settings.value('all_enrolment_form_fieldslist').split(',,,')
+        ui.mytab.setCurrentIndex(int(self.settings.value('current_tab')))
+        geo = [int(i) for i in self.settings.value('window_geometry').split(',,,')]
+        MainWindow.setGeometry(geo[0], geo[1], geo[2], geo[3])
+        app.aboutToQuit.connect(self.handler)
 
 
         """List of all forms in the forms tab"""
@@ -273,6 +277,37 @@ class logic():
 
         ui.settings_removeformPushButton.clicked.connect(lambda:self.settings_form_field_add_remove(ui.settings_removeformPushButton))
 
+        for i in ui.Enrol.findChildren((QtGui.QLineEdit, QtGui.QComboBox, QtGui.QDateEdit, QtGui.QTextEdit)):
+            if i.objectName() == 'searchbyfieldLineEdit':
+                continue
+            s = '#' + i.objectName() + ''':focus
+                    {
+                        border:2px groove chartreuse;
+                    }'''
+            i.setStyleSheet(s)
+
+        ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
+        ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
+
+
+
+
+
+    def showtooltip(self, text):
+        tt = QtGui.QToolTip
+        myfont = QtGui.QFont()
+        myfont.setFamily("caladea")
+        myfont.setBold(True)
+        myfont.setPointSize(20)
+        tt.setFont(myfont)
+        mywin = QtGui.QMainWindow.frameGeometry(MainWindow)
+        pos = mywin.center()
+        pos.setX(pos.x() - 6.6666667 * len(text));
+        pos.setY(mywin.y())
+        tt.showText(pos, text, MainWindow,
+                    QtGui.QLineEdit.geometry(ui.settings_institutionListWidget))
+
+
 
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
@@ -296,6 +331,14 @@ class logic():
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
 
 
+
+
+    def handler(self):
+        settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
+        geo = MainWindow.geometry()
+        settings.setValue('window_geometry',
+                          ',,,'.join([str(geo.x()), str(geo.y()), str(geo.width()), str(geo.height())]))
+        settings.setValue('current_tab', ui.mytab.currentIndex())
 
 
     def set_fields_list(self , sqllist , notsqllist):
@@ -639,7 +682,10 @@ class logic():
                     ENROLMENT_FORM.enroll().delete_by_Enrolment(selectedDataType,sqldata[i][0])
                 sql = "insert into " + selectedDataType + " values("
                 for j in range(len(fieldsListSql)):
-                    sql=sql+"'"+str(ui.tableWidget.item(i,j).text())+"'"
+                    if ui.tableWidget.horizontalHeaderItem(j).text()=="Rank":
+                        sql=sql+"'"+str(self.rankuploadcombobox[i].currentText())+"'"
+                    else:
+                        sql=sql+"'"+str(ui.tableWidget.item(i,j).text())+"'"
                     if j!=len(fieldsListSql)-1:
                         sql=sql+","
                 sql=sql+")"
@@ -669,10 +715,11 @@ class logic():
         for i in range(ui.tableWidget.rowCount()):
             data.append([])
             for j in range(ui.tableWidget.columnCount()):
-                if ui.tableWidget.item(i,j)!=None:
+                if ui.tableWidget.horizontalHeaderItem(j).text()=="Rank":
+                    txt=self.rankuploadcombobox[i].currentText()
+                elif ui.tableWidget.item(i,j)!=None:
                     txt=ui.tableWidget.item(i,j).text()
-                    print(txt)
-                    data[i].append(txt)
+                data[i].append(txt)
 
 
         for row in data:
@@ -680,9 +727,12 @@ class logic():
         self.book.save(self.name)
         self.book.save(TemporaryFile())
 
-
-
+    rankuploadcombobox = []
+    campsattendedcombobox=[]
     def openuploaddata(self):
+        self.rankuploadcombobox = []
+        self.rank=["Cadet (CDT)","Lance Corporal (LCPL)","Corporal (CPL)","Sergent (SGT)","Company Sergent Major (CSM)","Junior Under Officer (JUO)","Senior Under Officer (SUO)"]
+        self.camps=["NIC","CATC","AAC"]
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
         sql11="select Enrolment_Number from enrolment where institution='"+selectedInstitutionName+"'"
@@ -710,11 +760,10 @@ class logic():
             ui.tableWidget.setHorizontalHeaderLabels(fieldsListSql)
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
             l=0
-            print(sqldata)
-            print(sqlpresentdata)
             for i in range(len(sqldata)):
                 flag = 0
                 con = 0
+
                 for l in range(len(sqlpresentdata)):
                     if sqldata[i][0]==sqlpresentdata[l][0]:
                         flag=1
@@ -726,9 +775,27 @@ class logic():
                                 ui.tableWidget.setItem(i, j , QtGui.QTableWidgetItem(""))
                                 con = 1
                             if con == 0:
-                                ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j]))
+                                if fieldsListSql[j] == "Rank":
+                                    self.rankuploadcombobox.append(QComboBox(ui.tableWidget))
+                                    ui.tableWidget.setCellWidget(i, j, self.rankuploadcombobox[len(self.rankuploadcombobox) - 1])
+                                    for items in range(len(self.rank)):
+                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
+                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,_translate("MainWindow",self.rank[items],None))
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);font-weight:bold;")
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqldata[i][j]))
+                                else:
+                                    ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j]))
                             if con == 1:
-                                ui.tableWidget.setItem(i, j + 1, QtGui.QTableWidgetItem(sqldata[i][j]))
+                                if fieldsListSql[j] == "Roll_Number":
+                                    self.rankuploadcombobox.append(QComboBox(ui.tableWidget))
+                                    ui.tableWidget.setCellWidget(i, j+1, self.rankuploadcombobox[len(self.rankuploadcombobox) - 1])
+                                    for items in range(len(self.rank)):
+                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
+                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,_translate("MainWindow",self.rank[items],None))
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);;font-weight:bold;")
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqldata[i][j]))
+                                else:
+                                    ui.tableWidget.setItem(i, j + 1, QtGui.QTableWidgetItem(sqldata[i][j]))
                         else:
                             if j!=len(fieldsListSql)-2:
                                 ui.tableWidget.setItem(i, j+1, QtGui.QTableWidgetItem(""))
@@ -737,7 +804,16 @@ class logic():
 
                 if flag==1:
                     for j in range(len(sqlpresentdata[l])):
-                        ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqlpresentdata[l][j]))
+                        if fieldsListSql[j]=="Rank":
+                            self.rankuploadcombobox.append(QComboBox(ui.tableWidget))
+                            ui.tableWidget.setCellWidget(i, j, self.rankuploadcombobox[len(self.rankuploadcombobox) - 1])
+                            for items in range(len(self.rank)):
+                                self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
+                                self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items, _translate("MainWindow", self.rank[items], None))
+                            self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);font-weight:bold;")
+                            self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqlpresentdata[l][j]))
+                        else:
+                            ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqlpresentdata[l][j]))
                 if len(sqlpresentdata)>0:
                     sqlpresentdata.pop(l)
         else:
@@ -752,18 +828,27 @@ class logic():
             for i in range(len(sqldata)):
                 for j in range(len(sqldata[i])):
                     ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j]))
-        color="darkblue"
+        color="transparent"
         textcolor="white"
+
+        myfont = QtGui.QFont()
+        myfont.setBold(True)
+        myfont.setFamily("georgia")
         for i in range(ui.tableWidget.rowCount()):
             for j in range(ui.tableWidget.columnCount()):
-                ui.tableWidget.item(i, j).setBackground(QtGui.QColor(color))
-        ui.tableWidget.setStyleSheet("color:black;background-color:transparent;font-weight:bold;font-size:15px;")
-        ui.tableWidget.horizontalHeader().setStyleSheet("color:darkgreen;font-size:20px;font-weight:bold;")
-        ui.tableWidget.verticalHeader().setStyleSheet("color:darkorange;font-size:20px;font-weight:bold")
+                if ui.tableWidget.item(i, j)!=None:
+                    ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170,100))
+                    ui.tableWidget.item(i,j).setFont(myfont)
+                    ui.tableWidget.item(i,j).setTextAlignment(QtCore.Qt.AlignCenter)
+
+
+
+        ui.tableWidget.setStyleSheet("color:black;font-weight:bold;font-size:15px;border:1px solid black;")
+        ui.tableWidget.horizontalHeader().setStyleSheet("color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+        ui.tableWidget.verticalHeader().setStyleSheet("color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
         ui.tableWidget.hideColumn(0)
-
 
     def conditionscomboboxlogic(self):
         text=ui.conditionlistcombobox.currentText()
@@ -1389,6 +1474,7 @@ font-weight:bold;
                                        ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
 
                                        self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit);
+            self.showtooltip("Updated successfully")
 
 
 
@@ -1404,7 +1490,7 @@ font-weight:bold;
 
                               self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit)
 
-            QtGui.QToolTip.showText(QtCore.QPoint(100,200) ,"INSERTED SUCCESSFULLY")
+            self.showtooltip("Inserted successfully")
 
 
         con = sqlite3.connect("ncc.db")
@@ -1560,19 +1646,18 @@ font-weight:bold;
         }
 
         td{
-
             margin:3px 6px;
-            font-family:georgia;
-            background-color:rgba(199, 199, 199, 166);
+            font-family:cambria;
+            background-color:rgb(199, 199, 199);
             text-align:center;
-
-
+            opacity:0.8;
+            font-weight:bold;
+            
         }
 
         tr{
 
-            background-color: rgba(199, 199, 199, 166);
-            
+            background-color: rgb(199, 199, 199);
             text-align-last: center;
 
         }
@@ -1581,11 +1666,12 @@ font-weight:bold;
 
         th{
 
-            background-color: rgba(177, 51, 255,50);
+            background-color: rgb(177, 51, 255);
+            opacity:0.8;
             font-family:gabriola;
             text-align-last: center;
-            font-size: 120%;
-
+            font-size: 22px;
+            height:30px;
             color: white;
 
         }
@@ -1632,6 +1718,8 @@ font-weight:bold;
         html3 = html3 + "</table>\n</body>\n</html>"
 
         ui.webView.setHtml(html3)
+
+
 
     def conquery(self):
 

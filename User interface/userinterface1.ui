@@ -225,6 +225,21 @@ border-width:2px;
 border-radius:20px;
 background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255))
 }
+
+
+#submitPushButton:pressed
+{
+color:black;
+font-size:30px;
+font-family:georgia;
+width:80px;
+height:40px;
+border-style:dotted;
+border-color:black;
+border-width:2px;
+border-radius:20px;
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 200), stop:0.166 rgba(255, 255, 0, 200), stop:0.333 rgba(0, 255, 0, 200), stop:0.5 rgba(0, 255, 255, 200), stop:0.666 rgba(0, 0, 255, 200), stop:0.833 rgba(255, 0, 255, 200), stop:1 rgba(255, 0, 0, 200))
+}
 </string>
              </property>
              <property name="text">
@@ -307,7 +322,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-240</y>
+             <y>-840</y>
              <width>1149</width>
              <height>1899</height>
             </rect>
@@ -788,7 +803,11 @@ color:white;</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">#enrolmentnumLineEdit:focus
+{
+border:2px groove chartreuse;
+
+}</string>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -832,6 +851,12 @@ color:white;</string>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#rankComboBox:focus
+{
+border:2px groove chartreuse;
+}</string>
                  </property>
                  <property name="editable">
                   <bool>false</bool>
@@ -924,7 +949,10 @@ color:white;</string>
                   <bool>true</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">#aadhaarLineEdit:focus
+{
+border:2px groove chartreuse;
+}</string>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -985,7 +1013,10 @@ color:white;</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">b</string>
+                  <string notr="true">#fullnameLineEdit:focus
+{
+border:2px groove chartreuse;
+}</string>
                  </property>
                  <property name="inputMethodHints">
                   <set>Qt::ImhDigitsOnly</set>
@@ -1333,6 +1364,12 @@ color:white;</string>
                </item>
                <item row="16" column="1">
                 <widget class="QComboBox" name="bloodgroupComboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>64</width>
+                   <height>25</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -2405,7 +2442,7 @@ font-weight:bold;
                <property name="styleSheet">
                 <string notr="true">border-radius:2px;
 font-size:20px;
-width:230;</string>
+</string>
                </property>
                <property name="text">
                 <string/>
@@ -3428,7 +3465,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3441,9 +3478,9 @@ padding-right:22px;
 font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
-border-radius:10px;
+border-radius:15px;
 background-color: qlineargradient(spread:pad, x1:0.602, y1:0.392364, x2:0, y2:1, stop:0 rgba(254, 77, 0, 255), stop:1 rgba(122, 255, 73, 255));
-border-width:3px;
+border-width:2px;
 height:25px;
 width:120%;
 }</string>
@@ -3473,7 +3510,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3486,7 +3523,7 @@ padding-right:22px;
 font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
-border-radius:10px;
+border-radius:15px;
 background-color: qlineargradient(spread:pad, x1:0.602, y1:0.392364, x2:0, y2:1, stop:0 rgba(254, 77, 0, 255), stop:1 rgba(122, 255, 73, 255));
 border-width:3px;
 height:25px;
@@ -3518,7 +3555,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3535,7 +3572,7 @@ border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: rgb(255, 170, 0);
 width:120%;
-border-width:3px;
+border-width:2px;
 height:25px;
 }</string>
                     </property>
@@ -3564,7 +3601,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;;
@@ -3581,7 +3618,7 @@ border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: rgb(255, 170, 0);
 width:120%;
-border-width:3px;
+border-width:2px;
 height:25px;
 }</string>
                     </property>
@@ -3610,7 +3647,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3627,7 +3664,7 @@ border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: rgb(255, 170, 0);
 width:120%;
-border-width:3px;
+border-width:2px;
 height:25px;
 }</string>
                     </property>
@@ -3656,7 +3693,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3673,7 +3710,7 @@ border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: rgb(255, 170, 0);
 width:120%;
-border-width:3px;
+border-width:2px;
 height:25px;
 }</string>
                     </property>
@@ -3702,7 +3739,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3719,7 +3756,7 @@ border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: rgb(255, 170, 0);
 width:120%;
-border-width:3px;
+border-width:2px;
 height:25px;
 }</string>
                     </property>
@@ -3748,7 +3785,7 @@ padding-left:10px;
 padding-right:10px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
 border-radius:15px;
 width:120%;
@@ -3763,9 +3800,9 @@ padding-right:22px;
 font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
-border-radius:10px;
+border-radius:15px;
 background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(230, 255, 0, 255), stop:1 rgba(85, 104, 255, 255));
-border-width:3px;
+border-width:2px;
 height:25px;
 width:120%;
 }</string>
@@ -3799,8 +3836,7 @@ width:130%;
 height:30px;
 }
 #conditionlistcombobox:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+	border:1px solid chartreuse;
 	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -3961,8 +3997,7 @@ width:130%;
 height:30px;
 }
 #bloodgroupqueryComboBox:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+	border:1px solid chartreuse;
 	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -4020,8 +4055,7 @@ width:130%;
 height:30px;
 }
 #institutionqueryComboBox:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+		border:1px solid chartreuse;
 	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -4039,8 +4073,7 @@ width:130%;
 height:30px;
 }
 #rankqueryComboBox:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+	border:1px solid chartreuse;
 	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -4093,8 +4126,7 @@ width:130%;
 height:30px;
 }
 #sexqueryComboBox:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+	border:1px solid chartreuse;
 	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -4131,8 +4163,7 @@ width:130%;
 height:30px;
 }
 #datequeryDateEdit:hover{
-	color:darkblue;
-	background-color:  rgb(255, 219, 194);
+	border:1px solid chartreuse;
 	font: 16pt &quot;georgia&quot;;
 width:130%;
 }</string>
@@ -4163,9 +4194,14 @@ width:130%;
 height:30px;
 }
 #valuelineEdit:hover{
-	color:rgb(0, 85, 255);
 	font: 14pt &quot;georgia&quot;;
 	width:130%;
+}
+
+#valuelineEdit:focus
+{
+	border:1px solid chartreuse;
+
 }</string>
                     </property>
                    </widget>
@@ -4190,9 +4226,9 @@ padding-left:20px;
 padding-right:20px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
-border-radius:10px;
+border-radius:15px;
 width:130%;
 }
 
@@ -4205,8 +4241,22 @@ font: 75 14pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
-border-radius:10px;
+border-radius:15px;
 background-color:qlineargradient(spread:reflect, x1:0.284, y1:0, x2:0.675, y2:0, stop:0 rgba(71, 68, 230, 255), stop:1 rgba(78, 212, 223, 255));
+width:130%;
+}
+
+#insertcondition:pressed
+{
+color:white;
+padding-left:18px;
+padding-right:22px;
+font: 75 14pt &quot;georgia&quot;;
+border-style:solid;
+border-color:rgb(255,255,255);
+border-width:2px;
+border-radius:15px;
+background-color:qlineargradient(spread:reflect, x1:0.284, y1:0, x2:0.675, y2:0, stop:0 rgba(71, 68, 230, 200), stop:1 rgba(78, 212, 223, 200));
 width:130%;
 }</string>
                     </property>
@@ -4235,9 +4285,9 @@ padding-left:20px;
 padding-right:20px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
-border-radius:10px;
+border-radius:15px;
 width:130%;
 }
 
@@ -4250,7 +4300,7 @@ font: 75 14pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
-border-radius:10px;
+border-radius:15px;
 background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 234), stop:0.05 rgba(14, 8, 73, 255), stop:0.119318 rgba(28, 17, 145, 254), stop:0.477273 rgba(126, 14, 81, 237), stop:0.744318 rgba(234, 11, 11, 246), stop:0.79 rgba(244, 70, 5, 245), stop:0.86 rgba(255, 136, 0, 248), stop:0.935 rgba(239, 236, 55, 250));
 width:130%;
 }</string>
@@ -4280,9 +4330,9 @@ padding-left:20px;
 padding-right:20px;
 border-style:solid;
 border-color: rgb(255, 170, 0);
-border-width:3px;
+border-width:2px;
 height:30px;
-border-radius:10px;
+border-radius:15px;
 width:130%;
 }
 
@@ -4295,8 +4345,22 @@ font: 75 15pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
-border-radius:10px;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 230), stop:0.085 rgba(2, 79, 0, 255), stop:0.221591 rgba(50, 147, 22, 255), stop:0.275 rgba(165, 142, 70, 255), stop:0.431818 rgba(243, 100, 79, 255), stop:0.573864 rgba(135, 95, 80, 255), stop:0.667 rgba(137, 97, 255, 255), stop:0.818182 rgba(160, 255, 244, 255), stop:0.885 rgba(193, 222, 185, 255), stop:1 rgba(93, 128, 0, 255));
+border-radius:15px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 200), stop:0.085 rgba(2, 79, 0, 200), stop:0.221591 rgba(50, 147, 22, 200), stop:0.275 rgba(165, 142, 70, 200), stop:0.431818 rgba(243, 100, 79, 200), stop:0.573864 rgba(135, 95, 80, 200), stop:0.667 rgba(137, 97, 255, 200), stop:0.818182 rgba(160, 255, 244, 200), stop:0.885 rgba(193, 222, 185, 200), stop:1 rgba(93, 128, 0, 200));
+width:130%;
+}
+
+#querycondition:pressed
+{
+color:rgb(255,255,255);
+padding-left:18px;
+padding-right:22px;
+font: 75 15pt &quot;georgia&quot;;
+border-style:solid;
+border-color:rgb(255,255,255);
+border-width:2px;
+border-radius:15px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 200), stop:0.085 rgba(2, 79, 0, 150), stop:0.221591 rgba(50, 147, 22, 150), stop:0.275 rgba(165, 142, 70, 150), stop:0.431818 rgba(243, 100, 79, 150), stop:0.573864 rgba(135, 95, 80, 150), stop:0.667 rgba(137, 97, 255, 150), stop:0.818182 rgba(160, 255, 244, 150), stop:0.885 rgba(193, 222, 185, 150), stop:1 rgba(93, 128, 0, 150));
 width:130%;
 }</string>
                     </property>
@@ -4365,7 +4429,7 @@ background-color:transparent;
              </property>
              <property name="styleSheet">
               <string notr="true">#formsComboBox{
-border-radius:10px;
+border-radius:2px;
 }
 #formsComboBox:hover{
 	background-color: rgb(121, 0, 182);
@@ -4418,24 +4482,7 @@ color:black;</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
-            <widget class="QWebView" name="webView_2">
-             <property name="font">
-              <font>
-               <family>Colonna MT</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:transparent;</string>
-             </property>
-             <property name="url">
-              <url>
-               <string>about:blank</string>
-              </url>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0" colspan="2">
+           <item row="7" column="0" colspan="2">
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="1" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -4461,6 +4508,7 @@ font-weight:bold;
 padding-left:8px;
 padding-right:8px;
 color:rgb(85, 170, 255);
+color:black;
 width:400%;
 }
 #saveExelPushButton:hover{
@@ -4508,6 +4556,7 @@ font-weight:bold;
 font-size:15px;
 width:175%;
 color:rgb(85, 170, 255);
+color:black;
 width:400%;
 }
 #updateExelPushButton:hover{
@@ -4535,7 +4584,7 @@ width:400%;
              </item>
             </layout>
            </item>
-           <item row="7" column="0">
+           <item row="8" column="0">
             <spacer name="horizontalSpacer_8">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -4576,6 +4625,23 @@ color:blue;</string>
              </property>
             </widget>
            </item>
+           <item row="6" column="0">
+            <widget class="QWebView" name="webView_2">
+             <property name="font">
+              <font>
+               <family>Colonna MT</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:transparent;</string>
+             </property>
+             <property name="url">
+              <url>
+               <string>about:blank</string>
+              </url>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -4607,7 +4673,7 @@ background-repeat:none;
               </property>
               <property name="styleSheet">
                <string notr="true">font-size:20px;
-border-radius:12px;
+border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);</string>
@@ -4641,7 +4707,7 @@ color: rgb(0, 0, 127);</string>
               </property>
               <property name="styleSheet">
                <string notr="true">font-size:20px;
-border-radius:12px;
+border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);</string>
@@ -4696,24 +4762,25 @@ color: rgb(0, 0, 127);</string>
               <property name="styleSheet">
                <string notr="true">#openPushButton{
 font-size:20px;
-background-image: url(:/icons/images-1.jpg);
-border-radius:15px;
-color: rgb(0, 170, 255);
+	color: rgb(94, 0, 141);
+color:black;
+	background-color:white;
 border-style:solid;
-border-color:white;
+	border-color: rgb(104, 0, 156);
 border-width:2px;
-border-radius:12px;
+height:24px;
+border-radius:10px;
 }
 #openPushButton:hover{
 font-size:25px;
-	color: rgb(0, 170, 255);
-	background-image: url(:/icons/close line.png);
-padding-top:-8px;
+	background-color:rgba(94, 0, 141,100);
+border-radius:10px;
+color:white;
 border-style:solid;
-	border-color: rgb(0, 170, 255);
+border-color:white;
 border-width:2px;
-border-radius:15px;
-border-radius:12px;
+height:30px;
+padding-top:-5px;
 }</string>
               </property>
               <property name="text">
@@ -4726,7 +4793,7 @@ border-radius:12px;
           <item>
            <widget class="QTableWidget" name="tableWidget">
             <property name="styleSheet">
-             <string notr="true">background-color:transparent;</string>
+             <string notr="true">background-color:rgba(170, 255, 255 , 10)</string>
             </property>
            </widget>
           </item>
@@ -4756,17 +4823,17 @@ border-radius:12px;
                <string notr="true">#savedataPushButton{
 font-size:20px;
 	color: rgb(94, 0, 141);
+color:black;
 	background-color:white;
-padding-top:-8px;
 border-style:solid;
 	border-color: rgb(104, 0, 156);
 border-width:2px;
-height:35px;
+height:30px;
 border-radius:10px;
 }
 #savedataPushButton:hover{
 font-size:25px;
-	background-color:rgb(94, 0, 141);
+	background-color:rgba(94, 0, 141,100);
 border-radius:10px;
 color:white;
 border-style:solid;
@@ -4793,17 +4860,17 @@ padding-top:-5px;
                <string notr="true">#save_data_excelPushButton{
 font-size:20px;
 	color: rgb(94, 0, 141);
+color:black;
 	background-color:white;
-padding-top:-8px;
 border-style:solid;
 	border-color: rgb(104, 0, 156);
 border-width:2px;
-height:35px;
+height:30px;
 border-radius:10px;
 }
 #save_data_excelPushButton:hover{
 font-size:25px;
-	background-color:rgb(94, 0, 141);
+	background-color:rgba(94, 0, 141,100);
 border-radius:10px;
 color:white;
 border-style:solid;
@@ -4852,9 +4919,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-287</y>
+             <y>0</y>
              <width>1147</width>
-             <height>1094</height>
+             <height>1198</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -4877,205 +4944,18 @@ background-position:center;
               </property>
              </spacer>
             </item>
-            <item row="0" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QWidget" name="settingsmainframewidget" native="true">
-              <property name="minimumSize">
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
                <size>
-                <width>514</width>
-                <height>0</height>
+                <width>40</width>
+                <height>20</height>
                </size>
               </property>
-              <property name="styleSheet">
-               <string notr="true">#settingsmainframewidget{
-
-background-color:transparent;
-
-}</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_8">
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QFrame" name="frame_2">
-                 <property name="styleSheet">
-                  <string notr="true">#frame_2{
-background-color:transparent;
-}</string>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_16">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="settings_institutionlistLabel">
-                    <property name="font">
-                     <font>
-                      <family>Caladea</family>
-                      <pointsize>19</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icons/image-blur.png);
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Institution List</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="0">
-                   <layout class="QHBoxLayout" name="horizontalLayout_4">
-                    <item>
-                     <widget class="QLineEdit" name="settings_instLineEdit">
-                      <property name="minimumSize">
-                       <size>
-                        <width>350</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <family>Georgia</family>
-                        <pointsize>13</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="autoFillBackground">
-                       <bool>false</bool>
-                      </property>
-                      <property name="placeholderText">
-                       <string>Enter the institution name to add it</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="settings_addPushButton">
-                      <property name="font">
-                       <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
-                        <weight>50</weight>
-                        <italic>false</italic>
-                        <bold>false</bold>
-                        <underline>false</underline>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Add</string>
-                      </property>
-                      <property name="default">
-                       <bool>false</bool>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="settings_backinstPushButton">
-                      <property name="maximumSize">
-                       <size>
-                        <width>37</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Back</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <layout class="QHBoxLayout" name="horizontalLayout_2">
-                    <item>
-                     <widget class="QPushButton" name="settings_addinstitutionPushButton">
-                      <property name="font">
-                       <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
-                        <weight>50</weight>
-                        <bold>false</bold>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Add Institution</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="removeinstitutionPushButton">
-                      <property name="font">
-                       <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
-                       </font>
-                      </property>
-                      <property name="text">
-                       <string>Remove</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QListWidget" name="settings_institutionListWidget">
-                    <property name="minimumSize">
-                     <size>
-                      <width>500</width>
-                      <height>285</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>333</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color:rgba(229, 229, 229,200);</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Sunken</enum>
-                    </property>
-                    <property name="resizeMode">
-                     <enum>QListView::Fixed</enum>
-                    </property>
-                    <property name="spacing">
-                     <number>3</number>
-                    </property>
-                    <property name="viewMode">
-                     <enum>QListView::ListMode</enum>
-                    </property>
-                    <property name="uniformItemSizes">
-                     <bool>true</bool>
-                    </property>
-                    <property name="sortingEnabled">
-                     <bool>false</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             </spacer>
             </item>
             <item row="2" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="formsandfieldsgridwidget" native="true">
@@ -5508,8 +5388,259 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
               </layout>
              </widget>
             </item>
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_19">
+            <item row="0" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QWidget" name="settingsmainframewidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>514</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settingsmainframewidget{
+
+background-color:transparent;
+
+}</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QFrame" name="frame_2">
+                 <property name="styleSheet">
+                  <string notr="true">#frame_2{
+background-color:transparent;
+}</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="settings_institutionlistLabel">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>19</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/icons/image-blur.png);
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Institution List</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <item>
+                     <widget class="QLineEdit" name="settings_instLineEdit">
+                      <property name="minimumSize">
+                       <size>
+                        <width>350</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>13</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="autoFillBackground">
+                       <bool>false</bool>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Enter the institution name to add it</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="settings_addPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                        <underline>false</underline>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Add</string>
+                      </property>
+                      <property name="default">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="settings_backinstPushButton">
+                      <property name="maximumSize">
+                       <size>
+                        <width>37</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Back</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <layout class="QHBoxLayout" name="horizontalLayout_2">
+                    <item>
+                     <widget class="QPushButton" name="settings_addinstitutionPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Add Institution</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="removeinstitutionPushButton">
+                      <property name="font">
+                       <font>
+                        <family>Georgia</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Remove</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QListWidget" name="settings_institutionListWidget">
+                    <property name="minimumSize">
+                     <size>
+                      <width>500</width>
+                      <height>285</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>333</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color:rgba(229, 229, 229,200);</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Sunken</enum>
+                    </property>
+                    <property name="resizeMode">
+                     <enum>QListView::Fixed</enum>
+                    </property>
+                    <property name="spacing">
+                     <number>3</number>
+                    </property>
+                    <property name="viewMode">
+                     <enum>QListView::ListMode</enum>
+                    </property>
+                    <property name="uniformItemSizes">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sortingEnabled">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="6" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="settings_candidopenPushButton">
+              <property name="font">
+               <font>
+                <family>georgia</family>
+                <pointsize>15</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settings_candidopenPushButton
+{
+border-radius:20px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_candidopenPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_candidopenPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+              </property>
+              <property name="text">
+               <string>Open Candidates Picture folder</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <spacer name="horizontalSpacer_16">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -5637,7 +5768,6 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
   <tabstop>webView</tabstop>
   <tabstop>formsComboBox</tabstop>
   <tabstop>entryBox</tabstop>
-  <tabstop>webView_2</tabstop>
   <tabstop>saveExelPushButton</tabstop>
   <tabstop>updateExelPushButton</tabstop>
   <tabstop>institutionuploaddatacomboBox</tabstop>

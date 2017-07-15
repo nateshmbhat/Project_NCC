@@ -2682,9 +2682,6 @@ class Ui_MainWindow(object):
         self.formsComboBox.setFont(font)
         self.formsComboBox.setStyleSheet(_fromUtf8("#formsComboBox{\n"
 "border-radius:2px;\n"
-"}\n"
-"#formsComboBox:hover{\n"
-"    background-color: rgb(121, 0, 182);\n"
 "}"))
         self.formsComboBox.setMaxVisibleItems(20)
         self.formsComboBox.setObjectName(_fromUtf8("formsComboBox"))
@@ -2991,7 +2988,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -382, 1143, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1143, 1198))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3377,7 +3374,7 @@ class Ui_MainWindow(object):
         self.fathernameLabel.setBuddy(self.fathernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
         MainWindow.setTabOrder(self.rankComboBox, self.aadhaarLineEdit)

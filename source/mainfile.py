@@ -1628,7 +1628,7 @@ font-weight:bold;
 
             text-align-last: center;
 
-            height: 40px;
+            height: 30px;
 
             text-align:center;
 
@@ -1660,7 +1660,7 @@ font-weight:bold;
             font-family:gabriola;
             text-align-last: center;
             font-size: 22px;
-            height:30px;
+            height:20px;
             color: white;
 
         }

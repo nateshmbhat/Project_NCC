@@ -91,7 +91,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -4511,9 +4511,6 @@ background-color:transparent;
              <property name="styleSheet">
               <string notr="true">#formsComboBox{
 border-radius:2px;
-}
-#formsComboBox:hover{
-	background-color: rgb(121, 0, 182);
 }</string>
              </property>
              <property name="maxVisibleItems">
@@ -5000,7 +4997,7 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-382</y>
+             <y>0</y>
              <width>1143</width>
              <height>1198</height>
             </rect>
@@ -5882,7 +5879,7 @@ padding:10px 10px;
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

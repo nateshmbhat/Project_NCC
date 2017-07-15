@@ -92,6 +92,10 @@ class logic():
 
         ui.datequeryDateEdit.hide()
 
+        ui.certificatequeryComboBox.hide()
+
+        ui.vegitarianqueryComboBox.hide()
+
         ui.mobileLineEdit.setValidator(QtGui.QDoubleValidator())
 
         ui.accountnumLineEdit.setValidator(QtGui.QDoubleValidator())
@@ -289,10 +293,6 @@ class logic():
         ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
 
-
-
-
-
     def showtooltip(self, text):
         tt = QtGui.QToolTip
         myfont = QtGui.QFont()
@@ -306,8 +306,6 @@ class logic():
         pos.setY(mywin.y())
         tt.showText(pos, text, MainWindow,
                     QtGui.QLineEdit.geometry(ui.settings_institutionListWidget))
-
-
 
     def settings_form_item_clicked(self):
         '''THis function is called whenever the user clicks on an item in the forms list of settings tab . It handles the show and hide of various elements and displays the corresponding
@@ -330,16 +328,12 @@ class logic():
 
         self.set_fields_list(fieldslistsql , fieldslistnotsql)
 
-
-
-
     def handler(self):
         settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
         geo = MainWindow.geometry()
         settings.setValue('window_geometry',
                           ',,,'.join([str(geo.x()), str(geo.y()), str(geo.width()), str(geo.height())]))
         settings.setValue('current_tab', ui.mytab.currentIndex())
-
 
     def set_fields_list(self , sqllist , notsqllist):
         """This function is called after a new field is addded to the field list . This function sets the styles for the fields and puts them in the field list of the settings tab"""
@@ -400,8 +394,6 @@ class logic():
             if ele not in sqllist:
                 ui.settings_fieldsComboBox.addItem(ele)
 
-
-
     def set_forms_list(self):
         """Sets the style and label for the list items in formsListWidget of settings"""
         ui.settings_formsListWidget.clear()
@@ -421,7 +413,6 @@ class logic():
             ui.settings_formsListWidget.addItem(item)
 
         ui.settings_removeformPushButton.hide()
-        
 
     def settings_form_field_add_remove(self,obj):
         '''Called when Add form or Add field buttons of the settings tab are clicked'''
@@ -552,8 +543,6 @@ class logic():
 
                 self.set_fields_list(self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [],self.nametolistnotsql.get(selectedform) if self.nametolistnotsql.get(selectedform) else [])
 
-
-
     def institution_add_or_remove(self, button):
         """Called whenever user clicks on the add or remove button of the institution list in the settings tab"""
 
@@ -597,7 +586,6 @@ class logic():
                 self.set_institutions_list()
 
         ui.settings_instLineEdit.clear()
-
 
     def set_institutions_list(self):
 
@@ -644,13 +632,11 @@ class logic():
         ui.settings_addPushButton.hide()
         ui.settings_backinstPushButton.hide()
 
-
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText()=="Select Type" or ui.typecomboBox.currentText()=="Camps_Attended" or ui.typecomboBox.currentText()=="Remarks" or ui.typecomboBox.currentText()=="Extra_Curricular_Activities":
             ui.save_data_excelPushButton.hide()
         else:
             ui.save_data_excelPushButton.show()
-
 
     def saveuploadeddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
@@ -697,7 +683,6 @@ class logic():
             for i in range(len(sqldata)):
                 sql1 = "update enrolment set " + selectedDataType + "='"+ui.tableWidget.item(i,1).text()+"' where Enrolment_Number='"+sqldata[i][0]+"'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
-
 
     def saveexceluploadeddata(self):
         self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
@@ -781,7 +766,7 @@ class logic():
                                     for items in range(len(self.rank)):
                                         self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
                                         self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,_translate("MainWindow",self.rank[items],None))
-                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);font-weight:bold;")
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("font-weight:bold;")
                                     self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqldata[i][j]))
                                 else:
                                     ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j]))
@@ -792,7 +777,7 @@ class logic():
                                     for items in range(len(self.rank)):
                                         self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
                                         self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,_translate("MainWindow",self.rank[items],None))
-                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);;font-weight:bold;")
+                                    self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("font-weight:bold;")
                                     self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqldata[i][j]))
                                 else:
                                     ui.tableWidget.setItem(i, j + 1, QtGui.QTableWidgetItem(sqldata[i][j]))
@@ -810,7 +795,7 @@ class logic():
                             for items in range(len(self.rank)):
                                 self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
                                 self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items, _translate("MainWindow", self.rank[items], None))
-                            self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("background-color:rgba(170, 170, 170,50);font-weight:bold;")
+                            self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet("font-weight:bold;")
                             self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].findText(sqlpresentdata[l][j]))
                         else:
                             ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqlpresentdata[l][j]))
@@ -828,8 +813,6 @@ class logic():
             for i in range(len(sqldata)):
                 for j in range(len(sqldata[i])):
                     ui.tableWidget.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j]))
-        color="transparent"
-        textcolor="white"
 
         myfont = QtGui.QFont()
         myfont.setBold(True)
@@ -837,15 +820,17 @@ class logic():
         for i in range(ui.tableWidget.rowCount()):
             for j in range(ui.tableWidget.columnCount()):
                 if ui.tableWidget.item(i, j)!=None:
-                    ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170,100))
+                    ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170))
                     ui.tableWidget.item(i,j).setFont(myfont)
                     ui.tableWidget.item(i,j).setTextAlignment(QtCore.Qt.AlignCenter)
 
-
-
-        ui.tableWidget.setStyleSheet("color:black;font-weight:bold;font-size:15px;border:1px solid black;")
-        ui.tableWidget.horizontalHeader().setStyleSheet("color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;")
-        ui.tableWidget.verticalHeader().setStyleSheet("color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;")
+        ui.tableWidget.showGrid()
+        ui.tableWidget.setStyleSheet(
+            "color:black;font-weight:bold;font-size:15px;border:1px solid black;gridline-color:black;")
+        ui.tableWidget.horizontalHeader().setStyleSheet(
+            "color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;gridline-color:black;")
+        ui.tableWidget.verticalHeader().setStyleSheet(
+            "color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;border:1px solid black;gridline-color:black;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
         ui.tableWidget.hideColumn(0)
@@ -859,6 +844,8 @@ class logic():
         ui.sexqueryComboBox.hide()
         ui.datequeryDateEdit.hide()
         ui.valuelineEdit.hide()
+        ui.certificatequeryComboBox.hide()
+        ui.vegitarianqueryComboBox.hide()
         if text=="Rank":
             ui.rankqueryComboBox.show()
         elif text=="Institution":
@@ -869,6 +856,10 @@ class logic():
             ui.sexqueryComboBox.show()
         elif text=="Enrol_Date" or text=="Date_Of_Birth":
             ui.datequeryDateEdit.show()
+        elif text=="Vegitarian":
+            ui.vegitarianqueryComboBox.show()
+        elif text=="Certificate":
+            ui.certificatequeryComboBox.show()
         else:
             ui.valuelineEdit.show()
 
@@ -988,7 +979,7 @@ class logic():
                 sql = sql + "or"
         print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)==0:
+        if len(tup)<1:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'First Enter the feed the data for the respected certificate\nand then generate a form.',
                                       'OK')
@@ -1096,7 +1087,6 @@ class logic():
             QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                       '\nMandatory fields should not be empty.\n\nMake sure that all the mandatory fields are filled.',
                                       'OK');
-
 
     def queryselectall(self):
 
@@ -1612,7 +1602,6 @@ font-weight:bold;
         ui.webView_2.setHtml(html3)
 
     def table(self, res, msg):
-
         html3 = """
 
         <html>
@@ -1648,7 +1637,7 @@ font-weight:bold;
         td{
             margin:3px 6px;
             font-family:cambria;
-            background-color:rgb(199, 199, 199);
+            background-color:white;
             text-align:center;
             opacity:0.8;
             font-weight:bold;
@@ -1657,7 +1646,7 @@ font-weight:bold;
 
         tr{
 
-            background-color: rgb(199, 199, 199);
+            background-color: white;
             text-align-last: center;
 
         }
@@ -1719,10 +1708,7 @@ font-weight:bold;
 
         ui.webView.setHtml(html3)
 
-
-
     def conquery(self):
-
         sql = """""";
 
         if ui.selectallCheckBox.isChecked():
@@ -1819,12 +1805,13 @@ font-weight:bold;
             Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[9:len(sql)]
 
-        print(sql)
-
         tup = ENROLMENT_FORM.enroll().execute(sql)
-
+        if len(tup)<1:
+            self.showtooltip("No Data Found")
+            ui.webView.setHtml("")
+            return
         self.table(tup, sql)
-
+        self.showtooltip("Query is Sucessfull")
     def conback(self):
 
         sql = ui.conditionsentrylabel.text().strip().strip()
@@ -1873,6 +1860,10 @@ font-weight:bold;
             ch1 =ui.sexqueryComboBox.currentText()
         elif ch=="Enrol_Date" or ch=="Date_Of_Birth":
             ch1 =ui.datequeryDateEdit.currentText()
+        elif ch=="Certificate":
+            ch1 =ui.certificatequeryComboBox.currentText()
+        elif ch=="Vegitarian":
+            ch1 =ui.vegitarianqueryComboBox.currentText()
         else:
             ch1 = ui.valuelineEdit.text().strip()
 
@@ -1891,9 +1882,7 @@ font-weight:bold;
 
 
             else:
-                QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                          '\nPlease use \'AND\' or \'OR\' between two conditions.',
-                                          'OK');
+                self.showtooltip("Please use \'AND\' or \'OR\' between two conditions")
 
                 return
 
@@ -1901,11 +1890,11 @@ font-weight:bold;
 
             if (ch1 != ""):
 
-                if ch == "Aadhaar" or ch == "Mobile" or ch == "Account_number":
+                if ch == "Aadhaar_Number" or ch == "Mobile_Number" or ch == "Account_number":
 
                     if ch1.isdigit():
 
-                        if ch == "Mobile":
+                        if ch == "Mobile_Number":
 
                             if len(ch1) == 10:
 
@@ -1913,11 +1902,9 @@ font-weight:bold;
                                     ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
 
                             else:
-                                QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                                          '\nMobile number should contains 10 numbers.',
-                                                          'OK');
+                                self.showtooltip("Mobile number should contains 10 numbers")
 
-                        elif ch == "Aadhaar":
+                        elif ch == "Aadhaar_Number":
 
                             if len(ch1) == 12:
 
@@ -1925,12 +1912,17 @@ font-weight:bold;
                                     ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
 
                             else:
-                                QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                                          '\nAadhaar number should contains 12 numbers.',
-                                                          'OK');
+                                self.showtooltip("Aadhaar number should contains 12 numbers")
 
 
+                        elif ch=="Account_Number":
+                            if len(ch1) == 16:
 
+                                ui.conditionsentrylabel.setText(
+                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
+
+                            else:
+                                self.showtooltip("Account number should contains 16 numbers")
                         else:
 
                             ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
@@ -1938,10 +1930,7 @@ font-weight:bold;
 
 
                     else:
-
-                        QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                                  ch+' must contains only integral values.',
-                                                  'OK');
+                        self.showtooltip(ch+' must contains only integral values.')
 
                 else:
 
@@ -1949,14 +1938,10 @@ font-weight:bold;
                         ui.conditionsentrylabel.text().strip().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
             else:
-                QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                          '\nPlease enter the values for the field selected.',
-                                          'OK')
+                self.showtooltip("Please enter the values for the field selected.")
 
         else:
-            QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
-                                      '\nPlease select any one of the fields.',
-                                      'OK')
+            self.showtooltip("Please select any one of the fields.")
 
 if __name__ == "__main__":
     import sys

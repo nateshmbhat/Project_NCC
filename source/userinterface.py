@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1208, 894)
+        MainWindow.resize(1204, 903)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setAutoFillBackground(False)
@@ -201,7 +201,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -840, 1149, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1145, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1332,7 +1332,7 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addItem(spacerItem13, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
         self.Query = QtGui.QWidget()
         self.Query.setStyleSheet(_fromUtf8("\n"
@@ -2299,13 +2299,24 @@ class Ui_MainWindow(object):
         self.conditionlistcombobox.addItem(_fromUtf8(""))
         self.conditionlistcombobox.addItem(_fromUtf8(""))
         self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
-        self.conditionlistcombobox.addItem(_fromUtf8(""))
         self.horizontalLayout_3.addWidget(self.conditionlistcombobox)
+        self.vegitarianqueryComboBox = QtGui.QComboBox(self.frame)
+        self.vegitarianqueryComboBox.setStyleSheet(_fromUtf8("#vegitarianqueryComboBox{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(85, 0, 0);\n"
+"    font: 12pt \"georgia\";\n"
+"width:130%;\n"
+"height:30px;\n"
+"}\n"
+"#vegitarianqueryComboBox:hover{\n"
+"    border:1px solid chartreuse;\n"
+"    font: 14pt \"georgia\";\n"
+"width:130%;\n"
+"}"))
+        self.vegitarianqueryComboBox.setObjectName(_fromUtf8("vegitarianqueryComboBox"))
+        self.vegitarianqueryComboBox.addItem(_fromUtf8(""))
+        self.vegitarianqueryComboBox.addItem(_fromUtf8(""))
+        self.horizontalLayout_3.addWidget(self.vegitarianqueryComboBox)
         self.bloodgroupqueryComboBox = QtGui.QComboBox(self.frame)
         self.bloodgroupqueryComboBox.setStyleSheet(_fromUtf8("#bloodgroupqueryComboBox{\n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -2329,6 +2340,24 @@ class Ui_MainWindow(object):
         self.bloodgroupqueryComboBox.addItem(_fromUtf8(""))
         self.bloodgroupqueryComboBox.addItem(_fromUtf8(""))
         self.horizontalLayout_3.addWidget(self.bloodgroupqueryComboBox)
+        self.certificatequeryComboBox = QtGui.QComboBox(self.frame)
+        self.certificatequeryComboBox.setStyleSheet(_fromUtf8("#certificatequeryComboBox{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(85, 0, 0);\n"
+"    font: 12pt \"georgia\";\n"
+"width:130%;\n"
+"height:30px;\n"
+"}\n"
+"#certificatequeryComboBox:hover{\n"
+"    border:1px solid chartreuse;\n"
+"    font: 14pt \"georgia\";\n"
+"width:130%;\n"
+"}"))
+        self.certificatequeryComboBox.setObjectName(_fromUtf8("certificatequeryComboBox"))
+        self.certificatequeryComboBox.addItem(_fromUtf8(""))
+        self.certificatequeryComboBox.addItem(_fromUtf8(""))
+        self.certificatequeryComboBox.addItem(_fromUtf8(""))
+        self.horizontalLayout_3.addWidget(self.certificatequeryComboBox)
         self.institutionqueryComboBox = QtGui.QComboBox(self.frame)
         self.institutionqueryComboBox.setStyleSheet(_fromUtf8("#institutionqueryComboBox{\n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -2582,8 +2611,52 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.frame)
         self.gridLayout_6.addLayout(self.verticalLayout_4, 0, 0, 1, 1)
         self.gridLayout_5.addWidget(self.widget, 0, 0, 1, 1)
+        self.generateexcelqueryPushButton = QtGui.QPushButton(self.Query)
+        self.generateexcelqueryPushButton.setStyleSheet(_fromUtf8("#generateexcelqueryPushButton{\n"
+"background-color: rgb(255,255,255);\n"
+"    color: rgb(0, 0, 0);\n"
+"font: 75 14pt \"georgia\";\n"
+"padding-left:20px;\n"
+"padding-right:20px;\n"
+"border-style:solid;\n"
+"border-color: rgb(255, 170, 0);\n"
+"border-width:2px;\n"
+"height:30px;\n"
+"border-radius:15px;\n"
+"width:130%;\n"
+"}\n"
+"\n"
+"#generateexcelqueryPushButton:hover\n"
+"{\n"
+"color:rgb(255,255,255);\n"
+"padding-left:18px;\n"
+"padding-right:22px;\n"
+"font: 75 16pt \"georgia\";\n"
+"border-style:solid;\n"
+"border-color:rgb(255,255,255);\n"
+"border-width:2px;\n"
+"border-radius:15px;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 200), stop:0.085 rgba(2, 79, 0, 200), stop:0.221591 rgba(50, 147, 22, 200), stop:0.275 rgba(165, 142, 70, 200), stop:0.431818 rgba(243, 100, 79, 200), stop:0.573864 rgba(135, 95, 80, 200), stop:0.667 rgba(137, 97, 255, 200), stop:0.818182 rgba(160, 255, 244, 200), stop:0.885 rgba(193, 222, 185, 200), stop:1 rgba(93, 128, 0, 200));\n"
+"width:130%;\n"
+"}\n"
+"\n"
+"#generateexcelqueryPushButton:pressed\n"
+"{\n"
+"color:rgb(255,255,255);\n"
+"padding-left:18px;\n"
+"padding-right:22px;\n"
+"font: 75 12pt \"georgia\";\n"
+"border-style:solid;\n"
+"border-color:rgb(255,255,255);\n"
+"border-width:2px;\n"
+"border-radius:15px;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 200), stop:0.085 rgba(2, 79, 0, 150), stop:0.221591 rgba(50, 147, 22, 150), stop:0.275 rgba(165, 142, 70, 150), stop:0.431818 rgba(243, 100, 79, 150), stop:0.573864 rgba(135, 95, 80, 150), stop:0.667 rgba(137, 97, 255, 150), stop:0.818182 rgba(160, 255, 244, 150), stop:0.885 rgba(193, 222, 185, 150), stop:1 rgba(93, 128, 0, 150));\n"
+"width:130%;\n"
+"}"))
+        self.generateexcelqueryPushButton.setObjectName(_fromUtf8("generateexcelqueryPushButton"))
+        self.gridLayout_5.addWidget(self.generateexcelqueryPushButton, 1, 0, 1, 1)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Query, icon2, _fromUtf8(""))
         self.Forms = QtGui.QWidget()
         self.Forms.setStyleSheet(_fromUtf8("#Forms{\n"
@@ -2918,7 +2991,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1147, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -382, 1143, 1198))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -2926,10 +2999,104 @@ class Ui_MainWindow(object):
         self.settingsscrollAreaWidgetContents.setObjectName(_fromUtf8("settingsscrollAreaWidgetContents"))
         self.gridLayout_14 = QtGui.QGridLayout(self.settingsscrollAreaWidgetContents)
         self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
-        spacerItem16 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem16, 1, 0, 1, 1)
-        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem17, 3, 0, 1, 1)
+        self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
+        self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
+        self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
+"\n"
+"background-color:transparent;\n"
+"\n"
+"}"))
+        self.settingsmainframewidget.setObjectName(_fromUtf8("settingsmainframewidget"))
+        self.verticalLayout_8 = QtGui.QVBoxLayout(self.settingsmainframewidget)
+        self.verticalLayout_8.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_8.setObjectName(_fromUtf8("verticalLayout_8"))
+        self.frame_2 = QtGui.QFrame(self.settingsmainframewidget)
+        self.frame_2.setStyleSheet(_fromUtf8("#frame_2{\n"
+"background-color:transparent;\n"
+"}"))
+        self.frame_2.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtGui.QFrame.Raised)
+        self.frame_2.setObjectName(_fromUtf8("frame_2"))
+        self.gridLayout_16 = QtGui.QGridLayout(self.frame_2)
+        self.gridLayout_16.setObjectName(_fromUtf8("gridLayout_16"))
+        self.settings_institutionlistLabel = QtGui.QLabel(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
+        font.setPointSize(19)
+        font.setBold(True)
+        font.setWeight(75)
+        self.settings_institutionlistLabel.setFont(font)
+        self.settings_institutionlistLabel.setStyleSheet(_fromUtf8("border-image: url(:/icons/image-blur.png);\n"
+"color:white;"))
+        self.settings_institutionlistLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.settings_institutionlistLabel.setObjectName(_fromUtf8("settings_institutionlistLabel"))
+        self.gridLayout_16.addWidget(self.settings_institutionlistLabel, 0, 0, 1, 1)
+        self.horizontalLayout_4 = QtGui.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
+        self.settings_instLineEdit = QtGui.QLineEdit(self.frame_2)
+        self.settings_instLineEdit.setMinimumSize(QtCore.QSize(350, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.settings_instLineEdit.setFont(font)
+        self.settings_instLineEdit.setAutoFillBackground(False)
+        self.settings_instLineEdit.setObjectName(_fromUtf8("settings_instLineEdit"))
+        self.horizontalLayout_4.addWidget(self.settings_instLineEdit)
+        self.settings_addPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        self.settings_addPushButton.setFont(font)
+        self.settings_addPushButton.setDefault(False)
+        self.settings_addPushButton.setObjectName(_fromUtf8("settings_addPushButton"))
+        self.horizontalLayout_4.addWidget(self.settings_addPushButton)
+        self.settings_backinstPushButton = QtGui.QPushButton(self.frame_2)
+        self.settings_backinstPushButton.setMaximumSize(QtCore.QSize(37, 16777215))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        self.settings_backinstPushButton.setFont(font)
+        self.settings_backinstPushButton.setObjectName(_fromUtf8("settings_backinstPushButton"))
+        self.horizontalLayout_4.addWidget(self.settings_backinstPushButton)
+        self.gridLayout_16.addLayout(self.horizontalLayout_4, 5, 0, 1, 1)
+        self.horizontalLayout_2 = QtGui.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
+        self.settings_addinstitutionPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.settings_addinstitutionPushButton.setFont(font)
+        self.settings_addinstitutionPushButton.setObjectName(_fromUtf8("settings_addinstitutionPushButton"))
+        self.horizontalLayout_2.addWidget(self.settings_addinstitutionPushButton)
+        self.removeinstitutionPushButton = QtGui.QPushButton(self.frame_2)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        self.removeinstitutionPushButton.setFont(font)
+        self.removeinstitutionPushButton.setObjectName(_fromUtf8("removeinstitutionPushButton"))
+        self.horizontalLayout_2.addWidget(self.removeinstitutionPushButton)
+        self.gridLayout_16.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
+        self.settings_institutionListWidget = QtGui.QListWidget(self.frame_2)
+        self.settings_institutionListWidget.setMinimumSize(QtCore.QSize(500, 285))
+        self.settings_institutionListWidget.setMaximumSize(QtCore.QSize(16777215, 333))
+        self.settings_institutionListWidget.setStyleSheet(_fromUtf8("background-color:rgba(229, 229, 229,200);"))
+        self.settings_institutionListWidget.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.settings_institutionListWidget.setFrameShadow(QtGui.QFrame.Sunken)
+        self.settings_institutionListWidget.setResizeMode(QtGui.QListView.Fixed)
+        self.settings_institutionListWidget.setViewMode(QtGui.QListView.ListMode)
+        self.settings_institutionListWidget.setUniformItemSizes(True)
+        self.settings_institutionListWidget.setObjectName(_fromUtf8("settings_institutionListWidget"))
+        self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
+        self.verticalLayout_8.addWidget(self.frame_2)
+        self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.formsandfieldsgridwidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.formsandfieldsgridwidget.setMinimumSize(QtCore.QSize(0, 600))
         self.formsandfieldsgridwidget.setStyleSheet(_fromUtf8("#formsandfieldsgridwidget\n"
@@ -3153,104 +3320,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17.addWidget(self.settings_removeformPushButton)
         self.gridLayout_12.addLayout(self.horizontalLayout_17, 3, 1, 1, 1)
         self.gridLayout_14.addWidget(self.formsandfieldsgridwidget, 2, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
-        self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
-        self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
-"\n"
-"background-color:transparent;\n"
-"\n"
-"}"))
-        self.settingsmainframewidget.setObjectName(_fromUtf8("settingsmainframewidget"))
-        self.verticalLayout_8 = QtGui.QVBoxLayout(self.settingsmainframewidget)
-        self.verticalLayout_8.setContentsMargins(-1, -1, -1, 0)
-        self.verticalLayout_8.setObjectName(_fromUtf8("verticalLayout_8"))
-        self.frame_2 = QtGui.QFrame(self.settingsmainframewidget)
-        self.frame_2.setStyleSheet(_fromUtf8("#frame_2{\n"
-"background-color:transparent;\n"
-"}"))
-        self.frame_2.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QtGui.QFrame.Raised)
-        self.frame_2.setObjectName(_fromUtf8("frame_2"))
-        self.gridLayout_16 = QtGui.QGridLayout(self.frame_2)
-        self.gridLayout_16.setObjectName(_fromUtf8("gridLayout_16"))
-        self.settings_institutionlistLabel = QtGui.QLabel(self.frame_2)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
-        font.setPointSize(19)
-        font.setBold(True)
-        font.setWeight(75)
-        self.settings_institutionlistLabel.setFont(font)
-        self.settings_institutionlistLabel.setStyleSheet(_fromUtf8("border-image: url(:/icons/image-blur.png);\n"
-"color:white;"))
-        self.settings_institutionlistLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.settings_institutionlistLabel.setObjectName(_fromUtf8("settings_institutionlistLabel"))
-        self.gridLayout_16.addWidget(self.settings_institutionlistLabel, 0, 0, 1, 1)
-        self.horizontalLayout_4 = QtGui.QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(_fromUtf8("horizontalLayout_4"))
-        self.settings_instLineEdit = QtGui.QLineEdit(self.frame_2)
-        self.settings_instLineEdit.setMinimumSize(QtCore.QSize(350, 0))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(13)
-        font.setBold(True)
-        font.setWeight(75)
-        self.settings_instLineEdit.setFont(font)
-        self.settings_instLineEdit.setAutoFillBackground(False)
-        self.settings_instLineEdit.setObjectName(_fromUtf8("settings_instLineEdit"))
-        self.horizontalLayout_4.addWidget(self.settings_instLineEdit)
-        self.settings_addPushButton = QtGui.QPushButton(self.frame_2)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setUnderline(False)
-        font.setWeight(50)
-        self.settings_addPushButton.setFont(font)
-        self.settings_addPushButton.setDefault(False)
-        self.settings_addPushButton.setObjectName(_fromUtf8("settings_addPushButton"))
-        self.horizontalLayout_4.addWidget(self.settings_addPushButton)
-        self.settings_backinstPushButton = QtGui.QPushButton(self.frame_2)
-        self.settings_backinstPushButton.setMaximumSize(QtCore.QSize(37, 16777215))
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        self.settings_backinstPushButton.setFont(font)
-        self.settings_backinstPushButton.setObjectName(_fromUtf8("settings_backinstPushButton"))
-        self.horizontalLayout_4.addWidget(self.settings_backinstPushButton)
-        self.gridLayout_16.addLayout(self.horizontalLayout_4, 5, 0, 1, 1)
-        self.horizontalLayout_2 = QtGui.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-        self.settings_addinstitutionPushButton = QtGui.QPushButton(self.frame_2)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.settings_addinstitutionPushButton.setFont(font)
-        self.settings_addinstitutionPushButton.setObjectName(_fromUtf8("settings_addinstitutionPushButton"))
-        self.horizontalLayout_2.addWidget(self.settings_addinstitutionPushButton)
-        self.removeinstitutionPushButton = QtGui.QPushButton(self.frame_2)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        self.removeinstitutionPushButton.setFont(font)
-        self.removeinstitutionPushButton.setObjectName(_fromUtf8("removeinstitutionPushButton"))
-        self.horizontalLayout_2.addWidget(self.removeinstitutionPushButton)
-        self.gridLayout_16.addLayout(self.horizontalLayout_2, 2, 0, 1, 1)
-        self.settings_institutionListWidget = QtGui.QListWidget(self.frame_2)
-        self.settings_institutionListWidget.setMinimumSize(QtCore.QSize(500, 285))
-        self.settings_institutionListWidget.setMaximumSize(QtCore.QSize(16777215, 333))
-        self.settings_institutionListWidget.setStyleSheet(_fromUtf8("background-color:rgba(229, 229, 229,200);"))
-        self.settings_institutionListWidget.setFrameShape(QtGui.QFrame.StyledPanel)
-        self.settings_institutionListWidget.setFrameShadow(QtGui.QFrame.Sunken)
-        self.settings_institutionListWidget.setResizeMode(QtGui.QListView.Fixed)
-        self.settings_institutionListWidget.setViewMode(QtGui.QListView.ListMode)
-        self.settings_institutionListWidget.setUniformItemSizes(True)
-        self.settings_institutionListWidget.setObjectName(_fromUtf8("settings_institutionListWidget"))
-        self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
-        self.verticalLayout_8.addWidget(self.frame_2)
-        self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem16 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem16, 1, 0, 1, 1)
+        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem17, 3, 0, 1, 1)
         spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout_14.addItem(spacerItem18, 4, 0, 1, 1)
         self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
@@ -3284,7 +3357,7 @@ class Ui_MainWindow(object):
         self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
         self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 6, 0, 1, 1, QtCore.Qt.AlignHCenter)
         spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem19, 5, 0, 1, 1)
+        self.gridLayout_14.addItem(spacerItem19, 7, 0, 1, 1)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -3548,25 +3621,21 @@ class Ui_MainWindow(object):
         self.conditionlistcombobox.setItemText(6, _translate("MainWindow", "Mothers_Name", None))
         self.conditionlistcombobox.setItemText(7, _translate("MainWindow", "Sex", None))
         self.conditionlistcombobox.setItemText(8, _translate("MainWindow", "Date_Of_Birth", None))
-        self.conditionlistcombobox.setItemText(9, _translate("MainWindow", "Address", None))
+        self.conditionlistcombobox.setItemText(9, _translate("MainWindow", "Enrol_Date", None))
         self.conditionlistcombobox.setItemText(10, _translate("MainWindow", "Email", None))
         self.conditionlistcombobox.setItemText(11, _translate("MainWindow", "Mobile_Number", None))
         self.conditionlistcombobox.setItemText(12, _translate("MainWindow", "Blood_Group", None))
         self.conditionlistcombobox.setItemText(13, _translate("MainWindow", "Certificate", None))
-        self.conditionlistcombobox.setItemText(14, _translate("MainWindow", "Camps_Attended", None))
-        self.conditionlistcombobox.setItemText(15, _translate("MainWindow", "Extra_Curricular_Activities", None))
-        self.conditionlistcombobox.setItemText(16, _translate("MainWindow", "Special_Achievements", None))
-        self.conditionlistcombobox.setItemText(17, _translate("MainWindow", "Enrol_Date", None))
-        self.conditionlistcombobox.setItemText(18, _translate("MainWindow", "Remarks", None))
-        self.conditionlistcombobox.setItemText(19, _translate("MainWindow", "Vegitarian", None))
-        self.conditionlistcombobox.setItemText(20, _translate("MainWindow", "Bank_Name", None))
-        self.conditionlistcombobox.setItemText(21, _translate("MainWindow", "Branch", None))
-        self.conditionlistcombobox.setItemText(22, _translate("MainWindow", "Account_Name", None))
-        self.conditionlistcombobox.setItemText(23, _translate("MainWindow", "Account_Number", None))
-        self.conditionlistcombobox.setItemText(24, _translate("MainWindow", "IFSC_Code", None))
-        self.conditionlistcombobox.setItemText(25, _translate("MainWindow", "MICR", None))
-        self.conditionlistcombobox.setItemText(26, _translate("MainWindow", "Institution", None))
-        self.conditionlistcombobox.setItemText(27, _translate("MainWindow", "Unit", None))
+        self.conditionlistcombobox.setItemText(14, _translate("MainWindow", "Vegitarian", None))
+        self.conditionlistcombobox.setItemText(15, _translate("MainWindow", "Bank_Name", None))
+        self.conditionlistcombobox.setItemText(16, _translate("MainWindow", "Branch", None))
+        self.conditionlistcombobox.setItemText(17, _translate("MainWindow", "Account_Name", None))
+        self.conditionlistcombobox.setItemText(18, _translate("MainWindow", "Account_Number", None))
+        self.conditionlistcombobox.setItemText(19, _translate("MainWindow", "IFSC_Code", None))
+        self.conditionlistcombobox.setItemText(20, _translate("MainWindow", "Institution", None))
+        self.conditionlistcombobox.setItemText(21, _translate("MainWindow", "Unit", None))
+        self.vegitarianqueryComboBox.setItemText(0, _translate("MainWindow", "Veg", None))
+        self.vegitarianqueryComboBox.setItemText(1, _translate("MainWindow", "Non-Veg", None))
         self.bloodgroupqueryComboBox.setItemText(0, _translate("MainWindow", "O+", None))
         self.bloodgroupqueryComboBox.setItemText(1, _translate("MainWindow", "O-", None))
         self.bloodgroupqueryComboBox.setItemText(2, _translate("MainWindow", "A+", None))
@@ -3575,6 +3644,9 @@ class Ui_MainWindow(object):
         self.bloodgroupqueryComboBox.setItemText(5, _translate("MainWindow", "B-", None))
         self.bloodgroupqueryComboBox.setItemText(6, _translate("MainWindow", "AB+", None))
         self.bloodgroupqueryComboBox.setItemText(7, _translate("MainWindow", "AB-", None))
+        self.certificatequeryComboBox.setItemText(0, _translate("MainWindow", "A", None))
+        self.certificatequeryComboBox.setItemText(1, _translate("MainWindow", "B", None))
+        self.certificatequeryComboBox.setItemText(2, _translate("MainWindow", "C", None))
         self.rankqueryComboBox.setItemText(0, _translate("MainWindow", "Cadet (CDT)", None))
         self.rankqueryComboBox.setItemText(1, _translate("MainWindow", "Lance Corporal (LCPL)", None))
         self.rankqueryComboBox.setItemText(2, _translate("MainWindow", "Corporal  (CPL)", None))
@@ -3588,6 +3660,7 @@ class Ui_MainWindow(object):
         self.insertcondition.setText(_translate("MainWindow", "Insert", None))
         self.clearcondition.setText(_translate("MainWindow", "Clear", None))
         self.querycondition.setText(_translate("MainWindow", "Query", None))
+        self.generateexcelqueryPushButton.setText(_translate("MainWindow", "GenerateExcel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Query), _translate("MainWindow", "Query", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Query), _translate("MainWindow", "Do YOGA everyday", None))
         self.label_3.setText(_translate("MainWindow", "Enter Enrollment numbers", None))
@@ -3609,6 +3682,13 @@ class Ui_MainWindow(object):
         self.savedataPushButton.setText(_translate("MainWindow", "Save to database", None))
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
+        self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
+        self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
+        self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
+        self.settings_backinstPushButton.setText(_translate("MainWindow", "Back", None))
+        self.settings_addinstitutionPushButton.setText(_translate("MainWindow", "Add Institution", None))
+        self.removeinstitutionPushButton.setText(_translate("MainWindow", "Remove", None))
+        self.settings_institutionListWidget.setSortingEnabled(False)
         self.settings_fieldsknownRadioButton.setText(_translate("MainWindow", "Add known fields", None))
         self.settings_fieldsunknownRadioButton.setText(_translate("MainWindow", "Add Unknown fields", None))
         self.settings_addfieldPushButton.setText(_translate("MainWindow", "Add Field", None))
@@ -3626,13 +3706,6 @@ class Ui_MainWindow(object):
         self.settings_addfieldLineEdit.setPlaceholderText(_translate("MainWindow", "Enter New Field name", None))
         self.settings_addformPushButton.setText(_translate("MainWindow", "Add Form", None))
         self.settings_removeformPushButton.setText(_translate("MainWindow", "Remove Form", None))
-        self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
-        self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
-        self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
-        self.settings_backinstPushButton.setText(_translate("MainWindow", "Back", None))
-        self.settings_addinstitutionPushButton.setText(_translate("MainWindow", "Add Institution", None))
-        self.removeinstitutionPushButton.setText(_translate("MainWindow", "Remove", None))
-        self.settings_institutionListWidget.setSortingEnabled(False)
         self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
 

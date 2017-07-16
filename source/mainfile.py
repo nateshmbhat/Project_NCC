@@ -509,6 +509,13 @@ class logic():
                 self.formslist.remove(selectedform)
                 self.settings.setValue('formslist', ',,,'.join(self.formslist))
                 self.showtooltip("Form Removed")
+                try:
+                    self.settings.remove(selectedform.replace(' ','_')+"_sql_fieldslist")
+                    self.settings.remove(selectedform.replace(' ','_')+"_notsql_fieldslist")
+                except:
+                    print('error')
+                    pass;
+
                 self.set_forms_list()
 
 
@@ -540,10 +547,15 @@ class logic():
                                                   'Are you sure that you want to add the field selected in the selection box to the field lists ? This will add the field through out the software.',
                                                   'Yes', 'No') == 0:
 
-                        self.nametolistsql.get(selectedform).append(ui.settings_fieldsComboBox.currentText())
+                        mylist = self.nametolistsql.get(selectedform)
+                        mylist = [] if not mylist else mylist
+
+                        mylist.append(ui.settings_fieldsComboBox.currentText())
                         self.settings.setValue(selectedform.replace(' ', '_') + '_sql_fieldslist',
-                                               ',,,'.join(self.nametolistsql.get(selectedform)))
+                                               ',,,'.join(mylist))
+                        self.nametolistsql.update({selectedform:mylist})
                         self.showtooltip("Field Added")
+
                         self.set_fields_list(
                             self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [],
                             self.nametolistnotsql.get(selectedform) if self.nametolistnotsql.get(selectedform) else [])
@@ -563,10 +575,12 @@ class logic():
                     if QtGui.QMessageBox.question(ui.Settings, 'Are You Sure ? ',
                                                   'Are you sure that you want to add the entered field to the list of fields of the corresponding form ? This will add the field through out the software.',
                                                   'Yes', 'No') == 0:
-                        self.nametolistnotsql.get(selectedform).append(
-                            ui.settings_addfieldLineEdit.displayText().strip())
+                        mylist = self.nametolistnotsql.get(selectedform)
+                        mylist = [] if not mylist else mylist
+                        mylist.append(ui.settings_addfieldLineEdit.displayText().strip())
                         self.settings.setValue(selectedform.replace(' ', '_') + '_notsql_fieldslist',
-                                               ',,,'.join(self.nametolistnotsql.get(selectedform)))
+                                               ',,,'.join(mylist))
+                        self.nametolistnotsql.update({selectedform:mylist})
                         self.showtooltip("Field Added")
                         self.set_fields_list(
                             self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [],

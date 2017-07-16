@@ -707,7 +707,6 @@ class logic():
         ui.settings_addPushButton.hide()
         ui.settings_backinstPushButton.hide()
 
-
     def saveuploadeddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
@@ -718,7 +717,7 @@ class logic():
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
             if selectedDataType == "B certificate":
-                selectedDataType = "B_cert_marks"
+                selectedDataType = "Bcert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
@@ -752,9 +751,12 @@ class logic():
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             for i in range(len(sqldata)):
                 sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
-                                                                                               1).text().upper() + "' where Enrolment_Number='" + sqldata[i][0] +"'"
+                                                                                               1).text().upper() + "' where Enrolment_Number='" + \
+                       sqldata[i][0] + "'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
         self.showtooltip("Saved")
+
+
 
     def saveexceluploadeddata(self):
 
@@ -790,6 +792,7 @@ class logic():
 
     rankuploadcombobox = []
     campsattendedcombobox = []
+
 
     def openuploaddata(self):
         self.rankuploadcombobox = []
@@ -1049,21 +1052,30 @@ class logic():
         os.startfile(self.formname)
 
 
-    def saveExcelfuntion(self):
 
-        x = ui.entryBox.toPlainText()
-        s = ''
-        enrolno = []
-        for i in x:
-            if i is ' ':
-                enrolno.append(s)
-                s = ''
+    def saveExcelfuntion(self):
+        formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
+        x = ui.entryBox.toPlainText().replace(" ","")
+
+        msg=""
+        enrolno = x.split(',')
+        enrollist=ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
+        print(enrolno)
+        print(enrollist)
+        for i in enrolno:
+            if i in enrollist:
+                print()
             else:
-                s = s + i
-        enrolno.append(s)
+                msg=msg+str(i)
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
-        self.listheadingdata = self.nametolistnotsql.get(selectedformname)
+        if selectedformname in formlist:
+            self.listheadingdata = self.nametolistnotsql.get(selectedformname)
+        else:
+            self.listheadingdata = self.nametolistsql.get(selectedformname)
+            for i in self.nametolistnotsql.get(selectedformname):
+                self.listheadingdata.append(i)
+
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
             for i in range(len(self.listdata)):
@@ -1092,9 +1104,9 @@ class logic():
         print(sql)
 
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup) < 1:
+        if len(tup) <1:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'First Enter the feed the data for the respected certificate\nand then generate a form.',
+                                      'Make sure that you have seperated enrolmentnumbers by camma(,).',
                                       'OK')
             return
         self.formname = ""
@@ -1108,9 +1120,16 @@ class logic():
         for i in range(len(tup)):
             wr.writerow(tup[i])
         self.table1(tup, sql)
-        self.showtooltip("Form generated sucessfully")
+
+        if len(msg)>0:
+            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
+                                      "\n the following enrolment numbers are not found in database\nRemaining form is generated sucessfully",
+                                      'OK')
+        else:
+            self.showtooltip("Form generated sucessfully")
         res.close()
         os.startfile(self.formname)
+
 
 
 

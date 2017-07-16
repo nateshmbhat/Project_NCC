@@ -1125,14 +1125,14 @@ class logic():
         proceed = True;
         sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText().strip()+"'"
         tup=ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0:
+        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
                                       '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
             return
 
         sql = "select Student_Name from enrolment where Aadhaar_Number='" + ui.aadhaarLineEdit.displayText().strip() + "'"
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0:
+        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
             QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
                                       '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.','OK');
 
@@ -1489,6 +1489,17 @@ font-weight:bold;
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
 
+    def clear_enrolment_form(self):
+        for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
+            i.clear()
+        for i in ui.bankformFrame.findChildren(QtGui.QLineEdit):
+            i.clear()
+        for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
+            i.clear()
+        self.candidphoto = ''
+        ui.selectpictureLabel.clear()
+
+
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
             ui.searchbyfieldLineEdit.clear();
@@ -1580,7 +1591,7 @@ font-weight:bold;
         obj=ENROLMENT_FORM.enroll()
 
         if ui.updateentryCheckBox.isChecked():
-            obj.update_Student_details(self.enrolmentnum , self.rank, self.aadhaarnum, self.fullname, self.fathername,
+            obj.update_student_details(self.enrolmentnum , self.rank, self.aadhaarnum, self.fullname, self.fathername,
 
                                        self.mothername,self.sex,self.dateofbirth,self.address,
 
@@ -1592,10 +1603,9 @@ font-weight:bold;
             self.showtooltip("Updated successfully")
 
 
-
         else:
 
-            obj.enrol_Student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
+            obj.enrol_student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
 
                               self.mothername,self.sex,self.dateofbirth,self.address,
 
@@ -1619,30 +1629,6 @@ font-weight:bold;
             print("The csv file is already open. It needs to be closed before updating it.")
 
 
-
-
-        else:
-
-            obj.enrol_Student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
-
-                              self.mothername, self.sex, self.dateofbirth, self.address,
-
-                              self.email, self.mobilenum, self.bloodgroup, self.certificate, self.campsattended,
-                              self.extracurricularactivities
-
-                              , self.specialachievements, self.enrolldate, self.remarks, self.vegitarian, self.bankname,
-                              self.bankbranch, self.accountname,
-
-                              self.accountnum, self.ifsccode, self.micr, self.institutionname, self.unit)
-
-            self.showtooltip("Inserted successfully")
-
-        con = sqlite3.connect("ncc.db")
-        data = pd.read_sql("select * from enrolment", con)
-        try:
-            data.to_csv(r'All candidate details.csv')
-        except(PermissionError):
-            print("The csv file is already open. It needs to be closed before updating it.")
 
     def table1(self, res, msg):
 

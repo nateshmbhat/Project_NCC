@@ -67,9 +67,6 @@ class logic():
         ui.orcondition.clicked.connect(
             lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " or "))
 
-        ui.equalscondition.clicked.connect(
-            lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "="))
-
         ui.openbracecondition.clicked.connect(
             lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "("))
 
@@ -235,8 +232,9 @@ class logic():
         self.showtooltip("Excel file generated")
         res.close()
         os.startfile(name)
-    def init_settings(self):
 
+
+    def init_settings(self):
         """Sets all the parameters from the settings file"""
 
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
@@ -487,6 +485,10 @@ class logic():
                 self.settings.setValue('formslist', ',,,'.join(self.formslist))
                 self.settings.setValue(formname.replace(' ', '_') + '_sql_fieldslist', '')
                 self.showtooltip("Form Added")
+
+                ui.formsComboBox.clear()
+                ui.formsComboBox.addItems(self.formslist)
+
 
                 ui.settings_addformLineEdit.clear()
                 ui.settings_formsListWidget.clear()
@@ -957,9 +959,9 @@ class logic():
         ui.CATCCheckBox.setChecked(False)
 
     def enrol_button_pressed(self):
+
         ui.searchbyfieldLineEdit.clear()
         self.enable_query_checkbox_elements();
-        ui.submitPushButton.show()
 
     def update_excel_function(self):
         if ui.entryBox.toPlainText() == "":
@@ -1025,6 +1027,8 @@ class logic():
         self.table1(tup, sql)
         self.showtooltip("Form updated sucessfully")
         os.startfile(self.formname)
+
+
     def saveExcelfuntion(self):
 
         x = ui.entryBox.toPlainText()
@@ -1066,6 +1070,7 @@ class logic():
             if i != len(enrolno) - 1:
                 sql = sql + "or"
         print(sql)
+
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) < 1:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
@@ -1086,14 +1091,21 @@ class logic():
         self.showtooltip("Form generated sucessfully")
         res.close()
         os.startfile(self.formname)
+
+
+
     def picselect(self):
         self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.')
+        if not self.candidphoto:
+            return
 
         if not (self.candidphoto.endswith('.png') or self.candidphoto.endswith('.jpg')):
             QtGui.QMessageBox.warning(ui.Enrol , 'Invalid image' , 'Please make sure that the image you select is a valid Image file with .PNG or .JPG extention !','OK')
             self.candidphoto = ''
             return
         ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
+
+
     def check_enrol_form_data(self):
 
         proceed = True;
@@ -1366,6 +1378,8 @@ font-weight:bold;
 
         search_field_text = ui.searchbyfieldLineEdit.displayText().strip()
 
+
+
         if ui.aadhaarnumRadioButton.isChecked():
             self.field = 'Aadhaar_Number'
             # if len(search_field_text)==12:
@@ -1378,6 +1392,12 @@ font-weight:bold;
         ui.enrolPushButton.setChecked(False)
 
         tuple = obj.search_by_field(self.field, search_field_text);
+
+        if not tuple:
+            self.showtooltip("No Details Found")
+            ui.enrolPushButton.setChecked(True)
+            self.enable_query_checkbox_elements()
+            return
 
         # if tuple==None:
         #     QtGui.QMessageBox.warning(ui.enrolformFrame, "Not found",

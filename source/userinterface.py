@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1367, 1151, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1361, 1151, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1185,8 +1185,8 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.enrolPushButton.setFont(font)
-        self.enrolPushButton.setStyleSheet(_fromUtf8("background-color:rgba(228, 92, 255,100);\n"
-"color:chartreuse;"))
+        self.enrolPushButton.setStyleSheet(_fromUtf8("background-color:rgba(170, 0, 255,200);\n"
+"color:yellow;"))
         self.enrolPushButton.setCheckable(True)
         self.enrolPushButton.setChecked(True)
         self.enrolPushButton.setFlat(False)
@@ -2100,44 +2100,6 @@ class Ui_MainWindow(object):
 "}"))
         self.closebracecondition.setObjectName(_fromUtf8("closebracecondition"))
         self.horizontalLayout_5.addWidget(self.closebracecondition)
-        self.equalscondition = QtGui.QPushButton(self.frame)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.equalscondition.setFont(font)
-        self.equalscondition.setStyleSheet(_fromUtf8("#equalscondition{\n"
-"background-color: rgb(255,255,255);\n"
-"    color: rgb(0, 0, 0);\n"
-"font: 75 12pt \"MS Shell Dlg 2\";\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"border-style:solid;\n"
-"border-color: rgb(255, 170, 0);\n"
-"border-width:2px;\n"
-"height:30px;\n"
-"border-radius:15px;\n"
-"width:120%;\n"
-"}\n"
-"\n"
-"#equalscondition:hover\n"
-"{\n"
-"color:rgb(255,255,255);\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"font: 75 14pt \"MS Shell Dlg 2\";\n"
-"border-style:solid;\n"
-"border-color:rgb(255,255,255);\n"
-"border-radius:15px;\n"
-"background-color: rgb(255, 170, 0);\n"
-"width:120%;\n"
-"border-width:2px;\n"
-"height:25px;\n"
-"}"))
-        self.equalscondition.setObjectName(_fromUtf8("equalscondition"))
-        self.horizontalLayout_5.addWidget(self.equalscondition)
         self.greatercondition = QtGui.QPushButton(self.frame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("MS Shell Dlg 2"))
@@ -2871,7 +2833,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2886,7 +2851,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2905,7 +2873,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
 "font-size:20px;\n"
@@ -2944,7 +2915,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2973,7 +2947,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -3020,7 +2997,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -392, 1149, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1149, 1198))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3406,7 +3383,7 @@ class Ui_MainWindow(object):
         self.fathernameLabel.setBuddy(self.fathernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(2)
+        self.mytab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
         MainWindow.setTabOrder(self.rankComboBox, self.aadhaarLineEdit)
@@ -3486,8 +3463,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.andcondition, self.orcondition)
         MainWindow.setTabOrder(self.orcondition, self.openbracecondition)
         MainWindow.setTabOrder(self.openbracecondition, self.closebracecondition)
-        MainWindow.setTabOrder(self.closebracecondition, self.equalscondition)
-        MainWindow.setTabOrder(self.equalscondition, self.greatercondition)
+        MainWindow.setTabOrder(self.closebracecondition, self.greatercondition)
         MainWindow.setTabOrder(self.greatercondition, self.lessercondition)
         MainWindow.setTabOrder(self.lessercondition, self.backcondition)
         MainWindow.setTabOrder(self.backcondition, self.conditionlistcombobox)
@@ -3637,7 +3613,6 @@ class Ui_MainWindow(object):
         self.orcondition.setText(_translate("MainWindow", "OR", None))
         self.openbracecondition.setText(_translate("MainWindow", "(", None))
         self.closebracecondition.setText(_translate("MainWindow", ")", None))
-        self.equalscondition.setText(_translate("MainWindow", "=", None))
         self.greatercondition.setText(_translate("MainWindow", ">", None))
         self.lessercondition.setText(_translate("MainWindow", "<", None))
         self.backcondition.setText(_translate("MainWindow", "Back", None))
@@ -3694,7 +3669,7 @@ class Ui_MainWindow(object):
         self.insertcondition.setText(_translate("MainWindow", "Insert", None))
         self.clearcondition.setText(_translate("MainWindow", "Clear", None))
         self.querycondition.setText(_translate("MainWindow", "Query", None))
-        self.generateexcelqueryPushButton.setText(_translate("MainWindow", "Generate Excel", None))
+        self.generateexcelqueryPushButton.setText(_translate("MainWindow", "Generate CSV", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Query), _translate("MainWindow", "Query", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Query), _translate("MainWindow", "Query", None))
         self.saveExelPushButton.setText(_translate("MainWindow", "Generate Form", None))
@@ -3718,7 +3693,7 @@ class Ui_MainWindow(object):
         self.typecomboBox.setItemText(4, _translate("MainWindow", "Add Camps", None))
         self.typecomboBox.setItemText(5, _translate("MainWindow", "Add Extra Activities", None))
         self.typecomboBox.setItemText(6, _translate("MainWindow", "Add Remarks", None))
-        self.openPushButton.setText(_translate("MainWindow", "Open", None))
+        self.openPushButton.setText(_translate("MainWindow", "Open Entry Table", None))
         self.savedataPushButton.setText(_translate("MainWindow", "Save to database", None))
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))

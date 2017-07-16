@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1005</width>
+    <width>1100</width>
     <height>893</height>
    </rect>
   </property>
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -325,8 +325,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1363</y>
-             <width>946</width>
+             <y>0</y>
+             <width>1041</width>
              <height>1899</height>
             </rect>
            </property>
@@ -4527,7 +4527,122 @@ background-color:transparent;
            <property name="sizeConstraint">
             <enum>QLayout::SetDefaultConstraint</enum>
            </property>
-           <item row="9" column="0" colspan="2">
+           <item row="4" column="0">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QComboBox" name="formsComboBox">
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>28</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Caladea</family>
+               <pointsize>18</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#formsComboBox{
+border-radius:2px;
+}</string>
+             </property>
+             <property name="maxVisibleItems">
+              <number>20</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QWebView" name="webView_2">
+             <property name="font">
+              <font>
+               <family>Colonna MT</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:transparent;</string>
+             </property>
+             <property name="url">
+              <url>
+               <string>about:blank</string>
+              </url>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignTop">
+            <widget class="QLabel" name="label_12">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Colonna MT</family>
+               <pointsize>48</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:transparent;
+color:blue;</string>
+             </property>
+             <property name="text">
+              <string>Choose your Form</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0" colspan="2">
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="1" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -4629,10 +4744,11 @@ width:400%;
              </item>
             </layout>
            </item>
-           <item row="3" column="0" alignment="Qt::AlignHCenter">
+           <item row="5" column="0" alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="label_3">
              <property name="font">
               <font>
+               <family>Georgia</family>
                <pointsize>-1</pointsize>
               </font>
              </property>
@@ -4646,110 +4762,8 @@ color:black;</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QComboBox" name="formsComboBox">
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>28</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Caladea</family>
-               <pointsize>18</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#formsComboBox{
-border-radius:2px;
-}</string>
-             </property>
-             <property name="maxVisibleItems">
-              <number>20</number>
-             </property>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="7" column="0">
-            <widget class="QWebView" name="webView_2">
-             <property name="font">
-              <font>
-               <family>Colonna MT</family>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:transparent;</string>
-             </property>
-             <property name="url">
-              <url>
-               <string>about:blank</string>
-              </url>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="label_12">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="font">
-              <font>
-               <family>Colonna MT</family>
-               <pointsize>48</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:transparent;
-color:blue;</string>
-             </property>
-             <property name="text">
-              <string>Choose your Form</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <spacer name="horizontalSpacer_17">
+           <item row="11" column="0">
+            <spacer name="horizontalSpacer_8">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -4761,7 +4775,7 @@ color:blue;</string>
              </property>
             </spacer>
            </item>
-           <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
+           <item row="8" column="0" colspan="2" alignment="Qt::AlignHCenter">
             <widget class="QTextEdit" name="entryBox">
              <property name="minimumSize">
               <size>
@@ -4786,15 +4800,15 @@ color:black;</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
-            <spacer name="horizontalSpacer_8">
+           <item row="6" column="0">
+            <spacer name="horizontalSpacer_20">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
-               <height>20</height>
+               <height>5</height>
               </size>
              </property>
             </spacer>
@@ -4828,7 +4842,10 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
+                <family>Caladea</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4862,7 +4879,10 @@ color: rgb(0, 0, 127);</string>
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
+                <family>Caladea</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4916,7 +4936,10 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
+                <family>Caladea</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4976,7 +4999,10 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
+                <family>Cambria</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5013,7 +5039,10 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
+                <family>Cambria</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5083,7 +5112,7 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>972</width>
+             <width>1039</width>
              <height>1198</height>
             </rect>
            </property>

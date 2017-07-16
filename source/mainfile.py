@@ -718,7 +718,7 @@ class logic():
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
             if selectedDataType == "B certificate":
-                selectedDataType = "Bcert_marks"
+                selectedDataType = "B_cert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
@@ -752,8 +752,7 @@ class logic():
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             for i in range(len(sqldata)):
                 sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
-                                                                                               1).text().upper() + "' where Enrolment_Number='" + \
-                       sqldata[i][0] + "'"
+                                                                                               1).text().upper() + "' where Enrolment_Number='" + sqldata[i][0] +"'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
         self.showtooltip("Saved")
 
@@ -767,7 +766,7 @@ class logic():
             self.book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
             self.sheet = self.book.get_sheet_by_name('B')
         elif ui.typecomboBox.currentText() == "C certificate":
-            self.book = openpyxl.load_workbook('CC_CERTIFICATES.xlsx')
+            self.book = openpyxl.load_workbook('C_CERTIFICATES.xlsx')
             self.sheet = self.book.get_sheet_by_name('C')
 
         for i in range(ui.tableWidget.rowCount()):
@@ -1385,7 +1384,6 @@ font-weight:bold;
         ui.updateentryCheckBox.show()
 
     def display(self, obj):  # this executes when the Search button is pressed
-
 
         if obj.objectName() == 'searchPushButton':
             if ui.searchbyfieldLineEdit.displayText().strip() == '':

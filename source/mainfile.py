@@ -1017,6 +1017,11 @@ class logic():
 
     def picselect(self):
         self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.')
+
+        if not (self.candidphoto.endswith('.png') or self.candidphoto.endswith('.jpg')):
+            QtGui.QMessageBox.warning(ui.Enrol , 'Invalid image' , 'Please make sure that the image you select is a valid Image file with .PNG or .JPG extention !','OK')
+            self.candidphoto = ''
+            return
         ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
 
     def check_enrol_form_data(self):

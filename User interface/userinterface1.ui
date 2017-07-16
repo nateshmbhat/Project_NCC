@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1204</width>
-    <height>903</height>
+    <width>1210</width>
+    <height>893</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -84,6 +84,9 @@
       <property name="mouseTracking">
        <bool>true</bool>
       </property>
+      <property name="toolTip">
+       <string/>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
@@ -91,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -100,7 +103,7 @@
        <bool>false</bool>
       </property>
       <property name="movable">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
       <property name="tabBarAutoHide" stdset="0">
        <bool>false</bool>
@@ -127,7 +130,7 @@
         <string>Enrolment form</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Enrolment form for NCC</string>
+        <string>Enrolment form</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0" alignment="Qt::AlignHCenter">
@@ -322,8 +325,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1145</width>
+             <y>-1367</y>
+             <width>1151</width>
              <height>1899</height>
             </rect>
            </property>
@@ -2578,7 +2581,7 @@ font-size:20px;
         <string>Query</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Do YOGA everyday</string>
+        <string>Query</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
@@ -3866,7 +3869,7 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
-                      <string>student_Name</string>
+                      <string>Student_Name</string>
                      </property>
                     </item>
                     <item>
@@ -3887,6 +3890,11 @@ width:130%;
                     <item>
                      <property name="text">
                       <string>Date_Of_Birth</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Address</string>
                      </property>
                     </item>
                     <item>
@@ -3912,6 +3920,11 @@ width:130%;
                     <item>
                      <property name="text">
                       <string>Certificate</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Camps_Attended</string>
                      </property>
                     </item>
                     <item>
@@ -3957,6 +3970,39 @@ width:130%;
                    </widget>
                   </item>
                   <item>
+                   <widget class="QComboBox" name="campsattendedqueryComboBox">
+                    <property name="styleSheet">
+                     <string notr="true">#campsattendedqueryComboBox{
+	background-color: rgb(255, 255, 255);
+	color: rgb(85, 0, 0);
+	font: 12pt &quot;georgia&quot;;
+width:130%;
+height:30px;
+}
+#campsattendedqueryComboBox:hover{
+	border:1px solid chartreuse;
+	font: 14pt &quot;georgia&quot;;
+width:130%;
+}</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>NIC</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>AAC</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CATC</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
                    <widget class="QComboBox" name="vegitarianqueryComboBox">
                     <property name="styleSheet">
                      <string notr="true">#vegitarianqueryComboBox{
@@ -3974,12 +4020,12 @@ width:130%;
                     </property>
                     <item>
                      <property name="text">
-                      <string>Veg</string>
+                      <string>veg</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>Non-Veg</string>
+                      <string>nonveg</string>
                      </property>
                     </item>
                    </widget>
@@ -4471,7 +4517,7 @@ width:130%;
 }</string>
           </property>
           <property name="text">
-           <string>GenerateExcel</string>
+           <string>Generate Excel</string>
           </property>
          </widget>
         </item>
@@ -4488,8 +4534,11 @@ background-position:centre;
        <attribute name="title">
         <string>Forms</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Forms</string>
+       </attribute>
        <layout class="QGridLayout" name="gridLayout_15">
-        <item row="0" column="0" alignment="Qt::AlignHCenter">
+        <item row="0" column="0">
          <widget class="QFrame" name="formsframe">
           <property name="styleSheet">
            <string notr="true">#formsframe{
@@ -4500,71 +4549,11 @@ background-color:transparent;
            <property name="sizeConstraint">
             <enum>QLayout::SetDefaultConstraint</enum>
            </property>
-           <item row="2" column="0">
-            <widget class="QComboBox" name="formsComboBox">
-             <property name="font">
-              <font>
-               <family>Comic Sans MS</family>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#formsComboBox{
-border-radius:2px;
-}</string>
-             </property>
-             <property name="maxVisibleItems">
-              <number>20</number>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="label_3">
-             <property name="font">
-              <font>
-               <pointsize>-1</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font-size:25px;
-background-color:transparent;
-color:black;</string>
-             </property>
-             <property name="text">
-              <string>Enter Enrollment numbers</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0" colspan="2">
-            <widget class="QTextEdit" name="entryBox">
-             <property name="minimumSize">
-              <size>
-               <width>800</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Caladea</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(210, 255, 249);
-border-radius:10px;
-border-width:2px;
-border-style:groove;
-color:black;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0" colspan="2">
+           <item row="9" column="0" colspan="2">
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="1" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_14">
-               <item>
+               <item alignment="Qt::AlignHCenter">
                 <widget class="QPushButton" name="saveExelPushButton">
                  <property name="font">
                   <font>
@@ -4608,11 +4597,11 @@ width:400%;
 </string>
                  </property>
                  <property name="text">
-                  <string>Save Exel</string>
+                  <string>Generate Form</string>
                  </property>
                 </widget>
                </item>
-               <item>
+               <item alignment="Qt::AlignHCenter">
                 <widget class="QPushButton" name="updateExelPushButton">
                  <property name="font">
                   <font>
@@ -4654,7 +4643,7 @@ width:400%;
 </string>
                  </property>
                  <property name="text">
-                  <string>Update Exel</string>
+                  <string>Update Form</string>
                  </property>
                 </widget>
                </item>
@@ -4662,18 +4651,96 @@ width:400%;
              </item>
             </layout>
            </item>
-           <item row="8" column="0">
-            <spacer name="horizontalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="3" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <pointsize>-1</pointsize>
+              </font>
              </property>
-             <property name="sizeHint" stdset="0">
+             <property name="styleSheet">
+              <string notr="true">font-size:25px;
+background-color:transparent;
+color:black;</string>
+             </property>
+             <property name="text">
+              <string>Enter Enrollment numbers</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QComboBox" name="formsComboBox">
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>300</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>28</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Caladea</family>
+               <pointsize>18</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#formsComboBox{
+border-radius:2px;
+}</string>
+             </property>
+             <property name="maxVisibleItems">
+              <number>20</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>New Item</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <widget class="QWebView" name="webView_2">
+             <property name="font">
+              <font>
+               <family>Colonna MT</family>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:transparent;</string>
+             </property>
+             <property name="url">
+              <url>
+               <string>about:blank</string>
+              </url>
+             </property>
+            </widget>
            </item>
            <item row="1" column="0" alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="label_12">
@@ -4703,22 +4770,56 @@ color:blue;</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
-            <widget class="QWebView" name="webView_2">
+           <item row="4" column="0">
+            <spacer name="horizontalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0" colspan="2" alignment="Qt::AlignHCenter">
+            <widget class="QTextEdit" name="entryBox">
+             <property name="minimumSize">
+              <size>
+               <width>800</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <family>Colonna MT</family>
+               <family>Caladea</family>
+               <pointsize>14</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color:transparent;</string>
-             </property>
-             <property name="url">
-              <url>
-               <string>about:blank</string>
-              </url>
+              <string notr="true">background-color: rgb(210, 255, 249);
+border-radius:10px;
+border-width:2px;
+border-style:groove;
+color:black;</string>
              </property>
             </widget>
+           </item>
+           <item row="8" column="0">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
@@ -4736,6 +4837,9 @@ background-repeat:none;
        </property>
        <attribute name="title">
         <string>Data Entry</string>
+       </attribute>
+       <attribute name="toolTip">
+        <string>Upload data</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -4981,6 +5085,9 @@ background-position:center;
        <attribute name="title">
         <string>Settings</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Settings</string>
+       </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_11">
         <item>
          <widget class="QScrollArea" name="SettingsScrollArea">
@@ -4997,8 +5104,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1143</width>
+             <y>-392</y>
+             <width>1149</width>
              <height>1198</height>
             </rect>
            </property>
@@ -5880,6 +5987,7 @@ padding:10px 10px;
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
+  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

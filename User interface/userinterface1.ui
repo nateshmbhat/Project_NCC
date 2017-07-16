@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1210</width>
+    <width>1005</width>
     <height>893</height>
    </rect>
   </property>
@@ -325,8 +325,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1361</y>
-             <width>1151</width>
+             <y>-1363</y>
+             <width>946</width>
              <height>1899</height>
             </rect>
            </property>
@@ -1233,21 +1233,6 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="13" column="1">
-                <widget class="QTextEdit" name="addressTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                </widget>
-               </item>
                <item row="14" column="0">
                 <widget class="QLabel" name="emailLabel">
                  <property name="font">
@@ -1644,6 +1629,9 @@ color:white;</string>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
                  </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="21" column="1">
@@ -1659,6 +1647,9 @@ color:white;</string>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
                  </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="22" column="1">
@@ -1673,6 +1664,9 @@ color:white;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -1798,6 +1792,24 @@ color:white;</string>
                  </property>
                  <property name="buddy">
                   <cstring>fathernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="1">
+                <widget class="QTextEdit" name="addressTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -2515,6 +2527,18 @@ font-size:20px;
 	background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
 	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
 	background-color:#0061a7;
+}
+
+
+#searchPushButton:pressed
+{
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));
+	background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);
+	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	background-color:rgba(3, 50, 120,150);
 }
 </string>
                </property>
@@ -4804,10 +4828,7 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4841,10 +4862,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4898,10 +4916,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
-                <family>Georgia</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4961,10 +4976,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5001,10 +5013,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5074,7 +5083,7 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1149</width>
+             <width>972</width>
              <height>1198</height>
             </rect>
            </property>
@@ -5955,7 +5964,24 @@ padding:10px 10px;
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="E:/CODES/ncc/Icons/icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>searchbyfieldLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>searchPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>385</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

@@ -416,6 +416,7 @@ class logic():
             item.setBackground(brush)
             ui.settings_fieldsListWidget.addItem(item)
 
+
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
         if ui.settings_formsListWidget.currentItem().text().strip() not in ['A certificate', 'B certificate', 'C certificate']:

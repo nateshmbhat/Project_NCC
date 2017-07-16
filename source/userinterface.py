@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1210, 893)
+        MainWindow.resize(1005, 893)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1361, 1151, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1363, 946, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -613,16 +613,6 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.addressLabel.setObjectName(_fromUtf8("addressLabel"))
         self.Enrol_form.setWidget(13, QtGui.QFormLayout.LabelRole, self.addressLabel)
-        self.addressTextEdit = QtGui.QTextEdit(self.enrolformFrame)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.addressTextEdit.setFont(font)
-        self.addressTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
-        self.addressTextEdit.setObjectName(_fromUtf8("addressTextEdit"))
-        self.Enrol_form.setWidget(13, QtGui.QFormLayout.FieldRole, self.addressTextEdit)
         self.emailLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -822,6 +812,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.remarksTextEdit.setFont(font)
         self.remarksTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
+        self.remarksTextEdit.setTabChangesFocus(True)
         self.remarksTextEdit.setObjectName(_fromUtf8("remarksTextEdit"))
         self.Enrol_form.setWidget(24, QtGui.QFormLayout.FieldRole, self.remarksTextEdit)
         self.extraactivitiesTextEdit = QtGui.QTextEdit(self.enrolformFrame)
@@ -832,6 +823,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.extraactivitiesTextEdit.setFont(font)
         self.extraactivitiesTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
+        self.extraactivitiesTextEdit.setTabChangesFocus(True)
         self.extraactivitiesTextEdit.setObjectName(_fromUtf8("extraactivitiesTextEdit"))
         self.Enrol_form.setWidget(21, QtGui.QFormLayout.FieldRole, self.extraactivitiesTextEdit)
         self.specialachievementsTextEdit = QtGui.QTextEdit(self.enrolformFrame)
@@ -842,6 +834,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.specialachievementsTextEdit.setFont(font)
         self.specialachievementsTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
+        self.specialachievementsTextEdit.setTabChangesFocus(True)
         self.specialachievementsTextEdit.setObjectName(_fromUtf8("specialachievementsTextEdit"))
         self.Enrol_form.setWidget(22, QtGui.QFormLayout.FieldRole, self.specialachievementsTextEdit)
         self.enroldateDateEdit = QtGui.QDateEdit(self.enrolformFrame)
@@ -910,6 +903,17 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.fathernameLabel.setObjectName(_fromUtf8("fathernameLabel"))
         self.Enrol_form.setWidget(6, QtGui.QFormLayout.LabelRole, self.fathernameLabel)
+        self.addressTextEdit = QtGui.QTextEdit(self.enrolformFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.addressTextEdit.setFont(font)
+        self.addressTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
+        self.addressTextEdit.setTabChangesFocus(True)
+        self.addressTextEdit.setObjectName(_fromUtf8("addressTextEdit"))
+        self.Enrol_form.setWidget(13, QtGui.QFormLayout.FieldRole, self.addressTextEdit)
         self.gridLayout_3.addWidget(self.enrolformFrame, 3, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.bankformFrame = QtGui.QFrame(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
@@ -1319,6 +1323,18 @@ class Ui_MainWindow(object):
 "    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
 "    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);\n"
 "    background-color:#0061a7;\n"
+"}\n"
+"\n"
+"\n"
+"#searchPushButton:pressed\n"
+"{\n"
+"    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0061a7), color-stop(1, #007dc1));\n"
+"    background:-moz-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-webkit-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-o-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:-ms-linear-gradient(top, #0061a7 5%, #007dc1 100%);\n"
+"    background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);\n"
+"    background-color:rgba(3, 50, 120,150);\n"
 "}\n"
 ""))
         self.searchPushButton.setCheckable(False)
@@ -2833,10 +2849,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2851,10 +2864,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2873,10 +2883,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
 "font-size:20px;\n"
@@ -2915,10 +2922,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2947,10 +2951,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -2997,7 +2998,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1149, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 972, 1198))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3384,6 +3385,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.mytab.setCurrentIndex(0)
+        QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
         MainWindow.setTabOrder(self.rankComboBox, self.aadhaarLineEdit)

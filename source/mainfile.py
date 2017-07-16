@@ -426,7 +426,6 @@ class logic():
         # Set the elements that are not already in the corresponding field into the add field combobox
 
         ui.settings_fieldsComboBox.clear()
-        print(sqllist)
 
         for ele in self.all_enrolment_form_fieldslist:
             if ele not in sqllist:
@@ -1030,9 +1029,7 @@ class logic():
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
-        print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        print(tup)
         if len(tup) == 0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'First Enter the feed the data for the respected certificate\nand then generate a form.',
@@ -1060,8 +1057,6 @@ class logic():
         msg=""
         enrolno = x.split(',')
         enrollist=ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
-        print(enrolno)
-        print(enrollist)
         for i in enrolno:
             if i in enrollist:
                 print()
@@ -1101,7 +1096,6 @@ class logic():
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
-        print(sql)
 
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) <1:
@@ -1454,7 +1448,6 @@ font-weight:bold;
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
 
 
-        print(tuple)
         months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         dateyear = int(tuple[7][7] + tuple[7][8] + tuple[7][9] + tuple[7][10])
         datemonth = tuple[7][3] + tuple[7][4] + tuple[7][5]
@@ -1893,8 +1886,6 @@ font-weight:bold;
                 if l > -1:
                     length = length + 1
                 sql33 = sql33[l + 1:]
-                print(sql33)
-            print(length)
             while length > 0:
                 str1 = sql2[sql2.find(field + "=") + len(field) + 2:]
                 strr = str1[:str1.find("\"")]
@@ -1902,7 +1893,6 @@ font-weight:bold;
                 q = str1[str1.find("\"") + 1:]
                 sql2 = s + " LIKE '%" + strr + "%' collate utf8_general_ci" + q
                 length = length - 1
-                print(sql2)
         else:
             length = 0
             l = 1
@@ -1912,8 +1902,6 @@ font-weight:bold;
                 if l > -1:
                     length = length + 1
                 sql33 = sql33[l + 1:]
-                print(sql33)
-            print(length)
             while length > 0:
                 str1 = sql2[sql2.find(field + "=") + len(field) + 2:]
                 strr = str1[:str1.find("\"")]
@@ -1921,7 +1909,6 @@ font-weight:bold;
                 q = str1[str1.find("\"") + 1:]
                 sql2 = s + " LIKE '" + strr + "' collate utf8_general_ci" + q
                 length = length - 1
-                print(sql2)
         return (sql2)
 
     def conquery(self):
@@ -2055,7 +2042,6 @@ font-weight:bold;
                                                                                                                             9:len(
                                                                                                                                 sql)]
 
-        print(sql)
         self.querytupple = ENROLMENT_FORM.enroll().execute(sql)
         if len(self.querytupple) < 1:
             self.showtooltip("No Data Found")

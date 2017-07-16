@@ -1,14 +1,15 @@
 ,Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit
-0,kar1,Lance Corporal (LCPL),7456 3453 45,dlasfds,APPANNA,AMMAMMA,Male,01/Jan/2000,afdasfdasfdasf,,3463453534,O+,,,adsf,fadssd,01/Jan/2000,d,veg,,,,,,,Sarvodaya PU College,tygh
+0,kar1,Lance Corporal (LCPL),7456 3453 45,dlasfds,APPANNA,AMMAMMA,Male,01/Jan/2000,afdasfdasfdasf,,3463453534,O+,,,ADSF,fadssd,01/Jan/2000,d,veg,,,,,,,Sarvodaya PU College,tygh
 1,kar2,Cadet (CDT),232323232397,asdf,dsfadsf,dsfdas,Female,01/Jan/2000,asdfsadfa,,,O+,,NIC,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdf
 2,kar3,Cadet (CDT),232323232323,asdf,dsfadsf,dsfdas,Female,01/Jan/2000,asdfsadfa,,,O+,,,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,asdf
-3,kar4,Cadet (CDT),222453254244 ,Natesh,appa,amma,Female,01/Jan/2000,"address,hello its me	",,8933289348,O+,,,asdfds,fdasfdas,01/Jan/2000,dsfdsgadsgadsgff,veg,dsfghad,afasf,dasfdsfds,,sdfgdg43534,233434345,Sarvodaya PU College,kadfs
+3,kar4,Cadet (CDT),222453254244 ,Natesh,appa,amma,Female,01/Jan/2000,"address,hello its me	",,8933289348,O+,,,ASDFDS,fdasfdas,01/Jan/2000,dsfdsgadsgadsgff,veg,dsfghad,afasf,dasfdsfds,,sdfgdg43534,233434345,Sarvodaya PU College,kadfs
 4,dads,Cadet (CDT),324234234242,dsadfs,adfsf,dfas,Male,01/Jan/2000,dasfdsf,,,O+,,,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,dasfadsf
 5,dasf,Lance Corporal (LCPL),209347827342,natesh,appa,amma,Male,01/Jan/2000,afdasfdasfdasf,,4444444444,O+,,,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,kjhv
-6,gs1,Cadet (CDT),123456789123,geetha,father,mother,Male,12/Feb/1962,hanumanthapura,geetha@gmail.com,9880106512,O+,B,NIC,bajans,abacus teacher,31/Aug/2017,this is me,veg,sbm,tmlk,gs,,cjbj s,2345678,Sarvodaya PU College,4kar
-7,ammu1,Sergent (SGT),999999996599,ammu,ammu father,ammu mother,Female,01/Jan/1998,huli kallu	,ammu@gmail.com,,O+,B,CATC,nothing,nothing,01/Jan/2000,nothing,nonveg,sbm,bh road,ammu,,SBMB123,1434563,Sarvodaya PU College,4kar
+6,gs1,Cadet (CDT),123456789123,geetha,father,mother,Male,12/Feb/1962,hanumanthapura,geetha@gmail.com,9880106512,O+,B,NIC,BAJANS,abacus teacher,31/Aug/2017,this is me,veg,sbm,tmlk,gs,,cjbj s,2345678,Sarvodaya PU College,4kar
+7,ammu1,Sergent (SGT),999999996599,ammu,ammu father,ammu mother,Female,01/Jan/1998,huli kallu	,ammu@gmail.com,,O+,B,CATC,NOTHING,nothing,01/Jan/2000,nothing,nonveg,sbm,bh road,ammu,,SBMB123,1434563,Sarvodaya PU College,4kar
 8,dsvfdasf,Senior Under Officer (SUO),555555555555,dagfds,dasfdasf,dasfdas,Male,01/Jan/2000,dasfdasfsdafdasfasdfdsf,,,A-,,,,,01/Jan/2000,,veg,,,,,,,Select Institution,dasfdasf
 9,asdfdasfa,Cadet (CDT),555635555555,dasfasdfads,asdfasdf,asdfdas,Male,01/Jan/2000,adsfdasf,,,O+,,,,,01/Jan/2000,,veg,,,,,,,Select Institution,dasfasdfasas
 10,dasvfdssgsdf,Cadet (CDT),672634615415,asdfdsfdasga,sgasdds,fadsfdasfdasf,Male,01/Jan/2000,dfdasgdasgdasgdsagdas gasdgdas,,,O+,,,,,01/Jan/2000,,veg,,,,,,,Sarvodaya PU College,4KAR
 11,dsafadsf,Lance Corporal (LCPL),232323462456,dasfdasfsd,sdfdasfadsfds,fasdfdsfadsfads,Male,01/Jan/2000,dasfdasfdasfadsaf,,,O+,,,,,16/Jul/2017,,veg,,,,,,,Sarvodaya PU College,4KAR
-12,kar6,Company Sergent Major (CSM),234234325154,Nateshm bhat,appa,amma,Male,01/Jan/2000,"dlasfdsflasfasdfkljdsgdsjgddfsgdf,INDIA , Tumkur,bharath , mane",,3453453452,O+,,,dasfsd,fsdfsdf,16/Jul/2017,dsfsdfsdsfdasfdsgasg,nonveg,dfsgdsfgsd,,,,,,Sarvodaya PU College,4KAR
+12,kar6,Company Sergent Major (CSM),234234325154,Nateshm bhat,appa,amma,Male,01/Jan/2000,"dlasfdsflasfasdfkljdsgdsjgddfsgdf,INDIA , Tumkur,bharath , mane",,3453453452,O+,,,DASFSD,fsdfsdf,16/Jul/2017,dsfsdfsdsfdasfdsgasg,nonveg,dfsgdsfgsd,,,,,,Sarvodaya PU College,4KAR
+13,agsfrgas,Cadet (CDT),123324243435,name,name,name,Male,01/Jan/2000,adfdsasdg,,,O+,,,,,15/Jul/2017,,veg,,,,,,,,4KAR

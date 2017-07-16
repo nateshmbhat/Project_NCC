@@ -1120,7 +1120,7 @@ class logic():
         if not self.candidphoto:
             return
 
-        if not (self.candidphoto.endswith('.png') or self.candidphoto.endswith('.jpg')):
+        if not (self.candidphoto.endswith('.png') or self.candidphoto.endswith('.jpg') or self.candidphoto.endswith('.JPG') or self.candidphoto.endswith('.PNG')):
             QtGui.QMessageBox.warning(ui.Enrol , 'Invalid image' , 'Please make sure that the image you select is a valid Image file with .PNG or .JPG extention !','OK')
             self.candidphoto = ''
             return
@@ -1420,10 +1420,21 @@ font-weight:bold;
             self.enable_query_checkbox_elements()
             return
 
-        # if tuple==None:
-        #     QtGui.QMessageBox.warning(ui.enrolformFrame, "Not found",
-        #                               "\n\nSpecified Enrolment number was not found", 'OK')
-        #     return ;
+
+        if os.path.exists(r'Candidate photos\{}.png'.format(tuple[0])):
+            candidatephoto =  r'Candidate photos\{}.png'.format(tuple[0])
+
+        elif os.path.exists(r'Candidate photos\{}.jpg'.format(tuple[0])):
+            candidatephoto = r'Candidate photos\{}.jpg'.format(tuple[0])
+
+        elif os.path.exists(r'Candidate photos\{}.JPG'.format(tuple[0])):
+            candidatephoto = r'Candidate photos\{}.JPG'.format(tuple[0])
+
+        elif os.path.exists(r'Candidate photos\{}.PNG'.format(tuple[0])):
+            candidatephoto = r'Candidate photos\{}.PNG'.format(tuple[0])
+
+        if candidatephoto:
+            ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
 
 
         print(tuple)

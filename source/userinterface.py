@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1005, 893)
+        MainWindow.resize(1100, 893)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1363, 946, 1899))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1041, 1899))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2849,7 +2849,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2864,7 +2867,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2883,7 +2889,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
 "font-size:20px;\n"
@@ -2922,7 +2931,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2951,7 +2963,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -2998,7 +3013,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 972, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1039, 1198))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3384,7 +3399,7 @@ class Ui_MainWindow(object):
         self.fathernameLabel.setBuddy(self.fathernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(3)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)

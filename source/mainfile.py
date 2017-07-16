@@ -346,6 +346,11 @@ class logic():
 
         selected_text = ui.settings_formsListWidget.currentItem().text().strip()
 
+        if selected_text in ['A certificate', 'B certificate', 'C certificate']:
+            ui.settings_addfieldPushButton.hide()
+            ui.settings_removefieldPushButton.hide()
+
+
         if selected_text not in ['Cadet details', 'Yoga day', 'Enrolment Nominal roll', 'Camp Nominal roll',
                                  'Scholarship NR', 'A certificate', 'B certificate', 'C certificate',
                                  'Speciman signature of cadets', 'TADA to cadets camps', 'TADA to cadets for exam']:
@@ -413,7 +418,8 @@ class logic():
 
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
-        ui.settings_removefieldPushButton.show()
+        if ui.settings_formsListWidget.currentItem().text().strip() not in ['A certificate', 'B certificate', 'C certificate']:
+            ui.settings_removefieldPushButton.show()
         ui.settings_fieldsComboBox.hide()
         ui.settings_addfieldLineEdit.hide()
         # Set the elements that are not already in the corresponding field into the add field combobox
@@ -1624,7 +1630,7 @@ font-weight:bold;
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment" ,con)
         try:
-            data.to_csv(r'All candidate details.csv')
+            data.to_csv(r'All candidate details.csv',float_format='string')
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
 

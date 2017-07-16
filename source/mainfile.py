@@ -197,6 +197,8 @@ class logic():
 
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
         self.init_settings()
+
+
     def init_settings(self):
 
         """Sets all the parameters from the settings file"""
@@ -293,6 +295,19 @@ class logic():
         ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
 
+
+
+    def clear_enrolment_form(self):
+        for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit,QtGui.QTextEdit)):
+            i.clear()
+        for i in ui.bankformFrame.findChildren(QtGui.QLineEdit):
+            i.clear()
+        for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
+            i.clear()
+        self.candidphoto = ''
+        ui.selectpictureLabel.clear()
+
+
     def showtooltip(self, text):
         tt = QtGui.QToolTip
         myfont = QtGui.QFont()
@@ -302,7 +317,7 @@ class logic():
         tt.setFont(myfont)
         mywin = QtGui.QMainWindow.frameGeometry(MainWindow)
         pos = mywin.center()
-        pos.setX(pos.x() - 6.6666667 * len(text));
+        pos.setX(pos.x() - 6* len(text));
         pos.setY(mywin.y())
         tt.showText(pos, text, MainWindow,
                     QtGui.QLineEdit.geometry(ui.settings_institutionListWidget))
@@ -685,7 +700,7 @@ class logic():
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
 
     def saveexceluploadeddata(self):
-        self.name=QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File", filter=".xlsx")
+        self.name=QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File", filter=".xlsx")
         data=[]
         if ui.typecomboBox.currentText()=="A certificate":
             self.book = openpyxl.load_workbook('A_CERTIFICATES.xlsx')
@@ -926,7 +941,7 @@ class logic():
                                       'OK')
             return
         self.formname = ""
-        self.formname = QtGui.QFileDialog.getOpenFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File")
+        self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File")
         if self.formname == "":
             return
         book = openpyxl.load_workbook(self.formname)
@@ -985,7 +1000,7 @@ class logic():
                                       'OK')
             return
         self.formname = ""
-        self.formname = QtGui.QFileDialog.getSaveFileName(directory="C:\\Users\ADMIN\Documents", caption="Save File",
+        self.formname = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
                                                           filter=".xlsx")
         if self.formname == "":
             return
@@ -1009,15 +1024,16 @@ class logic():
         proceed = True;
         sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText().strip()+"'"
         tup=ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
+        if len(tup)!=0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
-                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
+                                      '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
             return
 
-
-        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
+        sql = "select Student_Name from enrolment where Aadhaar_Number='" + ui.aadhaarLineEdit.displayText().strip() + "'"
+        tup = ENROLMENT_FORM.enroll().execute(sql)
+        if len(tup)!=0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
-                                      '\nEnrolment number must be unique.\n someone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
+                                      '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.','OK');
 
 
         def set_margin_red_style(obj):
@@ -1241,6 +1257,7 @@ font-weight:bold;
         ui.updateentryCheckBox.hide()
 
     def enable_query_checkbox_elements(self):
+        ui.enrolPushButton.setChecked(True)
 
         for i in ui.enrolformFrame.findChildren(
                 (QtGui.QLineEdit, QtGui.QComboBox, QtGui.QCheckBox, QtGui.QRadioButton, QtGui.QTextEdit)):
@@ -1289,10 +1306,11 @@ font-weight:bold;
 
         tuple = obj.search_by_field(self.field, search_field_text);
 
-        # if tuple==None:
-        #     QtGui.QMessageBox.warning(ui.enrolformFrame, "Not found",
-        #                               "\n\nSpecified Enrolment number was not found", 'OK')
-        #     return ;
+        if tuple==None:
+            self.showtooltip('Details not found')
+            ui.searchbyfieldLineEdit.clear()
+            self.enable_query_checkbox_elements()
+            return ;
 
 
         print(tuple)
@@ -1364,6 +1382,13 @@ font-weight:bold;
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
 
+        if os.path.exists(r'Candidate photos\{}.png'.format(tuple[0])):
+            path = 'Candidate photos\{}.png'.format(tuple[0])
+            ui.selectpictureLabel.setPixmap(QtGui.QPixmap(path))
+        elif os.path.exists(r'Candidate photos\{}.jpg'.format(tuple[0])):
+            path = 'Candidate photos\{}.jpg'.format(tuple[0])
+            ui.selectpictureLabel.setPixmap(QtGui.QPixmap(path))
+
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
             ui.searchbyfieldLineEdit.clear();
@@ -1374,6 +1399,7 @@ font-weight:bold;
             ui.searchbyfieldLineEdit.clear()
             ui.searchbyfieldLineEdit.setMaxLength(1000)
             ui.searchbyfieldLineEdit.setValidator(None)
+
 
     def get_enroll_form_data(self):
 
@@ -1483,12 +1509,16 @@ font-weight:bold;
             self.showtooltip("Inserted successfully")
 
 
+        self.clear_enrolment_form()
+
+
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment" ,con)
         try:
             data.to_csv(r'All candidate details.csv')
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
+
 
     def table1(self, res, msg):
 

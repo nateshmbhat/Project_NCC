@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -469,7 +469,7 @@ background-color:transparent;</string>
                      </font>
                     </property>
                     <property name="toolTip">
-                     <string>Select the picture of the candidate</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Select Picture of the Candidate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.528409, y1:1, x2:0.494, y2:0, stop:0.0227273 rgba(255, 108, 0, 255), stop:0.857955 rgba(255, 70, 219, 255));
@@ -4748,7 +4748,6 @@ width:400%;
             <widget class="QLabel" name="label_3">
              <property name="font">
               <font>
-               <family>Georgia</family>
                <pointsize>-1</pointsize>
               </font>
              </property>
@@ -4842,10 +4841,7 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4879,10 +4875,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4936,10 +4929,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4999,10 +4989,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5039,10 +5026,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">

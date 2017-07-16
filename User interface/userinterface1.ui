@@ -4602,6 +4602,7 @@ border-radius:2px;
              <property name="font">
               <font>
                <family>Colonna MT</family>
+               <underline>false</underline>
               </font>
              </property>
              <property name="styleSheet">
@@ -4748,7 +4749,11 @@ width:400%;
             <widget class="QLabel" name="label_3">
              <property name="font">
               <font>
+               <family>Georgia</family>
                <pointsize>-1</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+               <underline>true</underline>
               </font>
              </property>
              <property name="styleSheet">
@@ -4841,7 +4846,10 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
+                <family>Caladea</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4875,7 +4883,10 @@ color: rgb(0, 0, 127);</string>
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
+                <family>Caladea</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4929,7 +4940,10 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
+                <family>Cambria</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4989,7 +5003,10 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
+                <family>Cambria</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5026,7 +5043,10 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
+                <family>Cambria</family>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">

@@ -246,6 +246,8 @@ class logic():
         self.all_enrolment_form_fieldslist = self.settings.value('all_enrolment_form_fieldslist').split(',,,')
         ui.mytab.setCurrentIndex(int(self.settings.value('current_tab')))
         geo = [int(i) for i in self.settings.value('window_geometry').split(',,,')]
+
+
         MainWindow.setGeometry(geo[0], geo[1], geo[2], geo[3])
         app.aboutToQuit.connect(self.handler)
 
@@ -725,6 +727,8 @@ class logic():
                 "select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
 
             flag = 0
+            self.showtooltip("Saving ...")
+
             for i in range(len(sqldata)):
                 for k in range(len(sqlpresentdata)):
                     if sqlpresentdata[k][0] == ui.tableWidget.item(i, 0).text():
@@ -748,6 +752,7 @@ class logic():
         else:
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            self.showtooltip("Saving ...")
             for i in range(len(sqldata)):
                 sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
                                                                                                1).text().upper() + "' where Enrolment_Number='" + \

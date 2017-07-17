@@ -4776,16 +4776,6 @@ color: rgb(0, 0, 127);
                 <string>Select Institution</string>
                </property>
               </item>
-              <item>
-               <property name="text">
-                <string>SIT</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Sarvodaya PU College</string>
-               </property>
-              </item>
              </widget>
             </item>
             <item>
@@ -5015,9 +5005,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-731</y>
+             <y>-748</y>
              <width>1039</width>
-             <height>1537</height>
+             <height>1554</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5758,6 +5748,9 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
 }</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_5">
+               <property name="spacing">
+                <number>1</number>
+               </property>
                <item>
                 <widget class="QLabel" name="label_2">
                  <property name="font">
@@ -5775,7 +5768,7 @@ margin:2px 8px;
 text-align:center;</string>
                  </property>
                  <property name="text">
-                  <string>CAMP List</string>
+                  <string>Camps List</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -5783,7 +5776,7 @@ text-align:center;</string>
                 </widget>
                </item>
                <item alignment="Qt::AlignHCenter">
-                <widget class="QListWidget" name="listWidget">
+                <widget class="QListWidget" name="settings_campslistListWidget">
                  <property name="minimumSize">
                   <size>
                    <width>500</width>
@@ -5796,6 +5789,21 @@ text-align:center;</string>
                 </widget>
                </item>
                <item>
+                <widget class="QLineEdit" name="settings_addcampsLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Enter new CAMP name </string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_18">
                  <item>
                   <widget class="QPushButton" name="settings_addcampPushButton">
@@ -5803,6 +5811,8 @@ text-align:center;</string>
                     <font>
                      <family>Georgia</family>
                      <pointsize>12</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="text">

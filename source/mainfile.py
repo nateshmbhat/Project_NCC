@@ -215,7 +215,7 @@ class logic():
             self.showtooltip("Query Data Not Found")
             return;
         name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
-                                                      filter=".csv")
+                                                 filter=".csv")
         if not name:
             return
         res = open(name, 'w')
@@ -271,6 +271,8 @@ class logic():
         self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist').split(',,,')
         self.remarks_fieldslist = self.settings.value('remarks_fieldslist').split(',,,')
 
+
+
         # hiding fields in the settigns_fieldssectoin
         ui.settings_addfieldPushButton.hide()
         ui.settings_addfieldLineEdit.hide()
@@ -318,6 +320,88 @@ class logic():
 
         ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
+
+        #-----------------------------------------------------------------------------------------------------------
+
+
+        '''CAMPS LIST'''
+        self.allcampslist = self.settings.value('allcampslist').split(',,,')
+        self.set_camps_list()
+
+
+
+        ui.settings_addcampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_addcampPushButton))
+        ui.settings_removecampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_removecampPushButton))
+
+
+
+
+
+
+    def set_camps_list(self):
+        ui.settings_campslistListWidget.clear()
+        for inst in self.allcampslist:
+            item = QtGui.QListWidgetItem()
+            item.setText(inst)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Garamond"))
+            font.setPointSize(15)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense2Pattern)
+            item.setBackground(brush)
+            ui.settings_campslistListWidget.addItem(item)
+
+
+
+
+
+
+    def add_remove_camp(self,obj):
+
+        '''ADD CAMP'''
+
+        if obj.objectName()=='settings_addcampPushButton':
+
+            campname = ui.settings_addcampsLineEdit.displayText().strip()
+
+            if not campname:
+                self.showtooltip('Enter campname before clicking Add Camp')
+                return
+
+            if QtGui.QMessageBox.question(ui.Settings , "Are you sure ? " , 'Are you sure that you want to add {} to the Camps List'.format(campname),'Yes','No')==0:
+                self.allcampslist.append(campname)
+                self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
+                self.set_camps_list()
+
+
+        elif obj.objectName()=='settings_removecampPushButton':
+            campselected = ui.settings_campslistListWidget.currentItem()
+            campselected = '' if not campselected else campselected.text().strip()
+
+            if not campselected:
+                self.showtooltip("Select a Camp First")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # -----------------------------------------------------------------------------------------------------------
+
+
 
     def showtooltip(self, text):
         tt = QtGui.QToolTip
@@ -475,7 +559,7 @@ class logic():
                                           'Are you sure that you wish to add a New Form ? This will add your form through out the software.',
                                           "Yes", "No") == 0:
 
-                formname = ui.settings_addformLineEdit.displayText().strip().strip()
+                formname = ui.settings_addformLineEdit.displayText().strip()
 
                 if formname in self.formslist:
                     QtGui.QMessageBox.warning(ui.Settings, 'Form already exists',
@@ -507,7 +591,7 @@ class logic():
 
             if QtGui.QMessageBox.question(ui.Settings, 'Are you sure ?',
                                           'Are you sure that you want to DELETE the form "{}" from the forms list ? This will remove the form throughout the software'.format(
-                                                  selectedform), 'Yes', 'No') == 0:
+                                              selectedform), 'Yes', 'No') == 0:
                 self.formslist.remove(selectedform)
                 self.settings.setValue('formslist', ',,,'.join(self.formslist))
                 self.showtooltip("Form Removed")
@@ -601,7 +685,7 @@ class logic():
 
             if QtGui.QMessageBox.question(ui.Settings, 'Are you sure ? ',
                                           'Are you sure that you wish to remove the field "{}" from the selected form ? It will remove the field through out the entire software'.format(
-                                                  selectedfield), 'Yes', 'No') == 0:
+                                              selectedfield), 'Yes', 'No') == 0:
 
                 sqllist = self.nametolistsql.get(selectedform)
                 notsqllist = self.nametolistnotsql.get(selectedform)
@@ -1199,14 +1283,14 @@ class logic():
 
             ui.addressTextEdit.setStyleSheet('')
             print(len(ui.aadhaarLineEdit.displayText().strip()))
-            if len(ui.aadhaarLineEdit.displayText().strip().strip())!=12:
+            if len(ui.aadhaarLineEdit.displayText().strip())!=12:
                 proceed=False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           "\nValid Aadhaar Number should be 12 digits long.\n\n Please make sure that it's a valid 12 digit Aadhaar number",
                                           'OK')
                 return ;
 
-            if  len(ui.mobileLineEdit.displayText().strip()) and  len(ui.mobileLineEdit.displayText().strip().strip())!=10:
+            if  len(ui.mobileLineEdit.displayText().strip()) and  len(ui.mobileLineEdit.displayText().strip())!=10:
                 proceed = False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           '\n\n\nPlease Enter a Valid 10 digit Mobile number.',
@@ -2115,10 +2199,10 @@ font-weight:bold;
             if (ch2[len(ch2)-1]=='r' and ch2[len(ch2)-3]==')' )or (ch2[len(ch2)-1]=='d' and ch2[len(ch2)-4]==')' ) :
                 ch2=ch2+' '
             if (ch2[len(ch2) - 1] == ' ' and (ch2[len(ch2) - 2] == 'd' or ch2[len(ch2) - 2] == 'r')) or (
-                    ch2[len(ch2) - 1] == '(' and(ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
-                                len(ch2) - 2] == ')' or
+                            ch2[len(ch2) - 1] == '(' and(ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
+                            len(ch2) - 2] == ')' or
 
-                                 ch2[len(ch2) - 2] == 'd')):
+                                                                 ch2[len(ch2) - 2] == 'd')):
                 ch2=ch2+' '
 
 

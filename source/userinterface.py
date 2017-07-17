@@ -2781,11 +2781,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Californian FB"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2796,16 +2792,10 @@ class Ui_MainWindow(object):
         self.institutionuploaddatacomboBox.setMaxVisibleItems(25)
         self.institutionuploaddatacomboBox.setObjectName(_fromUtf8("institutionuploaddatacomboBox"))
         self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
-        self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
-        self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Californian FB"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2824,7 +2814,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(-1)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
@@ -2864,10 +2853,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2896,10 +2882,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -2943,10 +2926,11 @@ class Ui_MainWindow(object):
 "{\n"
 "    background-color:transparent;\n"
 "}"))
+        self.SettingsScrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1039, 1199))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -748, 1039, 1554))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -2954,6 +2938,44 @@ class Ui_MainWindow(object):
         self.settingsscrollAreaWidgetContents.setObjectName(_fromUtf8("settingsscrollAreaWidgetContents"))
         self.gridLayout_14 = QtGui.QGridLayout(self.settingsscrollAreaWidgetContents)
         self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
+        spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem18, 3, 0, 1, 1)
+        spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem19, 1, 0, 1, 1)
+        spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem20, 7, 0, 1, 1)
+        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(15)
+        self.settings_candidopenPushButton.setFont(font)
+        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
+"{\n"
+"border-radius:20px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"font-family:georgia;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_candidopenPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_candidopenPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
+        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 9, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem21 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem21, 10, 0, 1, 1)
         self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
         self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
@@ -3275,44 +3297,64 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17.addWidget(self.settings_removeformPushButton)
         self.gridLayout_12.addLayout(self.horizontalLayout_17, 3, 1, 1, 1)
         self.gridLayout_14.addWidget(self.formsandfieldsgridwidget, 2, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem18, 1, 0, 1, 1)
-        spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem19, 3, 0, 1, 1)
-        spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem20, 4, 0, 1, 1)
-        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(15)
-        self.settings_candidopenPushButton.setFont(font)
-        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
+        self.verticalFrame = QtGui.QFrame(self.settingsscrollAreaWidgetContents)
+        self.verticalFrame.setStyleSheet(_fromUtf8("#verticalFrame\n"
 "{\n"
-"border-radius:20px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
-"font-family:georgia;\n"
-"color:white;\n"
-"border-top:1px solid yellow;\n"
-"border-bottom:1px solid black;\n"
-"padding:10px 10px;\n"
-"}\n"
-"#settings_candidopenPushButton:hover\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,255);\n"
-"\n"
-"}\n"
-"\n"
-"#settings_candidopenPushButton:pressed\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,175);\n"
+"    background-color:transparent;\n"
 "\n"
 "}"))
-        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
-        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 6, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem21 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem21, 7, 0, 1, 1)
+        self.verticalFrame.setObjectName(_fromUtf8("verticalFrame"))
+        self.verticalLayout_5 = QtGui.QVBoxLayout(self.verticalFrame)
+        self.verticalLayout_5.setSpacing(1)
+        self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
+        self.label_2 = QtGui.QLabel(self.verticalFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Centaur"))
+        font.setPointSize(24)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
+        self.label_2.setStyleSheet(_fromUtf8("border-image: url(:/icons/image-blur.png);\n"
+"color:white;\n"
+"margin:2px 8px;\n"
+"text-align:center;"))
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.verticalLayout_5.addWidget(self.label_2)
+        self.settings_campslistListWidget = QtGui.QListWidget(self.verticalFrame)
+        self.settings_campslistListWidget.setMinimumSize(QtCore.QSize(500, 250))
+        self.settings_campslistListWidget.setStyleSheet(_fromUtf8("background-color:rgba(229, 229, 229,200);"))
+        self.settings_campslistListWidget.setObjectName(_fromUtf8("settings_campslistListWidget"))
+        self.verticalLayout_5.addWidget(self.settings_campslistListWidget, QtCore.Qt.AlignHCenter)
+        self.settings_addcampsLineEdit = QtGui.QLineEdit(self.verticalFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.settings_addcampsLineEdit.setFont(font)
+        self.settings_addcampsLineEdit.setObjectName(_fromUtf8("settings_addcampsLineEdit"))
+        self.verticalLayout_5.addWidget(self.settings_addcampsLineEdit)
+        self.horizontalLayout_18 = QtGui.QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(_fromUtf8("horizontalLayout_18"))
+        self.settings_addcampPushButton = QtGui.QPushButton(self.verticalFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.settings_addcampPushButton.setFont(font)
+        self.settings_addcampPushButton.setObjectName(_fromUtf8("settings_addcampPushButton"))
+        self.horizontalLayout_18.addWidget(self.settings_addcampPushButton)
+        self.settings_removecampPushButton = QtGui.QPushButton(self.verticalFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(12)
+        self.settings_removecampPushButton.setFont(font)
+        self.settings_removecampPushButton.setObjectName(_fromUtf8("settings_removecampPushButton"))
+        self.horizontalLayout_18.addWidget(self.settings_removecampPushButton)
+        self.verticalLayout_5.addLayout(self.horizontalLayout_18)
+        self.gridLayout_14.addWidget(self.verticalFrame, 4, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -3332,7 +3374,7 @@ class Ui_MainWindow(object):
         self.fathernameLabel.setBuddy(self.fathernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(4)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
@@ -3630,8 +3672,6 @@ class Ui_MainWindow(object):
         self.mytab.setTabText(self.mytab.indexOf(self.Forms), _translate("MainWindow", "Forms", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Forms), _translate("MainWindow", "Forms", None))
         self.institutionuploaddatacomboBox.setItemText(0, _translate("MainWindow", "Select Institution", None))
-        self.institutionuploaddatacomboBox.setItemText(1, _translate("MainWindow", "SIT", None))
-        self.institutionuploaddatacomboBox.setItemText(2, _translate("MainWindow", "Sarvodaya PU College", None))
         self.typecomboBox.setItemText(0, _translate("MainWindow", "Select Type", None))
         self.typecomboBox.setItemText(1, _translate("MainWindow", "Upload Marks(A)", None))
         self.typecomboBox.setItemText(2, _translate("MainWindow", "Upload Marks(B)", None))
@@ -3644,6 +3684,7 @@ class Ui_MainWindow(object):
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Upload data", None))
+        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
         self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
@@ -3668,7 +3709,10 @@ class Ui_MainWindow(object):
         self.settings_addfieldLineEdit.setPlaceholderText(_translate("MainWindow", "Enter New Field name", None))
         self.settings_addformPushButton.setText(_translate("MainWindow", "Add Form", None))
         self.settings_removeformPushButton.setText(_translate("MainWindow", "Remove Form", None))
-        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
+        self.label_2.setText(_translate("MainWindow", "Camps List", None))
+        self.settings_addcampsLineEdit.setPlaceholderText(_translate("MainWindow", "Enter new CAMP name ", None))
+        self.settings_addcampPushButton.setText(_translate("MainWindow", "Add Camp", None))
+        self.settings_removecampPushButton.setText(_translate("MainWindow", "Remove Camp", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
 

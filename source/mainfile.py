@@ -73,12 +73,6 @@ class logic():
         ui.closebracecondition.clicked.connect(
             lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ")"))
 
-        ui.greatercondition.clicked.connect(
-            lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + ">"))
-
-        ui.lessercondition.clicked.connect(
-            lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + "<"))
-
         ui.querycondition.clicked.connect(self.conquery)
 
         ui.submitPushButton.clicked.connect(self.check_enrol_form_data)
@@ -524,6 +518,9 @@ class logic():
                     print('error')
                     pass;
 
+                ui.formsComboBox.clear()
+                ui.formsComboBox.addItems(self.formslist)
+
                 self.set_forms_list()
 
 
@@ -787,8 +784,13 @@ class logic():
             self.showtooltip("No data found")
         for row in data:
             self.sheet.append(row)
+
+
         self.name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
                                                       filter=".xlsx")
+        if not len(self.name):
+            return
+
         self.book.save(self.name)
         self.book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
@@ -1008,7 +1010,7 @@ class logic():
         enrolno.append(s)
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
-        self.listheadingdata = self.nametolistnotsql.get(selectedformname)
+        self.listheadingdata = list(self.nametolistnotsql.get(selectedformname))
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
             for i in range(len(self.listdata)):
@@ -1056,7 +1058,7 @@ class logic():
 
 
     def saveExcelfuntion(self):
-        formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
+        # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
         x = ui.entryBox.toPlainText().replace(" ","")
 
         msg=""
@@ -1069,12 +1071,10 @@ class logic():
                 msg=msg+str(i)
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
-        if selectedformname in formlist:
-            self.listheadingdata = self.nametolistnotsql.get(selectedformname)
-        else:
-            self.listheadingdata = self.nametolistsql.get(selectedformname)
-            for i in self.nametolistnotsql.get(selectedformname):
-                self.listheadingdata.append(i)
+        self.listheadingdata = list(self.nametolistsql.get(selectedformname))
+        for i in self.nametolistnotsql.get(selectedformname):
+            self.listheadingdata.append(i)
+
 
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
@@ -1120,12 +1120,7 @@ class logic():
             wr.writerow(tup[i])
         self.table1(tup, sql)
 
-        if len(msg)>0:
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      "\n the following enrolment numbers are not found in database\nRemaining form is generated sucessfully",
-                                      'OK')
-        else:
-            self.showtooltip("Form generated sucessfully")
+        self.showtooltip("Form generated sucessfully")
         res.close()
         os.startfile(self.formname)
 
@@ -1448,7 +1443,8 @@ font-weight:bold;
 
         elif os.path.exists(r'Candidate photos\{}.PNG'.format(tuple[0])):
             candidatephoto = r'Candidate photos\{}.PNG'.format(tuple[0])
-
+        else:
+            candidatephoto = self.candidphoto
         if candidatephoto:
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
 
@@ -2069,7 +2065,7 @@ font-weight:bold;
 
 
 
-        elif ch in '(=)><':
+        elif ch in '(=)':
 
             ui.conditionsentrylabel.setText(sql[0:len(sql) - 1])
 
@@ -2115,15 +2111,14 @@ font-weight:bold;
         ch2 = ui.conditionsentrylabel.text().strip().strip() + ' '
 
         if (len(ch2) > 3):
-
+            if (ch2[len(ch2)-1]=='r' and ch2[len(ch2)-3]==')' )or (ch2[len(ch2)-1]=='d' and ch2[len(ch2)-4]==')' ) :
+                ch2=ch2+' '
             if (ch2[len(ch2) - 1] == ' ' and (ch2[len(ch2) - 2] == 'd' or ch2[len(ch2) - 2] == 'r')) or (
-                            ch2[len(ch2) - 1] == '(' and
-
-                        (ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
+                    ch2[len(ch2) - 1] == '(' and(ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
                                 len(ch2) - 2] == ')' or
 
                                  ch2[len(ch2) - 2] == 'd')):
-                print()
+                ch2=ch2+' '
 
 
             else:
@@ -2131,7 +2126,7 @@ font-weight:bold;
 
                 return
 
-        if ch != "Select":
+        if ch != "Select Fields":
 
             if (ch1 != ""):
 
@@ -2144,7 +2139,7 @@ font-weight:bold;
                             if len(ch1) == 10:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Mobile number should contains 10 numbers")
@@ -2154,7 +2149,7 @@ font-weight:bold;
                             if len(ch1) == 12:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Aadhaar number should contains 12 numbers")
@@ -2164,16 +2159,14 @@ font-weight:bold;
                             if len(ch1) == 16:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Account number should contains 16 numbers")
                         else:
 
                             ui.conditionsentrylabel.setText(
-                                ui.conditionsentrylabel.text().strip() + ch + "=\"" + ch1 + "\"")
-
-
+                                ui.conditionsentrylabel.text().strip() + ' '+ch + "=\"" + ch1 + "\"")
 
                     else:
                         self.showtooltip(ch + ' must contains only integral values.')
@@ -2188,6 +2181,9 @@ font-weight:bold;
 
         else:
             self.showtooltip("Please select any one of the fields.")
+
+        ui.valuelineEdit.clear()
+
 
 
 if __name__ == "__main__":

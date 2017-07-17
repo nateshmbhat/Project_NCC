@@ -12,10 +12,8 @@ class enroll:
             if i!=len(fields)-1:
                 add=add+","
         add=add+")"
-        print(add)
         self.cur.execute(add)
         self.conn.commit()
-        print("sucessfully inserted")
         self.conn.close()
 
 
@@ -23,7 +21,6 @@ class enroll:
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         add = "update enrolment set Enrolment_Number='{0}',Rank='{1}',Aadhaar_Number='{2}',Student_Name='{3}',Fathers_Name='{4}',Mothers_Name='{5}' ,Sex='{6}',Date_Of_Birth='{7}', Address = '{8}' ,Email='{9}' , Mobile_Number='{10}' , Blood_Group='{11}' ,Certificate='{12}' ,Camps_Attended='{13}' ,Extra_Curricular_Activities='{14}', Special_Achievements='{15}' , Enrol_Date='{16}' ,Remarks='{17}', Vegitarian='{18}' , Bank_Name='{19}', Branch='{20}' ,Account_Name='{21}',  Account_Number='{22}',   IFSC_Code='{23}',  MICR='{24}',  Institution='{25}',  Unit='{26}'  where Enrolment_Number='{0}'".format(fields[0],fields[1],fields[2],fields[3],fields[4],fields[5],fields[6],fields[7],fields[8],fields[9],fields[10],fields[11],fields[12],fields[13],fields[14],fields[15],fields[16],fields[17],fields[18],fields[19],fields[20],fields[21],fields[22],fields[23],fields[24],fields[25],fields[26],fields[0])
-        print(add)
         self.cur.execute(add)
         self.conn.commit()
         self.conn.close()
@@ -33,7 +30,6 @@ class enroll:
         self.cur = self.conn.cursor()
         self.cur.execute("drop table "+table_name)
         self.conn.commit()
-        print(table_name+" sucessfully deleted")
         self.conn.close()
 
     def search_by_field(self,field,id):
@@ -41,7 +37,9 @@ class enroll:
         self.cur = self.conn.cursor()
         sql="select * from enrolment where "+field+"='"+id+"'"
         self.cur.execute(sql)
-        return(self.cur.fetchone())
+        result = self.cur.fetchone()
+        self.conn.close()
+        return(result)
 
     def create_table_Enrolment(self):
         self.conn = sqlite3.connect("ncc.db")
@@ -54,7 +52,6 @@ class enroll:
         Branch varchar(35) default '',Account_Name varchar(50) default '',Account_Number varchar(16),IFSC_Code varchar(11),MICR varchar(9),
         Institution char(50) not null  default '',Unit varchar(20) not null  default '',primary key(Enrolment_Number))"""
         self.cur.execute(details)
-        print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
     def create_table_marks_A_cert(self):
@@ -67,7 +64,6 @@ class enroll:
         Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
         Part4_SplSubjects_Total varchar,GrandTotal varchar,Grading varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
-        print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
     def create_table_marks_B_cert(self):
@@ -80,7 +76,6 @@ class enroll:
         Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
         Part4_SplSubjects_Total varchar,Bonus_Marks_Certificate varchar,GrandTotal varchar,Grading varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
-        print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
     def create_table_marks_C_cert(self):
@@ -93,7 +88,6 @@ class enroll:
         Part2_WT_Total varchar,Part3_Misc_Written varchar,Part4_SplSubjects_Written varchar,Part4_SplSubjects_Practical varchar,
         Part4_SplSubjects_Total varchar,Bonus_Marks_Certificate intvarchar,GrandTotal varchar,Grading varchar,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
-        print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
     def create_table_Attendance(self):
@@ -102,7 +96,6 @@ class enroll:
         sql = """create table if not exist Attendance(Enrolment_Number varchar(13) not null,
         ,primary key(Enrolment_Number))"""
         self.cur.execute(sql)
-        print("table created sucessfully")
         self.conn.commit()
         self.conn.close()
     def search_particular_fields(self,con,con1,*fields):
@@ -127,7 +120,6 @@ class enroll:
         self.cur = self.conn.cursor()
         self.cur.execute(sql)
         self.conn.commit()
-        print("sucessfully inserted")
         self.conn.close()
     def delete_by_Enrolment(self,table,enrolment_no):
         sql="delete from "+table +" where Enrolment_Number='"+enrolment_no+"'"
@@ -135,5 +127,4 @@ class enroll:
         self.cur = self.conn.cursor()
         self.cur.execute(sql)
         self.conn.commit()
-        print("sucessfully deleted")
         self.conn.close()

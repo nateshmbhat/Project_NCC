@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\Natesh\Documents\GitHub\Project_NCC\User interface\userinterface1.ui'
+# Form implementation generated from reading ui file '..\User interface\userinterface1.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -2116,82 +2116,6 @@ class Ui_MainWindow(object):
 "}"))
         self.closebracecondition.setObjectName(_fromUtf8("closebracecondition"))
         self.horizontalLayout_5.addWidget(self.closebracecondition)
-        self.greatercondition = QtGui.QPushButton(self.frame)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.greatercondition.setFont(font)
-        self.greatercondition.setStyleSheet(_fromUtf8("#greatercondition{\n"
-"background-color: rgb(255,255,255);\n"
-"    color: rgb(0, 0, 0);\n"
-"font: 75 12pt \"MS Shell Dlg 2\";\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"border-style:solid;\n"
-"border-color: rgb(255, 170, 0);\n"
-"border-width:2px;\n"
-"height:30px;\n"
-"border-radius:15px;\n"
-"width:120%;\n"
-"}\n"
-"\n"
-"#greatercondition:hover\n"
-"{\n"
-"color:rgb(255,255,255);\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"font: 75 14pt \"MS Shell Dlg 2\";\n"
-"border-style:solid;\n"
-"border-color:rgb(255,255,255);\n"
-"border-radius:15px;\n"
-"background-color: rgb(255, 170, 0);\n"
-"width:120%;\n"
-"border-width:2px;\n"
-"height:25px;\n"
-"}"))
-        self.greatercondition.setObjectName(_fromUtf8("greatercondition"))
-        self.horizontalLayout_5.addWidget(self.greatercondition)
-        self.lessercondition = QtGui.QPushButton(self.frame)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.lessercondition.setFont(font)
-        self.lessercondition.setStyleSheet(_fromUtf8("#lessercondition{\n"
-"background-color: rgb(255,255,255);\n"
-"    color: rgb(0, 0, 0);\n"
-"font: 75 12pt \"MS Shell Dlg 2\";\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"border-style:solid;\n"
-"border-color: rgb(255, 170, 0);\n"
-"border-width:2px;\n"
-"height:30px;\n"
-"border-radius:15px;\n"
-"width:120%;\n"
-"}\n"
-"\n"
-"#lessercondition:hover\n"
-"{\n"
-"color:rgb(255,255,255);\n"
-"padding-left:10px;\n"
-"padding-right:10px;\n"
-"font: 75 14pt \"MS Shell Dlg 2\";\n"
-"border-style:solid;\n"
-"border-color:rgb(255,255,255);\n"
-"border-radius:15px;\n"
-"background-color: rgb(255, 170, 0);\n"
-"width:120%;\n"
-"border-width:2px;\n"
-"height:25px;\n"
-"}"))
-        self.lessercondition.setObjectName(_fromUtf8("lessercondition"))
-        self.horizontalLayout_5.addWidget(self.lessercondition)
         self.backcondition = QtGui.QPushButton(self.frame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -2808,11 +2732,7 @@ class Ui_MainWindow(object):
         self.gridLayout_17.addLayout(self.gridLayout_9, 12, 0, 1, 2)
         self.label_3 = QtGui.QLabel(self.formsframe)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(-1)
-        font.setBold(False)
-        font.setUnderline(True)
-        font.setWeight(50)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet(_fromUtf8("font-size:25px;\n"
 "background-color:transparent;\n"
@@ -2856,10 +2776,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2874,10 +2791,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2896,10 +2810,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
 "font-size:20px;\n"
@@ -2938,10 +2849,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2970,10 +2878,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -3487,9 +3392,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.andcondition, self.orcondition)
         MainWindow.setTabOrder(self.orcondition, self.openbracecondition)
         MainWindow.setTabOrder(self.openbracecondition, self.closebracecondition)
-        MainWindow.setTabOrder(self.closebracecondition, self.greatercondition)
-        MainWindow.setTabOrder(self.greatercondition, self.lessercondition)
-        MainWindow.setTabOrder(self.lessercondition, self.backcondition)
+        MainWindow.setTabOrder(self.closebracecondition, self.backcondition)
         MainWindow.setTabOrder(self.backcondition, self.conditionlistcombobox)
         MainWindow.setTabOrder(self.conditionlistcombobox, self.bloodgroupqueryComboBox)
         MainWindow.setTabOrder(self.bloodgroupqueryComboBox, self.institutionqueryComboBox)
@@ -3637,8 +3540,6 @@ class Ui_MainWindow(object):
         self.orcondition.setText(_translate("MainWindow", "OR", None))
         self.openbracecondition.setText(_translate("MainWindow", "(", None))
         self.closebracecondition.setText(_translate("MainWindow", ")", None))
-        self.greatercondition.setText(_translate("MainWindow", ">", None))
-        self.lessercondition.setText(_translate("MainWindow", "<", None))
         self.backcondition.setText(_translate("MainWindow", "Back", None))
         self.conditionlistcombobox.setItemText(0, _translate("MainWindow", "Select Fields", None))
         self.conditionlistcombobox.setItemText(1, _translate("MainWindow", "Enrolment_Number", None))

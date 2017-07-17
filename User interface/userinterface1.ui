@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -4757,11 +4757,7 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
-                <family>Californian FB</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-                <stylestrategy>PreferAntialias</stylestrategy>
                </font>
               </property>
               <property name="styleSheet">
@@ -4796,11 +4792,7 @@ color: rgb(0, 0, 127);
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
-                <family>Californian FB</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-                <stylestrategy>PreferAntialias</stylestrategy>
                </font>
               </property>
               <property name="styleSheet">
@@ -4854,7 +4846,6 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
-                <family>Georgia</family>
                 <pointsize>-1</pointsize>
                </font>
               </property>
@@ -4915,10 +4906,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4955,10 +4943,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5020,6 +5005,9 @@ background-position:center;
 	background-color:transparent;
 }</string>
           </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -5027,9 +5015,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-731</y>
              <width>1039</width>
-             <height>1199</height>
+             <height>1537</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5039,6 +5027,96 @@ background-position:center;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0">
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="9" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="settings_candidopenPushButton">
+              <property name="font">
+               <font>
+                <family>georgia</family>
+                <pointsize>15</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settings_candidopenPushButton
+{
+border-radius:20px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_candidopenPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_candidopenPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+              </property>
+              <property name="text">
+               <string>Open Candidates Picture folder</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="settingsmainframewidget" native="true">
               <property name="minimumSize">
@@ -5670,95 +5748,85 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
               </layout>
              </widget>
             </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_19">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="4" column="0">
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="6" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="settings_candidopenPushButton">
-              <property name="font">
-               <font>
-                <family>georgia</family>
-                <pointsize>15</pointsize>
-               </font>
-              </property>
+            <item row="4" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QFrame" name="verticalFrame">
               <property name="styleSheet">
-               <string notr="true">#settings_candidopenPushButton
+               <string notr="true">#verticalFrame
 {
-border-radius:20px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
-font-family:georgia;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_candidopenPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_candidopenPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
+	background-color:transparent;
 
 }</string>
               </property>
-              <property name="text">
-               <string>Open Candidates Picture folder</string>
-              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QLabel" name="label_2">
+                 <property name="font">
+                  <font>
+                   <family>Centaur</family>
+                   <pointsize>24</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-image: url(:/icons/image-blur.png);
+color:white;
+margin:2px 8px;
+text-align:center;</string>
+                 </property>
+                 <property name="text">
+                  <string>CAMP List</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item alignment="Qt::AlignHCenter">
+                <widget class="QListWidget" name="listWidget">
+                 <property name="minimumSize">
+                  <size>
+                   <width>500</width>
+                   <height>250</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgba(229, 229, 229,200);</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_18">
+                 <item>
+                  <widget class="QPushButton" name="settings_addcampPushButton">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Add Camp</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="settings_removecampPushButton">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Remove Camp</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
              </widget>
-            </item>
-            <item row="7" column="0">
-             <spacer name="horizontalSpacer_16">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </widget>

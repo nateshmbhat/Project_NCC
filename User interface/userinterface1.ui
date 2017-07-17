@@ -2664,9 +2664,16 @@ font-weight:bold;
                 </item>
                 <item row="0" column="0">
                  <widget class="QCheckBox" name="selectallCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Cambria</family>
+                    <pointsize>16</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">#selectallCheckBox{
-font: 75 16pt &quot;Caladea&quot;;
 color:rgb(255, 170, 0);
 font-weight:bold;
 }
@@ -3655,98 +3662,6 @@ height:25px;
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="greatercondition">
-                    <property name="font">
-                     <font>
-                      <family>MS Shell Dlg 2</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
-                      <italic>false</italic>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">#greatercondition{
-background-color: rgb(255,255,255);
-	color: rgb(0, 0, 0);
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-padding-left:10px;
-padding-right:10px;
-border-style:solid;
-border-color: rgb(255, 170, 0);
-border-width:2px;
-height:30px;
-border-radius:15px;
-width:120%;
-}
-
-#greatercondition:hover
-{
-color:rgb(255,255,255);
-padding-left:10px;
-padding-right:10px;
-font: 75 14pt &quot;MS Shell Dlg 2&quot;;
-border-style:solid;
-border-color:rgb(255,255,255);
-border-radius:15px;
-background-color: rgb(255, 170, 0);
-width:120%;
-border-width:2px;
-height:25px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>&gt;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="lessercondition">
-                    <property name="font">
-                     <font>
-                      <family>MS Shell Dlg 2</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
-                      <italic>false</italic>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">#lessercondition{
-background-color: rgb(255,255,255);
-	color: rgb(0, 0, 0);
-font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-padding-left:10px;
-padding-right:10px;
-border-style:solid;
-border-color: rgb(255, 170, 0);
-border-width:2px;
-height:30px;
-border-radius:15px;
-width:120%;
-}
-
-#lessercondition:hover
-{
-color:rgb(255,255,255);
-padding-left:10px;
-padding-right:10px;
-font: 75 14pt &quot;MS Shell Dlg 2&quot;;
-border-style:solid;
-border-color:rgb(255,255,255);
-border-radius:15px;
-background-color: rgb(255, 170, 0);
-width:120%;
-border-width:2px;
-height:25px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>&lt;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
                    <widget class="QPushButton" name="backcondition">
                     <property name="font">
                      <font>
@@ -4556,10 +4471,10 @@ background-color:transparent;
              </property>
              <property name="font">
               <font>
-               <family>Caladea</family>
+               <family>Californian FB</family>
                <pointsize>18</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -4601,7 +4516,7 @@ border-radius:2px;
             <widget class="QWebView" name="webView_2">
              <property name="font">
               <font>
-               <family>Colonna MT</family>
+               <family>Georgia</family>
                <underline>false</underline>
               </font>
              </property>
@@ -4749,11 +4664,7 @@ width:400%;
             <widget class="QLabel" name="label_3">
              <property name="font">
               <font>
-               <family>Georgia</family>
                <pointsize>-1</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-               <underline>true</underline>
               </font>
              </property>
              <property name="styleSheet">
@@ -4789,7 +4700,7 @@ color:black;</string>
              </property>
              <property name="font">
               <font>
-               <family>Caladea</family>
+               <family>Centaur</family>
                <pointsize>14</pointsize>
                <weight>75</weight>
                <bold>true</bold>
@@ -4846,10 +4757,7 @@ background-repeat:none;
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4883,10 +4791,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
-                <family>Caladea</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -4940,10 +4845,7 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5003,10 +4905,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="savedataPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5043,10 +4942,7 @@ padding-top:-5px;
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
-                <family>Cambria</family>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5115,9 +5011,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-393</y>
              <width>1039</width>
-             <height>1198</height>
+             <height>1199</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5164,8 +5060,8 @@ background-color:transparent;
                    <widget class="QLabel" name="settings_institutionlistLabel">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
-                      <pointsize>19</pointsize>
+                      <family>Centaur</family>
+                      <pointsize>20</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -5457,8 +5353,8 @@ color:white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Caladea</family>
-                   <pointsize>22</pointsize>
+                   <family>Centaur</family>
+                   <pointsize>24</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                    <stylestrategy>PreferAntialias</stylestrategy>
@@ -5649,7 +5545,7 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                     </property>
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Cambria</family>
                       <pointsize>20</pointsize>
                       <weight>50</weight>
                       <italic>true</italic>
@@ -5947,8 +5843,6 @@ padding:10px 10px;
   <tabstop>orcondition</tabstop>
   <tabstop>openbracecondition</tabstop>
   <tabstop>closebracecondition</tabstop>
-  <tabstop>greatercondition</tabstop>
-  <tabstop>lessercondition</tabstop>
   <tabstop>backcondition</tabstop>
   <tabstop>conditionlistcombobox</tabstop>
   <tabstop>bloodgroupqueryComboBox</tabstop>

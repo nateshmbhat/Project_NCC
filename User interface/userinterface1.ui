@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
-    <height>893</height>
+    <width>1097</width>
+    <height>851</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -124,7 +124,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -325,9 +325,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1140</y>
-             <width>1041</width>
-             <height>1899</height>
+             <y>-1020</y>
+             <width>1038</width>
+             <height>2179</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -847,6 +847,12 @@ color:white;</string>
                </item>
                <item row="2" column="1">
                 <widget class="QComboBox" name="rankComboBox">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -980,7 +986,7 @@ border:2px groove chartreuse;
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
+               <item row="4" column="0" colspan="2">
                 <widget class="QLabel" name="fullnameLabel">
                  <property name="font">
                   <font>
@@ -995,105 +1001,20 @@ border:2px groove chartreuse;
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Student Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Student Name  &lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                  <property name="margin">
                   <number>0</number>
                  </property>
                  <property name="buddy">
-                  <cstring>fullnameLineEdit</cstring>
+                  <cstring>SlastnameLineEdit</cstring>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
-                <widget class="QLineEdit" name="fullnameLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">#fullnameLineEdit:focus
-{
-border:2px groove chartreuse;
-}</string>
-                 </property>
-                 <property name="inputMethodHints">
-                  <set>Qt::ImhDigitsOnly</set>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="1">
-                <widget class="QLineEdit" name="fathernameLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">b</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="mothernameLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <property name="buddy">
-                  <cstring>mothernameLineEdit</cstring>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLineEdit" name="mothernameLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">b</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
+               <item row="12" column="0">
                 <widget class="QLabel" name="sexLabel">
                  <property name="font">
                   <font>
@@ -1118,7 +1039,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1">
+               <item row="12" column="1">
                 <widget class="QComboBox" name="sexComboBox">
                  <property name="font">
                   <font>
@@ -1155,7 +1076,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="11" column="0">
+               <item row="15" column="0">
                 <widget class="QLabel" name="dateofbirthLabel">
                  <property name="font">
                   <font>
@@ -1180,7 +1101,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="11" column="1">
+               <item row="15" column="1">
                 <widget class="QDateEdit" name="dateofbirthDateEdit">
                  <property name="font">
                   <font>
@@ -1211,7 +1132,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="13" column="0">
+               <item row="17" column="0">
                 <widget class="QLabel" name="addressLabel">
                  <property name="font">
                   <font>
@@ -1233,7 +1154,25 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="14" column="0">
+               <item row="17" column="1">
+                <widget class="QTextEdit" name="addressTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="0">
                 <widget class="QLabel" name="emailLabel">
                  <property name="font">
                   <font>
@@ -1255,7 +1194,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="14" column="1">
+               <item row="18" column="1">
                 <widget class="QLineEdit" name="emailLineEdit">
                  <property name="font">
                   <font>
@@ -1279,7 +1218,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="15" column="0">
+               <item row="19" column="0">
                 <widget class="QLabel" name="mobileLabel">
                  <property name="font">
                   <font>
@@ -1301,7 +1240,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="15" column="1">
+               <item row="19" column="1">
                 <widget class="QLineEdit" name="mobileLineEdit">
                  <property name="font">
                   <font>
@@ -1328,7 +1267,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="0">
+               <item row="20" column="0">
                 <widget class="QLabel" name="bloodgroupLabel">
                  <property name="font">
                   <font>
@@ -1350,7 +1289,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="1">
+               <item row="20" column="1">
                 <widget class="QComboBox" name="bloodgroupComboBox">
                  <property name="minimumSize">
                   <size>
@@ -1420,7 +1359,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="18" column="0">
+               <item row="22" column="0">
                 <widget class="QLabel" name="certificateLabel">
                  <property name="font">
                   <font>
@@ -1439,102 +1378,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="20" column="0">
-                <widget class="QLabel" name="campsattendedLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Camps Attended</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="24" column="0">
-                <widget class="QLabel" name="remarksLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Remarks</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="22" column="0">
-                <widget class="QLabel" name="specialachievementsLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Special Achievements</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="21" column="0">
-                <widget class="QLabel" name="extracurricularactivitiesLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Extra Curricular Activities</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="23" column="0">
-                <widget class="QLabel" name="enroldateLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Enrol Date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="18" column="1">
+               <item row="22" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                  <item>
                   <widget class="QRadioButton" name="NullcertRadioButton">
@@ -1616,25 +1460,45 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="24" column="1">
-                <widget class="QTextEdit" name="remarksTextEdit">
+               <item row="24" column="0">
+                <widget class="QLabel" name="campsattendedLabel">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
                  </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
+                 <property name="text">
+                  <string>Camps Attended</string>
                  </property>
                 </widget>
                </item>
-               <item row="21" column="1">
+               <item row="25" column="0">
+                <widget class="QLabel" name="extracurricularactivitiesLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Extra Curricular Activities</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="1">
                 <widget class="QTextEdit" name="extraactivitiesTextEdit">
                  <property name="font">
                   <font>
@@ -1652,7 +1516,26 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="22" column="1">
+               <item row="26" column="0">
+                <widget class="QLabel" name="specialachievementsLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Special Achievements</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="1">
                 <widget class="QTextEdit" name="specialachievementsTextEdit">
                  <property name="font">
                   <font>
@@ -1670,7 +1553,26 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="23" column="1">
+               <item row="27" column="0">
+                <widget class="QLabel" name="enroldateLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Enrol Date</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="1">
                 <widget class="QDateEdit" name="enroldateDateEdit">
                  <property name="font">
                   <font>
@@ -1688,93 +1590,11 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="20" column="1">
-                <layout class="QHBoxLayout" name="horizontalLayout_10">
-                 <item>
-                  <widget class="QCheckBox" name="NULLCampsCheckBox">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color:transparent;color:white;</string>
-                   </property>
-                   <property name="text">
-                    <string>NULL</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                   <property name="autoExclusive">
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="NICCheckBox">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color:transparent;color:white;</string>
-                   </property>
-                   <property name="text">
-                    <string>NIC</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="CATCCheckBox">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color:transparent;color:white;</string>
-                   </property>
-                   <property name="text">
-                    <string>CATC</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="AACCheckBox">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color:transparent;color:white;</string>
-                   </property>
-                   <property name="text">
-                    <string>AAC</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="fathernameLabel">
+               <item row="28" column="0">
+                <widget class="QLabel" name="remarksLabel">
                  <property name="font">
                   <font>
-                   <family>georgia</family>
+                   <family>Georgia</family>
                    <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1785,18 +1605,12 @@ color:white;</string>
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <property name="buddy">
-                  <cstring>fathernameLineEdit</cstring>
+                  <string>Remarks</string>
                  </property>
                 </widget>
                </item>
-               <item row="13" column="1">
-                <widget class="QTextEdit" name="addressTextEdit">
+               <item row="28" column="1">
+                <widget class="QTextEdit" name="remarksTextEdit">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -1811,6 +1625,312 @@ color:white;</string>
                  <property name="tabChangesFocus">
                   <bool>true</bool>
                  </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_21">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="fullnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="SmiddlenameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="SlastnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">#fullnameLineEdit:focus
+{
+border:2px groove chartreuse;
+}</string>
+                   </property>
+                   <property name="inputMethodHints">
+                    <set>Qt::ImhDigitsOnly</set>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="6" column="0" colspan="2">
+                <widget class="QLabel" name="fathernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>fathernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="fathernameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">b</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="FmiddlenameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="FlastnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <widget class="QLabel" name="mothernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>mothernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_23">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="mothernameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">b</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_2">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="24" column="1">
+                <widget class="QListWidget" name="enrol_campsListWidget">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QAbstractItemView::MultiSelection</enum>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectItems</enum>
+                 </property>
+                 <property name="isWrapping" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="resizeMode">
+                  <enum>QListView::Fixed</enum>
+                 </property>
+                 <property name="layoutMode">
+                  <enum>QListView::SinglePass</enum>
+                 </property>
+                 <property name="gridSize">
+                  <size>
+                   <width>5</width>
+                   <height>15</height>
+                  </size>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>NIC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>AAC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>IITC</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>
@@ -2599,7 +2719,7 @@ font-size:20px;
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>E:/CODES/ncc/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -4771,11 +4891,6 @@ color: rgb(0, 0, 127);
               <property name="maxVisibleItems">
                <number>25</number>
               </property>
-              <item>
-               <property name="text">
-                <string>Select Institution</string>
-               </property>
-              </item>
              </widget>
             </item>
             <item>
@@ -4795,41 +4910,16 @@ color: rgb(0, 0, 127);</string>
               <property name="maxVisibleItems">
                <number>25</number>
               </property>
-              <item>
-               <property name="text">
-                <string>Select Type</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Upload Marks(A)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Upload Marks(B)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Upload Marks(C)</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Add Camps</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Add Extra Activities</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Add Remarks</string>
-               </property>
-              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="campsNameuploaddataComboBox">
+              <property name="styleSheet">
+               <string notr="true">font-size:20px;
+border-radius:5px;
+padding-left:5px;
+color: rgb(0, 0, 127);</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -4871,11 +4961,147 @@ padding-top:-5px;
            </layout>
           </item>
           <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
+            <item>
+             <widget class="QLineEdit" name="enrolmentuploaddataLineEdit">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">width:100%;
+font-size:15px;
+border-radius:5px;
+padding-left:5px;
+background-image: url(:/icons/close line.png);;
+color: rgb(0, 0, 0);
+height:30%;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string>Enter Enrolment Numbers</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="locationLineEdit">
+              <property name="font">
+               <font>
+                <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">width:20%;
+font-size:15px;
+border-radius:5px;
+padding-left:5px;
+background-image: url(:/icons/close line.png);;
+color: rgb(0, 0, 0);
+height:30%;</string>
+              </property>
+              <property name="placeholderText">
+               <string>Enter Location</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
+            <item>
+             <widget class="QLabel" name="startdateLabel">
+              <property name="font">
+               <font>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-radius:10px;
+margin:3px;
+color:green;</string>
+              </property>
+              <property name="text">
+               <string>Start  Date</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="startdateDateEdit">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+border-radius:5px;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="enddateLabel">
+              <property name="font">
+               <font>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-radius:10px;
+margin:3px;
+color:green;</string>
+              </property>
+              <property name="text">
+               <string>End Date</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDateEdit" name="enddateDateEdit">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+border-radius:5px;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
            <widget class="QTableWidget" name="tableWidget">
             <property name="styleSheet">
              <string notr="true">background-color:rgba(170, 255, 255 , 10)</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item>
            <spacer name="horizontalSpacer_18">
@@ -5005,9 +5231,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-748</y>
-             <width>1039</width>
-             <height>1554</height>
+             <y>-806</y>
+             <width>1036</width>
+             <height>1570</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5861,9 +6087,6 @@ text-align:center;</string>
   <tabstop>enrolmentnumLineEdit</tabstop>
   <tabstop>rankComboBox</tabstop>
   <tabstop>aadhaarLineEdit</tabstop>
-  <tabstop>fullnameLineEdit</tabstop>
-  <tabstop>fathernameLineEdit</tabstop>
-  <tabstop>mothernameLineEdit</tabstop>
   <tabstop>sexComboBox</tabstop>
   <tabstop>dateofbirthDateEdit</tabstop>
   <tabstop>addressTextEdit</tabstop>
@@ -5874,10 +6097,6 @@ text-align:center;</string>
   <tabstop>AcertRadioButton</tabstop>
   <tabstop>BcertRadioButton</tabstop>
   <tabstop>CcertRadioButton</tabstop>
-  <tabstop>NULLCampsCheckBox</tabstop>
-  <tabstop>NICCheckBox</tabstop>
-  <tabstop>CATCCheckBox</tabstop>
-  <tabstop>AACCheckBox</tabstop>
   <tabstop>extraactivitiesTextEdit</tabstop>
   <tabstop>specialachievementsTextEdit</tabstop>
   <tabstop>enroldateDateEdit</tabstop>
@@ -5979,12 +6198,13 @@ text-align:center;</string>
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
  </resources>
  <connections>
@@ -6001,70 +6221,6 @@ text-align:center;</string>
     <hint type="destinationlabel">
      <x>385</x>
      <y>126</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>valuelineEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>insertcondition</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>785</x>
-     <y>296</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>864</x>
-     <y>296</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>settings_addformLineEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>settings_addformPushButton</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>272</x>
-     <y>598</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>171</x>
-     <y>633</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>settings_addfieldLineEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>settings_addfieldPushButton</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>743</x>
-     <y>567</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>827</x>
-     <y>633</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>settings_addcampsLineEdit</sender>
-   <signal>returnPressed()</signal>
-   <receiver>settings_addcampPushButton</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>539</x>
-     <y>693</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>413</x>
-     <y>721</y>
     </hint>
    </hints>
   </connection>

@@ -45,12 +45,22 @@ class enroll:
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         details="""create table  if not exists enrolment(Enrolment_Number varchar(13) not null,Rank varchar(25) not null,Aadhaar_Number varchar(14),
-        Student_Name varchar(30) not null,Fathers_Name varchar(30) not null,Mothers_Name varchar(30) not null,Sex char(6),Date_Of_Birth date,
+        Student_First_name varchar not null,Student_Middle_Name varchar,Student_Last_Name varchar,Student_Name varchar not null,
+        Fathers_First_Name varchar,Fathers_Middle_Name varchar,Fathers_Last_Name varchar,Fathers_Name varchar,Mothers_First_Name varchar,
+        Mothers_Middle_Name varchar,Mothers_Last_Name varchar,Mothers_Name varchar ,Sex char(6),Date_Of_Birth date,
         Address varchar(200) not null,Email varchar(50)  default '',Mobile_Number varchar(10) ,Blood_Group char(3),Certificate char(4),
         Camps_Attended varchar(4) default '',Extra_Curricular_Activities varchar(50) default '',Special_Achievements varchar(50) default '',
         Enrol_Date date,Remarks varchar(50) default '',Vegitarian char(7) not null,Bank_Name varchar(30) default '',
         Branch varchar(35) default '',Account_Name varchar(50) default '',Account_Number varchar(16),IFSC_Code varchar(11),MICR varchar(9),
         Institution char(50) not null  default '',Unit varchar(20) not null  default '',primary key(Enrolment_Number))"""
+        self.cur.execute(details)
+        self.conn.commit()
+        self.conn.close()
+    def create_table_camps(self):
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        details = """create table if not exists camps_details(Enrolment_Number varchar(13) not null,Camp_Attended varchar,
+        Location varchar,Started_Date date,Ended_Date date,Institution varchar,primary key(Enrolment_Number))"""
         self.cur.execute(details)
         self.conn.commit()
         self.conn.close()

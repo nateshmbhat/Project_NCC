@@ -1,0 +1,2 @@
+Added functions set_camps_list , add_remove_camp , camplist_clicked
+

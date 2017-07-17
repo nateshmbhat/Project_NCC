@@ -1518,12 +1518,13 @@ font-weight:bold;
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
         ui.unitLineEdit.setText(tuple[26])
 
+
     def clear_enrolment_form(self):
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
             i.clear()
         for i in ui.bankformFrame.findChildren(QtGui.QLineEdit):
             i.clear()
-        for i in ui.instFrame.findChildren((QtGui.QLineEdit, QtGui.QComboBox)):
+        for i in ui.instFrame.findChildren((QtGui.QLineEdit)):
             i.clear()
         self.candidphoto = ''
         ui.selectpictureLabel.clear()

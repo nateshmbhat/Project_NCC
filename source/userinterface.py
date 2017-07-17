@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '..\User interface\userinterface1.ui'
+# Form implementation generated from reading ui file 'C:\Users\Natesh\Documents\GitHub\Project_NCC\User interface\userinterface1.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -1393,8 +1393,13 @@ class Ui_MainWindow(object):
         self.remarksCheckBox.setObjectName(_fromUtf8("remarksCheckBox"))
         self.gridLayout_7.addWidget(self.remarksCheckBox, 3, 1, 1, 1)
         self.selectallCheckBox = QtGui.QCheckBox(self.checkboxFrame)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.selectallCheckBox.setFont(font)
         self.selectallCheckBox.setStyleSheet(_fromUtf8("#selectallCheckBox{\n"
-"font: 75 16pt \"Caladea\";\n"
 "color:rgb(255, 170, 0);\n"
 "font-weight:bold;\n"
 "}\n"
@@ -2604,10 +2609,10 @@ class Ui_MainWindow(object):
         self.formsComboBox.setMinimumSize(QtCore.QSize(300, 0))
         self.formsComboBox.setMaximumSize(QtCore.QSize(16777215, 28))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
+        font.setFamily(_fromUtf8("Californian FB"))
         font.setPointSize(18)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setBold(True)
+        font.setWeight(75)
         self.formsComboBox.setFont(font)
         self.formsComboBox.setStyleSheet(_fromUtf8("#formsComboBox{\n"
 "border-radius:2px;\n"
@@ -2622,7 +2627,7 @@ class Ui_MainWindow(object):
         self.gridLayout_17.addWidget(self.formsComboBox, 2, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.webView_2 = QtWebKit.QWebView(self.formsframe)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Colonna MT"))
+        font.setFamily(_fromUtf8("Georgia"))
         font.setUnderline(False)
         self.webView_2.setFont(font)
         self.webView_2.setStyleSheet(_fromUtf8("background-color:transparent;"))
@@ -2744,7 +2749,7 @@ class Ui_MainWindow(object):
         self.entryBox = QtGui.QTextEdit(self.formsframe)
         self.entryBox.setMinimumSize(QtCore.QSize(800, 0))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
+        font.setFamily(_fromUtf8("Centaur"))
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
@@ -2776,13 +2781,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(_fromUtf8("horizontalLayout_7"))
         self.institutionuploaddatacomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Californian FB"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.institutionuploaddatacomboBox.setFont(font)
         self.institutionuploaddatacomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
 "padding-left:5px;\n"
 "background-image: url(:/icons/close line.png);\n"
-"color: rgb(0, 0, 127);"))
+"color: rgb(0, 0, 127);\n"
+""))
         self.institutionuploaddatacomboBox.setMaxVisibleItems(25)
         self.institutionuploaddatacomboBox.setObjectName(_fromUtf8("institutionuploaddatacomboBox"))
         self.institutionuploaddatacomboBox.addItem(_fromUtf8(""))
@@ -2791,7 +2801,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Californian FB"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.typecomboBox.setFont(font)
         self.typecomboBox.setStyleSheet(_fromUtf8("font-size:20px;\n"
 "border-radius:5px;\n"
@@ -2810,6 +2824,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.typecomboBox)
         self.openPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(-1)
         self.openPushButton.setFont(font)
         self.openPushButton.setStyleSheet(_fromUtf8("#openPushButton{\n"
@@ -2849,7 +2864,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.savedataPushButton.setFont(font)
         self.savedataPushButton.setStyleSheet(_fromUtf8("#savedataPushButton{\n"
 "font-size:20px;\n"
@@ -2878,7 +2896,10 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.addWidget(self.savedataPushButton)
         self.save_data_excelPushButton = QtGui.QPushButton(self.DataEntry)
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
         self.save_data_excelPushButton.setFont(font)
         self.save_data_excelPushButton.setStyleSheet(_fromUtf8("#save_data_excelPushButton{\n"
 "font-size:20px;\n"
@@ -2925,7 +2946,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1039, 1198))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1039, 1199))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -2955,8 +2976,8 @@ class Ui_MainWindow(object):
         self.gridLayout_16.setObjectName(_fromUtf8("gridLayout_16"))
         self.settings_institutionlistLabel = QtGui.QLabel(self.frame_2)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
-        font.setPointSize(19)
+        font.setFamily(_fromUtf8("Centaur"))
+        font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.settings_institutionlistLabel.setFont(font)
@@ -3094,8 +3115,8 @@ class Ui_MainWindow(object):
         self.formsandfieldsLabel = QtGui.QLabel(self.formsandfieldsgridwidget)
         self.formsandfieldsLabel.setMinimumSize(QtCore.QSize(400, 0))
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
-        font.setPointSize(22)
+        font.setFamily(_fromUtf8("Centaur"))
+        font.setPointSize(24)
         font.setBold(True)
         font.setWeight(75)
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
@@ -3193,7 +3214,7 @@ class Ui_MainWindow(object):
         item = QtGui.QListWidgetItem()
         item.setTextAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignBottom)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Caladea"))
+        font.setFamily(_fromUtf8("Cambria"))
         font.setPointSize(20)
         font.setBold(False)
         font.setItalic(True)

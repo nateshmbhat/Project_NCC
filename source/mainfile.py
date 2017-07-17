@@ -321,7 +321,12 @@ class logic():
         ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
 
-        #-----------------------------------------------------------------------------------------------------------
+
+#-----------------------------------------------------------------------------------------------------------
+
+        ui.settings_removecampPushButton.hide()
+
+
 
 
         '''CAMPS LIST'''
@@ -335,11 +340,21 @@ class logic():
 
 
 
+        def camplist_clicked():
+            if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
+                ui.settings_removecampPushButton.hide()
+            else:
+                ui.settings_removecampPushButton.show()
+        ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
+
 
 
 
     def set_camps_list(self):
         ui.settings_campslistListWidget.clear()
+        ui.settings_campslistListWidget.setSpacing(1)
+        ui.settings_addcampsLineEdit.clear()
+
         for inst in self.allcampslist:
             item = QtGui.QListWidgetItem()
             item.setText(inst)
@@ -357,9 +372,6 @@ class logic():
 
 
 
-
-
-
     def add_remove_camp(self,obj):
 
         '''ADD CAMP'''
@@ -369,10 +381,10 @@ class logic():
             campname = ui.settings_addcampsLineEdit.displayText().strip()
 
             if not campname:
-                self.showtooltip('Enter campname before clicking Add Camp')
+                self.showtooltip('Enter Camp name before clicking Add Camp')
                 return
 
-            if QtGui.QMessageBox.question(ui.Settings , "Are you sure ? " , 'Are you sure that you want to add {} to the Camps List'.format(campname),'Yes','No')==0:
+            if QtGui.QMessageBox.question(ui.Settings , "Are you sure ? " , 'Are you sure that you want to add {} to the Camps List ?'.format(campname),'Yes','No')==0:
                 self.allcampslist.append(campname)
                 self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
                 self.set_camps_list()
@@ -384,18 +396,13 @@ class logic():
 
             if not campselected:
                 self.showtooltip("Select a Camp First")
+                return
 
-
-
-
-
-
-
-
-
-
-
-
+            if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ?','Are you sure that you want to Remove {} from the Camps Lisk ?'.format(campselected),'Yes','No')==0:
+                self.allcampslist.remove(campselected)
+                self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
+                ui.settings_removecampPushButton.hide()
+                self.set_camps_list()
 
 
 
@@ -1127,7 +1134,7 @@ class logic():
                                       'OK')
             return
         self.formname = ""
-        self.formname = QtGui.QFileDialog.getOpenFileName(r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File")
+        self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File")
         if self.formname == "":
             return
         res = open(self.formname, 'a')

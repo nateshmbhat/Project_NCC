@@ -325,7 +325,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1140</y>
              <width>1041</width>
              <height>1899</height>
             </rect>
@@ -6001,6 +6001,70 @@ text-align:center;</string>
     <hint type="destinationlabel">
      <x>385</x>
      <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>valuelineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>insertcondition</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>785</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>864</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addformLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addformPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>598</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>633</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addfieldLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addfieldPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>743</x>
+     <y>567</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>827</x>
+     <y>633</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addcampsLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addcampPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>539</x>
+     <y>693</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>413</x>
+     <y>721</y>
     </hint>
    </hints>
   </connection>

@@ -17,13 +17,6 @@ class enroll:
         self.conn.close()
 
 
-    def update_student_details(self ,*fields):
-        self.conn = sqlite3.connect("ncc.db")
-        self.cur = self.conn.cursor()
-        delete = "delete from enrolment where Enrolment_Number='{}'".format(fields[0])
-        self.execute(delete);
-        self.enrol_student(fields)
-
     def dropping_table(self,table_name):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()

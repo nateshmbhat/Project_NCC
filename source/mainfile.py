@@ -1,7 +1,5 @@
 import csv
 import pandas as pd
-from PyQt4.QtGui import QPushButton, QComboBox
-
 import ENROLMENT_FORM
 import os
 import openpyxl
@@ -348,14 +346,13 @@ class logic():
         ui.settings_candidopenPushButton.clicked.connect(lambda: os.system('start explorer "candidate photos"'))
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
 
-
-#-----------------------------------------------------------------------------------------------------------
-
         ui.settings_removecampPushButton.hide()
 
-
-
-
+        def camplist_clicked():
+            if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
+                ui.settings_removecampPushButton.hide()
+            else:
+                ui.settings_removecampPushButton.show()
 
         '''CAMPS LIST'''
         self.allcampslist = self.settings.value('allcampslist').split(',,,')
@@ -363,22 +360,39 @@ class logic():
 
 
 
-
-
-
-
         ui.settings_addcampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_addcampPushButton))
+
         ui.settings_removecampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_removecampPushButton))
-
-
-
-        def camplist_clicked():
-            if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
-                ui.settings_removecampPushButton.hide()
-            else:
-                ui.settings_removecampPushButton.show()
         ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
+        ui.settings_backupdataPushButton.clicked.connect(self.backupdata)
+        ui.settings_restoredataPushButton.clicked.connect(self.restoredata)
 
+
+
+    def backupdata(self):
+        loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the location to Backup All data',
+        directory=r'C:\users\{}'.format(os.getlogin()) )
+        try:
+            shutil.copy2('ncc.db',loc)
+        except:
+            self.showtooltip("BACKUP FAILED")
+            return
+
+        self.showtooltip('BACKUP SUCCESSFULL')
+
+
+    def restoredata(self):
+        loc = QtGui.QFileDialog.getOpenFileNameAndFilter( directory=r"C:\users\{}".format(os.getlogin()) , filter="Database (*.db)")
+        if not loc:
+            return
+
+        if QtGui.QMessageBox.question(ui.Settings,"Are you sure ? " , 'Are you sure that you wish to restore the selected Database File ? Any DATA not in the selected file will be lost !' ,'Yes','No') == 0:
+
+            try:
+                shutil.copy2(loc[0] , os.getcwd()+r'\ncc.db')
+                self.showtooltip("Database Restored Successfully")
+            except:
+                self.showtooltip("Database Restoration Failed")
 
 
 
@@ -406,6 +420,7 @@ class logic():
             item.setBackground(brush)
             ui.enrol_campsListWidget.addItem(item)
             ui.campsNameuploaddataComboBox.addItem(item.text())
+            ui.campsattendedqueryComboBox.addItem(item.text())
 
 
         for i in self.allcampslist:
@@ -457,10 +472,6 @@ class logic():
                 self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
                 ui.settings_removecampPushButton.hide()
                 self.set_camps_list()
-
-
-
-    # -----------------------------------------------------------------------------------------------------------
 
 
 
@@ -589,6 +600,7 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
+
 
         ui.settings_removeformPushButton.hide()
 
@@ -1401,7 +1413,7 @@ class logic():
 
 
     def picselect(self):
-        self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.')
+        self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg)")
         if not self.candidphoto:
             return
 

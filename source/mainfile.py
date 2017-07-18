@@ -214,6 +214,25 @@ class logic():
         ui.generateexcelqueryPushButton.clicked.connect(self.generateexcelforquery)
 
         ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
+
+        ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
+
+        ENROLMENT_FORM.enroll().create_table_camps()
+
+        ui.startdateDateEdit.hide()
+
+        ui.startdateLabel.hide()
+
+        ui.enddateDateEdit.hide()
+
+        ui.enddateLabel.hide()
+
+        ui.enrolmentuploaddataLineEdit.hide()
+
+        ui.locationLineEdit.hide()
+
+        ui.campsNameuploaddataComboBox.hide()
+
         self.init_settings()
     querytupple=[]
     queryheading=[]
@@ -836,8 +855,64 @@ class logic():
         selectedDataType = ui.typecomboBox.currentText()
         if selectedDataType == "Camps_Attended":
             sql = ""
+            enrolnumbers = ui.enrolmentuploaddataLineEdit.text().split(',')
+            sqldata = ENROLMENT_FORM.enroll().execute(
+                "select * from enrolment where institution='" + selectedInstitutionName + "'")
+            sqldata1 = ENROLMENT_FORM.enroll().execute(
+                "select * from camps_details where Institution='" + selectedInstitutionName +
+                "' and camp_Attended='" + ui.campsNameuploaddataComboBox.currentText() + "'")
+            msg = ""
+            duplicate = ""
+            for i in range(len(enrolnumbers)):
+                flag = 0
+                for j in range(len(sqldata)):
+                    if enrolnumbers[i] == sqldata[j][0]:
+                        flag = 1
+                if flag == 0:
+                    duplicate = duplicate + str(enrolnumbers[i]) + ","
+                else:
+                    flag = 0
+                    for j in range(len(sqldata1)):
+                        if enrolnumbers[i] != sqldata1[j][0]:
+                            flag = 2
+                        else:
+                            flag = 0
+                            break;
+                    if flag != 2:
+                        for k in range(len(sqldata1)):
+                            for l in range(len(enrolnumbers)):
+                                print(sqldata1[k][0] + "   " + enrolnumbers[l] + "   " + sqldata1[k][1])
+                                if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][
+                                    1] == ui.campsNameuploaddataComboBox.currentText():
+                                    flag = 1
+                                    break
+                            if flag == 1:
+                                break
+                    if flag == 0 or flag == 2:
+                        sql = "insert into camps_details values('" + enrolnumbers[
+                            i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
+                        ENROLMENT_FORM.enroll().insertionexecute(sql)
 
-            print(sql)
+                    else:
+                        msg = msg + str(enrolnumbers[i]) + ","
+            if len(msg) > 0:
+                if QtGui.QMessageBox.warning(ui.Settings, 'Message',
+                                             'Camp details of Enrolment Numbers : ' + msg + " already saved",
+                                             'Yes', 'No') == 0:
+                    eno = msg[0:-1].split(',')
+                    for i in range(len(eno)):
+                        ENROLMENT_FORM.enroll().delete_by_Enrolment_camps(eno[i],
+                                                                          ui.campsNameuploaddataComboBox.currentText())
+                        sql = "insert into camps_details values('" + eno[
+                            i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
+                        ENROLMENT_FORM.enroll().insertionexecute(sql)
+
+            if len(duplicate) > 0:
+                QtGui.QMessageBox.warning(ui.Settings, 'Message',
+                                          "Enrolment Numbers : " + duplicate + " does not exist in database\nRemaining data is saved",
+                                          'OK')
+            self.showtooltip("sucessfull")
+
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             fieldsListSql = self.nametolistsql.get(selectedDataType)
             fieldsListNotSql = self.nametolistnotsql.get(selectedDataType)
@@ -875,6 +950,7 @@ class logic():
                         sql = sql + ","
                 sql = sql + ")"
                 ENROLMENT_FORM.enroll().insertionexecute(sql)
+                self.showtooltip("Saved")
         else:
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
@@ -884,20 +960,34 @@ class logic():
                                                                                                1).text().upper() + "' where Enrolment_Number='" + \
                        sqldata[i][0] + "'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
-        self.showtooltip("Saved")
+            self.showtooltip("Saved")
+
+        self.openuploaddata();
 
     def saveexceluploadeddata(self):
 
         data = []
+        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                 caption="Save File",
+                                                 filter=".xlsx")
+        horizontalheader = []
+        if not len(name):
+            return
         if ui.typecomboBox.currentText() == "A certificate":
-            self.book = openpyxl.load_workbook('A_CERTIFICATES.xlsx')
-            self.sheet = self.book.get_sheet_by_name('A')
+            book = openpyxl.load_workbook('A_CERTIFICATES.xlsx')
+            sheet = book.get_sheet_by_name('A')
         elif ui.typecomboBox.currentText() == "B certificate":
-            self.book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
-            self.sheet = self.book.get_sheet_by_name('B')
+            book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
+            sheet = book.get_sheet_by_name('B')
         elif ui.typecomboBox.currentText() == "C certificate":
-            self.book = openpyxl.load_workbook('C_CERTIFICATES.xlsx')
-            self.sheet = self.book.get_sheet_by_name('C')
+            book = openpyxl.load_workbook('C_CERTIFICATES.xlsx')
+            sheet = book.get_sheet_by_name('C')
+        else:
+            book = Workbook()
+            sheet = book.active
+            for i in range(ui.tableWidget.columnCount()):
+                horizontalheader.append(ui.tableWidget.horizontalHeaderItem(i).text())
+            sheet.append(horizontalheader)
 
         for i in range(ui.tableWidget.rowCount()):
             data.append([])
@@ -910,18 +1000,11 @@ class logic():
         if len(data) < 1:
             self.showtooltip("No data found")
         for row in data:
-            self.sheet.append(row)
-
-        self.name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
-                                                      caption="Save File",
-                                                      filter=".xlsx")
-        if not len(self.name):
-            return
-
-        self.book.save(self.name)
-        self.book.save(TemporaryFile())
+            sheet.append(row)
+        book.save(name)
+        book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
-        os.startfile(self.name)
+        os.startfile(name)
 
     rankuploadcombobox = []
     campsattendedcombobox = []
@@ -942,8 +1025,6 @@ class logic():
 
             ui.campsNameuploaddataComboBox.show()
 
-            ui.tableWidget.hide()
-
             ui.save_data_excelPushButton.show()
         elif ui.typecomboBox.currentText() == 'Extra_Curricular_Activities' or ui.typecomboBox.currentText() == 'Remarks':
             ui.save_data_excelPushButton.hide()
@@ -961,8 +1042,6 @@ class logic():
             ui.locationLineEdit.hide()
 
             ui.campsNameuploaddataComboBox.hide()
-
-            ui.tableWidget.show()
         else:
             ui.save_data_excelPushButton.show()
 
@@ -980,8 +1059,6 @@ class logic():
 
             ui.campsNameuploaddataComboBox.hide()
 
-            ui.tableWidget.show()
-
     def openuploaddata(self):
         self.rankuploadcombobox = []
         self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)",
@@ -995,35 +1072,27 @@ class logic():
         for i in range(len(verticalheaderdata)):
             verticalheader.append(verticalheaderdata[i][0])
         if selectedDataType == "Camps_Attended":
+            verticalheader = []
+            ui.tableWidget.clearContents()
             sql = "select Enrolment_Number from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             sqldata1 = ENROLMENT_FORM.enroll().execute(
-                "select * from camps_details where Institution='" + selectedInstitutionName + "'")
+                "select * from camps_details where Institution='" + selectedInstitutionName + "' and camp_Attended='" + ui.campsNameuploaddataComboBox.currentText() + "'")
             header = ["Enrolment_Number", "Camp_Attended", "Location", "Started_Date", "Ended_Date"]
             ui.tableWidget.setColumnCount(len(header))
-            ui.tableWidget.setRowCount(len(sqldata))
+            ui.tableWidget.setRowCount(len(sqldata1))
             ui.tableWidget.setHorizontalHeaderLabels(header)
-            ui.tableWidget.setVerticalHeaderLabels(verticalheader)
-            flag = 0
+
             for i in range(ui.tableWidget.rowCount()):
-                flag = 0
-                for k in range(len(sqldata)):
-                    for l in range(len(sqldata1)):
-                        if sqldata[k] == sqldata1[l]:
-                            flag = 1
-                            break
-                    if flag == 1:
-                        break
-                if flag == 1:
-                    for j in range(ui.tableWidget.columnCount()):
-                        if len(sqldata1[i]) > 0:
-                            ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata1[l][j]))
-                        else:
-                            ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem("h"))
-                else:
-                    for j in range(ui.tableWidget.columnCount()):
-                        ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem("h"))
-            ui.tableWidget.hideColumn(0)
+                verticalheader.append(sqldata1[i][0])
+                for j in range(ui.tableWidget.columnCount()):
+                    if len(sqldata1[i]) > 0:
+                        ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata1[i][j]))
+
+                    else:
+                        ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(""))
+            ui.tableWidget.setVerticalHeaderLabels(verticalheader)
+            self.showtooltip("Done")
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
 
             ui.tableWidget.clearContents()
@@ -1127,6 +1196,7 @@ class logic():
                 if len(sqlpresentdata) > 0:
                     sqlpresentdata.pop(l)
         else:
+            ui.tableWidget.clearContents()
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             ui.tableWidget.setColumnCount(2)
@@ -1158,7 +1228,6 @@ class logic():
             "color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;border:1px solid black;gridline-color:black;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
-        ui.tableWidget.hideColumn(0)
 
     def conditionscomboboxlogic(self):
         text = ui.conditionlistcombobox.currentText()
@@ -1207,16 +1276,8 @@ class logic():
                                       'Please enter the enrolment numbers.',
                                       'OK')
             return
-        x = ui.entryBox.toPlainText()
-        s = ''
-        enrolno = []
-        for i in x:
-            if i is ' ':
-                enrolno.append(s)
-                s = ''
-            else:
-                s = s + i
-        enrolno.append(s)
+        x = ui.entryBox.toPlainText().replace(' ', '')
+        enrolno = x.split(',')
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
         self.listheadingdata = list(self.nametolistnotsql.get(selectedformname))
@@ -1245,6 +1306,7 @@ class logic():
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
+        print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) == 0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
@@ -1252,7 +1314,8 @@ class logic():
                                       'OK')
             return
         self.formname = ""
-        self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File")
+        self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                          caption="Save File")
         if self.formname == "":
             return
         res = open(self.formname, 'a')
@@ -1266,24 +1329,24 @@ class logic():
 
 
 
+
     def saveExcelfuntion(self):
         # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
-        x = ui.entryBox.toPlainText().replace(" ","")
+        x = ui.entryBox.toPlainText().replace(" ", "")
 
-        msg=""
+        msg = ""
         enrolno = x.split(',')
-        enrollist=ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
+        enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
         for i in enrolno:
             if i in enrollist:
                 print()
             else:
-                msg=msg+str(i)
+                msg = msg + str(i)
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
         self.listheadingdata = list(self.nametolistsql.get(selectedformname))
         for i in self.nametolistnotsql.get(selectedformname):
             self.listheadingdata.append(i)
-
 
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
@@ -1312,13 +1375,14 @@ class logic():
                 sql = sql + "or"
 
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup) <1:
+        if len(tup) < 1:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
                                       'Make sure that you have seperated enrolmentnumbers by camma(,).',
                                       'OK')
             return
         self.formname = ""
-        self.formname = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
+        self.formname = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                          caption="Save File",
                                                           filter=".csv")
         if self.formname == "":
             return
@@ -1720,7 +1784,7 @@ font-weight:bold;
         ui.specialachievementsTextEdit.setText(tuple[24])
 
         enroldate = tuple[25].split('/')
-        ui.enroldateDateEdit.setDate(QtCore.QDate(int(enroldate[0]), int(months[enroldate[1]]), enroldate[2]))
+        ui.enroldateDateEdit.setDate(QtCore.QDate(int(enroldate[0]), months[enroldate[1]], int(enroldate[2])))
 
         ui.remarksTextEdit.setText(tuple[26])
         if tuple[27] == "veg":
@@ -1837,18 +1901,11 @@ font-weight:bold;
             shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum , ext))
 
 
-
-
-
-
         campsattended = ui.enrol_campsListWidget.selectedItems()
         campsattended = '' if not campsattended else campsattended
 
         if campsattended:
             campsattended = ','.join([i.text() for i in campsattended])
-
-
-
 
         certificate=""
         if ui.AcertRadioButton.isChecked():
@@ -1864,7 +1921,8 @@ font-weight:bold;
         obj=ENROLMENT_FORM.enroll()
 
         if ui.updateentryCheckBox.isChecked():
-            obj.update_student_details(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
+            obj.delete_by_Enrolment('enrolment',enrolmentnum)
+            obj.enrol_student(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
 
                                        Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername , sex,dateofbirth,address,
 

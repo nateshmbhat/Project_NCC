@@ -20,10 +20,9 @@ class enroll:
     def update_student_details(self ,*fields):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
-        add = "update enrolment set Enrolment_Number='{0}',Rank='{1}',Aadhaar_Number='{2}',Student_Name='{3}',Fathers_Name='{4}',Mothers_Name='{5}' ,Sex='{6}',Date_Of_Birth='{7}', Address = '{8}' ,Email='{9}' , Mobile_Number='{10}' , Blood_Group='{11}' ,Certificate='{12}' ,Camps_Attended='{13}' ,Extra_Curricular_Activities='{14}', Special_Achievements='{15}' , Enrol_Date='{16}' ,Remarks='{17}', Vegitarian='{18}' , Bank_Name='{19}', Branch='{20}' ,Account_Name='{21}',  Account_Number='{22}',   IFSC_Code='{23}',  MICR='{24}',  Institution='{25}',  Unit='{26}'  where Enrolment_Number='{0}'".format(fields[0],fields[1],fields[2],fields[3],fields[4],fields[5],fields[6],fields[7],fields[8],fields[9],fields[10],fields[11],fields[12],fields[13],fields[14],fields[15],fields[16],fields[17],fields[18],fields[19],fields[20],fields[21],fields[22],fields[23],fields[24],fields[25],fields[26],fields[0])
-        self.cur.execute(add)
-        self.conn.commit()
-        self.conn.close()
+        delete = "delete from enrolment where Enrolment_Number='{}'".format(fields[0])
+        self.execute(delete);
+        self.enrol_student(fields)
 
     def dropping_table(self,table_name):
         self.conn = sqlite3.connect("ncc.db")

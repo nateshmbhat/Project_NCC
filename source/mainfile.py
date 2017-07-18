@@ -373,26 +373,72 @@ class logic():
         loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the location to Backup All data',
         directory=r'C:\users\{}'.format(os.getlogin()) )
         try:
+            ref = 0
             shutil.copy2('ncc.db',loc)
-        except:
-            self.showtooltip("BACKUP FAILED")
+            ref = 1
+            if not os.path.exists(loc+r'\candidate photos'):
+                os.mkdir(loc+r'\candidate photos')
+
+            for i in os.listdir(r'candidate photos'):
+                try:
+                    shutil.copy2('candidate photos\\'+i , loc+'\candidate photos\\'+i)
+                except:
+                    pass;
+
+        except Exception as e:
+            print(e)
+            if ref==0:
+                self.showtooltip("BACKUP FAILED")
+                msg = "Database and Candidate photos BACKUP FAILED"
+            if ref==1:
+                self.showtooltip("Candidate photos BACKUP FAILED")
+                msg = "Database BACKUP SUCCESSFULL\nCandidate photos BACKUP FAILED "
+            QtGui.QMessageBox.warning(ui.Settings,'Backup Problem' , msg+"\nIf the problem persists Please backup the ncc.db file and Candidate photos folder manually !")
             return
 
         self.showtooltip('BACKUP SUCCESSFULL')
 
 
     def restoredata(self):
-        loc = QtGui.QFileDialog.getOpenFileNameAndFilter( directory=r"C:\users\{}".format(os.getlogin()) , filter="Database (*.db)")
-        if not loc:
-            return
 
-        if QtGui.QMessageBox.question(ui.Settings,"Are you sure ? " , 'Are you sure that you wish to restore the selected Database File ? Any DATA not in the selected file will be lost !' ,'Yes','No') == 0:
+        ch=QtGui.QMessageBox.question(ui.Settings , 'Choose restore files' ,
+            'Do you want to Restore DATABASE FILE or CANDIDATES Photos ?' , 'DataBase',"Candidate's Photos","Cancel",escapeButtonNumber=2)
+        if not ch:
+            loc = QtGui.QFileDialog.getOpenFileNameAndFilter( caption='Select the Database file',directory=r"C:\users\{}".format(os.getlogin()) , filter="Database (*.db)")
+            if not loc[0]:
+                return
 
+            if QtGui.QMessageBox.question(ui.Settings,"Are you sure ? " , 'Are you sure that you wish to restore the selected Database File ? Any DATA which is NOT in the selected file will be lost !' ,'Yes','No') == 0:
+
+                try:
+                    shutil.copy2(loc[0] , os.getcwd()+r'\ncc.db')
+                    self.showtooltip("Database Restored Successfully")
+                except:
+                    self.showtooltip("Database Restoration Failed")
+
+        if ch==1:
+            loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the Candidate Photos folder',directory=r"C:\users\{}".format(os.getlogin()))
+            if not loc:
+                return
             try:
-                shutil.copy2(loc[0] , os.getcwd()+r'\ncc.db')
-                self.showtooltip("Database Restored Successfully")
+                if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ? ' ,
+                                              'Are you sure that you wish to restore the Photos in the Selected Folder ? The changes are irreversible !','Yes','No')==0:
+                    for i in os.listdir(loc):
+                        try:
+                            shutil.copy2(loc+'\{}'.format(i) , r'candidate photos\{}'.format(i))
+                        except:pass;
+                else:return
             except:
-                self.showtooltip("Database Restoration Failed")
+                self.showtooltip("RESTORATION FAILED")
+                QtGui.QMessageBox.warning(ui.Settings, 'RESTORE FAILED' ,
+                r'''Canidate Photos Restoration FAILED ! 
+                Please copy the contents of your backedup photos to C:\Program Files\NCC\candidate photos Manually ! ''','OK')
+                return
+
+            self.showtooltip("RESTORATION SUCCESSFULL")
+
+
+
 
 
 

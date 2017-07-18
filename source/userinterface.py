@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1097, 851)
+        MainWindow.resize(1079, 863)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setAutoFillBackground(False)
@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1130, 1038, 2280))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1020, 2280))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1439,7 +1439,7 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addItem(spacerItem17, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
         self.Query = QtGui.QWidget()
         self.Query.setStyleSheet(_fromUtf8("\n"
@@ -2674,7 +2674,7 @@ class Ui_MainWindow(object):
         self.generateexcelqueryPushButton.setObjectName(_fromUtf8("generateexcelqueryPushButton"))
         self.gridLayout_5.addWidget(self.generateexcelqueryPushButton, 1, 0, 1, 1)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Query, icon2, _fromUtf8(""))
         self.Forms = QtGui.QWidget()
         self.Forms.setStyleSheet(_fromUtf8("#Forms{\n"
@@ -3011,10 +3011,8 @@ class Ui_MainWindow(object):
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
         self.verticalLayout.addWidget(self.tableWidget)
-        spacerItem21 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        spacerItem21 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.verticalLayout.addItem(spacerItem21)
-        spacerItem22 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem22)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
@@ -3078,6 +3076,126 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_8)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.mytab.addTab(self.DataEntry, _fromUtf8(""))
+        self.LongNominalRole = QtGui.QWidget()
+        self.LongNominalRole.setStyleSheet(_fromUtf8("#LongNominalRole{\n"
+"background-image: url(:/icons/graywood.png);\n"
+"background-position:center;\n"
+"\n"
+"}"))
+        self.LongNominalRole.setObjectName(_fromUtf8("LongNominalRole"))
+        self.verticalLayout_12 = QtGui.QVBoxLayout(self.LongNominalRole)
+        self.verticalLayout_12.setObjectName(_fromUtf8("verticalLayout_12"))
+        self.verticalLayout_13 = QtGui.QVBoxLayout()
+        self.verticalLayout_13.setObjectName(_fromUtf8("verticalLayout_13"))
+        self.horizontalLayout_26 = QtGui.QHBoxLayout()
+        self.horizontalLayout_26.setObjectName(_fromUtf8("horizontalLayout_26"))
+        self.typelongnrComboBox = QtGui.QComboBox(self.LongNominalRole)
+        self.typelongnrComboBox.setMinimumSize(QtCore.QSize(200, 0))
+        self.typelongnrComboBox.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Californian FB"))
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.typelongnrComboBox.setFont(font)
+        self.typelongnrComboBox.setStyleSheet(_fromUtf8("background-image: url(:/icons/simple_grad.png);\n"
+"background-position:center;"))
+        self.typelongnrComboBox.setMaxVisibleItems(20)
+        self.typelongnrComboBox.setObjectName(_fromUtf8("typelongnrComboBox"))
+        self.typelongnrComboBox.addItem(_fromUtf8(""))
+        self.typelongnrComboBox.addItem(_fromUtf8(""))
+        self.typelongnrComboBox.addItem(_fromUtf8(""))
+        self.typelongnrComboBox.addItem(_fromUtf8(""))
+        self.horizontalLayout_26.addWidget(self.typelongnrComboBox)
+        self.institutionlongnrComboBox = QtGui.QComboBox(self.LongNominalRole)
+        self.institutionlongnrComboBox.setMinimumSize(QtCore.QSize(300, 0))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Californian FB"))
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.institutionlongnrComboBox.setFont(font)
+        self.institutionlongnrComboBox.setObjectName(_fromUtf8("institutionlongnrComboBox"))
+        self.horizontalLayout_26.addWidget(self.institutionlongnrComboBox)
+        self.unitlongnrLineEdit = QtGui.QLineEdit(self.LongNominalRole)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.unitlongnrLineEdit.setFont(font)
+        self.unitlongnrLineEdit.setStyleSheet(_fromUtf8(""))
+        self.unitlongnrLineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.unitlongnrLineEdit.setObjectName(_fromUtf8("unitlongnrLineEdit"))
+        self.horizontalLayout_26.addWidget(self.unitlongnrLineEdit)
+        self.showlongnrPushButton = QtGui.QPushButton(self.LongNominalRole)
+        self.showlongnrPushButton.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Californian FB"))
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.showlongnrPushButton.setFont(font)
+        self.showlongnrPushButton.setStyleSheet(_fromUtf8("#showlongnrPushButton\n"
+"{\n"
+"color:white;\n"
+"border-radius:2px;\n"
+"border:2px double white;\n"
+"background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);\n"
+"background-position:center;\n"
+"\n"
+"}\n"
+""))
+        self.showlongnrPushButton.setObjectName(_fromUtf8("showlongnrPushButton"))
+        self.horizontalLayout_26.addWidget(self.showlongnrPushButton)
+        self.verticalLayout_13.addLayout(self.horizontalLayout_26)
+        self.tableWidget_2 = QtGui.QTableWidget(self.LongNominalRole)
+        self.tableWidget_2.setStyleSheet(_fromUtf8("background-color: transparent;"))
+        self.tableWidget_2.setObjectName(_fromUtf8("tableWidget_2"))
+        self.tableWidget_2.setColumnCount(0)
+        self.tableWidget_2.setRowCount(0)
+        self.verticalLayout_13.addWidget(self.tableWidget_2)
+        self.horizontalLayout_25 = QtGui.QHBoxLayout()
+        self.horizontalLayout_25.setObjectName(_fromUtf8("horizontalLayout_25"))
+        spacerItem22 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_25.addItem(spacerItem22)
+        self.generateexcellongnrPushButton = QtGui.QPushButton(self.LongNominalRole)
+        self.generateexcellongnrPushButton.setMinimumSize(QtCore.QSize(250, 30))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Calisto MT"))
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setWeight(75)
+        self.generateexcellongnrPushButton.setFont(font)
+        self.generateexcellongnrPushButton.setStyleSheet(_fromUtf8("\n"
+"color:white;\n"
+"border-radius:2px;\n"
+"border:2px double white;\n"
+"background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);\n"
+"background-position:center;"))
+        self.generateexcellongnrPushButton.setObjectName(_fromUtf8("generateexcellongnrPushButton"))
+        self.horizontalLayout_25.addWidget(self.generateexcellongnrPushButton, QtCore.Qt.AlignHCenter)
+        spacerItem23 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_25.addItem(spacerItem23)
+        self.updateexcellongnrPushButton = QtGui.QPushButton(self.LongNominalRole)
+        self.updateexcellongnrPushButton.setMinimumSize(QtCore.QSize(250, 30))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Calisto MT"))
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setWeight(75)
+        self.updateexcellongnrPushButton.setFont(font)
+        self.updateexcellongnrPushButton.setStyleSheet(_fromUtf8("color:white;\n"
+"border-radius:2px;\n"
+"border:2px double white;\n"
+"background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);\n"
+"background-position:center;"))
+        self.updateexcellongnrPushButton.setObjectName(_fromUtf8("updateexcellongnrPushButton"))
+        self.horizontalLayout_25.addWidget(self.updateexcellongnrPushButton, QtCore.Qt.AlignHCenter)
+        spacerItem24 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_25.addItem(spacerItem24)
+        self.verticalLayout_13.addLayout(self.horizontalLayout_25)
+        self.verticalLayout_12.addLayout(self.verticalLayout_13)
+        self.mytab.addTab(self.LongNominalRole, _fromUtf8(""))
         self.Settings = QtGui.QWidget()
         self.Settings.setStyleSheet(_fromUtf8("#Settings{\n"
 "background-image:url(:/icons/Gradient Wallpaper HD 17 Color hd background hd screensavers hd ....png);\n"
@@ -3096,7 +3214,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -884, 1036, 1648))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -872, 1018, 1648))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3202,14 +3320,14 @@ class Ui_MainWindow(object):
         self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
         self.verticalLayout_8.addWidget(self.frame_2)
         self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem23 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem23, 1, 0, 1, 1)
-        spacerItem24 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem24, 10, 0, 1, 1)
         spacerItem25 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem25, 7, 0, 1, 1)
+        self.gridLayout_14.addItem(spacerItem25, 1, 0, 1, 1)
         spacerItem26 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem26, 3, 0, 1, 1)
+        self.gridLayout_14.addItem(spacerItem26, 10, 0, 1, 1)
+        spacerItem27 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem27, 7, 0, 1, 1)
+        spacerItem28 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem28, 3, 0, 1, 1)
         self.formsandfieldsgridwidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.formsandfieldsgridwidget.setMinimumSize(QtCore.QSize(0, 600))
         self.formsandfieldsgridwidget.setStyleSheet(_fromUtf8("#formsandfieldsgridwidget\n"
@@ -3537,7 +3655,7 @@ class Ui_MainWindow(object):
         self.settings_backupdataPushButton.setStyleSheet(_fromUtf8("#settings_backupdataPushButton\n"
 "{\n"
 "border-radius:15px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
 "font-family:georgia;\n"
 "font-size:100%;\n"
 "color:white;\n"
@@ -3573,7 +3691,7 @@ class Ui_MainWindow(object):
         self.settings_restoredataPushButton.setStyleSheet(_fromUtf8("#settings_restoredataPushButton\n"
 "{\n"
 "border-radius:15px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
 "font-family:georgia;\n"
 "color:white;\n"
 "border-top:1px solid yellow;\n"
@@ -3596,8 +3714,8 @@ class Ui_MainWindow(object):
         self.settings_restoredataPushButton.setObjectName(_fromUtf8("settings_restoredataPushButton"))
         self.horizontalLayout_24.addWidget(self.settings_restoredataPushButton)
         self.gridLayout_14.addLayout(self.horizontalLayout_24, 11, 0, 1, 1)
-        spacerItem27 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem27, 12, 0, 1, 1)
+        spacerItem29 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem29, 12, 0, 1, 1)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -3617,7 +3735,7 @@ class Ui_MainWindow(object):
         self.mothernameLabel.setBuddy(self.mothernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(4)
+        self.mytab.setCurrentIndex(5)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
@@ -3965,7 +4083,17 @@ class Ui_MainWindow(object):
         self.savedataPushButton.setText(_translate("MainWindow", "Save to database", None))
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
-        self.mytab.setTabToolTip(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Upload data", None))
+        self.mytab.setTabToolTip(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
+        self.typelongnrComboBox.setItemText(0, _translate("MainWindow", "Selection By", None))
+        self.typelongnrComboBox.setItemText(1, _translate("MainWindow", "Institution", None))
+        self.typelongnrComboBox.setItemText(2, _translate("MainWindow", "Unit", None))
+        self.typelongnrComboBox.setItemText(3, _translate("MainWindow", "All", None))
+        self.unitlongnrLineEdit.setText(_translate("MainWindow", "4kar", None))
+        self.showlongnrPushButton.setText(_translate("MainWindow", "Show", None))
+        self.generateexcellongnrPushButton.setText(_translate("MainWindow", "Generate Form", None))
+        self.updateexcellongnrPushButton.setText(_translate("MainWindow", "Update Form", None))
+        self.mytab.setTabText(self.mytab.indexOf(self.LongNominalRole), _translate("MainWindow", "Long Nominal Role", None))
+        self.mytab.setTabToolTip(self.mytab.indexOf(self.LongNominalRole), _translate("MainWindow", "Long Nominal Role", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
         self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))

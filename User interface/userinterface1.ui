@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1097</width>
-    <height>851</height>
+    <width>1079</width>
+    <height>863</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -124,7 +124,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -325,8 +325,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1130</y>
-             <width>1038</width>
+             <y>0</y>
+             <width>1020</width>
              <height>2280</height>
             </rect>
            </property>
@@ -2831,7 +2831,7 @@ font-size:20px;
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -4978,7 +4978,7 @@ background-repeat:none;
         <string>Data Entry</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Upload data</string>
+        <string>Data Entry</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -5201,19 +5201,6 @@ border-radius:5px;</string>
            </widget>
           </item>
           <item>
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <spacer name="horizontalSpacer_18">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -5308,6 +5295,260 @@ padding-top:-5px;
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="LongNominalRole">
+       <property name="styleSheet">
+        <string notr="true">#LongNominalRole{
+background-image: url(:/icons/graywood.png);
+background-position:center;
+
+}</string>
+       </property>
+       <attribute name="title">
+        <string>Long Nominal Role</string>
+       </attribute>
+       <attribute name="toolTip">
+        <string>Long Nominal Role</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_12">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_26">
+            <item>
+             <widget class="QComboBox" name="typelongnrComboBox">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Californian FB</family>
+                <pointsize>18</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-image: url(:/icons/simple_grad.png);
+background-position:center;</string>
+              </property>
+              <property name="maxVisibleItems">
+               <number>20</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Selection By</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Institution</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Unit</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>All</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="institutionlongnrComboBox">
+              <property name="minimumSize">
+               <size>
+                <width>300</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Californian FB</family>
+                <pointsize>18</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="unitlongnrLineEdit">
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string>4kar</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="showlongnrPushButton">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Californian FB</family>
+                <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#showlongnrPushButton
+{
+color:white;
+border-radius:2px;
+border:2px double white;
+background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
+background-position:center;
+
+}
+</string>
+              </property>
+              <property name="text">
+               <string>Show</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidget_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: transparent;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_25">
+            <item>
+             <spacer name="horizontalSpacer_29">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="generateexcellongnrPushButton">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Calisto MT</family>
+                <pointsize>17</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+color:white;
+border-radius:2px;
+border:2px double white;
+background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
+background-position:center;</string>
+              </property>
+              <property name="text">
+               <string>Generate Form</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_31">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="updateexcellongnrPushButton">
+              <property name="minimumSize">
+               <size>
+                <width>250</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Calisto MT</family>
+                <pointsize>17</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:white;
+border-radius:2px;
+border:2px double white;
+background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
+background-position:center;</string>
+              </property>
+              <property name="text">
+               <string>Update Form</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_30">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="Settings">
        <property name="styleSheet">
         <string notr="true">#Settings{
@@ -5341,8 +5582,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-884</y>
-             <width>1036</width>
+             <y>-872</y>
+             <width>1018</width>
              <height>1648</height>
             </rect>
            </property>
@@ -6197,7 +6438,7 @@ padding:10px 10px;
                  <string notr="true">#settings_backupdataPushButton
 {
 border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
 font-family:georgia;
 font-size:100%;
 color:white;
@@ -6242,7 +6483,7 @@ padding:10px 10px;
                  <string notr="true">#settings_restoredataPushButton
 {
 border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
 font-family:georgia;
 color:white;
 border-top:1px solid yellow;
@@ -6418,13 +6659,13 @@ padding:10px 10px;
  <resources>
   <include location="../Icons/icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
   <include location="../Icons/icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

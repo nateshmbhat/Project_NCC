@@ -34,26 +34,19 @@ class logic():
     flag = 0
 
     def __init__(self):
-        ui.savedataPushButton.hide()
-        ui.save_data_excelPushButton.hide()
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
 
         ENROLMENT_FORM.enroll().create_table_marks_B_cert()
 
         ENROLMENT_FORM.enroll().create_table_marks_C_cert()
+
         ENROLMENT_FORM.enroll().create_table_Enrolment()
+
+        ENROLMENT_FORM.enroll().create_table_camps()
 
         ui.NullcertRadioButton.setChecked(True)
 
         ui.vegRadioButton.setChecked(True)
-
-        ui.AACCheckBox.clicked.connect(lambda: ui.NULLCampsCheckBox.setChecked(False))
-
-        ui.NICCheckBox.clicked.connect(lambda: ui.NULLCampsCheckBox.setChecked(False))
-
-        ui.CATCCheckBox.clicked.connect(lambda: ui.NULLCampsCheckBox.setChecked(False))
-
-        ui.NULLCampsCheckBox.clicked.connect(self.checklogicnull)
 
         ui.insertcondition.clicked.connect(self.coninsert)
 
@@ -87,6 +80,20 @@ class logic():
 
         ui.selectpicturePushButton.clicked.connect(self.picselect)
 
+        ui.startdateDateEdit.hide()
+
+        ui.startdateLabel.hide()
+
+        ui.enddateDateEdit.hide()
+
+        ui.enddateLabel.hide()
+
+        ui.enrolmentuploaddataLineEdit.hide()
+
+        ui.locationLineEdit.hide()
+
+        ui.campsNameuploaddataComboBox.hide()
+
         ui.bloodgroupqueryComboBox.hide()
 
         ui.institutionqueryComboBox.hide()
@@ -112,7 +119,6 @@ class logic():
         ui.micrLineEdit.setValidator(QtGui.QDoubleValidator())
 
         ui.aadhaarLineEdit.setValidator(QtGui.QDoubleValidator())
-        ui.enrollDateCheckBox
 
         ui.vegRadioButton.setChecked(True)
 
@@ -206,6 +212,8 @@ class logic():
         ui.settings_backinstPushButton.clicked.connect(lambda: self.set_institutions_list())
 
         ui.generateexcelqueryPushButton.clicked.connect(self.generateexcelforquery)
+
+        ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
         self.init_settings()
     querytupple=[]
     queryheading=[]
@@ -329,9 +337,14 @@ class logic():
 
 
 
+
         '''CAMPS LIST'''
         self.allcampslist = self.settings.value('allcampslist').split(',,,')
         self.set_camps_list()
+
+
+
+
 
 
 
@@ -353,11 +366,32 @@ class logic():
     def set_camps_list(self):
         ui.settings_campslistListWidget.clear()
         ui.settings_campslistListWidget.setSpacing(1)
+        ui.enrol_campsListWidget.clear()
+        ui.campsNameuploaddataComboBox.clear()
         ui.settings_addcampsLineEdit.clear()
 
-        for inst in self.allcampslist:
+
+        ui.enrol_campsListWidget.setSpacing(1)
+        for i in self.allcampslist:
             item = QtGui.QListWidgetItem()
-            item.setText(inst)
+            item.setText(i)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Garamond"))
+            font.setPointSize(13)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense2Pattern)
+            item.setBackground(brush)
+            ui.enrol_campsListWidget.addItem(item)
+            ui.campsNameuploaddataComboBox.addItem(item.text())
+
+
+        for i in self.allcampslist:
+            item = QtGui.QListWidgetItem()
+            item.setText(i)
             item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
             font = QtGui.QFont()
             font.setFamily(_fromUtf8("Garamond"))
@@ -369,6 +403,7 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_campslistListWidget.addItem(item)
+
 
 
 
@@ -799,8 +834,11 @@ class logic():
     def saveuploadeddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
+        if selectedDataType == "Camps_Attended":
+            sql = ""
 
-        if selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
+            print(sql)
+        elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             fieldsListSql = self.nametolistsql.get(selectedDataType)
             fieldsListNotSql = self.nametolistnotsql.get(selectedDataType)
             if selectedDataType == "A certificate":
@@ -848,8 +886,6 @@ class logic():
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
         self.showtooltip("Saved")
 
-
-
     def saveexceluploadeddata(self):
 
         data = []
@@ -871,13 +907,13 @@ class logic():
                 elif ui.tableWidget.item(i, j) != None:
                     txt = ui.tableWidget.item(i, j).text()
                 data[i].append(txt)
-        if len(data)<1:
+        if len(data) < 1:
             self.showtooltip("No data found")
         for row in data:
             self.sheet.append(row)
 
-
-        self.name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
+        self.name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                      caption="Save File",
                                                       filter=".xlsx")
         if not len(self.name):
             return
@@ -890,6 +926,61 @@ class logic():
     rankuploadcombobox = []
     campsattendedcombobox = []
 
+    def typecomboboxlogic(self):
+        if ui.typecomboBox.currentText() == 'Camps_Attended':
+            ui.startdateDateEdit.show()
+
+            ui.startdateLabel.show()
+
+            ui.enddateDateEdit.show()
+
+            ui.enddateLabel.show()
+
+            ui.enrolmentuploaddataLineEdit.show()
+
+            ui.locationLineEdit.show()
+
+            ui.campsNameuploaddataComboBox.show()
+
+            ui.tableWidget.hide()
+
+            ui.save_data_excelPushButton.show()
+        elif ui.typecomboBox.currentText() == 'Extra_Curricular_Activities' or ui.typecomboBox.currentText() == 'Remarks':
+            ui.save_data_excelPushButton.hide()
+
+            ui.startdateDateEdit.hide()
+
+            ui.startdateLabel.hide()
+
+            ui.enddateDateEdit.hide()
+
+            ui.enddateLabel.hide()
+
+            ui.enrolmentuploaddataLineEdit.hide()
+
+            ui.locationLineEdit.hide()
+
+            ui.campsNameuploaddataComboBox.hide()
+
+            ui.tableWidget.show()
+        else:
+            ui.save_data_excelPushButton.show()
+
+            ui.startdateDateEdit.hide()
+
+            ui.startdateLabel.hide()
+
+            ui.enddateDateEdit.hide()
+
+            ui.enddateLabel.hide()
+
+            ui.enrolmentuploaddataLineEdit.hide()
+
+            ui.locationLineEdit.hide()
+
+            ui.campsNameuploaddataComboBox.hide()
+
+            ui.tableWidget.show()
 
     def openuploaddata(self):
         self.rankuploadcombobox = []
@@ -903,8 +994,37 @@ class logic():
         verticalheader = []
         for i in range(len(verticalheaderdata)):
             verticalheader.append(verticalheaderdata[i][0])
-
-        if selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
+        if selectedDataType == "Camps_Attended":
+            sql = "select Enrolment_Number from enrolment where institution='" + selectedInstitutionName + "'"
+            sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            sqldata1 = ENROLMENT_FORM.enroll().execute(
+                "select * from camps_details where Institution='" + selectedInstitutionName + "'")
+            header = ["Enrolment_Number", "Camp_Attended", "Location", "Started_Date", "Ended_Date"]
+            ui.tableWidget.setColumnCount(len(header))
+            ui.tableWidget.setRowCount(len(sqldata))
+            ui.tableWidget.setHorizontalHeaderLabels(header)
+            ui.tableWidget.setVerticalHeaderLabels(verticalheader)
+            flag = 0
+            for i in range(ui.tableWidget.rowCount()):
+                flag = 0
+                for k in range(len(sqldata)):
+                    for l in range(len(sqldata1)):
+                        if sqldata[k] == sqldata1[l]:
+                            flag = 1
+                            break
+                    if flag == 1:
+                        break
+                if flag == 1:
+                    for j in range(ui.tableWidget.columnCount()):
+                        if len(sqldata1[i]) > 0:
+                            ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(sqldata1[l][j]))
+                        else:
+                            ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem("h"))
+                else:
+                    for j in range(ui.tableWidget.columnCount()):
+                        ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem("h"))
+            ui.tableWidget.hideColumn(0)
+        elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
 
             ui.tableWidget.clearContents()
             fieldsListSql = self.nametolistsql.get(selectedDataType)
@@ -915,8 +1035,12 @@ class logic():
                 selectedDataType = "B_cert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
+
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
+
+            field = ""
+            field = field[0:-1]
             sqlpresentdata = ENROLMENT_FORM.enroll().execute(
                 "select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
             ui.tableWidget.setRowCount(len(sqldata))
@@ -1021,7 +1145,7 @@ class logic():
         for i in range(ui.tableWidget.rowCount()):
             for j in range(ui.tableWidget.columnCount()):
                 if ui.tableWidget.item(i, j) != None:
-                    ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170,80))
+                    ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
                     ui.tableWidget.item(i, j).setFont(myfont)
                     ui.tableWidget.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
 
@@ -1035,12 +1159,6 @@ class logic():
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
         ui.tableWidget.hideColumn(0)
-        if ui.tableWidget.rowCount()>0 and ui.tableWidget.columnCount()>0:
-            ui.savedataPushButton.show()
-            if ui.typecomboBox.currentText() == "Select Type" or ui.typecomboBox.currentText() == "Camps_Attended" or ui.typecomboBox.currentText() == "Remarks" or ui.typecomboBox.currentText() == "Extra_Curricular_Activities":
-                ui.save_data_excelPushButton.hide()
-            else:
-                ui.save_data_excelPushButton.show()
 
     def conditionscomboboxlogic(self):
         text = ui.conditionlistcombobox.currentText()
@@ -1265,7 +1383,7 @@ class logic():
 
 
 
-        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit, ui.fathernameLineEdit, ui.mothernameLineEdit,ui.addressTextEdit, ui.unitLineEdit , ui.aadhaarLineEdit]:
+        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit ,ui.addressTextEdit, ui.unitLineEdit , ui.aadhaarLineEdit]:
 
             if i == ui.addressTextEdit:
                 if i.toPlainText() == '':
@@ -1467,6 +1585,7 @@ font-weight:bold;
         ui.nonvegRadioButton.setDisabled(True)
         ui.submitPushButton.hide()
         ui.updateentryCheckBox.hide()
+        ui.enrol_campsListWidget.setDisabled(True)
 
     def enable_query_checkbox_elements(self):
 
@@ -1486,8 +1605,11 @@ font-weight:bold;
         ui.nonvegRadioButton.setDisabled(False)
         ui.submitPushButton.show()
         ui.updateentryCheckBox.show()
+        ui.enrol_campsListWidget.setDisabled(False)
 
     def display(self, obj):  # this executes when the Search button is pressed
+
+
 
         if obj.objectName() == 'searchPushButton':
             if ui.searchbyfieldLineEdit.displayText().strip() == '':
@@ -1540,74 +1662,80 @@ font-weight:bold;
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
 
 
-        months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        dateyear = int(tuple[7][7] + tuple[7][8] + tuple[7][9] + tuple[7][10])
-        datemonth = tuple[7][3] + tuple[7][4] + tuple[7][5]
-        datemonth1 = 0
-        for i in range(len(months)):
-            if datemonth == months[i]:
-                datemonth1 = i + 1
-                break
-        dateday = int(tuple[7][0] + tuple[7][1])
-        enrolldateyear = int(tuple[16][7] + tuple[16][8] + tuple[16][9] + tuple[16][10])
-        enrolldatemonth = tuple[16][3] + tuple[16][4] + tuple[16][5]
-        enrolldateday = int(tuple[16][0] + tuple[16][1])
-        enrolldatemonth1 = 0
-        for i in range(len(months)):
-            if enrolldatemonth == months[i]:
-                enrolldatemonth1 = i + 1
-                break
+        months = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8,
+                  'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+
         ui.enrolmentnumLineEdit.setText(tuple[0])
         ui.rankComboBox.setCurrentIndex(ui.rankComboBox.findText(tuple[1]))
         ui.aadhaarLineEdit.setText(str(tuple[2]))
-        ui.fullnameLineEdit.setText(tuple[3])
-        ui.fathernameLineEdit.setText(tuple[4])
-        ui.mothernameLineEdit.setText(tuple[5])
-        ui.sexComboBox.setCurrentIndex(ui.sexComboBox.findText(tuple[6]))
-        ui.dateofbirthDateEdit.setDate(QtCore.QDate(dateyear, datemonth1, dateday))
-        ui.addressTextEdit.setText(tuple[8])
-        ui.emailLineEdit.setText(tuple[9])
-        ui.mobileLineEdit.setText(str(tuple[10]))
-        ui.bloodgroupComboBox.setCurrentIndex(ui.bloodgroupComboBox.findText(tuple[11]))
-        if tuple[12] == "A":
-            ui.AcertRadioButton.setChecked(True)
-        if tuple[12] == "NULL":
-            ui.NullcertRadioButton.setChecked(True)
-        if tuple[12] == "B":
-            ui.BcertRadioButton.setChecked(True)
-        if tuple[12] == "C":
-            ui.CcertRadioButton.setChecked(True)
-        for i in range(len(tuple[13])):
-            if i < len(tuple[13]) - 2:
-                if tuple[13][i] == 'N' and tuple[13][i + 1] == 'I' and tuple[13][i + 2] == 'C':
-                    ui.NULLCampsCheckBox.setChecked(False)
-                    ui.NICCheckBox.setChecked(True)
-            if i < len(tuple[13]) - 2:
-                if tuple[13][i] == 'A' and tuple[13][i + 1] == 'A' and tuple[13][i + 2] == 'C':
-                    ui.NULLCampsCheckBox.setChecked(False)
-                    ui.AACCheckBox.setChecked(True)
-            if i < len(tuple[13]) - 2:
-                if tuple[13][i] == 'C' and tuple[13][i + 1] == 'A' and tuple[13][i + 2] == 'T' and tuple[13][
-                            i + 3] == 'C':
-                    ui.NULLCampsCheckBox.setChecked(False)
-                    ui.CATCCheckBox.setChecked(True)
 
-        ui.extraactivitiesTextEdit.setText(tuple[14])
-        ui.specialachievementsTextEdit.setText(tuple[15])
-        ui.enroldateDateEdit.setDate(QtCore.QDate(enrolldateyear, enrolldatemonth1, enrolldateday))
-        ui.remarksTextEdit.setText(tuple[17])
-        if tuple[18] == "veg":
+        ui.fullnameLineEdit.setText(tuple[3])
+        ui.SmiddlenameLineEdit.setText(tuple[4])
+        ui.SlastnameLineEdit.setText(tuple[5])
+        #FULL NAME IS tuple[6]
+
+
+
+        ui.fathernameLineEdit.setText(tuple[7])
+        ui.FmiddlenameLineEdit.setText(tuple[8])
+        ui.FlastnameLineEdit.setText(tuple[9])
+        #FUll father Name is tuple[10]
+
+
+
+        ui.mothernameLineEdit.setText(tuple[11])
+        ui.MmiddlenameLineEdit.setText(tuple[12])
+        ui.MlastnameLineEdit.setText(tuple[13])
+        #FULL MOTHER NAME is tuple[14]
+
+
+        ui.sexComboBox.setCurrentIndex(ui.sexComboBox.findText(tuple[15]))
+
+        dob= tuple[16].split('/')
+        ui.dateofbirthDateEdit.setDate(QtCore.QDate(int(dob[0]), months[dob[1]], int(dob[2])))
+
+        ui.addressTextEdit.setText(tuple[17])
+        ui.emailLineEdit.setText(tuple[18])
+        ui.mobileLineEdit.setText(str(tuple[19]))
+        ui.bloodgroupComboBox.setCurrentIndex(ui.bloodgroupComboBox.findText(tuple[20]))
+
+        if tuple[21] == "A":
+            ui.AcertRadioButton.setChecked(True)
+        elif tuple[21] == "B":
+            ui.BcertRadioButton.setChecked(True)
+        elif tuple[21] == "C":
+            ui.CcertRadioButton.setChecked(True)
+        else:
+            ui.NullcertRadioButton.setChecked(True)
+
+
+        camplist = tuple[22].split(',')
+
+        for i in range(ui.enrol_campsListWidget.count()):
+            if ui.enrol_campsListWidget.item(i).text() in camplist:
+                ui.enrol_campsListWidget.item(i).setSelected(True)
+
+
+        ui.extraactivitiesTextEdit.setText(tuple[23])
+        ui.specialachievementsTextEdit.setText(tuple[24])
+
+        enroldate = tuple[25].split('/')
+        ui.enroldateDateEdit.setDate(QtCore.QDate(int(enroldate[0]), int(months[enroldate[1]]), enroldate[2]))
+
+        ui.remarksTextEdit.setText(tuple[26])
+        if tuple[27] == "veg":
             ui.vegRadioButton.setChecked(1)
         else:
             ui.nonvegRadioButton.setChecked(1)
-        ui.banknameLineEdit.setText(tuple[19])
-        ui.bankbranchLineEdit.setText(tuple[20])
-        ui.accountnumLineEdit.setText(str(tuple[21]))
-        ui.accountnameLineEdit.setText(tuple[22])
-        ui.ifsccodeLineEdit.setText(tuple[23])
-        ui.micrLineEdit.setText(str(tuple[24]))
-        ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[25]))
-        ui.unitLineEdit.setText(tuple[26])
+
+        ui.banknameLineEdit.setText(tuple[28])
+        ui.bankbranchLineEdit.setText(tuple[29])
+        ui.accountnumLineEdit.setText(str(tuple[30]))
+        ui.accountnameLineEdit.setText(tuple[31])
+        ui.ifsccodeLineEdit.setText(tuple[32])
+        ui.micrLineEdit.setText(str(tuple[33]))
+        ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[34]))
+        ui.unitLineEdit.setText(tuple[35])
 
 
     def clear_enrolment_form(self):
@@ -1617,6 +1745,13 @@ font-weight:bold;
             i.clear()
         for i in ui.instFrame.findChildren((QtGui.QLineEdit)):
             i.clear()
+
+
+        ui.enrol_campsListWidget.clearSelection()
+        ui.aadhaarLineEdit.setPlaceholderText("Enter 12 digit aadhaar number")
+        ui.fullnameLineEdit.setPlaceholderText("First Name")
+        ui.unitLineEdit.setText('4KAR')
+
         self.candidphoto = ''
         ui.selectpictureLabel.clear()
 
@@ -1634,107 +1769,124 @@ font-weight:bold;
 
     def get_enroll_form_data(self):
 
-        self.enrolmentnum = ui.enrolmentnumLineEdit.displayText().strip();
+        enrolmentnum = ui.enrolmentnumLineEdit.displayText().strip();
 
-        self.aadhaarnum = ui.aadhaarLineEdit.displayText().strip()
+        aadhaarnum = ui.aadhaarLineEdit.displayText().strip()
 
-        self.rank = ui.rankComboBox.currentText()
+        rank = ui.rankComboBox.currentText()
 
-        self.fullname = ui.fullnameLineEdit.displayText().strip()
 
-        self.fathername = ui.fathernameLineEdit.displayText().strip()
 
-        self.mothername = ui.mothernameLineEdit.displayText().strip()
+        fullname = ui.fullnameLineEdit.displayText().strip()
+        Smiddlename = ui.SmiddlenameLineEdit.displayText().strip()
+        Slastname = ui.SlastnameLineEdit.displayText().strip()
 
-        self.sex = ui.sexComboBox.currentText();
 
-        self.dateofbirth = ui.dateofbirthDateEdit.text().strip();
 
-        self.address = ui.addressTextEdit.toPlainText()
 
-        self.email = ui.emailLineEdit.displayText().strip()
+        fathername = ui.fathernameLineEdit.displayText().strip()
+        Fmiddlename = ui.FmiddlenameLineEdit.displayText().strip()
+        Flastname = ui.FlastnameLineEdit.displayText().strip()
 
-        self.mobilenum = ui.mobileLineEdit.displayText().strip()
 
-        self.bloodgroup = ui.bloodgroupComboBox.currentText()
 
-        self.bankname = ui.banknameLineEdit.displayText().strip()
+        mothername = ui.mothernameLineEdit.displayText().strip()
+        Mmiddlename = ui.MmiddlenameLineEdit.displayText().strip()
+        Mlastname = ui.MlastnameLineEdit.displayText().strip()
 
-        self.bankbranch = ui.bankbranchLineEdit.displayText().strip()
 
-        self.accountname = ui.accountnameLineEdit.displayText().strip()
 
-        self.accountnum = ui.accountnumLineEdit.displayText().strip()
+        sex = ui.sexComboBox.currentText();
 
-        self.ifsccode = ui.ifsccodeLineEdit.displayText().strip()
+        dateofbirth = ui.dateofbirthDateEdit.text().strip();
 
-        self.institutionname = ui.institutionenrollComboBox.currentText()
+        address= ui.addressTextEdit.toPlainText()
 
-        self.unit = ui.unitLineEdit.displayText().strip()
+        email= ui.emailLineEdit.displayText().strip()
 
-        self.enrolldate=ui.enroldateDateEdit.text().strip()
+        mobilenum= ui.mobileLineEdit.displayText().strip()
 
-        self.remarks=ui.remarksTextEdit.toPlainText()
+        bloodgroup= ui.bloodgroupComboBox.currentText()
 
-        self.specialachievements=ui.specialachievementsTextEdit.toPlainText()
+        bankname= ui.banknameLineEdit.displayText().strip()
 
-        self.extracurricularactivities=ui.extraactivitiesTextEdit.toPlainText()
+        bankbranch= ui.bankbranchLineEdit.displayText().strip()
 
-        self.micr=ui.micrLineEdit.displayText().strip()
-        self.campsattended=""
+        accountname= ui.accountnameLineEdit.displayText().strip()
+
+        accountnum= ui.accountnumLineEdit.displayText().strip()
+
+        ifsccode= ui.ifsccodeLineEdit.displayText().strip()
+
+        institutionname= ui.institutionenrollComboBox.currentText()
+
+        unit= ui.unitLineEdit.displayText().strip()
+
+        enrolldate=ui.enroldateDateEdit.text().strip()
+
+        remarks= ui.remarksTextEdit.toPlainText()
+
+        specialachievements= ui.specialachievementsTextEdit.toPlainText()
+
+        extracurricularactivities= ui.extraactivitiesTextEdit.toPlainText()
+
+        micr=ui.micrLineEdit.displayText().strip()
 
         if self.candidphoto:
             ext = self.candidphoto[self.candidphoto.rfind('.')+1: ]
-            shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(self.enrolmentnum , ext))
+            shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum , ext))
 
 
-        if ui.NICCheckBox.isChecked():
-            self.campsattended = self.campsattended + "NIC,"
-        if ui.CATCCheckBox.isChecked():
-            self.campsattended = self.campsattended + "CATC,"
-        if ui.AACCheckBox.isChecked():
-            self.campsattended = self.campsattended + "AAC,"
-        if ui.NULLCampsCheckBox.isChecked() and len(self.campsattended)==0:
-            self.campsattended=self.campsattended+","
-        self.campsattended=self.campsattended[0:-1]
 
-        self.certificate=""
+
+
+
+        campsattended = ui.enrol_campsListWidget.selectedItems()
+        campsattended = '' if not campsattended else campsattended
+
+        if campsattended:
+            campsattended = ','.join([i.text() for i in campsattended])
+
+
+
+
+        certificate=""
         if ui.AcertRadioButton.isChecked():
-            self.certificate="A"
+            certificate="A"
         if ui.BcertRadioButton.isChecked():
-            self.certificate="B"
+            certificate="B"
         if ui.CcertRadioButton.isChecked():
-            self.certificate="C"
-        self.vegitarian="veg"
+            certificate="C"
+        vegitarian="veg"
         if ui.nonvegRadioButton.isChecked():
-            self.vegitarian="nonveg"
+            vegitarian="nonveg"
 
         obj=ENROLMENT_FORM.enroll()
 
         if ui.updateentryCheckBox.isChecked():
-            obj.update_student_details(self.enrolmentnum , self.rank, self.aadhaarnum, self.fullname, self.fathername,
+            obj.update_student_details(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
 
-                                       self.mothername,self.sex,self.dateofbirth,self.address,
+                                       Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername , sex,dateofbirth,address,
 
-                                       self.email,self.mobilenum, self.bloodgroup,self.certificate,self.campsattended,self.extracurricularactivities
+                                       email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
 
-                                       ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
+                                       ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
 
-                                       self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit);
+                                       accountnum, ifsccode,micr, institutionname, unit);
             self.showtooltip("Updated successfully")
 
 
         else:
 
-            obj.enrol_student(self.enrolmentnum, self.rank, self.aadhaarnum, self.fullname, self.fathername,
+            obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
 
-                              self.mothername,self.sex,self.dateofbirth,self.address,
+                                       Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername ,sex,dateofbirth,address,
 
-                              self.email,self.mobilenum, self.bloodgroup,self.certificate,self.campsattended,self.extracurricularactivities
+                              email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
 
-                              ,self.specialachievements,self.enrolldate,self.remarks,self.vegitarian, self.bankname, self.bankbranch, self.accountname,
+                              ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
 
-                              self.accountnum, self.ifsccode,self.micr, self.institutionname, self.unit)
+                              accountnum, ifsccode,micr, institutionname, unit)
 
             self.showtooltip("Inserted successfully")
 

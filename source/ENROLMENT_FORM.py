@@ -60,7 +60,7 @@ class enroll:
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         details = """create table if not exists camps_details(Enrolment_Number varchar(13) not null,Camp_Attended varchar,
-        Location varchar,Started_Date date,Ended_Date date,Institution varchar,primary key(Enrolment_Number))"""
+        Location varchar,Started_Date date,Ended_Date date,Institution varchar)"""
         self.cur.execute(details)
         self.conn.commit()
         self.conn.close()
@@ -133,6 +133,14 @@ class enroll:
         self.conn.close()
     def delete_by_Enrolment(self,table,enrolment_no):
         sql="delete from "+table +" where Enrolment_Number='"+enrolment_no+"'"
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        self.cur.execute(sql)
+        self.conn.commit()
+        self.conn.close()
+
+    def delete_by_Enrolment_camps(self, enrolment_no, camp_name):
+        sql = "delete from camps_details where Enrolment_Number='" + enrolment_no + "' and Camp_Attended='" + camp_name + "'"
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         self.cur.execute(sql)

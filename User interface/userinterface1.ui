@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -325,9 +325,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1020</y>
+             <y>-1130</y>
              <width>1038</width>
-             <height>2179</height>
+             <height>2280</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -986,7 +986,7 @@ border:2px groove chartreuse;
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0" colspan="2">
+               <item row="5" column="0" colspan="2">
                 <widget class="QLabel" name="fullnameLabel">
                  <property name="font">
                   <font>
@@ -1014,7 +1014,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="12" column="0">
+               <item row="16" column="0">
                 <widget class="QLabel" name="sexLabel">
                  <property name="font">
                   <font>
@@ -1039,7 +1039,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="12" column="1">
+               <item row="16" column="1">
                 <widget class="QComboBox" name="sexComboBox">
                  <property name="font">
                   <font>
@@ -1076,7 +1076,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="15" column="0">
+               <item row="19" column="0">
                 <widget class="QLabel" name="dateofbirthLabel">
                  <property name="font">
                   <font>
@@ -1101,7 +1101,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="15" column="1">
+               <item row="19" column="1">
                 <widget class="QDateEdit" name="dateofbirthDateEdit">
                  <property name="font">
                   <font>
@@ -1132,7 +1132,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="17" column="0">
+               <item row="21" column="0">
                 <widget class="QLabel" name="addressLabel">
                  <property name="font">
                   <font>
@@ -1154,7 +1154,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="17" column="1">
+               <item row="21" column="1">
                 <widget class="QTextEdit" name="addressTextEdit">
                  <property name="font">
                   <font>
@@ -1172,7 +1172,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="18" column="0">
+               <item row="22" column="0">
                 <widget class="QLabel" name="emailLabel">
                  <property name="font">
                   <font>
@@ -1194,7 +1194,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="18" column="1">
+               <item row="22" column="1">
                 <widget class="QLineEdit" name="emailLineEdit">
                  <property name="font">
                   <font>
@@ -1218,7 +1218,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="19" column="0">
+               <item row="23" column="0">
                 <widget class="QLabel" name="mobileLabel">
                  <property name="font">
                   <font>
@@ -1240,7 +1240,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="19" column="1">
+               <item row="23" column="1">
                 <widget class="QLineEdit" name="mobileLineEdit">
                  <property name="font">
                   <font>
@@ -1267,7 +1267,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="20" column="0">
+               <item row="24" column="0">
                 <widget class="QLabel" name="bloodgroupLabel">
                  <property name="font">
                   <font>
@@ -1289,7 +1289,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="20" column="1">
+               <item row="24" column="1">
                 <widget class="QComboBox" name="bloodgroupComboBox">
                  <property name="minimumSize">
                   <size>
@@ -1359,7 +1359,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="22" column="0">
+               <item row="26" column="0">
                 <widget class="QLabel" name="certificateLabel">
                  <property name="font">
                   <font>
@@ -1378,7 +1378,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="22" column="1">
+               <item row="26" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                  <item>
                   <widget class="QRadioButton" name="NullcertRadioButton">
@@ -1460,7 +1460,7 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="24" column="0">
+               <item row="28" column="0">
                 <widget class="QLabel" name="campsattendedLabel">
                  <property name="font">
                   <font>
@@ -1479,7 +1479,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="25" column="0">
+               <item row="29" column="0">
                 <widget class="QLabel" name="extracurricularactivitiesLabel">
                  <property name="font">
                   <font>
@@ -1498,7 +1498,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="25" column="1">
+               <item row="29" column="1">
                 <widget class="QTextEdit" name="extraactivitiesTextEdit">
                  <property name="font">
                   <font>
@@ -1516,7 +1516,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="26" column="0">
+               <item row="30" column="0">
                 <widget class="QLabel" name="specialachievementsLabel">
                  <property name="font">
                   <font>
@@ -1535,7 +1535,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="26" column="1">
+               <item row="30" column="1">
                 <widget class="QTextEdit" name="specialachievementsTextEdit">
                  <property name="font">
                   <font>
@@ -1553,7 +1553,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="27" column="0">
+               <item row="31" column="0">
                 <widget class="QLabel" name="enroldateLabel">
                  <property name="font">
                   <font>
@@ -1572,7 +1572,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="27" column="1">
+               <item row="31" column="1">
                 <widget class="QDateEdit" name="enroldateDateEdit">
                  <property name="font">
                   <font>
@@ -1590,7 +1590,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="28" column="0">
+               <item row="32" column="0">
                 <widget class="QLabel" name="remarksLabel">
                  <property name="font">
                   <font>
@@ -1609,7 +1609,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="28" column="1">
+               <item row="32" column="1">
                 <widget class="QTextEdit" name="remarksTextEdit">
                  <property name="font">
                   <font>
@@ -1627,7 +1627,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0" colspan="2">
+               <item row="6" column="0" colspan="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_21">
                  <property name="spacing">
                   <number>2</number>
@@ -1697,7 +1697,7 @@ border:2px groove chartreuse;
                  </item>
                 </layout>
                </item>
-               <item row="6" column="0" colspan="2">
+               <item row="8" column="0" colspan="2">
                 <widget class="QLabel" name="fathernameLabel">
                  <property name="font">
                   <font>
@@ -1725,7 +1725,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="0" colspan="2">
+               <item row="9" column="0" colspan="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_22">
                  <property name="spacing">
                   <number>2</number>
@@ -1783,7 +1783,7 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="9" column="0" colspan="2">
+               <item row="12" column="0" colspan="2">
                 <widget class="QLabel" name="mothernameLabel">
                  <property name="font">
                   <font>
@@ -1811,7 +1811,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="10" column="0" colspan="2">
+               <item row="13" column="0" colspan="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_23">
                  <property name="spacing">
                   <number>2</number>
@@ -1838,7 +1838,7 @@ color:white;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit">
+                  <widget class="QLineEdit" name="MmiddlenameLineEdit">
                    <property name="font">
                     <font>
                      <family>Georgia</family>
@@ -1853,7 +1853,7 @@ color:white;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEdit_2">
+                  <widget class="QLineEdit" name="MlastnameLineEdit">
                    <property name="font">
                     <font>
                      <family>Georgia</family>
@@ -1869,7 +1869,7 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="24" column="1">
+               <item row="28" column="1">
                 <widget class="QListWidget" name="enrol_campsListWidget">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -1883,27 +1883,87 @@ color:white;</string>
                  <property name="selectionMode">
                   <enum>QAbstractItemView::MultiSelection</enum>
                  </property>
-                 <property name="selectionBehavior">
-                  <enum>QAbstractItemView::SelectItems</enum>
-                 </property>
-                 <property name="isWrapping" stdset="0">
-                  <bool>false</bool>
-                 </property>
-                 <property name="resizeMode">
-                  <enum>QListView::Fixed</enum>
-                 </property>
-                 <property name="layoutMode">
-                  <enum>QListView::SinglePass</enum>
-                 </property>
-                 <property name="gridSize">
-                  <size>
-                   <width>5</width>
-                   <height>15</height>
-                  </size>
+                 <property name="spacing">
+                  <number>1</number>
                  </property>
                  <item>
                   <property name="text">
                    <string>NIC</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
                   </property>
                  </item>
                  <item>
@@ -1932,6 +1992,58 @@ color:white;</string>
                   </property>
                  </item>
                 </widget>
+               </item>
+               <item row="4" column="0">
+                <spacer name="horizontalSpacer_21">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>1</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="7" column="0">
+                <spacer name="horizontalSpacer_22">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="11" column="0">
+                <spacer name="horizontalSpacer_23">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="15" column="0">
+                <spacer name="horizontalSpacer_24">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
                </item>
               </layout>
              </widget>
@@ -4991,8 +5103,6 @@ height:30%;</string>
               <property name="font">
                <font>
                 <pointsize>-1</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5231,9 +5341,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-806</y>
+             <y>-884</y>
              <width>1036</width>
-             <height>1570</height>
+             <height>1648</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5243,96 +5353,6 @@ background-position:center;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_19">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="7" column="0">
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="9" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="settings_candidopenPushButton">
-              <property name="font">
-               <font>
-                <family>georgia</family>
-                <pointsize>15</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#settings_candidopenPushButton
-{
-border-radius:20px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
-font-family:georgia;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_candidopenPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_candidopenPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-              </property>
-              <property name="text">
-               <string>Open Candidates Picture folder</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="0">
-             <spacer name="horizontalSpacer_16">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="settingsmainframewidget" native="true">
               <property name="minimumSize">
@@ -5532,6 +5552,58 @@ color:white;</string>
                </item>
               </layout>
              </widget>
+            </item>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="10" column="0">
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0">
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item row="2" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="formsandfieldsgridwidget" native="true">
@@ -6064,6 +6136,153 @@ text-align:center;</string>
               </layout>
              </widget>
             </item>
+            <item row="9" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="settings_candidopenPushButton">
+              <property name="font">
+               <font>
+                <family>georgia</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settings_candidopenPushButton
+{
+border-radius:20px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_candidopenPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_candidopenPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+              </property>
+              <property name="text">
+               <string>Open Candidates Picture folder</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="settings_backupdataPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>georgia</family>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#settings_backupdataPushButton
+{
+border-radius:15px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+font-size:100%;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_backupdataPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_backupdataPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>Backup All Data</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="settings_restoredataPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>georgia</family>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#settings_restoredataPushButton
+{
+border-radius:15px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_restoredataPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_restoredataPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>Restore Backed up Data</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="12" column="0">
+             <spacer name="horizontalSpacer_25">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
            </layout>
           </widget>
          </widget>
@@ -6198,7 +6417,7 @@ text-align:center;</string>
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>

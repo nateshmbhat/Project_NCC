@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1020, 1038, 2179))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1130, 1038, 2280))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -508,7 +508,7 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.fullnameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.fullnameLabel.setObjectName(_fromUtf8("fullnameLabel"))
-        self.Enrol_form.setWidget(4, QtGui.QFormLayout.SpanningRole, self.fullnameLabel)
+        self.Enrol_form.setWidget(5, QtGui.QFormLayout.SpanningRole, self.fullnameLabel)
         self.sexLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -519,7 +519,7 @@ class Ui_MainWindow(object):
         self.sexLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.sexLabel.setObjectName(_fromUtf8("sexLabel"))
-        self.Enrol_form.setWidget(12, QtGui.QFormLayout.LabelRole, self.sexLabel)
+        self.Enrol_form.setWidget(16, QtGui.QFormLayout.LabelRole, self.sexLabel)
         self.sexComboBox = QtGui.QComboBox(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -534,7 +534,7 @@ class Ui_MainWindow(object):
         self.sexComboBox.setObjectName(_fromUtf8("sexComboBox"))
         self.sexComboBox.addItem(_fromUtf8(""))
         self.sexComboBox.addItem(_fromUtf8(""))
-        self.Enrol_form.setWidget(12, QtGui.QFormLayout.FieldRole, self.sexComboBox)
+        self.Enrol_form.setWidget(16, QtGui.QFormLayout.FieldRole, self.sexComboBox)
         self.dateofbirthLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -545,7 +545,7 @@ class Ui_MainWindow(object):
         self.dateofbirthLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.dateofbirthLabel.setObjectName(_fromUtf8("dateofbirthLabel"))
-        self.Enrol_form.setWidget(15, QtGui.QFormLayout.LabelRole, self.dateofbirthLabel)
+        self.Enrol_form.setWidget(19, QtGui.QFormLayout.LabelRole, self.dateofbirthLabel)
         self.dateofbirthDateEdit = QtGui.QDateEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -558,7 +558,7 @@ class Ui_MainWindow(object):
         self.dateofbirthDateEdit.setDate(QtCore.QDate(2000, 1, 1))
         self.dateofbirthDateEdit.setCalendarPopup(True)
         self.dateofbirthDateEdit.setObjectName(_fromUtf8("dateofbirthDateEdit"))
-        self.Enrol_form.setWidget(15, QtGui.QFormLayout.FieldRole, self.dateofbirthDateEdit)
+        self.Enrol_form.setWidget(19, QtGui.QFormLayout.FieldRole, self.dateofbirthDateEdit)
         self.addressLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -569,7 +569,7 @@ class Ui_MainWindow(object):
         self.addressLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.addressLabel.setObjectName(_fromUtf8("addressLabel"))
-        self.Enrol_form.setWidget(17, QtGui.QFormLayout.LabelRole, self.addressLabel)
+        self.Enrol_form.setWidget(21, QtGui.QFormLayout.LabelRole, self.addressLabel)
         self.addressTextEdit = QtGui.QTextEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -580,7 +580,7 @@ class Ui_MainWindow(object):
         self.addressTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
         self.addressTextEdit.setTabChangesFocus(True)
         self.addressTextEdit.setObjectName(_fromUtf8("addressTextEdit"))
-        self.Enrol_form.setWidget(17, QtGui.QFormLayout.FieldRole, self.addressTextEdit)
+        self.Enrol_form.setWidget(21, QtGui.QFormLayout.FieldRole, self.addressTextEdit)
         self.emailLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -591,7 +591,7 @@ class Ui_MainWindow(object):
         self.emailLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.emailLabel.setObjectName(_fromUtf8("emailLabel"))
-        self.Enrol_form.setWidget(18, QtGui.QFormLayout.LabelRole, self.emailLabel)
+        self.Enrol_form.setWidget(22, QtGui.QFormLayout.LabelRole, self.emailLabel)
         self.emailLineEdit = QtGui.QLineEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -603,7 +603,7 @@ class Ui_MainWindow(object):
         self.emailLineEdit.setText(_fromUtf8(""))
         self.emailLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.emailLineEdit.setObjectName(_fromUtf8("emailLineEdit"))
-        self.Enrol_form.setWidget(18, QtGui.QFormLayout.FieldRole, self.emailLineEdit)
+        self.Enrol_form.setWidget(22, QtGui.QFormLayout.FieldRole, self.emailLineEdit)
         self.mobileLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -614,7 +614,7 @@ class Ui_MainWindow(object):
         self.mobileLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.mobileLabel.setObjectName(_fromUtf8("mobileLabel"))
-        self.Enrol_form.setWidget(19, QtGui.QFormLayout.LabelRole, self.mobileLabel)
+        self.Enrol_form.setWidget(23, QtGui.QFormLayout.LabelRole, self.mobileLabel)
         self.mobileLineEdit = QtGui.QLineEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -627,7 +627,7 @@ class Ui_MainWindow(object):
         self.mobileLineEdit.setMaxLength(10)
         self.mobileLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.mobileLineEdit.setObjectName(_fromUtf8("mobileLineEdit"))
-        self.Enrol_form.setWidget(19, QtGui.QFormLayout.FieldRole, self.mobileLineEdit)
+        self.Enrol_form.setWidget(23, QtGui.QFormLayout.FieldRole, self.mobileLineEdit)
         self.bloodgroupLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -638,7 +638,7 @@ class Ui_MainWindow(object):
         self.bloodgroupLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.bloodgroupLabel.setObjectName(_fromUtf8("bloodgroupLabel"))
-        self.Enrol_form.setWidget(20, QtGui.QFormLayout.LabelRole, self.bloodgroupLabel)
+        self.Enrol_form.setWidget(24, QtGui.QFormLayout.LabelRole, self.bloodgroupLabel)
         self.bloodgroupComboBox = QtGui.QComboBox(self.enrolformFrame)
         self.bloodgroupComboBox.setMinimumSize(QtCore.QSize(64, 25))
         font = QtGui.QFont()
@@ -660,7 +660,7 @@ class Ui_MainWindow(object):
         self.bloodgroupComboBox.addItem(_fromUtf8(""))
         self.bloodgroupComboBox.addItem(_fromUtf8(""))
         self.bloodgroupComboBox.addItem(_fromUtf8(""))
-        self.Enrol_form.setWidget(20, QtGui.QFormLayout.FieldRole, self.bloodgroupComboBox)
+        self.Enrol_form.setWidget(24, QtGui.QFormLayout.FieldRole, self.bloodgroupComboBox)
         self.certificateLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -671,7 +671,7 @@ class Ui_MainWindow(object):
         self.certificateLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.certificateLabel.setObjectName(_fromUtf8("certificateLabel"))
-        self.Enrol_form.setWidget(22, QtGui.QFormLayout.LabelRole, self.certificateLabel)
+        self.Enrol_form.setWidget(26, QtGui.QFormLayout.LabelRole, self.certificateLabel)
         self.horizontalLayout_13 = QtGui.QHBoxLayout()
         self.horizontalLayout_13.setObjectName(_fromUtf8("horizontalLayout_13"))
         self.NullcertRadioButton = QtGui.QRadioButton(self.enrolformFrame)
@@ -716,7 +716,7 @@ class Ui_MainWindow(object):
         self.CcertRadioButton.setStyleSheet(_fromUtf8("background-color:transparent;color:white;"))
         self.CcertRadioButton.setObjectName(_fromUtf8("CcertRadioButton"))
         self.horizontalLayout_13.addWidget(self.CcertRadioButton)
-        self.Enrol_form.setLayout(22, QtGui.QFormLayout.FieldRole, self.horizontalLayout_13)
+        self.Enrol_form.setLayout(26, QtGui.QFormLayout.FieldRole, self.horizontalLayout_13)
         self.campsattendedLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -727,7 +727,7 @@ class Ui_MainWindow(object):
         self.campsattendedLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.campsattendedLabel.setObjectName(_fromUtf8("campsattendedLabel"))
-        self.Enrol_form.setWidget(24, QtGui.QFormLayout.LabelRole, self.campsattendedLabel)
+        self.Enrol_form.setWidget(28, QtGui.QFormLayout.LabelRole, self.campsattendedLabel)
         self.extracurricularactivitiesLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -738,7 +738,7 @@ class Ui_MainWindow(object):
         self.extracurricularactivitiesLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.extracurricularactivitiesLabel.setObjectName(_fromUtf8("extracurricularactivitiesLabel"))
-        self.Enrol_form.setWidget(25, QtGui.QFormLayout.LabelRole, self.extracurricularactivitiesLabel)
+        self.Enrol_form.setWidget(29, QtGui.QFormLayout.LabelRole, self.extracurricularactivitiesLabel)
         self.extraactivitiesTextEdit = QtGui.QTextEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -749,7 +749,7 @@ class Ui_MainWindow(object):
         self.extraactivitiesTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
         self.extraactivitiesTextEdit.setTabChangesFocus(True)
         self.extraactivitiesTextEdit.setObjectName(_fromUtf8("extraactivitiesTextEdit"))
-        self.Enrol_form.setWidget(25, QtGui.QFormLayout.FieldRole, self.extraactivitiesTextEdit)
+        self.Enrol_form.setWidget(29, QtGui.QFormLayout.FieldRole, self.extraactivitiesTextEdit)
         self.specialachievementsLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -760,7 +760,7 @@ class Ui_MainWindow(object):
         self.specialachievementsLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.specialachievementsLabel.setObjectName(_fromUtf8("specialachievementsLabel"))
-        self.Enrol_form.setWidget(26, QtGui.QFormLayout.LabelRole, self.specialachievementsLabel)
+        self.Enrol_form.setWidget(30, QtGui.QFormLayout.LabelRole, self.specialachievementsLabel)
         self.specialachievementsTextEdit = QtGui.QTextEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -771,7 +771,7 @@ class Ui_MainWindow(object):
         self.specialachievementsTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
         self.specialachievementsTextEdit.setTabChangesFocus(True)
         self.specialachievementsTextEdit.setObjectName(_fromUtf8("specialachievementsTextEdit"))
-        self.Enrol_form.setWidget(26, QtGui.QFormLayout.FieldRole, self.specialachievementsTextEdit)
+        self.Enrol_form.setWidget(30, QtGui.QFormLayout.FieldRole, self.specialachievementsTextEdit)
         self.enroldateLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -782,7 +782,7 @@ class Ui_MainWindow(object):
         self.enroldateLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.enroldateLabel.setObjectName(_fromUtf8("enroldateLabel"))
-        self.Enrol_form.setWidget(27, QtGui.QFormLayout.LabelRole, self.enroldateLabel)
+        self.Enrol_form.setWidget(31, QtGui.QFormLayout.LabelRole, self.enroldateLabel)
         self.enroldateDateEdit = QtGui.QDateEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -792,7 +792,7 @@ class Ui_MainWindow(object):
         self.enroldateDateEdit.setFont(font)
         self.enroldateDateEdit.setCalendarPopup(True)
         self.enroldateDateEdit.setObjectName(_fromUtf8("enroldateDateEdit"))
-        self.Enrol_form.setWidget(27, QtGui.QFormLayout.FieldRole, self.enroldateDateEdit)
+        self.Enrol_form.setWidget(31, QtGui.QFormLayout.FieldRole, self.enroldateDateEdit)
         self.remarksLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -803,7 +803,7 @@ class Ui_MainWindow(object):
         self.remarksLabel.setStyleSheet(_fromUtf8("background-color:transparent;margin:3px;\n"
 "color:white;"))
         self.remarksLabel.setObjectName(_fromUtf8("remarksLabel"))
-        self.Enrol_form.setWidget(28, QtGui.QFormLayout.LabelRole, self.remarksLabel)
+        self.Enrol_form.setWidget(32, QtGui.QFormLayout.LabelRole, self.remarksLabel)
         self.remarksTextEdit = QtGui.QTextEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -814,7 +814,7 @@ class Ui_MainWindow(object):
         self.remarksTextEdit.setStyleSheet(_fromUtf8("border-radius:5px;"))
         self.remarksTextEdit.setTabChangesFocus(True)
         self.remarksTextEdit.setObjectName(_fromUtf8("remarksTextEdit"))
-        self.Enrol_form.setWidget(28, QtGui.QFormLayout.FieldRole, self.remarksTextEdit)
+        self.Enrol_form.setWidget(32, QtGui.QFormLayout.FieldRole, self.remarksTextEdit)
         self.horizontalLayout_21 = QtGui.QHBoxLayout()
         self.horizontalLayout_21.setSpacing(2)
         self.horizontalLayout_21.setObjectName(_fromUtf8("horizontalLayout_21"))
@@ -853,7 +853,7 @@ class Ui_MainWindow(object):
         self.SlastnameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.SlastnameLineEdit.setObjectName(_fromUtf8("SlastnameLineEdit"))
         self.horizontalLayout_21.addWidget(self.SlastnameLineEdit)
-        self.Enrol_form.setLayout(5, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_21)
+        self.Enrol_form.setLayout(6, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_21)
         self.fathernameLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
@@ -865,7 +865,7 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.fathernameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.fathernameLabel.setObjectName(_fromUtf8("fathernameLabel"))
-        self.Enrol_form.setWidget(6, QtGui.QFormLayout.SpanningRole, self.fathernameLabel)
+        self.Enrol_form.setWidget(8, QtGui.QFormLayout.SpanningRole, self.fathernameLabel)
         self.horizontalLayout_22 = QtGui.QHBoxLayout()
         self.horizontalLayout_22.setSpacing(2)
         self.horizontalLayout_22.setObjectName(_fromUtf8("horizontalLayout_22"))
@@ -898,7 +898,7 @@ class Ui_MainWindow(object):
         self.FlastnameLineEdit.setFont(font)
         self.FlastnameLineEdit.setObjectName(_fromUtf8("FlastnameLineEdit"))
         self.horizontalLayout_22.addWidget(self.FlastnameLineEdit)
-        self.Enrol_form.setLayout(7, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_22)
+        self.Enrol_form.setLayout(9, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_22)
         self.mothernameLabel = QtGui.QLabel(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -910,7 +910,7 @@ class Ui_MainWindow(object):
 "color:white;"))
         self.mothernameLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.mothernameLabel.setObjectName(_fromUtf8("mothernameLabel"))
-        self.Enrol_form.setWidget(9, QtGui.QFormLayout.SpanningRole, self.mothernameLabel)
+        self.Enrol_form.setWidget(12, QtGui.QFormLayout.SpanningRole, self.mothernameLabel)
         self.horizontalLayout_23 = QtGui.QHBoxLayout()
         self.horizontalLayout_23.setSpacing(2)
         self.horizontalLayout_23.setObjectName(_fromUtf8("horizontalLayout_23"))
@@ -925,25 +925,25 @@ class Ui_MainWindow(object):
         self.mothernameLineEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.mothernameLineEdit.setObjectName(_fromUtf8("mothernameLineEdit"))
         self.horizontalLayout_23.addWidget(self.mothernameLineEdit)
-        self.lineEdit = QtGui.QLineEdit(self.enrolformFrame)
+        self.MmiddlenameLineEdit = QtGui.QLineEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.horizontalLayout_23.addWidget(self.lineEdit)
-        self.lineEdit_2 = QtGui.QLineEdit(self.enrolformFrame)
+        self.MmiddlenameLineEdit.setFont(font)
+        self.MmiddlenameLineEdit.setObjectName(_fromUtf8("MmiddlenameLineEdit"))
+        self.horizontalLayout_23.addWidget(self.MmiddlenameLineEdit)
+        self.MlastnameLineEdit = QtGui.QLineEdit(self.enrolformFrame)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
-        self.horizontalLayout_23.addWidget(self.lineEdit_2)
-        self.Enrol_form.setLayout(10, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_23)
+        self.MlastnameLineEdit.setFont(font)
+        self.MlastnameLineEdit.setObjectName(_fromUtf8("MlastnameLineEdit"))
+        self.horizontalLayout_23.addWidget(self.MlastnameLineEdit)
+        self.Enrol_form.setLayout(13, QtGui.QFormLayout.SpanningRole, self.horizontalLayout_23)
         self.enrol_campsListWidget = QtGui.QListWidget(self.enrolformFrame)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
@@ -952,11 +952,6 @@ class Ui_MainWindow(object):
         self.enrol_campsListWidget.setSizePolicy(sizePolicy)
         self.enrol_campsListWidget.setStyleSheet(_fromUtf8(""))
         self.enrol_campsListWidget.setSelectionMode(QtGui.QAbstractItemView.MultiSelection)
-        self.enrol_campsListWidget.setSelectionBehavior(QtGui.QAbstractItemView.SelectItems)
-        self.enrol_campsListWidget.setProperty("isWrapping", False)
-        self.enrol_campsListWidget.setResizeMode(QtGui.QListView.Fixed)
-        self.enrol_campsListWidget.setLayoutMode(QtGui.QListView.SinglePass)
-        self.enrol_campsListWidget.setGridSize(QtCore.QSize(5, 15))
         self.enrol_campsListWidget.setObjectName(_fromUtf8("enrol_campsListWidget"))
         item = QtGui.QListWidgetItem()
         self.enrol_campsListWidget.addItem(item)
@@ -970,7 +965,45 @@ class Ui_MainWindow(object):
         self.enrol_campsListWidget.addItem(item)
         item = QtGui.QListWidgetItem()
         self.enrol_campsListWidget.addItem(item)
-        self.Enrol_form.setWidget(24, QtGui.QFormLayout.FieldRole, self.enrol_campsListWidget)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        item = QtGui.QListWidgetItem()
+        self.enrol_campsListWidget.addItem(item)
+        self.Enrol_form.setWidget(28, QtGui.QFormLayout.FieldRole, self.enrol_campsListWidget)
+        spacerItem7 = QtGui.QSpacerItem(40, 1, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.Enrol_form.setItem(4, QtGui.QFormLayout.LabelRole, spacerItem7)
+        spacerItem8 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.Enrol_form.setItem(7, QtGui.QFormLayout.LabelRole, spacerItem8)
+        spacerItem9 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.Enrol_form.setItem(11, QtGui.QFormLayout.LabelRole, spacerItem9)
+        spacerItem10 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.Enrol_form.setItem(15, QtGui.QFormLayout.LabelRole, spacerItem10)
         self.gridLayout_3.addWidget(self.enrolformFrame, 3, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.bankformFrame = QtGui.QFrame(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
@@ -1171,14 +1204,14 @@ class Ui_MainWindow(object):
         self.nonvegRadioButton.setObjectName(_fromUtf8("nonvegRadioButton"))
         self.gridLayout_10.addWidget(self.nonvegRadioButton, 0, 2, 1, 1)
         self.gridLayout_3.addWidget(self.formFrame, 4, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem7 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem7, 22, 0, 1, 1)
-        spacerItem8 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem8, 13, 0, 1, 1)
-        spacerItem9 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem9, 17, 0, 1, 1)
-        spacerItem10 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem10, 16, 0, 1, 1)
+        spacerItem11 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem11, 22, 0, 1, 1)
+        spacerItem12 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem12, 13, 0, 1, 1)
+        spacerItem13 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem13, 17, 0, 1, 1)
+        spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem14, 16, 0, 1, 1)
         self.bankdetailsLabel = QtGui.QLabel(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setPointSize(-1)
@@ -1317,8 +1350,8 @@ class Ui_MainWindow(object):
 ""))
         self.aadhaarnumRadioButton.setObjectName(_fromUtf8("aadhaarnumRadioButton"))
         self.horizontalLayout_9.addWidget(self.aadhaarnumRadioButton, QtCore.Qt.AlignLeft)
-        spacerItem11 = QtGui.QSpacerItem(20, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem11)
+        spacerItem15 = QtGui.QSpacerItem(20, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem15)
         self.gridLayout_13.addLayout(self.horizontalLayout_9, 4, 0, 1, 1)
         self.horizontalLayout_6 = QtGui.QHBoxLayout()
         self.horizontalLayout_6.setObjectName(_fromUtf8("horizontalLayout_6"))
@@ -1399,11 +1432,11 @@ class Ui_MainWindow(object):
         self.searchPushButton.setDefault(False)
         self.searchPushButton.setObjectName(_fromUtf8("searchPushButton"))
         self.horizontalLayout_6.addWidget(self.searchPushButton, QtCore.Qt.AlignLeft)
-        spacerItem12 = QtGui.QSpacerItem(20, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem12)
+        spacerItem16 = QtGui.QSpacerItem(20, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem16)
         self.gridLayout_13.addLayout(self.horizontalLayout_6, 0, 0, 1, 1)
-        spacerItem13 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_13.addItem(spacerItem13, 0, 2, 1, 1)
+        spacerItem17 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_13.addItem(spacerItem17, 0, 2, 1, 1)
         self.gridLayout.addWidget(self.searchFrame, 1, 0, 1, 1)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -2660,8 +2693,8 @@ class Ui_MainWindow(object):
         self.gridLayout_17 = QtGui.QGridLayout(self.formsframe)
         self.gridLayout_17.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
         self.gridLayout_17.setObjectName(_fromUtf8("gridLayout_17"))
-        spacerItem14 = QtGui.QSpacerItem(40, 10, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_17.addItem(spacerItem14, 4, 0, 1, 1)
+        spacerItem18 = QtGui.QSpacerItem(40, 10, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_17.addItem(spacerItem18, 4, 0, 1, 1)
         self.formsComboBox = QtGui.QComboBox(self.formsframe)
         self.formsComboBox.setMinimumSize(QtCore.QSize(300, 0))
         self.formsComboBox.setMaximumSize(QtCore.QSize(16777215, 28))
@@ -2801,8 +2834,8 @@ class Ui_MainWindow(object):
 "color:black;"))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout_17.addWidget(self.label_3, 5, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem15 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_17.addItem(spacerItem15, 11, 0, 1, 1)
+        spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_17.addItem(spacerItem19, 11, 0, 1, 1)
         self.entryBox = QtGui.QTextEdit(self.formsframe)
         self.entryBox.setMinimumSize(QtCore.QSize(800, 0))
         font = QtGui.QFont()
@@ -2818,8 +2851,8 @@ class Ui_MainWindow(object):
 "color:black;"))
         self.entryBox.setObjectName(_fromUtf8("entryBox"))
         self.gridLayout_17.addWidget(self.entryBox, 8, 0, 1, 2, QtCore.Qt.AlignHCenter)
-        spacerItem16 = QtGui.QSpacerItem(40, 5, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_17.addItem(spacerItem16, 6, 0, 1, 1)
+        spacerItem20 = QtGui.QSpacerItem(40, 5, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_17.addItem(spacerItem20, 6, 0, 1, 1)
         self.gridLayout_15.addWidget(self.formsframe, 0, 0, 1, 1)
         self.mytab.addTab(self.Forms, _fromUtf8(""))
         self.DataEntry = QtGui.QWidget()
@@ -2916,8 +2949,6 @@ class Ui_MainWindow(object):
         self.locationLineEdit = QtGui.QLineEdit(self.DataEntry)
         font = QtGui.QFont()
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.locationLineEdit.setFont(font)
         self.locationLineEdit.setStyleSheet(_fromUtf8("width:20%;\n"
 "font-size:15px;\n"
@@ -2980,10 +3011,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
         self.verticalLayout.addWidget(self.tableWidget)
-        spacerItem17 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem17)
-        spacerItem18 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem18)
+        spacerItem21 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem21)
+        spacerItem22 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem22)
         self.horizontalLayout_8 = QtGui.QHBoxLayout()
         self.horizontalLayout_8.setObjectName(_fromUtf8("horizontalLayout_8"))
         self.savedataPushButton = QtGui.QPushButton(self.DataEntry)
@@ -3065,7 +3096,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -806, 1036, 1570))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -884, 1036, 1648))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3073,44 +3104,6 @@ class Ui_MainWindow(object):
         self.settingsscrollAreaWidgetContents.setObjectName(_fromUtf8("settingsscrollAreaWidgetContents"))
         self.gridLayout_14 = QtGui.QGridLayout(self.settingsscrollAreaWidgetContents)
         self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
-        spacerItem19 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem19, 3, 0, 1, 1)
-        spacerItem20 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem20, 1, 0, 1, 1)
-        spacerItem21 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem21, 7, 0, 1, 1)
-        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(15)
-        self.settings_candidopenPushButton.setFont(font)
-        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
-"{\n"
-"border-radius:20px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
-"font-family:georgia;\n"
-"color:white;\n"
-"border-top:1px solid yellow;\n"
-"border-bottom:1px solid black;\n"
-"padding:10px 10px;\n"
-"}\n"
-"#settings_candidopenPushButton:hover\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,255);\n"
-"\n"
-"}\n"
-"\n"
-"#settings_candidopenPushButton:pressed\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,175);\n"
-"\n"
-"}"))
-        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
-        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 9, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem22 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem22, 10, 0, 1, 1)
         self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
         self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
@@ -3209,6 +3202,14 @@ class Ui_MainWindow(object):
         self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
         self.verticalLayout_8.addWidget(self.frame_2)
         self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem23 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem23, 1, 0, 1, 1)
+        spacerItem24 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem24, 10, 0, 1, 1)
+        spacerItem25 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem25, 7, 0, 1, 1)
+        spacerItem26 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem26, 3, 0, 1, 1)
         self.formsandfieldsgridwidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.formsandfieldsgridwidget.setMinimumSize(QtCore.QSize(0, 600))
         self.formsandfieldsgridwidget.setStyleSheet(_fromUtf8("#formsandfieldsgridwidget\n"
@@ -3490,6 +3491,113 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.addWidget(self.settings_removecampPushButton)
         self.verticalLayout_5.addLayout(self.horizontalLayout_18)
         self.gridLayout_14.addWidget(self.verticalFrame, 4, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_candidopenPushButton.setFont(font)
+        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
+"{\n"
+"border-radius:20px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"font-family:georgia;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_candidopenPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_candidopenPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
+        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 9, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        self.horizontalLayout_24 = QtGui.QHBoxLayout()
+        self.horizontalLayout_24.setSpacing(2)
+        self.horizontalLayout_24.setObjectName(_fromUtf8("horizontalLayout_24"))
+        self.settings_backupdataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.settings_backupdataPushButton.sizePolicy().hasHeightForWidth())
+        self.settings_backupdataPushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_backupdataPushButton.setFont(font)
+        self.settings_backupdataPushButton.setStyleSheet(_fromUtf8("#settings_backupdataPushButton\n"
+"{\n"
+"border-radius:15px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"font-family:georgia;\n"
+"font-size:100%;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_backupdataPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_backupdataPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_backupdataPushButton.setObjectName(_fromUtf8("settings_backupdataPushButton"))
+        self.horizontalLayout_24.addWidget(self.settings_backupdataPushButton)
+        self.settings_restoredataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.settings_restoredataPushButton.sizePolicy().hasHeightForWidth())
+        self.settings_restoredataPushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_restoredataPushButton.setFont(font)
+        self.settings_restoredataPushButton.setStyleSheet(_fromUtf8("#settings_restoredataPushButton\n"
+"{\n"
+"border-radius:15px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"font-family:georgia;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_restoredataPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_restoredataPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_restoredataPushButton.setObjectName(_fromUtf8("settings_restoredataPushButton"))
+        self.horizontalLayout_24.addWidget(self.settings_restoredataPushButton)
+        self.gridLayout_14.addLayout(self.horizontalLayout_24, 11, 0, 1, 1)
+        spacerItem27 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem27, 12, 0, 1, 1)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -3509,7 +3617,7 @@ class Ui_MainWindow(object):
         self.mothernameLabel.setBuddy(self.mothernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(0)
+        self.mytab.setCurrentIndex(4)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
@@ -3686,8 +3794,8 @@ class Ui_MainWindow(object):
         self.FlastnameLineEdit.setPlaceholderText(_translate("MainWindow", "Last Name", None))
         self.mothernameLabel.setText(_translate("MainWindow", "<html><head/><body><p>Mother\'s Name</p></body></html>", None))
         self.mothernameLineEdit.setPlaceholderText(_translate("MainWindow", "First Name", None))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Middle Name", None))
-        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Last Name", None))
+        self.MmiddlenameLineEdit.setPlaceholderText(_translate("MainWindow", "Middle Name", None))
+        self.MlastnameLineEdit.setPlaceholderText(_translate("MainWindow", "Last Name", None))
         __sortingEnabled = self.enrol_campsListWidget.isSortingEnabled()
         self.enrol_campsListWidget.setSortingEnabled(False)
         item = self.enrol_campsListWidget.item(0)
@@ -3699,8 +3807,38 @@ class Ui_MainWindow(object):
         item = self.enrol_campsListWidget.item(3)
         item.setText(_translate("MainWindow", "New Item", None))
         item = self.enrol_campsListWidget.item(4)
-        item.setText(_translate("MainWindow", "AAC", None))
+        item.setText(_translate("MainWindow", "New Item", None))
         item = self.enrol_campsListWidget.item(5)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(6)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(7)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(8)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(9)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(10)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(11)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(12)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(13)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(14)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(15)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(16)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(17)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(18)
+        item.setText(_translate("MainWindow", "New Item", None))
+        item = self.enrol_campsListWidget.item(19)
+        item.setText(_translate("MainWindow", "AAC", None))
+        item = self.enrol_campsListWidget.item(20)
         item.setText(_translate("MainWindow", "IITC", None))
         self.enrol_campsListWidget.setSortingEnabled(__sortingEnabled)
         self.ifsccodeLabel.setText(_translate("MainWindow", "IFSC code", None))
@@ -3828,7 +3966,6 @@ class Ui_MainWindow(object):
         self.save_data_excelPushButton.setText(_translate("MainWindow", "Generate Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Data Entry", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.DataEntry), _translate("MainWindow", "Upload data", None))
-        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
         self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
@@ -3857,6 +3994,9 @@ class Ui_MainWindow(object):
         self.settings_addcampsLineEdit.setPlaceholderText(_translate("MainWindow", "Enter new CAMP name ", None))
         self.settings_addcampPushButton.setText(_translate("MainWindow", "Add Camp", None))
         self.settings_removecampPushButton.setText(_translate("MainWindow", "Remove Camp", None))
+        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
+        self.settings_backupdataPushButton.setText(_translate("MainWindow", "Backup All Data", None))
+        self.settings_restoredataPushButton.setText(_translate("MainWindow", "Restore Backed up Data", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
 

@@ -202,7 +202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1020, 2280))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -300, 1020, 2280))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -2965,8 +2965,8 @@ class Ui_MainWindow(object):
         self.startdateLabel = QtGui.QLabel(self.DataEntry)
         font = QtGui.QFont()
         font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         self.startdateLabel.setFont(font)
         self.startdateLabel.setStyleSheet(_fromUtf8("border-radius:10px;\n"
 "margin:3px;\n"
@@ -2986,8 +2986,8 @@ class Ui_MainWindow(object):
         self.enddateLabel = QtGui.QLabel(self.DataEntry)
         font = QtGui.QFont()
         font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         self.enddateLabel.setFont(font)
         self.enddateLabel.setStyleSheet(_fromUtf8("border-radius:10px;\n"
 "margin:3px;\n"
@@ -3214,7 +3214,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -872, 1018, 1648))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -972, 1018, 1748))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3222,6 +3222,115 @@ class Ui_MainWindow(object):
         self.settingsscrollAreaWidgetContents.setObjectName(_fromUtf8("settingsscrollAreaWidgetContents"))
         self.gridLayout_14 = QtGui.QGridLayout(self.settingsscrollAreaWidgetContents)
         self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
+        spacerItem25 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem25, 11, 0, 1, 1)
+        self.horizontalLayout_24 = QtGui.QHBoxLayout()
+        self.horizontalLayout_24.setSpacing(2)
+        self.horizontalLayout_24.setObjectName(_fromUtf8("horizontalLayout_24"))
+        self.settings_backupdataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.settings_backupdataPushButton.sizePolicy().hasHeightForWidth())
+        self.settings_backupdataPushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_backupdataPushButton.setFont(font)
+        self.settings_backupdataPushButton.setStyleSheet(_fromUtf8("#settings_backupdataPushButton\n"
+"{\n"
+"border-radius:15px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
+"font-family:georgia;\n"
+"font-size:100%;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_backupdataPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_backupdataPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_backupdataPushButton.setObjectName(_fromUtf8("settings_backupdataPushButton"))
+        self.horizontalLayout_24.addWidget(self.settings_backupdataPushButton)
+        self.settings_restoredataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.settings_restoredataPushButton.sizePolicy().hasHeightForWidth())
+        self.settings_restoredataPushButton.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_restoredataPushButton.setFont(font)
+        self.settings_restoredataPushButton.setStyleSheet(_fromUtf8("#settings_restoredataPushButton\n"
+"{\n"
+"border-radius:15px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
+"font-family:georgia;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_restoredataPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_restoredataPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_restoredataPushButton.setObjectName(_fromUtf8("settings_restoredataPushButton"))
+        self.horizontalLayout_24.addWidget(self.settings_restoredataPushButton)
+        self.gridLayout_14.addLayout(self.horizontalLayout_24, 12, 0, 1, 1)
+        spacerItem26 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem26, 13, 0, 1, 1)
+        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("georgia"))
+        font.setPointSize(14)
+        self.settings_candidopenPushButton.setFont(font)
+        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
+"{\n"
+"border-radius:20px;\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"font-family:georgia;\n"
+"color:white;\n"
+"border-top:1px solid yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:10px 10px;\n"
+"}\n"
+"#settings_candidopenPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_candidopenPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
+        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 9, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.settingsmainframewidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.settingsmainframewidget.setMinimumSize(QtCore.QSize(514, 0))
         self.settingsmainframewidget.setStyleSheet(_fromUtf8("#settingsmainframewidget{\n"
@@ -3320,14 +3429,6 @@ class Ui_MainWindow(object):
         self.gridLayout_16.addWidget(self.settings_institutionListWidget, 1, 0, 1, 1)
         self.verticalLayout_8.addWidget(self.frame_2)
         self.gridLayout_14.addWidget(self.settingsmainframewidget, 0, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        spacerItem25 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem25, 1, 0, 1, 1)
-        spacerItem26 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem26, 10, 0, 1, 1)
-        spacerItem27 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem27, 7, 0, 1, 1)
-        spacerItem28 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem28, 3, 0, 1, 1)
         self.formsandfieldsgridwidget = QtGui.QWidget(self.settingsscrollAreaWidgetContents)
         self.formsandfieldsgridwidget.setMinimumSize(QtCore.QSize(0, 600))
         self.formsandfieldsgridwidget.setStyleSheet(_fromUtf8("#formsandfieldsgridwidget\n"
@@ -3609,113 +3710,46 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.addWidget(self.settings_removecampPushButton)
         self.verticalLayout_5.addLayout(self.horizontalLayout_18)
         self.gridLayout_14.addWidget(self.verticalFrame, 4, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.settings_candidopenPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
+        spacerItem27 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem27, 7, 0, 1, 1)
+        spacerItem28 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem28, 3, 0, 1, 1)
+        spacerItem29 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem29, 1, 0, 1, 1)
+        self.exceltodatabasePushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(14)
-        self.settings_candidopenPushButton.setFont(font)
-        self.settings_candidopenPushButton.setStyleSheet(_fromUtf8("#settings_candidopenPushButton\n"
+        font.setPointSize(13)
+        self.exceltodatabasePushButton.setFont(font)
+        self.exceltodatabasePushButton.setStyleSheet(_fromUtf8("#exceltodatabasePushButton\n"
 "{\n"
 "border-radius:20px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);\n"
+"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(203, 146, 0, 255));\n"
 "font-family:georgia;\n"
 "color:white;\n"
-"border-top:1px solid yellow;\n"
+"border-top:1px solid green;\n"
 "border-bottom:1px solid black;\n"
 "padding:10px 10px;\n"
 "}\n"
-"#settings_candidopenPushButton:hover\n"
+"#exceltodatabasePushButton:hover\n"
 "{\n"
 "    color:black;\n"
 "    background-color:rgba(0, 170, 255,255);\n"
 "\n"
 "}\n"
 "\n"
-"#settings_candidopenPushButton:pressed\n"
+"#exceltodatabasePushButton:pressed\n"
 "{\n"
 "    color:black;\n"
 "    background-color:rgba(0, 170, 255,175);\n"
 "\n"
 "}"))
-        self.settings_candidopenPushButton.setObjectName(_fromUtf8("settings_candidopenPushButton"))
-        self.gridLayout_14.addWidget(self.settings_candidopenPushButton, 9, 0, 1, 1, QtCore.Qt.AlignHCenter)
-        self.horizontalLayout_24 = QtGui.QHBoxLayout()
-        self.horizontalLayout_24.setSpacing(2)
-        self.horizontalLayout_24.setObjectName(_fromUtf8("horizontalLayout_24"))
-        self.settings_backupdataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.settings_backupdataPushButton.sizePolicy().hasHeightForWidth())
-        self.settings_backupdataPushButton.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(14)
-        self.settings_backupdataPushButton.setFont(font)
-        self.settings_backupdataPushButton.setStyleSheet(_fromUtf8("#settings_backupdataPushButton\n"
-"{\n"
-"border-radius:15px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
-"font-family:georgia;\n"
-"font-size:100%;\n"
-"color:white;\n"
-"border-top:1px solid yellow;\n"
-"border-bottom:1px solid black;\n"
-"padding:10px 10px;\n"
-"}\n"
-"#settings_backupdataPushButton:hover\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,255);\n"
-"\n"
-"}\n"
-"\n"
-"#settings_backupdataPushButton:pressed\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,175);\n"
-"\n"
-"}"))
-        self.settings_backupdataPushButton.setObjectName(_fromUtf8("settings_backupdataPushButton"))
-        self.horizontalLayout_24.addWidget(self.settings_backupdataPushButton)
-        self.settings_restoredataPushButton = QtGui.QPushButton(self.settingsscrollAreaWidgetContents)
-        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.settings_restoredataPushButton.sizePolicy().hasHeightForWidth())
-        self.settings_restoredataPushButton.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily(_fromUtf8("georgia"))
-        font.setPointSize(14)
-        self.settings_restoredataPushButton.setFont(font)
-        self.settings_restoredataPushButton.setStyleSheet(_fromUtf8("#settings_restoredataPushButton\n"
-"{\n"
-"border-radius:15px;\n"
-"background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));\n"
-"font-family:georgia;\n"
-"color:white;\n"
-"border-top:1px solid yellow;\n"
-"border-bottom:1px solid black;\n"
-"padding:10px 10px;\n"
-"}\n"
-"#settings_restoredataPushButton:hover\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,255);\n"
-"\n"
-"}\n"
-"\n"
-"#settings_restoredataPushButton:pressed\n"
-"{\n"
-"    color:black;\n"
-"    background-color:rgba(0, 170, 255,175);\n"
-"\n"
-"}"))
-        self.settings_restoredataPushButton.setObjectName(_fromUtf8("settings_restoredataPushButton"))
-        self.horizontalLayout_24.addWidget(self.settings_restoredataPushButton)
-        self.gridLayout_14.addLayout(self.horizontalLayout_24, 11, 0, 1, 1)
-        spacerItem29 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_14.addItem(spacerItem29, 12, 0, 1, 1)
+        self.exceltodatabasePushButton.setObjectName(_fromUtf8("exceltodatabasePushButton"))
+        self.gridLayout_14.addWidget(self.exceltodatabasePushButton, 15, 0, 1, 1, QtCore.Qt.AlignHCenter)
+        spacerItem30 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem30, 10, 0, 1, 1)
+        spacerItem31 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_14.addItem(spacerItem31, 14, 0, 1, 1)
         self.SettingsScrollArea.setWidget(self.settingsscrollAreaWidgetContents)
         self.verticalLayout_11.addWidget(self.SettingsScrollArea)
         self.mytab.addTab(self.Settings, _fromUtf8(""))
@@ -4094,6 +4128,9 @@ class Ui_MainWindow(object):
         self.updateexcellongnrPushButton.setText(_translate("MainWindow", "Update Form", None))
         self.mytab.setTabText(self.mytab.indexOf(self.LongNominalRole), _translate("MainWindow", "Long Nominal Role", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.LongNominalRole), _translate("MainWindow", "Long Nominal Role", None))
+        self.settings_backupdataPushButton.setText(_translate("MainWindow", "Backup All Data", None))
+        self.settings_restoredataPushButton.setText(_translate("MainWindow", "Restore Backed up Data", None))
+        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
         self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))
@@ -4122,9 +4159,7 @@ class Ui_MainWindow(object):
         self.settings_addcampsLineEdit.setPlaceholderText(_translate("MainWindow", "Enter new CAMP name ", None))
         self.settings_addcampPushButton.setText(_translate("MainWindow", "Add Camp", None))
         self.settings_removecampPushButton.setText(_translate("MainWindow", "Remove Camp", None))
-        self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
-        self.settings_backupdataPushButton.setText(_translate("MainWindow", "Backup All Data", None))
-        self.settings_restoredataPushButton.setText(_translate("MainWindow", "Restore Backed up Data", None))
+        self.exceltodatabasePushButton.setText(_translate("MainWindow", "Append To DataBase From Excel", None))
         self.mytab.setTabText(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
         self.mytab.setTabToolTip(self.mytab.indexOf(self.Settings), _translate("MainWindow", "Settings", None))
 

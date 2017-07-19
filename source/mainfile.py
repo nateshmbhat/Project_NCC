@@ -1,5 +1,7 @@
 import csv
 import pandas as pd
+from PyQt4.QtGui import QPushButton, QComboBox
+
 import ENROLMENT_FORM
 import os
 import openpyxl
@@ -26,6 +28,13 @@ except AttributeError:
 
 from tempfile import TemporaryFile
 from openpyxl import Workbook
+imagePath = "C:\\Users\ADMIN\Documents\BlueShades2.jpg"
+class ImgWidget1(QtGui.QLabel):
+
+    def __init__(self, imagepath,parent=None):
+        super(ImgWidget1, self).__init__(parent)
+        pic = QtGui.QPixmap(imagePath)
+        self.setPixmap(pic)
 
 
 class logic():
@@ -213,8 +222,6 @@ class logic():
 
         ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
 
-        ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
-
         ENROLMENT_FORM.enroll().create_table_camps()
 
         ui.startdateDateEdit.hide()
@@ -231,26 +238,12 @@ class logic():
 
         ui.campsNameuploaddataComboBox.hide()
 
+        ui.showlongnrPushButton.clicked.connect(self.showlongnr)
+
+        ui.typelongnrComboBox.currentIndexChanged.connect(self.typelongNrComboBoxLogic)
+        ui.institutionlongnrComboBox.hide()
+        ui.unitlongnrLineEdit.hide()
         self.init_settings()
-    querytupple=[]
-    queryheading=[]
-    def generateexcelforquery(self):
-        print(self.querytupple)
-        if len(self.querytupple)<1:
-            self.showtooltip("Query Data Not Found")
-            return;
-        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
-                                                 filter=".csv")
-        if not name:
-            return
-        res = open(name, 'w')
-        wr = csv.writer(res, dialect='excel')
-        wr.writerow(self.queryheading)
-        for row in self.querytupple:
-            wr.writerow(row)
-        self.showtooltip("Excel file generated")
-        res.close()
-        os.startfile(name)
 
 
     def init_settings(self):
@@ -348,6 +341,9 @@ class logic():
 
         ui.settings_removecampPushButton.hide()
 
+        ui.exceltodatabasePushButton.clicked.connect(self.save_from_excel_to_database)
+
+
         def camplist_clicked():
             if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
                 ui.settings_removecampPushButton.hide()
@@ -366,6 +362,97 @@ class logic():
         ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
         ui.settings_backupdataPushButton.clicked.connect(self.backupdata)
         ui.settings_restoredataPushButton.clicked.connect(self.restoredata)
+
+
+
+
+    def showlongnr(self):
+        ui.tableWidget_2.setRowCount(0)
+        ui.tableWidget_2.setColumnCount(0)
+        selectiontype = ui.typelongnrComboBox.currentText()
+        selectedinstitution=ui.institutionlongnrComboBox.currentText()
+        selectedunit=ui.unitlongnrLineEdit.text()
+        sqldata=[]
+        """ui.tableWidget.setCellWidget(i,j, ImgWidget1(self))"""
+        if selectiontype=="Institution":
+            sqldata = ENROLMENT_FORM.enroll().execute("select * from enrolment where Institution='"+selectedinstitution+"'")
+        elif selectiontype=="Unit":
+            sqldata = ENROLMENT_FORM.enroll().execute("select * from enrolment where Unit LIKE '" + selectedunit + "' collate utf8_general_ci")
+        elif selectiontype=="All":
+            sqldata = ENROLMENT_FORM.enroll().execute("select * from enrolment")
+        if not len(sqldata)>0 :
+            ui.tableWidget.clear()
+            self.showtooltip("No data found")
+            return
+
+        ui.tableWidget_2.setRowCount(len(sqldata))
+        ui.tableWidget_2.setColumnCount(len(sqldata[0]))
+        verticalheader=[]
+        ui.tableWidget_2.setHorizontalHeaderLabels(list(self.settings.value("enrolmentfields").split(',,,')))
+        for i in range(len(sqldata)):
+            verticalheader.append(sqldata[i][0])
+            for j in range(len(sqldata[i])):
+                ui.tableWidget_2.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j]))
+        myfont = QtGui.QFont()
+        myfont.setBold(True)
+        myfont.setFamily("georgia")
+        ui.tableWidget_2.setVerticalHeaderLabels(verticalheader)
+        for i in range(ui.tableWidget_2.rowCount()):
+            for j in range(ui.tableWidget_2.columnCount()):
+                    ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
+                    ui.tableWidget_2.item(i, j).setFont(myfont)
+                    ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
+
+        ui.tableWidget_2.showGrid()
+
+        ui.tableWidget_2.setStyleSheet(
+            "color:white;font-weight:bold;font-size:15px;background-color:transparent;border:1px solid black;gridline-color:black;")
+        ui.tableWidget_2.horizontalHeader().setStyleSheet(
+            "color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+        ui.tableWidget_2.verticalHeader().setStyleSheet(
+            "color:darkorange;font-size:20px;font-weight:bold;border:1px solid black;gridline-color:black;")
+        ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
+        ui.tableWidget_2.resizeRowsToContents()
+        ui.tableWidget_2.resizeColumnsToContents()
+
+    def typelongNrComboBoxLogic(self):
+        selectiontype=ui.typelongnrComboBox.currentText()
+        if selectiontype=="Selection By" or selectiontype=="All":
+            ui.institutionlongnrComboBox.hide()
+            ui.unitlongnrLineEdit.hide()
+        elif selectiontype=="Institution":
+            ui.institutionlongnrComboBox.show()
+            ui.unitlongnrLineEdit.hide()
+        elif selectiontype=="Unit":
+            ui.institutionlongnrComboBox.hide()
+            ui.unitlongnrLineEdit.show()
+
+    querytupple=[]
+    queryheading=[]
+
+    
+    def generateexcelforquery(self):
+
+        if len(self.querytupple)<1:
+            self.showtooltip("Query Data Not Found")
+            return;
+
+        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
+                                                 filter="Excel (*.xlsx);;CSV (*.csv)")
+        if not name:
+            return
+
+        self.queryheading = [i.strip() for i in self.queryheading]
+        data = pd.DataFrame(self.querytupple, columns=self.queryheading)
+        try:
+            if name.endswith('.csv'):
+                data.to_csv(name,index=False)
+            elif name.endswith('.xlsx'):
+                data.to_excel(name)
+            self.showtooltip("Results Saved Successfully")
+        except:
+            self.showtooltip("Saving Failed")
+        os.startfile(name)
 
 
 
@@ -438,6 +525,30 @@ class logic():
             self.showtooltip("RESTORATION SUCCESSFULL")
 
 
+    def save_from_excel_to_database(self):
+        con = sqlite3.connect('ncc.db')
+        loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
+                                                caption="Select Excel of CSV file ",
+                                                filter="Excel or CSV (*.xlsx *.csv)")
+        if not loc:
+            return
+
+        if loc.endswith('.csv'):
+            data = pd.read_csv(loc)
+        elif loc.endswith('.xlsx'):
+            data = pd.read_excel(loc)
+
+        try:
+            data.to_sql(con=con, name='enrolment', if_exists='append', index=False)
+            self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
+
+        except Exception as e:
+            print(e)
+
+
+
+
+
 
 
 
@@ -484,9 +595,6 @@ class logic():
             item.setBackground(brush)
             ui.settings_campslistListWidget.addItem(item)
 
-
-
-
     def add_remove_camp(self,obj):
 
         '''ADD CAMP'''
@@ -519,7 +627,7 @@ class logic():
                 ui.settings_removecampPushButton.hide()
                 self.set_camps_list()
 
-
+    # -----------------------------------------------------------------------------------------------------------
 
     def showtooltip(self, text):
         tt = QtGui.QToolTip
@@ -646,7 +754,6 @@ class logic():
             brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_formsListWidget.addItem(item)
-
 
         ui.settings_removeformPushButton.hide()
 
@@ -904,6 +1011,9 @@ class logic():
         ui.institutionuploaddatacomboBox.clear()
         ui.institutionuploaddatacomboBox.addItems(self.institutionlist)
 
+        ui.institutionlongnrComboBox.clear()
+        ui.institutionlongnrComboBox.addItems(self.institutionlist)
+
         ui.settings_instLineEdit.hide()
         ui.settings_addPushButton.hide()
         ui.settings_backinstPushButton.hide()
@@ -1118,6 +1228,8 @@ class logic():
             ui.campsNameuploaddataComboBox.hide()
 
     def openuploaddata(self):
+        ui.tableWidget.setRowCount(0)
+        ui.tableWidget.setColumnCount(0)
         self.rankuploadcombobox = []
         self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)",
                      "Company Sergent Major (CSM)", "Junior Under Officer (JUO)", "Senior Under Officer (SUO)"]
@@ -1140,7 +1252,6 @@ class logic():
             ui.tableWidget.setColumnCount(len(header))
             ui.tableWidget.setRowCount(len(sqldata1))
             ui.tableWidget.setHorizontalHeaderLabels(header)
-
             for i in range(ui.tableWidget.rowCount()):
                 verticalheader.append(sqldata1[i][0])
                 for j in range(ui.tableWidget.columnCount()):
@@ -1150,6 +1261,7 @@ class logic():
                     else:
                         ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(""))
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
+            li=["C:\\Users\ADMIN\Documents\BlueShades2.jpg","C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
             self.showtooltip("Done")
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
 
@@ -1385,9 +1497,6 @@ class logic():
         self.showtooltip("Form updated sucessfully")
         os.startfile(self.formname)
 
-
-
-
     def saveExcelfuntion(self):
         # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
         x = ui.entryBox.toPlainText().replace(" ", "")
@@ -1455,9 +1564,6 @@ class logic():
         res.close()
         os.startfile(self.formname)
 
-
-
-
     def picselect(self):
         self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg)")
         if not self.candidphoto:
@@ -1468,7 +1574,6 @@ class logic():
             self.candidphoto = ''
             return
         ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
-
 
     def check_enrol_form_data(self):
 
@@ -1852,13 +1957,12 @@ font-weight:bold;
 
         ui.banknameLineEdit.setText(tuple[28])
         ui.bankbranchLineEdit.setText(tuple[29])
-        ui.accountnumLineEdit.setText(str(tuple[30]))
-        ui.accountnameLineEdit.setText(tuple[31])
+        ui.accountnameLineEdit.setText(str(tuple[30]))
+        ui.accountnumLineEdit.setText(tuple[31])
         ui.ifsccodeLineEdit.setText(tuple[32])
         ui.micrLineEdit.setText(str(tuple[33]))
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[34]))
         ui.unitLineEdit.setText(tuple[35])
-
 
     def clear_enrolment_form(self):
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
@@ -1876,7 +1980,6 @@ font-weight:bold;
 
         self.candidphoto = ''
         ui.selectpictureLabel.clear()
-
 
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
@@ -2013,11 +2116,9 @@ font-weight:bold;
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment" ,con)
         try:
-            data.to_csv(r'All candidate details.csv',float_format='string')
+            data.to_csv(r'All candidate details.csv',float_format='string' ,index=False)
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
-
-
 
     def table1(self, res, msg):
 
@@ -2544,6 +2645,9 @@ font-weight:bold;
 
         ui.valuelineEdit.clear()
 
+    def img(self):
+        super(logic, self).__init__()
+
 
 
 if __name__ == "__main__":
@@ -2558,7 +2662,7 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
 
     myobj = logic()
-
+    myobj.img()
     MainWindow.show()
 
     sys.exit(app.exec_())

@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -4642,7 +4642,7 @@ width:130%;
 }</string>
           </property>
           <property name="text">
-           <string>Generate CSV</string>
+           <string>Save Results</string>
           </property>
          </widget>
         </item>
@@ -5128,8 +5128,8 @@ height:30%;</string>
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5162,8 +5162,8 @@ border-radius:5px;</string>
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5582,9 +5582,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-872</y>
+             <y>-972</y>
              <width>1018</width>
-             <height>1648</height>
+             <height>1748</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5594,6 +5594,166 @@ background-position:center;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
+            <item row="11" column="0">
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="12" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="settings_backupdataPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>georgia</family>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#settings_backupdataPushButton
+{
+border-radius:15px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
+font-family:georgia;
+font-size:100%;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_backupdataPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_backupdataPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>Backup All Data</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="settings_restoredataPushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>georgia</family>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#settings_restoredataPushButton
+{
+border-radius:15px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_restoredataPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_restoredataPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+                </property>
+                <property name="text">
+                 <string>Restore Backed up Data</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="13" column="0">
+             <spacer name="horizontalSpacer_25">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="9" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="settings_candidopenPushButton">
+              <property name="font">
+               <font>
+                <family>georgia</family>
+                <pointsize>14</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#settings_candidopenPushButton
+{
+border-radius:20px;
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+font-family:georgia;
+color:white;
+border-top:1px solid yellow;
+border-bottom:1px solid black;
+padding:10px 10px;
+}
+#settings_candidopenPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_candidopenPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+              </property>
+              <property name="text">
+               <string>Open Candidates Picture folder</string>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="settingsmainframewidget" native="true">
               <property name="minimumSize">
@@ -5793,58 +5953,6 @@ color:white;</string>
                </item>
               </layout>
              </widget>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="10" column="0">
-             <spacer name="horizontalSpacer_16">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="7" column="0">
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_19">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
             <item row="2" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="formsandfieldsgridwidget" native="true">
@@ -6377,33 +6485,72 @@ text-align:center;</string>
               </layout>
              </widget>
             </item>
-            <item row="9" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="settings_candidopenPushButton">
+            <item row="7" column="0">
+             <spacer name="horizontalSpacer_15">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="15" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="exceltodatabasePushButton">
               <property name="font">
                <font>
                 <family>georgia</family>
-                <pointsize>14</pointsize>
+                <pointsize>13</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">#settings_candidopenPushButton
+               <string notr="true">#exceltodatabasePushButton
 {
 border-radius:20px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
+background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(203, 146, 0, 255));
 font-family:georgia;
 color:white;
-border-top:1px solid yellow;
+border-top:1px solid green;
 border-bottom:1px solid black;
 padding:10px 10px;
 }
-#settings_candidopenPushButton:hover
+#exceltodatabasePushButton:hover
 {
 	color:black;
 	background-color:rgba(0, 170, 255,255);
 
 }
 
-#settings_candidopenPushButton:pressed
+#exceltodatabasePushButton:pressed
 {
 	color:black;
 	background-color:rgba(0, 170, 255,175);
@@ -6411,108 +6558,25 @@ padding:10px 10px;
 }</string>
               </property>
               <property name="text">
-               <string>Open Candidates Picture folder</string>
+               <string>Append To DataBase From Excel</string>
               </property>
              </widget>
             </item>
-            <item row="11" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_24">
-              <property name="spacing">
-               <number>2</number>
+            <item row="10" column="0">
+             <spacer name="horizontalSpacer_26">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-              <item>
-               <widget class="QPushButton" name="settings_backupdataPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>georgia</family>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#settings_backupdataPushButton
-{
-border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
-font-size:100%;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_backupdataPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_backupdataPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-                </property>
-                <property name="text">
-                 <string>Backup All Data</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="settings_restoredataPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>georgia</family>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#settings_restoredataPushButton
-{
-border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_restoredataPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_restoredataPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-                </property>
-                <property name="text">
-                 <string>Restore Backed up Data</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
-            <item row="12" column="0">
-             <spacer name="horizontalSpacer_25">
+            <item row="14" column="0">
+             <spacer name="horizontalSpacer_27">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -6662,7 +6726,7 @@ padding:10px 10px;
   <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>

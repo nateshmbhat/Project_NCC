@@ -81,6 +81,7 @@ class logic():
         self.sql = ''
 
         self.candidphoto = ''
+        self.signaturephoto=''
 
         ui.selectpicturePushButton.clicked.connect(lambda:self.picselect(ui.selectpicturePushButton))
 
@@ -366,20 +367,20 @@ class logic():
 
     def check_if_img_exists(self , imagename):
         if os.path.exists(r'candidate photos\{}.png'.format(imagename)):
-            candidatephoto =  r'candidate photos\{}.png'.format(imagename)
+            img =  r'candidate photos\{}.png'.format(imagename)
 
         elif os.path.exists(r'candidate photos\{}.jpg'.format(imagename)):
-            candidatephoto = r'candidate photos\{}.jpg'.format(imagename)
+            img = r'candidate photos\{}.jpg'.format(imagename)
 
         elif os.path.exists(r'candidate photos\{}.JPG'.format(imagename)):
-            candidatephoto = r'candidate photos\{}.JPG'.format(imagename)
+            img = r'candidate photos\{}.JPG'.format(imagename)
 
         elif os.path.exists(r'candidate photos\{}.PNG'.format(imagename)):
-            candidatephoto = r'candidate photos\{}.PNG'.format(imagename)
+            img = r'candidate photos\{}.PNG'.format(imagename)
         else:
-            candidatephoto = self.candidphoto
+            img = self.candidphoto
 
-        return candidatephoto
+        return img
         
         
 
@@ -1749,7 +1750,6 @@ class logic():
             if not self.candidphoto:
                 self.candidphoto=''
                 return
-
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
 
 
@@ -1757,7 +1757,6 @@ class logic():
             self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg *.PNG *JPG)")
             if not self.signaturephoto:
                 return
-
             ui.selectsignatureLabel.setPixmap(QtGui.QPixmap(self.signaturephoto))
 
 
@@ -2024,7 +2023,7 @@ font-weight:bold;
         ui.updateentryCheckBox.show()
         ui.enrol_campsListWidget.setDisabled(False)
         ui.selectpicturePushButton.setDisabled(False)
-        ui.enrol_signaturePushButton.setDisabled(True)
+        ui.enrol_signaturePushButton.setDisabled(False)
 
 
 

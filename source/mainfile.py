@@ -1,14 +1,16 @@
 import csv
+import openpyxl
 import pandas as pd
-from PyQt4.QtGui import QPushButton, QComboBox
-
+import sqlite3
+from PyQt4.QtGui import QComboBox
+from openpyxl import Workbook
+from openpyxl.drawing.image import Image
 import ENROLMENT_FORM
 import os
-import openpyxl
 from userinterface import Ui_MainWindow, _fromUtf8
-from PyQt4 import QtCore, QtGui, QtWebKit
-import sqlite3
+from PyQt4 import QtCore, QtGui
 import shutil
+from tempfile import TemporaryFile
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -26,20 +28,15 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-from tempfile import TemporaryFile
-from openpyxl import Workbook
-imagePath = "C:\\Users\ADMIN\Documents\BlueShades2.jpg"
+
 class ImgWidget1(QtGui.QLabel):
-
-    def __init__(self, imagepath,parent=None):
+    def gs(self,imagepath,parent=None):
         super(ImgWidget1, self).__init__(parent)
-        pic = QtGui.QPixmap(imagePath)
+        pic = QtGui.QPixmap(imagepath)
         self.setPixmap(pic)
-
-
 class logic():
     flag = 0
-
+    imagePath="C:\\Users\ADMIN\Documents\images-1.jpg"
     def __init__(self):
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
 
@@ -243,6 +240,8 @@ class logic():
         ui.typelongnrComboBox.currentIndexChanged.connect(self.typelongNrComboBoxLogic)
         ui.institutionlongnrComboBox.hide()
         ui.unitlongnrLineEdit.hide()
+        ui.generateexcellongnrPushButton.clicked.connect(self.generateExcelForLongNr)
+        ui.updateexcellongnrPushButton.clicked.connect(self.updateExcelForLongNr)
         self.init_settings()
 
 
@@ -340,9 +339,7 @@ class logic():
         ui.enroldateDateEdit.setDate(QtCore.QDate.currentDate())
 
         ui.settings_removecampPushButton.hide()
-
         ui.exceltodatabasePushButton.clicked.connect(self.save_from_excel_to_database)
-
 
         def camplist_clicked():
             if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
@@ -365,10 +362,121 @@ class logic():
 
 
 
+    columnnameinexcel=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN']
+    def generateExcelForLongNr(self):
+        book=openpyxl.Workbook()
+        sheet=book.create_sheet("Long NR",0)
+        headingdata=self.settings.value("enrolmentfields").split(',,,')
+        headingdata.insert(0,"Photo")
+        sheet.append(headingdata)
+        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                 caption="Save File",
+                                                 filter=".xlsx")
+        if not len(name):
+            return
+        columnwidth=[]
+        for i in range(ui.tableWidget_2.rowCount()):
+            for j in range(ui.tableWidget_2.columnCount()):
+                if j==0:
+                    if os.path.exists(r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())
+                    else:
+                        candidatephoto = self.candidphoto
+                    if candidatephoto:
+                        img = Image(candidatephoto, size=[105, 120])
+                        img.anchor(sheet['A'+str(i+2)])
+                        sheet.add_image(img)
+                    sheet.row_dimensions[i+2].height = 50
+                    sheet.column_dimensions["A"].width = 15
+                else:
+                    sheet.cell(row=i+2,column=j+1).value=ui.tableWidget_2.item(i,j).text()
+        for i in range(ui.tableWidget_2.columnCount()):
+            columnwidth.append(int(ui.tableWidget_2.columnWidth(i)/10+5))
+        print(columnwidth)
+        for i in range(len(columnwidth)):
+            sheet.column_dimensions[self.columnnameinexcel[i+1]].width = columnwidth[i]
+        book.save(name)
+        book.save(TemporaryFile())
+        self.showtooltip("Excel file created sucessfully")
+        os.startfile(name)
+
+    def updateExcelForLongNr(self):
+
+        name = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                          caption="Save File")
+        if not len(name):
+            return
+        book = openpyxl.load_workbook(name)
+        sheet = book.get_sheet_by_name('Long NR')
+        columnwidth = []
+        oldrows=sheet.max_row
+        for i in range(oldrows):
+            if os.path.exists(r'Candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'Candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)
+
+            elif os.path.exists(r'Candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'Candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)
+
+            elif os.path.exists(r'Candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'Candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)
+
+            elif os.path.exists(r'Candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'Candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)
+            else:
+                candidatephoto = self.candidphoto
+            if candidatephoto:
+                img = Image(candidatephoto, size=[105, 120])
+                img.anchor(sheet['A' + str(i + 2)])
+                sheet.add_image(img)
+
+                sheet.row_dimensions[i + 2].height = 50
+                sheet.column_dimensions["A"].width = 15
+        for i in range(ui.tableWidget_2.rowCount()):
+            for j in range(ui.tableWidget_2.columnCount()):
+                if j == 0:
+                    if os.path.exists(r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())
+
+                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())
+                    else:
+                        candidatephoto = self.candidphoto
+                    if candidatephoto:
+                        img = Image(candidatephoto, size=[105, 120])
+                        img.anchor(sheet['A' + str(i + 1+oldrows)])
+                        sheet.add_image(img)
+
+                        sheet.row_dimensions[i + 1+oldrows].height = 50
+                        sheet.column_dimensions["A"].width = 15
+                else:
+                    sheet.cell(row=i + 1+oldrows, column=j + 1).value = ui.tableWidget_2.item(i, j).text()
+
+        for i in range(ui.tableWidget_2.columnCount()):
+            columnwidth.append(int(ui.tableWidget_2.columnWidth(i) / 10 + 5))
+        print(columnwidth)
+        for i in range(len(columnwidth)):
+            sheet.column_dimensions[self.columnnameinexcel[i + 1]].width = columnwidth[i]
+        book.save(name)
+        book.save(TemporaryFile())
+        self.showtooltip("Excel file created sucessfully")
+        os.startfile(name)
 
     def showlongnr(self):
-        ui.tableWidget_2.setRowCount(0)
-        ui.tableWidget_2.setColumnCount(0)
         selectiontype = ui.typelongnrComboBox.currentText()
         selectedinstitution=ui.institutionlongnrComboBox.currentText()
         selectedunit=ui.unitlongnrLineEdit.text()
@@ -383,22 +491,50 @@ class logic():
         if not len(sqldata)>0 :
             ui.tableWidget.clear()
             self.showtooltip("No data found")
+
+            ui.tableWidget_2.setColumnCount(0)
+            ui.tableWidget_2.setRowCount(0)
             return
 
-        ui.tableWidget_2.setRowCount(len(sqldata))
-        ui.tableWidget_2.setColumnCount(len(sqldata[0]))
         verticalheader=[]
-        ui.tableWidget_2.setHorizontalHeaderLabels(list(self.settings.value("enrolmentfields").split(',,,')))
+        horizontalheader=list(self.settings.value("enrolmentfields").split(',,,'))
+        horizontalheader.insert(0,"Photo")
+        print(horizontalheader)
         for i in range(len(sqldata)):
             verticalheader.append(sqldata[i][0])
-            for j in range(len(sqldata[i])):
-                ui.tableWidget_2.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j]))
+        ui.tableWidget_2.setColumnCount(len(horizontalheader))
+        ui.tableWidget_2.setRowCount(len(verticalheader))
+        ui.tableWidget_2.setVerticalHeaderLabels(verticalheader)
+        ui.tableWidget_2.setHorizontalHeaderLabels(horizontalheader)
+        for i in range(len(sqldata)):
+            for j in range(len(horizontalheader)):
+                if j==0:
+                    if os.path.exists(r'Candidate photos\{}.png'.format(sqldata[i][j])):
+                        print("gs")
+                        self.imagePath = r'Candidate photos\{}.png'.format(sqldata[i][j])
+
+                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(sqldata[i][j])):
+                        print("jpg")
+                        self.imagePath = r'Candidate photos\{}.jpg'.format(sqldata[i][j])
+
+                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(sqldata[i][j])):
+                        self.imagePath = r'Candidate photos\{}.JPG'.format(sqldata[i][j])
+
+                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(sqldata[i][j])):
+                        self.imagePath = r'Candidate photos\{}.PNG'.format(sqldata[i][j])
+                    else:
+                        self.imagePath = self.imagePath
+                    if self.imagePath:
+                        ui.tableWidget_2.setCellWidget(i, j, ImgWidget1().gs(self.imagePath))
+                    ui.tableWidget_2.setItem(i, j+1, QtGui.QTableWidgetItem(sqldata[i][j-1]))
+                else:
+                    ui.tableWidget_2.setItem(i,j,QtGui.QTableWidgetItem(sqldata[i][j-1]))
         myfont = QtGui.QFont()
         myfont.setBold(True)
         myfont.setFamily("georgia")
-        ui.tableWidget_2.setVerticalHeaderLabels(verticalheader)
         for i in range(ui.tableWidget_2.rowCount()):
             for j in range(ui.tableWidget_2.columnCount()):
+                if j!=0:
                     ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
                     ui.tableWidget_2.item(i, j).setFont(myfont)
                     ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
@@ -412,9 +548,7 @@ class logic():
         ui.tableWidget_2.verticalHeader().setStyleSheet(
             "color:darkorange;font-size:20px;font-weight:bold;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        ui.tableWidget_2.resizeRowsToContents()
         ui.tableWidget_2.resizeColumnsToContents()
-
     def typelongNrComboBoxLogic(self):
         selectiontype=ui.typelongnrComboBox.currentText()
         if selectiontype=="Selection By" or selectiontype=="All":
@@ -430,14 +564,14 @@ class logic():
     querytupple=[]
     queryheading=[]
 
-    
     def generateexcelforquery(self):
 
-        if len(self.querytupple)<1:
+        if len(self.querytupple) < 1:
             self.showtooltip("Query Data Not Found")
             return;
 
-        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()), caption="Save File",
+        name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
+                                                 caption="Save File",
                                                  filter="Excel (*.xlsx);;CSV (*.csv)")
         if not name:
             return
@@ -446,7 +580,7 @@ class logic():
         data = pd.DataFrame(self.querytupple, columns=self.queryheading)
         try:
             if name.endswith('.csv'):
-                data.to_csv(name,index=False)
+                data.to_csv(name, index=False)
             elif name.endswith('.xlsx'):
                 data.to_excel(name)
             self.showtooltip("Results Saved Successfully")
@@ -454,76 +588,83 @@ class logic():
             self.showtooltip("Saving Failed")
         os.startfile(name)
 
-
-
     def backupdata(self):
         loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the location to Backup All data',
-        directory=r'C:\users\{}'.format(os.getlogin()) )
+                                                     directory=r'C:\users\{}'.format(os.getlogin()))
         try:
             ref = 0
-            shutil.copy2('ncc.db',loc)
+            shutil.copy2('ncc.db', loc)
             ref = 1
-            if not os.path.exists(loc+r'\candidate photos'):
-                os.mkdir(loc+r'\candidate photos')
+            if not os.path.exists(loc + r'\candidate photos'):
+                os.mkdir(loc + r'\candidate photos')
 
             for i in os.listdir(r'candidate photos'):
                 try:
-                    shutil.copy2('candidate photos\\'+i , loc+'\candidate photos\\'+i)
+                    shutil.copy2('candidate photos\\' + i, loc + '\candidate photos\\' + i)
                 except:
                     pass;
 
         except Exception as e:
             print(e)
-            if ref==0:
+            if ref == 0:
                 self.showtooltip("BACKUP FAILED")
                 msg = "Database and Candidate photos BACKUP FAILED"
-            if ref==1:
+            if ref == 1:
                 self.showtooltip("Candidate photos BACKUP FAILED")
                 msg = "Database BACKUP SUCCESSFULL\nCandidate photos BACKUP FAILED "
-            QtGui.QMessageBox.warning(ui.Settings,'Backup Problem' , msg+"\nIf the problem persists Please backup the ncc.db file and Candidate photos folder manually !")
+            QtGui.QMessageBox.warning(ui.Settings, 'Backup Problem',
+                                      msg + "\nIf the problem persists Please backup the ncc.db file and Candidate photos folder manually !")
             return
 
         self.showtooltip('BACKUP SUCCESSFULL')
 
-
     def restoredata(self):
 
-        ch=QtGui.QMessageBox.question(ui.Settings , 'Choose restore files' ,
-            'Do you want to Restore DATABASE FILE or CANDIDATES Photos ?' , 'DataBase',"Candidate's Photos","Cancel",escapeButtonNumber=2)
+        ch = QtGui.QMessageBox.question(ui.Settings, 'Choose restore files',
+                                        'Do you want to Restore DATABASE FILE or CANDIDATES Photos ?', 'DataBase',
+                                        "Candidate's Photos", "Cancel", escapeButtonNumber=2)
         if not ch:
-            loc = QtGui.QFileDialog.getOpenFileNameAndFilter( caption='Select the Database file',directory=r"C:\users\{}".format(os.getlogin()) , filter="Database (*.db)")
+            loc = QtGui.QFileDialog.getOpenFileNameAndFilter(caption='Select the Database file',
+                                                             directory=r"C:\users\{}".format(os.getlogin()),
+                                                             filter="Database (*.db)")
             if not loc[0]:
                 return
 
-            if QtGui.QMessageBox.question(ui.Settings,"Are you sure ? " , 'Are you sure that you wish to restore the selected Database File ? Any DATA which is NOT in the selected file will be lost !' ,'Yes','No') == 0:
+            if QtGui.QMessageBox.question(ui.Settings, "Are you sure ? ",
+                                          'Are you sure that you wish to restore the selected Database File ? Any DATA which is NOT in the selected file will be lost !',
+                                          'Yes', 'No') == 0:
 
                 try:
-                    shutil.copy2(loc[0] , os.getcwd()+r'\ncc.db')
+                    shutil.copy2(loc[0], os.getcwd() + r'\ncc.db')
                     self.showtooltip("Database Restored Successfully")
                 except:
                     self.showtooltip("Database Restoration Failed")
 
-        if ch==1:
-            loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the Candidate Photos folder',directory=r"C:\users\{}".format(os.getlogin()))
+        if ch == 1:
+            loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the Candidate Photos folder',
+                                                         directory=r"C:\users\{}".format(os.getlogin()))
             if not loc:
                 return
             try:
-                if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ? ' ,
-                                              'Are you sure that you wish to restore the Photos in the Selected Folder ? The changes are irreversible !','Yes','No')==0:
+                if QtGui.QMessageBox.question(ui.Settings, 'Are you sure ? ',
+                                              'Are you sure that you wish to restore the Photos in the Selected Folder ? The changes are irreversible !',
+                                              'Yes', 'No') == 0:
                     for i in os.listdir(loc):
                         try:
-                            shutil.copy2(loc+'\{}'.format(i) , r'candidate photos\{}'.format(i))
-                        except:pass;
-                else:return
+                            shutil.copy2(loc + '\{}'.format(i), r'candidate photos\{}'.format(i))
+                        except:
+                            pass;
+                else:
+                    return
             except:
                 self.showtooltip("RESTORATION FAILED")
-                QtGui.QMessageBox.warning(ui.Settings, 'RESTORE FAILED' ,
-                r'''Canidate Photos Restoration FAILED ! 
-                Please copy the contents of your backedup photos to C:\Program Files\NCC\candidate photos Manually ! ''','OK')
+                QtGui.QMessageBox.warning(ui.Settings, 'RESTORE FAILED',
+                                          r'''Canidate Photos Restoration FAILED ! 
+                                          Please copy the contents of your backedup photos to C:\Program Files\NCC\candidate photos Manually ! ''',
+                                          'OK')
                 return
 
             self.showtooltip("RESTORATION SUCCESSFULL")
-
 
     def save_from_excel_to_database(self):
         con = sqlite3.connect('ncc.db')
@@ -546,14 +687,7 @@ class logic():
             print(e)
 
 
-
-
-
-
-
-
-
-    def set_camps_list(self):
+def set_camps_list(self):
         ui.settings_campslistListWidget.clear()
         ui.settings_campslistListWidget.setSpacing(1)
         ui.enrol_campsListWidget.clear()
@@ -971,8 +1105,6 @@ class logic():
 
                 self.set_institutions_list()
         ui.settings_instLineEdit.clear()
-
-
 
     def set_institutions_list(self):
 
@@ -1429,11 +1561,6 @@ class logic():
             ui.campsattendedqueryComboBox.show()
         else:
             ui.valuelineEdit.show()
-
-    def checklogicnull(self):
-        ui.NICCheckBox.setChecked(False)
-        ui.AACCheckBox.setChecked(False)
-        ui.CATCCheckBox.setChecked(False)
 
     def enrol_button_pressed(self):
 
@@ -2116,7 +2243,7 @@ font-weight:bold;
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment" ,con)
         try:
-            data.to_csv(r'All candidate details.csv',float_format='string' ,index=False)
+            data.to_csv(r'All candidate details.csv',float_format='string',index=False)
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
 
@@ -2339,7 +2466,7 @@ font-weight:bold;
         ui.webView.setHtml(html3)
 
     def casemaker(self,sql2, field):
-        if field=="Address":
+        if field=="Address" or field=="Camps_Attended":
             length = 0
             l = 1
             sql33 = sql2
@@ -2375,11 +2502,11 @@ font-weight:bold;
 
     def conquery(self):
         self.querytupple=[]
-        sql = """""";
+        sql = """"""
 
         if ui.selectallCheckBox.isChecked():
 
-            sql = "*";
+            sql = "*"
 
         else:
 
@@ -2437,12 +2564,12 @@ font-weight:bold;
 
 
 
-            sql = sql.strip();
+            sql = sql.strip()
 
             if len(sql) and sql[-1] == ',': sql = sql[0:-1];
 
             if not sql:
-                sql = '*';
+                sql = '*'
 
                 ui.selectallCheckBox.setChecked(True);
 
@@ -2452,8 +2579,9 @@ font-weight:bold;
 
             if sql1 != "":
 
-                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
-            Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
+                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
+            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
+            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """
                 sql2= ui.conditionsentrylabel.text()
                 sql2 = self.casemaker(sql2, "Camps_Attended")
@@ -2473,8 +2601,9 @@ font-weight:bold;
 
             else:
 
-                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
-            Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
+                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
+            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
+            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment"""
 
 
@@ -2498,12 +2627,11 @@ font-weight:bold;
                 sql2)) if sql1 != "" else "select " + sql + " from enrolment "
 
         if sql[7] == "*":
-            sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_Name,Fathers_Name,Mothers_Name,Sex,Date_Of_Birth,
-            Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
-            Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[
-                                                                                                                            9:len(
-                                                                                                                                sql)]
-
+            sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
+            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
+            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
+            Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[9:len(sql)]
+        print(sql)
         self.querytupple = ENROLMENT_FORM.enroll().execute(sql)
         if len(self.querytupple) < 1:
             self.showtooltip("No Data Found")

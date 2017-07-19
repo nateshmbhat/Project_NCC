@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -198,7 +198,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1637</y>
              <width>966</width>
              <height>2245</height>
             </rect>
@@ -5795,7 +5795,7 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-946</y>
              <width>972</width>
              <height>1748</height>
             </rect>
@@ -6824,6 +6824,15 @@ padding:10px 10px;
   <tabstop>enrolmentnumLineEdit</tabstop>
   <tabstop>rankComboBox</tabstop>
   <tabstop>aadhaarLineEdit</tabstop>
+  <tabstop>fullnameLineEdit</tabstop>
+  <tabstop>SmiddlenameLineEdit</tabstop>
+  <tabstop>SlastnameLineEdit</tabstop>
+  <tabstop>fathernameLineEdit</tabstop>
+  <tabstop>FmiddlenameLineEdit</tabstop>
+  <tabstop>FlastnameLineEdit</tabstop>
+  <tabstop>mothernameLineEdit</tabstop>
+  <tabstop>MmiddlenameLineEdit</tabstop>
+  <tabstop>MlastnameLineEdit</tabstop>
   <tabstop>sexComboBox</tabstop>
   <tabstop>dateofbirthDateEdit</tabstop>
   <tabstop>addressTextEdit</tabstop>
@@ -6834,6 +6843,7 @@ padding:10px 10px;
   <tabstop>AcertRadioButton</tabstop>
   <tabstop>BcertRadioButton</tabstop>
   <tabstop>CcertRadioButton</tabstop>
+  <tabstop>enrol_campsListWidget</tabstop>
   <tabstop>extraactivitiesTextEdit</tabstop>
   <tabstop>specialachievementsTextEdit</tabstop>
   <tabstop>enroldateDateEdit</tabstop>
@@ -6857,6 +6867,8 @@ padding:10px 10px;
   <tabstop>scrollArea</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>enrolPushButton</tabstop>
+  <tabstop>enrol_signaturePushButton</tabstop>
+  <tabstop>selectpicturePushButton</tabstop>
   <tabstop>mytab</tabstop>
   <tabstop>pushButton_4</tabstop>
   <tabstop>SettingsScrollArea</tabstop>
@@ -6909,10 +6921,24 @@ padding:10px 10px;
   <tabstop>updateExelPushButton</tabstop>
   <tabstop>institutionuploaddatacomboBox</tabstop>
   <tabstop>typecomboBox</tabstop>
+  <tabstop>campsNameuploaddataComboBox</tabstop>
   <tabstop>openPushButton</tabstop>
-  <tabstop>tableWidget</tabstop>
+  <tabstop>certificateComboBox</tabstop>
+  <tabstop>eligibilityCheckBox</tabstop>
+  <tabstop>yearComboBox</tabstop>
+  <tabstop>enrolmentuploaddataLineEdit</tabstop>
+  <tabstop>locationLineEdit</tabstop>
+  <tabstop>checkBox</tabstop>
+  <tabstop>startdateDateEdit</tabstop>
+  <tabstop>enddateDateEdit</tabstop>
   <tabstop>savedataPushButton</tabstop>
   <tabstop>save_data_excelPushButton</tabstop>
+  <tabstop>typelongnrComboBox</tabstop>
+  <tabstop>institutionlongnrComboBox</tabstop>
+  <tabstop>unitlongnrLineEdit</tabstop>
+  <tabstop>showlongnrPushButton</tabstop>
+  <tabstop>generateexcellongnrPushButton</tabstop>
+  <tabstop>updateexcellongnrPushButton</tabstop>
   <tabstop>settings_institutionListWidget</tabstop>
   <tabstop>settings_addinstitutionPushButton</tabstop>
   <tabstop>removeinstitutionPushButton</tabstop>
@@ -6930,6 +6956,22 @@ padding:10px 10px;
   <tabstop>settings_fieldsunknownRadioButton</tabstop>
   <tabstop>settings_addfieldPushButton</tabstop>
   <tabstop>settings_removefieldPushButton</tabstop>
+  <tabstop>settings_campslistListWidget</tabstop>
+  <tabstop>settings_addcampsLineEdit</tabstop>
+  <tabstop>settings_addcampPushButton</tabstop>
+  <tabstop>settings_removecampPushButton</tabstop>
+  <tabstop>settings_candidopenPushButton</tabstop>
+  <tabstop>settings_backupdataPushButton</tabstop>
+  <tabstop>settings_restoredataPushButton</tabstop>
+  <tabstop>exceltodatabasePushButton</tabstop>
+  <tabstop>tableWidget_2</tabstop>
+  <tabstop>campsattendedqueryComboBox</tabstop>
+  <tabstop>generateexcelqueryPushButton</tabstop>
+  <tabstop>vegitarianqueryComboBox</tabstop>
+  <tabstop>webView_2</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>certificatequeryComboBox</tabstop>
+  <tabstop>pushButton_3</tabstop>
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>

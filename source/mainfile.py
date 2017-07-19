@@ -2206,7 +2206,6 @@ font-weight:bold;
         Mlastname = ui.MlastnameLineEdit.displayText().strip()
 
 
-
         sex = ui.sexComboBox.currentText();
 
         dateofbirth = ui.dateofbirthDateEdit.text().strip();

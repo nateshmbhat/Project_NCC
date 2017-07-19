@@ -580,9 +580,9 @@ class logic():
         data = pd.DataFrame(self.querytupple, columns=self.queryheading)
         try:
             if name.endswith('.csv'):
-                data.to_csv(name, index=False)
+                data.to_csv(name, index=False,float_format='string')
             elif name.endswith('.xlsx'):
-                data.to_excel(name)
+                data.to_excel(name,float_format='string')
             self.showtooltip("Results Saved Successfully")
         except:
             self.showtooltip("Saving Failed")
@@ -666,18 +666,23 @@ class logic():
 
             self.showtooltip("RESTORATION SUCCESSFULL")
 
+
+
     def save_from_excel_to_database(self):
-        con = sqlite3.connect('ncc.db')
+        con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
+        cur = con.cursor()
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
                                                 caption="Select Excel of CSV file ",
                                                 filter="Excel or CSV (*.xlsx *.csv)")
+
         if not loc:
             return
 
         if loc.endswith('.csv'):
-            data = pd.read_csv(loc)
+            data = pd.read_csv(loc,na_filter=False)
         elif loc.endswith('.xlsx'):
-            data = pd.read_excel(loc)
+            data = pd.read_excel(loc,na_filter=False)
+
 
         try:
             data.to_sql(con=con, name='enrolment', if_exists='append', index=False)
@@ -685,49 +690,69 @@ class logic():
 
         except Exception as e:
             print(e)
+            msg=''
+            if "UNIQUE" in str(e) or "duplicate" in str(e):
+                if "Enrolment_Number" in str(e):
+                    for i in range(len(data.Enrolment_Number)):
+                        q = "SELECT Exists(Select Enrolment_Number from enrolment where Enrolment_Number='{}'".format(data.Enrolment_Number[i])+' Limit 1);'
+                        res = cur.execute(q).fetchone()[0]
+                        if not res:
+                            print(data.iloc[i])
+                            values = list(data.iloc[i].values)
+                            add = "Insert into enrolment values{}".format(tuple(values))
+                            cur.execute(add)
+                        else:msg+=data.Enrolment_Number[i]+' '
+
+                    dups = msg.strip().replace(' ',',')
+                    QtGui.QMessageBox.warning(ui.Settings, 'Caution','The enrolment numbers {}'.format(dups)+' were not added to the database since they already exist in the database!!!',
+                                              'OK')
+                    self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE without Duplicates!!!")
+
+            con.commit()
+            con.close()
 
 
-def set_camps_list(self):
-        ui.settings_campslistListWidget.clear()
-        ui.settings_campslistListWidget.setSpacing(1)
-        ui.enrol_campsListWidget.clear()
-        ui.campsNameuploaddataComboBox.clear()
-        ui.settings_addcampsLineEdit.clear()
+    def set_camps_list(self):
+            ui.settings_campslistListWidget.clear()
+            ui.settings_campslistListWidget.setSpacing(1)
+            ui.enrol_campsListWidget.clear()
+            ui.campsNameuploaddataComboBox.clear()
+            ui.settings_addcampsLineEdit.clear()
 
 
-        ui.enrol_campsListWidget.setSpacing(1)
-        for i in self.allcampslist:
-            item = QtGui.QListWidgetItem()
-            item.setText(i)
-            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
-            font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Garamond"))
-            font.setPointSize(13)
-            font.setBold(True)
-            font.setWeight(75)
-            item.setFont(font)
-            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-            brush.setStyle(QtCore.Qt.Dense2Pattern)
-            item.setBackground(brush)
-            ui.enrol_campsListWidget.addItem(item)
-            ui.campsNameuploaddataComboBox.addItem(item.text())
-            ui.campsattendedqueryComboBox.addItem(item.text())
+            ui.enrol_campsListWidget.setSpacing(1)
+            for i in self.allcampslist:
+                item = QtGui.QListWidgetItem()
+                item.setText(i)
+                item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+                font = QtGui.QFont()
+                font.setFamily(_fromUtf8("Garamond"))
+                font.setPointSize(13)
+                font.setBold(True)
+                font.setWeight(75)
+                item.setFont(font)
+                brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+                brush.setStyle(QtCore.Qt.Dense2Pattern)
+                item.setBackground(brush)
+                ui.enrol_campsListWidget.addItem(item)
+                ui.campsNameuploaddataComboBox.addItem(item.text())
+                ui.campsattendedqueryComboBox.addItem(item.text())
 
 
-        for i in self.allcampslist:
-            item = QtGui.QListWidgetItem()
-            item.setText(i)
-            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
-            font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Garamond"))
-            font.setPointSize(15)
-            font.setBold(True)
-            font.setWeight(75)
-            item.setFont(font)
-            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-            brush.setStyle(QtCore.Qt.Dense2Pattern)
-            item.setBackground(brush)
-            ui.settings_campslistListWidget.addItem(item)
+            for i in self.allcampslist:
+                item = QtGui.QListWidgetItem()
+                item.setText(i)
+                item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+                font = QtGui.QFont()
+                font.setFamily(_fromUtf8("Garamond"))
+                font.setPointSize(15)
+                font.setBold(True)
+                font.setWeight(75)
+                item.setFont(font)
+                brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+                brush.setStyle(QtCore.Qt.Dense2Pattern)
+                item.setBackground(brush)
+                ui.settings_campslistListWidget.addItem(item)
 
     def add_remove_camp(self,obj):
 
@@ -761,7 +786,6 @@ def set_camps_list(self):
                 ui.settings_removecampPushButton.hide()
                 self.set_camps_list()
 
-    # -----------------------------------------------------------------------------------------------------------
 
     def showtooltip(self, text):
         tt = QtGui.QToolTip
@@ -1883,7 +1907,6 @@ font-weight:bold;
         """)
 
     def querycheckboxes(self, obj):
-
         if obj.isChecked():
 
             obj.setStyleSheet("""
@@ -1940,6 +1963,7 @@ font-weight:bold;
         ui.submitPushButton.hide()
         ui.updateentryCheckBox.hide()
         ui.enrol_campsListWidget.setDisabled(True)
+        ui.selectpicturePushButton.setDisabled(True)
 
     def enable_query_checkbox_elements(self):
 
@@ -1960,6 +1984,7 @@ font-weight:bold;
         ui.submitPushButton.show()
         ui.updateentryCheckBox.show()
         ui.enrol_campsListWidget.setDisabled(False)
+        ui.selectpicturePushButton.setDisabled(False)
 
     def display(self, obj):  # this executes when the Search button is pressed
 
@@ -2243,7 +2268,7 @@ font-weight:bold;
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment" ,con)
         try:
-            data.to_csv(r'All candidate details.csv',float_format='string',index=False)
+            data.to_csv(r'All candidate details.csv',float_format="%s",index=False)
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
 

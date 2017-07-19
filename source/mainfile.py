@@ -82,7 +82,7 @@ class logic():
 
         self.candidphoto = ''
 
-        ui.selectpicturePushButton.clicked.connect(self.picselect)
+        ui.selectpicturePushButton.clicked.connect(lambda:self.picselect(ui.selectpicturePushButton))
 
         ui.startdateDateEdit.hide()
 
@@ -351,14 +351,37 @@ class logic():
         self.allcampslist = self.settings.value('allcampslist').split(',,,')
         self.set_camps_list()
 
-
-
         ui.settings_addcampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_addcampPushButton))
 
         ui.settings_removecampPushButton.clicked.connect(lambda: self.add_remove_camp(ui.settings_removecampPushButton))
         ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
         ui.settings_backupdataPushButton.clicked.connect(self.backupdata)
         ui.settings_restoredataPushButton.clicked.connect(self.restoredata)
+#-----------------------------------------------------------------------------------------------------------------------------------------
+
+        ui.enrol_signaturePushButton.clicked.connect(lambda:self.picselect(ui.enrol_signaturePushButton))
+
+
+
+
+    def check_if_img_exists(self , imagename):
+        if os.path.exists(r'candidate photos\{}.png'.format(imagename)):
+            candidatephoto =  r'candidate photos\{}.png'.format(imagename)
+
+        elif os.path.exists(r'candidate photos\{}.jpg'.format(imagename)):
+            candidatephoto = r'candidate photos\{}.jpg'.format(imagename)
+
+        elif os.path.exists(r'candidate photos\{}.JPG'.format(imagename)):
+            candidatephoto = r'candidate photos\{}.JPG'.format(imagename)
+
+        elif os.path.exists(r'candidate photos\{}.PNG'.format(imagename)):
+            candidatephoto = r'candidate photos\{}.PNG'.format(imagename)
+        else:
+            candidatephoto = self.candidphoto
+
+        return candidatephoto
+        
+        
 
 
 
@@ -378,17 +401,17 @@ class logic():
         for i in range(ui.tableWidget_2.rowCount()):
             for j in range(ui.tableWidget_2.columnCount()):
                 if j==0:
-                    if os.path.exists(r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())):
-                        candidatephoto = r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())
+                    if os.path.exists(r'candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j+1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())):
-                        candidatephoto = r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())
+                    elif os.path.exists(r'candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j+1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())):
-                        candidatephoto = r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())
+                    elif os.path.exists(r'candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j+1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())):
-                        candidatephoto = r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())
+                    elif os.path.exists(r'candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())):
+                        candidatephoto = r'candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j+1).text())
                     else:
                         candidatephoto = self.candidphoto
                     if candidatephoto:
@@ -420,17 +443,17 @@ class logic():
         columnwidth = []
         oldrows=sheet.max_row
         for i in range(oldrows):
-            if os.path.exists(r'Candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)):
-                candidatephoto = r'Candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)
+            if os.path.exists(r'candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'candidate photos\{}.png'.format(sheet.cell(row=i+2,column=2).value)
 
-            elif os.path.exists(r'Candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)):
-                candidatephoto = r'Candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)
+            elif os.path.exists(r'candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'candidate photos\{}.jpg'.format(sheet.cell(row=i+2,column=2).value)
 
-            elif os.path.exists(r'Candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)):
-                candidatephoto = r'Candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)
+            elif os.path.exists(r'candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'candidate photos\{}.JPG'.format(sheet.cell(row=i+2,column=2).value)
 
-            elif os.path.exists(r'Candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)):
-                candidatephoto = r'Candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)
+            elif os.path.exists(r'candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)):
+                candidatephoto = r'candidate photos\{}.PNG'.format(sheet.cell(row=i+2,column=2).value)
             else:
                 candidatephoto = self.candidphoto
             if candidatephoto:
@@ -443,17 +466,17 @@ class logic():
         for i in range(ui.tableWidget_2.rowCount()):
             for j in range(ui.tableWidget_2.columnCount()):
                 if j == 0:
-                    if os.path.exists(r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())
+                    if os.path.exists(r'candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())
+                    elif os.path.exists(r'candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())
+                    elif os.path.exists(r'candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())
 
-                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())
+                    elif os.path.exists(r'candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())):
+                        candidatephoto = r'candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())
                     else:
                         candidatephoto = self.candidphoto
                     if candidatephoto:
@@ -509,19 +532,19 @@ class logic():
         for i in range(len(sqldata)):
             for j in range(len(horizontalheader)):
                 if j==0:
-                    if os.path.exists(r'Candidate photos\{}.png'.format(sqldata[i][j])):
+                    if os.path.exists(r'candidate photos\{}.png'.format(sqldata[i][j])):
                         print("gs")
-                        self.imagePath = r'Candidate photos\{}.png'.format(sqldata[i][j])
+                        self.imagePath = r'candidate photos\{}.png'.format(sqldata[i][j])
 
-                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(sqldata[i][j])):
+                    elif os.path.exists(r'candidate photos\{}.jpg'.format(sqldata[i][j])):
                         print("jpg")
-                        self.imagePath = r'Candidate photos\{}.jpg'.format(sqldata[i][j])
+                        self.imagePath = r'candidate photos\{}.jpg'.format(sqldata[i][j])
 
-                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(sqldata[i][j])):
-                        self.imagePath = r'Candidate photos\{}.JPG'.format(sqldata[i][j])
+                    elif os.path.exists(r'candidate photos\{}.JPG'.format(sqldata[i][j])):
+                        self.imagePath = r'candidate photos\{}.JPG'.format(sqldata[i][j])
 
-                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(sqldata[i][j])):
-                        self.imagePath = r'Candidate photos\{}.PNG'.format(sqldata[i][j])
+                    elif os.path.exists(r'candidate photos\{}.PNG'.format(sqldata[i][j])):
+                        self.imagePath = r'candidate photos\{}.PNG'.format(sqldata[i][j])
                     else:
                         self.imagePath = self.imagePath
                     if self.imagePath:
@@ -593,7 +616,10 @@ class logic():
                                                      directory=r'C:\users\{}'.format(os.getlogin()))
         try:
             ref = 0
-            shutil.copy2('ncc.db', loc)
+            try:
+                shutil.copy2('ncc.db', loc)
+            except:
+                QtGui.QMessageBox.critical(ui.Enrol ,"Database backup Failed !",r'DataBase backup has failed. Please backup up the database file Manually. It is located in C:\ProgramFiles\NCC\ncc.db' ,'OK')
             ref = 1
             if not os.path.exists(loc + r'\candidate photos'):
                 os.mkdir(loc + r'\candidate photos')
@@ -608,12 +634,12 @@ class logic():
             print(e)
             if ref == 0:
                 self.showtooltip("BACKUP FAILED")
-                msg = "Database and Candidate photos BACKUP FAILED"
+                msg = "Database and candidate photos BACKUP FAILED"
             if ref == 1:
-                self.showtooltip("Candidate photos BACKUP FAILED")
-                msg = "Database BACKUP SUCCESSFULL\nCandidate photos BACKUP FAILED "
+                self.showtooltip("candidate photos BACKUP FAILED")
+                msg = "Database BACKUP SUCCESSFULL\ncandidate photos BACKUP FAILED "
             QtGui.QMessageBox.warning(ui.Settings, 'Backup Problem',
-                                      msg + "\nIf the problem persists Please backup the ncc.db file and Candidate photos folder manually !")
+                                      msg + "\nIf the problem persists Please backup the ncc.db file and candidate photos folder manually !")
             return
 
         self.showtooltip('BACKUP SUCCESSFULL')
@@ -1715,16 +1741,27 @@ class logic():
         res.close()
         os.startfile(self.formname)
 
-    def picselect(self):
-        self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg)")
-        if not self.candidphoto:
-            return
 
-        if not (self.candidphoto.endswith('.png') or self.candidphoto.endswith('.jpg') or self.candidphoto.endswith('.JPG') or self.candidphoto.endswith('.PNG')):
-            QtGui.QMessageBox.warning(ui.Enrol , 'Invalid image' , 'Please make sure that the image you select is a valid Image file with .PNG or .JPG extention !','OK')
-            self.candidphoto = ''
-            return
-        ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
+    def picselect(self,obj):
+
+        if obj.objectName()=='selectpicturePushButton':
+            self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg *JPG *PNG)")
+            if not self.candidphoto:
+                self.candidphoto=''
+                return
+
+            ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
+
+
+        if obj.objectName()=='enrol_signaturePushButton':
+            self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg *.PNG *JPG)")
+            if not self.signaturephoto:
+                return
+
+            ui.selectsignatureLabel.setPixmap(QtGui.QPixmap(self.signaturephoto))
+
+
+
 
     def check_enrol_form_data(self):
 
@@ -1964,6 +2001,8 @@ font-weight:bold;
         ui.updateentryCheckBox.hide()
         ui.enrol_campsListWidget.setDisabled(True)
         ui.selectpicturePushButton.setDisabled(True)
+        ui.enrol_signaturePushButton.setDisabled(True)
+
 
     def enable_query_checkbox_elements(self):
 
@@ -1985,10 +2024,11 @@ font-weight:bold;
         ui.updateentryCheckBox.show()
         ui.enrol_campsListWidget.setDisabled(False)
         ui.selectpicturePushButton.setDisabled(False)
+        ui.enrol_signaturePushButton.setDisabled(True)
+
+
 
     def display(self, obj):  # this executes when the Search button is pressed
-
-
 
         if obj.objectName() == 'searchPushButton':
             if ui.searchbyfieldLineEdit.displayText().strip() == '':
@@ -2024,21 +2064,14 @@ font-weight:bold;
             return
 
 
-        if os.path.exists(r'Candidate photos\{}.png'.format(tuple[0])):
-            candidatephoto =  r'Candidate photos\{}.png'.format(tuple[0])
-
-        elif os.path.exists(r'Candidate photos\{}.jpg'.format(tuple[0])):
-            candidatephoto = r'Candidate photos\{}.jpg'.format(tuple[0])
-
-        elif os.path.exists(r'Candidate photos\{}.JPG'.format(tuple[0])):
-            candidatephoto = r'Candidate photos\{}.JPG'.format(tuple[0])
-
-        elif os.path.exists(r'Candidate photos\{}.PNG'.format(tuple[0])):
-            candidatephoto = r'Candidate photos\{}.PNG'.format(tuple[0])
-        else:
-            candidatephoto = self.candidphoto
+        candidatephoto = self.check_if_img_exists(tuple[0])
         if candidatephoto:
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
+
+        signaturephoto = self.check_if_img_exists(tuple[0]+'_sign')
+        if signaturephoto:
+            ui.selectsignatureLabel.setPixmap(QtGui.QPixmap(signaturephoto))
+
 
 
         months = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8,
@@ -2129,9 +2162,11 @@ font-weight:bold;
         ui.aadhaarLineEdit.setPlaceholderText("Enter 12 digit aadhaar number")
         ui.fullnameLineEdit.setPlaceholderText("First Name")
         ui.unitLineEdit.setText('4KAR')
-
         self.candidphoto = ''
+        self.signaturephoto = ''
         ui.selectpictureLabel.clear()
+        ui.selectsignatureLabel.clear()
+
 
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
@@ -2212,6 +2247,10 @@ font-weight:bold;
         if self.candidphoto:
             ext = self.candidphoto[self.candidphoto.rfind('.')+1: ]
             shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum , ext))
+
+        if self.signaturephoto:
+            ext = self.signaturephoto[self.signaturephoto.rfind('.') + 1:]
+            shutil.copy2(self.signaturephoto, "candidate photos\{}_sign.{}".format(enrolmentnum, ext))
 
 
         campsattended = ui.enrol_campsListWidget.selectedItems()

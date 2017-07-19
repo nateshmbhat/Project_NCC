@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1079</width>
-    <height>863</height>
+    <width>844</width>
+    <height>716</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -124,7 +124,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -325,9 +325,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1020</width>
-             <height>2280</height>
+             <y>-480</y>
+             <width>785</width>
+             <height>1899</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -429,7 +429,7 @@ background-color:transparent;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="../Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
+                 <pixmap resource="icon_res.qrc">:/icons/ncc2.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -847,12 +847,6 @@ color:white;</string>
                </item>
                <item row="2" column="1">
                 <widget class="QComboBox" name="rankComboBox">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -986,7 +980,7 @@ border:2px groove chartreuse;
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0" colspan="2">
+               <item row="5" column="0">
                 <widget class="QLabel" name="fullnameLabel">
                  <property name="font">
                   <font>
@@ -1001,20 +995,105 @@ border:2px groove chartreuse;
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Student Name  &lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Student Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
                  </property>
                  <property name="buddy">
-                  <cstring>SlastnameLineEdit</cstring>
+                  <cstring>fullnameLineEdit</cstring>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="0">
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="fullnameLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#fullnameLineEdit:focus
+{
+border:2px groove chartreuse;
+}</string>
+                 </property>
+                 <property name="inputMethodHints">
+                  <set>Qt::ImhDigitsOnly</set>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLineEdit" name="fathernameLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="mothernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>mothernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLineEdit" name="mothernameLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
                 <widget class="QLabel" name="sexLabel">
                  <property name="font">
                   <font>
@@ -1039,7 +1118,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="1">
+               <item row="8" column="1">
                 <widget class="QComboBox" name="sexComboBox">
                  <property name="font">
                   <font>
@@ -1076,7 +1155,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="19" column="0">
+               <item row="11" column="0">
                 <widget class="QLabel" name="dateofbirthLabel">
                  <property name="font">
                   <font>
@@ -1101,7 +1180,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="19" column="1">
+               <item row="11" column="1">
                 <widget class="QDateEdit" name="dateofbirthDateEdit">
                  <property name="font">
                   <font>
@@ -1132,7 +1211,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="21" column="0">
+               <item row="13" column="0">
                 <widget class="QLabel" name="addressLabel">
                  <property name="font">
                   <font>
@@ -1154,25 +1233,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="21" column="1">
-                <widget class="QTextEdit" name="addressTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="22" column="0">
+               <item row="14" column="0">
                 <widget class="QLabel" name="emailLabel">
                  <property name="font">
                   <font>
@@ -1194,7 +1255,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="22" column="1">
+               <item row="14" column="1">
                 <widget class="QLineEdit" name="emailLineEdit">
                  <property name="font">
                   <font>
@@ -1218,7 +1279,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="23" column="0">
+               <item row="15" column="0">
                 <widget class="QLabel" name="mobileLabel">
                  <property name="font">
                   <font>
@@ -1240,7 +1301,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="23" column="1">
+               <item row="15" column="1">
                 <widget class="QLineEdit" name="mobileLineEdit">
                  <property name="font">
                   <font>
@@ -1267,7 +1328,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="24" column="0">
+               <item row="16" column="0">
                 <widget class="QLabel" name="bloodgroupLabel">
                  <property name="font">
                   <font>
@@ -1289,7 +1350,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="24" column="1">
+               <item row="16" column="1">
                 <widget class="QComboBox" name="bloodgroupComboBox">
                  <property name="minimumSize">
                   <size>
@@ -1359,7 +1420,7 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="26" column="0">
+               <item row="18" column="0">
                 <widget class="QLabel" name="certificateLabel">
                  <property name="font">
                   <font>
@@ -1378,7 +1439,102 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="26" column="1">
+               <item row="20" column="0">
+                <widget class="QLabel" name="campsattendedLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Camps Attended</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="0">
+                <widget class="QLabel" name="remarksLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Remarks</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="0">
+                <widget class="QLabel" name="specialachievementsLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Special Achievements</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="0">
+                <widget class="QLabel" name="extracurricularactivitiesLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Extra Curricular Activities</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="0">
+                <widget class="QLabel" name="enroldateLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Enrol Date</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                  <item>
                   <widget class="QRadioButton" name="NullcertRadioButton">
@@ -1460,156 +1616,7 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="28" column="0">
-                <widget class="QLabel" name="campsattendedLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Camps Attended</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="29" column="0">
-                <widget class="QLabel" name="extracurricularactivitiesLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Extra Curricular Activities</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="29" column="1">
-                <widget class="QTextEdit" name="extraactivitiesTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="30" column="0">
-                <widget class="QLabel" name="specialachievementsLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Special Achievements</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="30" column="1">
-                <widget class="QTextEdit" name="specialachievementsTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="31" column="0">
-                <widget class="QLabel" name="enroldateLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Enrol Date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="31" column="1">
-                <widget class="QDateEdit" name="enroldateDateEdit">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>14</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="displayFormat">
-                  <string>dd/MMM/yyyy</string>
-                 </property>
-                 <property name="calendarPopup">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="32" column="0">
-                <widget class="QLabel" name="remarksLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Remarks</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="32" column="1">
+               <item row="24" column="1">
                 <widget class="QTextEdit" name="remarksTextEdit">
                  <property name="font">
                   <font>
@@ -1627,46 +1634,64 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_21">
-                 <property name="spacing">
-                  <number>2</number>
+               <item row="21" column="1">
+                <widget class="QTextEdit" name="extraactivitiesTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="1">
+                <widget class="QTextEdit" name="specialachievementsTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="1">
+                <widget class="QDateEdit" name="enroldateDateEdit">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="displayFormat">
+                  <string>dd/MMM/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_10">
                  <item>
-                  <widget class="QLineEdit" name="fullnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="SmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="SlastnameLineEdit">
+                  <widget class="QCheckBox" name="NULLCampsCheckBox">
                    <property name="font">
                     <font>
                      <family>Georgia</family>
@@ -1676,28 +1701,76 @@ color:white;</string>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">#fullnameLineEdit:focus
-{
-border:2px groove chartreuse;
-}</string>
-                   </property>
-                   <property name="inputMethodHints">
-                    <set>Qt::ImhDigitsOnly</set>
+                    <string notr="true">background-color:transparent;color:white;</string>
                    </property>
                    <property name="text">
-                    <string/>
+                    <string>NULL</string>
                    </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
+                   <property name="autoExclusive">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="NICCheckBox">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:transparent;color:white;</string>
+                   </property>
+                   <property name="text">
+                    <string>NIC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="CATCCheckBox">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:transparent;color:white;</string>
+                   </property>
+                   <property name="text">
+                    <string>CATC</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="AACCheckBox">
+                   <property name="font">
+                    <font>
+                     <family>Georgia</family>
+                     <pointsize>12</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color:transparent;color:white;</string>
+                   </property>
+                   <property name="text">
+                    <string>AAC</string>
                    </property>
                   </widget>
                  </item>
                 </layout>
                </item>
-               <item row="8" column="0" colspan="2">
+               <item row="6" column="0">
                 <widget class="QLabel" name="fathernameLabel">
                  <property name="font">
                   <font>
@@ -1712,10 +1785,7 @@ border:2px groove chartreuse;
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                  <property name="margin">
                   <number>0</number>
@@ -1725,325 +1795,23 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="9" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_22">
-                 <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLineEdit" name="fathernameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">b</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="FmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="FlastnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="12" column="0" colspan="2">
-                <widget class="QLabel" name="mothernameLabel">
+               <item row="13" column="1">
+                <widget class="QTextEdit" name="addressTextEdit">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
-                   <pointsize>15</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
+                  <string notr="true">border-radius:5px;</string>
                  </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <property name="buddy">
-                  <cstring>mothernameLineEdit</cstring>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
                  </property>
                 </widget>
-               </item>
-               <item row="13" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_23">
-                 <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLineEdit" name="mothernameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">b</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="MmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="MlastnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="28" column="1">
-                <widget class="QListWidget" name="enrol_campsListWidget">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="selectionMode">
-                  <enum>QAbstractItemView::MultiSelection</enum>
-                 </property>
-                 <property name="spacing">
-                  <number>1</number>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>NIC</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>New Item</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>AAC</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>IITC</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <spacer name="horizontalSpacer_21">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>1</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="7" column="0">
-                <spacer name="horizontalSpacer_22">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="11" column="0">
-                <spacer name="horizontalSpacer_23">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="15" column="0">
-                <spacer name="horizontalSpacer_24">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
                </item>
               </layout>
              </widget>
@@ -2831,7 +2599,7 @@ font-size:20px;
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -4642,7 +4410,7 @@ width:130%;
 }</string>
           </property>
           <property name="text">
-           <string>Save Results</string>
+           <string>Generate CSV</string>
           </property>
          </widget>
         </item>
@@ -4978,7 +4746,7 @@ background-repeat:none;
         <string>Data Entry</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Data Entry</string>
+        <string>Upload data</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -5079,6 +4847,8 @@ padding-top:-5px;
               <property name="font">
                <font>
                 <pointsize>-1</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5094,17 +4864,12 @@ height:30%;</string>
                <string/>
               </property>
               <property name="placeholderText">
-               <string>Enter Enrolment Numbers</string>
+               <string>Enrolment Numbers</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLineEdit" name="locationLineEdit">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
               <property name="styleSheet">
                <string notr="true">width:20%;
 font-size:15px;
@@ -5115,7 +4880,7 @@ color: rgb(0, 0, 0);
 height:30%;</string>
               </property>
               <property name="placeholderText">
-               <string>Enter Location</string>
+               <string>Location</string>
               </property>
              </widget>
             </item>
@@ -5128,14 +4893,13 @@ height:30%;</string>
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-radius:10px;
-margin:3px;
-color:green;</string>
+               <string notr="true">background-color:lightblue;border-radius:10px;margin:3px;
+color:gray;</string>
               </property>
               <property name="text">
                <string>Start  Date</string>
@@ -5162,14 +4926,13 @@ border-radius:5px;</string>
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-radius:10px;
-margin:3px;
-color:green;</string>
+               <string notr="true">background-color:lightblue;border-radius:10px;margin:3px;
+color:gray;</string>
               </property>
               <property name="text">
                <string>End Date</string>
@@ -5295,260 +5058,6 @@ padding-top:-5px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="LongNominalRole">
-       <property name="styleSheet">
-        <string notr="true">#LongNominalRole{
-background-image: url(:/icons/graywood.png);
-background-position:center;
-
-}</string>
-       </property>
-       <attribute name="title">
-        <string>Long Nominal Role</string>
-       </attribute>
-       <attribute name="toolTip">
-        <string>Long Nominal Role</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_12">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_13">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_26">
-            <item>
-             <widget class="QComboBox" name="typelongnrComboBox">
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Californian FB</family>
-                <pointsize>18</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-image: url(:/icons/simple_grad.png);
-background-position:center;</string>
-              </property>
-              <property name="maxVisibleItems">
-               <number>20</number>
-              </property>
-              <item>
-               <property name="text">
-                <string>Selection By</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Institution</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Unit</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>All</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="institutionlongnrComboBox">
-              <property name="minimumSize">
-               <size>
-                <width>300</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Californian FB</family>
-                <pointsize>18</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="unitlongnrLineEdit">
-              <property name="font">
-               <font>
-                <pointsize>14</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>4kar</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="showlongnrPushButton">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Californian FB</family>
-                <pointsize>16</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#showlongnrPushButton
-{
-color:white;
-border-radius:2px;
-border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;
-
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Show</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QTableWidget" name="tableWidget_2">
-            <property name="styleSheet">
-             <string notr="true">background-color: transparent;</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_25">
-            <item>
-             <spacer name="horizontalSpacer_29">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="generateexcellongnrPushButton">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Calisto MT</family>
-                <pointsize>17</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-color:white;
-border-radius:2px;
-border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;</string>
-              </property>
-              <property name="text">
-               <string>Generate Form</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_31">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="updateexcellongnrPushButton">
-              <property name="minimumSize">
-               <size>
-                <width>250</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Calisto MT</family>
-                <pointsize>17</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color:white;
-border-radius:2px;
-border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;</string>
-              </property>
-              <property name="text">
-               <string>Update Form</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_30">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
       <widget class="QWidget" name="Settings">
        <property name="styleSheet">
         <string notr="true">#Settings{
@@ -5582,9 +5091,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-972</y>
-             <width>1018</width>
-             <height>1748</height>
+             <y>0</y>
+             <width>972</width>
+             <height>1570</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5594,8 +5103,8 @@ background-position:center;
 }</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
-            <item row="11" column="0">
-             <spacer name="horizontalSpacer_16">
+            <item row="3" column="0">
+             <spacer name="horizontalSpacer_19">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -5607,104 +5116,21 @@ background-position:center;
               </property>
              </spacer>
             </item>
-            <item row="12" column="0">
-             <layout class="QHBoxLayout" name="horizontalLayout_24">
-              <property name="spacing">
-               <number>2</number>
+            <item row="1" column="0">
+             <spacer name="horizontalSpacer_14">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-              <item>
-               <widget class="QPushButton" name="settings_backupdataPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>georgia</family>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#settings_backupdataPushButton
-{
-border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
-font-size:100%;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_backupdataPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_backupdataPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-                </property>
-                <property name="text">
-                 <string>Backup All Data</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="settings_restoredataPushButton">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>georgia</family>
-                  <pointsize>14</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">#settings_restoredataPushButton
-{
-border-radius:15px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
-color:white;
-border-top:1px solid yellow;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#settings_restoredataPushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#settings_restoredataPushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-                </property>
-                <property name="text">
-                 <string>Restore Backed up Data</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
-            <item row="13" column="0">
-             <spacer name="horizontalSpacer_25">
+            <item row="7" column="0">
+             <spacer name="horizontalSpacer_15">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -5721,7 +5147,7 @@ padding:10px 10px;
               <property name="font">
                <font>
                 <family>georgia</family>
-                <pointsize>14</pointsize>
+                <pointsize>15</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -5753,6 +5179,19 @@ padding:10px 10px;
                <string>Open Candidates Picture folder</string>
               </property>
              </widget>
+            </item>
+            <item row="10" column="0">
+             <spacer name="horizontalSpacer_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item row="0" column="0" alignment="Qt::AlignHCenter">
              <widget class="QWidget" name="settingsmainframewidget" native="true">
@@ -6485,109 +5924,6 @@ text-align:center;</string>
               </layout>
              </widget>
             </item>
-            <item row="7" column="0">
-             <spacer name="horizontalSpacer_15">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="3" column="0">
-             <spacer name="horizontalSpacer_19">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <spacer name="horizontalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="15" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QPushButton" name="exceltodatabasePushButton">
-              <property name="font">
-               <font>
-                <family>georgia</family>
-                <pointsize>13</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#exceltodatabasePushButton
-{
-border-radius:20px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(203, 146, 0, 255));
-font-family:georgia;
-color:white;
-border-top:1px solid green;
-border-bottom:1px solid black;
-padding:10px 10px;
-}
-#exceltodatabasePushButton:hover
-{
-	color:black;
-	background-color:rgba(0, 170, 255,255);
-
-}
-
-#exceltodatabasePushButton:pressed
-{
-	color:black;
-	background-color:rgba(0, 170, 255,175);
-
-}</string>
-              </property>
-              <property name="text">
-               <string>Append To DataBase From Excel</string>
-              </property>
-             </widget>
-            </item>
-            <item row="10" column="0">
-             <spacer name="horizontalSpacer_26">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="14" column="0">
-             <spacer name="horizontalSpacer_27">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
            </layout>
           </widget>
          </widget>
@@ -6611,6 +5947,9 @@ padding:10px 10px;
   <tabstop>enrolmentnumLineEdit</tabstop>
   <tabstop>rankComboBox</tabstop>
   <tabstop>aadhaarLineEdit</tabstop>
+  <tabstop>fullnameLineEdit</tabstop>
+  <tabstop>fathernameLineEdit</tabstop>
+  <tabstop>mothernameLineEdit</tabstop>
   <tabstop>sexComboBox</tabstop>
   <tabstop>dateofbirthDateEdit</tabstop>
   <tabstop>addressTextEdit</tabstop>
@@ -6621,6 +5960,10 @@ padding:10px 10px;
   <tabstop>AcertRadioButton</tabstop>
   <tabstop>BcertRadioButton</tabstop>
   <tabstop>CcertRadioButton</tabstop>
+  <tabstop>NULLCampsCheckBox</tabstop>
+  <tabstop>NICCheckBox</tabstop>
+  <tabstop>CATCCheckBox</tabstop>
+  <tabstop>AACCheckBox</tabstop>
   <tabstop>extraactivitiesTextEdit</tabstop>
   <tabstop>specialachievementsTextEdit</tabstop>
   <tabstop>enroldateDateEdit</tabstop>
@@ -6721,15 +6064,15 @@ padding:10px 10px;
   <tabstop>settings_removefieldPushButton</tabstop>
  </tabstops>
  <resources>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="C:/Users/ADMIN/.designer/backup/icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

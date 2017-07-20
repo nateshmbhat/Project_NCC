@@ -100,13 +100,35 @@ class enroll:
         self.conn.commit()
         self.conn.close()
     def create_table_Attendance(self):
-        self.conn = sqlite3.connect("ncc.db")
-        self.cur = self.conn.cursor()
-        sql = """create table if not exist Attendance(Enrolment_Number varchar(13) not null,
-        ,primary key(Enrolment_Number))"""
+        self.conn=sqlite3.connect("ncc.db")
+        self.cur=self.conn.cursor()
+        sql="""create table if not exists Attendance(
+        Enrolment_Number varchar,
+        certificate varchar,
+        institution varchar,
+        eligability varchar,
+        A_cert_attendance_1_year integer,
+        A_cert_attendance_2_year integer,
+        B_cert_attendance_1_year integer,
+        B_cert_attendance_2_year integer,
+        C_cert_attendance_1_year integer,
+        C_cert_attendance_2_year integer,
+        A_cert_attendance_1_year_total_days integer,
+        A_cert_attendance_2_year_total_days integer,
+        B_cert_attendance_1_year_total_days integer,
+        B_cert_attendance_2_year_total_days integer,
+        C_cert_attendance_1_year_total_days integer,
+        C_cert_attendance_2_year_total_days integer,
+        A_cert_attendance_1_year_present_days integer,
+        A_cert_attendance_2_year_present_days integer,
+        B_cert_attendance_1_year_present_days integer,
+        B_cert_attendance_2_year_present_days integer,
+        C_cert_attendance_1_year_present_days integer,
+        C_cert_attendance_2_year_present_days integer)"""
         self.cur.execute(sql)
         self.conn.commit()
         self.conn.close()
+
     def search_particular_fields(self,con,con1,*fields):
         sql="select "
         for i in range(len(fields)):
@@ -140,6 +162,13 @@ class enroll:
 
     def delete_by_Enrolment_camps(self, enrolment_no, camp_name):
         sql = "delete from camps_details where Enrolment_Number='" + enrolment_no + "' and Camp_Attended='" + camp_name + "'"
+        self.conn = sqlite3.connect("ncc.db")
+        self.cur = self.conn.cursor()
+        self.cur.execute(sql)
+        self.conn.commit()
+        self.conn.close()
+    def delete_by_Enrolment_cert(self, enrolment_no, cert_name):
+        sql = "delete from Attendance where Enrolment_Number='" + enrolment_no + "' and certificate='" + cert_name + "'"
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         self.cur.execute(sql)

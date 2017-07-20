@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>loginDialog</class>
+ <widget class="QDialog" name="loginDialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -39,7 +39,7 @@
     <normaloff>:/icons/ncc2.png</normaloff>:/icons/ncc2.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">#Dialog{
+   <string notr="true">#loginDialog{
 border-image:url(:/icons/image-blur.png);
 background-position:center;
 }</string>
@@ -87,7 +87,7 @@ color:white;</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="login_usernameLineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -142,7 +142,7 @@ color:white;</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="login_passwordLineEdit">
        <property name="minimumSize">
         <size>
          <width>0</width>

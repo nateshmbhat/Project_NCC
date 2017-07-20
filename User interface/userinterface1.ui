@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1025</width>
-    <height>906</height>
+    <width>1044</width>
+    <height>769</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -124,7 +124,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -198,8 +198,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1637</y>
-             <width>966</width>
+             <y>0</y>
+             <width>985</width>
              <height>2245</height>
             </rect>
            </property>
@@ -2953,7 +2953,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -5224,6 +5224,21 @@ padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);</string>
               </property>
+              <item>
+               <property name="text">
+                <string>A cert attendance</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>B cert attendance</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>C cert attendance</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item>
@@ -5261,6 +5276,16 @@ padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);</string>
               </property>
+              <item>
+               <property name="text">
+                <string>1 year</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>2 year</string>
+               </property>
+              </item>
              </widget>
             </item>
             <item>
@@ -5322,13 +5347,6 @@ height:30%;</string>
               </property>
               <property name="placeholderText">
                <string>Enter Location</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="checkBox">
-              <property name="text">
-               <string>Eligible</string>
               </property>
              </widget>
             </item>
@@ -5795,8 +5813,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-946</y>
-             <width>972</width>
+             <y>0</y>
+             <width>983</width>
              <height>1748</height>
             </rect>
            </property>
@@ -6928,7 +6946,6 @@ padding:10px 10px;
   <tabstop>yearComboBox</tabstop>
   <tabstop>enrolmentuploaddataLineEdit</tabstop>
   <tabstop>locationLineEdit</tabstop>
-  <tabstop>checkBox</tabstop>
   <tabstop>startdateDateEdit</tabstop>
   <tabstop>enddateDateEdit</tabstop>
   <tabstop>savedataPushButton</tabstop>
@@ -6975,7 +6992,6 @@ padding:10px 10px;
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
@@ -6983,6 +6999,8 @@ padding:10px 10px;
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="../../../../../ADMIN/.designer/backup/icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

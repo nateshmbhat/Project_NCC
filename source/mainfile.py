@@ -1009,55 +1009,102 @@ class logic():
        'Unit']
 
 
-        try:
-            data.to_sql(con=con, name=tab, if_exists='append', index=False)
-            self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
 
-            print(data.Enrolment_Number[0])
+            # data.to_sql(con=con, name=tab, if_exists='append', index=False)
+            # self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
 
-        except Exception as e:
-            print(e)
-            adh=''
-            if "UNIQUE" in str(e) or "duplicate" in str(e):
-                    msg = ''
-                    for i in range(len(data.Aadhaar_Number)):
-                        q = "SELECT Exists(Select Aadhaar_Number from {} where Aadhaar_Number='{}'".format(tab,data.Aadhaar_Number[i])+' Limit 1);'
-                        res = cur.execute(q).fetchone()[0]
-                        if not res:
-                            try:
-                                print(data.iloc[i])
-                                values = list(data.iloc[i].values)
-                                add = "Insert into {} values{}".format(tab,tuple(values))
-                                cur.execute(add)
-                            except Exception as e:
-                                if 'Enrolment_Number' in str(e) and 'UNIQUE' in str(e):
-                                    msg+=data.Enrolment_Number[i]+' '
+        conflicts = ''
 
-                        else:adh+=data.Enrolment_Number[i]+' '
+        for i in range(len(data.Enrolment_Number)):
+            try:
+                values = tuple(data.iloc[i].values)
+                cur.execute('''Insert into {} values {}'''.format(tab,values))
+            except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
 
-                    dups = msg.strip().replace(' ',',')
-                    con.commit()
-                    if msg:
-                        QtGui.QMessageBox.information(ui.Settings, 'Caution', 'The enrolment numbers {}'.format(
-                            dups) + ' were not added to the database since they already exist in the database!!!\nThe rest of the Enrolment numbers are Added to the database','OK')
-                    if adh:
-                        QtGui.QMessageBox.warning(ui.Settings, "Aadhaar Conflict !",
-                                                  'The Aadhaar numbers of {} are already present in the database !!!\nHence these Data could\'t be added to the Database.'.format(adh.strip().replace(' ',',')))
-                    self.showtooltip("DATA ADDED TO DATABASE without Duplicates!!!")
 
-                #
-                # elif 'Aadhaar_Number' in str(e):
-                #     for i in range(len(data.Aadhaar_Number)):
-                #         q = "SELECT Exists(Select Aadhaar_Number from {} where Aadhaar_Number='{}'".format(tab,data.Aadhaar_Number[i]) + ' Limit 1);'
-                #         res = cur.execute(q).fetchone()[0]
-                #         if res:
-                #             msg+=data.Aadhaar_Number[i]+' '
-                #
-                #     dups = msg.strip().replace(' ',',')
-                #     con.commit()
-                #     QtGui.QMessageBox.warning(ui.Settings , "Aadhaar Conflict !" , 'The Aadhaar numbers {} are already present in the database !!!\nHence the Data can\'t be added to the Database.'.format(dups))
+        con.commit()
+        con.close()
 
-            con.close()
+        if conflicts:
+            Dialog = QtGui.QDialog()
+            Dialog.setObjectName(_fromUtf8("Dialog"))
+            Dialog.resize(804, 389)
+            Dialog.setMaximumSize(QtCore.QSize(914, 16777215))
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Georgia"))
+            Dialog.setFont(font)
+            verticalLayout = QtGui.QVBoxLayout(Dialog)
+            verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+            textBrowser = QtGui.QTextBrowser(Dialog)
+            textBrowser.setMaximumSize(QtCore.QSize(16777215, 92))
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Century"))
+            font.setPointSize(12)
+            textBrowser.setFont(font)
+            textBrowser.setObjectName(_fromUtf8("textBrowser"))
+            verticalLayout.addWidget(textBrowser)
+            gridLayout = QtGui.QGridLayout()
+            gridLayout.setObjectName(_fromUtf8("gridLayout"))
+            pushButton_2 = QtGui.QPushButton(Dialog)
+            sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
+            sizePolicy.setHorizontalStretch(0)
+            sizePolicy.setVerticalStretch(0)
+            sizePolicy.setHeightForWidth(pushButton_2.sizePolicy().hasHeightForWidth())
+            pushButton_2.setSizePolicy(sizePolicy)
+            font = QtGui.QFont()
+            font.setPointSize(10)
+            pushButton_2.setFont(font)
+            pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+            gridLayout.addWidget(pushButton_2, 0, 0, 1, 1, QtCore.Qt.AlignLeft)
+            pushButton = QtGui.QPushButton(Dialog)
+            font = QtGui.QFont()
+            font.setPointSize(12)
+            pushButton.setFont(font)
+            pushButton.setObjectName(_fromUtf8("pushButton"))
+            gridLayout.addWidget(pushButton, 0, 1, 1, 1, QtCore.Qt.AlignHCenter)
+            pushButton_3 = QtGui.QPushButton(Dialog)
+            pushButton_3.setText(_fromUtf8(""))
+            pushButton_3.setFlat(True)
+            pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
+            gridLayout.addWidget(pushButton_3, 0, 2, 1, 1)
+            verticalLayout.addLayout(gridLayout)
+            textBrowser_2 = QtGui.QTextBrowser(Dialog)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Century"))
+            font.setPointSize(12)
+            textBrowser_2.setFont(font)
+            textBrowser_2.setObjectName(_fromUtf8("textBrowser_2"))
+            textBrowser_2.setText('''
+The List of Conflicts of either Enrolment_Number or Aadhaar_Number is as shown below :
+
+{}
+
+These entries are not added to the Database .\nIf you wish to update the database entries of present Student Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(conflicts))
+            textBrowser_2.hide()
+            verticalLayout.addWidget(textBrowser_2)
+
+            QtCore.QObject.connect(pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), textBrowser_2.show if textBrowser_2.isHidden() else textBrowser_2.hide())
+            QtCore.QObject.connect(pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), Dialog.close)
+            QtCore.QMetaObject.connectSlotsByName(Dialog)
+            Dialog.setWindowTitle(_translate("Dialog", "Conflicts Found !", None))
+            textBrowser.setHtml(_translate("Dialog",
+                                                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                                "p, li { white-space: pre-wrap; }\n"
+                                                "</style></head><body style=\" font-family:\'Century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:11pt;\">While adding the Data to the Database , some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the Database and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>",
+                                                None))
+            pushButton_2.setText(_translate("Dialog", "Show Details", None))
+            pushButton.setText(_translate("Dialog", "OK", None))
+            Dialog.exec()
+
+
+
+
+
+        print(conflicts)
+        con.close()
 
 
     def set_camps_list(self):
@@ -3427,6 +3474,8 @@ font-weight:bold;
 
     def img(self):
         super(logic, self).__init__()
+
+
 
 
 

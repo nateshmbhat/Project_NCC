@@ -107,6 +107,7 @@ class enroll:
         certificate varchar,
         institution varchar,
         eligability varchar,
+        year varchar,
         A_cert_attendance_1_year integer,
         A_cert_attendance_2_year integer,
         B_cert_attendance_1_year integer,
@@ -167,8 +168,8 @@ class enroll:
         self.cur.execute(sql)
         self.conn.commit()
         self.conn.close()
-    def delete_by_Enrolment_cert(self, enrolment_no, cert_name):
-        sql = "delete from Attendance where Enrolment_Number='" + enrolment_no + "' and certificate='" + cert_name + "'"
+    def delete_by_Enrolment_cert(self, enrolment_no, cert_name,year):
+        sql = "delete from Attendance where Enrolment_Number='" + enrolment_no + "' and certificate='" + cert_name + "' and year='"+year+"'"
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         self.cur.execute(sql)

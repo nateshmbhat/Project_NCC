@@ -825,6 +825,7 @@ class logic():
 
         self.showtooltip('BACKUP SUCCESSFULL')
 
+
     def restoredata(self):
 
         ch = QtGui.QMessageBox.question(ui.Settings, 'Choose restore files',
@@ -873,11 +874,98 @@ class logic():
 
             self.showtooltip("RESTORATION SUCCESSFULL")
 
+
+
     def save_from_excel_to_database(self):
+
+        exceltodatabaseDialog = QtGui.QDialog()
+        exceltodatabaseDialog.setObjectName(("exceltodatabaseDialog"))
+        exceltodatabaseDialog.setModal(True)
+        exceltodatabaseDialog.setWindowModality(QtCore.Qt.ApplicationModal)
+        exceltodatabaseDialog.resize(778, 195)
+        exceltodatabaseDialog.setMinimumSize(QtCore.QSize(778, 195))
+        exceltodatabaseDialog.setMaximumSize(QtCore.QSize(778, 195))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/ncc2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        exceltodatabaseDialog.setWindowIcon(icon)
+        exceltodatabaseDialog.setStyleSheet(_fromUtf8("#exceltodatabaseDialog{\n"
+                                                      "border-image:url(:/icons/simple_grad.png);\n"
+                                                      "}"))
+        verticalLayout = QtGui.QVBoxLayout(exceltodatabaseDialog)
+        verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        label = QtGui.QLabel(exceltodatabaseDialog)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(20)
+        label.setFont(font)
+        label.setStyleSheet(_fromUtf8("color:white;"))
+        label.setAlignment(QtCore.Qt.AlignCenter)
+        label.setObjectName(_fromUtf8("label"))
+        verticalLayout.addWidget(label)
+        horizontalLayout = QtGui.QHBoxLayout()
+        horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        etd_enrolmentPushButton = QtGui.QPushButton(exceltodatabaseDialog)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        etd_enrolmentPushButton.setFont(font)
+        etd_enrolmentPushButton.setObjectName(_fromUtf8("etd_enrolmentPushButton"))
+        horizontalLayout.addWidget(etd_enrolmentPushButton)
+        etd_acertPushButton = QtGui.QPushButton(exceltodatabaseDialog)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        etd_acertPushButton.setFont(font)
+        etd_acertPushButton.setObjectName(_fromUtf8("etd_acertPushButton"))
+        horizontalLayout.addWidget(etd_acertPushButton)
+        etd_bcertPushButton = QtGui.QPushButton(exceltodatabaseDialog)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        etd_bcertPushButton.setFont(font)
+        etd_bcertPushButton.setObjectName(_fromUtf8("etd_bcertPushButton"))
+        horizontalLayout.addWidget(etd_bcertPushButton)
+        etd_ccertPushButton = QtGui.QPushButton(exceltodatabaseDialog)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Georgia"))
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        etd_ccertPushButton.setFont(font)
+        etd_ccertPushButton.setObjectName(_fromUtf8("etd_ccertPushButton"))
+        horizontalLayout.addWidget(etd_ccertPushButton)
+        verticalLayout.addLayout(horizontalLayout)
+        exceltodatabaseDialog.setWindowTitle(_translate("exceltodatabaseDialog", "Choose the TABLE", None))
+        label.setText(
+            _translate("exceltodatabaseDialog", "Select the Table to which you wish to add the Data", None))
+        etd_enrolmentPushButton.setText(_translate("exceltodatabaseDialog", "Enrolment", None))
+        etd_acertPushButton.setText(_translate("exceltodatabaseDialog", "A_Certificate", None))
+        etd_bcertPushButton.setText(_translate("exceltodatabaseDialog", "B_Certificate", None))
+        etd_ccertPushButton.setText(_translate("exceltodatabaseDialog", "C_Certificate", None))
+        tab = ''
+        def buttonpressed(obj):
+            nonlocal tab
+            tab={'etd_acertPushButton':'A_cert_makrs','etd_bcertPushButton':'B_cert_makrs',
+             'etd_ccertPushButton':'B_cert_makrs','etd_enrolmentPushButton':'enrolment'}[obj.objectName()]
+            exceltodatabaseDialog.close()
+        etd_enrolmentPushButton.clicked.connect(lambda :buttonpressed(etd_enrolmentPushButton))
+        etd_acertPushButton.clicked.connect(lambda :buttonpressed(etd_acertPushButton))
+        etd_bcertPushButton.clicked.connect(lambda :buttonpressed(etd_bcertPushButton))
+        etd_ccertPushButton.clicked.connect(lambda :buttonpressed(etd_ccertPushButton))
+        exceltodatabaseDialog.exec()
+
+
         con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
         cur = con.cursor()
+
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
-                                                caption="Select Excel of CSV file ",
+                                                caption="Select Excel or CSV file ",
                                                 filter="Excel or CSV (*.xlsx *.csv)")
 
         if not loc:
@@ -887,10 +975,12 @@ class logic():
             data = pd.read_csv(loc,na_filter=False)
         elif loc.endswith('.xlsx'):
             data = pd.read_excel(loc,na_filter=False)
+            if tab!='enrolment':
+                pass;
 
 
         try:
-            data.to_sql(con=con, name='enrolment', if_exists='append', index=False)
+            data.to_sql(con=con, name=tab, if_exists='append', index=False)
             self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
 
         except Exception as e:
@@ -902,14 +992,13 @@ class logic():
                         q = "SELECT Exists(Select Enrolment_Number from enrolment where Enrolment_Number='{}'".format(data.Enrolment_Number[i])+' Limit 1);'
                         res = cur.execute(q).fetchone()[0]
                         if not res:
-                            print(data.iloc[i])
                             values = list(data.iloc[i].values)
                             add = "Insert into enrolment values{}".format(tuple(values))
                             cur.execute(add)
                         else:msg+=data.Enrolment_Number[i]+' '
 
                     dups = msg.strip().replace(' ',',')
-                    QtGui.QMessageBox.warning(ui.Settings, 'Caution','The enrolment numbers {}'.format(dups)+' were not added to the database since they already exist in the database!!!',
+                    QtGui.QMessageBox.warning(ui.Settings, 'Caution','The enrolment numbers {}'.format(dups)+' were not added to the database since they already exist in the database!!!\nThe rest of the Enrolment numbers are Added to the database',
                                               'OK')
                     self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE without Duplicates!!!")
 
@@ -1562,7 +1651,7 @@ class logic():
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
             if selectedDataType == "B certificate":
-                selectedDataType = "Bcert_marks"
+                selectedDataType = "B_cert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
@@ -2130,8 +2219,8 @@ class logic():
 
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) < 1:
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'Make sure that you have seperated enrolmentnumbers by camma(,).',
+            QtGui.QMessageBox.warning(ui.Enrol, 'No Data ',
+                                      'Make sure that you have entered some data in the Data Entry table .',
                                       'OK')
             return
         self.formname = ""
@@ -3265,9 +3354,9 @@ if __name__ == "__main__":
 
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
-        #
-        # username = 'ncc_viewer'
-        # password = ''
+
+        username = 'ncc_editor'
+        password = 'nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"
@@ -3279,7 +3368,6 @@ if __name__ == "__main__":
             QtGui.QMessageBox.warning(loginDialog , "Login Failed" ,'Username or Password Incorrect','OK')
             loginui.login_passwordLineEdit.clear()
             return
-
         if loginui.firstrun:
             myobj = logic()
             myobj.img()

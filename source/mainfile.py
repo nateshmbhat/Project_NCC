@@ -33,7 +33,7 @@ class Ui_loginDialog(object):
     def setupUi(self, loginDialog):
         loginDialog.setObjectName(_fromUtf8("loginDialog"))
         loginDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        loginDialog.resize(711, 333)
+        loginDialog.resize(616, 298)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -383,6 +383,7 @@ class logic():
         ui.yearComboBox.hide()
 
         ui.eligibilityCheckBox.hide()
+        ui.eligibilityCheckBox.stateChanged.connect(self.eligibilitylogic)
 
         self.init_settings()
 
@@ -933,10 +934,11 @@ class logic():
         etd_ccertPushButton.setText(_translate("exceltodatabaseDialog", "C_Certificate", None))
         tab = ''
 
+
         def buttonpressed(obj):
             nonlocal tab
-            tab = {'etd_acertPushButton': 'A_cert_makrs', 'etd_bcertPushButton': 'B_cert_makrs',
-                   'etd_ccertPushButton': 'B_cert_makrs', 'etd_enrolmentPushButton': 'enrolment'}[obj.objectName()]
+            tab = {'etd_acertPushButton': 'A_cert_marks', 'etd_bcertPushButton': 'B_cert_marks',
+                   'etd_ccertPushButton': 'C_cert_marks', 'etd_enrolmentPushButton': 'enrolment'}[obj.objectName()]
             exceltodatabaseDialog.close()
 
         etd_enrolmentPushButton.clicked.connect(lambda: buttonpressed(etd_enrolmentPushButton))
@@ -949,49 +951,112 @@ class logic():
         cur = con.cursor()
 
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
-                                                caption="Select Excel of CSV file ",
                                                 caption="Select Excel or CSV file ",
                                                 filter="Excel or CSV (*.xlsx *.csv)")
+
         if not loc:
             return
-
         if loc.endswith('.csv'):
             data = pd.read_csv(loc,na_filter=False)
         elif loc.endswith('.xlsx'):
             data = pd.read_excel(loc,na_filter=False)
-
             if tab != 'enrolment':
+                if tab=='A_cert_marks':
+                    data = data.iloc[3:, 0:24].reset_index(drop=True)
+                    data.columns=['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+       'Date_Of_Discharge', 'Parade_Attendance_Year1',
+       'Parade_Attendance_Year2', 'Part1_Drill_Written',
+       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+       'Part4_SplSubjects_Total', 'GrandTotal', 'Grading', 'Institution']
 
-                pass;
+                elif tab=='B_cert_marks':
+                    data = data.iloc[3:, 0:25].reset_index(drop=True)
+                    data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+       'Date_Of_Discharge', 'Parade_Attendance_Year1',
+       'Parade_Attendance_Year2', 'Part1_Drill_Written',
+       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+       'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+       'Grading', 'Institution']
 
+                elif tab=='C_cert_marks':
+                    data = data.iloc[3:, 0:25].reset_index(drop=True)
+                    data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+       'Date_Of_Discharge', 'Parade_Attendance_Year1',
+       'Parade_Attendance_Year2', 'Part1_Drill_Written',
+       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+       'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+       'Grading', 'Institution']
+
+            else:
+                data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name',
+       'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
+       'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
+       'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
+       'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
+       'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
+       'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
+       'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
+       'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
+       'Unit']
 
 
         try:
             data.to_sql(con=con, name=tab, if_exists='append', index=False)
             self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
 
+            print(data.Enrolment_Number[0])
+
         except Exception as e:
             print(e)
-            msg=''
+            adh=''
             if "UNIQUE" in str(e) or "duplicate" in str(e):
-                if "Enrolment_Number" in str(e):
-                    for i in range(len(data.Enrolment_Number)):
-                        q = "SELECT Exists(Select Enrolment_Number from enrolment where Enrolment_Number='{}'".format(data.Enrolment_Number[i])+' Limit 1);'
+                    msg = ''
+                    for i in range(len(data.Aadhaar_Number)):
+                        q = "SELECT Exists(Select Aadhaar_Number from {} where Aadhaar_Number='{}'".format(tab,data.Aadhaar_Number[i])+' Limit 1);'
                         res = cur.execute(q).fetchone()[0]
                         if not res:
-                            print(data.iloc[i])
-                            values = list(data.iloc[i].values)
-                            add = "Insert into enrolment values{}".format(tuple(values))
-                            cur.execute(add)
-                        else:msg+=data.Enrolment_Number[i]+' '
+                            try:
+                                print(data.iloc[i])
+                                values = list(data.iloc[i].values)
+                                add = "Insert into {} values{}".format(tab,tuple(values))
+                                cur.execute(add)
+                            except Exception as e:
+                                if 'Enrolment_Number' in str(e) and 'UNIQUE' in str(e):
+                                    msg+=data.Enrolment_Number[i]+' '
+
+                        else:adh+=data.Enrolment_Number[i]+' '
 
                     dups = msg.strip().replace(' ',',')
-                    QtGui.QMessageBox.warning(ui.Settings, 'Caution', 'The enrolment numbers {}'.format(
-                        dups) + ' were not added to the database since they already exist in the database!!!\nThe rest of the Enrolment numbers are Added to the database',
-                                              'OK')
-                    self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE without Duplicates!!!")
+                    con.commit()
+                    if msg:
+                        QtGui.QMessageBox.information(ui.Settings, 'Caution', 'The enrolment numbers {}'.format(
+                            dups) + ' were not added to the database since they already exist in the database!!!\nThe rest of the Enrolment numbers are Added to the database','OK')
+                    if adh:
+                        QtGui.QMessageBox.warning(ui.Settings, "Aadhaar Conflict !",
+                                                  'The Aadhaar numbers of {} are already present in the database !!!\nHence these Data could\'t be added to the Database.'.format(adh.strip().replace(' ',',')))
+                    self.showtooltip("DATA ADDED TO DATABASE without Duplicates!!!")
 
-            con.commit()
+                #
+                # elif 'Aadhaar_Number' in str(e):
+                #     for i in range(len(data.Aadhaar_Number)):
+                #         q = "SELECT Exists(Select Aadhaar_Number from {} where Aadhaar_Number='{}'".format(tab,data.Aadhaar_Number[i]) + ' Limit 1);'
+                #         res = cur.execute(q).fetchone()[0]
+                #         if res:
+                #             msg+=data.Aadhaar_Number[i]+' '
+                #
+                #     dups = msg.strip().replace(' ',',')
+                #     con.commit()
+                #     QtGui.QMessageBox.warning(ui.Settings , "Aadhaar Conflict !" , 'The Aadhaar numbers {} are already present in the database !!!\nHence the Data can\'t be added to the Database.'.format(dups))
+
             con.close()
 
 
@@ -1575,6 +1640,7 @@ class logic():
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
         if selectedDataType == "Camps_Attended":
+            sql = ""
             enrolnumbers = ui.enrolmentuploaddataLineEdit.text().split(',')
             sqldata = ENROLMENT_FORM.enroll().execute(
                 "select * from enrolment where institution='" + selectedInstitutionName + "'")
@@ -1601,6 +1667,7 @@ class logic():
                     if flag != 2:
                         for k in range(len(sqldata1)):
                             for l in range(len(enrolnumbers)):
+                                print(sqldata1[k][0] + "   " + enrolnumbers[l] + "   " + sqldata1[k][1])
                                 if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][
                                     1] == ui.campsNameuploaddataComboBox.currentText():
                                     flag = 1
@@ -1631,65 +1698,43 @@ class logic():
                                           "Enrolment Numbers : " + duplicate + " does not exist in database\nRemaining data is saved",
                                           'OK')
             self.showtooltip("sucessfull")
+
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             fieldsListSql = self.nametolistsql.get(selectedDataType)
-            fieldsListNotSql = self.nametolistnotsql.get(selectedDataType)
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
             if selectedDataType == "B certificate":
-                selectedDataType = "Bcert_marks"
+                selectedDataType = "B_cert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
-            sqlpresentdata = ENROLMENT_FORM.enroll().execute("select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
+            sqlpresentdata = ENROLMENT_FORM.enroll().execute(
+                "select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
+
             flag = 0
-            sql = "insert into " + selectedDataType + " values("
+
             for i in range(len(sqldata)):
-                if i!=0:
-                    sql=sql+"),("
+                for k in range(len(sqlpresentdata)):
+                    if sqlpresentdata[k][0] == ui.tableWidget.item(i, 0).text():
+                        print("hello")
+                        flag = 1
+                        break
+                if flag == 1:
+                    print("hello")
+                    flag = 0
+                    ENROLMENT_FORM.enroll().delete_by_Enrolment(selectedDataType, sqldata[i][0])
+                sql = "insert into " + selectedDataType + " values("
                 for j in range(len(fieldsListSql)):
-                    if j<len(sqlpresentdata):
-                        if sqlpresentdata[j][0] == ui.tableWidget.item(i, 0).text():
-                            ENROLMENT_FORM.enroll().delete_by_Enrolment(selectedDataType, sqldata[i][0])
                     if ui.tableWidget.horizontalHeaderItem(j).text() == "Rank":
                         sql = sql + "'" + str(self.rankuploadcombobox[i].currentText()) + "'"
                     else:
                         sql = sql + "'" + str(ui.tableWidget.item(i, j).text()) + "'"
                     if j != len(fieldsListSql) - 1:
                         sql = sql + ","
-            sql = sql + ")"
-            ENROLMENT_FORM.enroll().insertionexecute(sql)
+                sql = sql + ")"
+                ENROLMENT_FORM.enroll().insertionexecute(sql)
             self.showtooltip("Saved")
-        elif selectedDataType=="Attendance":
-            year=ui.yearComboBox.currentText().replace(' ','_')
-            certificate=ui.certificateComboBox.currentText().replace(' ','_')
-            s1=ENROLMENT_FORM.enroll().execute("select Enrolment_Number,certificate,year from attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'")
-            s2=ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'")
-            sql = "insert into Attendance(Enrolment_Number," + certificate + "_" + year + "_total_days," + certificate + "_" + year + \
-                  "_present_days," + certificate + "_" + year + ",eligability,certificate,institution,year) values("
-            for i in range(ui.tableWidget.rowCount()):
-                if i!=0:
-                    sql=sql+",("
-                length=len(s1)
-                fl=0
-                if length<ui.tableWidget.columnCount():
-                    length=ui.tableWidget.columnCount()
-                    fl=1
-                for j in range(length):
-                    if fl==1:
-                        if j<len(s1):
-                            if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == s1[j][2]:
-                                ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],ui.certificateComboBox.currentText()[0:1], year)
-                        sql=sql+"'"+self.lineeditattendance[i][j].text()+"',"
-                    if fl==0:
-                        if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == s1[j][2]:
-                            ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],ui.certificateComboBox.currentText()[0:1],year)
-                        if j<ui.tableWidget.columnCount():
-                            sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
-                sql = sql+"'"+ui.certificateComboBox.currentText()[0:1]+"','"+ui.institutionuploaddatacomboBox.currentText()+"','"+year+"')"
-            ENROLMENT_FORM.enroll().insertionexecute(sql)
-            self.showtooltip("Sucessfully Inserted")
         else:
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
@@ -1698,7 +1743,9 @@ class logic():
                                                                                                1).text().upper() + "' where Enrolment_Number='" + \
                        sqldata[i][0] + "'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
-            self.showtooltip("Sucessfully Inserted")
+            self.showtooltip("Saved")
+
+        self.openuploaddata();
 
     def saveexceluploadeddata(self):
 
@@ -1745,8 +1792,10 @@ class logic():
     rankuploadcombobox = []
     campsattendedcombobox = []
     lineeditattendance = []
+
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText() == 'Camps_Attended':
+            ui.eligibilityCheckBox.hide()
             ui.startdateDateEdit.show()
 
             ui.startdateLabel.show()
@@ -1768,6 +1817,7 @@ class logic():
             ui.yearComboBox.hide()
 
         elif ui.typecomboBox.currentText() == 'Extra_Curricular_Activities' or ui.typecomboBox.currentText() == 'Remarks':
+            ui.eligibilityCheckBox.hide()
             ui.save_data_excelPushButton.hide()
 
             ui.startdateDateEdit.hide()
@@ -1787,7 +1837,8 @@ class logic():
             ui.yearComboBox.hide()
 
             ui.certificateComboBox.hide()
-        elif ui.typecomboBox.currentText()=="Attendance":
+        elif ui.typecomboBox.currentText() == "Attendance":
+            ui.eligibilityCheckBox.hide()
 
             ui.yearComboBox.show()
 
@@ -1809,7 +1860,7 @@ class logic():
 
             ui.campsNameuploaddataComboBox.hide()
         else:
-
+            ui.eligibilityCheckBox.show()
             ui.yearComboBox.hide()
 
             ui.certificateComboBox.hide()
@@ -1829,26 +1880,41 @@ class logic():
             ui.locationLineEdit.hide()
 
             ui.campsNameuploaddataComboBox.hide()
+
     def lineEditUploadDataLogic(self):
         for i in range(len(self.lineeditattendance)):
             if len(self.lineeditattendance[i][2].text()) and len(self.lineeditattendance[i][1].text()):
-                a=int(str(self.lineeditattendance[i][2].text()))
-                b=int(str(self.lineeditattendance[i][1].text()))
-                self.lineeditattendance[i][3].setText(str(a/ b * 100))
-                if a/b*100>85.00:
+                a = int(str(self.lineeditattendance[i][2].text()))
+                b = int(str(self.lineeditattendance[i][1].text()))
+                self.lineeditattendance[i][3].setText(str(a / b * 100))
+                if a / b * 100 > 85.00:
                     self.lineeditattendance[i][4].setText("Yes")
                 else:
                     self.lineeditattendance[i][4].setText("No")
-            if len(self.lineeditattendance[i][2].text()) :
-                a=int(str(self.lineeditattendance[i][2].text()))
-                b=int(str(self.lineeditattendance[i][1].text()))
-                if a>b:
-                    self.lineeditattendance[i][2].setText(str(int(a/10)))
+            if len(self.lineeditattendance[i][2].text()):
+                a = int(str(self.lineeditattendance[i][2].text()))
+                b = int(str(self.lineeditattendance[i][1].text()))
+                if a > b:
+                    self.lineeditattendance[i][2].setText(str(int(a / 10)))
+
+    def eligibilitylogic(self):
+        hiderow = []
+        if ui.eligibilityCheckBox.isChecked():
+            for i in range(ui.tableWidget.rowCount()):
+                if int(float(ui.tableWidget.item(i, 9).text())) < 75 or int(float(ui.tableWidget.item(i, 10).text())) < 75:
+                    ui.tableWidget.hideRow(i)
+                    if i not in hiderow:
+                        hiderow.append(i)
+        else:
+            for i in hiderow:
+                ui.tableWidget.showRow(i)
+
     def openuploaddata(self):
         ui.tableWidget.setRowCount(0)
         ui.tableWidget.setColumnCount(0)
         self.rankuploadcombobox = []
-        self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)","Company Sergent Major (CSM)", "Junior Under Officer (JUO)", "Senior Under Officer (SUO)"]
+        self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)",
+                     "Company Sergent Major (CSM)", "Junior Under Officer (JUO)", "Senior Under Officer (SUO)"]
         self.camps = ["NIC", "CATC", "AAC"]
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
@@ -1877,14 +1943,14 @@ class logic():
                     else:
                         ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(""))
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
-            li=["C:\\Users\ADMIN\Documents\BlueShades2.jpg","C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
+            li = ["C:\\Users\ADMIN\Documents\BlueShades2.jpg", "C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
-            certificate=""
+            certificate = ""
             ui.tableWidget.clearContents()
             fieldsListSql = self.nametolistsql.get(selectedDataType)
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
-                certificate="A_cert_attendance"
+                certificate = "A_cert_attendance"
             if selectedDataType == "B certificate":
                 selectedDataType = "B_cert_marks"
                 certificate = "B_cert_attendance"
@@ -1981,46 +2047,59 @@ class logic():
                 if len(sqlpresentdata) > 0:
                     sqlpresentdata.pop(l)
             for i in range(ui.tableWidget.rowCount()):
-                enrolment=ui.tableWidget.verticalHeaderItem(i).text()
-                sqlattendance=ENROLMENT_FORM.enroll().execute("select " + certificate + "_1_year from attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"' and certificate='"+ui.typecomboBox.currentText()[0:1]+"' and Enrolment_number='"+enrolment+"' and year='1_year'")
-                sqlattendance1 = ENROLMENT_FORM.enroll().execute("select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() +"' and certificate='" + ui.typecomboBox.currentText()[0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
-                if len(str(sqlattendance[0][0])):
-                    ui.tableWidget.setItem(i,9,QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
-                if len(str(sqlattendance1[0][0])):
-                    ui.tableWidget.setItem(i,10,QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
+                enrolment = ui.tableWidget.verticalHeaderItem(i).text()
+                sqlattendance = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_1_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='1_year'")
+                sqlattendance1 = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
+                print(sqlattendance)
+                if len(sqlattendance) > 0 and len(sqlattendance1) > 0:
+                    if len(str(sqlattendance[0][0])):
+                        ui.tableWidget.setItem(i, 9, QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
+                    if len(str(sqlattendance1[0][0])):
+                        ui.tableWidget.setItem(i, 10, QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
         elif selectedDataType == "Attendance":
             ui.tableWidget.clearContents()
-            sql="select Enrolment_Number from enrolment where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'"
-            sqldata=ENROLMENT_FORM.enroll().execute(sql)
-            sql1="select * from Attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"' and certificate='"+ui.certificateComboBox.currentText()[0:1]+"'"
-            sqldata1=ENROLMENT_FORM.enroll().execute(sql1)
-            attendancelist=["Enrolment_Number","certificate","institution","A_cert_attendance_1_year",
-        "A_cert_attendance_2_year","B_cert_attendance_1_year","B_cert_attendance_2_year" ,"C_cert_attendance_1_year","C_cert_attendance_2_year",
-        "A_cert_attendance_1_year_total_days","A_cert_attendance_2_year_total_days","B_cert_attendance_1_year_total_days",'B_cert_attendance_2_year_total_days',
-        "C_cert_attendance_1_year_total_days","C_cert_attendance_2_year_total_days","A_cert_attendance_1_year_present_days","A_cert_attendance_2_year_present_days",
-        "B_cert_attendance_1_year_present_days","B_cert_attendance_2_year_present_days","C_cert_attendance_1_year_present_days","C_cert_attendance_2_year_present_days"]
+            sql = "select Enrolment_Number from enrolment where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            sql1 = "select * from Attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.certificateComboBox.currentText()[
+                                                                                                                                             0:1] + "'"
+            sqldata1 = ENROLMENT_FORM.enroll().execute(sql1)
+            attendancelist = ["Enrolment_Number", "certificate", "institution", "A_cert_attendance_1_year",
+                              "A_cert_attendance_2_year", "B_cert_attendance_1_year", "B_cert_attendance_2_year",
+                              "C_cert_attendance_1_year", "C_cert_attendance_2_year",
+                              "A_cert_attendance_1_year_total_days", "A_cert_attendance_2_year_total_days",
+                              "B_cert_attendance_1_year_total_days", 'B_cert_attendance_2_year_total_days',
+                              "C_cert_attendance_1_year_total_days", "C_cert_attendance_2_year_total_days",
+                              "A_cert_attendance_1_year_present_days", "A_cert_attendance_2_year_present_days",
+                              "B_cert_attendance_1_year_present_days", "B_cert_attendance_2_year_present_days",
+                              "C_cert_attendance_1_year_present_days", "C_cert_attendance_2_year_present_days"]
 
-            horizontalheader=['Enrolment_Number','Total Days','Attended Days','Percentage','Eligibility']
+            horizontalheader = ['Enrolment_Number', 'Total Days', 'Attended Days', 'Percentage', 'Eligibility']
             ui.tableWidget.setRowCount(len(sqldata))
             ui.tableWidget.setColumnCount(len(horizontalheader))
             ui.tableWidget.setHorizontalHeaderLabels(horizontalheader)
-            verticalheader=[]
-            self.lineeditattendance=[]
+            verticalheader = []
+            self.lineeditattendance = []
             year = ui.yearComboBox.currentText().replace(' ', '_')
             certificate = ui.certificateComboBox.currentText().replace(' ', '_')
             for i in range(ui.tableWidget.rowCount()):
-                flag=0
-                sqldata2=[]
+                flag = 0
+                sqldata2 = []
                 self.lineeditattendance.append([])
                 verticalheader.append(sqldata[i][0])
                 for l in range(len(sqldata1)):
                     sql = "select Enrolment_Number," + certificate + "_" + year + "_total_days," + certificate + "_" + year + "_present_days," + certificate + "_" + year + ",eligability from Attendance" \
-                          " where Enrolment_Number='" + sqldata[i][0] + "'and certificate='" + ui.certificateComboBox.currentText()[0:1] + "' and year='" + year + "'"
+                                                                                                                                                                            " where Enrolment_Number='" + \
+                          sqldata[i][0] + "'and certificate='" + ui.certificateComboBox.currentText()[
+                                                                 0:1] + "' and year='" + year + "'"
                     sqldata2 = ENROLMENT_FORM.enroll().execute(sql)
                     if len(sqldata2):
                         flag = 1
                         break
-                if flag==1:
+                if flag == 1:
                     for j in range(ui.tableWidget.columnCount()):
                         self.lineeditattendance[i].append(QtGui.QLineEdit(ui.tableWidget))
                         ui.tableWidget.setCellWidget(i, j, self.lineeditattendance[i][j])
@@ -2028,40 +2107,40 @@ class logic():
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", str(sqldata2[0][j]), None))
                         else:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", "", None))
-                        if j!=0 and j!=4:
+                        if j != 0 and j != 4:
                             self.lineeditattendance[i][j].setValidator(QtGui.QDoubleValidator())
-                        if j==1 or j==2:
+                        if j == 1 or j == 2:
                             self.lineeditattendance[i][j].setMaxLength(2)
-                        if j==3:
+                            self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
+                        if j == 3:
                             self.lineeditattendance[i][j].setMaxLength(5)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==0:
+                        if j == 0:
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==4:
+                        if j == 4:
                             self.lineeditattendance[i][j].setMaxLength(3)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
                         self.lineeditattendance[i][j].setStyleSheet("background-color:lightgray;")
                 else:
                     for j in range(ui.tableWidget.columnCount()):
                         self.lineeditattendance[i].append(QtGui.QLineEdit(ui.tableWidget))
-                        ui.tableWidget.setCellWidget(i,j,self.lineeditattendance[i][j])
-                        if j==0:
+                        ui.tableWidget.setCellWidget(i, j, self.lineeditattendance[i][j])
+                        if j == 0:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", sqldata[i][0], None))
                             self.lineeditattendance[i][j].setDisabled(True)
                         else:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", "", None))
-                        if j!=0 and j!=4:
+                        if j != 0 and j != 4:
                             self.lineeditattendance[i][j].setValidator(QtGui.QDoubleValidator())
-                        if j==1 or j==2:
+                        if j == 1 or j == 2:
                             self.lineeditattendance[i][j].setMaxLength(2)
-                        if j==3:
+                            self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
+                        if j == 3:
                             self.lineeditattendance[i][j].setMaxLength(5)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==4:
+                        if j == 4:
                             self.lineeditattendance[i][j].setMaxLength(3)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
                         self.lineeditattendance[i][j].setStyleSheet("background-color:lightgray;")
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
             ui.tableWidget.setStyleSheet("background-color:transparent;")
@@ -3373,9 +3452,9 @@ if __name__ == "__main__":
 
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
-        #
-        # username = 'ncc_viewer'
-        # password = ''
+
+        username = 'ncc_editor'
+        password = 'nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"

@@ -114,6 +114,7 @@ class Ui_loginDialog(object):
         self.login_passwordLineEdit.setStyleSheet(_fromUtf8("border-radius:6px;\n"
 "border:1px groove purple;\n"
 "margin-right:10px;"))
+        self.login_passwordLineEdit.setEchoMode(QtGui.QLineEdit.Password)
         self.login_passwordLineEdit.setObjectName(_fromUtf8("login_passwordLineEdit"))
         self.horizontalLayout_2.addWidget(self.login_passwordLineEdit)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -157,9 +158,6 @@ class Ui_loginDialog(object):
         self.label.setText(_translate("loginDialog", "<html><head/><body><p><span style=\" font-size:22pt; color:#fafde8;\">Username</span></p></body></html>", None))
         self.label_2.setText(_translate("loginDialog", "Password", None))
         self.loginPushButton.setText(_translate("loginDialog", "Login", None))
-
-
-
 
 
 
@@ -392,6 +390,9 @@ class logic():
 
 
     def init_settings(self):
+
+        loginui.firstrun  = False
+
         """Sets all the parameters from the settings file"""
 
         self.settings = QtCore.QSettings('settings.ini', QtCore.QSettings.IniFormat)
@@ -487,6 +488,8 @@ class logic():
         ui.settings_removecampPushButton.hide()
         ui.exceltodatabasePushButton.clicked.connect(self.save_from_excel_to_database)
 
+
+
         def camplist_clicked():
             if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
                 ui.settings_removecampPushButton.hide()
@@ -507,7 +510,41 @@ class logic():
 
         ui.enrol_signaturePushButton.clicked.connect(lambda:self.picselect(ui.enrol_signaturePushButton))
 
+        def settings_login_press():
+            loginDialog.show()
+
+        ui.settings_loginPushButton.clicked.connect(settings_login_press)
+
+        self.login_permission()
         self.showtooltip("WELCOME")
+
+
+
+
+
+    def login_permission(self):
+        app.processEvents()
+
+        if loginui.username=='ncc_viewer':
+            ui.savedataPushButton.setDisabled(True)
+            ui.updateentryCheckBox.hide()
+            ui.submitPushButton.hide()
+            ui.enrolPushButton.setDisabled(True)
+
+            for i in ui.Settings.findChildren((QtGui.QPushButton , QtGui.QLineEdit)):
+                if i.text()!="Open Candidates Picture folder" and i.text()!='LOGIN':
+                    i.setDisabled(True)
+
+
+        if loginui.username=='ncc_editor':
+            ui.savedataPushButton.setDisabled(False)
+            ui.updateentryCheckBox.show()
+            ui.submitPushButton.show()
+            ui.enrolPushButton.setDisabled(False)
+
+            for i in ui.Settings.findChildren((QtGui.QPushButton, QtGui.QLineEdit)):
+                if i.text() != "Open Candidates Picture folder":
+                    i.setDisabled(False)
 
 
 
@@ -3218,33 +3255,53 @@ if __name__ == "__main__":
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    myobj = logic()
-    myobj.username =''
 
+    loginui.username =''
+    loginui.firstrun = True
+
+    from time import sleep
 
     def checkuserpass():
 
-        username = loginui.login_usernameLineEdit.displayText()
-        password = loginui.login_passwordLineEdit.displayText()
+        username = loginui.login_usernameLineEdit.displayText().strip()
+        password = loginui.login_passwordLineEdit.text().strip()
+        #
+        # username = 'ncc_viewer'
+        # password = ''
+
         if username == 'ncc_editor' and password == 'nccindia':
-            myobj.username = "ncc_editor"
+            loginui.username = "ncc_editor"
 
         elif username=='ncc_viewer' and password.strip()=='':
-            myobj.username = "ncc_editor"
+            loginui.username = "ncc_viewer"
 
         else:
             QtGui.QMessageBox.warning(loginDialog , "Login Failed" ,'Username or Password Incorrect','OK')
+            loginui.login_passwordLineEdit.clear()
             return
 
+        if loginui.firstrun:
+            myobj = logic()
+            myobj.img()
+            MainWindow.show()
+            loginui.loginpermission = myobj.login_permission
+            loginui.login_passwordLineEdit.clear()
+            loginui.login_usernameLineEdit.clear()
+            loginDialog.close()
+            app.processEvents()
+            sleep(0.1)
+            myobj.showtooltip("WELCOME")
+        else:
+            loginui.login_passwordLineEdit.clear()
+            loginui.login_usernameLineEdit.clear()
+            loginDialog.close()
+            app.processEvents()
+            sleep(0.1)
+            loginui.loginpermission()
 
-        myobj.img()
-        MainWindow.show()
-        loginDialog.close()
-        myobj.showtooltip("WELCOME")
-
-
-    if myobj.username=='':
+    if loginui.username=='':
         loginDialog.show()
         loginui.loginPushButton.clicked.connect(checkuserpass)
+
 
     sys.exit(app.exec_())

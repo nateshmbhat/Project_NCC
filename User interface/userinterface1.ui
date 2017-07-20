@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1044</width>
-    <height>769</height>
+    <width>1111</width>
+    <height>803</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -199,8 +199,8 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>985</width>
-             <height>2245</height>
+             <width>620</width>
+             <height>2150</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -5814,8 +5814,8 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>983</width>
-             <height>1748</height>
+             <width>1050</width>
+             <height>1803</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -6004,6 +6004,46 @@ background-color:transparent;
                <property name="bottomMargin">
                 <number>0</number>
                </property>
+               <item>
+                <widget class="QPushButton" name="settings_loginPushButton">
+                 <property name="font">
+                  <font>
+                   <family>Century</family>
+                   <pointsize>23</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">#settings_loginPushButton
+{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 230), stop:0.085 rgba(2, 79, 0, 255), stop:0.221591 rgba(50, 147, 22, 255), stop:0.275 rgba(165, 142, 70, 255), stop:0.431818 rgba(243, 100, 79, 255), stop:0.573864 rgba(135, 95, 80, 255), stop:0.667 rgba(137, 97, 255, 255), stop:0.818182 rgba(160, 255, 244, 255), stop:0.885 rgba(193, 222, 185, 255), stop:1 rgba(93, 128, 0, 255));
+color:white;
+border-radius:15px;
+border-top:1.5px groove yellow;
+border-bottom:1px solid black;
+padding:5px 0;
+}
+
+#settings_loginPushButton:hover
+{
+	color:black;
+	background-color:rgba(0, 170, 255,255);
+
+}
+
+#settings_loginPushButton:pressed
+{
+	color:black;
+	background-color:rgba(0, 170, 255,175);
+
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>LOGIN</string>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QFrame" name="frame_2">
                  <property name="styleSheet">
@@ -6992,8 +7032,8 @@ padding:10px 10px;
  </tabstops>
  <resources>
   <include location="../Icons/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
+  <include location="../Icons/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>

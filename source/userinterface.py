@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(844, 716)
+        MainWindow.resize(1111, 803)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -36,7 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setAutoFillBackground(False)
@@ -123,7 +123,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 785, 2245))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 620, 2150))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1498,7 +1498,7 @@ class Ui_MainWindow(object):
         self.gridLayout_11.addWidget(self.updateentryCheckBox, 1, 0, 1, 1, QtCore.Qt.AlignHCenter)
         self.gridLayout.addWidget(self.submitbuttonFrame, 6, 0, 1, 1)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Enrol, icon1, _fromUtf8(""))
         self.Query = QtGui.QWidget()
         self.Query.setStyleSheet(_fromUtf8("\n"
@@ -2733,7 +2733,7 @@ class Ui_MainWindow(object):
         self.generateexcelqueryPushButton.setObjectName(_fromUtf8("generateexcelqueryPushButton"))
         self.gridLayout_5.addWidget(self.generateexcelqueryPushButton, 1, 0, 1, 1)
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(_fromUtf8("../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.mytab.addTab(self.Query, icon2, _fromUtf8(""))
         self.Forms = QtGui.QWidget()
         self.Forms.setStyleSheet(_fromUtf8("#Forms{\n"
@@ -3312,7 +3312,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 972, 1748))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1050, 1803))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -3440,6 +3440,38 @@ class Ui_MainWindow(object):
         self.verticalLayout_8 = QtGui.QVBoxLayout(self.settingsmainframewidget)
         self.verticalLayout_8.setContentsMargins(-1, -1, -1, 0)
         self.verticalLayout_8.setObjectName(_fromUtf8("verticalLayout_8"))
+        self.settings_loginPushButton = QtGui.QPushButton(self.settingsmainframewidget)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Century"))
+        font.setPointSize(23)
+        font.setBold(False)
+        font.setWeight(50)
+        self.settings_loginPushButton.setFont(font)
+        self.settings_loginPushButton.setStyleSheet(_fromUtf8("#settings_loginPushButton\n"
+"{\n"
+"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 230), stop:0.085 rgba(2, 79, 0, 255), stop:0.221591 rgba(50, 147, 22, 255), stop:0.275 rgba(165, 142, 70, 255), stop:0.431818 rgba(243, 100, 79, 255), stop:0.573864 rgba(135, 95, 80, 255), stop:0.667 rgba(137, 97, 255, 255), stop:0.818182 rgba(160, 255, 244, 255), stop:0.885 rgba(193, 222, 185, 255), stop:1 rgba(93, 128, 0, 255));\n"
+"color:white;\n"
+"border-radius:15px;\n"
+"border-top:1.5px groove yellow;\n"
+"border-bottom:1px solid black;\n"
+"padding:5px 0;\n"
+"}\n"
+"\n"
+"#settings_loginPushButton:hover\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,255);\n"
+"\n"
+"}\n"
+"\n"
+"#settings_loginPushButton:pressed\n"
+"{\n"
+"    color:black;\n"
+"    background-color:rgba(0, 170, 255,175);\n"
+"\n"
+"}"))
+        self.settings_loginPushButton.setObjectName(_fromUtf8("settings_loginPushButton"))
+        self.verticalLayout_8.addWidget(self.settings_loginPushButton)
         self.frame_2 = QtGui.QFrame(self.settingsmainframewidget)
         self.frame_2.setStyleSheet(_fromUtf8("#frame_2{\n"
 "background-color:transparent;\n"
@@ -3867,7 +3899,7 @@ class Ui_MainWindow(object):
         self.mothernameLabel.setBuddy(self.mothernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(3)
+        self.mytab.setCurrentIndex(5)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.enrolmentnumLineEdit, self.rankComboBox)
@@ -4276,6 +4308,7 @@ class Ui_MainWindow(object):
         self.settings_backupdataPushButton.setText(_translate("MainWindow", "Backup All Data", None))
         self.settings_restoredataPushButton.setText(_translate("MainWindow", "Restore Backed up Data", None))
         self.settings_candidopenPushButton.setText(_translate("MainWindow", "Open Candidates Picture folder", None))
+        self.settings_loginPushButton.setText(_translate("MainWindow", "LOGIN", None))
         self.settings_institutionlistLabel.setText(_translate("MainWindow", "Institution List", None))
         self.settings_instLineEdit.setPlaceholderText(_translate("MainWindow", "Enter the institution name to add it", None))
         self.settings_addPushButton.setText(_translate("MainWindow", "Add", None))

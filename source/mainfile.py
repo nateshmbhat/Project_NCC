@@ -1,8 +1,10 @@
 import csv
+
 import openpyxl
+from openpyxl.styles import Alignment
 import pandas as pd
 import sqlite3
-from PyQt4.QtGui import QComboBox
+from PyQt4.QtGui import QComboBox, QBrush, QPixmap
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image
 import ENROLMENT_FORM
@@ -160,14 +162,17 @@ class Ui_loginDialog(object):
         self.loginPushButton.setText(_translate("loginDialog", "Login", None))
 
 
-class ImgWidget1(QtGui.QLabel):
-    def gs(self,imagepath,parent=None):
-        super(ImgWidget1, self).__init__(parent)
-        pic = QtGui.QPixmap(imagepath)
-        self.setPixmap(pic)
+class ImageWidget(QtGui.QTableWidgetItem):
+
+    def __init__(self, imagePath, parent):
+        super(ImageWidget, self).__init__(parent)
+        self.picture = QtGui.QPixmap(imagePath)
+
+    def paintEvent(self, event):
+        painter = QtGui.QPainter(self)
+        painter.drawPixmap(0, 0, self.picture)
 class logic():
     flag = 0
-    imagePath="C:\\Users\ADMIN\Documents\images-1.jpg"
     def __init__(self):
 
 
@@ -562,9 +567,10 @@ class logic():
 
     def generateExcelForLongNr(self):
         book = openpyxl.Workbook()
-        sheet = book.create_sheet("Long NR", 0)
+        sheet = book.active
         headingdata = self.settings.value("enrolmentfields").split(',,,')
         headingdata.insert(0, "Photo")
+        headingdata.insert(1, "Signature")
         sheet.append(headingdata)
         name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
                                                  caption="Save File",
@@ -573,27 +579,32 @@ class logic():
             return
         columnwidth = []
         for i in range(ui.tableWidget_2.rowCount()):
-            for j in range(ui.tableWidget_2.columnCount()):
+            for j in range(len(headingdata)):
                 if j == 0:
-                    candidatephoto = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 1).text())
-                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 1).text() + "_sign")
+                    candidatephoto = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 2).text())
+
                     if candidatephoto:
-                        img = Image(candidatephoto, size=[105, 120])
+                        img = Image(candidatephoto, size=[125, 180])
                         img.anchor(sheet['A' + str(i + 2)])
                         sheet.add_image(img)
+
+                    sheet.row_dimensions[i + 2].height = 80
+                    sheet.column_dimensions["A"].width = 18
+                elif j==1:
+                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j+1).text() + "_sign")
                     if candidatephotosign:
-                        img = Image(candidatephotosign, size=[105, 120])
-                        img.anchor(sheet['A' + str(i + 2)])
-                        img.drawing.top = (i + 1) * 80
-                        sheet.add_image(img)
-                    sheet.row_dimensions[i + 2].height = 60
-                    sheet.column_dimensions["A"].width = 15
+                        img1 = Image(candidatephotosign, size=[125, 180])
+                        img1.anchor(sheet['B' + str(i + 2)])
+                        img1.drawing.left=127
+                        sheet.add_image(img1)
+                    sheet.row_dimensions[i + 2].height = 80
+                    sheet.column_dimensions["B"].width = 18
                 else:
                     sheet.cell(row=i + 2, column=j + 1).value = ui.tableWidget_2.item(i, j).text()
         for i in range(ui.tableWidget_2.columnCount()):
             columnwidth.append(int(ui.tableWidget_2.columnWidth(i) / 10 + 5))
         for i in range(len(columnwidth)):
-            sheet.column_dimensions[self.columnnameinexcel[i + 1]].width = columnwidth[i]
+            sheet.column_dimensions[self.columnnameinexcel[i + 2]].width = columnwidth[i]
         book.save(name)
         book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
@@ -606,53 +617,46 @@ class logic():
         if not len(name):
             return
         book = openpyxl.load_workbook(name)
-        sheet = book.get_sheet_by_name('Long NR')
+        sheet = book.active
         columnwidth = []
         oldrows = sheet.max_row
         for i in range(oldrows):
-            if os.path.exists(r'Candidate photos\{}.png'.format(sheet.cell(row=i + 2, column=2).value)):
-                candidatephoto = r'Candidate photos\{}.png'.format(sheet.cell(row=i + 2, column=2).value)
-
-            elif os.path.exists(r'Candidate photos\{}.jpg'.format(sheet.cell(row=i + 2, column=2).value)):
-                candidatephoto = r'Candidate photos\{}.jpg'.format(sheet.cell(row=i + 2, column=2).value)
-
-            elif os.path.exists(r'Candidate photos\{}.JPG'.format(sheet.cell(row=i + 2, column=2).value)):
-                candidatephoto = r'Candidate photos\{}.JPG'.format(sheet.cell(row=i + 2, column=2).value)
-
-            elif os.path.exists(r'Candidate photos\{}.PNG'.format(sheet.cell(row=i + 2, column=2).value)):
-                candidatephoto = r'Candidate photos\{}.PNG'.format(sheet.cell(row=i + 2, column=2).value)
-            else:
-                candidatephoto = self.candidphoto
+            candidatephoto = self.check_if_img_exists(sheet.cell(row=i + 1, column=3).value)
             if candidatephoto:
-                img = Image(candidatephoto, size=[105, 120])
-                img.anchor(sheet['A' + str(i + 2)])
+                img = Image(candidatephoto, size=[125, 180])
+                img.anchor(sheet['A' + str(i + 1)])
                 sheet.add_image(img)
 
-                sheet.row_dimensions[i + 2].height = 50
-                sheet.column_dimensions["A"].width = 15
+            sheet.row_dimensions[i + 2].height =80
+            sheet.column_dimensions["A"].width = 18
+            candidatephotosign = self.check_if_img_exists(sheet.cell(row=i + 1, column=3).value+"_sign")
+            if candidatephotosign:
+                img1 = Image(candidatephotosign, size=[125, 180])
+                img1.anchor(sheet['B' + str(i + 1)])
+                img1.drawing.left = 127
+                sheet.add_image(img1)
+            sheet.row_dimensions[i + 2].height = 80
+            sheet.column_dimensions["B"].width = 18
         for i in range(ui.tableWidget_2.rowCount()):
             for j in range(ui.tableWidget_2.columnCount()):
                 if j == 0:
-                    if os.path.exists(r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.png'.format(ui.tableWidget_2.item(i, j + 1).text())
-
-                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.jpg'.format(ui.tableWidget_2.item(i, j + 1).text())
-
-                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.JPG'.format(ui.tableWidget_2.item(i, j + 1).text())
-
-                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())):
-                        candidatephoto = r'Candidate photos\{}.PNG'.format(ui.tableWidget_2.item(i, j + 1).text())
-                    else:
-                        candidatephoto = self.candidphoto
+                    candidatephoto = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 2).text())
                     if candidatephoto:
-                        img = Image(candidatephoto, size=[105, 120])
-                        img.anchor(sheet['A' + str(i + 1 + oldrows)])
+                        img = Image(candidatephoto, size=[125, 180])
+                        img.anchor(sheet['A' + str(i +1+oldrows)])
                         sheet.add_image(img)
 
-                        sheet.row_dimensions[i + 1 + oldrows].height = 50
-                        sheet.column_dimensions["A"].width = 15
+                    sheet.row_dimensions[i + 1 + oldrows].height = 80
+                    sheet.column_dimensions["A"].width = 18
+                elif j==1:
+                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j+1).text()+"_sign")
+                    if candidatephotosign:
+                        img1 = Image(candidatephotosign, size=[125, 180])
+                        img1.anchor(sheet['B' + str(i + 1+oldrows)])
+                        img1.drawing.left = 127
+                        sheet.add_image(img1)
+                    sheet.row_dimensions[i + 1+oldrows].height = 80
+                    sheet.column_dimensions["B"].width = 18
                 else:
                     sheet.cell(row=i + 1 + oldrows, column=j + 1).value = ui.tableWidget_2.item(i, j).text()
 
@@ -660,18 +664,21 @@ class logic():
             columnwidth.append(int(ui.tableWidget_2.columnWidth(i) / 10 + 5))
         print(columnwidth)
         for i in range(len(columnwidth)):
-            sheet.column_dimensions[self.columnnameinexcel[i + 1]].width = columnwidth[i]
+            sheet.column_dimensions[self.columnnameinexcel[i + 2]].width = columnwidth[i]
         book.save(name)
         book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
         os.startfile(name)
 
     def showlongnr(self):
+        ui.tableWidget_2.clear()
+        ui.tableWidget_2.setRowCount(0)
+        ui.tableWidget_2.setColumnCount(0)
         selectiontype = ui.typelongnrComboBox.currentText()
         selectedinstitution = ui.institutionlongnrComboBox.currentText()
         selectedunit = ui.unitlongnrLineEdit.text()
         sqldata = []
-        """ui.tableWidget.setCellWidget(i,j, ImgWidget1(self))"""
+        """ui.tableWidget_2.setCellWidget(i,j, ImgWidget1(self))"""
         if selectiontype == "Institution":
             sqldata = ENROLMENT_FORM.enroll().execute(
                 "select * from enrolment where Institution='" + selectedinstitution + "'")
@@ -691,59 +698,55 @@ class logic():
         verticalheader = []
         horizontalheader = list(self.settings.value("enrolmentfields").split(',,,'))
         horizontalheader.insert(0, "Photo")
-        print(horizontalheader)
+        horizontalheader.insert(1, "Signature")
         for i in range(len(sqldata)):
             verticalheader.append(sqldata[i][0])
         ui.tableWidget_2.setColumnCount(len(horizontalheader))
         ui.tableWidget_2.setRowCount(len(verticalheader))
-        ui.tableWidget_2.setVerticalHeaderLabels(verticalheader)
         ui.tableWidget_2.setHorizontalHeaderLabels(horizontalheader)
+        ui.tableWidget_2.setVerticalHeaderLabels(verticalheader)
         for i in range(len(sqldata)):
             for j in range(len(horizontalheader)):
                 if j == 0:
-                    if os.path.exists(r'Candidate photos\{}.png'.format(sqldata[i][j])):
-                        print("gs")
-                        self.imagePath = r'Candidate photos\{}.png'.format(sqldata[i][j])
-
-                    elif os.path.exists(r'Candidate photos\{}.jpg'.format(sqldata[i][j])):
-                        print("jpg")
-                        self.imagePath = r'Candidate photos\{}.jpg'.format(sqldata[i][j])
-
-                    elif os.path.exists(r'Candidate photos\{}.JPG'.format(sqldata[i][j])):
-                        self.imagePath = r'Candidate photos\{}.JPG'.format(sqldata[i][j])
-
-                    elif os.path.exists(r'Candidate photos\{}.PNG'.format(sqldata[i][j])):
-                        self.imagePath = r'Candidate photos\{}.PNG'.format(sqldata[i][j])
-                    else:
-                        self.imagePath = self.imagePath
+                    self.imagePath = self.check_if_img_exists(sqldata[i][j])
                     if self.imagePath:
-                        ui.tableWidget_2.setCellWidget(i, j, ImgWidget1().gs(self.imagePath))
-                    ui.tableWidget_2.setItem(i, j + 1, QtGui.QTableWidgetItem(sqldata[i][j - 1]))
+                        pixmap=QtGui.QPixmap(self.imagePath).scaled(135,120)
+                        qbimg=QBrush(pixmap)
+                        item=QtGui.QTableWidgetItem()
+                        item.setBackground(qbimg)
+                        ui.tableWidget_2.setItem(i,j,item)
+                elif j==1:
+                    self.imagePath = self.check_if_img_exists(sqldata[i][j-1]+"_sign")
+                    if self.imagePath:
+                        pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
+                        qbimg = QBrush(pixmap)
+                        item = QtGui.QTableWidgetItem()
+                        item.setBackground(QBrush(QPixmap(self.imagePath).scaled(135, 120)))
+                        ui.tableWidget_2.setItem(i, j, item)
                 else:
-                    ui.tableWidget_2.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j - 1]))
+                    ui.tableWidget_2.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j - 2]))
         myfont = QtGui.QFont()
         myfont.setBold(True)
         myfont.setFamily("georgia")
         for i in range(ui.tableWidget_2.rowCount()):
+            ui.tableWidget_2.setRowHeight(i,120)
+
             for j in range(ui.tableWidget_2.columnCount()):
-                if j != 0:
+                if j != 0 and j!=1:
                     ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
                     ui.tableWidget_2.item(i, j).setFont(myfont)
                     ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
-
+                ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.Stretch)
+            ui.tableWidget_2.verticalHeader().setResizeMode(i, QtGui.QHeaderView.Fixed)
         ui.tableWidget_2.showGrid()
-
         ui.tableWidget_2.setStyleSheet(
             "color:white;font-weight:bold;font-size:15px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
-            "color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+            "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
-            "color:darkorange;font-size:20px;font-weight:bold;border:1px solid black;gridline-color:black;")
+            "color:darkorange;width:50px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         ui.tableWidget_2.resizeColumnsToContents()
-        ui.tableWidget_2.resizeRowsToContents()
-        ui.tableWidget_2.hideColumn(0)
-
 
     def typelongNrComboBoxLogic(self):
         selectiontype = ui.typelongnrComboBox.currentText()
@@ -759,8 +762,6 @@ class logic():
 
     querytupple=[]
     queryheading=[]
-
-
 
     def generateexcelforquery(self):
 
@@ -913,6 +914,8 @@ class logic():
                 except:
                     self.showtooltip("Settings Restoration Failed")
 
+
+
     def save_from_excel_to_database(self):
 
         exceltodatabaseDialog = QtGui.QDialog()
@@ -1002,13 +1005,14 @@ class logic():
 
         if not tab:return
 
-        con = sqlite3.connect(r'ncc.db')
+        con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
         cur = con.cursor()
 
-        loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
-                                                caption="Select Excel or CSV file ",
-                                                filter="Excel or CSV (*.xlsx *.csv)")
+        # loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
+        #                                         caption="Select Excel or CSV file ",
+        #                                         filter="Excel or CSV (*.xlsx *.csv)")
 
+        loc=r"C:\Users\Natesh\Documents\acert.xlsx"
 
         if not loc:
             return
@@ -1016,92 +1020,149 @@ class logic():
             data = pd.read_csv(loc,na_filter=False)
         elif loc.endswith('.xlsx'):
             data = pd.read_excel(loc,na_filter=False)
-            if tab != 'enrolment':
-                if tab=='A_cert_marks':
-                    data = data.iloc[3:, 0:24].reset_index(drop=True)
-                    data.columns=['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-       'Date_Of_Discharge', 'Parade_Attendance_Year1',
-       'Parade_Attendance_Year2', 'Part1_Drill_Written',
-       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-       'Part4_SplSubjects_Total', 'GrandTotal', 'Grading', 'Institution']
-
-                elif tab=='B_cert_marks':
-                    data = data.iloc[3:, 0:25].reset_index(drop=True)
-                    data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-       'Date_Of_Discharge', 'Parade_Attendance_Year1',
-       'Parade_Attendance_Year2', 'Part1_Drill_Written',
-       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-       'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
-       'Grading', 'Institution']
-
-                elif tab=='C_cert_marks':
-                    data = data.iloc[3:, 0:25].reset_index(drop=True)
-                    data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-       'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-       'Date_Of_Discharge', 'Parade_Attendance_Year1',
-       'Parade_Attendance_Year2', 'Part1_Drill_Written',
-       'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-       'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-       'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-       'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
-       'Grading', 'Institution']
-
-            else:
-                data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name',
-       'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
-       'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
-       'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
-       'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
-       'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
-       'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
-       'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
-       'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
-       'Unit']
 
 
+        if tab != 'enrolment':
+            if tab=='A_cert_marks':
+                data = data.iloc[3:, 0:24].reset_index(drop=True)
+                data.columns=['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+   'Date_Of_Discharge', 'Parade_Attendance_Year1',
+   'Parade_Attendance_Year2', 'Part1_Drill_Written',
+   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+   'Part4_SplSubjects_Total', 'GrandTotal', 'Grading', 'Institution']
 
-        try:
-            data.to_sql( name=tab,con=con,if_exists='append',index=False)
-            self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
-            con.close()
-            return;
+            elif tab=='B_cert_marks':
+                data = data.iloc[3:, 0:25].reset_index(drop=True)
+                data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+   'Date_Of_Discharge', 'Parade_Attendance_Year1',
+   'Parade_Attendance_Year2', 'Part1_Drill_Written',
+   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+   'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+   'Grading', 'Institution']
+
+            elif tab=='C_cert_marks':
+                data = data.iloc[3:, 0:25].reset_index(drop=True)
+                data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+   'Date_Of_Discharge', 'Parade_Attendance_Year1',
+   'Parade_Attendance_Year2', 'Part1_Drill_Written',
+   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+   'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+   'Grading', 'Institution']
+
+        else:
+            data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name',
+   'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
+   'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
+   'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
+   'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
+   'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
+   'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
+   'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
+   'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
+   'Unit']
+
+        conflicts = ''
+        notexists = ''
+
+        if tab=='enrolment':
+            try:
+                data.to_sql( name=tab,con=con,if_exists='append',index=False)
+                self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
+                con.close()
+                return;
 
 
-        except:
-            conflicts = ''
+            except:
+                conflicts = ''
+                for i in range(len(data.Enrolment_Number)):
+                    try:
+                        values = tuple(data.iloc[i].values)
+                        cur.execute('''Insert into {} values {}'''.format(tab,values))
+                    except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                        print(e)
+                        conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
+
+
+
+
+        else:
+
             for i in range(len(data.Enrolment_Number)):
                 try:
+                    q = "SELECT EXISTS(SELECT Enrolment_Number FROM enrolment WHERE Enrolment_Number=\"{}\"".format(data.Enrolment_Number[i])+")"
+                    if not con.execute(q).fetchone()[0]:
+                        notexists+='Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
+
                     values = tuple(data.iloc[i].values)
-                    cur.execute('''Insert into {} values {}'''.format(tab,values))
-                except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                    cur.execute('''Insert into {} values {}'''.format(tab, values))
+                except(sqlite3.OperationalError, sqlite3.IntegrityError) as e:
                     print(e)
-                    if tab=='enrolment':
-                        conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
-                    else:
-                        conflicts+='Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
+                    conflicts += 'Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
+
+
+            cmsg='''
+
+The List of Enrolment Numbers which are NOT in the Enrolment Database Table are as shown below
+
+{}
+These Entries are added to the Certificates Table but Not to the Enrolment Table. Please add these Enrolment Numbers to the Enrolment Table if there is a need by submitting the numbers in the main Enrolment Form.
+'''.format(notexists)
+            ctitle= '''While adding the Data to the Certificate Database , its been found that some Enrolment Numbers are NOT PRESENT in the Enrolment Database Table. Please Add them to the Enroment Database if needed, in the Enrolment Tab</span></p></body></html>'''
+
+
+
+        emsg = '''The List of Conflicts of either Enrolment_Number or Aadhaar_Number is as shown below :
+
+{}
+These entries are not added to the Database .\nIf you wish to update the database entries of present Student Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(
+            conflicts)
+        etitle = '''While adding the Data to the {} Database Table, some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the {} Table and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>'''.format(tab,tab)
+
 
 
         con.commit()
         con.close()
 
-        if conflicts:
+        if conflicts or notexists:
+
+            if conflicts and notexists:
+                title =\
+'''{}
+<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'century'; font-size:11pt;">Also {}</span></p></body></html>       
+'''.format(etitle,ctitle)
+
+                msg = emsg+'\n\n'+cmsg
+
+            elif conflicts:
+                title = etitle
+                msg = emsg
+            else:
+                title = ctitle
+                msg = cmsg
+
+
+
             Dialog = QtGui.QDialog()
             Dialog.setObjectName(_fromUtf8("Dialog"))
-            Dialog.resize(804, 389)
+            Dialog.resize(804, 450)
             Dialog.setMaximumSize(QtCore.QSize(914, 16777215))
             font = QtGui.QFont()
             font.setFamily(_fromUtf8("Georgia"))
             Dialog.setFont(font)
+            Dialog.setSizeGripEnabled(True)
             verticalLayout = QtGui.QVBoxLayout(Dialog)
             verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
             textBrowser = QtGui.QTextBrowser(Dialog)
-            textBrowser.setMaximumSize(QtCore.QSize(16777215, 92))
+            textBrowser.setMaximumSize(QtCore.QSize(16777215, 125))
             font = QtGui.QFont()
             font.setFamily(_fromUtf8("Century"))
             font.setPointSize(12)
@@ -1139,12 +1200,7 @@ class logic():
             font.setPointSize(12)
             textBrowser_2.setFont(font)
             textBrowser_2.setObjectName(_fromUtf8("textBrowser_2"))
-            textBrowser_2.setText('''
-The List of Conflicts of either Enrolment_Number or Aadhaar_Number is as shown below :
-
-{}
-
-These entries are not added to the Database .\nIf you wish to update the database entries of present Student Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(conflicts))
+            textBrowser_2.setText(msg)
             textBrowser_2.hide()
             verticalLayout.addWidget(textBrowser_2)
 
@@ -1157,13 +1213,11 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                 "p, li { white-space: pre-wrap; }\n"
                                                 "</style></head><body style=\" font-family:\'Century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:11pt;\">While adding the Data to the Database , some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the Database and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>",
+                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:11pt;\">"+title+"",
                                                 None))
             pushButton_2.setText(_translate("Dialog", "Show Details", None))
             pushButton.setText(_translate("Dialog", "OK", None))
             Dialog.exec()
-
-
 
         print(conflicts)
 
@@ -1760,7 +1814,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             self.showtooltip("Sucessfully Inserted")
 
     def saveexceluploadeddata(self):
-
         data = []
         name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
                                                  caption="Save File",
@@ -1793,10 +1846,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     elif ui.tableWidget.item(i, j) != None:
                         txt = ui.tableWidget.item(i, j).text()
                     data[i].append(txt)
-
-
-
-
         if len(data) < 1:
             self.showtooltip("No data found")
         for row in data:
@@ -3466,8 +3515,6 @@ font-weight:bold;
 
         ui.valuelineEdit.clear()
 
-    def img(self):
-        super(logic, self).__init__()
 
 
 
@@ -3512,7 +3559,6 @@ if __name__ == "__main__":
 
         if loginui.firstrun:
             myobj = logic()
-            myobj.img()
             MainWindow.show()
             loginui.loginpermission = myobj.login_permission
             loginui.login_passwordLineEdit.clear()

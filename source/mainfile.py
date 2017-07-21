@@ -782,13 +782,24 @@ class logic():
     def backupdata(self):
         loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the location to Backup All data',
                                                      directory=r'C:\users\{}'.format(os.getlogin()))
+
         try:
             ref = 0
             try:
                 shutil.copy2('ncc.db', loc)
+                ref=1
+                shutil.copy2('settings.ini',loc)
             except:
-                QtGui.QMessageBox.critical(ui.Enrol ,"Database backup Failed !",r'DataBase backup has failed. Please backup up the database file Manually. It is located in C:\ProgramFiles\NCC\ncc.db' ,'OK')
-            ref = 1
+                if ref==0:
+                    QtGui.QMessageBox.critical(ui.Enrol ,"Database backup Failed !",r'DataBase backup has failed. Please backup up the database file Manually. It is located in C:\ProgramFiles\NCC\ncc.db' ,'OK')
+
+                elif ref==1:
+                    QtGui.QMessageBox.critical(ui.Enrol, "Settings.ini backup Failed !",
+                                               r'Settings backup has failed. Please backup up the Settings.ini file Manually. It is located in C:\ProgramFiles\NCC\settings.ini',
+                                               'OK')
+
+
+            ref = 2
             if not os.path.exists(loc + r'\candidate photos'):
                 os.mkdir(loc + r'\candidate photos')
 
@@ -802,10 +813,10 @@ class logic():
             print(e)
             if ref == 0:
                 self.showtooltip("BACKUP FAILED")
-                msg = "Database and candidate photos BACKUP FAILED"
-            if ref == 1:
+                msg = "Database Settings and candidate photos BACKUP FAILED"
+            if ref == 2:
                 self.showtooltip("candidate photos BACKUP FAILED")
-                msg = "Database BACKUP SUCCESSFULL\ncandidate photos BACKUP FAILED "
+                msg = "Database BACKUP SUCCESSFULL\nCandidate photos BACKUP FAILED "
             QtGui.QMessageBox.warning(ui.Settings, 'Backup Problem',
                                       msg + "\nIf the problem persists Please backup the ncc.db file and candidate photos folder manually !")
             return
@@ -814,10 +825,28 @@ class logic():
 
     def restoredata(self):
 
-        ch = QtGui.QMessageBox.question(ui.Settings, 'Choose restore files',
-                                        'Do you want to Restore DATABASE FILE or CANDIDATES Photos ?', 'DataBase',
-                                        "Candidate's Photos", "Cancel", escapeButtonNumber=2)
-        if not ch:
+        question = QtGui.QMessageBox()
+        question.setWindowTitle('Choose the Type of file')
+        question.setText("Do you want to Restore DATABASE FILE or Settings or CANDIDATES Photos ?")
+        question.addButton('DataBase',QtGui.QMessageBox.YesRole)
+        question.addButton('Settings',QtGui.QMessageBox.YesRole)
+        question.addButton('Candidate Photos',QtGui.QMessageBox.YesRole)
+        question.setStandardButtons(QtGui.QMessageBox.Cancel)
+
+        ch=''
+        def onClicked(btn):
+            nonlocal  ch
+            ch = btn.text()
+
+        question.buttonClicked.connect(onClicked)
+        question.exec()
+
+        print(ch)
+
+        # ch = QtGui.QMessageBox.question(ui.Settings, 'Choose the Type of file',
+        #                                 'Do you want to Restore DATABASE FILE or Settings or CANDIDATES Photos ?', 'DataBase',
+        #                                 "Candidate's Photos", "Settings",QtGui.QMessageBox.Cancel)
+        if ch=='DataBase':
             loc = QtGui.QFileDialog.getOpenFileNameAndFilter(caption='Select the Database file',
                                                              directory=r"C:\users\{}".format(os.getlogin()),
                                                              filter="Database (*.db)")
@@ -834,7 +863,7 @@ class logic():
                 except:
                     self.showtooltip("Database Restoration Failed")
 
-        if ch == 1:
+        elif ch == 'Candidate Photos':
             loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the Candidate Photos folder',
                                                          directory=r"C:\users\{}".format(os.getlogin()))
             if not loc:
@@ -859,6 +888,28 @@ class logic():
                 return
 
             self.showtooltip("RESTORATION SUCCESSFULL")
+
+        elif ch=='Settings':
+            loc = QtGui.QFileDialog.getOpenFileNameAndFilter(caption='Select the settings.ini file',
+                                                             directory=r"C:\users\{}".format(os.getlogin()),
+                                                             filter="Settings (*.ini)")
+            if not loc[0]:
+                return
+
+            if QtGui.QMessageBox.question(ui.Settings, "Are you sure ? ",
+                                          'Are you sure that you wish to restore the selected Settings.ini File ? Any DATA which is NOT in the selected file will be lost !',
+                                          'Yes', 'No') == 0:
+
+                try:
+                    shutil.copy2(loc[0], os.getcwd() + r'\settings.ini')
+                    self.showtooltip("Settings Restored Successfully")
+                except:
+                    self.showtooltip("Settings Restoration Failed")
+
+
+
+
+
 
     def save_from_excel_to_database(self):
 
@@ -1109,8 +1160,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             pushButton_2.setText(_translate("Dialog", "Show Details", None))
             pushButton.setText(_translate("Dialog", "OK", None))
             Dialog.exec()
-
-
 
 
 

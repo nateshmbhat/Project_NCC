@@ -15,22 +15,18 @@ class enroll:
         self.cur.execute(add)
         self.conn.commit()
         self.conn.close()
-
-
     def update_student_details(self ,*fields):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         delete = "delete from enrolment where Enrolment_Number='{}'".format(fields[0])
         self.execute(delete);
         self.enrol_student(fields)
-
     def dropping_table(self,table_name):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
         self.cur.execute("drop table "+table_name)
         self.conn.commit()
         self.conn.close()
-
     def search_by_field(self,field,id):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
@@ -39,7 +35,6 @@ class enroll:
         result = self.cur.fetchone()
         self.conn.close()
         return(result)
-
     def create_table_Enrolment(self):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
@@ -129,7 +124,6 @@ class enroll:
         self.cur.execute(sql)
         self.conn.commit()
         self.conn.close()
-
     def search_particular_fields(self,con,con1,*fields):
         sql="select "
         for i in range(len(fields)):
@@ -160,7 +154,6 @@ class enroll:
         self.cur.execute(sql)
         self.conn.commit()
         self.conn.close()
-
     def delete_by_Enrolment_camps(self, enrolment_no, camp_name):
         sql = "delete from camps_details where Enrolment_Number='" + enrolment_no + "' and Camp_Attended='" + camp_name + "'"
         self.conn = sqlite3.connect("ncc.db")

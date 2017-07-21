@@ -2447,18 +2447,25 @@ These entries are not added to the Database .\nIf you wish to update the databas
     def check_enrol_form_data(self):
 
         proceed = True;
-        sql="select Student_Name from enrolment where Enrolment_Number='"+ui.enrolmentnumLineEdit.displayText().strip()+"'"
-        tup=ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
-            QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
-                                      '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
-            return
 
-        sql = "select Student_Name from enrolment where Aadhaar_Number='" + ui.aadhaarLineEdit.displayText().strip() + "'"
-        tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup)!=0 and not ui.updateentryCheckBox.isChecked():
-            QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
-                                      '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.','OK');
+        if not ui.updateentryCheckBox.isChecked():
+            sql = "select Student_Name from enrolment where Enrolment_Number='" + ui.enrolmentnumLineEdit.displayText().strip() + "'"
+
+            try:
+                tup = ENROLMENT_FORM.enroll().execute(sql)
+
+            except Exception as e:
+                print(e)
+                if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number','\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
+
+                elif 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists','\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.','OK');
+                return
+
+
+        if not proceed:
+            return
 
 
         def set_margin_red_style(obj):
@@ -2861,18 +2868,13 @@ font-weight:bold;
     def get_enroll_form_data(self):
 
         enrolmentnum = ui.enrolmentnumLineEdit.displayText().strip();
-
         aadhaarnum = ui.aadhaarLineEdit.displayText().strip()
-
         rank = ui.rankComboBox.currentText()
-
 
 
         fullname = ui.fullnameLineEdit.displayText().strip()
         Smiddlename = ui.SmiddlenameLineEdit.displayText().strip()
         Slastname = ui.SlastnameLineEdit.displayText().strip()
-
-
 
 
         fathername = ui.fathernameLineEdit.displayText().strip()
@@ -2951,30 +2953,54 @@ font-weight:bold;
         obj=ENROLMENT_FORM.enroll()
 
         if ui.updateentryCheckBox.isChecked():
-            obj.delete_by_Enrolment('enrolment',enrolmentnum)
-            obj.enrol_student(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
+            try:
+                obj.delete_by_Enrolment('enrolment',enrolmentnum)
+                obj.enrol_student(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
 
-                                       Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername , sex,dateofbirth,address,
+                                           Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername , sex,dateofbirth,address,
 
-                                       email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
+                                           email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
 
-                                       ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
+                                           ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
 
-                                       accountnum, ifsccode,micr, institutionname, unit);
+                                           accountnum, ifsccode,micr, institutionname, unit);
+
+
+            except (sqlite3.IntegrityError , sqlite3.OperationalError) as e:
+                if 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
+                                              '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. Please check the Aadhaar Number.','OK');
+                self.showtooltip("Update Failed !")
+                return;
+
             self.showtooltip("Updated successfully")
 
 
         else:
+            try:
+                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
 
-            obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
+                                           Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername ,sex,dateofbirth,address,
 
-                                       Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername ,sex,dateofbirth,address,
+                                  email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
 
-                              email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
+                                  ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
 
-                              ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
+                                  accountnum, ifsccode,micr, institutionname, unit)
 
-                              accountnum, ifsccode,micr, institutionname, unit)
+            except (sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                print(e)
+                if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
+                                              '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
+                                              'OK');
+
+                elif 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
+                                              '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.',
+                                              'OK');
+                return
+
 
             self.showtooltip("Inserted successfully")
 

@@ -947,12 +947,15 @@ class logic():
         etd_ccertPushButton.clicked.connect(lambda: buttonpressed(etd_ccertPushButton))
         exceltodatabaseDialog.exec()
 
-        con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
+        if not tab:return
+
+        con = sqlite3.connect(r'ncc.db')
         cur = con.cursor()
 
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
                                                 caption="Select Excel or CSV file ",
                                                 filter="Excel or CSV (*.xlsx *.csv)")
+
 
         if not loc:
             return
@@ -1010,17 +1013,25 @@ class logic():
 
 
 
-            # data.to_sql(con=con, name=tab, if_exists='append', index=False)
-            # self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
+        try:
+            data.to_sql( name=tab,con=con,if_exists='append',index=False)
+            self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
+            con.close()
+            return;
 
-        conflicts = ''
 
-        for i in range(len(data.Enrolment_Number)):
-            try:
-                values = tuple(data.iloc[i].values)
-                cur.execute('''Insert into {} values {}'''.format(tab,values))
-            except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
-                conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
+        except:
+            conflicts = ''
+            for i in range(len(data.Enrolment_Number)):
+                try:
+                    values = tuple(data.iloc[i].values)
+                    cur.execute('''Insert into {} values {}'''.format(tab,values))
+                except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                    print(e)
+                    if tab=='enrolment':
+                        conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
+                    else:
+                        conflicts+='Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
 
 
         con.commit()
@@ -1084,7 +1095,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             textBrowser_2.hide()
             verticalLayout.addWidget(textBrowser_2)
 
-            QtCore.QObject.connect(pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), textBrowser_2.show if textBrowser_2.isHidden() else textBrowser_2.hide())
+            QtCore.QObject.connect(pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), lambda :(textBrowser_2.show(),pushButton_2.setText('Hide Details') )if textBrowser_2.isHidden() else (textBrowser_2.hide(),pushButton_2.setText('Show Details')))
             QtCore.QObject.connect(pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), Dialog.close)
             QtCore.QMetaObject.connectSlotsByName(Dialog)
             Dialog.setWindowTitle(_translate("Dialog", "Conflicts Found !", None))
@@ -1104,7 +1115,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
 
         print(conflicts)
-        con.close()
 
 
     def set_camps_list(self):

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1111</width>
-    <height>803</height>
+    <width>1182</width>
+    <height>820</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -67,8 +67,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>826</width>
-        <height>678</height>
+        <width>0</width>
+        <height>0</height>
        </size>
       </property>
       <property name="font">
@@ -124,7 +124,7 @@
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
+         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
@@ -199,8 +199,8 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>620</width>
-             <height>2150</height>
+             <width>1123</width>
+             <height>2245</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -423,7 +423,7 @@ background-color:transparent;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="../Icons/icon_res.qrc">:/icons/ncc2.png</pixmap>
+                 <pixmap resource="../Resources/icon_res.qrc">:/icons/ncc2.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -2953,7 +2953,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
        </property>
        <attribute name="icon">
         <iconset>
-         <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
+         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
        </attribute>
        <attribute name="title">
         <string>Query</string>
@@ -5813,9 +5813,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1050</width>
-             <height>1803</height>
+             <y>-420</y>
+             <width>1121</width>
+             <height>1801</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -6008,10 +6008,11 @@ background-color:transparent;
                 <widget class="QPushButton" name="settings_loginPushButton">
                  <property name="font">
                   <font>
-                   <family>Century</family>
-                   <pointsize>23</pointsize>
+                   <family>Colonna MT</family>
+                   <pointsize>33</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
+                   <kerning>false</kerning>
                   </font>
                  </property>
                  <property name="styleSheet">
@@ -6022,7 +6023,7 @@ color:white;
 border-radius:15px;
 border-top:1.5px groove yellow;
 border-bottom:1px solid black;
-padding:5px 0;
+padding:3px 0 0 0;
 }
 
 #settings_loginPushButton:hover
@@ -6058,19 +6059,23 @@ background-color:transparent;
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_16">
+                  <property name="verticalSpacing">
+                   <number>1</number>
+                  </property>
                   <item row="0" column="0">
                    <widget class="QLabel" name="settings_institutionlistLabel">
                     <property name="font">
                      <font>
-                      <family>Centaur</family>
-                      <pointsize>20</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <family>Longdon Decorative</family>
+                      <pointsize>25</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">border-image: url(:/icons/image-blur.png);
-color:white;</string>
+                     <string notr="true">border-image:url(:/icons/graywood.png);
+color:white;
+border-radius:3px;</string>
                     </property>
                     <property name="text">
                      <string>Institution List</string>
@@ -6092,7 +6097,7 @@ color:white;</string>
                       </property>
                       <property name="font">
                        <font>
-                        <family>Georgia</family>
+                        <family>InaiMathi</family>
                         <pointsize>13</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
@@ -6110,7 +6115,7 @@ color:white;</string>
                      <widget class="QPushButton" name="settings_addPushButton">
                       <property name="font">
                        <font>
-                        <family>Georgia</family>
+                        <family>Caladea</family>
                         <pointsize>12</pointsize>
                         <weight>50</weight>
                         <italic>false</italic>
@@ -6136,7 +6141,7 @@ color:white;</string>
                       </property>
                       <property name="font">
                        <font>
-                        <family>Georgia</family>
+                        <family>Caladea</family>
                         <pointsize>12</pointsize>
                        </font>
                       </property>
@@ -6153,8 +6158,8 @@ color:white;</string>
                      <widget class="QPushButton" name="settings_addinstitutionPushButton">
                       <property name="font">
                        <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
+                        <family>Baskerville Old Face</family>
+                        <pointsize>14</pointsize>
                         <weight>50</weight>
                         <bold>false</bold>
                        </font>
@@ -6168,8 +6173,10 @@ color:white;</string>
                      <widget class="QPushButton" name="removeinstitutionPushButton">
                       <property name="font">
                        <font>
-                        <family>Georgia</family>
-                        <pointsize>12</pointsize>
+                        <family>Baskerville Old Face</family>
+                        <pointsize>14</pointsize>
+                        <weight>50</weight>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -6355,18 +6362,17 @@ color:white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Centaur</family>
-                   <pointsize>24</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
+                   <family>Longdon Decorative</family>
+                   <pointsize>25</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
                    <stylestrategy>PreferAntialias</stylestrategy>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border-image: url(:/icons/image-blur.png);
+                  <string notr="true">border-image:url(:/icons/graywood.png);
 color:white;
-margin:2px 8px;
-text-align:center;</string>
+border-radius:3px;</string>
                  </property>
                  <property name="text">
                   <string>Forms and Fields Management</string>
@@ -6385,7 +6391,7 @@ text-align:center;</string>
                   <widget class="QLabel" name="settings_formsLabel">
                    <property name="font">
                     <font>
-                     <family>Times New Roman</family>
+                     <family>SimHei</family>
                      <pointsize>18</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -6865,6 +6871,76 @@ padding:10px 10px;
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_27">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_14">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_28">
+            <item>
+             <widget class="QWebView" name="webView_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(209, 209, 209);</string>
+              </property>
+              <property name="url">
+               <url>
+                <string>about:blank</string>
+               </url>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="textEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>500</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="refresh">
+            <property name="text">
+             <string>refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pdf">
+            <property name="text">
+             <string>generate pdf</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="load">
+            <property name="text">
+             <string>Load</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -7031,16 +7107,7 @@ padding:10px 10px;
   <tabstop>pushButton_3</tabstop>
  </tabstops>
  <resources>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="../Icons/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
-  <include location="../../../../../ADMIN/.designer/backup/icon_res.qrc"/>
+  <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

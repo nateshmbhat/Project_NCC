@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>711</width>
-    <height>333</height>
+    <width>616</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -161,6 +161,9 @@ color:white;</string>
         <string notr="true">border-radius:6px;
 border:1px groove purple;
 margin-right:10px;</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
       </widget>
      </item>

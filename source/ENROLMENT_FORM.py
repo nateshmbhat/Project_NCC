@@ -38,7 +38,7 @@ class enroll:
     def create_table_Enrolment(self):
         self.conn = sqlite3.connect("ncc.db")
         self.cur = self.conn.cursor()
-        details="""create table  if not exists enrolment(Enrolment_Number varchar(13) not null,Rank varchar(25) not null,Aadhaar_Number varchar(14),
+        details="""create table  if not exists enrolment(Enrolment_Number varchar(13) not null,Rank varchar(25) not null,Aadhaar_Number varchar(14) UNIQUE,
         Student_First_name varchar not null,Student_Middle_Name varchar,Student_Last_Name varchar,Student_Name varchar not null,
         Fathers_First_Name varchar,Fathers_Middle_Name varchar,Fathers_Last_Name varchar,Fathers_Name varchar,Mothers_First_Name varchar,
         Mothers_Middle_Name varchar,Mothers_Last_Name varchar,Mothers_Name varchar ,Sex char(6),Date_Of_Birth date,

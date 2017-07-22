@@ -1,13 +1,26 @@
 Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit
-kar1,Cadet (CDT),789643572736,Natesh M Bhat,Manjunath,Bhat,Natesh M Bhat,Manjunath S Bhat,Sanna,Bhat,Manjunath S Bhat,Nagarathna Bhat,,Bhat,Nagarathna Bhat,Male,01/Jan/2000,"Kuvempu nagar , Tumkur , 572103",,,O+,,,,,18/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar2,Cadet (CDT),351235423531,sdafdasgs,,,sdafdasgs,dfas,,,dfas,dfas,das,dasf,dfas,Male,01/Jan/2000,dasgdasgadsg,,,O+,,"BLC,Mounaineering,Trekking",,,18/Jul/2017,,veg,dasfdasfasdf,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar3,Senior Under Officer (SUO),523453463423,dsgfdasgfds,,,dsgfdasgfds,,,,,dasf,,,dasf,Male,01/Jan/2000,adfdasfdasf,,,O-,,"Trekking,SSB",,,18/Jul/2017,,veg,dasfdas,dasfadsfas,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar4,Cadet (CDT),123456789123,adsfdasfdasfs,,,adsfdasfdasfs,,,,,,,,,Male,06/Jun/1994,wqteqwetewdsf,,,O+,,"AAC,Mounaineering",,,18/Jul/2017,,veg,dasfas,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar5,Cadet (CDT),789643572733,Natesh M Bhat,Manjunath,Bhat,Natesh M Bhat,Manjunath S Bhat,Sanna,Bhat,Manjunath S Bhat,Nagarathna Bhat,,Bhat,Nagarathna Bhat,Male,01/Jan/2000,"Kuvempu nagar , Tumkur , 572103",,,O+,,,,,18/Jul/2017,,veg,ve,db,gfh,4567698,8597687ngcf,3458769,1/4 Coy Govt.Science College Tumukur,4KAR
-kar7,Cadet (CDT),345234534562,dsafdasf,,,dsafdasf,,,,,,,,,Male,01/Jan/2000,asdfdasf,,,O+,,,,,19/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar8,Cadet (CDT),235411345236,asdfdasfas,,,asdfdasfas,dasfdasf,,,dasfdasf,dasfads,,,dasfads,Female,01/Jan/2000,dasfasd,,,O+,,,,,19/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar9,Lance Corporal (LCPL),354151342341,dasfasd,,,dasfasd,,,,,,,,,Male,01/Jan/2000,asdfdasf,,,O+,,,,,19/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar10,Lance Corporal (LCPL),235462246235,sdafadsf,,,sdafadsf,,,,,,,,,Male,01/Jan/2000,asdfasdfadsf,,,O+,,,,,19/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar11,Senior Under Officer (SUO),328957915269,asdfdasfasd,sdfds,f,asdfdasfasd,asdfasd,sdafsdf,,asdfasd,,dsf,dasfsd,,Male,01/Jan/2000,dsfdasgasasdg,dasf@gmail.com,9834578357,O+,,"AAC,Mounaineering",dasfdasf,sfasdf,26/Jul/2017,,veg,,,,,,,2/4 Coy Govt. Arts College Tumkur,4KAR
-kar12,Junior Under Officer (JUO),462345632535,dfassd,fdsfdas,sdfsda,dfassd,dsfdasf,fsdfdasf,,dsfdasf,,dsfdasf,dfs,,Male,04/Jan/1990,dasgfsdgasdf,,,O+,,"CATC,AAC",,,19/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
-kar11dghdfgdfg,Senior Under Officer (SUO),328957915269,asdfdasfasd,sdfds,f,asdfdasfasd,asdfasd,sdafsdf,,asdfasd,,dsf,dasfsd,,Male,01/Jan/2000,dsfdasgasasdg,dasf@gmail.com,9834578357,O+,,"AAC,Mounaineering",dasfdasf,sfasdf,20/Jul/2017,,veg,,,,,,,2/4 Coy Govt. Arts College Tumkur,4KAR
+gs3,Cadet (CDT),5678678,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs5,Cadet (CDT),7867867856,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs7,Cadet (CDT),222222266666,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+fb,Cadet (CDT),786736786,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,20/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+bfre,Cadet (CDT),783678783,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+r,Cadet (CDT),7867867,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+rfb,Cadet (CDT),75637836783678,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+re,Cadet (CDT),8678678673,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+cf,Cadet (CDT),7863783678,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+fdr,Cadet (CDT),56786,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,20/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+ju,Cadet (CDT),67676786786,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+uy,Cadet (CDT),978367338,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+"li,",Cadet (CDT),678686676767373,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+"I,",Cadet (CDT),88887378378,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+"ki,",Cadet (CDT),3737867867856,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+ikj,Cadet (CDT),333337837378,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs6,Cadet (CDT),222222222224,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+"gs1jckffgk,gkfyfy",Cadet (CDT),787865786,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs1fukvhjhvg,Cadet (CDT),786786868,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs1fukmvj,Cadet (CDT),111191111111,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+"gs1hcchgvj,v,bj,vhkvbvgc",Cadet (CDT),111111111111,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncd,,,O+,,,,,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs2,Cadet (CDT),785678,ganga,,,ganga,wfs,,,wfs,dn s,,,dn s,Male,01/Jan/2000,ncdghc,,,O+,,,kjjkgjjgkgkggjkbkbkjhj,hughu,21/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+dasfsdfdsfadsf,Cadet (CDT),523431542423,dsafadsf,,,dsafadsf,,,,,,,,,Male,01/Jan/2000,zxvdsvds,,,O+,,,,,22/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+gs1,Cadet (CDT),462463456345,dsfdsf,,,dsfdsf,asdfdasf,dfssdf,,asdfdasf,,,,,Male,01/Jan/2000,dasfasdfsd,,,O+,,,,,22/Jul/2017,,veg,,,,,,,1/4 Coy Govt.Science College Tumukur,4KAR
+kar110,Cadet (CDT),222222266676,dasfdasf,,,dasfdasf,,,,,,,,,Male,07/Jan/2000,sdafasdf,,,O+,,,,,30/Jul/2017,,veg,,,,,,,2/4 Coy Govt. Arts College Tumkur,4KAR

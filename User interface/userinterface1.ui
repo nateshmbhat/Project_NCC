@@ -94,7 +94,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>4</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -3833,6 +3833,9 @@ padding:15px;
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <property name="spacing">
+                   <number>3</number>
+                  </property>
                   <item>
                    <widget class="QPushButton" name="andcondition">
                     <property name="font">
@@ -5813,9 +5816,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-420</y>
+             <y>-1141</y>
              <width>1121</width>
-             <height>1801</height>
+             <height>1882</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -5853,8 +5856,10 @@ background-position:center;
                 </property>
                 <property name="font">
                  <font>
-                  <family>georgia</family>
+                  <family>ChocolateBoxDecorative</family>
                   <pointsize>14</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -5862,7 +5867,6 @@ background-position:center;
 {
 border-radius:15px;
 background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
 font-size:100%;
 color:white;
 border-top:1px solid yellow;
@@ -5898,7 +5902,7 @@ padding:10px 10px;
                 </property>
                 <property name="font">
                  <font>
-                  <family>georgia</family>
+                  <family>ChocolateBoxDecorative</family>
                   <pointsize>14</pointsize>
                  </font>
                 </property>
@@ -5907,7 +5911,6 @@ padding:10px 10px;
 {
 border-radius:15px;
 background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(214, 0, 63, 255));
-font-family:georgia;
 color:white;
 border-top:1px solid yellow;
 border-bottom:1px solid black;
@@ -5951,8 +5954,10 @@ padding:10px 10px;
              <widget class="QPushButton" name="settings_candidopenPushButton">
               <property name="font">
                <font>
-                <family>georgia</family>
-                <pointsize>14</pointsize>
+                <family>Harrington</family>
+                <pointsize>17</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5960,7 +5965,6 @@ padding:10px 10px;
 {
 border-radius:20px;
 background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 #6c65d6);
-font-family:georgia;
 color:white;
 border-top:1px solid yellow;
 border-bottom:1px solid black;
@@ -6008,10 +6012,10 @@ background-color:transparent;
                 <widget class="QPushButton" name="settings_loginPushButton">
                  <property name="font">
                   <font>
-                   <family>Colonna MT</family>
+                   <family>Zimbra Bold</family>
                    <pointsize>33</pointsize>
-                   <weight>50</weight>
-                   <bold>false</bold>
+                   <weight>75</weight>
+                   <bold>true</bold>
                    <kerning>false</kerning>
                   </font>
                  </property>
@@ -6023,7 +6027,7 @@ color:white;
 border-radius:15px;
 border-top:1.5px groove yellow;
 border-bottom:1px solid black;
-padding:3px 0 0 0;
+padding:0px 0 0 0;
 }
 
 #settings_loginPushButton:hover
@@ -6087,12 +6091,15 @@ border-radius:3px;</string>
                   </item>
                   <item row="5" column="0">
                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                    <property name="spacing">
+                     <number>1</number>
+                    </property>
                     <item>
                      <widget class="QLineEdit" name="settings_instLineEdit">
                       <property name="minimumSize">
                        <size>
                         <width>350</width>
-                        <height>0</height>
+                        <height>25</height>
                        </size>
                       </property>
                       <property name="font">
@@ -6115,11 +6122,11 @@ border-radius:3px;</string>
                      <widget class="QPushButton" name="settings_addPushButton">
                       <property name="font">
                        <font>
-                        <family>Caladea</family>
+                        <family>Century</family>
                         <pointsize>12</pointsize>
-                        <weight>50</weight>
+                        <weight>75</weight>
                         <italic>false</italic>
-                        <bold>false</bold>
+                        <bold>true</bold>
                         <underline>false</underline>
                        </font>
                       </property>
@@ -6135,14 +6142,16 @@ border-radius:3px;</string>
                      <widget class="QPushButton" name="settings_backinstPushButton">
                       <property name="maximumSize">
                        <size>
-                        <width>37</width>
+                        <width>42</width>
                         <height>16777215</height>
                        </size>
                       </property>
                       <property name="font">
                        <font>
-                        <family>Caladea</family>
+                        <family>Century</family>
                         <pointsize>12</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
                        </font>
                       </property>
                       <property name="text">
@@ -6156,13 +6165,22 @@ border-radius:3px;</string>
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
                     <item>
                      <widget class="QPushButton" name="settings_addinstitutionPushButton">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>25</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
-                        <family>Baskerville Old Face</family>
-                        <pointsize>14</pointsize>
+                        <family>Longdon Decorative</family>
+                        <pointsize>18</pointsize>
                         <weight>50</weight>
                         <bold>false</bold>
                        </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color:rgb(65, 0, 0)</string>
                       </property>
                       <property name="text">
                        <string>Add Institution</string>
@@ -6171,13 +6189,22 @@ border-radius:3px;</string>
                     </item>
                     <item>
                      <widget class="QPushButton" name="removeinstitutionPushButton">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>25</height>
+                       </size>
+                      </property>
                       <property name="font">
                        <font>
-                        <family>Baskerville Old Face</family>
-                        <pointsize>14</pointsize>
+                        <family>Longdon Decorative</family>
+                        <pointsize>18</pointsize>
                         <weight>50</weight>
                         <bold>false</bold>
                        </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color:rgb(65, 0, 0)</string>
                       </property>
                       <property name="text">
                        <string>Remove</string>
@@ -6247,8 +6274,17 @@ border-radius:3px;</string>
 }</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
+               <property name="horizontalSpacing">
+                <number>1</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>2</number>
+               </property>
                <item row="3" column="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_16">
+                 <property name="spacing">
+                  <number>3</number>
+                 </property>
                  <item>
                   <widget class="QRadioButton" name="settings_fieldsknownRadioButton">
                    <property name="font">
@@ -6261,7 +6297,8 @@ border-radius:3px;</string>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color:transparent;
-color:white;</string>
+color:rgb(67, 0, 0);
+border:2px dotted green;</string>
                    </property>
                    <property name="text">
                     <string>Add known fields</string>
@@ -6286,7 +6323,8 @@ color:white;</string>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color:transparent;
-color:white;</string>
+color:rgb(67, 0, 0);
+border:2px dotted green;</string>
                    </property>
                    <property name="text">
                     <string>Add Unknown fields</string>
@@ -6315,8 +6353,8 @@ color:white;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Gabriola</family>
-                     <pointsize>19</pointsize>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -6339,11 +6377,14 @@ color:white;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Gabriola</family>
-                     <pointsize>19</pointsize>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="text">
                     <string>Remove Field</string>
@@ -6357,7 +6398,7 @@ color:white;</string>
                  <property name="minimumSize">
                   <size>
                    <width>400</width>
-                   <height>0</height>
+                   <height>50</height>
                   </size>
                  </property>
                  <property name="font">
@@ -6372,7 +6413,8 @@ color:white;</string>
                  <property name="styleSheet">
                   <string notr="true">border-image:url(:/icons/graywood.png);
 color:white;
-border-radius:3px;</string>
+border-radius:3px;
+</string>
                  </property>
                  <property name="text">
                   <string>Forms and Fields Management</string>
@@ -6391,10 +6433,10 @@ border-radius:3px;</string>
                   <widget class="QLabel" name="settings_formsLabel">
                    <property name="font">
                     <font>
-                     <family>SimHei</family>
-                     <pointsize>18</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <family>Algerian</family>
+                     <pointsize>20</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6405,7 +6447,7 @@ background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818,
 
 #settings_formsLabel:hover
 {
-	background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818, y2:0.392, stop:0 rgba(85, 104, 255, 255), stop:1 rgba(230, 255, 0, 150));
+	background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(229, 0, 254, 255), stop:1 rgba(122, 255, 73, 255));
 }</string>
                    </property>
                    <property name="text">
@@ -6447,8 +6489,8 @@ background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818,
                     <widget class="QLineEdit" name="settings_addformLineEdit">
                      <property name="font">
                       <font>
-                       <family>Georgia</family>
-                       <pointsize>13</pointsize>
+                       <family>InaiMathi</family>
+                       <pointsize>14</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -6477,10 +6519,10 @@ background-color:qlineargradient(spread:pad, x1:0.012, y1:0.755818, x2:0.641818,
                   <widget class="QLabel" name="settings_fieldsLabel">
                    <property name="font">
                     <font>
-                     <family>Times New Roman</family>
-                     <pointsize>18</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <family>Algerian</family>
+                     <pointsize>20</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6491,7 +6533,7 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
 
 #settings_fieldsLabel:hover
 {
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:0.767, y2:0.773, stop:0 rgba(0, 203, 5, 200), stop:1 rgba(255, 77, 127, 150))
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 169, 203, 252), stop:1 rgba(255, 77, 127, 248))
 }</string>
                    </property>
                    <property name="text">
@@ -6574,8 +6616,8 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                   <widget class="QLineEdit" name="settings_addfieldLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>13</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>14</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -6600,13 +6642,50 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                      </property>
                      <property name="font">
                       <font>
-                       <family>Georgia</family>
+                       <family>Caladea</family>
                        <pointsize>14</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
                       </font>
                      </property>
                      <property name="maxVisibleItems">
                       <number>20</number>
                      </property>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>New Item</string>
+                      </property>
+                     </item>
                     </widget>
                    </item>
                   </layout>
@@ -6615,6 +6694,9 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                </item>
                <item row="3" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
                  <item>
                   <widget class="QPushButton" name="settings_addformPushButton">
                    <property name="maximumSize">
@@ -6625,11 +6707,14 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                    </property>
                    <property name="font">
                     <font>
-                     <family>Gabriola</family>
-                     <pointsize>18</pointsize>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="text">
                     <string>Add Form</string>
@@ -6646,11 +6731,14 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                    </property>
                    <property name="font">
                     <font>
-                     <family>Gabriola</family>
-                     <pointsize>18</pointsize>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="text">
                     <string>Remove Form</string>
@@ -6679,8 +6767,8 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                 <widget class="QLabel" name="label_2">
                  <property name="font">
                   <font>
-                   <family>Centaur</family>
-                   <pointsize>24</pointsize>
+                   <family>Longdon Decorative</family>
+                   <pointsize>27</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -6688,8 +6776,8 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                  <property name="styleSheet">
                   <string notr="true">border-image: url(:/icons/image-blur.png);
 color:white;
-margin:2px 8px;
-text-align:center;</string>
+text-align:center;
+border-radius:3px;</string>
                  </property>
                  <property name="text">
                   <string>Camps List</string>
@@ -6704,7 +6792,7 @@ text-align:center;</string>
                  <property name="minimumSize">
                   <size>
                    <width>500</width>
-                   <height>250</height>
+                   <height>325</height>
                   </size>
                  </property>
                  <property name="styleSheet">
@@ -6716,8 +6804,8 @@ text-align:center;</string>
                 <widget class="QLineEdit" name="settings_addcampsLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>13</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -6731,12 +6819,18 @@ text-align:center;</string>
                 <layout class="QHBoxLayout" name="horizontalLayout_18">
                  <item>
                   <widget class="QPushButton" name="settings_addcampPushButton">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>27</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
-                     <weight>50</weight>
-                     <bold>false</bold>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="text">
@@ -6746,10 +6840,18 @@ text-align:center;</string>
                  </item>
                  <item>
                   <widget class="QPushButton" name="settings_removecampPushButton">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>27</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>Simonetta</family>
+                     <pointsize>17</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="text">
@@ -6805,8 +6907,10 @@ text-align:center;</string>
              <widget class="QPushButton" name="exceltodatabasePushButton">
               <property name="font">
                <font>
-                <family>georgia</family>
-                <pointsize>13</pointsize>
+                <family>Caladea</family>
+                <pointsize>15</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -6814,7 +6918,6 @@ text-align:center;</string>
 {
 border-radius:20px;
 background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(203, 146, 0, 255));
-font-family:georgia;
 color:white;
 border-top:1px solid green;
 border-bottom:1px solid black;

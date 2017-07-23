@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -2708,12 +2708,14 @@ font-weight:bold;
                </property>
                <property name="font">
                 <font>
-                 <pointsize>-1</pointsize>
+                 <family>InaiMathi</family>
+                 <pointsize>16</pointsize>
+                 <weight>50</weight>
+                 <bold>false</bold>
                 </font>
                </property>
                <property name="styleSheet">
                 <string notr="true">border-radius:2px;
-font-size:20px;
 </string>
                </property>
                <property name="text">
@@ -2747,7 +2749,7 @@ font-size:20px;
                <property name="font">
                 <font>
                  <family>Caladea</family>
-                 <pointsize>13</pointsize>
+                 <pointsize>16</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
                 </font>
@@ -3849,9 +3851,9 @@ padding:15px;
                    <widget class="QPushButton" name="andcondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -3860,7 +3862,6 @@ padding:15px;
                      <string notr="true">#andcondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:10px;
 padding-right:10px;
 border-style:solid;
@@ -3875,7 +3876,6 @@ width:120%;
 {color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
 border-radius:15px;
@@ -3894,9 +3894,9 @@ width:120%;
                    <widget class="QPushButton" name="orcondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -3905,7 +3905,6 @@ width:120%;
                      <string notr="true">#orcondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:10px;
 padding-right:10px;
 border-style:solid;
@@ -3920,7 +3919,6 @@ width:120%;
 {color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
 border-radius:15px;
@@ -4030,9 +4028,9 @@ height:25px;
                    <widget class="QPushButton" name="backcondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>17</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -4041,7 +4039,6 @@ height:25px;
                      <string notr="true">#backcondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:10px;
 padding-right:10px;
 border-style:solid;
@@ -4058,7 +4055,6 @@ margin:5px;
 color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 15pt &quot;georgia&quot;;
 border-style:groove;
 border-color:rgb(255,255,255);
 border-radius:15px;
@@ -4542,8 +4538,8 @@ width:130%;
                    <widget class="QLineEdit" name="valuelineEdit">
                     <property name="font">
                      <font>
-                      <family>InaiMathi</family>
-                      <pointsize>13</pointsize>
+                      <family>Caladea</family>
+                      <pointsize>14</pointsize>
                       <weight>75</weight>
                       <italic>false</italic>
                       <bold>true</bold>
@@ -5342,7 +5338,7 @@ border-color:green;
               </property>
               <property name="font">
                <font>
-                <family>Caladea</family>
+                <family>Longdon Decorative</family>
                 <pointsize>16</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
@@ -5406,6 +5402,8 @@ padding-left:5px;</string>
                <font>
                 <family>Caladea</family>
                 <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5450,6 +5448,8 @@ color: rgb(0, 0, 127);</string>
                <font>
                 <family>InaiMathi</family>
                 <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5474,6 +5474,8 @@ height:30%;</string>
                <font>
                 <family>InaiMathi</family>
                 <pointsize>16</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5596,7 +5598,7 @@ border-radius:5px;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>0</width>
-              <height>4</height>
+              <height>10</height>
              </size>
             </property>
            </spacer>
@@ -5713,10 +5715,10 @@ background-position:center;
               </property>
               <property name="font">
                <font>
-                <family>Caladea</family>
+                <family>Longdon Decorative</family>
                 <pointsize>18</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5870,10 +5872,10 @@ background-color:rgb(0, 80, 145);
               </property>
               <property name="font">
                <font>
-                <family>Merced</family>
-                <pointsize>19</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <family>Longdon Decorative</family>
+                <pointsize>20</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -5927,10 +5929,10 @@ background-color:rgb(0, 80, 145);
               </property>
               <property name="font">
                <font>
-                <family>Merced</family>
-                <pointsize>19</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <family>Longdon Decorative</family>
+                <pointsize>20</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
@@ -6013,9 +6015,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1304</y>
              <width>1155</width>
-             <height>1995</height>
+             <height>2005</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -6101,6 +6103,8 @@ padding:10px 10px;
                  <font>
                   <family>ChocolateBoxDecorative</family>
                   <pointsize>14</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -6544,10 +6548,10 @@ border:2px dotted green;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6568,10 +6572,10 @@ border:2px dotted green;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6898,10 +6902,10 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6922,10 +6926,10 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -6959,13 +6963,13 @@ background-color:qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba
                  <property name="font">
                   <font>
                    <family>Longdon Decorative</family>
-                   <pointsize>27</pointsize>
+                   <pointsize>29</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border-image: url(:/icons/image-blur.png);
+                  <string notr="true">border-image:url(:/icons/graywood.png);
 color:white;
 text-align:center;
 border-radius:3px;</string>
@@ -7018,10 +7022,10 @@ border-radius:3px;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="text">
@@ -7039,10 +7043,10 @@ border-radius:3px;</string>
                    </property>
                    <property name="font">
                     <font>
-                     <family>Simonetta</family>
+                     <family>Longdon Decorative</family>
                      <pointsize>17</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="text">
@@ -7096,12 +7100,18 @@ border-radius:3px;</string>
             </item>
             <item row="15" column="0" alignment="Qt::AlignHCenter">
              <widget class="QPushButton" name="exceltodatabasePushButton">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>57</height>
+               </size>
+              </property>
               <property name="font">
                <font>
-                <family>Caladea</family>
-                <pointsize>15</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <family>Longdon Decorative</family>
+                <pointsize>20</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">

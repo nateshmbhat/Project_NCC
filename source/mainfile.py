@@ -179,26 +179,26 @@ class ImageWidget(QtGui.QTableWidgetItem):
         painter.drawPixmap(0, 0, self.picture)
 class logic():
     flag = 0
-
     def refreshfun(self):
-        file = open("gs.html", "w")
-        if len(ui.textEdit.toPlainText())>20:
-            file.write(ui.textEdit.toPlainText())
-            file.close()
-            ui.webView_3.load(QUrl("gs.html"))
-
-    def pdffun(self):
+        file = open("gss.html", "w")
+        if len(ui.lineEdit.text())>20:
+            file.write(ui.lineEdit.text())
+            ui.webView_3.load(QUrl("gss.html"))
+        file.close()
+    def pdffun(self,string):
+        ui.webView_3.setHtml(string)
         printer = QPrinter()
-        printer.setOutputFileName(r"C:\Users\{}\Documents\NCC DUMPS\form.pdf".format(os.getlogin()))
+        printer.setOutputFileName("forms.pdf")
         printer.setOutputFormat(QPrinter.PdfFormat)
         printer.setPageMargins(0.5,0.5,0.5,0.5,QPrinter.Inch)
         printer.setPaperSize(QPrinter.A4)
         ui.webView_3.print_(printer)
-        os.startfile(r"C:\Users\{}\Documents\NCC DUMPS\form.pdf".format(os.getlogin()))
-        return
-    def loadfun(self):
-        with open('gs.html','r') as f:
-            ui.textEdit.setPlainText(f.read())
+    def loadfun(self,string):
+        file=open("gss.html","r")
+        string=file.read()
+        file.close()
+        string=string+""
+        ui.lineEdit.setText(string)
 
 
     def __init__(self):
@@ -784,9 +784,9 @@ class logic():
         ui.tableWidget_2.setStyleSheet(
             "color:white;font-weight:bold;font-size:15px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
-            "color:darkgreen;font-size:25px;font-weight:bold;font-family:inaimathi;border:1px solid black;")
+            "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
-            "color:darkorange;width:5000px;font-size:30px;font-family:inaimathi;border:1px solid black;gridline-color:black;")
+            "color:darkorange;width:5000px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         ui.tableWidget_2.resizeColumnsToContents()
 
@@ -1049,11 +1049,11 @@ class logic():
         con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
         cur = con.cursor()
 
-        # loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
-        #                                         caption="Select Excel or CSV file ",
-        #                                         filter="Excel or CSV (*.xlsx *.csv)")
+        loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
+                                                caption="Select Excel or CSV file ",
+                                                filter="Excel or CSV (*.xlsx *.csv)")
 
-        loc=r"C:\Users\Natesh\Documents\acert.xlsx"
+
 
         if not loc:
             return
@@ -1178,7 +1178,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             if conflicts and notexists:
                 title =\
 '''{}
-<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Baskerville Old Face'; font-size:11pt;">Also {}</span></p></body></html>       
+<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'century'; font-size:11pt;">Also {}</span></p></body></html>       
 '''.format(etitle,ctitle)
 
                 msg = emsg+'\n\n'+cmsg
@@ -1205,7 +1205,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             textBrowser = QtGui.QTextBrowser(Dialog)
             textBrowser.setMaximumSize(QtCore.QSize(16777215, 125))
             font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Baskerville Old Face"))
+            font.setFamily(_fromUtf8("century"))
             font.setPointSize(12)
             textBrowser.setFont(font)
             textBrowser.setObjectName(_fromUtf8("textBrowser"))
@@ -1253,8 +1253,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                                 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                 "p, li { white-space: pre-wrap; }\n"
-                                                "</style></head><body style=\" font-family:\'Baskerville Old Face\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Baskerville Old Face\'; font-size:11pt;\">"+title+"",
+                                                "</style></head><body style=\" font-family:\'century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:12pt;\">"+title+"",
                                                 None))
             pushButton_2.setText(_translate("Dialog", "Show Details", None))
             pushButton.setText(_translate("Dialog", "OK", None))
@@ -1276,7 +1276,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 item.setText(i)
                 item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
                 font = QtGui.QFont()
-                font.setFamily(_fromUtf8("Garamond"))
+                font.setFamily(_fromUtf8("caladea"))
                 font.setPointSize(13)
                 font.setBold(True)
                 font.setWeight(75)
@@ -1452,7 +1452,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             item.setText(inst)
             item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
             font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Garamond"))
+            font.setFamily(_fromUtf8("caladea"))
             font.setPointSize(15)
             font.setBold(True)
             font.setWeight(75)
@@ -2305,9 +2305,9 @@ These entries are not added to the Database .\nIf you wish to update the databas
         ui.tableWidget.setStyleSheet(
             "color:black;font-weight:bold;font-size:15px;border:1px solid black;gridline-color:black;")
         ui.tableWidget.horizontalHeader().setStyleSheet(
-            "color:darkgreen;font-size:24px;font-weight:bold;font-family:'inaimathi';border:1px solid black;")
+            "color:darkgreen;font-size:24px;font-weight:bold;font-family:'gabriola';border:1px solid black;")
         ui.tableWidget.verticalHeader().setStyleSheet(
-            "color:darkorange;font-size:20px;font-weight:bold;font-family:inaimathi;border:1px solid black;gridline-color:black;")
+            "color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;border:1px solid black;gridline-color:black;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
 
@@ -2589,7 +2589,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
             font-size:16pt;
 
-            font-family:'Baskerville Old Face';
+            font-family:'caladea';
 
             font-weight:bold;
 
@@ -3044,6 +3044,131 @@ color:white;
         data = pd.read_sql("select * from enrolment" ,con)
         try:
             data.to_csv(r'All candidate details.csv',float_format="%s",index=False)
+            string1 = """<!DOCTYPE html>
+                            <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
+                            <head>
+                            <style>
+                            body{
+                            display:block;
+                            background-image: url(b9.png);
+                            background-repeat:repeat-y;
+                            background-position:cover;
+                            width:100%;
+                            height:1260px;
+                            text-align:centre; 
+                            }
+                            .photo{
+                            float:right;
+                            }
+                            .photo1{
+                            float:left;
+
+                            }
+                            .logo{
+                            height:180px;
+                            width:145px;
+                            margin: auto;
+                            background-image: url(ncc2.png);
+                            background-repeat:no-repeat;
+                            background-size: contain;
+                            }
+                            .heading{
+
+                            background-image:url(graywood.png);
+                            color:darkorange;
+                            font-weight:bold;
+                            font-size:60px;
+                            font-family:cursive;
+                            border:3px double white;
+                            border-radius:10px;
+                            text-align: center;
+                            margin-top:40px;
+                            margin-right:10px;
+                            margin-left:8px;
+                            }
+                            .firstpage{
+                            margin:20px;
+
+                            }
+                            .questions{
+                            color:darkblue;
+                            font-family:sans;
+                            font-weight:bold;
+                            font-size:25px;
+                            max-width:80px;
+                            }
+                            .answers{
+                            color:darkgreen;
+                            font-family:sans;
+                            font-weight:bold;
+                            font-size:20px;
+                            max-width:80px;
+                            }</style>
+                            </head>""" + """
+                            <body>
+                            <div class="heading">ENROLMENT FORM</div><br><br>
+                            <div class="firstpage">
+
+                            <img class="photo" src="images-1.jpg" width="160" height="180" />
+
+                            <img class="photo1" src="b4.jpeg" width="160" height="180" />
+                            <div class="logo"></div><br><br>
+
+                            <table width="100%" >
+                            <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
+                            <tr class="questions" height="50px"><td >Student Name</td></tr>
+                            <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
+                            <tr class="questions" height="50px"><td >Fathers Name</td></tr>
+                            <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                            <tr class="questions" height="50px"><td >Mothers Name</td></tr>
+                            <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                            <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
+                            <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
+                            </table><hr>
+                            </div>
+                            </body>
+                            </html>""".format("ammu", "gs", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve","bd", "dsve", "bd",
+                                              "dsve", "bd", "dsve", "bd", "dsve")
+
+            string1=string1+"""
+                         <div class="firstpage">
+                         <table width="100%">
+                         <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
+                         </table><hr>
+                         <h1 style="text-align:center;color:deeppink;font-weight:bold;">{}</h1>
+                         <table width="100%">
+                         <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
+                         </table><hr>
+                         <table width="100%"><hr>
+                         <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
+                         <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
+                         </table><hr>
+                         <br><br><br>
+                         <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
+                         </div>
+                         </body>
+                         </html>""".format("bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd",
+                                           "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve")
+
+            self.pdffun()
+            os.startfile("forms.pdf")
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
 
@@ -3193,7 +3318,7 @@ color:white;
 
         td{
             margin:3px 6px;
-            font-family:inaimathi;
+            font-family:cambria;
             background-color:white;
             text-align:center;
             opacity:0.8;
@@ -3214,7 +3339,7 @@ color:white;
 
             background-color: rgb(177, 51, 255);
             opacity:0.8;
-            font-family:'Baskerville Old Face';
+            font-family:'gabriola';
             text-align-last: center;
             font-size: 22px;
             height:20px;
@@ -3576,12 +3701,19 @@ color:white;
 
 
 def set_up_font():
-
     global fontDB
-
     fontDB = QtGui.QFontDatabase()
-
+    fontDB.addApplicationFont(':/fonts/fonts/ALGER.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/Ambient_Medium.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIAL.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALBD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALBI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALN.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALNB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALNBI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIALNI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ARIBLK.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/BASKVILL.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/CALADEA-BOLD.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/CALADEA-BOLDITALIC.TTF')
@@ -3612,15 +3744,28 @@ def set_up_font():
     fontDB.addApplicationFont(':/fonts/fonts/CENTAUR.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/CENTURY.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/COLONNA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COMIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COMICBD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COMICI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COMICZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CONSTAN.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CONSTANB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CONSTANI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CONSTANZ.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/COURE.FON')
     fontDB.addApplicationFont(':/fonts/fonts/C_BOX.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/C_BOX_D.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/Deloise.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Extra_Sales_Blank.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/GABRIOLA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GARA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GARABD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GARAIT.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/GEORGIA.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/GEORGIAB.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/GEORGIAI.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/GEORGIAZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GIDDYUPSTD.OTF')
     fontDB.addApplicationFont(':/fonts/fonts/Gold Plated.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/GOTHIC.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/GOTHICB.TTF')
@@ -3634,28 +3779,46 @@ def set_up_font():
     fontDB.addApplicationFont(':/fonts/fonts/InaiMathi.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Interceptor_Condensed.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/JOKERMAN.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Jurassic-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/LCALLIG.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/Longdon_Decorative.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/MERCEDES.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/MTCORSVA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/N019043L.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/N019044L.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/N019063L.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/N019064L.TTF')
     fontDB.addApplicationFont(':/fonts/fonts/Neuton_Cursive.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Puritan_Alternate_Bold.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/ROSEWOODSTD-REGULAR.OTF')
     fontDB.addApplicationFont(':/fonts/fonts/ShouldveKnownShaded-Regular.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Black.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Simonetta-BlackItalic.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Italic.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/TAHOMA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TAHOMABD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TIMES.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TIMESBD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TIMESBI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TIMESI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TRAJANPRO-BOLD.OTF')
+    fontDB.addApplicationFont(':/fonts/fonts/TRAJANPRO-REGULAR.OTF')
     fontDB.addApplicationFont(':/fonts/fonts/Transformers_Movie.ttf')
-
-
-
+    fontDB.addApplicationFont(':/fonts/fonts/trial.py')
+    fontDB.addApplicationFont(':/fonts/fonts/UBUNTUMONO-B.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/UBUNTUMONO-R.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/UBUNTUMONO-RI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/ZaragozaPlain-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Zebrawood-Regular-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Zimbra-Bold.otf')
+    fontDB.addApplicationFont(':/fonts/fonts/Zombie-A.ttf')
 
 
 
 
 if __name__ == "__main__":
     import sys
-
-
-
 
     app = QtGui.QApplication(sys.argv)
 

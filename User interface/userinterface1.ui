@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1182</width>
-    <height>820</height>
+    <width>1216</width>
+    <height>792</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -73,6 +73,8 @@
       </property>
       <property name="font">
        <font>
+        <family>Simonetta</family>
+        <pointsize>12</pointsize>
         <weight>75</weight>
         <italic>false</italic>
         <bold>true</bold>
@@ -94,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -103,7 +105,7 @@
        <bool>false</bool>
       </property>
       <property name="movable">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <property name="tabBarAutoHide" stdset="0">
        <bool>false</bool>
@@ -117,15 +119,10 @@
        <property name="styleSheet">
         <string notr="true">#Enrol{
 	background-image:url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-
 	background-position:center;
 
 }</string>
        </property>
-       <attribute name="icon">
-        <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (113).png</iconset>
-       </attribute>
        <attribute name="title">
         <string>Enrolment form</string>
        </attribute>
@@ -143,7 +140,8 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>-1</pointsize>
+            <family>Interceptor Condensed</family>
+            <pointsize>22</pointsize>
            </font>
           </property>
           <property name="mouseTracking">
@@ -152,17 +150,20 @@
           <property name="styleSheet">
            <string notr="true">background-image:url(:/icons/graywood.png) ;
 background-position:center;
-font-size:30px;
 color:white;
 border-radius:5px;
-border-width:3px;
-border-color:green;
-border-style:dotted;
+border-width:2px;
+border-color:orange;
+padding:0 35px;
+border-style:dashed;
 text-decoration:underlined;
-text-shadow:0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;</string>
+</string>
           </property>
           <property name="text">
            <string>Enrolment Form</string>
+          </property>
+          <property name="indent">
+           <number>1</number>
           </property>
          </widget>
         </item>
@@ -199,8 +200,8 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1123</width>
-             <height>2245</height>
+             <width>1157</width>
+             <height>2272</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -605,7 +606,10 @@ color:white;</string>
              <widget class="QLabel" name="bankdetailsLabel">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Longdon Decorative</family>
+                <pointsize>23</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
                </font>
               </property>
               <property name="acceptDrops">
@@ -617,7 +621,6 @@ color:white;</string>
               <property name="styleSheet">
                <string notr="true">
 #bankdetailsLabel{
-font-size:25px;
 background-color:transparent;
 color:yellow;
 border-width:2px;
@@ -628,7 +631,6 @@ margin-bottom:5px;
 
 #bankdetailsLabel:hover
 {
-font-size:25px;
 background-color:transparent;
 color:purple;
 border-width:2px;
@@ -739,7 +741,7 @@ border-radius:15px;
                 <widget class="QLabel" name="enrolmentnumLabel">
                  <property name="font">
                   <font>
-                   <family>georgia</family>
+                   <family>Georgia</family>
                    <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -767,8 +769,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="enrolmentnumLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -823,8 +825,8 @@ color:white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -913,8 +915,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="aadhaarLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1007,43 +1009,6 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="1">
-                <widget class="QComboBox" name="sexComboBox">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="layoutDirection">
-                  <enum>Qt::LeftToRight</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">width:100px;</string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>16</width>
-                   <height>16</height>
-                  </size>
-                 </property>
-                 <property name="frame">
-                  <bool>false</bool>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Male</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Female</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
                <item row="19" column="0">
                 <widget class="QLabel" name="dateofbirthLabel">
                  <property name="font">
@@ -1073,7 +1038,7 @@ color:white;</string>
                 <widget class="QDateEdit" name="dateofbirthDateEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
+                   <family>Baskerville Old Face</family>
                    <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1126,8 +1091,8 @@ color:white;</string>
                 <widget class="QTextEdit" name="addressTextEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1166,8 +1131,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="emailLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1212,8 +1177,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="mobileLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1267,8 +1232,8 @@ color:white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1352,7 +1317,7 @@ color:white;</string>
                   <widget class="QRadioButton" name="NullcertRadioButton">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
+                     <family>Baskerville Old Face</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1376,7 +1341,7 @@ color:white;</string>
                   <widget class="QRadioButton" name="AcertRadioButton">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
+                     <family>Baskerville Old Face</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1394,7 +1359,7 @@ color:white;</string>
                   <widget class="QRadioButton" name="BcertRadioButton">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
+                     <family>Baskerville Old Face</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1412,7 +1377,7 @@ color:white;</string>
                   <widget class="QRadioButton" name="CcertRadioButton">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
+                     <family>Baskerville Old Face</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1470,8 +1435,8 @@ color:white;</string>
                 <widget class="QTextEdit" name="extraactivitiesTextEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1507,8 +1472,8 @@ color:white;</string>
                 <widget class="QTextEdit" name="specialachievementsTextEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1544,7 +1509,7 @@ color:white;</string>
                 <widget class="QDateEdit" name="enroldateDateEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
+                   <family>Baskerville Old Face</family>
                    <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1581,8 +1546,8 @@ color:white;</string>
                 <widget class="QTextEdit" name="remarksTextEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -1604,8 +1569,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="fullnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1622,8 +1587,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="SmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1637,8 +1602,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="SlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1702,8 +1667,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="fathernameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1723,8 +1688,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="FmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1738,8 +1703,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="FlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1788,8 +1753,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="mothernameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1809,8 +1774,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="MmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1824,8 +1789,8 @@ color:white;</string>
                   <widget class="QLineEdit" name="MlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>Georgia</family>
-                     <pointsize>12</pointsize>
+                     <family>InaiMathi</family>
+                     <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                     </font>
@@ -1845,8 +1810,14 @@ color:white;</string>
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="font">
+                  <font>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true"/>
+                  <string notr="true">background-color:rgb(250, 250, 250)</string>
                  </property>
                  <property name="selectionMode">
                   <enum>QAbstractItemView::MultiSelection</enum>
@@ -2013,6 +1984,43 @@ color:white;</string>
                  </property>
                 </spacer>
                </item>
+               <item row="16" column="1">
+                <widget class="QComboBox" name="sexComboBox">
+                 <property name="font">
+                  <font>
+                   <family>Caladea</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">width:100px;</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Male</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Female</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -2066,8 +2074,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="unitLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2135,12 +2143,32 @@ color:white;</string>
                 <widget class="QComboBox" name="institutionenrollComboBox">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
+                   <family>Baskerville Old Face</family>
+                   <pointsize>14</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
                   </font>
                  </property>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>New Item</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>
@@ -2175,8 +2203,8 @@ border-radius:10px;
                 <widget class="QLineEdit" name="ifsccodeLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2240,8 +2268,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="bankbranchLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2258,14 +2286,14 @@ color:white;</string>
                 <widget class="QLineEdit" name="banknameLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>Caladea</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">b</string>
+                  <string notr="true"/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2276,8 +2304,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="accountnameLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2357,8 +2385,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="accountnumLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2375,8 +2403,8 @@ color:white;</string>
                 <widget class="QLineEdit" name="micrLineEdit">
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
-                   <pointsize>12</pointsize>
+                   <family>InaiMathi</family>
+                   <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -2430,7 +2458,7 @@ color:white;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
+                   <family>Extra Sales Blank</family>
                    <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2468,7 +2496,7 @@ margin-right:300px;</string>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Georgia</family>
+                   <family>Extra Sales Blank</family>
                    <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2527,13 +2555,13 @@ background-color:transparent;
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>37</height>
+               <height>40</height>
               </size>
              </property>
              <property name="font">
               <font>
-               <family>Georgia</family>
-               <pointsize>30</pointsize>
+               <family>Shouldve Known Shaded</family>
+               <pointsize>28</pointsize>
                <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
@@ -2572,7 +2600,7 @@ color:yellow;</string>
                </property>
                <property name="font">
                 <font>
-                 <family>georgia</family>
+                 <family>Georgia</family>
                  <pointsize>10</pointsize>
                  <weight>75</weight>
                  <bold>true</bold>
@@ -2583,7 +2611,6 @@ color:yellow;</string>
 {
 background-color:transparent;
 color:white;
-font-family:georgia;
 font-weight:bold;
 }
 
@@ -2591,7 +2618,6 @@ font-weight:bold;
 {
 background-color:transparent;
 color:yellow;
-font-family:georgia;
 font-weight:bold;
 }
 </string>
@@ -2718,6 +2744,14 @@ font-size:20px;
                  <height>27</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <family>Caladea</family>
+                 <pointsize>13</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="toolTip">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to search&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
@@ -2743,9 +2777,6 @@ font-size:20px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:georgia;
-	font-size:13px;
-	font-weight:bold;
 	text-shadow:0px 1px 0px #154682;
 }
 
@@ -2859,14 +2890,18 @@ font-size:20px;
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Longdon Decorative</family>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="styleSheet">
               <string notr="true">#submitPushButton{
 color:white;
-font-size:30px;
-font-family:georgia;
 width:80px;
 height:40px;
 border-style:dashed;
@@ -2879,8 +2914,6 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 #submitPushButton:hover
 {
 color:black;
-font-size:30px;
-font-family:georgia;
 width:80px;
 height:40px;
 border-style:dotted;
@@ -2894,8 +2927,6 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 #submitPushButton:pressed
 {
 color:black;
-font-size:30px;
-font-family:georgia;
 width:80px;
 height:40px;
 border-style:dotted;
@@ -2924,14 +2955,20 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
             <widget class="QCheckBox" name="updateentryCheckBox">
              <property name="font">
               <font>
-               <family>Georgia</family>
-               <pointsize>12</pointsize>
+               <family>Simonetta</family>
+               <pointsize>14</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color:white;</string>
+              <string notr="true">#updateentryCheckBox
+{
+
+	color:white;
+
+}
+</string>
              </property>
              <property name="text">
               <string>Update Entry</string>
@@ -2951,10 +2988,6 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
 	background-position:center;
 }</string>
        </property>
-       <attribute name="icon">
-        <iconset>
-         <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/Pictures/Screenshots/Screenshot (107).png</iconset>
-       </attribute>
        <attribute name="title">
         <string>Query</string>
        </attribute>
@@ -2975,7 +3008,7 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>100</height>
+                 <height>135</height>
                 </size>
                </property>
                <property name="sizeIncrement">
@@ -2994,19 +3027,31 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QGridLayout" name="gridLayout_7">
+                <property name="horizontalSpacing">
+                 <number>0</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>9</number>
+                </property>
                 <item row="3" column="1">
                  <widget class="QCheckBox" name="remarksCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">#remarksCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#remarksCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#remarksCheckBox:hover
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#remarksCheckBox:hover
 {
-	font:15pt cambria;
+	text-decoration:underline;
 	color:yellow;
 }
 </string>
@@ -3020,22 +3065,19 @@ font-weight:bold;
                  <widget class="QCheckBox" name="selectallCheckBox">
                   <property name="font">
                    <font>
-                    <family>Cambria</family>
-                    <pointsize>16</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
+                    <family>Longdon Decorative</family>
+                    <pointsize>19</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">#selectallCheckBox{
 color:rgb(255, 170, 0);
-font-weight:bold;
 }
 
 #selectallCheckBox:hover{
-font: 75 12pt &quot;Georgia&quot;;
 color:rgb(255, 148, 241);
-font-weight:bold;
 
 }</string>
                   </property>
@@ -3048,42 +3090,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="aadhaarCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox{
-color:white;
-font:13pt cambria ;
-font-weight:bold;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover
-{
-	font:15pt cambria;
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Aadhaar</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="QCheckBox" name="banknameCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3095,21 +3103,42 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Aadhaar</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QCheckBox" name="banknameCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
 }
 
-#banknameCheckBox:checked
-{	
-font-color:black;
-	
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
 }</string>
                   </property>
                   <property name="text">
@@ -3124,24 +3153,22 @@ font-color:black;
                  <widget class="QCheckBox" name="accountnumCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckBox , #ifsccodeCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckBox , #ifsccodeCheckBox
+{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckBox:hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3154,8 +3181,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="addressCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3167,14 +3194,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3187,8 +3211,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="bankbranchCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3198,16 +3222,13 @@ font-weight:bold;
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox, #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox:hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox:hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3220,8 +3241,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="emailCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3230,14 +3251,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3248,17 +3266,22 @@ font-weight:bold;
                 </item>
                 <item row="3" column="0">
                  <widget class="QCheckBox" name="micrCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">#micrCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#micrCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#micrCheckBox:hover
-{
-	font:15pt cambria;
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#micrCheckBox:hover{
+	text-decoration:underline;
 	color:yellow;
 }
 </string>
@@ -3272,8 +3295,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="accountnameCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3285,14 +3308,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3305,42 +3325,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="enrolmentCheckBox">
                   <property name="font">
                    <font>
-                    <family>Cambria</family>
-                    <pointsize>13</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox{
-color:white;
-font: 75 13pt &quot;Cambria&quot;;
-font-weight:bold;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover
-{
-	font:15pt cambria;
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Enrolment</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="sfnameCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3352,14 +3338,41 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Enrolment</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QCheckBox" name="sfnameCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
 	color:yellow;
 }</string>
                   </property>
@@ -3372,8 +3385,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="mfnameCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3385,14 +3398,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3405,8 +3415,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="bloodgroupCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3415,14 +3425,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3435,8 +3442,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="ffnameCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3448,14 +3455,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3468,8 +3472,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="sexCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3481,14 +3485,11 @@ font-weight:bold;
                   <property name="styleSheet">
                    <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }</string>
                   </property>
@@ -3499,23 +3500,28 @@ font-weight:bold;
                 </item>
                 <item row="3" column="2">
                  <widget class="QCheckBox" name="vegitarianCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">#vegitarianCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#vegitarianCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#vegitarianCheckBox:hover
-{
-	font:15pt cambria;
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#vegitarianCheckBox:hover{
+	text-decoration:underline;
 	color:yellow;
 }
 </string>
                   </property>
                   <property name="text">
-                   <string>Vegitarian</string>
+                   <string>Meal Preference</string>
                   </property>
                  </widget>
                 </item>
@@ -3523,26 +3529,24 @@ font-weight:bold;
                  <widget class="QCheckBox" name="ifsccodeCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#ifscCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#ifscCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
-}</string>
+}
+</string>
                   </property>
                   <property name="text">
                    <string>IFSC Code</string>
@@ -3551,17 +3555,20 @@ font-weight:bold;
                 </item>
                 <item row="3" column="4">
                  <widget class="QCheckBox" name="enrollDateCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrollDateCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#enrollDateCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
-
 }
 
-#enrollDateCheckBox:hover
-{
-	font:15pt cambria;
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#enrollDateCheckBox:hover{
 	color:yellow;
 }
 </string>
@@ -3575,8 +3582,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="unitCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3586,18 +3593,15 @@ font-weight:bold;
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox , #unitCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	font:15pt cambria;
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#unitCheckBox:hover{
 	color:yellow;
-}</string>
+}
+</string>
                   </property>
                   <property name="text">
                    <string>Unit</string>
@@ -3611,8 +3615,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="institutionCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3622,16 +3626,13 @@ font-weight:bold;
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#insitutionCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#insitutionCheckBox:hover{
 	text-decoration:underline;
-	font:15pt cambria;
 	color:yellow;
 }
 </string>
@@ -3643,17 +3644,21 @@ font-weight:bold;
                 </item>
                 <item row="4" column="0" colspan="2">
                  <widget class="QCheckBox" name="extraCurricularActivitiesCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">#extraCurricularActivitiesCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
-
 }
 
 #extraCurricularActivitiesCheckBox:hover
 {
-	font:15pt cambria;
 	color:yellow;
 }
 </string>
@@ -3665,17 +3670,22 @@ font-weight:bold;
                 </item>
                 <item row="4" column="2">
                  <widget class="QCheckBox" name="campsAttendedCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">#campsAttendedCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #campsAttendedCheckBox:hover
 {
-	font:15pt cambria;
 	color:yellow;
 }
 </string>
@@ -3689,8 +3699,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="rankCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3700,18 +3710,16 @@ font-weight:bold;
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#rankCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+#rankCheckBox:hover
+{
 	color:yellow;
-	font: 75 16pt &quot;Cambria&quot;;
-	text-decoration: underline;
-}</string>
+}
+</string>
                   </property>
                   <property name="text">
                    <string>Rank</string>
@@ -3720,17 +3728,22 @@ font-weight:bold;
                 </item>
                 <item row="4" column="6">
                  <widget class="QCheckBox" name="specialAchievementsCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">#specialAchievementsCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
 #specialAchievementsCheckBox:hover
 {
-	font:15pt cambria;
 	color:yellow;
 }
 </string>
@@ -3744,8 +3757,8 @@ font-weight:bold;
                  <widget class="QCheckBox" name="dateofbirthCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
@@ -3755,18 +3768,16 @@ font-weight:bold;
                    <cursorShape>PointingHandCursor</cursorShape>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#dateofbirthCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	font:15pt cambria;
+#dateofbirthCheckBox:hover
+{
 	color:yellow;
-}</string>
+}
+</string>
                   </property>
                   <property name="text">
                    <string>Date of Birth</string>
@@ -3777,26 +3788,24 @@ font-weight:bold;
                  <widget class="QCheckBox" name="mobileCheckBox">
                   <property name="font">
                    <font>
-                    <family>cambria</family>
-                    <pointsize>13</pointsize>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
                     <weight>75</weight>
                     <italic>false</italic>
                     <bold>true</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+                   <string notr="true">#mobileCheckBox{
 color:white;
-font:13pt cambria ;
-font-weight:bold;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	font:15pt cambria;
+#mobileCheckBox:hover
+{
 	color:yellow;
-}</string>
+}
+</string>
                   </property>
                   <property name="text">
                    <string>Mobile</string>
@@ -3916,7 +3925,6 @@ border-style:groove;
 border-color:rgb(255,255,255);
 border-radius:15px;
 background-color: qlineargradient(spread:pad, x1:0.602, y1:0.392364, x2:0, y2:1, stop:0 rgba(254, 77, 0, 255), stop:1 rgba(122, 255, 73, 255));
-border-width:3px;
 height:25px;
 width:120%;
 }</string>
@@ -4069,12 +4077,15 @@ width:120%;
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <property name="spacing">
+                   <number>3</number>
+                  </property>
                   <item>
                    <widget class="QComboBox" name="conditionlistcombobox">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
+                      <family>Baskerville Old Face</family>
+                      <pointsize>15</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
@@ -4084,13 +4095,11 @@ width:120%;
                      <string notr="true">#conditionlistcombobox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #conditionlistcombobox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4179,7 +4188,7 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
-                      <string>Vegitarian</string>
+                      <string>Meal Preference</string>
                      </property>
                     </item>
                     <item>
@@ -4221,17 +4230,21 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="campsattendedqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#campsattendedqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #campsattendedqueryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4254,45 +4267,53 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="vegitarianqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#vegitarianqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #vegitarianqueryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
                     <item>
                      <property name="text">
-                      <string>veg</string>
+                      <string>Veg</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>nonveg</string>
+                      <string>Nonveg</string>
                      </property>
                     </item>
                    </widget>
                   </item>
                   <item>
                    <widget class="QComboBox" name="bloodgroupqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#bloodgroupqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #bloodgroupqueryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4340,17 +4361,21 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="certificatequeryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>17</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#certificatequeryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #certificatequeryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4373,17 +4398,21 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="institutionqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#institutionqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #institutionqueryComboBox:hover{
 		border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4391,17 +4420,24 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="rankqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#rankqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #rankqueryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4444,17 +4480,21 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="sexqueryComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Caladea</family>
+                      <pointsize>17</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">#sexqueryComboBox{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #sexqueryComboBox:hover{
 	border:1px solid chartreuse;
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4474,8 +4514,8 @@ width:130%;
                    <widget class="QDateEdit" name="datequeryDateEdit">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>14</pointsize>
+                      <family>Baskerville Old Face</family>
+                      <pointsize>16</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
@@ -4485,13 +4525,11 @@ width:130%;
                      <string notr="true">#datequeryDateEdit{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 14pt &quot;georgia&quot;;
 width:130%;
 height:30px;
 }
 #datequeryDateEdit:hover{
 	border:1px solid chartreuse;
-	font: 16pt &quot;georgia&quot;;
 width:130%;
 }</string>
                     </property>
@@ -4504,8 +4542,8 @@ width:130%;
                    <widget class="QLineEdit" name="valuelineEdit">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
+                      <family>InaiMathi</family>
+                      <pointsize>13</pointsize>
                       <weight>75</weight>
                       <italic>false</italic>
                       <bold>true</bold>
@@ -4515,13 +4553,10 @@ width:130%;
                      <string notr="true">#valuelineEdit{
 	background-color: rgb(255, 255, 255);
 	color: rgb(85, 0, 0);
-	font: 12pt &quot;georgia&quot;;
-	font-weight:bold;
 	width:130%;
 height:30px;
 }
 #valuelineEdit:hover{
-	font: 14pt &quot;georgia&quot;;
 	width:130%;
 }
 
@@ -4531,24 +4566,26 @@ height:30px;
 
 }</string>
                     </property>
+                    <property name="text">
+                     <string/>
+                    </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="insertcondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#insertcondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:20px;
 padding-right:20px;
 border-style:solid;
@@ -4564,7 +4601,6 @@ width:130%;
 color:white;
 padding-left:18px;
 padding-right:22px;
-font: 75 14pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4578,7 +4614,6 @@ width:130%;
 color:white;
 padding-left:18px;
 padding-right:22px;
-font: 75 14pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4596,18 +4631,17 @@ width:130%;
                    <widget class="QPushButton" name="clearcondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#clearcondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:20px;
 padding-right:20px;
 border-style:solid;
@@ -4623,7 +4657,6 @@ width:130%;
 color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 14pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4641,18 +4674,17 @@ width:130%;
                    <widget class="QPushButton" name="querycondition">
                     <property name="font">
                      <font>
-                      <family>georgia</family>
-                      <pointsize>12</pointsize>
-                      <weight>9</weight>
+                      <family>Caladea</family>
+                      <pointsize>16</pointsize>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">#querycondition{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 12pt &quot;georgia&quot;;
 padding-left:20px;
 padding-right:20px;
 border-style:solid;
@@ -4668,7 +4700,6 @@ width:130%;
 color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 15pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4698,6 +4729,44 @@ width:130%;
                   </item>
                  </layout>
                 </item>
+                <item alignment="Qt::AlignHCenter">
+                 <widget class="QPushButton" name="query_backPushButton">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>41</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Monotype Corsiva</family>
+                    <pointsize>28</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:white;
+padding-right:3px;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Back</string>
+                  </property>
+                 </widget>
+                </item>
                 <item>
                  <widget class="QWebView" name="webView">
                   <property name="acceptDrops">
@@ -4721,17 +4790,35 @@ width:130%;
           </layout>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="1" column="0" alignment="Qt::AlignHCenter">
          <widget class="QPushButton" name="generateexcelqueryPushButton">
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>600</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Longdon Decorative</family>
+            <pointsize>22</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">#generateexcelqueryPushButton{
 background-color: rgb(255,255,255);
 	color: rgb(0, 0, 0);
-font: 75 14pt &quot;georgia&quot;;
 padding-left:20px;
 padding-right:20px;
 border-style:solid;
-border-color: rgb(255, 170, 0);
+border-color:black;
+
 border-width:2px;
 height:30px;
 border-radius:15px;
@@ -4743,7 +4830,6 @@ width:130%;
 color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 16pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4757,7 +4843,6 @@ width:130%;
 color:rgb(255,255,255);
 padding-left:18px;
 padding-right:22px;
-font: 75 12pt &quot;georgia&quot;;
 border-style:solid;
 border-color:rgb(255,255,255);
 border-width:2px;
@@ -4828,10 +4913,10 @@ background-color:transparent;
              </property>
              <property name="font">
               <font>
-               <family>Californian FB</family>
+               <family>Caladea</family>
                <pointsize>18</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
+               <weight>50</weight>
+               <bold>false</bold>
               </font>
              </property>
              <property name="styleSheet">
@@ -4895,9 +4980,21 @@ border-radius:2px;
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>58</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <family>Colonna MT</family>
+               <family>Longdon Decorative</family>
                <pointsize>48</pointsize>
                <weight>50</weight>
                <bold>false</bold>
@@ -4905,7 +5002,7 @@ border-radius:2px;
              </property>
              <property name="styleSheet">
               <string notr="true">background-color:transparent;
-color:blue;</string>
+color:purple;</string>
              </property>
              <property name="text">
               <string>Choose your Form</string>
@@ -4919,46 +5016,40 @@ color:blue;</string>
             <layout class="QGridLayout" name="gridLayout_9">
              <item row="1" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_14">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QPushButton" name="saveExelPushButton">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>32</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
-                   <pointsize>-1</pointsize>
+                   <family>Monotype Corsiva</family>
+                   <pointsize>19</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">#saveExelPushButton{
-background-color: rgb(255, 255, 255);
-	border-color: rgb(0, 0, 127);
-border-radius:10px;
-border-width:2px;
-border-style:solid;
-height:30px;
-font-size:15px;
-font-weight:bold;
-padding-left:8px;
-padding-right:8px;
-color:rgb(85, 170, 255);
-color:black;
-width:400%;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 255));
+color:white;
+padding:1px 30px;
+
+
 }
 #saveExelPushButton:hover{
-	background-color: rgb(85, 170, 255);
-font-weight:bold;
-border-color:rgb(255, 255, 255);
-border-radius:10px;
-border-width:2px;
-border-style:solid;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 150));
+}
+#saveExelPushButton:pressed{
 
-padding-left:8px;
-padding-right:8px;
-height:30px;
-color:rgb(255, 255, 255);
-font-size:20px;
-padding-top:-10px;
-width:400%;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 50));
+
 }
 </string>
                  </property>
@@ -4967,44 +5058,49 @@ width:400%;
                  </property>
                 </widget>
                </item>
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item alignment="Qt::AlignHCenter">
                 <widget class="QPushButton" name="updateExelPushButton">
+                 <property name="maximumSize">
+                  <size>
+                   <width>300</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
-                   <pointsize>-1</pointsize>
+                   <family>Monotype Corsiva</family>
+                   <pointsize>18</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">
-#updateExelPushButton{
-background-color: rgb(255, 255, 255);
-	border-color: rgb(0, 0, 127);
-border-radius:10px;
-border-width:2px;
-border-style:solid;
-height:30px;
-font-weight:bold;
-font-size:15px;
-width:175%;
-color:rgb(85, 170, 255);
-color:black;
-width:400%;
+                  <string notr="true">#updateExelPushButton{
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 255));
+color:white;
+padding:1px 30px;
 }
+
 #updateExelPushButton:hover{
-	background-color: rgb(85, 170, 255);
-border-color:rgb(255, 255, 255);
-border-radius:10px;
-border-width:2px;
-border-style:solid;
-height:30px;
-font-weight:bold;
-color:rgb(255, 255, 255);
-font-size:20px;
-padding-top:-10px;
-width:175%;
-width:400%;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 150));
+}
+#updateExelPushButton:pressed{
+
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 50));
+
 }
 </string>
                  </property>
@@ -5019,13 +5115,22 @@ width:400%;
            </item>
            <item row="5" column="0" alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="label_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
              <property name="font">
               <font>
-               <pointsize>-1</pointsize>
+               <family>Monotype Corsiva</family>
+               <pointsize>25</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">font-size:25px;
+              <string notr="true">
 background-color:transparent;
 color:black;</string>
              </property>
@@ -5070,11 +5175,14 @@ color:black;</string>
              </property>
              <property name="font">
               <font>
-               <family>Centaur</family>
+               <family>Baskerville Old Face</family>
                <pointsize>14</pointsize>
                <weight>75</weight>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>Enter comma seperated Enrolment Numbers</string>
              </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(210, 255, 249);
@@ -5110,15 +5218,19 @@ background-repeat:none;
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="spacing">
+             <number>3</number>
+            </property>
             <item>
              <widget class="QComboBox" name="institutionuploaddatacomboBox">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Caladea</family>
+                <pointsize>18</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
+               <string notr="true">
 border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
@@ -5134,15 +5246,17 @@ color: rgb(0, 0, 127);
              <widget class="QComboBox" name="typecomboBox">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Caladea</family>
+                <pointsize>18</pointsize>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
+               <string notr="true">
 border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
-color: rgb(0, 0, 127);</string>
+color: rgb(0, 0, 127);
+</string>
               </property>
               <property name="maxVisibleItems">
                <number>25</number>
@@ -5151,11 +5265,19 @@ color: rgb(0, 0, 127);</string>
             </item>
             <item>
              <widget class="QComboBox" name="campsNameuploaddataComboBox">
+              <property name="font">
+               <font>
+                <family>Caladea</family>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
+               <string notr="true">
 border-radius:5px;
 padding-left:5px;
-color: rgb(0, 0, 127);</string>
+background-image: url(:/icons/close line.png);
+color: rgb(0, 0, 127);
+</string>
               </property>
              </widget>
             </item>
@@ -5163,31 +5285,29 @@ color: rgb(0, 0, 127);</string>
              <widget class="QPushButton" name="openPushButton">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Simonetta</family>
+                <pointsize>17</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#openPushButton{
-font-size:20px;
-	color: rgb(94, 0, 141);
-color:black;
-	background-color:white;
-border-style:solid;
-	border-color: rgb(104, 0, 156);
-border-width:2px;
-height:24px;
-border-radius:10px;
+
+color:white;
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 65, 65, 255), stop:0.368664 rgba(95, 0, 205, 255), stop:0.737327 rgba(165, 205, 0, 255), stop:1 rgba(255, 122, 0, 255));
+border-radius:5px;
+border:0.5px solid white;
 }
 #openPushButton:hover{
-font-size:25px;
-	background-color:rgba(94, 0, 141,100);
-border-radius:10px;
 color:white;
-border-style:solid;
-border-color:white;
-border-width:2px;
-height:30px;
-padding-top:-5px;
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(200, 60, 60, 255), stop:0.368664 rgba(50, 0, 170, 200), stop:0.737327 rgba(110,160, 0, 255), stop:1 rgba(50, 100, 0, 255));
+}
+
+#openPushButton:pressed{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(200, 60, 60, 150), stop:0.368664 rgba(50, 0, 170, 150), stop:0.737327 rgba(110,160, 0, 150), stop:1 rgba(50, 100, 0, 150));
+border-color:green;
+
 }</string>
               </property>
               <property name="text">
@@ -5220,9 +5340,16 @@ padding-top:-5px;
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Caladea</family>
+                <pointsize>16</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
-border-radius:5px;
+               <string notr="true">border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);</string>
@@ -5252,12 +5379,15 @@ color: rgb(0, 0, 127);</string>
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Algerian</family>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
-border-radius:5px;
-padding-left:5px;
-background-image: url(:/icons/close line.png);
-color: rgb(0, 0, 127);</string>
+               <string notr="true">border-radius:5px;
+padding-left:5px;</string>
               </property>
               <property name="text">
                <string>Eligable</string>
@@ -5272,8 +5402,14 @@ color: rgb(0, 0, 127);</string>
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <family>Caladea</family>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font-size:20px;
+               <string notr="true">
 border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);
@@ -5312,12 +5448,12 @@ color: rgb(0, 0, 127);</string>
              <widget class="QLineEdit" name="enrolmentuploaddataLineEdit">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>InaiMathi</family>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">width:100%;
-font-size:15px;
 border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);;
@@ -5336,12 +5472,12 @@ height:30%;</string>
              <widget class="QLineEdit" name="locationLineEdit">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>InaiMathi</family>
+                <pointsize>16</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">width:20%;
-font-size:15px;
 border-radius:5px;
 padding-left:5px;
 background-image: url(:/icons/close line.png);;
@@ -5361,6 +5497,7 @@ height:30%;</string>
              <widget class="QLabel" name="startdateLabel">
               <property name="font">
                <font>
+                <family>Jurassic</family>
                 <pointsize>15</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
@@ -5369,10 +5506,14 @@ height:30%;</string>
               <property name="styleSheet">
                <string notr="true">border-radius:10px;
 margin:3px;
-color:green;</string>
+color:white;
+background-color:transparent;</string>
               </property>
               <property name="text">
-               <string>Start  Date</string>
+               <string>From</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -5380,6 +5521,7 @@ color:green;</string>
              <widget class="QDateEdit" name="startdateDateEdit">
               <property name="font">
                <font>
+                <family>Baskerville Old Face</family>
                 <pointsize>14</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
@@ -5395,6 +5537,7 @@ border-radius:5px;</string>
              <widget class="QLabel" name="enddateLabel">
               <property name="font">
                <font>
+                <family>Jurassic</family>
                 <pointsize>15</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
@@ -5403,10 +5546,14 @@ border-radius:5px;</string>
               <property name="styleSheet">
                <string notr="true">border-radius:10px;
 margin:3px;
-color:green;</string>
+color:white;
+background-color:transparent;</string>
               </property>
               <property name="text">
-               <string>End Date</string>
+               <string>To</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -5414,6 +5561,7 @@ color:green;</string>
              <widget class="QDateEdit" name="enddateDateEdit">
               <property name="font">
                <font>
+                <family>Baskerville Old Face</family>
                 <pointsize>14</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
@@ -5429,6 +5577,12 @@ border-radius:5px;</string>
           </item>
           <item>
            <widget class="QTableWidget" name="tableWidget">
+            <property name="font">
+             <font>
+              <family>InaiMathi</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">background-color:rgba(170, 255, 255 , 10)</string>
             </property>
@@ -5441,85 +5595,77 @@ border-radius:5px;</string>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
-              <height>20</height>
+              <width>0</width>
+              <height>4</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_8">
-            <item>
-             <widget class="QPushButton" name="savedataPushButton">
-              <property name="font">
-               <font>
-                <pointsize>-1</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#savedataPushButton{
-font-size:20px;
-	color: rgb(94, 0, 141);
-color:black;
-	background-color:white;
-border-style:solid;
-	border-color: rgb(104, 0, 156);
-border-width:2px;
-height:30px;
-border-radius:10px;
-}
-#savedataPushButton:hover{
-font-size:25px;
-	background-color:rgba(94, 0, 141,100);
-border-radius:10px;
-color:white;
-border-style:solid;
-border-color:white;
-border-width:2px;
-height:30px;
-padding-top:-5px;
-}
-</string>
-              </property>
-              <property name="text">
-               <string>Save to database</string>
-              </property>
-             </widget>
-            </item>
-            <item>
+            <property name="spacing">
+             <number>3</number>
+            </property>
+            <item alignment="Qt::AlignHCenter">
              <widget class="QPushButton" name="save_data_excelPushButton">
               <property name="font">
                <font>
-                <pointsize>-1</pointsize>
+                <family>Baskerville Old Face</family>
+                <pointsize>19</pointsize>
+                <italic>false</italic>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">#save_data_excelPushButton{
-font-size:20px;
-	color: rgb(94, 0, 141);
-color:black;
-	background-color:white;
-border-style:solid;
-	border-color: rgb(104, 0, 156);
-border-width:2px;
-height:30px;
-border-radius:10px;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 100));
+color:white;
+padding: 0 45px;
 }
 #save_data_excelPushButton:hover{
-font-size:25px;
-	background-color:rgba(94, 0, 141,100);
-border-radius:10px;
-color:white;
-border-style:solid;
-border-color:white;
-border-width:2px;
-height:30px;
-padding-top:-5px;
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 200));
 }
+
+#save_data_excelPushButton:pressed{
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 255));
+
+}
+
+
 </string>
               </property>
               <property name="text">
                <string>Generate Excel</string>
+              </property>
+             </widget>
+            </item>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QPushButton" name="savedataPushButton">
+              <property name="font">
+               <font>
+                <family>Baskerville Old Face</family>
+                <pointsize>19</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#savedataPushButton{
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 150));
+color:white;
+padding:0 45px;
+}
+#savedataPushButton:hover{
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 200));
+}
+
+#savedataPushButton:pressed{
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(50, 120, 210, 255));
+
+}
+
+
+</string>
+              </property>
+              <property name="text">
+               <string>Save to database</string>
               </property>
              </widget>
             </item>
@@ -5548,6 +5694,9 @@ background-position:center;
          <layout class="QVBoxLayout" name="verticalLayout_13">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_26">
+            <property name="spacing">
+             <number>4</number>
+            </property>
             <item>
              <widget class="QComboBox" name="typelongnrComboBox">
               <property name="minimumSize">
@@ -5564,7 +5713,7 @@ background-position:center;
               </property>
               <property name="font">
                <font>
-                <family>Californian FB</family>
+                <family>Caladea</family>
                 <pointsize>18</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
@@ -5609,7 +5758,7 @@ background-position:center;</string>
               </property>
               <property name="font">
                <font>
-                <family>Californian FB</family>
+                <family>Caladea</family>
                 <pointsize>18</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
@@ -5621,7 +5770,8 @@ background-position:center;</string>
              <widget class="QLineEdit" name="unitlongnrLineEdit">
               <property name="font">
                <font>
-                <pointsize>14</pointsize>
+                <family>Baskerville Old Face</family>
+                <pointsize>17</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
@@ -5647,7 +5797,7 @@ background-position:center;</string>
               </property>
               <property name="font">
                <font>
-                <family>Californian FB</family>
+                <family>ChocolateBoxDecorative</family>
                 <pointsize>16</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
@@ -5656,12 +5806,23 @@ background-position:center;</string>
               <property name="styleSheet">
                <string notr="true">#showlongnrPushButton
 {
-color:white;
+color:rgba(255,255,255);
 border-radius:2px;
 border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;
+background-color:rgb(0, 125, 193);
+padding-top:5px;
+}
 
+#showlongnrPushButton:hover
+{
+border-color:rgba(200,200,200);
+background-color:rgb(0, 110, 175)
+}
+
+#showlongnrPushButton:pressed
+{
+border:2px dotted orange;
+background-color:rgb(0, 80, 145);
 }
 </string>
               </property>
@@ -5674,6 +5835,11 @@ background-position:center;
           </item>
           <item>
            <widget class="QTableWidget" name="tableWidget_2">
+            <property name="font">
+             <font>
+              <family>InaiMathi</family>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">background-color: transparent;</string>
             </property>
@@ -5704,19 +5870,34 @@ background-position:center;
               </property>
               <property name="font">
                <font>
-                <family>Calisto MT</family>
-                <pointsize>17</pointsize>
+                <family>Merced</family>
+                <pointsize>19</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">
-color:white;
+#generateexcellongnrPushButton
+{
+color:rgba(255,255,255);
 border-radius:2px;
 border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;</string>
+background-color:rgb(0, 125, 193);
+}
+
+#generateexcellongnrPushButton:hover
+{
+border-color:rgba(200,200,200);
+background-color:rgb(0, 110, 175)
+}
+
+#generateexcellongnrPushButton:pressed
+{
+border:2px dotted orange;
+background-color:rgb(0, 80, 145);
+}
+</string>
               </property>
               <property name="text">
                <string>Generate Form</string>
@@ -5746,18 +5927,34 @@ background-position:center;</string>
               </property>
               <property name="font">
                <font>
-                <family>Calisto MT</family>
-                <pointsize>17</pointsize>
+                <family>Merced</family>
+                <pointsize>19</pointsize>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color:white;
+               <string notr="true">
+#updateexcellongnrPushButton
+{
+color:rgba(255,255,255);
 border-radius:2px;
 border:2px double white;
-background-image: url(:/icons/Grungy Blue HD Wallpaper  Theme Bin - Customization HD Wallpapers ....png);
-background-position:center;</string>
+background-color:rgb(0, 125, 193);
+}
+
+#updateexcellongnrPushButton:hover
+{
+border-color:rgba(200,200,200);
+background-color:rgb(0, 110, 175)
+}
+
+#updateexcellongnrPushButton:pressed
+{
+border:2px dotted orange;
+background-color:rgb(0, 80, 145);
+}
+</string>
               </property>
               <property name="text">
                <string>Update Form</string>
@@ -5816,9 +6013,9 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1141</y>
-             <width>1121</width>
-             <height>1882</height>
+             <y>0</y>
+             <width>1155</width>
+             <height>1995</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -6071,7 +6268,7 @@ background-color:transparent;
                     <property name="font">
                      <font>
                       <family>Longdon Decorative</family>
-                      <pointsize>25</pointsize>
+                      <pointsize>29</pointsize>
                       <weight>50</weight>
                       <bold>false</bold>
                      </font>
@@ -6218,13 +6415,7 @@ border-radius:3px;</string>
                     <property name="minimumSize">
                      <size>
                       <width>500</width>
-                      <height>285</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>333</height>
+                      <height>391</height>
                      </size>
                     </property>
                     <property name="styleSheet">
@@ -6297,7 +6488,7 @@ border-radius:3px;</string>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color:transparent;
-color:rgb(67, 0, 0);
+color:black;
 border:2px dotted green;</string>
                    </property>
                    <property name="text">
@@ -6323,7 +6514,7 @@ border:2px dotted green;</string>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color:transparent;
-color:rgb(67, 0, 0);
+color:black;
 border:2px dotted green;</string>
                    </property>
                    <property name="text">
@@ -6404,7 +6595,7 @@ border:2px dotted green;</string>
                  <property name="font">
                   <font>
                    <family>Longdon Decorative</family>
-                   <pointsize>25</pointsize>
+                   <pointsize>29</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
                    <stylestrategy>PreferAntialias</stylestrategy>
@@ -6917,7 +7108,7 @@ border-radius:3px;</string>
                <string notr="true">#exceltodatabasePushButton
 {
 border-radius:20px;
-background-color:qlineargradient(spread:pad, x1:0.505682, y1:0, x2:0.477273, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(203, 146, 0, 255));
+background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(0, 176, 201, 255));
 color:white;
 border-top:1px solid green;
 border-bottom:1px solid black;
@@ -7070,7 +7261,6 @@ padding:10px 10px;
   <tabstop>mothernameLineEdit</tabstop>
   <tabstop>MmiddlenameLineEdit</tabstop>
   <tabstop>MlastnameLineEdit</tabstop>
-  <tabstop>sexComboBox</tabstop>
   <tabstop>dateofbirthDateEdit</tabstop>
   <tabstop>addressTextEdit</tabstop>
   <tabstop>emailLineEdit</tabstop>
@@ -7141,7 +7331,6 @@ padding:10px 10px;
   <tabstop>openbracecondition</tabstop>
   <tabstop>closebracecondition</tabstop>
   <tabstop>backcondition</tabstop>
-  <tabstop>conditionlistcombobox</tabstop>
   <tabstop>bloodgroupqueryComboBox</tabstop>
   <tabstop>institutionqueryComboBox</tabstop>
   <tabstop>rankqueryComboBox</tabstop>
@@ -7154,8 +7343,6 @@ padding:10px 10px;
   <tabstop>webView</tabstop>
   <tabstop>formsComboBox</tabstop>
   <tabstop>entryBox</tabstop>
-  <tabstop>saveExelPushButton</tabstop>
-  <tabstop>updateExelPushButton</tabstop>
   <tabstop>institutionuploaddatacomboBox</tabstop>
   <tabstop>typecomboBox</tabstop>
   <tabstop>campsNameuploaddataComboBox</tabstop>
@@ -7168,7 +7355,6 @@ padding:10px 10px;
   <tabstop>startdateDateEdit</tabstop>
   <tabstop>enddateDateEdit</tabstop>
   <tabstop>savedataPushButton</tabstop>
-  <tabstop>save_data_excelPushButton</tabstop>
   <tabstop>typelongnrComboBox</tabstop>
   <tabstop>institutionlongnrComboBox</tabstop>
   <tabstop>unitlongnrLineEdit</tabstop>
@@ -7226,6 +7412,86 @@ padding:10px 10px;
     <hint type="destinationlabel">
      <x>385</x>
      <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>valuelineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>insertcondition</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>869</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>957</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addcampsLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addcampPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>597</x>
+     <y>400</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addformLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addformPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>526</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>223</x>
+     <y>557</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_addfieldLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addfieldPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>799</x>
+     <y>496</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>872</x>
+     <y>557</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>settings_instLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>settings_addPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>616</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>766</x>
+     <y>616</y>
     </hint>
    </hints>
   </connection>

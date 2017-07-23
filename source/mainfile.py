@@ -1,16 +1,17 @@
 import csv
 
 import openpyxl
+from PyQt4.QtCore import QUrl
 from openpyxl.styles import Alignment
 import pandas as pd
 import sqlite3
-from PyQt4.QtGui import QComboBox, QBrush, QPixmap
+from PyQt4.QtGui import QComboBox, QBrush, QPixmap, QApplication, QPrinter
 from openpyxl import Workbook
 from openpyxl.drawing.image import Image
 import ENROLMENT_FORM
 import os
 from userinterface import Ui_MainWindow, _fromUtf8
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore, QtGui, QtWebKit
 import shutil
 from tempfile import TemporaryFile
 
@@ -43,6 +44,12 @@ class Ui_loginDialog(object):
         loginDialog.setSizePolicy(sizePolicy)
         loginDialog.setMinimumSize(QtCore.QSize(616, 298))
         loginDialog.setMaximumSize(QtCore.QSize(876, 411))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Centaur"))
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        loginDialog.setFont(font)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/ncc2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         loginDialog.setWindowIcon(icon)
@@ -69,8 +76,7 @@ class Ui_loginDialog(object):
         font.setItalic(False)
         font.setWeight(75)
         self.label.setFont(font)
-        self.label.setStyleSheet(_fromUtf8("font: 75 20pt \"Centaur\";\n"
-"font-weight:bold;\n"
+        self.label.setStyleSheet(_fromUtf8("\n"
 "color:white;"))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName(_fromUtf8("label"))
@@ -122,8 +128,8 @@ class Ui_loginDialog(object):
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.loginPushButton = QtGui.QPushButton(loginDialog)
         font = QtGui.QFont()
-        font.setFamily(_fromUtf8("Century"))
-        font.setPointSize(22)
+        font.setFamily(_fromUtf8("Longdon Decorative"))
+        font.setPointSize(29)
         font.setBold(False)
         font.setWeight(50)
         self.loginPushButton.setFont(font)
@@ -134,7 +140,7 @@ class Ui_loginDialog(object):
 "border-radius:10px;\n"
 "border-top:1px solid yellow;\n"
 "border-bottom:1px solid black;\n"
-"padding:3px 0px;\n"
+"padding:0px 0px;\n"
 "}\n"
 "\n"
 "#loginPushButton:hover{\n"
@@ -173,9 +179,34 @@ class ImageWidget(QtGui.QTableWidgetItem):
         painter.drawPixmap(0, 0, self.picture)
 class logic():
     flag = 0
+
+    def refreshfun(self):
+        file = open("gs.html", "w")
+        if len(ui.textEdit.toPlainText())>20:
+            file.write(ui.textEdit.toPlainText())
+            file.close()
+            ui.webView_3.load(QUrl("gs.html"))
+
+    def pdffun(self):
+        printer = QPrinter()
+        printer.setOutputFileName(r"C:\Users\{}\Documents\NCC DUMPS\form.pdf".format(os.getlogin()))
+        printer.setOutputFormat(QPrinter.PdfFormat)
+        printer.setPageMargins(0.5,0.5,0.5,0.5,QPrinter.Inch)
+        printer.setPaperSize(QPrinter.A4)
+        ui.webView_3.print_(printer)
+        os.startfile(r"C:\Users\{}\Documents\NCC DUMPS\form.pdf".format(os.getlogin()))
+        return
+    def loadfun(self):
+        with open('gs.html','r') as f:
+            ui.textEdit.setPlainText(f.read())
+
+
     def __init__(self):
 
-
+        ui.load.clicked.connect(self.loadfun)
+        ui.webView_3.load(QUrl("gs.html"))
+        ui.pdf.clicked.connect(self.pdffun)
+        ui.refresh.clicked.connect(self.refreshfun)
         ENROLMENT_FORM.enroll().create_table_Attendance()
 
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
@@ -390,7 +421,12 @@ class logic():
         ui.eligibilityCheckBox.hide()
         ui.eligibilityCheckBox.stateChanged.connect(self.eligibilitylogic)
 
+
         self.init_settings()
+
+
+
+
 
 
     def init_settings(self):
@@ -494,6 +530,9 @@ class logic():
 
 
 
+
+
+
         def camplist_clicked():
             if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
                 ui.settings_removecampPushButton.hide()
@@ -521,6 +560,8 @@ class logic():
 
         self.login_permission()
         self.showtooltip("WELCOME")
+
+
 
     def login_permission(self):
         app.processEvents()
@@ -739,12 +780,13 @@ class logic():
                 ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.Stretch)
             ui.tableWidget_2.verticalHeader().setResizeMode(i, QtGui.QHeaderView.Fixed)
         ui.tableWidget_2.showGrid()
+        ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
         ui.tableWidget_2.setStyleSheet(
             "color:white;font-weight:bold;font-size:15px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
-            "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+            "color:darkgreen;font-size:25px;font-weight:bold;font-family:inaimathi;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
-            "color:darkorange;width:50px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
+            "color:darkorange;width:5000px;font-size:30px;font-family:inaimathi;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         ui.tableWidget_2.resizeColumnsToContents()
 
@@ -761,6 +803,7 @@ class logic():
             ui.unitlongnrLineEdit.show()
 
     querytupple=[]
+
     queryheading=[]
 
     def generateexcelforquery(self):
@@ -913,8 +956,6 @@ class logic():
                     self.showtooltip("Settings Restored Successfully")
                 except:
                     self.showtooltip("Settings Restoration Failed")
-
-
 
     def save_from_excel_to_database(self):
 
@@ -1137,7 +1178,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             if conflicts and notexists:
                 title =\
 '''{}
-<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'century'; font-size:11pt;">Also {}</span></p></body></html>       
+<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Baskerville Old Face'; font-size:11pt;">Also {}</span></p></body></html>       
 '''.format(etitle,ctitle)
 
                 msg = emsg+'\n\n'+cmsg
@@ -1164,7 +1205,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             textBrowser = QtGui.QTextBrowser(Dialog)
             textBrowser.setMaximumSize(QtCore.QSize(16777215, 125))
             font = QtGui.QFont()
-            font.setFamily(_fromUtf8("Century"))
+            font.setFamily(_fromUtf8("Baskerville Old Face"))
             font.setPointSize(12)
             textBrowser.setFont(font)
             textBrowser.setObjectName(_fromUtf8("textBrowser"))
@@ -1212,15 +1253,14 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                                 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
                                                 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                                 "p, li { white-space: pre-wrap; }\n"
-                                                "</style></head><body style=\" font-family:\'Century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:11pt;\">"+title+"",
+                                                "</style></head><body style=\" font-family:\'Baskerville Old Face\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Baskerville Old Face\'; font-size:11pt;\">"+title+"",
                                                 None))
             pushButton_2.setText(_translate("Dialog", "Show Details", None))
             pushButton.setText(_translate("Dialog", "OK", None))
             Dialog.exec()
 
         print(conflicts)
-
 
     def set_camps_list(self):
             ui.settings_campslistListWidget.clear()
@@ -1295,7 +1335,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
                 ui.settings_removecampPushButton.hide()
                 self.set_camps_list()
-
 
     def showtooltip(self, text):
         tt = QtGui.QToolTip
@@ -1856,8 +1895,11 @@ These entries are not added to the Database .\nIf you wish to update the databas
         os.startfile(name)
 
     rankuploadcombobox = []
+
     campsattendedcombobox = []
+
     lineeditattendance = []
+
     def typecomboboxlogic(self):
         if ui.typecomboBox.currentText() == 'Camps_Attended':
             ui.eligibilityCheckBox.hide()
@@ -1945,6 +1987,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.locationLineEdit.hide()
 
             ui.campsNameuploaddataComboBox.hide()
+
     def lineEditUploadDataLogic(self):
         for i in range(len(self.lineeditattendance)):
             if len(self.lineeditattendance[i][2].text()) and len(self.lineeditattendance[i][1].text()):
@@ -2262,9 +2305,9 @@ These entries are not added to the Database .\nIf you wish to update the databas
         ui.tableWidget.setStyleSheet(
             "color:black;font-weight:bold;font-size:15px;border:1px solid black;gridline-color:black;")
         ui.tableWidget.horizontalHeader().setStyleSheet(
-            "color:darkgreen;font-size:24px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+            "color:darkgreen;font-size:24px;font-weight:bold;font-family:'inaimathi';border:1px solid black;")
         ui.tableWidget.verticalHeader().setStyleSheet(
-            "color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;border:1px solid black;gridline-color:black;")
+            "color:darkorange;font-size:20px;font-weight:bold;font-family:inaimathi;border:1px solid black;gridline-color:black;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
 
@@ -2546,7 +2589,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
             font-size:16pt;
 
-            font-family:caladea;
+            font-family:'Baskerville Old Face';
 
             font-weight:bold;
 
@@ -2636,14 +2679,11 @@ font-weight:bold;
 
             obj.setStyleSheet("""
 
-            color:chartreuse;font-size:14.5pt;
-
+            color:chartreuse;
+            font-size:14.5pt;
             font-weight:bold;
-
             text-decoration:underline;
-
-            font-family:georgia;""")
-
+            font-family:'simonetta';""")
         else:
 
             obj.setStyleSheet("#{}".format(obj.objectName()) + """
@@ -2651,11 +2691,6 @@ font-weight:bold;
 {
 
 color:white;
-
-font:13pt cambria ;
-
-font-weight:bold;
-
 }
 
 """ + "#{0}:hover".format(obj.objectName()) + """
@@ -2663,9 +2698,6 @@ font-weight:bold;
 {
 
     text-decoration:underline;
-
-    font:15pt cambria;
-
     color:yellow;
 
 }""")
@@ -3161,7 +3193,7 @@ font-weight:bold;
 
         td{
             margin:3px 6px;
-            font-family:cambria;
+            font-family:inaimathi;
             background-color:white;
             text-align:center;
             opacity:0.8;
@@ -3182,7 +3214,7 @@ font-weight:bold;
 
             background-color: rgb(177, 51, 255);
             opacity:0.8;
-            font-family:gabriola;
+            font-family:'Baskerville Old Face';
             text-align-last: center;
             font-size: 22px;
             height:20px;
@@ -3543,11 +3575,87 @@ font-weight:bold;
 
 
 
+def set_up_font():
+
+    global fontDB
+
+    fontDB = QtGui.QFontDatabase()
+
+    fontDB.addApplicationFont(':/fonts/fonts/Ambient_Medium.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/BASKVILL.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALADEA-BOLD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALADEA-BOLDITALIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALADEA-ITALIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALADEA-REGULAR.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRIB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRII.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRIL.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRILI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIBRIZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIFB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIFI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CALIFR.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CAMBRIA.TTC')
+    fontDB.addApplicationFont(':/fonts/fonts/CAMBRIAB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CAMBRIAI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CAMBRIAZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CANDARA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CANDARAB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CANDARAI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CANDARAZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CARLITO-BOLD.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CARLITO-BOLDITALIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CARLITO-ITALIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CARLITO-REGULAR.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Carnivalee_Freakshow.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/CENTAUR.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/CENTURY.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COLONNA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/COURE.FON')
+    fontDB.addApplicationFont(':/fonts/fonts/C_BOX.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/C_BOX_D.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Deloise.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Extra_Sales_Blank.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/GEORGIA.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GEORGIAB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GEORGIAI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GEORGIAZ.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Gold Plated.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/GOTHIC.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GOTHICB.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GOTHICBI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/GOTHICI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Graymalkin_Academy_Condensed.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Hadrianus_Demo.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Harry_Potter.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/HTOWERT.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/HTOWERTI.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/InaiMathi.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Interceptor_Condensed.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/JOKERMAN.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Longdon_Decorative.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/MERCEDES.TTF')
+    fontDB.addApplicationFont(':/fonts/fonts/Neuton_Cursive.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Puritan_Alternate_Bold.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/ShouldveKnownShaded-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Black.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Simonetta-BlackItalic.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Italic.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Simonetta-Regular.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/Transformers_Movie.ttf')
+
+
+
+
 
 
 
 if __name__ == "__main__":
     import sys
+
+
+
 
     app = QtGui.QApplication(sys.argv)
 
@@ -3558,6 +3666,11 @@ if __name__ == "__main__":
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+
+
+
+    set_up_font()
+
 
     loginui.username =''
     loginui.firstrun = True

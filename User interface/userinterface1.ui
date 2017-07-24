@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -199,9 +199,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1838</y>
              <width>1157</width>
-             <height>2272</height>
+             <height>2325</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -769,7 +769,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="enrolmentnumLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -915,7 +915,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="aadhaarLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1089,9 +1089,15 @@ color:white;</string>
                </item>
                <item row="21" column="1">
                 <widget class="QTextEdit" name="addressTextEdit">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>93</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1131,7 +1137,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="emailLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1177,7 +1183,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="mobileLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1435,7 +1441,7 @@ color:white;</string>
                 <widget class="QTextEdit" name="extraactivitiesTextEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1472,7 +1478,7 @@ color:white;</string>
                 <widget class="QTextEdit" name="specialachievementsTextEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1546,7 +1552,7 @@ color:white;</string>
                 <widget class="QTextEdit" name="remarksTextEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -1569,7 +1575,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="fullnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1587,7 +1593,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="SmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1602,7 +1608,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="SlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1667,7 +1673,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="fathernameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1688,7 +1694,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="FmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1703,7 +1709,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="FlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1753,7 +1759,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="mothernameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1774,7 +1780,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="MmiddlenameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -1789,7 +1795,7 @@ color:white;</string>
                   <widget class="QLineEdit" name="MlastnameLineEdit">
                    <property name="font">
                     <font>
-                     <family>InaiMathi</family>
+                     <family>Simonetta</family>
                      <pointsize>13</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -2141,13 +2147,22 @@ color:white;</string>
                </item>
                <item row="0" column="4">
                 <widget class="QComboBox" name="institutionenrollComboBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>29</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
-                   <family>Baskerville Old Face</family>
-                   <pointsize>14</pointsize>
+                   <family>Caladea</family>
+                   <pointsize>17</pointsize>
                    <weight>50</weight>
                    <bold>false</bold>
                   </font>
+                 </property>
+                 <property name="maxVisibleItems">
+                  <number>25</number>
                  </property>
                  <item>
                   <property name="text">
@@ -2176,6 +2191,12 @@ color:white;</string>
             </item>
             <item row="14" column="0" alignment="Qt::AlignHCenter">
              <widget class="QFrame" name="bankformFrame">
+              <property name="minimumSize">
+               <size>
+                <width>430</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Georgia</family>
@@ -2199,11 +2220,17 @@ border-radius:10px;
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_2">
+               <property name="horizontalSpacing">
+                <number>16</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>10</number>
+               </property>
                <item row="5" column="1">
                 <widget class="QLineEdit" name="ifsccodeLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2268,7 +2295,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="bankbranchLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2284,9 +2311,15 @@ color:white;</string>
                </item>
                <item row="0" column="1">
                 <widget class="QLineEdit" name="banknameLineEdit">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="font">
                   <font>
-                   <family>Caladea</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2304,7 +2337,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="accountnameLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2385,7 +2418,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="accountnumLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -2403,7 +2436,7 @@ color:white;</string>
                 <widget class="QLineEdit" name="micrLineEdit">
                  <property name="font">
                   <font>
-                   <family>InaiMathi</family>
+                   <family>Simonetta</family>
                    <pointsize>13</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -5710,8 +5743,7 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
       <widget class="QWidget" name="LongNominalRole">
        <property name="styleSheet">
         <string notr="true">#LongNominalRole{
-background-image: url(:/icons/graywood.png);
-background-position:center;
+border-image: url(:/icons/pinky_shade.png);
 
 }</string>
        </property>

@@ -793,7 +793,7 @@ class logic():
         ui.tableWidget_2.showGrid()
         ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
         ui.tableWidget_2.setStyleSheet(
-            "color:white;font-weight:bold;font-size:15px;background-color:transparent;border:1px solid black;gridline-color:black;")
+            "color:black;font-weight:bold;font-size:16px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
             "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
@@ -2424,6 +2424,14 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if self.formname == "":
             return
 
+        if tup[0]!=len(self.listheadingdata):
+            for i in range(len(tup)):
+                cp = list(tup[i])
+                while (len(cp)!=len(self.listheadingdata)):
+                    cp.append('')
+                tup[i]=cp
+
+
         if self.formname.endswith(".csv"):
             pd.DataFrame(tup ,columns=self.listheadingdata).to_csv(self.formname , mode='a' ,index=False , header=False)
         elif self.formname.endswith('.xlsx'):
@@ -2435,6 +2443,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
         self.table1(tup, sql)
         self.showtooltip("Form updated sucessfully")
         os.startfile(self.formname)
+
+
 
     def saveExcelfuntion(self):
         # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
@@ -2494,12 +2504,23 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                                           filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
+#kar1,kar2,kar3,kar4
+
+
+
+        if tup[0]!=len(self.listheadingdata):
+            for i in range(len(tup)):
+                cp = list(tup[i])
+                while (len(cp)!=len(self.listheadingdata)):
+                    cp.append('')
+                tup[i]=cp
+
 
 
         if self.formname.endswith(".csv"):
-            pd.DataFrame(tup ,columns=self.listheadingdata).to_csv(self.formname ,index=False)
+            pd.DataFrame(tup ,columns=self.listheadingdata,index=False).to_csv(self.formname ,index=False)
         elif self.formname.endswith('.xlsx'):
-            pd.DataFrame(tup ,columns=self.listheadingdata).to_excel(self.formname)
+            pd.DataFrame(tup, columns=self.listheadingdata).to_excel(self.formname)
         #
         # res = open(self.formname, 'w')
         # wr = csv.writer(res, dialect='excel')
@@ -3081,146 +3102,141 @@ color:white;
         con = sqlite3.connect("ncc.db")
         data = pd.read_sql("select * from enrolment", con)
         try:
-
+            if Smiddlename == "":
+                Smiddlename = "-"
             string1 = """<!DOCTYPE html>
-                             <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
-                             <head>
-                             <style>
-                             body{
-                             display:block;
-                             background-image: url(b9.png);
-                             background-repeat:y-axis;
-                             background-position:contain;
-                             width:100%;
-                             text-align:centre; 
-                             }
-                             .photo{
-                             float:right;
-                             }
-                             .photo1{
-                             float:left;
+                                <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
+                                <head>
+                                <style>
+                                body{
+                                display:block;
+                                background-image:url(:/icons/b9.png);
+                                background-repeat:y-axis;
+                                width:100%;
+                                height:2530px;
+                                text-align:centre; 
+                                }
+                                .photo{
+                                float:right;
+                                }
+                                .photo1{
+                                float:left;
 
-                             }
-                             .logo{
-                             height:180px;
-                             width:145px;
-                             margin: auto;
-                             background-image: url(ncc2.png);
-                             background-repeat:no-repeat;
-                             background-size: contain;
-                             }
-                             .heading{
+                                }
+                                .fs{
+                                page-break-before: always;
+                                }
+                                .logo{
+                                height:180px;
+                                width:145px;
+                                margin: auto;
+                                background-image: url(:/icons/ncc2.png);
+                                background-repeat:no-repeat;
+                                background-size: contain;
+                                }
+                                .heading{
 
-                             background-image:url(graywood.png);
-                             color:darkorange;
-                             font-weight:bold;
-                             font-size:60px;
-                             font-family:cursive;
-                             border:3px double white;
-                             border-radius:10px;
-                             text-align: center;
-                             margin-top:40px;
-                             margin-right:10px;
-                             margin-left:8px;
-                             }
-                             .firstpage{
-                             margin:20px;
+                                background-image:url(:/icons/graywood.png);
+                                color:darkorange;
+                                font-size:60px;
+                                font-family:"longdon decorative";
+                                border:3px double white;
+                                border-radius:10px;
+                                text-align: center;
+                                margin-top:40px;
+                                margin-right:10px;
+                                margin-left:8px;
+                                }
+                                .firstpage{
+                                margin:20px;
 
-                             }
-                             .questions{
-                             color:darkblue;
-                             font-family:sans;
-                             font-weight:bold;
-                             font-size:25px;
-                             max-width:80px;
-                             }
-                             .answers{
-                             color:darkgreen;
-                             font-family:sans;
-                             font-weight:bold;
-                             font-size:20px;
-                             max-width:80px;
-                             }</style>
-                             </head>""" + """
-                             <body>
-                             <div class="heading">ENROLMENT FORM</div><br><br>
-                             <div class="firstpage">
+                                }
+                                .questions{
+                                color:darkblue;
+                                font-family:simonetta;
+                                font-weight:bold;
+                                font-size:26px;
+                                }
+                                .answers{
+                                color:darkgreen;
+                                font-family:simonetta;
+                                font-weight:bold;
+                                font-size:22px;
+                                }</style>
+                                </head>""" + """
+                                <body>
+                                <div class="heading">ENROLMENT FORM</div><br><br>
+                                <div class="firstpage">
 
-                             <img class="photo" src="images-1.jpg" width="160" height="180" />
+                                <img class="photo" src=\"""" + self.check_if_img_exists(enrolmentnum) + """\" width="160" height="180" />
 
-                             <img class="photo1" src="b4.jpeg" width="160" height="180" />
-                             <div class="logo"></div><br><br>
+                                <img class="photo1" src=\"""" + self.check_if_img_exists(enrolmentnum + "_sign") + """\" width="160" height="180" />
+                                <div class="logo"></div><br><br>
 
-                             <table width="100%" >
-                             <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
-                             <tr class="questions" height="50px"><td >Student Name</td></tr>
-                             <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
-                             <tr class="questions" height="50px"><td >Fathers Name</td></tr>
-                             <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
-                             <tr class="questions" height="50px"><td >Mothers Name</td></tr>
-                             <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
-                             <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
-                             <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
-                             </table>
-                             <div class="firstpage">
-                              <table width="100%">
-                              <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
-                              </table>
-                              <h1 style="text-align:center;color:deeppink;font-weight:bold;">Bank Details</h1>
-                              <table width="100%">
-                              <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
-                              </table>
-                              <table width="100%">
-                              <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
-                              <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
-                              </table><hr>
-                              <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
-                             </div>
-                             </body>
-                             </html>""".format(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname,
-                                               fathername, Fmiddlename,
-                                               Flastname, mothername, Mmiddlename, Mlastname, sex, dateofbirth, address,
-                                               email, mobilenum,
-                                               bloodgroup, certificate, campsattended, extracurricularactivities,
-                                               specialachievements,
-                                               enrolldate, remarks, vegitarian, bankname, bankbranch, accountname,
-                                               accountnum, ifsccode, micr, institutionname, unit)
+                                <table class="fs" width="100%" >
+                                <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
+                                <tr class="questions" height="50px"><td >Student Name</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
+                                <tr class="questions" height="50px"><td >Fathers Name</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                                <tr class="questions" height="50px"><td >Mothers Name</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                                <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
+                                <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
+                                </table><br><br><br><br><br>
+                                <table width="100%">
+                                 <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
+                                 </table><hr>
+                                 <h1 style="text-align:center;color:deeppink;font-weight:bold;">Bank Details</h1>
+                                 <hr><table width="100%">
+                                 <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
+                                 </table>
+                                 <table width="100%">
+                                 <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
+                                 <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
+                                 </table><hr><br><br>
+                                 <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
+                                 <div style="float:left;color:purple;font-size:25px;">Signature of the Enroling Officer</div>
+                                </body>
+                                </html>""".format(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname,
+                                                  fathername, Fmiddlename,
+                                                  Flastname, mothername, Mmiddlename, Mlastname, sex, dateofbirth,
+                                                  address,
+                                                  email, mobilenum, bloodgroup, certificate, campsattended,
+                                                  extracurricularactivities,
+                                                  specialachievements,
+                                                  enrolldate, remarks, vegitarian, bankname, bankbranch, accountname,
+                                                  accountnum, ifsccode, micr, institutionname, unit)
             data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
-            self.printer.setOutputFileName(enrolmentnum + ".pdf")
-
-
+            self.printer.setOutputFileName("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
 
             def printpdf():
                 self.view.print_(self.printer)
 
-            f = open('pdf.html','w')
+            f = open('pdf.html', 'w')
             f.write(string1)
             f.close()
-
             self.view.load(QUrl('pdf.html'))
             self.view.loadFinished.connect(printpdf)
-
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
-
-
 
     def table1(self, res, msg):
 
@@ -3933,31 +3949,5 @@ if __name__ == "__main__":
         loginui.loginPushButton.clicked.connect(checkuserpass)
 
 
-
-
-
     sys.exit(app.exec_())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

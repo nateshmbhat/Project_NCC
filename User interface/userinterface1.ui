@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -3831,6 +3831,12 @@ color:white;
                 <number>0</number>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_3">
+                <property name="spacing">
+                 <number>1</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="conditionsentrylabel">
                   <property name="styleSheet">
@@ -4080,11 +4086,11 @@ width:120%;
                    <widget class="QComboBox" name="conditionlistcombobox">
                     <property name="font">
                      <font>
-                      <family>Baskerville Old Face</family>
+                      <family>Simonetta</family>
                       <pointsize>15</pointsize>
-                      <weight>50</weight>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4228,8 +4234,10 @@ width:130%;
                    <widget class="QComboBox" name="campsattendedqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4265,8 +4273,10 @@ width:130%;
                    <widget class="QComboBox" name="vegitarianqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4297,8 +4307,10 @@ width:130%;
                    <widget class="QComboBox" name="bloodgroupqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4359,8 +4371,10 @@ width:130%;
                    <widget class="QComboBox" name="certificatequeryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>17</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4396,8 +4410,10 @@ width:130%;
                    <widget class="QComboBox" name="institutionqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4418,11 +4434,11 @@ width:130%;
                    <widget class="QComboBox" name="rankqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
-                      <weight>50</weight>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4478,8 +4494,10 @@ width:130%;
                    <widget class="QComboBox" name="sexqueryComboBox">
                     <property name="font">
                      <font>
-                      <family>Caladea</family>
+                      <family>Simonetta</family>
                       <pointsize>17</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4510,7 +4528,7 @@ width:130%;
                    <widget class="QDateEdit" name="datequeryDateEdit">
                     <property name="font">
                      <font>
-                      <family>Baskerville Old Face</family>
+                      <family>Simonetta</family>
                       <pointsize>16</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
@@ -4725,43 +4743,43 @@ width:130%;
                   </item>
                  </layout>
                 </item>
-                <item alignment="Qt::AlignHCenter">
-                 <widget class="QPushButton" name="query_backPushButton">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_29">
+                  <property name="spacing">
+                   <number>0</number>
                   </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>41</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Monotype Corsiva</family>
-                    <pointsize>28</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color:white;
-padding-right:3px;
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Back</string>
-                  </property>
-                 </widget>
+                  <item alignment="Qt::AlignHCenter">
+                   <widget class="QPushButton" name="query_backPushButton">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>37</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Monotype Corsiva</family>
+                      <pointsize>20</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color:white;
+padding:0 20px 0 10px;;</string>
+                    </property>
+                    <property name="text">
+                     <string>Back</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
                  <widget class="QWebView" name="webView">
@@ -5020,13 +5038,13 @@ color:purple;</string>
                  <property name="maximumSize">
                   <size>
                    <width>300</width>
-                   <height>32</height>
+                   <height>36</height>
                   </size>
                  </property>
                  <property name="font">
                   <font>
                    <family>Monotype Corsiva</family>
-                   <pointsize>19</pointsize>
+                   <pointsize>20</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -5078,7 +5096,7 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
                  <property name="font">
                   <font>
                    <family>Monotype Corsiva</family>
-                   <pointsize>18</pointsize>
+                   <pointsize>20</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -5143,7 +5161,7 @@ color:black;</string>
              <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
-               <height>20</height>
+               <height>4</height>
               </size>
              </property>
             </spacer>
@@ -5598,7 +5616,7 @@ border-radius:5px;</string>
             <property name="sizeHint" stdset="0">
              <size>
               <width>0</width>
-              <height>10</height>
+              <height>3</height>
              </size>
             </property>
            </spacer>
@@ -5610,10 +5628,16 @@ border-radius:5px;</string>
             </property>
             <item alignment="Qt::AlignHCenter">
              <widget class="QPushButton" name="save_data_excelPushButton">
+              <property name="maximumSize">
+               <size>
+                <width>277</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Baskerville Old Face</family>
-                <pointsize>19</pointsize>
+                <pointsize>20</pointsize>
                 <italic>false</italic>
                </font>
               </property>
@@ -5642,10 +5666,16 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
             </item>
             <item alignment="Qt::AlignHCenter">
              <widget class="QPushButton" name="savedataPushButton">
+              <property name="maximumSize">
+               <size>
+                <width>277</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Baskerville Old Face</family>
-                <pointsize>19</pointsize>
+                <pointsize>20</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -6015,7 +6045,7 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1304</y>
+             <y>0</y>
              <width>1155</width>
              <height>2005</height>
             </rect>

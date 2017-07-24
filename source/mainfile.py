@@ -179,34 +179,9 @@ class ImageWidget(QtGui.QTableWidgetItem):
         painter.drawPixmap(0, 0, self.picture)
 class logic():
     flag = 0
-    def refreshfun(self):
-        file = open("gss.html", "w")
-        if len(ui.lineEdit.text())>20:
-            file.write(ui.lineEdit.text())
-            ui.webView_3.load(QUrl("gss.html"))
-        file.close()
-    def pdffun(self,string):
-        ui.webView_3.setHtml(string)
-        printer = QPrinter()
-        printer.setOutputFileName("forms.pdf")
-        printer.setOutputFormat(QPrinter.PdfFormat)
-        printer.setPageMargins(0.5,0.5,0.5,0.5,QPrinter.Inch)
-        printer.setPaperSize(QPrinter.A4)
-        ui.webView_3.print_(printer)
-    def loadfun(self,string):
-        file=open("gss.html","r")
-        string=file.read()
-        file.close()
-        string=string+""
-        ui.lineEdit.setText(string)
-
 
     def __init__(self):
 
-        ui.load.clicked.connect(self.loadfun)
-        ui.webView_3.load(QUrl("gs.html"))
-        ui.pdf.clicked.connect(self.pdffun)
-        ui.refresh.clicked.connect(self.refreshfun)
         ENROLMENT_FORM.enroll().create_table_Attendance()
 
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
@@ -420,7 +395,14 @@ class logic():
 
         ui.eligibilityCheckBox.hide()
         ui.eligibilityCheckBox.stateChanged.connect(self.eligibilitylogic)
+        ui.query_backPushButton.clicked.connect(lambda :(self.show_query_elements(),ui.query_backPushButton.hide()))
 
+
+        self.view = QtWebKit.QWebView()
+        self.printer = QPrinter()
+        self.printer.setOutputFormat(QPrinter.PdfFormat)
+        self.printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter.Inch)
+        self.printer.setPaperSize(QPrinter.A4)
 
         self.init_settings()
 
@@ -461,7 +443,7 @@ class logic():
 
         '''List of forms and fields in the settings tab'''
         self.formslist = self.settings.value('formslist').strip().split(',,,')
-        ui.settings_formsListWidget.clear()
+        self.clear = ui.settings_formsListWidget.clear()
 
         ui.settings_formsListWidget.setSpacing(1)
         self.set_forms_list()
@@ -485,6 +467,16 @@ class logic():
         ui.settings_fieldsunknownRadioButton.hide()
         ui.settings_removefieldPushButton.hide()
         ui.settings_removeformPushButton.hide()
+        ui.query_backPushButton.hide()
+
+
+
+
+
+
+
+
+
 
         self.nametolistsql = {}
         self.nametolistnotsql = {}
@@ -532,7 +524,6 @@ class logic():
 
 
 
-
         def camplist_clicked():
             if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
                 ui.settings_removecampPushButton.hide()
@@ -560,6 +551,26 @@ class logic():
 
         self.login_permission()
         self.showtooltip("WELCOME")
+
+
+    def query_hide_elements(self):
+        ui.checkboxFrame.hide()
+        ui.conditionsentrylabel.hide()
+
+        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit,QtGui.QComboBox)):
+            i.hide()
+        ui.query_backPushButton.show()
+
+
+
+    def show_query_elements(self):
+        ui.checkboxFrame.show()
+        ui.conditionsentrylabel.show()
+
+        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit)):
+            i.show()
+        ui.valuelineEdit.show()
+        ui.conditionlistcombobox.show()
 
 
 
@@ -2354,10 +2365,27 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                       'OK')
             return
         x = ui.entryBox.toPlainText().replace(' ', '')
-        enrolno = x.split(',')
+
+        enrolnocopy = x.split(',')
+        enrolno = list(enrolnocopy)
+        con = sqlite3.connect("ncc.db")
+        cur = con.cursor()
+        # enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
+        for i in enrolnocopy:
+            if not cur.execute(
+                    "select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(
+                            i)).fetchone()[0]:
+                enrolno.remove(i)
+        con.close()
+
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
-        self.listheadingdata = list(self.nametolistnotsql.get(selectedformname))
+
+        self.listheadingdata = list(self.nametolistsql.get(selectedformname))
+        for i in self.nametolistnotsql.get(selectedformname):
+            self.listheadingdata.append(i)
+
+
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
             for i in range(len(self.listdata)):
@@ -2387,19 +2415,23 @@ These entries are not added to the Database .\nIf you wish to update the databas
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) == 0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'First Enter the feed the data for the respected certificate\nand then generate a form.',
+                                      'First Enter the Enrolment Numbers for the respective forms\nand then generate a form.',
                                       'OK')
             return
         self.formname = ""
         self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
-                                                          caption="Save File")
+                                                          caption="Save the Form file",filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
-        res = open(self.formname, 'a')
-        wr = csv.writer(res, dialect='excel')
-        for i in tup:
-            wr.writerow(i)
-        res.close()
+
+        if self.formname.endswith(".csv"):
+            pd.DataFrame(tup ,columns=self.listheadingdata).to_csv(self.formname , mode='a' ,index=False , header=False)
+        elif self.formname.endswith('.xlsx'):
+            data = pd.DataFrame(tup , columns=self.listheadingdata)
+            data1 = pd.read_excel(self.formname,na_filter=False)
+            finaldata = data1.append(data,ignore_index=True)
+            finaldata.to_excel(self.formname)
+
         self.table1(tup, sql)
         self.showtooltip("Form updated sucessfully")
         os.startfile(self.formname)
@@ -2408,14 +2440,16 @@ These entries are not added to the Database .\nIf you wish to update the databas
         # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
         x = ui.entryBox.toPlainText().replace(" ", "")
 
-        msg = ""
-        enrolno = x.split(',')
-        enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
-        for i in enrolno:
-            if i in enrollist:
-                print()
-            else:
-                msg = msg + str(i)
+        enrolnocopy= x.split(',')
+        enrolno = list(enrolnocopy)
+        con = sqlite3.connect("ncc.db")
+        cur = con.cursor()
+        #enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
+        for i in enrolnocopy:
+            if not cur.execute("select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(i)).fetchone()[0]:
+                enrolno.remove(i)
+        con.close()
+
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
         self.listheadingdata = list(self.nametolistsql.get(selectedformname))
@@ -2457,18 +2491,25 @@ These entries are not added to the Database .\nIf you wish to update the databas
         self.formname = ""
         self.formname = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
                                                           caption="Save File",
-                                                          filter=".csv")
+                                                          filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
-        res = open(self.formname, 'w')
-        wr = csv.writer(res, dialect='excel')
-        wr.writerow(self.listheadingdata)
-        for i in range(len(tup)):
-            wr.writerow(tup[i])
+
+
+        if self.formname.endswith(".csv"):
+            pd.DataFrame(tup ,columns=self.listheadingdata).to_csv(self.formname ,index=False)
+        elif self.formname.endswith('.xlsx'):
+            pd.DataFrame(tup ,columns=self.listheadingdata).to_excel(self.formname)
+        #
+        # res = open(self.formname, 'w')
+        # wr = csv.writer(res, dialect='excel')
+        # wr.writerow(self.listheadingdata)
+        # for i in range(len(tup)):
+        #     wr.writerow(tup[i])
         self.table1(tup, sql)
 
         self.showtooltip("Form generated sucessfully")
-        res.close()
+        # res.close()
         os.startfile(self.formname)
 
     def picselect(self,obj):
@@ -2898,72 +2939,65 @@ color:white;
             ui.searchbyfieldLineEdit.setValidator(None)
 
     def get_enroll_form_data(self):
-
         enrolmentnum = ui.enrolmentnumLineEdit.displayText().strip();
         aadhaarnum = ui.aadhaarLineEdit.displayText().strip()
         rank = ui.rankComboBox.currentText()
-
 
         fullname = ui.fullnameLineEdit.displayText().strip()
         Smiddlename = ui.SmiddlenameLineEdit.displayText().strip()
         Slastname = ui.SlastnameLineEdit.displayText().strip()
 
-
         fathername = ui.fathernameLineEdit.displayText().strip()
         Fmiddlename = ui.FmiddlenameLineEdit.displayText().strip()
         Flastname = ui.FlastnameLineEdit.displayText().strip()
-
-
 
         mothername = ui.mothernameLineEdit.displayText().strip()
         Mmiddlename = ui.MmiddlenameLineEdit.displayText().strip()
         Mlastname = ui.MlastnameLineEdit.displayText().strip()
 
+        sex = ui.sexComboBox.currentText()
 
-        sex = ui.sexComboBox.currentText();
+        dateofbirth = ui.dateofbirthDateEdit.text().strip()
 
-        dateofbirth = ui.dateofbirthDateEdit.text().strip();
+        address = ui.addressTextEdit.toPlainText()
 
-        address= ui.addressTextEdit.toPlainText()
+        email = ui.emailLineEdit.displayText().strip()
 
-        email= ui.emailLineEdit.displayText().strip()
+        mobilenum = ui.mobileLineEdit.displayText().strip()
 
-        mobilenum= ui.mobileLineEdit.displayText().strip()
+        bloodgroup = ui.bloodgroupComboBox.currentText()
 
-        bloodgroup= ui.bloodgroupComboBox.currentText()
+        bankname = ui.banknameLineEdit.displayText().strip()
 
-        bankname= ui.banknameLineEdit.displayText().strip()
+        bankbranch = ui.bankbranchLineEdit.displayText().strip()
 
-        bankbranch= ui.bankbranchLineEdit.displayText().strip()
+        accountname = ui.accountnameLineEdit.displayText().strip()
 
-        accountname= ui.accountnameLineEdit.displayText().strip()
+        accountnum = ui.accountnumLineEdit.displayText().strip()
 
-        accountnum= ui.accountnumLineEdit.displayText().strip()
+        ifsccode = ui.ifsccodeLineEdit.displayText().strip()
 
-        ifsccode= ui.ifsccodeLineEdit.displayText().strip()
+        institutionname = ui.institutionenrollComboBox.currentText()
 
-        institutionname= ui.institutionenrollComboBox.currentText()
+        unit = ui.unitLineEdit.displayText().strip()
 
-        unit= ui.unitLineEdit.displayText().strip()
+        enrolldate = ui.enroldateDateEdit.text().strip()
 
-        enrolldate=ui.enroldateDateEdit.text().strip()
+        remarks = ui.remarksTextEdit.toPlainText()
 
-        remarks= ui.remarksTextEdit.toPlainText()
+        specialachievements = ui.specialachievementsTextEdit.toPlainText()
 
-        specialachievements= ui.specialachievementsTextEdit.toPlainText()
+        extracurricularactivities = ui.extraactivitiesTextEdit.toPlainText()
 
-        extracurricularactivities= ui.extraactivitiesTextEdit.toPlainText()
-
-        micr=ui.micrLineEdit.displayText().strip()
+        micr = ui.micrLineEdit.displayText().strip()
 
         if self.candidphoto:
-            ext = self.candidphoto[self.candidphoto.rfind('.')+1: ]
-            shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum , ext))
+            ext = self.candidphoto[self.candidphoto.rfind('.') + 1:]
+            shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum, ext))
 
         if self.signaturephoto:
             ext = self.signaturephoto[self.signaturephoto.rfind('.') + 1:]
             shutil.copy2(self.signaturephoto, "candidate photos\{}_sign.{}".format(enrolmentnum, ext))
-
 
         campsattended = ui.enrol_campsListWidget.selectedItems()
         campsattended = '' if not campsattended else campsattended
@@ -2971,206 +3005,222 @@ color:white;
         if campsattended:
             campsattended = ','.join([i.text() for i in campsattended])
 
-        certificate=""
+        certificate = ""
         if ui.AcertRadioButton.isChecked():
-            certificate="A"
+            certificate = "A"
         if ui.BcertRadioButton.isChecked():
-            certificate="B"
+            certificate = "B"
         if ui.CcertRadioButton.isChecked():
-            certificate="C"
-        vegitarian="veg"
+            certificate = "C"
+        vegitarian = "veg"
         if ui.nonvegRadioButton.isChecked():
-            vegitarian="nonveg"
+            vegitarian = "nonveg"
 
-        obj=ENROLMENT_FORM.enroll()
+        obj = ENROLMENT_FORM.enroll()
 
         if ui.updateentryCheckBox.isChecked():
             try:
-                obj.delete_by_Enrolment('enrolment',enrolmentnum)
-                obj.enrol_student(enrolmentnum , rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
+                obj.delete_by_Enrolment('enrolment', enrolmentnum)
+                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,
+                                  fathername,
 
-                                           Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername , sex,dateofbirth,address,
+                                  Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,
+                                  sex, dateofbirth, address,
 
-                                           email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
+                                  email, mobilenum, bloodgroup, certificate, campsattended, extracurricularactivities
 
-                                           ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
+                                  , specialachievements, enrolldate, remarks, vegitarian, bankname, bankbranch,
+                                  accountname,
 
-                                           accountnum, ifsccode,micr, institutionname, unit);
+                                  accountnum, ifsccode, micr, institutionname, unit);
 
 
-            except (sqlite3.IntegrityError , sqlite3.OperationalError) as e:
+            except (sqlite3.IntegrityError, sqlite3.OperationalError) as e:
                 if 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
-                                              '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. Please check the Aadhaar Number.','OK');
+                                              '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. Please check the Aadhaar Number.',
+                                              'OK');
                 self.showtooltip("Update Failed !")
-                return;
+                return
 
             self.showtooltip("Updated successfully")
 
 
         else:
             try:
-                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname,Smiddlename,Slastname , fullname, fathername,
+                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,
+                                  fathername,
 
-                                           Fmiddlename,Flastname ,fathername , mothername, Mmiddlename , Mlastname, mothername ,sex,dateofbirth,address,
+                                  Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,
+                                  sex, dateofbirth, address,
 
-                                  email,mobilenum, bloodgroup,certificate,campsattended,extracurricularactivities
+                                  email, mobilenum, bloodgroup, certificate, campsattended, extracurricularactivities
 
-                                  ,specialachievements,enrolldate,remarks,vegitarian, bankname, bankbranch, accountname,
+                                  , specialachievements, enrolldate, remarks, vegitarian, bankname, bankbranch,
+                                  accountname,
 
-                                  accountnum, ifsccode,micr, institutionname, unit)
+                                  accountnum, ifsccode, micr, institutionname, unit)
 
-            except (sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+            except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
                 print(e)
                 if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
                                               '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
-                                              'OK');
+                                              'OK')
 
                 elif 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
                                               '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.',
-                                              'OK');
+                                              'OK')
                 return
-
 
             self.showtooltip("Inserted successfully")
 
-
         self.clear_enrolment_form()
 
-
         con = sqlite3.connect("ncc.db")
-        data = pd.read_sql("select * from enrolment" ,con)
+        data = pd.read_sql("select * from enrolment", con)
         try:
-            data.to_csv(r'All candidate details.csv',float_format="%s",index=False)
+
             string1 = """<!DOCTYPE html>
-                            <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
-                            <head>
-                            <style>
-                            body{
-                            display:block;
-                            background-image: url(b9.png);
-                            background-repeat:repeat-y;
-                            background-position:cover;
-                            width:100%;
-                            height:1260px;
-                            text-align:centre; 
-                            }
-                            .photo{
-                            float:right;
-                            }
-                            .photo1{
-                            float:left;
+                             <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
+                             <head>
+                             <style>
+                             body{
+                             display:block;
+                             background-image: url(b9.png);
+                             background-repeat:y-axis;
+                             background-position:contain;
+                             width:100%;
+                             text-align:centre; 
+                             }
+                             .photo{
+                             float:right;
+                             }
+                             .photo1{
+                             float:left;
 
-                            }
-                            .logo{
-                            height:180px;
-                            width:145px;
-                            margin: auto;
-                            background-image: url(ncc2.png);
-                            background-repeat:no-repeat;
-                            background-size: contain;
-                            }
-                            .heading{
+                             }
+                             .logo{
+                             height:180px;
+                             width:145px;
+                             margin: auto;
+                             background-image: url(ncc2.png);
+                             background-repeat:no-repeat;
+                             background-size: contain;
+                             }
+                             .heading{
 
-                            background-image:url(graywood.png);
-                            color:darkorange;
-                            font-weight:bold;
-                            font-size:60px;
-                            font-family:cursive;
-                            border:3px double white;
-                            border-radius:10px;
-                            text-align: center;
-                            margin-top:40px;
-                            margin-right:10px;
-                            margin-left:8px;
-                            }
-                            .firstpage{
-                            margin:20px;
+                             background-image:url(graywood.png);
+                             color:darkorange;
+                             font-weight:bold;
+                             font-size:60px;
+                             font-family:cursive;
+                             border:3px double white;
+                             border-radius:10px;
+                             text-align: center;
+                             margin-top:40px;
+                             margin-right:10px;
+                             margin-left:8px;
+                             }
+                             .firstpage{
+                             margin:20px;
 
-                            }
-                            .questions{
-                            color:darkblue;
-                            font-family:sans;
-                            font-weight:bold;
-                            font-size:25px;
-                            max-width:80px;
-                            }
-                            .answers{
-                            color:darkgreen;
-                            font-family:sans;
-                            font-weight:bold;
-                            font-size:20px;
-                            max-width:80px;
-                            }</style>
-                            </head>""" + """
-                            <body>
-                            <div class="heading">ENROLMENT FORM</div><br><br>
-                            <div class="firstpage">
+                             }
+                             .questions{
+                             color:darkblue;
+                             font-family:sans;
+                             font-weight:bold;
+                             font-size:25px;
+                             max-width:80px;
+                             }
+                             .answers{
+                             color:darkgreen;
+                             font-family:sans;
+                             font-weight:bold;
+                             font-size:20px;
+                             max-width:80px;
+                             }</style>
+                             </head>""" + """
+                             <body>
+                             <div class="heading">ENROLMENT FORM</div><br><br>
+                             <div class="firstpage">
 
-                            <img class="photo" src="images-1.jpg" width="160" height="180" />
+                             <img class="photo" src="images-1.jpg" width="160" height="180" />
 
-                            <img class="photo1" src="b4.jpeg" width="160" height="180" />
-                            <div class="logo"></div><br><br>
+                             <img class="photo1" src="b4.jpeg" width="160" height="180" />
+                             <div class="logo"></div><br><br>
 
-                            <table width="100%" >
-                            <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
-                            <tr class="questions" height="50px"><td >Student Name</td></tr>
-                            <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
-                            <tr class="questions" height="50px"><td >Fathers Name</td></tr>
-                            <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
-                            <tr class="questions" height="50px"><td >Mothers Name</td></tr>
-                            <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
-                            <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
-                            <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
-                            </table><hr>
-                            </div>
-                            </body>
-                            </html>""".format("ammu", "gs", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve","bd", "dsve", "bd",
-                                              "dsve", "bd", "dsve", "bd", "dsve")
+                             <table width="100%" >
+                             <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
+                             <tr class="questions" height="50px"><td >Student Name</td></tr>
+                             <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
+                             <tr class="questions" height="50px"><td >Fathers Name</td></tr>
+                             <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                             <tr class="questions" height="50px"><td >Mothers Name</td></tr>
+                             <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                             <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
+                             <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
+                             </table>
+                             <div class="firstpage">
+                              <table width="100%">
+                              <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
+                              </table>
+                              <h1 style="text-align:center;color:deeppink;font-weight:bold;">Bank Details</h1>
+                              <table width="100%">
+                              <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
+                              </table>
+                              <table width="100%">
+                              <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
+                              <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
+                              </table><hr>
+                              <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
+                             </div>
+                             </body>
+                             </html>""".format(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname,
+                                               fathername, Fmiddlename,
+                                               Flastname, mothername, Mmiddlename, Mlastname, sex, dateofbirth, address,
+                                               email, mobilenum,
+                                               bloodgroup, certificate, campsattended, extracurricularactivities,
+                                               specialachievements,
+                                               enrolldate, remarks, vegitarian, bankname, bankbranch, accountname,
+                                               accountnum, ifsccode, micr, institutionname, unit)
+            data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
+            self.printer.setOutputFileName(enrolmentnum + ".pdf")
 
-            string1=string1+"""
-                         <div class="firstpage">
-                         <table width="100%">
-                         <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
-                         </table><hr>
-                         <h1 style="text-align:center;color:deeppink;font-weight:bold;">{}</h1>
-                         <table width="100%">
-                         <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
-                         </table><hr>
-                         <table width="100%"><hr>
-                         <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
-                         <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
-                         </table><hr>
-                         <br><br><br>
-                         <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
-                         </div>
-                         </body>
-                         </html>""".format("bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve", "bd",
-                                           "dsve", "bd", "dsve", "bd", "dsve", "bd", "dsve")
 
-            self.pdffun()
-            os.startfile("forms.pdf")
+
+            def printpdf():
+                self.view.print_(self.printer)
+
+            f = open('pdf.html','w')
+            f.write(string1)
+            f.close()
+
+            self.view.load(QUrl('pdf.html'))
+            self.view.loadFinished.connect(printpdf)
+
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
+
+
 
     def table1(self, res, msg):
 
@@ -3562,6 +3612,8 @@ color:white;
             self.showtooltip("No Data Found")
             ui.webView.setHtml("")
             return
+
+        self.query_hide_elements()
         self.table(self.querytupple, sql)
         self.showtooltip("Query is Sucessfull")
 
@@ -3831,7 +3883,6 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
 
 
-
     set_up_font()
 
 
@@ -3882,4 +3933,31 @@ if __name__ == "__main__":
         loginui.loginPushButton.clicked.connect(checkuserpass)
 
 
+
+
+
     sys.exit(app.exec_())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

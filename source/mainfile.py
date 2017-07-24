@@ -54,9 +54,9 @@ class Ui_loginDialog(object):
         icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icons/ncc2.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         loginDialog.setWindowIcon(icon)
         loginDialog.setStyleSheet(_fromUtf8("#loginDialog{\n"
-"border-image:url(:/icons/image-blur.png);\n"
-"background-position:center;\n"
-"}"))
+                                            "border-image:url(:/icons/image-blur.png);\n"
+                                            "background-position:center;\n"
+                                            "}"))
         loginDialog.setSizeGripEnabled(True)
         self.verticalLayout = QtGui.QVBoxLayout(loginDialog)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
@@ -77,7 +77,7 @@ class Ui_loginDialog(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setStyleSheet(_fromUtf8("\n"
-"color:white;"))
+                                           "color:white;"))
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName(_fromUtf8("label"))
         self.horizontalLayout.addWidget(self.label)
@@ -95,9 +95,9 @@ class Ui_loginDialog(object):
         font.setWeight(75)
         self.login_usernameLineEdit.setFont(font)
         self.login_usernameLineEdit.setStyleSheet(_fromUtf8("border-radius:6px;\n"
-"border:1px groove purple;\n"
-"\n"
-"margin-right:10px;"))
+                                                            "border:1px groove purple;\n"
+                                                            "\n"
+                                                            "margin-right:10px;"))
         self.login_usernameLineEdit.setObjectName(_fromUtf8("login_usernameLineEdit"))
         self.horizontalLayout.addWidget(self.login_usernameLineEdit)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -106,8 +106,8 @@ class Ui_loginDialog(object):
         self.label_2 = QtGui.QLabel(loginDialog)
         self.label_2.setMinimumSize(QtCore.QSize(250, 0))
         self.label_2.setStyleSheet(_fromUtf8("font: 75 20pt \"Centaur\";\n"
-"font-weight:bold;\n"
-"color:white;"))
+                                             "font-weight:bold;\n"
+                                             "color:white;"))
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.horizontalLayout_2.addWidget(self.label_2)
@@ -120,8 +120,8 @@ class Ui_loginDialog(object):
         font.setWeight(75)
         self.login_passwordLineEdit.setFont(font)
         self.login_passwordLineEdit.setStyleSheet(_fromUtf8("border-radius:6px;\n"
-"border:1px groove purple;\n"
-"margin-right:10px;"))
+                                                            "border:1px groove purple;\n"
+                                                            "margin-right:10px;"))
         self.login_passwordLineEdit.setEchoMode(QtGui.QLineEdit.Password)
         self.login_passwordLineEdit.setObjectName(_fromUtf8("login_passwordLineEdit"))
         self.horizontalLayout_2.addWidget(self.login_passwordLineEdit)
@@ -134,26 +134,26 @@ class Ui_loginDialog(object):
         font.setWeight(50)
         self.loginPushButton.setFont(font)
         self.loginPushButton.setStyleSheet(_fromUtf8("#loginPushButton\n"
-"{\n"
-"background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 230), stop:0.085 rgba(2, 79, 0, 255), stop:0.221591 rgba(50, 147, 22, 255), stop:0.275 rgba(165, 142, 70, 255), stop:0.431818 rgba(243, 100, 79, 255), stop:0.573864 rgba(135, 95, 80, 255), stop:0.667 rgba(137, 97, 255, 255), stop:0.818182 rgba(160, 255, 244, 255), stop:0.885 rgba(193, 222, 185, 255), stop:1 rgba(93, 128, 0, 255));\n"
-"color:white;\n"
-"border-radius:10px;\n"
-"border-top:1px solid yellow;\n"
-"border-bottom:1px solid black;\n"
-"padding:0px 0px;\n"
-"}\n"
-"\n"
-"#loginPushButton:hover{\n"
-"color:black;\n"
-"    background-color:rgba(0, 170, 255,255);\n"
-"\n"
-"}\n"
-"\n"
-"#loginPushButton:pressed{\n"
-"color:black;\n"
-"    background-color:rgba(0, 170, 255,175);\n"
-"\n"
-"}"))
+                                                     "{\n"
+                                                     "background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(26, 41, 24, 230), stop:0.085 rgba(2, 79, 0, 255), stop:0.221591 rgba(50, 147, 22, 255), stop:0.275 rgba(165, 142, 70, 255), stop:0.431818 rgba(243, 100, 79, 255), stop:0.573864 rgba(135, 95, 80, 255), stop:0.667 rgba(137, 97, 255, 255), stop:0.818182 rgba(160, 255, 244, 255), stop:0.885 rgba(193, 222, 185, 255), stop:1 rgba(93, 128, 0, 255));\n"
+                                                     "color:white;\n"
+                                                     "border-radius:10px;\n"
+                                                     "border-top:1px solid yellow;\n"
+                                                     "border-bottom:1px solid black;\n"
+                                                     "padding:0px 0px;\n"
+                                                     "}\n"
+                                                     "\n"
+                                                     "#loginPushButton:hover{\n"
+                                                     "color:black;\n"
+                                                     "    background-color:rgba(0, 170, 255,255);\n"
+                                                     "\n"
+                                                     "}\n"
+                                                     "\n"
+                                                     "#loginPushButton:pressed{\n"
+                                                     "color:black;\n"
+                                                     "    background-color:rgba(0, 170, 255,175);\n"
+                                                     "\n"
+                                                     "}"))
         self.loginPushButton.setFlat(True)
         self.loginPushButton.setObjectName(_fromUtf8("loginPushButton"))
         self.verticalLayout.addWidget(self.loginPushButton)
@@ -163,20 +163,13 @@ class Ui_loginDialog(object):
 
     def retranslateUi(self, loginDialog):
         loginDialog.setWindowTitle(_translate("loginDialog", "LOGIN", None))
-        self.label.setText(_translate("loginDialog", "<html><head/><body><p><span style=\" font-size:22pt; color:#fafde8;\">Username</span></p></body></html>", None))
+        self.label.setText(_translate("loginDialog",
+                                      "<html><head/><body><p><span style=\" font-size:22pt; color:#fafde8;\">Username</span></p></body></html>",
+                                      None))
         self.label_2.setText(_translate("loginDialog", "Password", None))
         self.loginPushButton.setText(_translate("loginDialog", "Login", None))
 
 
-class ImageWidget(QtGui.QTableWidgetItem):
-
-    def __init__(self, imagePath, parent):
-        super(ImageWidget, self).__init__(parent)
-        self.picture = QtGui.QPixmap(imagePath)
-
-    def paintEvent(self, event):
-        painter = QtGui.QPainter(self)
-        painter.drawPixmap(0, 0, self.picture)
 class logic():
     flag = 0
 
@@ -227,9 +220,9 @@ class logic():
         self.sql = ''
 
         self.candidphoto = ''
-        self.signaturephoto=''
+        self.signaturephoto = ''
 
-        ui.selectpicturePushButton.clicked.connect(lambda:self.picselect(ui.selectpicturePushButton))
+        ui.selectpicturePushButton.clicked.connect(lambda: self.picselect(ui.selectpicturePushButton))
 
         ui.startdateDateEdit.hide()
 
@@ -395,8 +388,7 @@ class logic():
 
         ui.eligibilityCheckBox.hide()
         ui.eligibilityCheckBox.stateChanged.connect(self.eligibilitylogic)
-        ui.query_backPushButton.clicked.connect(lambda :(self.show_query_elements(),ui.query_backPushButton.hide()))
-
+        ui.query_backPushButton.clicked.connect(lambda: (self.show_query_elements(), ui.query_backPushButton.hide()))
 
         self.view = QtWebKit.QWebView()
         self.printer = QPrinter()
@@ -406,14 +398,9 @@ class logic():
 
         self.init_settings()
 
-
-
-
-
-
     def init_settings(self):
 
-        loginui.firstrun  = False
+        loginui.firstrun = False
 
         """Sets all the parameters from the settings file"""
 
@@ -426,7 +413,6 @@ class logic():
         self.all_enrolment_form_fieldslist = self.settings.value('all_enrolment_form_fieldslist').split(',,,')
         ui.mytab.setCurrentIndex(int(self.settings.value('current_tab')))
         geo = [int(i) for i in self.settings.value('window_geometry').split(',,,')]
-
 
         MainWindow.setGeometry(geo[0], geo[1], geo[2], geo[3])
         app.aboutToQuit.connect(self.handler)
@@ -457,8 +443,6 @@ class logic():
         self.extraactivities_fieldslist = self.settings.value('extraactivities_fieldslist').split(',,,')
         self.remarks_fieldslist = self.settings.value('remarks_fieldslist').split(',,,')
 
-
-
         # hiding fields in the settigns_fieldssectoin
         ui.settings_addfieldPushButton.hide()
         ui.settings_addfieldLineEdit.hide()
@@ -468,15 +452,6 @@ class logic():
         ui.settings_removefieldPushButton.hide()
         ui.settings_removeformPushButton.hide()
         ui.query_backPushButton.hide()
-
-
-
-
-
-
-
-
-
 
         self.nametolistsql = {}
         self.nametolistnotsql = {}
@@ -520,12 +495,10 @@ class logic():
         ui.settings_removecampPushButton.hide()
         ui.exceltodatabasePushButton.clicked.connect(self.save_from_excel_to_database)
 
-
-
-
-
         def camplist_clicked():
-            if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC','CATC','AAC','Mounaineering','Trekking','SSB','BLC','ALC','RDC','TSC','Snow Skiing']:
+            if ui.settings_campslistListWidget.currentItem().text().strip() in ['NIC', 'CATC', 'AAC', 'Mounaineering',
+                                                                                'Trekking', 'SSB', 'BLC', 'ALC', 'RDC',
+                                                                                'TSC', 'Snow Skiing']:
                 ui.settings_removecampPushButton.hide()
             else:
                 ui.settings_removecampPushButton.show()
@@ -540,9 +513,9 @@ class logic():
         ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
         ui.settings_backupdataPushButton.clicked.connect(self.backupdata)
         ui.settings_restoredataPushButton.clicked.connect(self.restoredata)
-#-----------------------------------------------------------------------------------------------------------------------------------------
+        # -----------------------------------------------------------------------------------------------------------------------------------------
 
-        ui.enrol_signaturePushButton.clicked.connect(lambda:self.picselect(ui.enrol_signaturePushButton))
+        ui.enrol_signaturePushButton.clicked.connect(lambda: self.picselect(ui.enrol_signaturePushButton))
 
         def settings_login_press():
             loginDialog.show()
@@ -552,15 +525,13 @@ class logic():
         self.login_permission()
         self.showtooltip("WELCOME")
 
-
     def query_hide_elements(self):
         ui.checkboxFrame.hide()
         ui.conditionsentrylabel.hide()
 
-        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit,QtGui.QComboBox)):
+        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit, QtGui.QComboBox)):
             i.hide()
         ui.query_backPushButton.show()
-
 
 
     def show_query_elements(self):
@@ -571,24 +542,23 @@ class logic():
             i.show()
         ui.valuelineEdit.show()
         ui.conditionlistcombobox.show()
-
+        ui.conditionlistcombobox.setCurrentIndex(0)
 
 
     def login_permission(self):
         app.processEvents()
 
-        if loginui.username=='ncc_viewer':
+        if loginui.username == 'ncc_viewer':
             ui.savedataPushButton.setDisabled(True)
             ui.updateentryCheckBox.hide()
             ui.submitPushButton.hide()
             ui.enrolPushButton.setDisabled(True)
 
-            for i in ui.Settings.findChildren((QtGui.QPushButton , QtGui.QLineEdit)):
-                if i.text()!="Open Candidates Picture folder" and i.text()!='LOGIN':
+            for i in ui.Settings.findChildren((QtGui.QPushButton, QtGui.QLineEdit)):
+                if i.text() != "Open Candidates Picture folder" and i.text() != 'LOGIN':
                     i.setDisabled(True)
 
-
-        if loginui.username=='ncc_editor':
+        if loginui.username == 'ncc_editor':
             ui.savedataPushButton.setDisabled(False)
             ui.updateentryCheckBox.show()
             ui.submitPushButton.show()
@@ -598,9 +568,9 @@ class logic():
                 if i.text() != "Open Candidates Picture folder":
                     i.setDisabled(False)
 
-    def check_if_img_exists(self , imagename):
+    def check_if_img_exists(self, imagename):
         if os.path.exists(r'candidate photos\{}.png'.format(imagename)):
-            img =  r'candidate photos\{}.png'.format(imagename)
+            img = r'candidate photos\{}.png'.format(imagename)
 
         elif os.path.exists(r'candidate photos\{}.jpg'.format(imagename)):
             img = r'candidate photos\{}.jpg'.format(imagename)
@@ -615,7 +585,9 @@ class logic():
 
         return img
 
-    columnnameinexcel=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN']
+    columnnameinexcel = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+                         'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ',
+                         'AK', 'AL', 'AM', 'AN']
 
     def generateExcelForLongNr(self):
         book = openpyxl.Workbook()
@@ -642,12 +614,12 @@ class logic():
 
                     sheet.row_dimensions[i + 2].height = 80
                     sheet.column_dimensions["A"].width = 18
-                elif j==1:
-                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j+1).text() + "_sign")
+                elif j == 1:
+                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 1).text() + "_sign")
                     if candidatephotosign:
                         img1 = Image(candidatephotosign, size=[125, 180])
                         img1.anchor(sheet['B' + str(i + 2)])
-                        img1.drawing.left=127
+                        img1.drawing.left = 127
                         sheet.add_image(img1)
                     sheet.row_dimensions[i + 2].height = 80
                     sheet.column_dimensions["B"].width = 18
@@ -679,9 +651,9 @@ class logic():
                 img.anchor(sheet['A' + str(i + 1)])
                 sheet.add_image(img)
 
-            sheet.row_dimensions[i + 2].height =80
+            sheet.row_dimensions[i + 2].height = 80
             sheet.column_dimensions["A"].width = 18
-            candidatephotosign = self.check_if_img_exists(sheet.cell(row=i + 1, column=3).value+"_sign")
+            candidatephotosign = self.check_if_img_exists(sheet.cell(row=i + 1, column=3).value + "_sign")
             if candidatephotosign:
                 img1 = Image(candidatephotosign, size=[125, 180])
                 img1.anchor(sheet['B' + str(i + 1)])
@@ -695,19 +667,19 @@ class logic():
                     candidatephoto = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 2).text())
                     if candidatephoto:
                         img = Image(candidatephoto, size=[125, 180])
-                        img.anchor(sheet['A' + str(i +1+oldrows)])
+                        img.anchor(sheet['A' + str(i + 1 + oldrows)])
                         sheet.add_image(img)
 
                     sheet.row_dimensions[i + 1 + oldrows].height = 80
                     sheet.column_dimensions["A"].width = 18
-                elif j==1:
-                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j+1).text()+"_sign")
+                elif j == 1:
+                    candidatephotosign = self.check_if_img_exists(ui.tableWidget_2.item(i, j + 1).text() + "_sign")
                     if candidatephotosign:
                         img1 = Image(candidatephotosign, size=[125, 180])
-                        img1.anchor(sheet['B' + str(i + 1+oldrows)])
+                        img1.anchor(sheet['B' + str(i + 1 + oldrows)])
                         img1.drawing.left = 127
                         sheet.add_image(img1)
-                    sheet.row_dimensions[i + 1+oldrows].height = 80
+                    sheet.row_dimensions[i + 1 + oldrows].height = 80
                     sheet.column_dimensions["B"].width = 18
                 else:
                     sheet.cell(row=i + 1 + oldrows, column=j + 1).value = ui.tableWidget_2.item(i, j).text()
@@ -723,6 +695,16 @@ class logic():
         os.startfile(name)
 
     def showlongnr(self):
+        ui.tableWidget_2.showGrid()
+        ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
+        ui.tableWidget_2.setStyleSheet(
+            "color:white;font-weight:bold;font-size:18px;background-color:transparent;border:1px solid black;gridline-color:black;")
+        ui.tableWidget_2.horizontalHeader().setStyleSheet(
+            "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
+        ui.tableWidget_2.verticalHeader().setStyleSheet(
+            "color:darkorange;width:50px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
+        ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
+        ui.tableWidget_2.resizeColumnsToContents()
         ui.tableWidget_2.clear()
         ui.tableWidget_2.setRowCount(0)
         ui.tableWidget_2.setColumnCount(0)
@@ -762,13 +744,13 @@ class logic():
                 if j == 0:
                     self.imagePath = self.check_if_img_exists(sqldata[i][j])
                     if self.imagePath:
-                        pixmap=QtGui.QPixmap(self.imagePath).scaled(135,120)
-                        qbimg=QBrush(pixmap)
-                        item=QtGui.QTableWidgetItem()
+                        pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
+                        qbimg = QBrush(pixmap)
+                        item = QtGui.QTableWidgetItem()
                         item.setBackground(qbimg)
-                        ui.tableWidget_2.setItem(i,j,item)
-                elif j==1:
-                    self.imagePath = self.check_if_img_exists(sqldata[i][j-1]+"_sign")
+                        ui.tableWidget_2.setItem(i, j, item)
+                elif j == 1:
+                    self.imagePath = self.check_if_img_exists(sqldata[i][j - 1] + "_sign")
                     if self.imagePath:
                         pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
                         qbimg = QBrush(pixmap)
@@ -781,11 +763,10 @@ class logic():
         myfont.setBold(True)
         myfont.setFamily("georgia")
         for i in range(ui.tableWidget_2.rowCount()):
-            ui.tableWidget_2.setRowHeight(i,120)
+            ui.tableWidget_2.setRowHeight(i, 120)
 
             for j in range(ui.tableWidget_2.columnCount()):
-                if j != 0 and j!=1:
-                    ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
+                if j != 0 and j != 1:
                     ui.tableWidget_2.item(i, j).setFont(myfont)
                     ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
                 ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.Stretch)
@@ -793,11 +774,11 @@ class logic():
         ui.tableWidget_2.showGrid()
         ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
         ui.tableWidget_2.setStyleSheet(
-            "color:black;font-weight:bold;font-size:16px;background-color:transparent;border:1px solid black;gridline-color:black;")
+            "color:white;font-weight:bold;font-size:18px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
             "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
-            "color:darkorange;width:5000px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
+            "color:darkorange;width:50px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         ui.tableWidget_2.resizeColumnsToContents()
 
@@ -813,9 +794,9 @@ class logic():
             ui.institutionlongnrComboBox.hide()
             ui.unitlongnrLineEdit.show()
 
-    querytupple=[]
+    querytupple = []
 
-    queryheading=[]
+    queryheading = []
 
     def generateexcelforquery(self):
 
@@ -833,9 +814,9 @@ class logic():
         data = pd.DataFrame(self.querytupple, columns=self.queryheading)
         try:
             if name.endswith('.csv'):
-                data.to_csv(name, index=False,float_format='string')
+                data.to_csv(name, index=False, float_format='string')
             elif name.endswith('.xlsx'):
-                data.to_excel(name,float_format='string')
+                data.to_excel(name, float_format='string')
             self.showtooltip("Results Saved Successfully")
         except:
             self.showtooltip("Saving Failed")
@@ -849,17 +830,18 @@ class logic():
             ref = 0
             try:
                 shutil.copy2('ncc.db', loc)
-                ref=1
-                shutil.copy2('settings.ini',loc)
+                ref = 1
+                shutil.copy2('settings.ini', loc)
             except:
-                if ref==0:
-                    QtGui.QMessageBox.critical(ui.Enrol ,"Database backup Failed !",r'DataBase backup has failed. Please backup up the database file Manually. It is located in C:\ProgramFiles\NCC\ncc.db' ,'OK')
+                if ref == 0:
+                    QtGui.QMessageBox.critical(ui.Enrol, "Database backup Failed !",
+                                               r'DataBase backup has failed. Please backup up the database file Manually. It is located in C:\ProgramFiles\NCC\ncc.db',
+                                               'OK')
 
-                elif ref==1:
+                elif ref == 1:
                     QtGui.QMessageBox.critical(ui.Enrol, "Settings.ini backup Failed !",
                                                r'Settings backup has failed. Please backup up the Settings.ini file Manually. It is located in C:\ProgramFiles\NCC\settings.ini',
                                                'OK')
-
 
             ref = 2
             if not os.path.exists(loc + r'\candidate photos'):
@@ -890,12 +872,13 @@ class logic():
         question = QtGui.QMessageBox()
         question.setWindowTitle('Choose the Type of file')
         question.setText("Do you want to Restore DATABASE FILE or Settings or CANDIDATES Photos ?")
-        question.addButton('DataBase',QtGui.QMessageBox.YesRole)
-        question.addButton('Settings',QtGui.QMessageBox.YesRole)
-        question.addButton('Candidate Photos',QtGui.QMessageBox.YesRole)
+        question.addButton('DataBase', QtGui.QMessageBox.YesRole)
+        question.addButton('Settings', QtGui.QMessageBox.YesRole)
+        question.addButton('Candidate Photos', QtGui.QMessageBox.YesRole)
         question.setStandardButtons(QtGui.QMessageBox.Cancel)
 
-        ch=''
+        ch = ''
+
         def onClicked(btn):
             nonlocal  ch
             ch = btn.text()
@@ -908,7 +891,7 @@ class logic():
         # ch = QtGui.QMessageBox.question(ui.Settings, 'Choose the Type of file',
         #                                 'Do you want to Restore DATABASE FILE or Settings or CANDIDATES Photos ?', 'DataBase',
         #                                 "Candidate's Photos", "Settings",QtGui.QMessageBox.Cancel)
-        if ch=='DataBase':
+        if ch == 'DataBase':
             loc = QtGui.QFileDialog.getOpenFileNameAndFilter(caption='Select the Database file',
                                                              directory=r"C:\users\{}".format(os.getlogin()),
                                                              filter="Database (*.db)")
@@ -951,7 +934,7 @@ class logic():
 
             self.showtooltip("RESTORATION SUCCESSFULL")
 
-        elif ch=='Settings':
+        elif ch == 'Settings':
             loc = QtGui.QFileDialog.getOpenFileNameAndFilter(caption='Select the settings.ini file',
                                                              directory=r"C:\users\{}".format(os.getlogin()),
                                                              filter="Settings (*.ini)")
@@ -1042,7 +1025,6 @@ class logic():
         etd_ccertPushButton.setText(_translate("exceltodatabaseDialog", "C_Certificate", None))
         tab = ''
 
-
         def buttonpressed(obj):
             nonlocal tab
             tab = {'etd_acertPushButton': 'A_cert_marks', 'etd_bcertPushButton': 'B_cert_marks',
@@ -1055,7 +1037,7 @@ class logic():
         etd_ccertPushButton.clicked.connect(lambda: buttonpressed(etd_ccertPushButton))
         exceltodatabaseDialog.exec()
 
-        if not tab:return
+        if not tab: return
 
         con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
         cur = con.cursor()
@@ -1064,70 +1046,67 @@ class logic():
                                                 caption="Select Excel or CSV file ",
                                                 filter="Excel or CSV (*.xlsx *.csv)")
 
-
-
         if not loc:
             return
         if loc.endswith('.csv'):
-            data = pd.read_csv(loc,na_filter=False)
+            data = pd.read_csv(loc, na_filter=False)
         elif loc.endswith('.xlsx'):
-            data = pd.read_excel(loc,na_filter=False)
-
+            data = pd.read_excel(loc, na_filter=False)
 
         if tab != 'enrolment':
-            if tab=='A_cert_marks':
+            if tab == 'A_cert_marks':
                 data = data.iloc[3:, 0:24].reset_index(drop=True)
-                data.columns=['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-   'Date_Of_Discharge', 'Parade_Attendance_Year1',
-   'Parade_Attendance_Year2', 'Part1_Drill_Written',
-   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-   'Part4_SplSubjects_Total', 'GrandTotal', 'Grading', 'Institution']
+                data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
+                                'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+                                'Date_Of_Discharge', 'Parade_Attendance_Year1',
+                                'Parade_Attendance_Year2', 'Part1_Drill_Written',
+                                'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+                                'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+                                'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+                                'Part4_SplSubjects_Total', 'GrandTotal', 'Grading', 'Institution']
 
-            elif tab=='B_cert_marks':
+            elif tab == 'B_cert_marks':
                 data = data.iloc[3:, 0:25].reset_index(drop=True)
                 data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-   'Date_Of_Discharge', 'Parade_Attendance_Year1',
-   'Parade_Attendance_Year2', 'Part1_Drill_Written',
-   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-   'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
-   'Grading', 'Institution']
+                                'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+                                'Date_Of_Discharge', 'Parade_Attendance_Year1',
+                                'Parade_Attendance_Year2', 'Part1_Drill_Written',
+                                'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+                                'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+                                'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+                                'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+                                'Grading', 'Institution']
 
-            elif tab=='C_cert_marks':
+            elif tab == 'C_cert_marks':
                 data = data.iloc[3:, 0:25].reset_index(drop=True)
                 data.columns = ['Enrolment_Number', 'Roll_Number', 'Rank', 'Student_Name',
-   'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
-   'Date_Of_Discharge', 'Parade_Attendance_Year1',
-   'Parade_Attendance_Year2', 'Part1_Drill_Written',
-   'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
-   'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
-   'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
-   'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
-   'Grading', 'Institution']
+                                'Fathers_Name', 'Date_Of_Birth', 'Enrol_Date', 'Camps_Attended',
+                                'Date_Of_Discharge', 'Parade_Attendance_Year1',
+                                'Parade_Attendance_Year2', 'Part1_Drill_Written',
+                                'Part1_Drill_Practical', 'Part1_Drill_Total', 'Part2_WT_Written',
+                                'Part2_WT_Practical', 'Part2_WT_Total', 'Part3_Misc_Written',
+                                'Part4_SplSubjects_Written', 'Part4_SplSubjects_Practical',
+                                'Part4_SplSubjects_Total', 'Bonus_Marks_Certificate', 'GrandTotal',
+                                'Grading', 'Institution']
 
         else:
             data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name',
-   'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
-   'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
-   'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
-   'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
-   'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
-   'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
-   'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
-   'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
-   'Unit']
+                            'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
+                            'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
+                            'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
+                            'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
+                            'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
+                            'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
+                            'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
+                            'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
+                            'Unit']
 
         conflicts = ''
         notexists = ''
 
-        if tab=='enrolment':
+        if tab == 'enrolment':
             try:
-                data.to_sql( name=tab,con=con,if_exists='append',index=False)
+                data.to_sql(name=tab, con=con, if_exists='append', index=False)
                 self.showtooltip("DATA SUCCESSFULLY ADDED TO DATABASE !!!")
                 con.close()
                 return;
@@ -1138,10 +1117,11 @@ class logic():
                 for i in range(len(data.Enrolment_Number)):
                     try:
                         values = tuple(data.iloc[i].values)
-                        cur.execute('''Insert into {} values {}'''.format(tab,values))
-                    except(sqlite3.OperationalError,sqlite3.IntegrityError) as e:
+                        cur.execute('''Insert into {} values {}'''.format(tab, values))
+                    except(sqlite3.OperationalError, sqlite3.IntegrityError) as e:
                         print(e)
-                        conflicts+='Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],data.Aadhaar_Number[i])
+                        conflicts += 'Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],
+                                                                                            data.Aadhaar_Number[i])
 
 
 
@@ -1150,9 +1130,10 @@ class logic():
 
             for i in range(len(data.Enrolment_Number)):
                 try:
-                    q = "SELECT EXISTS(SELECT Enrolment_Number FROM enrolment WHERE Enrolment_Number=\"{}\"".format(data.Enrolment_Number[i])+")"
+                    q = "SELECT EXISTS(SELECT Enrolment_Number FROM enrolment WHERE Enrolment_Number=\"{}\"".format(
+                        data.Enrolment_Number[i]) + ")"
                     if not con.execute(q).fetchone()[0]:
-                        notexists+='Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
+                        notexists += 'Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
 
                     values = tuple(data.iloc[i].values)
                     cur.execute('''Insert into {} values {}'''.format(tab, values))
@@ -1160,26 +1141,22 @@ class logic():
                     print(e)
                     conflicts += 'Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
 
-
-            cmsg='''
+            cmsg = '''
 
 The List of Enrolment Numbers which are NOT in the Enrolment Database Table are as shown below
 
 {}
 These Entries are added to the Certificates Table but Not to the Enrolment Table. Please add these Enrolment Numbers to the Enrolment Table if there is a need by submitting the numbers in the main Enrolment Form.
 '''.format(notexists)
-            ctitle= '''While adding the Data to the Certificate Database , its been found that some Enrolment Numbers are NOT PRESENT in the Enrolment Database Table. Please Add them to the Enroment Database if needed, in the Enrolment Tab</span></p></body></html>'''
-
-
+            ctitle = '''While adding the Data to the Certificate Database , its been found that some Enrolment Numbers are NOT PRESENT in the Enrolment Database Table. Please Add them to the Enroment Database if needed, in the Enrolment Tab</span></p></body></html>'''
 
         emsg = '''The List of Conflicts of either Enrolment_Number or Aadhaar_Number is as shown below :
 
 {}
 These entries are not added to the Database .\nIf you wish to update the database entries of present Student Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(
             conflicts)
-        etitle = '''While adding the Data to the {} Database Table, some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the {} Table and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>'''.format(tab,tab)
-
-
+        etitle = '''While adding the Data to the {} Database Table, some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the {} Table and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>'''.format(
+            tab, tab)
 
         con.commit()
         con.close()
@@ -1187,12 +1164,12 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if conflicts or notexists:
 
             if conflicts and notexists:
-                title =\
-'''{}
-<p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'century'; font-size:11pt;">Also {}</span></p></body></html>       
-'''.format(etitle,ctitle)
+                title = \
+                    '''{}
+                    <p align="center" style=" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'century'; font-size:11pt;">Also {}</span></p></body></html>       
+                    '''.format(etitle, ctitle)
 
-                msg = emsg+'\n\n'+cmsg
+                msg = emsg + '\n\n' + cmsg
 
             elif conflicts:
                 title = etitle
@@ -1200,8 +1177,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             else:
                 title = ctitle
                 msg = cmsg
-
-
 
             Dialog = QtGui.QDialog()
             Dialog.setObjectName(_fromUtf8("Dialog"))
@@ -1256,17 +1231,19 @@ These entries are not added to the Database .\nIf you wish to update the databas
             textBrowser_2.hide()
             verticalLayout.addWidget(textBrowser_2)
 
-            QtCore.QObject.connect(pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), lambda :(textBrowser_2.show(),pushButton_2.setText('Hide Details') )if textBrowser_2.isHidden() else (textBrowser_2.hide(),pushButton_2.setText('Show Details')))
+            QtCore.QObject.connect(pushButton_2, QtCore.SIGNAL(_fromUtf8("clicked()")), lambda: (
+            textBrowser_2.show(), pushButton_2.setText('Hide Details')) if textBrowser_2.isHidden() else (
+            textBrowser_2.hide(), pushButton_2.setText('Show Details')))
             QtCore.QObject.connect(pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), Dialog.close)
             QtCore.QMetaObject.connectSlotsByName(Dialog)
             Dialog.setWindowTitle(_translate("Dialog", "Conflicts Found !", None))
             textBrowser.setHtml(_translate("Dialog",
-                                                "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                                "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                                "p, li { white-space: pre-wrap; }\n"
-                                                "</style></head><body style=\" font-family:\'century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
-                                                "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:12pt;\">"+title+"",
-                                                None))
+                                           "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                           "p, li { white-space: pre-wrap; }\n"
+                                           "</style></head><body style=\" font-family:\'century\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+                                           "<p align=\"center\" style=\" margin-top:5px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'century\'; font-size:12pt;\">" + title + "",
+                                           None))
             pushButton_2.setText(_translate("Dialog", "Show Details", None))
             pushButton.setText(_translate("Dialog", "OK", None))
             Dialog.exec()
@@ -1274,52 +1251,50 @@ These entries are not added to the Database .\nIf you wish to update the databas
         print(conflicts)
 
     def set_camps_list(self):
-            ui.settings_campslistListWidget.clear()
-            ui.settings_campslistListWidget.setSpacing(1)
-            ui.enrol_campsListWidget.clear()
-            ui.campsNameuploaddataComboBox.clear()
-            ui.settings_addcampsLineEdit.clear()
+        ui.settings_campslistListWidget.clear()
+        ui.settings_campslistListWidget.setSpacing(1)
+        ui.enrol_campsListWidget.clear()
+        ui.campsNameuploaddataComboBox.clear()
+        ui.settings_addcampsLineEdit.clear()
 
+        ui.enrol_campsListWidget.setSpacing(1)
+        for i in self.allcampslist:
+            item = QtGui.QListWidgetItem()
+            item.setText(i)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("caladea"))
+            font.setPointSize(13)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense2Pattern)
+            item.setBackground(brush)
+            ui.enrol_campsListWidget.addItem(item)
+            ui.campsNameuploaddataComboBox.addItem(item.text())
+            ui.campsattendedqueryComboBox.addItem(item.text())
 
-            ui.enrol_campsListWidget.setSpacing(1)
-            for i in self.allcampslist:
-                item = QtGui.QListWidgetItem()
-                item.setText(i)
-                item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
-                font = QtGui.QFont()
-                font.setFamily(_fromUtf8("caladea"))
-                font.setPointSize(13)
-                font.setBold(True)
-                font.setWeight(75)
-                item.setFont(font)
-                brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-                brush.setStyle(QtCore.Qt.Dense2Pattern)
-                item.setBackground(brush)
-                ui.enrol_campsListWidget.addItem(item)
-                ui.campsNameuploaddataComboBox.addItem(item.text())
-                ui.campsattendedqueryComboBox.addItem(item.text())
+        for i in self.allcampslist:
+            item = QtGui.QListWidgetItem()
+            item.setText(i)
+            item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+            font = QtGui.QFont()
+            font.setFamily(_fromUtf8("Garamond"))
+            font.setPointSize(15)
+            font.setBold(True)
+            font.setWeight(75)
+            item.setFont(font)
+            brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
+            brush.setStyle(QtCore.Qt.Dense2Pattern)
+            item.setBackground(brush)
+            ui.settings_campslistListWidget.addItem(item)
 
-
-            for i in self.allcampslist:
-                item = QtGui.QListWidgetItem()
-                item.setText(i)
-                item.setTextAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
-                font = QtGui.QFont()
-                font.setFamily(_fromUtf8("Garamond"))
-                font.setPointSize(15)
-                font.setBold(True)
-                font.setWeight(75)
-                item.setFont(font)
-                brush = QtGui.QBrush(QtGui.QColor(72, 255, 52, 100))
-                brush.setStyle(QtCore.Qt.Dense2Pattern)
-                item.setBackground(brush)
-                ui.settings_campslistListWidget.addItem(item)
-
-    def add_remove_camp(self,obj):
+    def add_remove_camp(self, obj):
 
         '''ADD CAMP'''
 
-        if obj.objectName()=='settings_addcampPushButton':
+        if obj.objectName() == 'settings_addcampPushButton':
 
             campname = ui.settings_addcampsLineEdit.displayText().strip()
 
@@ -1327,13 +1302,15 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 self.showtooltip('Enter Camp name before clicking Add Camp')
                 return
 
-            if QtGui.QMessageBox.question(ui.Settings , "Are you sure ? " , 'Are you sure that you want to add {} to the Camps List ?'.format(campname),'Yes','No')==0:
+            if QtGui.QMessageBox.question(ui.Settings, "Are you sure ? ",
+                                          'Are you sure that you want to add {} to the Camps List ?'.format(campname),
+                                          'Yes', 'No') == 0:
                 self.allcampslist.append(campname)
-                self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
+                self.settings.setValue('allcampslist', ',,,'.join(self.allcampslist))
                 self.set_camps_list()
 
 
-        elif obj.objectName()=='settings_removecampPushButton':
+        elif obj.objectName() == 'settings_removecampPushButton':
             campselected = ui.settings_campslistListWidget.currentItem()
             campselected = '' if not campselected else campselected.text().strip()
 
@@ -1341,9 +1318,11 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 self.showtooltip("Select a Camp First")
                 return
 
-            if QtGui.QMessageBox.question(ui.Settings , 'Are you sure ?','Are you sure that you want to Remove {} from the Camps Lisk ?'.format(campselected),'Yes','No')==0:
+            if QtGui.QMessageBox.question(ui.Settings, 'Are you sure ?',
+                                          'Are you sure that you want to Remove {} from the Camps Lisk ?'.format(
+                                                  campselected), 'Yes', 'No') == 0:
                 self.allcampslist.remove(campselected)
-                self.settings.setValue('allcampslist',',,,'.join(self.allcampslist))
+                self.settings.setValue('allcampslist', ',,,'.join(self.allcampslist))
                 ui.settings_removecampPushButton.hide()
                 self.set_camps_list()
 
@@ -1373,7 +1352,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if selected_text in ['A certificate', 'B certificate', 'C certificate']:
             ui.settings_addfieldPushButton.hide()
             ui.settings_removefieldPushButton.hide()
-
 
         if selected_text not in ['Cadet details', 'Yoga day', 'Enrolment Nominal roll', 'Camp Nominal roll',
                                  'Scholarship NR', 'A certificate', 'B certificate', 'C certificate',
@@ -1440,10 +1418,10 @@ These entries are not added to the Database .\nIf you wish to update the databas
             item.setBackground(brush)
             ui.settings_fieldsListWidget.addItem(item)
 
-
         ui.settings_fieldsknownRadioButton.hide()
         ui.settings_fieldsunknownRadioButton.hide()
-        if ui.settings_formsListWidget.currentItem().text().strip() not in ['A certificate', 'B certificate', 'C certificate']:
+        if ui.settings_formsListWidget.currentItem().text().strip() not in ['A certificate', 'B certificate',
+                                                                            'C certificate']:
             ui.settings_removefieldPushButton.show()
         ui.settings_fieldsComboBox.hide()
         ui.settings_addfieldLineEdit.hide()
@@ -1519,7 +1497,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 ui.formsComboBox.clear()
                 ui.formsComboBox.addItems(self.formslist)
 
-
                 ui.settings_addformLineEdit.clear()
                 ui.settings_formsListWidget.clear()
                 self.set_forms_list()
@@ -1540,8 +1517,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 self.settings.setValue('formslist', ',,,'.join(self.formslist))
                 self.showtooltip("Form Removed")
                 try:
-                    self.settings.remove(selectedform.replace(' ','_')+"_sql_fieldslist")
-                    self.settings.remove(selectedform.replace(' ','_')+"_notsql_fieldslist")
+                    self.settings.remove(selectedform.replace(' ', '_') + "_sql_fieldslist")
+                    self.settings.remove(selectedform.replace(' ', '_') + "_notsql_fieldslist")
                 except:
                     print('error')
                     pass;
@@ -1550,8 +1527,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 ui.formsComboBox.addItems(self.formslist)
 
                 self.set_forms_list()
-
-
 
         if obj.objectName() == 'settings_addfieldPushButton':
             ui.settings_removefieldPushButton.hide()
@@ -1586,7 +1561,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                         mylist.append(ui.settings_fieldsComboBox.currentText())
                         self.settings.setValue(selectedform.replace(' ', '_') + '_sql_fieldslist',
                                                ',,,'.join(mylist))
-                        self.nametolistsql.update({selectedform:mylist})
+                        self.nametolistsql.update({selectedform: mylist})
                         self.showtooltip("Field Added")
 
                         self.set_fields_list(
@@ -1613,7 +1588,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                         mylist.append(ui.settings_addfieldLineEdit.displayText().strip())
                         self.settings.setValue(selectedform.replace(' ', '_') + '_notsql_fieldslist',
                                                ',,,'.join(mylist))
-                        self.nametolistnotsql.update({selectedform:mylist})
+                        self.nametolistnotsql.update({selectedform: mylist})
                         self.showtooltip("Field Added")
                         self.set_fields_list(
                             self.nametolistsql.get(selectedform) if self.nametolistsql.get(selectedform) else [],
@@ -1805,14 +1780,15 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
-            sqlpresentdata = ENROLMENT_FORM.enroll().execute("select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
+            sqlpresentdata = ENROLMENT_FORM.enroll().execute(
+                "select * from " + selectedDataType + " where Institution='" + selectedInstitutionName + "'")
             flag = 0
             sql = "insert into " + selectedDataType + " values("
             for i in range(len(sqldata)):
-                if i!=0:
-                    sql=sql+"),("
+                if i != 0:
+                    sql = sql + "),("
                 for j in range(len(fieldsListSql)):
-                    if j<len(sqlpresentdata):
+                    if j < len(sqlpresentdata):
                         if sqlpresentdata[j][0] == ui.tableWidget.item(i, 0).text():
                             ENROLMENT_FORM.enroll().delete_by_Enrolment(selectedDataType, sqldata[i][0])
                     if ui.tableWidget.horizontalHeaderItem(j).text() == "Rank":
@@ -1824,33 +1800,42 @@ These entries are not added to the Database .\nIf you wish to update the databas
             sql = sql + ")"
             ENROLMENT_FORM.enroll().insertionexecute(sql)
             self.showtooltip("Saved")
-        elif selectedDataType=="Attendance":
-            year=ui.yearComboBox.currentText().replace(' ','_')
-            certificate=ui.certificateComboBox.currentText().replace(' ','_')
-            s1=ENROLMENT_FORM.enroll().execute("select Enrolment_Number,certificate,year from attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'")
-            s2=ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'")
+        elif selectedDataType == "Attendance":
+            year = ui.yearComboBox.currentText().replace(' ', '_')
+            certificate = ui.certificateComboBox.currentText().replace(' ', '_')
+            s1 = ENROLMENT_FORM.enroll().execute(
+                "select Enrolment_Number,certificate,year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'")
+            s2 = ENROLMENT_FORM.enroll().execute(
+                "select Enrolment_Number from enrolment where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'")
             sql = "insert into Attendance(Enrolment_Number," + certificate + "_" + year + "_total_days," + certificate + "_" + year + \
                   "_present_days," + certificate + "_" + year + ",eligability,certificate,institution,year) values("
             for i in range(ui.tableWidget.rowCount()):
-                if i!=0:
-                    sql=sql+",("
-                length=len(s1)
-                fl=0
-                if length<ui.tableWidget.columnCount():
-                    length=ui.tableWidget.columnCount()
-                    fl=1
+                if i != 0:
+                    sql = sql + ",("
+                length = len(s1)
+                fl = 0
+                if length < ui.tableWidget.columnCount():
+                    length = ui.tableWidget.columnCount()
+                    fl = 1
                 for j in range(length):
-                    if fl==1:
-                        if j<len(s1):
-                            if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == s1[j][2]:
-                                ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],ui.certificateComboBox.currentText()[0:1], year)
-                        sql=sql+"'"+self.lineeditattendance[i][j].text()+"',"
-                    if fl==0:
-                        if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == s1[j][2]:
-                            ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],ui.certificateComboBox.currentText()[0:1],year)
-                        if j<ui.tableWidget.columnCount():
+                    if fl == 1:
+                        if j < len(s1):
+                            if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][
+                                1] and year == s1[j][2]:
+                                ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],
+                                                                                 ui.certificateComboBox.currentText()[
+                                                                                 0:1], year)
+                        sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
+                    if fl == 0:
+                        if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == \
+                                s1[j][2]:
+                            ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],
+                                                                             ui.certificateComboBox.currentText()[0:1],
+                                                                             year)
+                        if j < ui.tableWidget.columnCount():
                             sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
-                sql = sql+"'"+ui.certificateComboBox.currentText()[0:1]+"','"+ui.institutionuploaddatacomboBox.currentText()+"','"+year+"')"
+                sql = sql + "'" + ui.certificateComboBox.currentText()[
+                                  0:1] + "','" + ui.institutionuploaddatacomboBox.currentText() + "','" + year + "')"
             ENROLMENT_FORM.enroll().insertionexecute(sql)
             self.showtooltip("Sucessfully Inserted")
         else:
@@ -1955,7 +1940,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.yearComboBox.hide()
 
             ui.certificateComboBox.hide()
-        elif ui.typecomboBox.currentText()=="Attendance":
+        elif ui.typecomboBox.currentText() == "Attendance":
             ui.eligibilityCheckBox.hide()
 
             ui.yearComboBox.show()
@@ -2002,20 +1987,21 @@ These entries are not added to the Database .\nIf you wish to update the databas
     def lineEditUploadDataLogic(self):
         for i in range(len(self.lineeditattendance)):
             if len(self.lineeditattendance[i][2].text()) and len(self.lineeditattendance[i][1].text()):
-                a=int(str(self.lineeditattendance[i][2].text()))
-                b=int(str(self.lineeditattendance[i][1].text()))
-                self.lineeditattendance[i][3].setText(str(a/ b * 100))
-                if a/b*100>85.00:
+                a = int(str(self.lineeditattendance[i][2].text()))
+                b = int(str(self.lineeditattendance[i][1].text()))
+                self.lineeditattendance[i][3].setText(str(a / b * 100))
+                if a / b * 100 > 85.00:
                     self.lineeditattendance[i][4].setText("Yes")
                 else:
                     self.lineeditattendance[i][4].setText("No")
-            if len(self.lineeditattendance[i][2].text()) :
-                a=int(str(self.lineeditattendance[i][2].text()))
-                b=int(str(self.lineeditattendance[i][1].text()))
-                if a>b:
-                    self.lineeditattendance[i][2].setText(str(int(a/10)))
+            if len(self.lineeditattendance[i][2].text()):
+                a = int(str(self.lineeditattendance[i][2].text()))
+                b = int(str(self.lineeditattendance[i][1].text()))
+                if a > b:
+                    self.lineeditattendance[i][2].setText(str(int(a / 10)))
 
     hiderow = []
+
     def eligibilitylogic(self):
         myfont = QtGui.QFont()
         myfont.setBold(True)
@@ -2028,25 +2014,29 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if selectedDataType == "C certificate":
             certificate = "C_cert_attendance"
         if ui.eligibilityCheckBox.isChecked():
-            self.hiderow=[]
+            self.hiderow = []
             for i in range(ui.tableWidget.rowCount()):
-                enrolment=ui.tableWidget.verticalHeaderItem(i).text()
-                sqlattendance=ENROLMENT_FORM.enroll().execute("select " + certificate + "_1_year from attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"' and certificate='"+ui.typecomboBox.currentText()[0:1]+"' and Enrolment_number='"+enrolment+"' and year='1_year'")
-                sqlattendance1 = ENROLMENT_FORM.enroll().execute("select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() +"' and certificate='" + ui.typecomboBox.currentText()[0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
-                if len(sqlattendance)>0 and len(sqlattendance1)>0:
+                enrolment = ui.tableWidget.verticalHeaderItem(i).text()
+                sqlattendance = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_1_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='1_year'")
+                sqlattendance1 = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
+                if len(sqlattendance) > 0 and len(sqlattendance1) > 0:
                     if len(sqlattendance[0]) > 0 and len(sqlattendance1[0]) > 0:
-                        if len(str(sqlattendance[0][0]))>0 and len(str(sqlattendance1[0][0]))>0:
+                        if len(str(sqlattendance[0][0])) > 0 and len(str(sqlattendance1[0][0])) > 0:
                             if len(str(sqlattendance[0][0])):
-                                if sqlattendance[0][0]>75.00:
-                                    ui.tableWidget.setItem(i,9,QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
+                                if sqlattendance[0][0] > 75.00:
+                                    ui.tableWidget.setItem(i, 9, QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
                                     ui.tableWidget.item(i, 9).setBackground(QtGui.QColor(170, 170, 170, 80))
-                                    ui.tableWidget.item(i,9).setFont(myfont)
+                                    ui.tableWidget.item(i, 9).setFont(myfont)
                                     ui.tableWidget.item(i, 9).setTextAlignment(QtCore.Qt.AlignCenter)
                                 else:
                                     ui.tableWidget.hideRow(i)
                                     self.hiderow.append(i)
                             if len(str(sqlattendance1[0][0])):
-                                if sqlattendance[0][0]>75.00:
+                                if sqlattendance[0][0] > 75.00:
                                     ui.tableWidget.setItem(i, 10, QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
                                     ui.tableWidget.item(i, 10).setBackground(QtGui.QColor(170, 170, 170, 80))
                                     ui.tableWidget.item(i, 10).setFont(myfont)
@@ -2072,7 +2062,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
         ui.tableWidget.setRowCount(0)
         ui.tableWidget.setColumnCount(0)
         self.rankuploadcombobox = []
-        self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)","Company Sergent Major (CSM)", "Junior Under Officer (JUO)", "Senior Under Officer (SUO)"]
+        self.rank = ["Cadet (CDT)", "Lance Corporal (LCPL)", "Corporal (CPL)", "Sergent (SGT)",
+                     "Company Sergent Major (CSM)", "Junior Under Officer (JUO)", "Senior Under Officer (SUO)"]
         self.camps = ["NIC", "CATC", "AAC"]
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
@@ -2101,15 +2092,15 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     else:
                         ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(""))
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
-            li=["C:\\Users\ADMIN\Documents\BlueShades2.jpg","C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
+            li = ["C:\\Users\ADMIN\Documents\BlueShades2.jpg", "C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             ui.eligibilityCheckBox.setChecked(False)
-            certificate=""
+            certificate = ""
             ui.tableWidget.clearContents()
             fieldsListSql = self.nametolistsql.get(selectedDataType)
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
-                certificate="A_cert_attendance"
+                certificate = "A_cert_attendance"
             if selectedDataType == "B certificate":
                 selectedDataType = "B_cert_marks"
                 certificate = "B_cert_attendance"
@@ -2147,7 +2138,12 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                         len(self.rankuploadcombobox) - 1])
                                     for items in range(len(self.rank)):
                                         self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].addItem(_fromUtf8(""))
-                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,_translate("MainWindow",self.rank[items],None))
+                                        self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setItemText(items,
+                                                                                                              _translate(
+                                                                                                                  "MainWindow",
+                                                                                                                  self.rank[
+                                                                                                                      items],
+                                                                                                                  None))
                                     self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setStyleSheet(
                                         "font-weight:bold;")
                                     self.rankuploadcombobox[len(self.rankuploadcombobox) - 1].setCurrentIndex(
@@ -2200,50 +2196,61 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 if len(sqlpresentdata) > 0:
                     sqlpresentdata.pop(l)
             for i in range(ui.tableWidget.rowCount()):
-                enrolment=ui.tableWidget.verticalHeaderItem(i).text()
-                sqlattendance=ENROLMENT_FORM.enroll().execute("select " + certificate + "_1_year from attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"' and certificate='"+ui.typecomboBox.currentText()[0:1]+"' and Enrolment_number='"+enrolment+"' and year='1_year'")
-                sqlattendance1 = ENROLMENT_FORM.enroll().execute("select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() +"' and certificate='" + ui.typecomboBox.currentText()[0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
+                enrolment = ui.tableWidget.verticalHeaderItem(i).text()
+                sqlattendance = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_1_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='1_year'")
+                sqlattendance1 = ENROLMENT_FORM.enroll().execute(
+                    "select " + certificate + "_2_year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.typecomboBox.currentText()[
+                                                                                                                                                                       0:1] + "' and Enrolment_number='" + enrolment + "' and year='2_year'")
 
-                if len(sqlattendance)>0 :
+                if len(sqlattendance) > 0:
                     if len(str(sqlattendance[0][0])):
-                        ui.tableWidget.setItem(i,9,QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
-                if len(sqlattendance1)>0:
+                        ui.tableWidget.setItem(i, 9, QtGui.QTableWidgetItem(str(sqlattendance[0][0])))
+                if len(sqlattendance1) > 0:
                     if len(str(sqlattendance1[0][0])):
-                        ui.tableWidget.setItem(i,10,QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
+                        ui.tableWidget.setItem(i, 10, QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
 
         elif selectedDataType == "Attendance":
             ui.tableWidget.clearContents()
-            sql="select Enrolment_Number from enrolment where institution='"+ui.institutionuploaddatacomboBox.currentText()+"'"
-            sqldata=ENROLMENT_FORM.enroll().execute(sql)
-            sql1="select * from Attendance where institution='"+ui.institutionuploaddatacomboBox.currentText()+"' and certificate='"+ui.certificateComboBox.currentText()[0:1]+"'"
-            sqldata1=ENROLMENT_FORM.enroll().execute(sql1)
-            attendancelist=["Enrolment_Number","certificate","institution","A_cert_attendance_1_year",
-        "A_cert_attendance_2_year","B_cert_attendance_1_year","B_cert_attendance_2_year" ,"C_cert_attendance_1_year","C_cert_attendance_2_year",
-        "A_cert_attendance_1_year_total_days","A_cert_attendance_2_year_total_days","B_cert_attendance_1_year_total_days",'B_cert_attendance_2_year_total_days',
-        "C_cert_attendance_1_year_total_days","C_cert_attendance_2_year_total_days","A_cert_attendance_1_year_present_days","A_cert_attendance_2_year_present_days",
-        "B_cert_attendance_1_year_present_days","B_cert_attendance_2_year_present_days","C_cert_attendance_1_year_present_days","C_cert_attendance_2_year_present_days"]
+            sql = "select Enrolment_Number from enrolment where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'"
+            sqldata = ENROLMENT_FORM.enroll().execute(sql)
+            sql1 = "select * from Attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "' and certificate='" + ui.certificateComboBox.currentText()[
+                                                                                                                                             0:1] + "'"
+            sqldata1 = ENROLMENT_FORM.enroll().execute(sql1)
+            attendancelist = ["Enrolment_Number", "certificate", "institution", "A_cert_attendance_1_year",
+                              "A_cert_attendance_2_year", "B_cert_attendance_1_year", "B_cert_attendance_2_year",
+                              "C_cert_attendance_1_year", "C_cert_attendance_2_year",
+                              "A_cert_attendance_1_year_total_days", "A_cert_attendance_2_year_total_days",
+                              "B_cert_attendance_1_year_total_days", 'B_cert_attendance_2_year_total_days',
+                              "C_cert_attendance_1_year_total_days", "C_cert_attendance_2_year_total_days",
+                              "A_cert_attendance_1_year_present_days", "A_cert_attendance_2_year_present_days",
+                              "B_cert_attendance_1_year_present_days", "B_cert_attendance_2_year_present_days",
+                              "C_cert_attendance_1_year_present_days", "C_cert_attendance_2_year_present_days"]
 
-            horizontalheader=['Enrolment_Number','Total Days','Attended Days','Percentage','Eligibility']
+            horizontalheader = ['Enrolment_Number', 'Total Days', 'Attended Days', 'Percentage', 'Eligibility']
             ui.tableWidget.setRowCount(len(sqldata))
             ui.tableWidget.setColumnCount(len(horizontalheader))
             ui.tableWidget.setHorizontalHeaderLabels(horizontalheader)
-            verticalheader=[]
-            self.lineeditattendance=[]
+            verticalheader = []
+            self.lineeditattendance = []
             year = ui.yearComboBox.currentText().replace(' ', '_')
             certificate = ui.certificateComboBox.currentText().replace(' ', '_')
             for i in range(ui.tableWidget.rowCount()):
-                flag=0
-                sqldata2=[]
+                flag = 0
+                sqldata2 = []
                 self.lineeditattendance.append([])
                 verticalheader.append(sqldata[i][0])
                 for l in range(len(sqldata1)):
                     sql = "select Enrolment_Number," + certificate + "_" + year + "_total_days," + certificate + "_" + year + "_present_days," + certificate + "_" + year + ",eligability from Attendance" \
-                          " where Enrolment_Number='" + sqldata[i][0] + "'and certificate='" + ui.certificateComboBox.currentText()[0:1] + "' and year='" + year + "'"
+                                                                                                                                                                            " where Enrolment_Number='" + \
+                          sqldata[i][0] + "'and certificate='" + ui.certificateComboBox.currentText()[
+                                                                 0:1] + "' and year='" + year + "'"
                     sqldata2 = ENROLMENT_FORM.enroll().execute(sql)
                     if len(sqldata2):
                         flag = 1
                         break
-                if flag==1:
+                if flag == 1:
                     for j in range(ui.tableWidget.columnCount()):
                         self.lineeditattendance[i].append(QtGui.QLineEdit(ui.tableWidget))
                         ui.tableWidget.setCellWidget(i, j, self.lineeditattendance[i][j])
@@ -2251,38 +2258,38 @@ These entries are not added to the Database .\nIf you wish to update the databas
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", str(sqldata2[0][j]), None))
                         else:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", "", None))
-                        if j!=0 and j!=4:
+                        if j != 0 and j != 4:
                             self.lineeditattendance[i][j].setValidator(QtGui.QDoubleValidator())
-                        if j==1 or j==2:
+                        if j == 1 or j == 2:
                             self.lineeditattendance[i][j].setMaxLength(2)
                             self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
-                        if j==3:
+                        if j == 3:
                             self.lineeditattendance[i][j].setMaxLength(5)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==0:
+                        if j == 0:
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==4:
+                        if j == 4:
                             self.lineeditattendance[i][j].setMaxLength(3)
                             self.lineeditattendance[i][j].setDisabled(True)
                         self.lineeditattendance[i][j].setStyleSheet("background-color:lightgray;")
                 else:
                     for j in range(ui.tableWidget.columnCount()):
                         self.lineeditattendance[i].append(QtGui.QLineEdit(ui.tableWidget))
-                        ui.tableWidget.setCellWidget(i,j,self.lineeditattendance[i][j])
-                        if j==0:
+                        ui.tableWidget.setCellWidget(i, j, self.lineeditattendance[i][j])
+                        if j == 0:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", sqldata[i][0], None))
                             self.lineeditattendance[i][j].setDisabled(True)
                         else:
                             self.lineeditattendance[i][j].setText(_translate("MainWindow", "", None))
-                        if j!=0 and j!=4:
+                        if j != 0 and j != 4:
                             self.lineeditattendance[i][j].setValidator(QtGui.QDoubleValidator())
-                        if j==1 or j==2:
+                        if j == 1 or j == 2:
                             self.lineeditattendance[i][j].setMaxLength(2)
                             self.lineeditattendance[i][j].textChanged.connect(self.lineEditUploadDataLogic)
-                        if j==3:
+                        if j == 3:
                             self.lineeditattendance[i][j].setMaxLength(5)
                             self.lineeditattendance[i][j].setDisabled(True)
-                        if j==4:
+                        if j == 4:
                             self.lineeditattendance[i][j].setMaxLength(3)
                             self.lineeditattendance[i][j].setDisabled(True)
                         self.lineeditattendance[i][j].setStyleSheet("background-color:lightgray;")
@@ -2323,6 +2330,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
         ui.tableWidget.resizeColumnsToContents()
 
     def conditionscomboboxlogic(self):
+
+        print("working")
         text = ui.conditionlistcombobox.currentText()
         """if text=="Rank" or text=="Institution" or text=="Blood_Group" or text=="Sex" or text=="Enrol_Date" or text=="Date_Of_Birth":"""
         ui.rankqueryComboBox.hide()
@@ -2360,9 +2369,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
     def update_excel_function(self):
         if ui.entryBox.toPlainText() == "":
-            QtGui.QMessageBox.warning(ui.Enrol, 'Message',
-                                      'Please enter the enrolment numbers.',
-                                      'OK')
+            self.showtooltip('Please Enter the Enrolment numbers in the EntryBox.')
             return
         x = ui.entryBox.toPlainText().replace(' ', '')
 
@@ -2374,7 +2381,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
         for i in enrolnocopy:
             if not cur.execute(
                     "select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(
-                            i)).fetchone()[0]:
+                        i)).fetchone()[0]:
                 enrolno.remove(i)
         con.close()
 
@@ -2384,7 +2391,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
         self.listheadingdata = list(self.nametolistsql.get(selectedformname))
         for i in self.nametolistnotsql.get(selectedformname):
             self.listheadingdata.append(i)
-
 
         sql = """select """
         if selectedformname != 'A certificate' and selectedformname != "B certificate" and selectedformname != "C certificate":
@@ -2420,44 +2426,50 @@ These entries are not added to the Database .\nIf you wish to update the databas
             return
         self.formname = ""
         self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
-                                                          caption="Save the Form file",filter="Excel (*.xlsx);;CSV (*.csv)")
+                                                          caption="Save the Form file",
+                                                          filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
 
-        if tup[0]!=len(self.listheadingdata):
+        if tup[0] != len(self.listheadingdata):
             for i in range(len(tup)):
                 cp = list(tup[i])
-                while (len(cp)!=len(self.listheadingdata)):
+                while (len(cp) != len(self.listheadingdata)):
                     cp.append('')
-                tup[i]=cp
-
+                tup[i] = cp
 
         if self.formname.endswith(".csv"):
-            pd.DataFrame(tup ,columns=self.listheadingdata).to_csv(self.formname , mode='a' ,index=False , header=False)
+            pd.DataFrame(tup, columns=self.listheadingdata).to_csv(self.formname, mode='a', index=False, header=False)
         elif self.formname.endswith('.xlsx'):
-            data = pd.DataFrame(tup , columns=self.listheadingdata)
-            data1 = pd.read_excel(self.formname,na_filter=False)
-            finaldata = data1.append(data,ignore_index=True)
+            data = pd.DataFrame(tup, columns=self.listheadingdata)
+            data1 = pd.read_excel(self.formname, na_filter=False)
+            finaldata = data1.append(data, ignore_index=True)
             finaldata.to_excel(self.formname)
 
         self.table1(tup, sql)
         self.showtooltip("Form updated sucessfully")
         os.startfile(self.formname)
 
-
-
     def saveExcelfuntion(self):
         # formlist=["Cadet details","Yoga day","Enrolment Nominal roll","Camp Nominal roll","Scholarship NR","A certificate","B certificate","C certificate","Speciman signature of cadets","TADA to cadets camps","TADA to cadets for exam"]
         x = ui.entryBox.toPlainText().replace(" ", "")
+        if not x.strip():
+            self.showtooltip("Please Enter the Enrolment numbers in the EntryBox.")
+            return
 
-        enrolnocopy= x.split(',')
+        x = x.replace("\n", ",")
+        enrolnocopy = x.split(',')
         enrolno = list(enrolnocopy)
         con = sqlite3.connect("ncc.db")
         cur = con.cursor()
-        #enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
+        duplicate = ""
+        # enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
         for i in enrolnocopy:
-            if not cur.execute("select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(i)).fetchone()[0]:
+            if not cur.execute(
+                    "select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(
+                            i)).fetchone()[0]:
                 enrolno.remove(i)
+                duplicate = duplicate + str(i) + ","
         con.close()
 
         selectedformname = ui.formsComboBox.currentText()
@@ -2486,17 +2498,17 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 if i != len(self.listdata) - 1:
                     sql = sql + ","
             sql = sql + " from " + tablename + " where "
-
+        if not len(enrolno):
+            self.showtooltip('Make sure that entered Enrolment numbers are enrolled.')
+            return
         for i in range(len(enrolno)):
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
-
+        print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
-        if len(tup) < 1:
-            QtGui.QMessageBox.warning(ui.Enrol, 'No Data ',
-                                      'Make sure that you have entered some data in the Data Entry table .',
-                                      'OK')
+        if not len(tup):
+            self.showtooltip('Make sure that you have entered some data in the Data Entry table .')
             return
         self.formname = ""
         self.formname = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
@@ -2504,21 +2516,18 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                                           filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
-#kar1,kar2,kar3,kar4
 
+            # kar1,kar2,kar3,kar4
 
-
-        if tup[0]!=len(self.listheadingdata):
+        if tup[0] != len(self.listheadingdata):
             for i in range(len(tup)):
                 cp = list(tup[i])
-                while (len(cp)!=len(self.listheadingdata)):
+                while (len(cp) != len(self.listheadingdata)):
                     cp.append('')
-                tup[i]=cp
-
-
+                tup[i] = cp
 
         if self.formname.endswith(".csv"):
-            pd.DataFrame(tup ,columns=self.listheadingdata,index=False).to_csv(self.formname ,index=False)
+            pd.DataFrame(tup, columns=self.listheadingdata).to_csv(self.formname, index=False)
         elif self.formname.endswith('.xlsx'):
             pd.DataFrame(tup, columns=self.listheadingdata).to_excel(self.formname)
         #
@@ -2528,23 +2537,30 @@ These entries are not added to the Database .\nIf you wish to update the databas
         # for i in range(len(tup)):
         #     wr.writerow(tup[i])
         self.table1(tup, sql)
-
-        self.showtooltip("Form generated sucessfully")
+        if len(duplicate) == 0:
+            self.showtooltip("Form generated sucessfully")
+        else:
+            self.showtooltip("Form generated sucessfully")
+            QtGui.QMessageBox.warning(ui.enrolformFrame, "Message",
+                                      "Form generated sucessfully\n Enrolment numbers : " + duplicate + " are not enrolled.",
+                                      'OK')
         # res.close()
+        ui.entryBox.setText("")
         os.startfile(self.formname)
 
-    def picselect(self,obj):
+    def picselect(self, obj):
 
-        if obj.objectName()=='selectpicturePushButton':
-            self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg *JPG *PNG)")
+        if obj.objectName() == 'selectpicturePushButton':
+            self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',
+                                                                 filter="Images (*.png *.jpg *JPG *PNG)")
             if not self.candidphoto:
-                self.candidphoto=''
+                self.candidphoto = ''
                 return
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
 
-
-        if obj.objectName()=='enrol_signaturePushButton':
-            self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',filter="Images (*.png *.jpg *.PNG *JPG)")
+        if obj.objectName() == 'enrol_signaturePushButton':
+            self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',
+                                                                    filter="Images (*.png *.jpg *.PNG *JPG)")
             if not self.signaturephoto:
                 return
             ui.selectsignatureLabel.setPixmap(QtGui.QPixmap(self.signaturephoto))
@@ -2562,16 +2578,18 @@ These entries are not added to the Database .\nIf you wish to update the databas
             except Exception as e:
                 print(e)
                 if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
-                    QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number','\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.','OK');
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
+                                              '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
+                                              'OK');
 
                 elif 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
-                    QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists','\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.','OK');
+                    QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
+                                              '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. If you want to Update the Present Entry , then check the Update Entry check box.',
+                                              'OK');
                 return
-
 
         if not proceed:
             return
-
 
         def set_margin_red_style(obj):
 
@@ -2581,17 +2599,16 @@ These entries are not added to the Database .\nIf you wish to update the databas
             except:
                 pass;
 
-
         mailid = ui.emailLineEdit.displayText().strip()
 
-        if len(mailid) and  ('@' not in mailid or (mailid.rfind('.') -  mailid.rfind('@'))<2):
-            QtGui.QMessageBox.warning(ui.Enrol , "Warning" , "\n\nPlease make sure that the entered Email address is a valid one." ,'OK')
+        if len(mailid) and ('@' not in mailid or (mailid.rfind('.') - mailid.rfind('@')) < 2):
+            QtGui.QMessageBox.warning(ui.Enrol, "Warning",
+                                      "\n\nPlease make sure that the entered Email address is a valid one.", 'OK')
 
             return
 
-
-
-        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit ,ui.addressTextEdit, ui.unitLineEdit , ui.aadhaarLineEdit]:
+        for i in [ui.enrolmentnumLineEdit, ui.fullnameLineEdit, ui.addressTextEdit, ui.unitLineEdit,
+                  ui.aadhaarLineEdit]:
 
             if i == ui.addressTextEdit:
                 if i.toPlainText() == '':
@@ -2611,19 +2628,18 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 i.setStyleSheet('')
                 i.setPlaceholderText('')
 
-
-        if proceed: #This runs only if all the non-null fields are filled.
+        if proceed:  # This runs only if all the non-null fields are filled.
 
             ui.addressTextEdit.setStyleSheet('')
             print(len(ui.aadhaarLineEdit.displayText().strip()))
-            if len(ui.aadhaarLineEdit.displayText().strip())!=12:
-                proceed=False;
+            if len(ui.aadhaarLineEdit.displayText().strip()) != 12:
+                proceed = False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           "\nValid Aadhaar Number should be 12 digits long.\n\n Please make sure that it's a valid 12 digit Aadhaar number",
                                           'OK')
-                return ;
+                return;
 
-            if  len(ui.mobileLineEdit.displayText().strip()) and  len(ui.mobileLineEdit.displayText().strip())!=10:
+            if len(ui.mobileLineEdit.displayText().strip()) and len(ui.mobileLineEdit.displayText().strip()) != 10:
                 proceed = False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
                                           '\n\n\nPlease Enter a Valid 10 digit Mobile number.',
@@ -2785,7 +2801,6 @@ color:white;
         ui.selectpicturePushButton.setDisabled(True)
         ui.enrol_signaturePushButton.setDisabled(True)
 
-
     def enable_query_checkbox_elements(self):
 
         for i in ui.enrolformFrame.findChildren(
@@ -2822,8 +2837,6 @@ color:white;
 
         search_field_text = ui.searchbyfieldLineEdit.displayText().strip()
 
-
-
         if ui.aadhaarnumRadioButton.isChecked():
             self.field = 'Aadhaar_Number'
             # if len(search_field_text)==12:
@@ -2843,19 +2856,16 @@ color:white;
             self.enable_query_checkbox_elements()
             return
 
-
         candidatephoto = self.check_if_img_exists(tuple[0])
         if candidatephoto:
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(candidatephoto))
 
-        signaturephoto = self.check_if_img_exists(tuple[0]+'_sign')
+        signaturephoto = self.check_if_img_exists(tuple[0] + '_sign')
         if signaturephoto:
             ui.selectsignatureLabel.setPixmap(QtGui.QPixmap(signaturephoto))
 
-
-
-        months = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5, 'Jun':6, 'Jul':7, 'Aug':8,
-                  'Sep':9, 'Oct':10, 'Nov':11, 'Dec':12}
+        months = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8,
+                  'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
 
         ui.enrolmentnumLineEdit.setText(tuple[0])
         ui.rankComboBox.setCurrentIndex(ui.rankComboBox.findText(tuple[1]))
@@ -2864,26 +2874,26 @@ color:white;
         ui.fullnameLineEdit.setText(tuple[3])
         ui.SmiddlenameLineEdit.setText(tuple[4])
         ui.SlastnameLineEdit.setText(tuple[5])
-        #FULL NAME IS tuple[6]
+        # FULL NAME IS tuple[6]
 
 
 
         ui.fathernameLineEdit.setText(tuple[7])
         ui.FmiddlenameLineEdit.setText(tuple[8])
         ui.FlastnameLineEdit.setText(tuple[9])
-        #FUll father Name is tuple[10]
+        # FUll father Name is tuple[10]
 
 
 
         ui.mothernameLineEdit.setText(tuple[11])
         ui.MmiddlenameLineEdit.setText(tuple[12])
         ui.MlastnameLineEdit.setText(tuple[13])
-        #FULL MOTHER NAME is tuple[14]
+        # FULL MOTHER NAME is tuple[14]
 
 
         ui.sexComboBox.setCurrentIndex(ui.sexComboBox.findText(tuple[15]))
 
-        dob= tuple[16].split('/')
+        dob = tuple[16].split('/')
         ui.dateofbirthDateEdit.setDate(QtCore.QDate(int(dob[0]), months[dob[1]], int(dob[2])))
 
         ui.addressTextEdit.setText(tuple[17])
@@ -2900,13 +2910,11 @@ color:white;
         else:
             ui.NullcertRadioButton.setChecked(True)
 
-
         camplist = tuple[22].split(',')
 
         for i in range(ui.enrol_campsListWidget.count()):
             if ui.enrol_campsListWidget.item(i).text() in camplist:
                 ui.enrol_campsListWidget.item(i).setSelected(True)
-
 
         ui.extraactivitiesTextEdit.setText(tuple[23])
         ui.specialachievementsTextEdit.setText(tuple[24])
@@ -2937,7 +2945,6 @@ color:white;
         for i in ui.instFrame.findChildren((QtGui.QLineEdit)):
             i.clear()
 
-
         ui.enrol_campsListWidget.clearSelection()
         ui.aadhaarLineEdit.setPlaceholderText("Enter 12 digit aadhaar number")
         ui.fullnameLineEdit.setPlaceholderText("First Name")
@@ -2946,7 +2953,6 @@ color:white;
         self.signaturephoto = ''
         ui.selectpictureLabel.clear()
         ui.selectsignatureLabel.clear()
-
 
     def enrol_adhaar_radio_change(self):
         if ui.aadhaarnumRadioButton.isChecked():
@@ -3110,33 +3116,50 @@ color:white;
                                 <style>
                                 body{
                                 display:block;
-                                background-image:url(:/icons/b9.png);
+                                background-image: url(b9.png);
                                 background-repeat:y-axis;
                                 width:100%;
                                 height:2530px;
                                 text-align:centre; 
                                 }
+                                .column-three{
+                                    width: 400px;
+                                }
+                                .column-one{
+                                    width: 355px;
+                                }
+                                .column-one1{
+                                    width: 670px;
+                                }
+                                .column-two{
+                                    width: 400px;
+                                }
                                 .photo{
-                                float:right;
+                                    border-style: groove;
+                                    border-width:4px ;
+                                    border-color: darkgray;
+                                    border-radius: 5px;
                                 }
                                 .photo1{
-                                float:left;
-
+                                    border-style: groove;
+                                    border-width:4px ;
+                                    border-color: darkgray;
+                                    border-radius: 5px;
                                 }
                                 .fs{
                                 page-break-before: always;
                                 }
                                 .logo{
-                                height:180px;
-                                width:145px;
+                                height:200px;
+                                width:155px;
                                 margin: auto;
-                                background-image: url(:/icons/ncc2.png);
+                                background-image: url(ncc2.png);
                                 background-repeat:no-repeat;
                                 background-size: contain;
                                 }
                                 .heading{
 
-                                background-image:url(:/icons/graywood.png);
+                                background-image:url(graywood.png);
                                 color:darkorange;
                                 font-size:60px;
                                 font-family:"longdon decorative";
@@ -3152,45 +3175,57 @@ color:white;
 
                                 }
                                 .questions{
-                                color:darkblue;
+                                color:firebrick;
                                 font-family:simonetta;
                                 font-weight:bold;
                                 font-size:26px;
                                 }
                                 .answers{
-                                color:darkgreen;
+                                color:darkorchid;
                                 font-family:simonetta;
                                 font-weight:bold;
                                 font-size:22px;
-                                }</style>
+
+                                }
+                                </style>
                                 </head>""" + """
                                 <body>
                                 <div class="heading">ENROLMENT FORM</div><br><br>
                                 <div class="firstpage">
 
-                                <img class="photo" src=\"""" + self.check_if_img_exists(enrolmentnum) + """\" width="160" height="180" />
+                                <img style="float:right" class="photo" src=\"""" + self.check_if_img_exists(
+                enrolmentnum) + """\" width="160" height="180" />
 
-                                <img class="photo1" src=\"""" + self.check_if_img_exists(enrolmentnum + "_sign") + """\" width="160" height="180" />
+                                <img style="float:left" class="photo1" src=\"""" + self.check_if_img_exists(
+                enrolmentnum + "_sign") + """\" width="160" height="180" />
                                 <div class="logo"></div><br><br>
 
                                 <table class="fs" width="100%" >
+                                <col class="column-one1">
+                                <col class="column-two">
+                                <col class="column-three">
                                 <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
                                 <tr class="questions" height="50px"><td >Student Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td>{}</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td >{}</td></tr>
                                 <tr class="questions" height="50px"><td >Fathers Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td >{}</td></tr>
                                 <tr class="questions" height="50px"><td >Mothers Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td>{}</td></tr>
+                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td >{}</td></tr>
+                                </table><br><table>
+                                <col class="column-one">
+                                <col class="column-two">
                                 <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
                                 <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
-                                </table><br><br><br><br><br>
+                                </table><br><br><br><br><br><br>
                                 <table width="100%">
+                                <col class="column-one">
+                                <col class="column-two">
                                  <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
                                  <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
                                  <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
@@ -3201,6 +3236,8 @@ color:white;
                                  </table><hr>
                                  <h1 style="text-align:center;color:deeppink;font-weight:bold;">Bank Details</h1>
                                  <hr><table width="100%">
+                                 <col class="column-one">
+                                <col class="column-two">
                                  <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
                                  <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
                                  <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
@@ -3209,8 +3246,10 @@ color:white;
                                  <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
                                  </table>
                                  <table width="100%">
+                                 <col class="column-one">
+                                <col class="column-two">
                                  <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
+                                 <tr height="50px" style="float:left"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
                                  </table><hr><br><br>
                                  <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
                                  <div style="float:left;color:purple;font-size:25px;">Signature of the Enroling Officer</div>
@@ -3424,7 +3463,7 @@ color:white;
         i = 0
 
         mmsg = ""
-        self.queryheading=msg1.split(',')
+        self.queryheading = msg1.split(',')
         while (i < len(msg1)):
 
             if (msg1[i] == ","):
@@ -3456,8 +3495,8 @@ color:white;
 
         ui.webView.setHtml(html3)
 
-    def casemaker(self,sql2, field):
-        if field=="Address" or field=="Camps_Attended":
+    def casemaker(self, sql2, field):
+        if field == "Address" or field == "Camps_Attended":
             length = 0
             l = 1
             sql33 = sql2
@@ -3492,7 +3531,7 @@ color:white;
         return (sql2)
 
     def conquery(self):
-        self.querytupple=[]
+        self.querytupple = []
         sql = """"""
 
         if ui.selectallCheckBox.isChecked():
@@ -3551,9 +3590,7 @@ color:white;
 
             if ui.micrCheckBox.isChecked(): sql += 'MICR,'
 
-            if ui.campsAttendedCheckBox.isChecked():sql+='Camps_Attended'
-
-
+            if ui.campsAttendedCheckBox.isChecked(): sql += 'Camps_Attended'
 
             sql = sql.strip()
 
@@ -3574,7 +3611,7 @@ color:white;
             Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
             Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
             Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """
-                sql2= ui.conditionsentrylabel.text()
+                sql2 = ui.conditionsentrylabel.text()
                 sql2 = self.casemaker(sql2, "Camps_Attended")
                 sql2 = self.casemaker(sql2, "Enrolment_Number")
                 sql2 = self.casemaker(sql2, "Address")
@@ -3586,7 +3623,6 @@ color:white;
                 sql2 = self.casemaker(sql2, "Branch")
                 sql2 = self.casemaker(sql2, "Account_Name")
                 sql2 = self.casemaker(sql2, "Unit")
-
 
                 sql = sql + sql2
 
@@ -3612,8 +3648,6 @@ color:white;
             sql2 = self.casemaker(sql2, "Account_Name")
             sql2 = self.casemaker(sql2, "Unit")
 
-
-
             sql = ("select " + sql + " from enrolment where " + str(
                 sql2)) if sql1 != "" else "select " + sql + " from enrolment "
 
@@ -3621,7 +3655,9 @@ color:white;
             sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
             Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
             Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
-            Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[9:len(sql)]
+            Enrol_Date,Remarks,Vegitarian,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[
+                                                                                                                            9:len(
+                                                                                                                                sql)]
         print(sql)
         self.querytupple = ENROLMENT_FORM.enroll().execute(sql)
         if len(self.querytupple) < 1:
@@ -3640,7 +3676,7 @@ color:white;
         ch = sql[-1]
 
         if sql[-2:] == 'or':
-            ui.conditionsentrylabel.setText(sql[0:-2].strip())
+            ui.conditionsentrylabel.setTexts(sql[0:-2].strip())
 
         elif sql[-3:] == 'and':
             ui.conditionsentrylabel.setText(sql[0:-3].strip())
@@ -3680,7 +3716,7 @@ color:white;
         elif ch == "Sex":
             ch1 = ui.sexqueryComboBox.currentText()
         elif ch == "Enrol_Date" or ch == "Date_Of_Birth":
-            ch1 = ui.datequeryDateEdit.currentText()
+            ch1 = ui.datequeryDateEdit.text()
         elif ch == "Certificate":
             ch1 = ui.certificatequeryComboBox.currentText()
         elif ch == "Vegitarian":
@@ -3693,14 +3729,16 @@ color:white;
         ch2 = ui.conditionsentrylabel.text().strip().strip() + ' '
 
         if (len(ch2) > 3):
-            if (ch2[len(ch2)-1]=='r' and ch2[len(ch2)-3]==')' )or (ch2[len(ch2)-1]=='d' and ch2[len(ch2)-4]==')' ) :
-                ch2=ch2+' '
+            if (ch2[len(ch2) - 1] == 'r' and ch2[len(ch2) - 3] == ')') or (
+                    ch2[len(ch2) - 1] == 'd' and ch2[len(ch2) - 4] == ')'):
+                ch2 = ch2 + ' '
             if (ch2[len(ch2) - 1] == ' ' and (ch2[len(ch2) - 2] == 'd' or ch2[len(ch2) - 2] == 'r')) or (
-                            ch2[len(ch2) - 1] == '(' and(ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[len(ch2) - 2] == '(' or ch2[
+                            ch2[len(ch2) - 1] == '(' and (ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[
+                            len(ch2) - 2] == '(' or ch2[
                             len(ch2) - 2] == ')' or
 
-                                                                 ch2[len(ch2) - 2] == 'd')):
-                ch2=ch2+' '
+                                                                  ch2[len(ch2) - 2] == 'd')):
+                ch2 = ch2 + ' '
 
 
             else:
@@ -3721,7 +3759,7 @@ color:white;
                             if len(ch1) == 10:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Mobile number should contains 10 numbers")
@@ -3731,7 +3769,7 @@ color:white;
                             if len(ch1) == 12:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Aadhaar number should contains 12 numbers")
@@ -3741,14 +3779,14 @@ color:white;
                             if len(ch1) == 16:
 
                                 ui.conditionsentrylabel.setText(
-                                    ui.conditionsentrylabel.text().strip() +' '+ ch + "=\"" + ch1 + "\"")
+                                    ui.conditionsentrylabel.text().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
                             else:
                                 self.showtooltip("Account number should contains 16 numbers")
                         else:
 
                             ui.conditionsentrylabel.setText(
-                                ui.conditionsentrylabel.text().strip() + ' '+ch + "=\"" + ch1 + "\"")
+                                ui.conditionsentrylabel.text().strip() + ' ' + ch + "=\"" + ch1 + "\"")
 
                     else:
                         self.showtooltip(ch + ' must contains only integral values.')
@@ -3765,7 +3803,6 @@ color:white;
             self.showtooltip("Please select any one of the fields.")
 
         ui.valuelineEdit.clear()
-
 
 
 def set_up_font():
@@ -3883,8 +3920,6 @@ def set_up_font():
     fontDB.addApplicationFont(':/fonts/fonts/Zombie-A.ttf')
 
 
-
-
 if __name__ == "__main__":
     import sys
 
@@ -3898,14 +3933,13 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
 
-
     set_up_font()
 
-
-    loginui.username =''
+    loginui.username = ''
     loginui.firstrun = True
 
     from time import sleep
+
 
     def checkuserpass():
 
@@ -3918,11 +3952,11 @@ if __name__ == "__main__":
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"
 
-        elif username=='ncc_viewer' and password.strip()=='':
+        elif username == 'ncc_viewer' and password.strip() == '':
             loginui.username = "ncc_viewer"
 
         else:
-            QtGui.QMessageBox.warning(loginDialog , "Login Failed" ,'Username or Password Incorrect','OK')
+            QtGui.QMessageBox.warning(loginDialog, "Login Failed", 'Username or Password Incorrect', 'OK')
             loginui.login_passwordLineEdit.clear()
             return
 
@@ -3944,10 +3978,9 @@ if __name__ == "__main__":
             sleep(0.1)
             loginui.loginpermission()
 
-    if loginui.username=='':
+
+    if loginui.username == '':
         loginDialog.show()
         loginui.loginPushButton.clicked.connect(checkuserpass)
 
-
     sys.exit(app.exec_())
-

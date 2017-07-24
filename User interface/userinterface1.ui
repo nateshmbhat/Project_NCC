@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1216</width>
-    <height>792</height>
+    <width>1077</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../../../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -199,9 +199,9 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1838</y>
-             <width>1157</width>
-             <height>2325</height>
+             <y>0</y>
+             <width>1018</width>
+             <height>2295</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -393,8 +393,8 @@ color:white;</string>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>300</width>
-                  <height>330</height>
+                  <width>280</width>
+                  <height>300</height>
                  </size>
                 </property>
                 <property name="sizeIncrement">
@@ -411,7 +411,7 @@ color:white;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-size:10px;
-font-size:50%;
+font-size:40%;
 background-color:transparent;</string>
                 </property>
                 <property name="frameShape">
@@ -2162,7 +2162,7 @@ color:white;</string>
                   </font>
                  </property>
                  <property name="maxVisibleItems">
-                  <number>25</number>
+                  <number>10</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4563,9 +4563,9 @@ width:130%;
                      <font>
                       <family>Simonetta</family>
                       <pointsize>16</pointsize>
-                      <weight>50</weight>
+                      <weight>75</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -4808,7 +4808,7 @@ width:130%;
 padding:0 20px 0 10px;;</string>
                     </property>
                     <property name="text">
-                     <string>Back</string>
+                     <string>Minimize</string>
                     </property>
                    </widget>
                   </item>
@@ -4908,8 +4908,8 @@ width:130%;
       <widget class="QWidget" name="Forms">
        <property name="styleSheet">
         <string notr="true">#Forms{
-	background-image: url(:/icons/green_grad.png);
-background-position:centre;
+
+	border-image: url(:/icons/caro1.jpg.png);
 
 }</string>
        </property>
@@ -4931,6 +4931,46 @@ background-color:transparent;
            <property name="sizeConstraint">
             <enum>QLayout::SetDefaultConstraint</enum>
            </property>
+           <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignTop">
+            <widget class="QLabel" name="label_12">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>58</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Longdon Decorative</family>
+               <pointsize>48</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color:transparent;
+color:darkblue;</string>
+             </property>
+             <property name="text">
+              <string>Choose your Form</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="4" column="0">
             <spacer name="horizontalSpacer_17">
              <property name="orientation">
@@ -5003,6 +5043,18 @@ border-radius:2px;
            </item>
            <item row="10" column="0">
             <widget class="QWebView" name="webView_2">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <family>Georgia</family>
@@ -5016,46 +5068,6 @@ border-radius:2px;
               <url>
                <string>about:blank</string>
               </url>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" alignment="Qt::AlignHCenter|Qt::AlignTop">
-            <widget class="QLabel" name="label_12">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>58</height>
-              </size>
-             </property>
-             <property name="sizeIncrement">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Longdon Decorative</family>
-               <pointsize>48</pointsize>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:transparent;
-color:purple;</string>
-             </property>
-             <property name="text">
-              <string>Choose your Form</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignJustify|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -5160,45 +5172,6 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
              </item>
             </layout>
            </item>
-           <item row="5" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QLabel" name="label_3">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>Monotype Corsiva</family>
-               <pointsize>25</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">
-background-color:transparent;
-color:black;</string>
-             </property>
-             <property name="text">
-              <string>Enter Enrollment numbers</string>
-             </property>
-            </widget>
-           </item>
-           <item row="11" column="0">
-            <spacer name="horizontalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>4</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="6" column="0">
             <spacer name="horizontalSpacer_20">
              <property name="orientation">
@@ -5240,6 +5213,45 @@ color:black;</string>
              </property>
             </widget>
            </item>
+           <item row="5" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="label_3">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Monotype Corsiva</family>
+               <pointsize>25</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">
+background-color:transparent;
+color:black;</string>
+             </property>
+             <property name="text">
+              <string>Enter Enrollment numbers</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>4</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </widget>
         </item>
@@ -5249,6 +5261,7 @@ color:black;</string>
        <property name="styleSheet">
         <string notr="true">#DataEntry{
 	background-image: url(:/icons/PF2cI1N.png);
+
 background-position:center;
 background-repeat:none;
 
@@ -5284,8 +5297,11 @@ background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);
 </string>
               </property>
+              <property name="editable">
+               <bool>false</bool>
+              </property>
               <property name="maxVisibleItems">
-               <number>25</number>
+               <number>10</number>
               </property>
              </widget>
             </item>
@@ -5743,7 +5759,8 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
       <widget class="QWidget" name="LongNominalRole">
        <property name="styleSheet">
         <string notr="true">#LongNominalRole{
-border-image: url(:/icons/pinky_shade.png);
+
+	border-image: url(:/icons/Presentation1.png);
 
 }</string>
        </property>
@@ -6078,7 +6095,7 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1155</width>
+             <width>1016</width>
              <height>2005</height>
             </rect>
            </property>
@@ -7237,76 +7254,6 @@ padding:10px 10px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
-       <attribute name="title">
-        <string>Page</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_27">
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_14">
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_28">
-            <item>
-             <widget class="QWebView" name="webView_3">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(209, 209, 209);</string>
-              </property>
-              <property name="url">
-               <url>
-                <string>about:blank</string>
-               </url>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextEdit" name="textEdit">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>500</width>
-                <height>0</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="refresh">
-            <property name="text">
-             <string>refresh</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pdf">
-            <property name="text">
-             <string>generate pdf</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="load">
-            <property name="text">
-             <string>Load</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -7468,6 +7415,7 @@ padding:10px 10px;
   <tabstop>pushButton_3</tabstop>
  </tabstops>
  <resources>
+  <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections>

@@ -44,7 +44,7 @@ class enroll:
         Mothers_Middle_Name varchar,Mothers_Last_Name varchar,Mothers_Name varchar ,Sex char(6),Date_Of_Birth date,
         Address varchar(200) not null,Email varchar(50)  default '',Mobile_Number varchar(10) ,Blood_Group char(3),Certificate char(4),
         Camps_Attended varchar(4) default '',Extra_Curricular_Activities varchar(50) default '',Special_Achievements varchar(50) default '',
-        Enrol_Date date,Remarks varchar(50) default '',Vegitarian char(7) not null,Bank_Name varchar(30) default '',
+        Enrol_Date date,Remarks varchar(50) default '',Meal_Preference char(7) not null,Bank_Name varchar(30) default '',
         Branch varchar(35) default '',Account_Name varchar(50) default '',Account_Number varchar(16),IFSC_Code varchar(11),MICR varchar(9),
         Institution char(50) not null  default '',Unit varchar(20) not null  default '',primary key(Enrolment_Number))"""
         self.cur.execute(details)

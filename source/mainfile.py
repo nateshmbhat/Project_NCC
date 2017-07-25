@@ -529,7 +529,7 @@ class logic():
         ui.checkboxFrame.hide()
         ui.conditionsentrylabel.hide()
 
-        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit, QtGui.QComboBox)):
+        for i in ui.frame.findChildren((QtGui.QPushButton, QtGui.QLineEdit, QtGui.QComboBox,QtGui.QDateEdit)):
             i.hide()
         ui.query_backPushButton.show()
 
@@ -1039,7 +1039,7 @@ class logic():
 
         if not tab: return
 
-        con = sqlite3.connect(r'C:\Users\Natesh\Documents\NCC DUMPS\ncc.db')
+        con = sqlite3.connect(r'ncc.db')
         cur = con.cursor()
 
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
@@ -1097,7 +1097,7 @@ class logic():
                             'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
                             'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
                             'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
-                            'Enrol_Date', 'Remarks', 'Vegitarian', 'Bank_Name', 'Branch',
+                            'Enrol_Date', 'Remarks', 'Meal_Preference', 'Bank_Name', 'Branch',
                             'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
                             'Unit']
 
@@ -1153,7 +1153,7 @@ These Entries are added to the Certificates Table but Not to the Enrolment Table
         emsg = '''The List of Conflicts of either Enrolment_Number or Aadhaar_Number is as shown below :
 
 {}
-These entries are not added to the Database .\nIf you wish to update the database entries of present Student Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(
+These entries are not added to the Database .\nIf you wish to update the database entries of present Students, Use the Data Entry tab or Update Entry checkbox in Enrolment Form. '''.format(
             conflicts)
         etitle = '''While adding the Data to the {} Database Table, some conflicts were found because of the already present Enrolment_Number or Aadhaar_Number present in the {} Table and hence these Enrolment_Numbers are not Added to the Database</span></p></body></html>'''.format(
             tab, tab)
@@ -1289,6 +1289,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             brush.setStyle(QtCore.Qt.Dense2Pattern)
             item.setBackground(brush)
             ui.settings_campslistListWidget.addItem(item)
+
 
     def add_remove_camp(self, obj):
 
@@ -1775,7 +1776,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             if selectedDataType == "A certificate":
                 selectedDataType = "A_cert_marks"
             if selectedDataType == "B certificate":
-                selectedDataType = "Bcert_marks"
+                selectedDataType = "B_cert_marks"
             if selectedDataType == "C certificate":
                 selectedDataType = "C_cert_marks"
             sql = """select Enrolment_Number,Rank,Student_Name,Fathers_Name,Date_Of_Birth,Enrol_Date,Camps_Attended from enrolment where institution='""" + selectedInstitutionName + "'"
@@ -1798,8 +1799,10 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     if j != len(fieldsListSql) - 1:
                         sql = sql + ","
             sql = sql + ")"
+
             ENROLMENT_FORM.enroll().insertionexecute(sql)
-            self.showtooltip("Saved")
+            self.showtooltip("Saved to Database")
+
         elif selectedDataType == "Attendance":
             year = ui.yearComboBox.currentText().replace(' ', '_')
             certificate = ui.certificateComboBox.currentText().replace(' ', '_')
@@ -1823,8 +1826,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                             if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][
                                 1] and year == s1[j][2]:
                                 ENROLMENT_FORM.enroll().delete_by_Enrolment_cert(s2[i][0],
-                                                                                 ui.certificateComboBox.currentText()[
-                                                                                 0:1], year)
+                                                                                 ui.certificateComboBox.currentText()[0:1], year)
                         sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
                     if fl == 0:
                         if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == \
@@ -1842,11 +1844,12 @@ These entries are not added to the Database .\nIf you wish to update the databas
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             for i in range(len(sqldata)):
-                sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
-                                                                                               1).text().upper() + "' where Enrolment_Number='" + \
+                sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,1).text().upper() + "' where Enrolment_Number='" + \
                        sqldata[i][0] + "'"
                 ENROLMENT_FORM.enroll().insertionexecute(sql1)
             self.showtooltip("Sucessfully Inserted")
+
+
 
     def saveexceluploadeddata(self):
         data = []
@@ -1990,7 +1993,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 a = int(str(self.lineeditattendance[i][2].text()))
                 b = int(str(self.lineeditattendance[i][1].text()))
                 self.lineeditattendance[i][3].setText(str(a / b * 100))
-                if a / b * 100 > 85.00:
+                if a / b * 100 > 75.00:
                     self.lineeditattendance[i][4].setText("Yes")
                 else:
                     self.lineeditattendance[i][4].setText("No")
@@ -2036,7 +2039,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                     ui.tableWidget.hideRow(i)
                                     self.hiderow.append(i)
                             if len(str(sqlattendance1[0][0])):
-                                if sqlattendance[0][0] > 75.00:
+                                if sqlattendance1[0][0] > 75.00:
                                     ui.tableWidget.setItem(i, 10, QtGui.QTableWidgetItem(str(sqlattendance1[0][0])))
                                     ui.tableWidget.item(i, 10).setBackground(QtGui.QColor(170, 170, 170, 80))
                                     ui.tableWidget.item(i, 10).setFont(myfont)
@@ -2353,7 +2356,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.sexqueryComboBox.show()
         elif text == "Enrol_Date" or text == "Date_Of_Birth":
             ui.datequeryDateEdit.show()
-        elif text == "Vegitarian":
+        elif text == "Meal Preference":
             ui.vegitarianqueryComboBox.show()
         elif text == "Certificate":
             ui.certificatequeryComboBox.show()
@@ -2657,22 +2660,21 @@ These entries are not added to the Database .\nIf you wish to update the databas
                                       '\nMandatory fields should not be empty.\n\nMake sure that all the mandatory fields are filled.',
                                       'OK');
 
+
     def queryselectall(self):
 
         if ui.selectallCheckBox.isChecked():
 
             ui.selectallCheckBox.setStyleSheet("""
-
             color:chartreuse;
 
             font-size:16pt;
 
-            font-family:'caladea';
+            font-family:'longdon decorative';
 
             font-weight:bold;
 
             text-decoration:underline;
-
             """)
 
             for i in ui.checkboxFrame.findChildren(QtGui.QCheckBox):
@@ -2694,8 +2696,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
 
 
-
-
         else:
 
             for i in ui.checkboxFrame.findChildren(QtGui.QCheckBox):
@@ -2706,7 +2706,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 {
                 color:white;
 
-                font:13pt cambria ;
+                font:14pt simonetta;
 
                 font-weight:bold;
 
@@ -2718,7 +2718,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
                     text-decoration:underline;
 
-                    font:15pt cambria;
+                    font:15pt simonetta;
 
                     color:yellow;
 
@@ -2730,7 +2730,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
 #selectallCheckBox{
 
-font: 75 16pt "Caladea";
+font: 75 16pt "longdon decorative";
 
 color:rgb(255, 170, 0);
 
@@ -2756,9 +2756,8 @@ font-weight:bold;
         if obj.isChecked():
 
             obj.setStyleSheet("""
-
             color:chartreuse;
-            font-size:14.5pt;
+            font-size:15.5pt;
             font-weight:bold;
             text-decoration:underline;
             font-family:'simonetta';""")
@@ -2923,10 +2922,11 @@ color:white;
         ui.enroldateDateEdit.setDate(QtCore.QDate(int(enroldate[0]), months[enroldate[1]], int(enroldate[2])))
 
         ui.remarksTextEdit.setText(tuple[26])
-        if tuple[27] == "veg":
+        if tuple[27] == "Veg":
             ui.vegRadioButton.setChecked(1)
         else:
             ui.nonvegRadioButton.setChecked(1)
+
 
         ui.banknameLineEdit.setText(tuple[28])
         ui.bankbranchLineEdit.setText(tuple[29])
@@ -2936,6 +2936,8 @@ color:white;
         ui.micrLineEdit.setText(str(tuple[33]))
         ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[34]))
         ui.unitLineEdit.setText(tuple[35])
+
+
 
     def clear_enrolment_form(self):
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
@@ -3039,9 +3041,9 @@ color:white;
             certificate = "B"
         if ui.CcertRadioButton.isChecked():
             certificate = "C"
-        vegitarian = "veg"
+        vegitarian = "Veg"
         if ui.nonvegRadioButton.isChecked():
-            vegitarian = "nonveg"
+            vegitarian = "Nonveg"
 
         obj = ENROLMENT_FORM.enroll()
 
@@ -3314,12 +3316,11 @@ color:white;
         }
 
         td{
-
+            font-family:simonetta
+            
             margin:3px 6px;
 
             text-align:center;
-
-
 
         }
 
@@ -3424,6 +3425,7 @@ color:white;
         td{
             margin:3px 6px;
             font-family:cambria;
+            font-size:13pt;
             background-color:white;
             text-align:center;
             opacity:0.8;
@@ -3566,7 +3568,7 @@ color:white;
 
             if ui.enrollDateCheckBox.isChecked(): sql += 'Enrol_Date,'
 
-            if ui.vegitarianCheckBox.isChecked(): sql += 'Vegitarian,'
+            if ui.vegitarianCheckBox.isChecked(): sql += 'Meal_Preference,'
 
             if ui.addressCheckBox.isChecked(): sql += 'Address,'
 
@@ -3719,7 +3721,7 @@ color:white;
             ch1 = ui.datequeryDateEdit.text()
         elif ch == "Certificate":
             ch1 = ui.certificatequeryComboBox.currentText()
-        elif ch == "Vegitarian":
+        elif ch == "Meal Preference":
             ch1 = ui.vegitarianqueryComboBox.currentText()
         elif ch == "Camps_Attended":
             ch1 = ui.campsattendedqueryComboBox.currentText()
@@ -3982,5 +3984,24 @@ if __name__ == "__main__":
     if loginui.username == '':
         loginDialog.show()
         loginui.loginPushButton.clicked.connect(checkuserpass)
+
+
+
+
+    object = QtGui.QGraphicsDropShadowEffect()
+    object.setBlurRadius(5.2)
+
+
+    button1 = QtGui.QPushButton()
+    button1.setGraphicsEffect(object)
+
+    button2 = QtGui.QPushButton()
+    button2.setGraphicsEffect(object)
+
+    # After some processing i want to disable the shadow for Button1
+
+    object.setEnabled(False)
+
+    #But this will disable shadow for both buttons !!!
 
     sys.exit(app.exec_())

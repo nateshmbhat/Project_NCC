@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1077, 755)
+        MainWindow.resize(1164, 881)
         MainWindow.setMinimumSize(QtCore.QSize(844, 716))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1845, 1018, 2295))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1105, 2295))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1038,7 +1038,7 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.institutionenrollComboBox.setFont(font)
-        self.institutionenrollComboBox.setMaxVisibleItems(10)
+        self.institutionenrollComboBox.setMaxVisibleItems(20)
         self.institutionenrollComboBox.setObjectName(_fromUtf8("institutionenrollComboBox"))
         self.institutionenrollComboBox.addItem(_fromUtf8(""))
         self.institutionenrollComboBox.addItem(_fromUtf8(""))
@@ -2433,6 +2433,11 @@ class Ui_MainWindow(object):
         self.certificatequeryComboBox.addItem(_fromUtf8(""))
         self.horizontalLayout_3.addWidget(self.certificatequeryComboBox)
         self.institutionqueryComboBox = QtGui.QComboBox(self.frame)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.institutionqueryComboBox.sizePolicy().hasHeightForWidth())
+        self.institutionqueryComboBox.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Simonetta"))
         font.setPointSize(16)
@@ -2449,6 +2454,7 @@ class Ui_MainWindow(object):
 "        border:1px solid chartreuse;\n"
 "width:130%;\n"
 "}"))
+        self.institutionqueryComboBox.setMaxVisibleItems(20)
         self.institutionqueryComboBox.setObjectName(_fromUtf8("institutionqueryComboBox"))
         self.horizontalLayout_3.addWidget(self.institutionqueryComboBox)
         self.rankqueryComboBox = QtGui.QComboBox(self.frame)
@@ -2944,7 +2950,7 @@ class Ui_MainWindow(object):
 "color: rgb(0, 0, 127);\n"
 ""))
         self.institutionuploaddatacomboBox.setEditable(False)
-        self.institutionuploaddatacomboBox.setMaxVisibleItems(10)
+        self.institutionuploaddatacomboBox.setMaxVisibleItems(25)
         self.institutionuploaddatacomboBox.setObjectName(_fromUtf8("institutionuploaddatacomboBox"))
         self.horizontalLayout_7.addWidget(self.institutionuploaddatacomboBox)
         self.typecomboBox = QtGui.QComboBox(self.DataEntry)
@@ -3208,8 +3214,8 @@ class Ui_MainWindow(object):
         self.mytab.addTab(self.DataEntry, _fromUtf8(""))
         self.LongNominalRole = QtGui.QWidget()
         self.LongNominalRole.setStyleSheet(_fromUtf8("#LongNominalRole{\n"
-"    background-image: url(:/icons/Presentation1.png);\n"
-"background-position:center;\n"
+"\n"
+"    border-image: url(:/icons/Presentation1.png);\n"
 "\n"
 "}"))
         self.LongNominalRole.setObjectName(_fromUtf8("LongNominalRole"))
@@ -3246,6 +3252,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.institutionlongnrComboBox.setFont(font)
+        self.institutionlongnrComboBox.setMaxVisibleItems(25)
         self.institutionlongnrComboBox.setObjectName(_fromUtf8("institutionlongnrComboBox"))
         self.horizontalLayout_26.addWidget(self.institutionlongnrComboBox)
         self.unitlongnrLineEdit = QtGui.QLineEdit(self.LongNominalRole)
@@ -3391,7 +3398,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1161, 1016, 2005))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1103, 2005))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -4016,7 +4023,7 @@ class Ui_MainWindow(object):
         self.mothernameLabel.setBuddy(self.mothernameLineEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(5)
+        self.mytab.setCurrentIndex(1)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QObject.connect(self.valuelineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.insertcondition.click)
         QtCore.QObject.connect(self.settings_addcampsLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.settings_addcampPushButton.click)
@@ -4035,7 +4042,8 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.FlastnameLineEdit, self.mothernameLineEdit)
         MainWindow.setTabOrder(self.mothernameLineEdit, self.MmiddlenameLineEdit)
         MainWindow.setTabOrder(self.MmiddlenameLineEdit, self.MlastnameLineEdit)
-        MainWindow.setTabOrder(self.MlastnameLineEdit, self.dateofbirthDateEdit)
+        MainWindow.setTabOrder(self.MlastnameLineEdit, self.sexComboBox)
+        MainWindow.setTabOrder(self.sexComboBox, self.dateofbirthDateEdit)
         MainWindow.setTabOrder(self.dateofbirthDateEdit, self.addressTextEdit)
         MainWindow.setTabOrder(self.addressTextEdit, self.emailLineEdit)
         MainWindow.setTabOrder(self.emailLineEdit, self.mobileLineEdit)
@@ -4061,10 +4069,10 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.institutionenrollComboBox, self.unitLineEdit)
         MainWindow.setTabOrder(self.unitLineEdit, self.updateentryCheckBox)
         MainWindow.setTabOrder(self.updateentryCheckBox, self.submitPushButton)
-        MainWindow.setTabOrder(self.submitPushButton, self.searchbyfieldLineEdit)
-        MainWindow.setTabOrder(self.searchbyfieldLineEdit, self.enrolmentnumRadioButton)
+        MainWindow.setTabOrder(self.submitPushButton, self.enrolmentnumRadioButton)
         MainWindow.setTabOrder(self.enrolmentnumRadioButton, self.aadhaarnumRadioButton)
-        MainWindow.setTabOrder(self.aadhaarnumRadioButton, self.searchPushButton)
+        MainWindow.setTabOrder(self.aadhaarnumRadioButton, self.searchbyfieldLineEdit)
+        MainWindow.setTabOrder(self.searchbyfieldLineEdit, self.searchPushButton)
         MainWindow.setTabOrder(self.searchPushButton, self.scrollArea)
         MainWindow.setTabOrder(self.scrollArea, self.pushButton)
         MainWindow.setTabOrder(self.pushButton, self.enrolPushButton)
@@ -4168,6 +4176,12 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.webView_2, self.tableWidget)
         MainWindow.setTabOrder(self.tableWidget, self.certificatequeryComboBox)
         MainWindow.setTabOrder(self.certificatequeryComboBox, self.pushButton_3)
+        MainWindow.setTabOrder(self.pushButton_3, self.conditionlistcombobox)
+        MainWindow.setTabOrder(self.conditionlistcombobox, self.query_backPushButton)
+        MainWindow.setTabOrder(self.query_backPushButton, self.saveExelPushButton)
+        MainWindow.setTabOrder(self.saveExelPushButton, self.updateExelPushButton)
+        MainWindow.setTabOrder(self.updateExelPushButton, self.save_data_excelPushButton)
+        MainWindow.setTabOrder(self.save_data_excelPushButton, self.settings_loginPushButton)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "NCC", None))

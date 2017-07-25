@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1077</width>
-    <height>755</height>
+    <width>1164</width>
+    <height>881</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -200,7 +200,7 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1018</width>
+             <width>1105</width>
              <height>2295</height>
             </rect>
            </property>
@@ -2162,7 +2162,7 @@ color:white;</string>
                   </font>
                  </property>
                  <property name="maxVisibleItems">
-                  <number>10</number>
+                  <number>20</number>
                  </property>
                  <item>
                   <property name="text">
@@ -4223,7 +4223,7 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
-                      <string>Meal Preference</string>
+                      <string>Meal_Preference</string>
                      </property>
                     </item>
                     <item>
@@ -4441,6 +4441,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="institutionqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4460,6 +4466,9 @@ height:30px;
 		border:1px solid chartreuse;
 width:130%;
 }</string>
+                    </property>
+                    <property name="maxVisibleItems">
+                     <number>20</number>
                     </property>
                    </widget>
                   </item>
@@ -4961,7 +4970,7 @@ background-color:transparent;
              </property>
              <property name="styleSheet">
               <string notr="true">background-color:transparent;
-color:darkblue;</string>
+color:green;</string>
              </property>
              <property name="text">
               <string>Choose your Form</string>
@@ -5301,7 +5310,7 @@ color: rgb(0, 0, 127);
                <bool>false</bool>
               </property>
               <property name="maxVisibleItems">
-               <number>10</number>
+               <number>25</number>
               </property>
              </widget>
             </item>
@@ -5845,6 +5854,9 @@ background-position:center;</string>
                 <bold>true</bold>
                </font>
               </property>
+              <property name="maxVisibleItems">
+               <number>25</number>
+              </property>
              </widget>
             </item>
             <item>
@@ -6095,7 +6107,7 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1016</width>
+             <width>1103</width>
              <height>2005</height>
             </rect>
            </property>
@@ -7280,6 +7292,7 @@ padding:10px 10px;
   <tabstop>mothernameLineEdit</tabstop>
   <tabstop>MmiddlenameLineEdit</tabstop>
   <tabstop>MlastnameLineEdit</tabstop>
+  <tabstop>sexComboBox</tabstop>
   <tabstop>dateofbirthDateEdit</tabstop>
   <tabstop>addressTextEdit</tabstop>
   <tabstop>emailLineEdit</tabstop>
@@ -7306,9 +7319,9 @@ padding:10px 10px;
   <tabstop>unitLineEdit</tabstop>
   <tabstop>updateentryCheckBox</tabstop>
   <tabstop>submitPushButton</tabstop>
-  <tabstop>searchbyfieldLineEdit</tabstop>
   <tabstop>enrolmentnumRadioButton</tabstop>
   <tabstop>aadhaarnumRadioButton</tabstop>
+  <tabstop>searchbyfieldLineEdit</tabstop>
   <tabstop>searchPushButton</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>pushButton</tabstop>
@@ -7413,6 +7426,12 @@ padding:10px 10px;
   <tabstop>tableWidget</tabstop>
   <tabstop>certificatequeryComboBox</tabstop>
   <tabstop>pushButton_3</tabstop>
+  <tabstop>conditionlistcombobox</tabstop>
+  <tabstop>query_backPushButton</tabstop>
+  <tabstop>saveExelPushButton</tabstop>
+  <tabstop>updateExelPushButton</tabstop>
+  <tabstop>save_data_excelPushButton</tabstop>
+  <tabstop>settings_loginPushButton</tabstop>
  </tabstops>
  <resources>
   <include location="../Resources/icon_res.qrc"/>

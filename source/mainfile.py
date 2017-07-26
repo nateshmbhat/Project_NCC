@@ -36,7 +36,7 @@ class Ui_loginDialog(object):
     def setupUi(self, loginDialog):
         loginDialog.setObjectName(_fromUtf8("loginDialog"))
         loginDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        loginDialog.resize(616, 298)
+        loginDialog.resize(616, 309)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -68,7 +68,7 @@ class Ui_loginDialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy)
-        self.label.setMinimumSize(QtCore.QSize(250, 0))
+        self.label.setMinimumSize(QtCore.QSize(250, 96))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Centaur"))
         font.setPointSize(20)
@@ -104,7 +104,7 @@ class Ui_loginDialog(object):
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.label_2 = QtGui.QLabel(loginDialog)
-        self.label_2.setMinimumSize(QtCore.QSize(250, 0))
+        self.label_2.setMinimumSize(QtCore.QSize(250, 96))
         self.label_2.setStyleSheet(_fromUtf8("font: 75 20pt \"Centaur\";\n"
                                              "font-weight:bold;\n"
                                              "color:white;"))
@@ -156,7 +156,21 @@ class Ui_loginDialog(object):
                                                      "}"))
         self.loginPushButton.setFlat(True)
         self.loginPushButton.setObjectName(_fromUtf8("loginPushButton"))
-        self.verticalLayout.addWidget(self.loginPushButton)
+        self.verticalLayout.addWidget(self.loginPushButton, QtCore.Qt.AlignBottom)
+        self.label_3 = QtGui.QLabel(loginDialog)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy)
+        self.label_3.setMinimumSize(QtCore.QSize(0, 0))
+        self.label_3.setMaximumSize(QtCore.QSize(16777215, 21))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
+        font.setPointSize(7)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.verticalLayout.addWidget(self.label_3, QtCore.Qt.AlignBottom)
 
         self.retranslateUi(loginDialog)
         QtCore.QMetaObject.connectSlotsByName(loginDialog)
@@ -168,6 +182,9 @@ class Ui_loginDialog(object):
                                       None))
         self.label_2.setText(_translate("loginDialog", "Password", None))
         self.loginPushButton.setText(_translate("loginDialog", "Login", None))
+        self.label_3.setText(_translate("loginDialog",
+                                        "Developed by 4Karnataka Battalion, NCC  [ by Natesh M Bhat and Gangadhara Shetty P J ]",
+                                        None))
 
 
 class logic():
@@ -3907,9 +3924,6 @@ if __name__ == "__main__":
 
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
-
-        username = 'ncc_editor'
-        password = 'nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"

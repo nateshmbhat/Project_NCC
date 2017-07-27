@@ -1,18 +1,13 @@
-import csv
-
-import openpyxl
-from PyQt4.QtCore import QUrl
-from openpyxl.styles import Alignment
 import pandas as pd
-import sqlite3
+from sqlite3 import connect, IntegrityError,OperationalError
 from PyQt4.QtGui import QComboBox, QBrush, QPixmap, QApplication, QPrinter
-from openpyxl import Workbook
+from openpyxl import Workbook,load_workbook
 from openpyxl.drawing.image import Image
 import ENROLMENT_FORM
 import os
 from userinterface import Ui_MainWindow, _fromUtf8
 from PyQt4 import QtCore, QtGui, QtWebKit
-import shutil
+from shutil import copy2
 from tempfile import TemporaryFile
 
 try:
@@ -189,8 +184,8 @@ class Ui_loginDialog(object):
 
 class logic():
     flag = 0
-
     def __init__(self):
+
 
         ENROLMENT_FORM.enroll().create_table_Attendance()
 
@@ -413,7 +408,10 @@ class logic():
         self.printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter.Inch)
         self.printer.setPaperSize(QPrinter.A4)
 
+
         self.init_settings()
+
+
 
     def init_settings(self):
 
@@ -605,7 +603,7 @@ class logic():
                          'AK', 'AL', 'AM', 'AN']
 
     def generateExcelForLongNr(self):
-        book = openpyxl.Workbook()
+        book =Workbook()
         sheet = book.active
         headingdata = self.settings.value("enrolmentfields").split(',,,')
         headingdata.insert(0, "Photo")
@@ -655,7 +653,7 @@ class logic():
                                                  caption="Save File")
         if not len(name):
             return
-        book = openpyxl.load_workbook(name)
+        book =load_workbook(name)
         sheet = book.active
         columnwidth = []
         oldrows = sheet.max_row
@@ -832,12 +830,16 @@ class logic():
         loc = QtGui.QFileDialog.getExistingDirectory(caption='Select the location to Backup All data',
                                                      directory=r'C:\users\{}'.format(os.getlogin()))
 
+        if not loc:
+            return
+
+
         try:
             ref = 0
             try:
-                shutil.copy2('ncc.db', loc)
+                copy2('ncc.db', loc)
                 ref = 1
-                shutil.copy2('settings.ini', loc)
+                copy2('settings.ini', loc)
             except:
                 if ref == 0:
                     QtGui.QMessageBox.critical(ui.Enrol, "Database backup Failed !",
@@ -855,7 +857,7 @@ class logic():
 
             for i in os.listdir(r'candidate photos'):
                 try:
-                    shutil.copy2('candidate photos\\' + i, loc + '\candidate photos\\' + i)
+                    copy2('candidate photos\\' + i, loc + '\candidate photos\\' + i)
                 except:
                     pass;
 
@@ -909,7 +911,7 @@ class logic():
                                           'Yes', 'No') == 0:
 
                 try:
-                    shutil.copy2(loc[0], os.getcwd() + r'\ncc.db')
+                    copy2(loc[0], os.getcwd() + r'\ncc.db')
                     self.showtooltip("Database Restored Successfully")
                 except:
                     self.showtooltip("Database Restoration Failed")
@@ -925,7 +927,7 @@ class logic():
                                               'Yes', 'No') == 0:
                     for i in os.listdir(loc):
                         try:
-                            shutil.copy2(loc + '\{}'.format(i), r'candidate photos\{}'.format(i))
+                            copy2(loc + '\{}'.format(i), r'candidate photos\{}'.format(i))
                         except:
                             pass;
                 else:
@@ -952,7 +954,7 @@ class logic():
                                           'Yes', 'No') == 0:
 
                 try:
-                    shutil.copy2(loc[0], os.getcwd() + r'\settings.ini')
+                    copy2(loc[0], os.getcwd() + r'\settings.ini')
                     self.showtooltip("Settings Restored Successfully")
                 except:
                     self.showtooltip("Settings Restoration Failed")
@@ -1045,7 +1047,7 @@ class logic():
 
         if not tab: return
 
-        con = sqlite3.connect(r'ncc.db')
+        con = connect(r'ncc.db')
         cur = con.cursor()
 
         loc = QtGui.QFileDialog.getOpenFileName(directory=r"C:\users\{}".format(os.getlogin()),
@@ -1124,7 +1126,7 @@ class logic():
                     try:
                         values = tuple(data.iloc[i].values)
                         cur.execute('''Insert into {} values {}'''.format(tab, values))
-                    except(sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+                    except(OperationalError, IntegrityError) as e:
                         print(e)
                         conflicts += 'Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],
                                                                                             data.Aadhaar_Number[i])
@@ -1143,7 +1145,7 @@ class logic():
 
                     values = tuple(data.iloc[i].values)
                     cur.execute('''Insert into {} values {}'''.format(tab, values))
-                except(sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+                except(OperationalError, IntegrityError) as e:
                     print(e)
                     conflicts += 'Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
 
@@ -1841,13 +1843,13 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if not len(name):
             return
         if ui.typecomboBox.currentText() == "A certificate":
-            book = openpyxl.load_workbook('A_CERTIFICATES.xlsx')
+            book = load_workbook('A_CERTIFICATES.xlsx')
             sheet = book.get_sheet_by_name('A')
         elif ui.typecomboBox.currentText() == "B certificate":
-            book = openpyxl.load_workbook('B_CERTIFICATES.xlsx')
+            book = load_workbook('B_CERTIFICATES.xlsx')
             sheet = book.get_sheet_by_name('B')
         elif ui.typecomboBox.currentText() == "C certificate":
-            book = openpyxl.load_workbook('C_CERTIFICATES.xlsx')
+            book = load_workbook('C_CERTIFICATES.xlsx')
             sheet = book.get_sheet_by_name('C')
         else:
             book = Workbook()
@@ -2359,7 +2361,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
         enrolnocopy = x.split(',')
         enrolno = list(enrolnocopy)
-        con = sqlite3.connect("ncc.db")
+        con = connect("ncc.db")
         cur = con.cursor()
         # enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
         for i in enrolnocopy:
@@ -2444,7 +2446,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
         x = x.replace("\n", ",")
         enrolnocopy = x.split(',')
         enrolno = list(enrolnocopy)
-        con = sqlite3.connect("ncc.db")
+        con = connect("ncc.db")
         cur = con.cursor()
         duplicate = ""
         # enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
@@ -2535,7 +2537,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
     def picselect(self, obj):
 
         if obj.objectName() == 'selectpicturePushButton':
-            self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',
+            self.candidphoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, "Select the candidate's picture", '.',
                                                                  filter="Images (*.png *.jpg *JPG *PNG)")
             if not self.candidphoto:
                 self.candidphoto = ''
@@ -2543,7 +2545,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.selectpictureLabel.setPixmap(QtGui.QPixmap(self.candidphoto))
 
         if obj.objectName() == 'enrol_signaturePushButton':
-            self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, 'Select the candidate picture', '.',
+            self.signaturephoto = QtGui.QFileDialog.getOpenFileName(ui.Enrol, "Select candiate's signature picture", '.',
                                                                     filter="Images (*.png *.jpg *.PNG *JPG)")
             if not self.signaturephoto:
                 return
@@ -2999,11 +3001,11 @@ color:white;
 
         if self.candidphoto:
             ext = self.candidphoto[self.candidphoto.rfind('.') + 1:]
-            shutil.copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum, ext))
+            copy2(self.candidphoto, "candidate photos\{}.{}".format(enrolmentnum, ext))
 
         if self.signaturephoto:
             ext = self.signaturephoto[self.signaturephoto.rfind('.') + 1:]
-            shutil.copy2(self.signaturephoto, "candidate photos\{}_sign.{}".format(enrolmentnum, ext))
+            copy2(self.signaturephoto, "candidate photos\{}_sign.{}".format(enrolmentnum, ext))
 
         campsattended = ui.enrol_campsListWidget.selectedItems()
         campsattended = '' if not campsattended else campsattended
@@ -3041,7 +3043,7 @@ color:white;
                                   accountnum, ifsccode, micr, institutionname, unit);
 
 
-            except (sqlite3.IntegrityError, sqlite3.OperationalError) as e:
+            except (IntegrityError, OperationalError) as e:
                 if 'UNIQUE' in str(e) and 'Aadhaar_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Aadhaar number already exists',
                                               '\nAadhaar number must be unique.\nSomeone already has the same Aadhaar number. Please check the Aadhaar Number.',
@@ -3067,7 +3069,7 @@ color:white;
 
                                   accountnum, ifsccode, micr, institutionname, unit)
 
-            except (sqlite3.OperationalError, sqlite3.IntegrityError) as e:
+            except (OperationalError, IntegrityError) as e:
                 print(e)
                 if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
@@ -3084,7 +3086,7 @@ color:white;
 
         self.clear_enrolment_form()
 
-        con = sqlite3.connect("ncc.db")
+        con = connect("ncc.db")
         data = pd.read_sql("select * from enrolment", con)
         try:
             if Smiddlename == "":
@@ -3251,7 +3253,7 @@ color:white;
             f = open('pdf.html', 'w')
             f.write(string1)
             f.close()
-            self.view.load(QUrl('pdf.html'))
+            self.view.load(QtCore.QUrl('pdf.html'))
             self.view.loadFinished.connect(printpdf)
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
@@ -3651,11 +3653,12 @@ color:white;
     def conback(self):
 
         sql = ui.conditionsentrylabel.text().strip().strip()
-
+        if not len(sql):
+            return
         ch = sql[-1]
 
         if sql[-2:] == 'or':
-            ui.conditionsentrylabel.setTexts(sql[0:-2].strip())
+            ui.conditionsentrylabel.setText(sql[0:-2].strip())
 
         elif sql[-3:] == 'and':
             ui.conditionsentrylabel.setText(sql[0:-3].strip())
@@ -3711,13 +3714,13 @@ color:white;
             if (ch2[len(ch2) - 1] == 'r' and ch2[len(ch2) - 3] == ')') or (
                             ch2[len(ch2) - 1] == 'd' and ch2[len(ch2) - 4] == ')'):
                 ch2 = ch2 + ' '
-            if (ch2[len(ch2) - 1] == ' ' and (ch2[len(ch2) - 2] == 'd' or ch2[len(ch2) - 2] == 'r')) or (
-                            ch2[len(ch2) - 1] == '(' and (ch2[len(ch2) - 2] == ' ' or ch2[len(ch2) - 2] == 'r' or ch2[
-                            len(ch2) - 2] == '(' or ch2[
-                            len(ch2) - 2] == ')' or
 
-                                                                  ch2[len(ch2) - 2] == 'd')):
-                ch2 = ch2 + ' '
+
+            if(ch2[len(ch2)-1]==" " and (ch2[len(ch2)-2]=="(" or ch2[len(ch2)-2]==")" or (ch2[len(ch2)-2]=="r" and ch2[len(ch2)-3]=="o") or (ch2[len(ch2)-2]=="d" and ch2[len(ch2)-3]=="n"))):
+                print()
+
+
+
 
 
             else:
@@ -3782,7 +3785,6 @@ color:white;
             self.showtooltip("Please select any one of the fields.")
 
         ui.valuelineEdit.clear()
-
 
 def set_up_font():
     global fontDB
@@ -3925,6 +3927,9 @@ if __name__ == "__main__":
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
 
+        username= 'ncc_editor'
+        password='nccindia'
+
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"
 
@@ -3937,6 +3942,7 @@ if __name__ == "__main__":
             return
 
         if loginui.firstrun:
+            loginDialog.hide()
             myobj = logic()
             MainWindow.show()
             loginui.loginpermission = myobj.login_permission

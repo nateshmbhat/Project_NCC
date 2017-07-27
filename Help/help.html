@@ -1,0 +1,380 @@
+<html>
+
+    <head>
+        
+        
+        <meta name="qrichtext" content="1" />
+        
+        <style type="text/css">
+         
+            body{
+                background-image:url(help-images/grayish-blue.png)
+            }
+            .left{
+                text-align:left;
+            }
+            
+            .long{
+                font-family: 'longdon decorative'
+            }
+            .under{
+                text-decoration: underline;
+            }
+            
+            .big1{
+                font-size:55pt;
+                vertical-align: middle;
+            }
+            
+            .big2{
+                font-size:43pt;
+            }
+            
+            .big3{
+                font-size:30pt;
+            }
+            
+            .big4{
+                font-size:23pt;
+            }
+            
+            .big5{
+                font-size:19pt;
+            }
+            
+            .trajan{
+                font-family: trajan pro
+            }
+            .big6{
+                font-size:15pt;
+            }
+            
+        </style>
+        
+    </head>
+    
+    
+    <body>
+        
+        
+    <center>
+        
+<hr>
+        <h1 style="font-size:45;font-family:'longdon decorative';color:black;">This Help section contains Documentation , Features and Usage details of this software.</h1>
+<hr>    
+        <h3>The Software starts with this login screen :</h3>
+        <img src="help-images/login_window.PNG" width="600px"/><br />
+        <p style="font-size:18pt;" id="login_intro">
+            <br />
+            
+            There are two Usernames that a user can enter :            
+        </p>
+        <ul style="font-size:15pt;margin:auto;width:200px;text-align: left;">
+            <li><b>ncc_editor</b></li>
+            <li><b>ncc_viewer</b></li>
+        </ul>
+        <br />
+        
+        <ul>
+        <p style="text-align:left;float:left;">
+            <li class="left">For "ncc_editor" username, user must enter the password to start the program. The user <b>"ncc_editor"</b> has all the permissions of the software which allows him to use all the features that it can provide. The user is allowed to modify the data of Candidates in the main database of the software.</li><br /><br />
+            
+            <li class="left">"ncc_viewer" username has no password and anyone can access the software with this username. The user <b>"ncc_viewer"</b> has the permissions only to view the Candidate details and generate the excel sheets when needed but has no permission to edit the Candidate details in the Software's Database and has no permission to Backup or Restore the database.</li>
+            
+        </p>
+            
+        </ul>
+        <p>
+            After the LOGIN button is pressed , the software starts either in view mode or editing mode corresponding to the Username
+        
+        </p>
+        
+        <hr>
+        
+        <p style="font-size:16px;font-family:'century';font-weight:bold;" class="first_tab_desc">
+            There are totally 7 tabs in the software, each of which has its own purpose.<br/>
+            
+            The Tabs are :<br/>
+        </p>
+        
+    
+        
+        <h3 style="margin:auto;width:200px;text-align: left;">
+            
+        <ul>
+        <li>Enrolment form</li>
+        <li>Query</li>
+        <li>Forms</li>
+        <li>Data Entry</li>
+        <li>Long Nominal Role</li>
+        <li>Settings</li>
+        <li>Help</li>
+        </ul>
+        </h3>
+        <hr>
+        <br /><br />
+        <p style="font-family: 'trajan pro';font-weight: bold;font-size:29;margin:auto;width:auto;">
+            Detailed Description of all the TABS has been provided below :
+        </p>
+        <br /><br />
+        <hr><hr>
+        
+        <h1 class="long big1">Enrolment Form</h1>
+        
+        <hr><hr>
+        
+        <img src="help-images/enrol_top.PNG" alt="Enrolment_FORM"/>
+        <br />
+        
+        <p>
+            <br />
+            The Enrolment Tab is used to Enrol new candidates into the Database. It's used to fill all the details of each candidate.<br />
+            <br />
+            As seen in the above image, the Enrolment form Tab consists of several options. Each of the data that is entered in the fields will be saved in the database once submitted.
+            
+            <br /><br /><u class="big6 trajan"><b>Elements of Enrolment form</b></u> :
+        </p>
+        
+        <div style="font-weight:bold;margin:auto;text-align:left;width:400px;">
+        <ul>
+            <li>Select signature</li>
+            <li>Select Picture</li>
+            <li>Search field</li>
+            <li>ENROLL Button</li>
+            <li>Various fields and corresponding Entry Boxes</li>
+            <li>Update Entry checkbox</li>
+            <li>Submit button</li>
+            
+        </ul><br />
+        </div>
+        <hr>
+        
+        
+        <p class='left'>
+        <span class='left big5 trajan' ><u>Select signature</u> :</span><br />
+            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate's signature, while enroling.<br />
+            <br />The file dialog menu looks like this.<br />
+            <br />
+            <img src="help-images/select_sign.png" style="width:500px"/>
+            <br />
+            <br /><br />
+        
+            
+            
+        <span class='left big5 trajan'><u>Select Picture </u>  :</span><br />
+            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate, while enroling.<br /><br />
+            
+            The file dialog menu looks like this.<br /><br />
+            
+            <img src="help-images/select_pic.png" style="width:500px"/>
+            <br />
+            <br /><br /><br />
+            
+        
+        <span class='left big5 trajan'><u>Search field</u>  :</span><br /><br />
+            <img src="help-images/searchbar.png"/><br /><br />
+            This field is used to search and get all the details of a candidate from his/her enrolment number or aadhaar number which can be chosen by the given radio buttons below the search field.
+            <br />
+            If there is No result from the search , then the message "No Details found" is shown at the top center of the window.
+            <br /><br />
+            When the search is successful, the search results are displayed in the respective entry fields. However, the Enrolment form switches to<b> VIEW MODE</b> where the user can't accidentally change the data but can only view it. 
+            <br /><br /><br />
+        
+        <span class='left big5 trajan'><u>ENROLL Button</u>  :</span><br>
+            Whenever the user searches from the search field and if the search becomes successful , then the form goes into <b>View Mode</b> and doesn't allow any modification of the data displayed in the fields. During the <b>View Mode</b>, the ENROLL button would be in released state (not pressed)<br />
+            <br />
+            <img src="help-images/enrol_released.png"/><br />
+            Image of ENROLL button in released state
+            <br /><br />
+            To put the Enrolment form back in <b>EDIT MODE</b>, click on the ENROLL button after which the ENROLL button goes into Pressed state and the form would switch to the <b>Edit Mode</b>
+            <br /><br />
+            <img src="help-images/enrol_pressed.png"><br />
+            Image of ENROLL button in pressed state
+
+        </p><br /><br />
+        
+        <p class='left'>
+            <span class='left big5 trajan'><u>Various fields and corresponding Entry Boxes</u>  :</span><br>
+            <br />
+            The Enrolment form has various fields like Enrolment Number , Name , Date of Birth, Unit,Meal Preference <u>etc</u>
+            <br /><br />
+            The Fields with the red star <span style="font-size: 15pt;color:red">*</span> are compulsory fields and must be filled before submitting the form.
+            <br /><br />
+            Different fields have different types of input boxes namely
+            
+        </p>
+        <ul style="text-align: left;;margin:auto;">
+            <li><b><u>Line Entry</u></b> : User can enter a line of text</li>
+            <img src="help-images/lineedit.png"><br /><br />
+            
+            
+            <li><b><u>Multi-Line Entry</u></b> : User can any number of lines</li>
+            <img src="help-images/textedit.png"><br /><br />
+            
+            
+            <li><b><u>Date Entry</u></b> : User can specify any date. Mouse scroll will also work for changing the date when mouse pointer is over the date entry.</li>
+            <img src="help-images/dateedit.png"><br /><br />
+            
+            <li><b><u>Single selection Entry</u></b> : User can only select one item from several items</li>
+            <img src="help-images/combobox.png"><br /><br />
+        
+            <li><b><u>Radio buttons</u></b> : User can only select only one Button. </li>
+            <img src="help-images/radiobutton.png"><br /><br />
+            
+            <li><b><u>Multi-selection box</u></b> : User can select many items from a list of items. </li>
+            <img src="help-images/camplist.png"><br /><br />
+            
+            
+            <li><b><u>Check box</u></b> : User can either Check or Uncheck which is analogous to True or False </li>
+            <img src="help-images/updateentry.png"><br /><br />
+            <br /><br />
+        </ul>
+        
+        <hr>
+        <h2 style="font-family:'trajan pro'">
+            <u>Entry Constraints</u>:
+        </h2>
+        
+        <ul style="text-align: left;">
+            <li>Enrolment Number, Aadhaar Number, Candidate Name, Address and Unit fields are compulsory</li>
+            
+            
+            <li>Aadhaar Number field can only take <b>Numbers</b> and needs to be 12 digits </li>
+            <li>Mobile Number field can only take <b>Numbers</b> and needs to be 10 digits</li>
+            <li>Account Number field can only take Numbers</li>
+            <li>IFSC code should be 11 characters</li>
+            <li>MICR code can only take Numbers and should be 9 digits</li>
+            <li>Enrolment Number should be unique and shouldn't have another duplicate.If the present details need to be updated, check the "Update Entry" checkbox before clicking submit button. </li>
+            <li>Aadhaar Number should be unique and shouln't contain any duplicate i.e </li>
+        
+        </ul><br />
+        <hr>
+        
+        <p style="font-size:20px;">
+            <u style="font-size: 24px;font-family: trajan pro"><b>Update Entry</b></u>  :<br />
+            This check Box is used to update the details of a candidate who is already enrolled. To update the details of the candidate, Check the "Update Entry" before clicking the <b>Submit</b> button.
+        </p><br />
+        
+        
+        <p>
+            <span class="big5 trajan"><u><b>Submit Button</b></u> :</span><br />
+            <img src='help-images/submitbutton.png'/><br />
+            <span class="big6">
+            Submit Button is clicked when all the required fields are filled. After successful submission the  Candidate details will be added to the database and the Candidate photo and signature is added into the <b>Candidate Photos</b> folder including the generated PDF. If the user submits an already present Enrolment Number, error message is shown to check the Update Entry checkbox.
+            </span>   
+        </p>
+        <br /><br />
+        <hr><hr>
+        
+        <p class="big1 long">
+        QUERY
+        </p><hr><hr>
+        
+        <img src="missing photo" alt="Missing photo"/><br />
+        <hr><br />
+        <p class="big6">
+        Query Tab is used to search and get the details of candidates who have already been enrolled before. The searching can be done in various ways and the results can be filtered as per your choice.<br />
+            
+            <br /><u class="big5"><b>Elements of QUERY tab</b></u> :<br />
+        </p>
+        
+        <ul style="margin:auto;text-align: left;width:300px;">
+            <b>
+            <li>Checkboxes of all fields </li>
+            <li>Field Selection box</li>
+            <li>Condition linkers (Or , And )</li>
+            <li>Back</li>
+            <li>Insert</li>
+            <li>Clear</li>
+            <li>Query</li>
+            <li>Query Result</li>
+            <li>Save Results</li>
+            </b>
+        </ul>
+        <hr><br /><br />
+        
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Checkboxes of All fields</b></u> : </span>
+            <br /><br />
+            <img src="help-images/querycheckboxgif.gif" style="width:850">
+            <br /><br />
+            These checkboxes are used to specify which fields must be shown when the Query is successful. In the Query result only these fields which are checked are shown omitting the rest of the fields. If <b>"Select All"</b> is checked , then all fields are shown in the Query result.
+            <br /><br /><br />
+        </p><br />
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Field Selection Box</b></u> : </span>
+            <br /><br />
+            <img src="help-images/fieldselectgif.gif" style="width:500"/><br /><br />
+            This Selection box is used to search based on a condition of your choice. After selecting the field from the box and Entering the condition data , User clicks on the <b>Insert Button </b> and the condition gets inserted and is shown in the provided blue-pink box.
+            
+        </p><br /><br /><br />
+        <br />
+        
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Condition Linkers</b></u> : </span>
+            <br /><br />
+            <img src="help-images/andorquery.PNG" style="width:800"/>
+            
+            <br /><br /><br />
+            These Buttons are used to link multiple conditions together logically. <br />
+            Example :- If the user wants to get details of all "Male" candidates of "Cadets" rank, it can be done as shown below:<br /><br /><br />
+            
+            
+            <img src="help-images/queryworking.gif" style="width:850"/>
+            
+        </p><br /><br /><br />
+        
+        
+        <p>
+            <span class="big6 trajan under"><b>Insert , Back , Query , Clear  :</b></span><br /><br />
+        </p>
+        
+        <ul style="margin:auto;text-align: left;">
+            <li><b>Insert :</b> is used to insert any condition specified from the Selected field into the label which shows all applied conditions</li>
+            <li><b>Back &nbsp;  :</b> is used to remove the last applied condition, which is used in case if multiple conditions are applied and the last one needs to be removed.</li>
+        
+            <li><b>Clear &nbsp;:</b> is used to clear all the conditions or constraints applied previously and clears all conditions.</li>
+            <li><b>Query :</b> is used to search and get the details of all the candidates based on the conditions that you have set.</li>
+        </ul>
+        
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Query Results</b></u> : </span>
+            <br /><br />
+            <img src="help-images/andorquery.PNG" style="width:800"/>
+            
+            <br /><br /><br />
+            These Buttons are used to link multiple conditions together logically. <br />
+            Example :- If the user wants to get details of all "Male" candidates of "Cadets" rank, it can be done as shown below:<br /><br /><br />
+            
+            
+            <img src="help-images/queryworking.gif" style="width:850"/>
+            
+        </p><br /><br /><br />
+        
+        
+        
+        
+        
+        
+        
+            
+        
+        
+        
+        
+    </center>
+        
+        
+    </body>
+    
+    
+    
+</html>

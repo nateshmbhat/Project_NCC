@@ -20,6 +20,8 @@
             .under{
                 text-decoration: underline;
             }
+            .center{text-align: center;}
+            
             
             .big1{
                 font-size:55pt;
@@ -28,6 +30,14 @@
             
             .big2{
                 font-size:43pt;
+            }
+            
+            a{
+                color:inherit;
+                text-decoration: None;
+            }
+            a:hover{
+                color:blue;
             }
             
             .big3{
@@ -69,7 +79,7 @@
             
             There are two Usernames that a user can enter :            
         </p>
-        <ul style="font-size:15pt;margin:auto;width:200px;text-align: left;">
+        <ul style="font-family: simonetta;font-size:15pt;margin:auto;width:200px;text-align: left;">
             <li><b>ncc_editor</b></li>
             <li><b>ncc_viewer</b></li>
         </ul>
@@ -99,16 +109,16 @@
         
     
         
-        <h3 style="margin:auto;width:200px;text-align: left;">
+        <h3 style="margin:auto;width:500px;text-align: left;">
             
-        <ul>
-        <li>Enrolment form</li>
-        <li>Query</li>
-        <li>Forms</li>
-        <li>Data Entry</li>
-        <li>Long Nominal Role</li>
-        <li>Settings</li>
-        <li>Help</li>
+        <ul style="font-family:'algerian' ;font-size:24pt;">
+        <li><a href="#enrolment_form">Enrolment form</a></li>
+            <li><a href="#query">Query</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#data_enrty">Data Entry</a></li>
+        <li><a href="#long_nominal_roll">Long Nominal Roll</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#help">Help</a></li>
         </ul>
         </h3>
         <hr>
@@ -117,9 +127,15 @@
             Detailed Description of all the TABS has been provided below :
         </p>
         <br /><br />
-        <hr><hr>
         
-        <h1 class="long big1">Enrolment Form</h1>
+        
+        
+        
+        
+        
+<!--        ENROLMENT FORM      -->
+        <hr><hr>
+        <h1 id="enrolment_form" class="long big1">Enrolment Form</h1>
         
         <hr><hr>
         
@@ -204,35 +220,35 @@
             
         </p>
         <ul style="text-align: left;;margin:auto;">
-            <li><b><u>Line Entry</u></b> : User can enter a line of text</li>
-            <img src="help-images/lineedit.png"><br /><br />
+            <li><b><u>Line Entry</u></b> : User can enter a line of text</li><br />
+            <img src="help-images/lineedit.png"><br /><br /><br />
             
             
-            <li><b><u>Multi-Line Entry</u></b> : User can any number of lines</li>
-            <img src="help-images/textedit.png"><br /><br />
+            <li><b><u>Multi-Line Entry</u></b> : User can any number of lines</li><br />
+            <img src="help-images/textedit.png"><br /><br /><br />
             
             
-            <li><b><u>Date Entry</u></b> : User can specify any date. Mouse scroll will also work for changing the date when mouse pointer is over the date entry.</li>
-            <img src="help-images/dateedit.png"><br /><br />
+            <li><b><u>Date Entry</u></b> : User can specify any date. Mouse scroll will also work for changing the date when mouse pointer is over the date entry.</li><br />
+            <img src="help-images/dateedit.png"><br /><br /><br />
             
-            <li><b><u>Single selection Entry</u></b> : User can only select one item from several items</li>
-            <img src="help-images/combobox.png"><br /><br />
+            <li><b><u>Single selection Entry</u></b> : User can only select one item from several items</li><br />
+            <img src="help-images/combobox.png"><br /><br /><br />
         
-            <li><b><u>Radio buttons</u></b> : User can only select only one Button. </li>
-            <img src="help-images/radiobutton.png"><br /><br />
+            <li><b><u>Radio buttons</u></b> : User can only select only one Button. </li><br />
+            <img src="help-images/radiobutton.png"><br /><br /><br />
             
-            <li><b><u>Multi-selection box</u></b> : User can select many items from a list of items. </li>
-            <img src="help-images/camplist.png"><br /><br />
+            <li><b><u>Multi-selection box</u></b> : User can select many items from a list of items. </li><br />
+            <img src="help-images/camplist.png"><br /><br /><br />
             
             
-            <li><b><u>Check box</u></b> : User can either Check or Uncheck which is analogous to True or False </li>
-            <img src="help-images/updateentry.png"><br /><br />
+            <li><b><u>Check box</u></b> : User can either Check or Uncheck which is analogous to True or False </li><br />
+            <img src="help-images/updateentry.png"><br /><br /><br />
             <br /><br />
         </ul>
         
         <hr>
         <h2 style="font-family:'trajan pro'">
-            <u>Entry Constraints</u>:
+            <u>Entry Constraints</u> :
         </h2>
         
         <ul style="text-align: left;">
@@ -266,7 +282,12 @@
         <br /><br />
         <hr><hr>
         
-        <p class="big1 long">
+        
+        
+        
+        
+<!--        QUERY-->
+        <p id="query" class="big1 long">
         QUERY
         </p><hr><hr>
         
@@ -298,7 +319,7 @@
         
             <span class="big6 trajan"><u><b>Checkboxes of All fields</b></u> : </span>
             <br /><br />
-            <img src="help-images/querycheckboxgif.gif" style="width:850">
+            <img src="help-images/querycheckboxgif.gif" style="width:950">
             <br /><br />
             These checkboxes are used to specify which fields must be shown when the Query is successful. In the Query result only these fields which are checked are shown omitting the rest of the fields. If <b>"Select All"</b> is checked , then all fields are shown in the Query result.
             <br /><br /><br />
@@ -308,7 +329,7 @@
         
             <span class="big6 trajan"><u><b>Field Selection Box</b></u> : </span>
             <br /><br />
-            <img src="help-images/fieldselectgif.gif" style="width:500"/><br /><br />
+            <img src="help-images/fieldselectgif.gif" style="width:550"/><br /><br />
             This Selection box is used to search based on a condition of your choice. After selecting the field from the box and Entering the condition data , User clicks on the <b>Insert Button </b> and the condition gets inserted and is shown in the provided blue-pink box.
             
         </p><br /><br /><br />
@@ -319,14 +340,14 @@
         
             <span class="big6 trajan"><u><b>Condition Linkers</b></u> : </span>
             <br /><br />
-            <img src="help-images/andorquery.PNG" style="width:800"/>
+            <img src="help-images/andorquery.PNG" style="width:700"/>
             
             <br /><br /><br />
             These Buttons are used to link multiple conditions together logically. <br />
             Example :- If the user wants to get details of all "Male" candidates of "Cadets" rank, it can be done as shown below:<br /><br /><br />
             
             
-            <img src="help-images/queryworking.gif" style="width:850"/>
+            <img src="help-images/queryworking.gif" style="width:900"/>
             
         </p><br /><br /><br />
         
@@ -341,21 +362,43 @@
         
             <li><b>Clear &nbsp;:</b> is used to clear all the conditions or constraints applied previously and clears all conditions.</li>
             <li><b>Query :</b> is used to search and get the details of all the candidates based on the conditions that you have set.</li>
-        </ul>
+        </ul><br /><br /><br />
         
         
         <p class="">
         
             <span class="big6 trajan"><u><b>Query Results</b></u> : </span>
             <br /><br />
-            <img src="help-images/andorquery.PNG" style="width:800"/>
+            <img src="help-images/queryresults.png" style="width:1000"/>
             
             <br /><br /><br />
-            These Buttons are used to link multiple conditions together logically. <br />
-            Example :- If the user wants to get details of all "Male" candidates of "Cadets" rank, it can be done as shown below:<br /><br /><br />
             
+            Query Results look as shown in the above image. The fields that appear here can be chosen from the Field Checkboxes mentioned before.
             
-            <img src="help-images/queryworking.gif" style="width:850"/>
+        </p><br /><br /><br />
+        
+        <p class="big6 trajan">
+        
+            <u><b>Working steps of Query</b></u> :
+        
+        
+        </p>
+        
+        <img src="help-images/queryfullworking.gif" style="width:1000px;"/>
+        <br /><br /><br /><br /><br />
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Save Results</b></u> : </span>
+            <br />
+            <img src="help-images/saveresults.PNG" style="width:600"/>
+            
+            <br /><br />
+            
+            After a successful query , the user can choose to export the results to an EXCEL or CSV file. Clicking the "Save Results" button gives rise to a file dialog menu as shown below and lets the user choose the location for the file to be saved as shown below in the image.<br />
+            <br />
+            <img src="help-images/saveresult_filemenu.PNG" style="width:500px"/><br /><br />
+            
+            When different Institutions need to send the enrolled candidates details to the NCC office or any other institution, it can be done by checking the <b>Select All</b> checkbox and exporting an Excel file using the <b>Save Results button</b>. The details of candidates from the excel file can then be added to the database using <b>"Append Excel from Database"</b> option in the "Settings" Tab.
             
         </p><br /><br /><br />
         
@@ -365,7 +408,472 @@
         
         
         
+<!--        DATA ENTRY      -->
+        
+        
+        <hr><hr>
+        <h1 id="forms" class="long big1">FORMS</h1>
+        <hr><hr>
+        
+        <img src="help-images/formstab.png" style="width:900px"/>
+        
+        <br /><br />
+        <hr>
+        <br />
+        <p class="big6">
+            This tab is used to generate different forms. The generated forms will have the details of the candidates whose Enrolment Numbers have been specified in the Enrolment entry box before generating the form.
+            <br />
+             
+            <br />
             
+            <u class="big5"><b>Elements of FORMS TAB</b></u> &nbsp;:
+        </p>
+            <ul style="font-weight: bold;margin:auto;width:300px;text-align: left;">
+                <li>Forms Selection</li>
+                <li>Enrolment Entry Box</li>
+                <li>Generate Form</li>
+                <li>Update Form</li>
+            </ul>
+        
+        <br /><br />
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Forms Selection</b></u> : </span>
+            <br /><br />
+            
+            Here, the user can select the form out of a list of several pre-defined forms. Each forms has its own set of fields. When the User generates an excel sheet of a Form , corresponding fields would be present in the generated excel sheet along with all the details of the candidate if it was previously present in the database.
+            
+            <br/><br/><br/>
+         
+            <u style="font-size:14pt"><b>The Default forms are</b></u> :
+            
+        </p>
+        
+        <ul style="font-weight: bold;margin:auto;text-align:left;width:200px;">
+        
+            <li>Cadet details</li>
+            <li>Yoga Day</li>
+            <li>Enrolment Nominal roll</li>
+            <li>Camp Nominal roll</li>
+            <li>Scholarship Nominal roll</li>
+            <li>A certificate</li>
+            <li>B certificate</li>
+            <li>C certificate</li>
+            <li>Specimen signature of cadets</li>
+            <li>TADA to cadets camps</li>
+            <li>TADA to cadets for exam</li>
+        
+        </ul>
+        <ul>
+        
+        <p class="left">
+            <li>User can add new forms in the <b>"Forms and Fields management"</b> option in the <b>Settings TAB</b>. Each of these forms consists of many fields. The fields can be <b>standard fields</b> or <b>non-standard fields</b>.</li><br /> <br />
+            
+        <li><b>The Standard fields or (known fields)</b> are the fields which are in the Enrolment form and has the details of the candidate. Whenever the form gets exported, all those details will be put automatically in the generated excel or CSV sheet.<br /><br />
+            
+        <li><b>The non-standard fields</b> or (Unknown fields) are the fields which are not present in the Enrolment form they are put as empty columns with just the field heading in the generated excel sheet which can be filled externally later.</li><br /><br />
+        
+        </p><br />
+        </ul>
+        
+        
+        <p class="">
+        
+            <span class="center big6 trajan"><u><b>Enrolment EntryBox</b></u> : </span>
+            <br />
+        </p>
+        
+        <p class="center">
+        
+        To generate the required forms, the user should specify the Enrolment Numbers of the candidates whose details should be included within the generated form. These Enrolment Numbers are specified in the given Entry Box separated by comma ( , ) as shown below.<br /><br />
+            
+            <b style="border:2px solid black;padding:10px;margin:5px;">enrolnumber1 , enrolnumber2 , enrolnumber3 </b> and so on.<br /><br />
+            
+            There can be any number of spaces between the Enrolment Numbers but they must be <b>seperated by commas</b>
+            <br/><br/><br/><br /><br />
+        
+        </p>
+        
+        
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Generate form</b></u> : </span>
+            <br /><br />
+            
+            <img src="help-images/generateform.png"/><br /><br />
+            
+                After Entering the Enrolment Numbers in the Entry Box , clicking the <b>Generate Form</b> button would open the File menu dialog in which user can spcify the name and location for the excel or CSV file to be saved.
+            <br /><br />
+            <img src="help-images/saveresult_filemenu.PNG" style="width:500px;"/>
+            
+            
+            <br/><br/><br/>
+            
+        </p>
+        
+        
+        <p class="">
+        
+            <span class="big6 trajan"><u><b>Update form</b></u> : </span>
+            <br /><br />
+            
+            <img src="help-images/updateform.PNG"/><br /><br />
+            
+                If the details of more candidates need to be added or appended to  a previously generated form of same type, then <b>"Update Form"</b> option can be used to do so. Clicking the update form after entering the Enrolment Numbers in the Entry Box again opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After it's specified the details of the specified candidates are added to the specified excel or CSV spreadsheet. 
+            <br /><br />
+            
+            
+            <img src="help-images/selectform.PNG" style="width:500px"/>
+            
+            
+            <br/><br/><br/>
+            
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+<!--     DATA ENTRY       -->
+        
+        
+        
+        <hr><hr>
+        
+        <h1 class="big1 long" id="data_entry">DATA &nbsp;ENTRY</h1>
+        
+        <hr><hr>
+        
+        <p class="big6">
+            This tab is used to Update the details of all the candidates of a particular Institution. It enables for mass updation of candidate details compared to updating each candidate's details in the Enrolment form.
+            <br /><br />
+            
+            <span style="font-size:17pt"><u><b>Elements of Data Entry</b></u>  :</span>
+        </p>
+        
+        
+        
+        <ul style="font-weight: bold;width:250px;margin: auto;text-align: left;">
+            
+            <li>Institution Selection box</li>
+            <li>Different types of Forms</li>        
+            <li>Entry Table</li>
+            <li>Generate Excel</li>
+            <li>Save to Database</li>
+            
+        </ul>
+        
+        <br /><br />
+        <hr>
+        <p class="big6 trajan"> <b><u>Institution Selection Box</u></b> :</p>
+        <p>
+            This Selection Box is used to select an institution out of a list of institutions. So, the Candidate details of the selected institution will be displayed for Data Entry.
+        
+            <br /><br />
+            <img src="help-images/institution_selection_dataentry.PNG" style="width:450px;"/>
+        </p><br /><br />
+        
+        <p class="big6 trajan">
+            <u><b>Different types of Forms</b></u> :
+        </p>
+        
+        
+        <p>
+            There are different categories in Data Entry each containing their own pre-defined fields. The different categories in which data entry can be done are namely :
+        </p>
+        
+        <ul style="margin:auto;text-align: left;width:200px;">
+            <li>A Certificate</li>
+            <li>B Certificate</li>
+            <li>C Certificate</li>
+            <li>Camps Attended</li>
+            <li>Extra Curricular Activities</li>
+            <li>Remarks</li>
+            <li>Attendence</li>
+        </ul>
+        <br /><br />
+        
+        <p style="font-size:14pt;"> <u><b>A Certificate , B Certificate , C Certificate</b></u> :</p>
+        <p>
+        When the User Clicks on either of these certificates, the Data Entry table opens, containing the corresponding fields. The user can enter the data for the candidates of the particular institution in the table provided.
+            <br />
+            <img src="Missing image" alt="missing image"/>
+        </p><br /><br /><br /><br />
+        
+        
+        
+        
+        
+        
+<!--        THIS NEEDS TO BE FILLED . ITS EMPTY !!!              -->
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+<!--        LONG NOMINAL ROLL-->
+        
+        
+        <hr>
+        <hr>
+        
+        <h1 id="long_nominal_roll" class="big1 long">Long Nominal Roll</h1>
+        
+        <hr><hr>
+        <img src="help-images/longnominalroll.PNG"  width="1000px;"/>
+        <br />
+        <p class="big6">
+        
+            Long Nominal Roll tab is used to generate and export the entire details of the candidates belonding to a particular <b>institution</b> or <b>Unit</b> including the <b>candidate's photo</b> and his <b>signature</b> if present. In this tab the details of the candidates can only be viewed and details can be exported. But it can't be edited. To edit the details, use the <b>Data Entry</b> Tab.
+            
+            <br /><br />
+            <u><b>Elements of Long Nominal Roll</b></u> :
+        </p>
+        
+        <ul style="margin: auto;text-align: left;width:250px;font-weight: bold;">
+            
+            <li>Selection box</li>
+            <li>Show button</li>
+            <li>Long Nominal Roll table</li>
+            <li>Generate Form</li>
+            <li>Update Form</li>
+            
+        </ul><br /><br />
+        
+        <p class="trajan big6"><u><b>Selection Box</b></u> : </p><br />
+        <img src="help-images/lnr_selectionbox.PNG" style='width:500px'/><br />
+        
+        <p> Its used to get the candidate details based on either <u><b>institution</b></u> or <u><b>Unit </b></u> or get <u><b>all</b></u> candidate details </p><br />
+        
+        
+        
+        
+        <p class="trajan big6"><u><b>Show button</b></u> : </p>
+        <img src="help-images/lnr_showbutton.PNG" style='width:600px'/><br />
+        
+        <p>Clicking this button opens up the Long Nominal Roll table which consists of all the candidate details along with candidate's photo and his signature if it was saved during enrolment. </p>
+        
+        <br/>
+        
+        
+        <p class="trajan big6"><u><b>Long Nominal Roll table</b></u> : </p>
+        <img src="help-images/lnr_table.PNG" width="1000px;"/><br />
+        
+        <p>
+            The Long Nominal Roll table opens up after the user clicks on the show button and has details of all candidates of the selected unit or institution. Here the data cannot only be viewed but can't be edited. For editing , user can make use of the Data Entry Tab.
+        </p><br /><br />
+        
+        
+        <p class="trajan big6"><u><b>Generate Form</b></u> : </p>
+        <img src="help-images/lnr_generatebutton.PNG" width="600px;"/>
+        <p>
+        
+        If the user wants all the details in the Long Nominal Roll table to be exported to an excel or CSV spreadsheet file , he can do so using the Generate Form option which open up a file dialog menu in which the location and of the name of the file can be specified.<br /><br />
+            
+        <img src="help-images/saveresult_filemenu.PNG" style="width:500px;"/><br />
+            
+        </p><br /><br />
+        
+        
+        <p class="trajan big6"><u><b>Update Form</b></u> : </p>
+        <img src="help-images/lnr_updatebutton.PNG" width="600px;"/>
+        <p>
+            If the details of more candidates need to be added or appended to a previously generated form of same type, then "Update Form" option can be used to do so. Clicking the update form  opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After it's specified the details of all candidates visible in the Long Nominal Roll table are added to the specified excel or CSV spreadsheet. 
+        
+        <br /><br />
+            
+                <img src="help-images/selectform.PNG" style="width:500px"/>
+            
+        </p><br /><br /><br />
+        
+        
+        <p class="trajan big6"><u><b>Working Steps of Long Nominal Roll tab</b></u> :</p>
+        <img src="help-images/longnr.gif" style="width:1000px;"/><br /><br /><br />
+        
+        
+        
+        
+        
+        
+<!--       SETTINGS TAB -->
+        
+        
+        <hr><hr>
+        
+        <h1 id="settings" class="big1 long">SETTINGS</h1>
+        <hr><hr><br/>
+        
+        <img src="help-images/settingstab.png" style="width:1000px;border-bottom:0px;"/>        
+        
+        <p style="font-size:15pt;">
+                The Settings Tab is used to control various parts of the software and is used to add forms and fields , Camps and Institutions which would show up in all parts of the software once a new camp or institution is added here. User can also Backup and restore the Database. If an institution sends the details of its candidates in an excel form which is generated in the Query Tab, the details of those candidates can also be added to the main database.
+        </p><br /><br />
+        
+        <p class="big5 " style="font-family:simonetta"><u><b>Elements of Settings Tab</b></u> : </p>
+        
+        <ul style="font-weight: bold;font-size:13pt;margin: auto;text-align: left;width:300px;">
+            <li>Login</li>
+            <li>Institutions List</li>
+            <li>Forms and Fields Management</li>
+            <li>Camps List</li>
+            <li>Open Candidates picture folder</li>
+            <li>Backup All Data</li>
+            <li>Restore BackedUp Data</li>
+            <li>Append To DataBase from Excel</li>
+        
+        </ul><br /><br />
+        
+        
+        
+        <p class="trajan big6"><u><b>LOGIN</b></u> : </p>
+        <img src="help-images/login_window.PNG" style="width:500px"/>
+        <p>
+            Clicking the <b>LOGIN</b> button opens up the Login window just like the initial login window. This is useful if a user want to switch between <b>View mode</b> and <b>Editing mode</b> without restarting the software. If the user logs with the <b>ncc_editor</b> username , if the software is in Editor-mode , then it gets switched into View-mode. If the user logs in with the same username as before, no change would occur after login.
+        </p><br />
+        
+        
+        
+        <p class="trajan big6"><u><b>Institutions List</b></u> : </p>
+        <img src="help-images/institutionslist.gif" style="width:400px"/>
+        <p>
+            This is a complete list of all the <b>institutions</b> that are registered for NCC and will be displayed in other parts of the program. User can <b>Add</b> new institutions to this list of <b>Remove</b> the present ones from it.
+        </p><br /><br /><br />
+        
+        
+        <p class="trajan big6"><u><b>Forms and Fields Management</b></u> : </p>
+        <img src="help-images/formsandfieldslist.gif" style="width:600px"/>
+        <p>
+            It is list containing various types of forms used in NCC and each of these forms has its own fields. New fields can be added to these forms (except for Certificates). And the present fields can be removed. When the form gets exported as an excel , all these fields will be present in the exported spreadsheet.<br /><br />
+            There two types of fields namely :
+        </p>
+        <ul style="margin: auto;text-align:left;width:200px;">
+            <li>Standard fields</li>
+            <li>Non-standard fields</li>
+        </ul>
+        
+        <p class="left">
+            <u><b>Standard fields</b></u> : (Known fields) are the fields which are in the main enrolment form. Whenever any of the form is exported with the candidate details , the standard fields would be automatically filled with the details of the candidate in the exported spreadsheet.
+            <br />
+            <u><b>Non-Standard fields</b></u> : (Unknown fields) are the fields which are not in the enrolment form and can have any name as the user wants which can be added in Settings. When the form gets exported with the candidate details, these fields would be present in the exported spreadsheet as empty columns which can be filled later externally using Spreadsheet supported softwares like MS Excel.
+        </p><br /><br /><br />
+        
+        
+        
+        <p class="trajan big6"><u><b>Camps List</b></u> : </p>
+        <img src="help-images/campslist.gif" style="width:450px"/>
+        <p>
+            This is a list containing all the <b>Camps</b> that come under NCC. The Camps in this list appear in all other parts of this software. If the user wants to add new camps to the list , it can be done by entring the camp name in the provided entry box and then click the add camp button. The custom added camps can be removed later.
+        </p><br /><br /><br />
+        
+        
+        <p class="trajan big6"><u><b>Open Candidates Picture folder</b></u> :</p>
+        
+        <img src='help-images/opencandidatesfolder.PNG' style="width:350px;"/>
+        <p>
+         When a candidate is enrolled in the Enrolment form , the candidate's photo and signature photo will be saved in a folder named <b>"candidate photos"</b> along with the full <b>PDF</b> document of the Enrolment form for each candidate. If the above button is clicked , then the 'candidate photos" folder would open from which user can get the <b>PDF form </b> and other related files of each candidate.<br /><br /> 
+            The files in the candidate photos folder have specific predefined names :
+            <br /><br />
+            
+        </p>
+        
+        <ul class="left">
+         <li><u><b>Candidate's portrait picture</b></u> : will have the candidate's Enrolment Number.</li>
+        <li><b><u>Candidate's signature picture</u></b> : will have the candidate's Enrolment Number followed by <b>"_sign"</b>.</li> Example :- If enrolment number is 'kar1' his signature photo will have the name 'kar1_sign' in the candidate photos folder.
+            
+        <li><u><b>Candidate's Enrolment form PDF</b></u> :  will have the candidate's Enrolment Number followed by <b>"_pdf"</b>.</li> Example :- If enrolment number is 'kar1' his signature photo will have the name 'kar1_pdf' in the candidate photos folder with the extension <b>.pdf</b>.
+        </ul><br /><br /><br />
+        
+        
+        
+        
+        
+        <p class="trajan big6"><u><b>Backup All Data</b></u> : <br />
+            <img src="help-images/backupalldata.PNG" style="width:200px;margin-right:15px;"/></p>
+        <p>
+            If the user wants to Uninstall the software , he might to backup all the data concerning the candidates who have already enrolled and might want to backup the Enrolment <b>Database</b> in times of need. When the <b>Backup </b>button is clicked, it opens up a file dialog menu to allow the user to specify the location for the data which needs to be backed up.
+            <br /><br />
+            <img src="help-images/backupdata_window.PNG" style="width:500px;"/>
+            
+        </p><br /><br /><br />
+        
+        
+        
+        
+        <p class="trajan big6"><u><b>Restore Backed up Data</b></u> : <br />
+            <img src="help-images/restore.PNG" style="width:250px;margin-right:15px;"/></p>
+        <p>
+            This option is used to Restore the files which have been backed up previously using the <b>"Backup All Data"</b> option or (manual backup of files). Clicking the above button would give rise to a window asking the user to choose the type of file that the user wants to restore.
+            <br /><br />
+            The choice window is as shown below :
+            
+            <br /><br />
+            <img src="help-images/restorechoose.PNG" style="width:400px;"/>
+            <br /><br />
+            Based on the option chosen by the user , a file dialog menu would open asking the user to navigate to the backed file or 'candidate photos' folder after which the restore process would start. <br />If the user chooses '<b>candidate photos</b>' option , since this folder contains pictures and PDF form of each candidate , its size would be quite big and hence would require the user to wait for some time till all files in the spcified folder is copied to the software's <b>candidate photos</b> folder.<br /><br />
+            
+            <img src="help-images/selectdatabasefile.PNG" style="width:450px;"/>
+            
+        </p><br /><br /><br />
+        
+        
+        
+        
+         <p class="trajan big6"><u><b>Append to Database From Excel</b></u> : <br />
+            <img src="help-images/appendfromexcel.PNG" style="width:300px;margin-right:15px;"/></p>
+        
+        <p>
+            This option is used to add the candidate details present in an excel or CSV spreadsheet to the software's main database. The excel file <b>must be generated in the Query Tab</b> after checking the <b>Select All </b> checkbox and then saving the Query results to an Excel file. This option is useful when the candidate details from an institution need to be added to the software's main database.<br />
+            <br />
+            When the above button is clicked, a window as shown below would open asking the user to choose the database table to which the data should be appended corresponding to the generated excel spreadsheet.<br /><br />
+            
+            <img src="help-images/appendtodatabasechoice.PNG" style="width:600px;"/>
+            <br /><br />
+                        
+        </p>
+        
+        
+        <p style="text-align: left;">
+            <b style="font-size:15pt;font-family: trajan pro"><u>About our database</u> :-</b> &nbsp;The software's database <b></b> consists of the following tables in the database :<br /><br />
+            <b>1. <u>Enrolment</u></b> : Candidate details entered in the enrolment form is stored here.<br />
+            <b>2. <u>A_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after choosing <b>A_Certificate</b> from the selection box. <br />
+            <b>3. <u>B_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>B_Certificate</b> from the selection box.<br />
+            <b>4. <u>C_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>C_Certificate</b> from the selection box.<br />
+            <b>5. <u>Attendence</u></b>: This table holds the data about the attendence details which is entered in the Data Entry tab with the <b>Attendence </b> chosen from the selection box.<br />
+            
+            <b>6. <u>Camps Attended</u> :</b> This table holds the details of camps , thier location and their start and end dates which can be edited and saved in the database from the Data Entry tab.
+            
+            <br /><br />
+            Each of these tables contain a fixed number of columns. When the user chooses the table from the window shown in the above image , it is must that only corresponding Excel sheet has to be selected for the excel data to get added to the database.<br />
+            <br />
+            <u style="font-weight: bold;font-size:16px;">Example</u>:- 
+        </p>
+        
+        <ul class='left'>
+        <li >If the user has to add all candidate details to the main enrolment table of software's database, the excel sheet which is to be selected, must be generated in the <b>Query tab </b> with the <b>Select All</b> option <b>checked</b>.
+            </li>
+            
+        <li>If the user has to add the data to A_certificate table from A_certificate Excel sheet, the excel sheet must be generated using the Data Entry table after selecting the A_certificate in selection box. This process is same for all the Certificates. </li>
+        
+        </ul><br />
+        
+        
+        <p class='left'> <u><b>Note</b></u> :-<br />
+        Once the user chooses the table corresponding to the excel spreadsheet , the data in the excel spreadsheet gets added to the database if the database already doesn't have the same enrolment numbers as in the selected spreadsheet. If the enrolment numbers in the excel sheet are already present in the database ,those enrolment numbers are not added to the database and hence ignored. In such a case, a <b>conflicts window</b> is shown listing all the Enrolment Numbers which are already in the database. The conflicts window looks as shown below.
+        </p>
+        
+        <img src="help-images/conflictswindow.gif" style="width:650px;"/>
+        <br /><br /><br /><br />
+
+        
         
         
         

@@ -9,7 +9,13 @@ from userinterface import Ui_MainWindow, _fromUtf8
 from PyQt4 import QtCore, QtGui, QtWebKit
 from shutil import copy2
 from tempfile import TemporaryFile
-
+from reportlab.lib.enums import TA_JUSTIFY,TA_CENTER,TA_LEFT,TA_RIGHT
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image,Table,TableStyle,PageBreak
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.units import inch
+from reportlab.lib import colors
+from reportlab.lib.styles import ParagraphStyle
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -254,6 +260,8 @@ class logic():
 
         ui.institutionqueryComboBox.hide()
 
+        ui.seniorityqueryComboBox.hide()
+
         ui.rankqueryComboBox.hide()
 
         ui.sexqueryComboBox.hide()
@@ -320,6 +328,19 @@ class logic():
 
         ui.ifsccodeCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.ifsccodeCheckBox))
 
+        ui.policestationCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.policestationCheckBox))
+
+        ui.educationCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.educationCheckBox))
+
+        ui.earliercandidateCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.earliercandidateCheckBox))
+
+
+        ui.pannumCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.pannumCheckBox))
+
+        ui.schoolcollegeCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.schoolcollegeCheckBox))
+
+        ui.seniorityCheckBox.stateChanged.connect(lambda: self.querycheckboxes(ui.seniorityCheckBox))
+
         ui.specialAchievementsCheckBox.stateChanged.connect(
             lambda: self.querycheckboxes(ui.specialAchievementsCheckBox))
 
@@ -348,7 +369,6 @@ class logic():
 
         if not os.path.exists(r'candidate photos'):
             os.mkdir(r'candidate photos')
-        ui.openPushButton.clicked.connect(self.openuploaddata)
 
         ui.savedataPushButton.clicked.connect(self.saveuploadeddata)
 
@@ -528,6 +548,7 @@ class logic():
         ui.settings_campslistListWidget.itemClicked.connect(camplist_clicked)
         ui.settings_backupdataPushButton.clicked.connect(self.backupdata)
         ui.settings_restoredataPushButton.clicked.connect(self.restoredata)
+
         # -----------------------------------------------------------------------------------------------------------------------------------------
 
         ui.enrol_signaturePushButton.clicked.connect(lambda: self.picselect(ui.enrol_signaturePushButton))
@@ -539,6 +560,9 @@ class logic():
 
         self.login_permission()
         self.showtooltip("WELCOME")
+
+
+
 
     def query_hide_elements(self):
         ui.checkboxFrame.hide()
@@ -707,6 +731,7 @@ class logic():
         self.showtooltip("Excel file created sucessfully")
         os.startfile(name)
 
+
     def showlongnr(self):
         ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
         ui.tableWidget_2.setRowCount(0)
@@ -770,7 +795,7 @@ class logic():
 
             for j in range(ui.tableWidget_2.columnCount()):
                 if j != 0 and j != 1:
-                    ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(150, 150, 150, 50))
+                    ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(150, 150, 150,200))
                     ui.tableWidget_2.item(i, j).setFont(myfont)
                     ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
                 ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.Stretch)
@@ -778,7 +803,7 @@ class logic():
         ui.tableWidget_2.showGrid()
 
         ui.tableWidget_2.setStyleSheet(
-            "color:white;font-weight:bold;font-size:22px;background-color:transparent;border:1px solid black;gridline-color:black;")
+            "color:white;font-weight:bold;font-size:18px;background-color:transparent;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.horizontalHeader().setStyleSheet(
             "color:darkgreen;font-size:25px;font-weight:bold;font-family:gabriola;border:1px solid black;")
         ui.tableWidget_2.verticalHeader().setStyleSheet(
@@ -803,6 +828,8 @@ class logic():
     queryheading = []
 
     def generateexcelforquery(self):
+
+        print(self.queryheading)
 
         if len(self.querytupple) < 1:
             self.showtooltip("Query Data Not Found")
@@ -1098,16 +1125,7 @@ class logic():
                                 'Grading', 'Institution']
 
         else:
-            data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name',
-                            'Student_Middle_Name', 'Student_Last_Name', 'Student_Name',
-                            'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name',
-                            'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name',
-                            'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address',
-                            'Email', 'Mobile_Number', 'Blood_Group', 'Certificate',
-                            'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements',
-                            'Enrol_Date', 'Remarks', 'Meal_Preference', 'Bank_Name', 'Branch',
-                            'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Institution',
-                            'Unit']
+            data.columns = ['Enrolment_Number', 'Rank', 'Aadhaar_Number', 'Student_First_name', 'Student_Middle_Name', 'Student_Last_Name', 'Student_Name', 'Fathers_First_Name', 'Fathers_Middle_Name', 'Fathers_Last_Name', 'Fathers_Name', 'Mothers_First_Name', 'Mothers_Middle_Name', 'Mothers_Last_Name', 'Mothers_Name', 'Sex', 'Date_Of_Birth', 'Address', 'Email', 'Mobile_Number', 'Blood_Group', 'Nearest_Railway_Station', 'Nearest_Police_Station', 'Education', 'Education_Marks', 'Identification_mark', 'Criminal_Court', 'Name_of_School_College', 'Enroll_Permission', 'Earlier_candidate', 'Earlier_Enrolment_Number', 'Dismissed', 'Certificate', 'Camps_Attended', 'Extra_Curricular_Activities', 'Special_Achievements', 'Enrol_Date', 'Remarks', 'Meal_Preference', 'Bank_Name', 'Branch', 'Account_Name', 'Account_Number', 'IFSC_Code', 'MICR', 'Pan_Number', 'Institution', 'Unit','Seniority']
 
         conflicts = ''
         notexists = ''
@@ -1720,6 +1738,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
     def saveuploadeddata(self):
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
+        conn = connect('ncc.db')
+        cur = conn.cursor()
         if selectedDataType == "Camps_Attended":
             enrolnumbers = ui.enrolmentuploaddataLineEdit.text().split(',')
             sqldata = ENROLMENT_FORM.enroll().execute(
@@ -1747,8 +1767,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     if flag != 2:
                         for k in range(len(sqldata1)):
                             for l in range(len(enrolnumbers)):
-                                if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][
-                                    1] == ui.campsNameuploaddataComboBox.currentText():
+                                if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][1] == ui.campsNameuploaddataComboBox.currentText():
                                     flag = 1
                                     break
                             if flag == 1:
@@ -1756,27 +1775,27 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     if flag == 0 or flag == 2:
                         sql = "insert into camps_details values('" + enrolnumbers[
                             i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
-                        self.cur.execute(sql)
+                        cur.execute(sql)
 
                     else:
                         msg = msg + str(enrolnumbers[i]) + ","
             if len(msg) > 0:
                 if QtGui.QMessageBox.warning(ui.Settings, 'Message',
                                              'Camp details of Enrolment Numbers : ' + msg + " already saved",
-                                             'Yes', 'No') == 0:
+                                             'Update', 'Ignore') == 0:
                     eno = msg[0:-1].split(',')
                     for i in range(len(eno)):
-                        self.cur.execute("delete from camps_details where Enrolment_Number='" + eno[
+                        cur.execute("delete from camps_details where Enrolment_Number='" + eno[
                             i] + "' and Camp_Attended='" + ui.campsNameuploaddataComboBox.currentText() + "'")
 
                         sql = "insert into camps_details values('" + eno[i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
-                        self.cur.execute(sql)
+                        cur.execute(sql)
 
             if len(duplicate) > 0:
                 QtGui.QMessageBox.warning(ui.Settings, 'Message',
                                           "Enrolment Numbers : " + duplicate + " does not exist in database\nRemaining data is saved",
                                           'OK')
-            self.conn.commit()
+            conn.commit()
             self.showtooltip("sucessfull")
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             fieldsListSql = self.nametolistsql.get(selectedDataType)
@@ -1830,8 +1849,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
                                                                                                1).text().upper() + "' where Enrolment_Number='" + \
                        sqldata[i][0] + "'"
-                self.cur.execute(sql1)
-            self.conn.commit()
+                cur.execute(sql1)
+            conn.commit()
             self.showtooltip("Sucessfully Inserted")
 
     def saveexceluploadeddata(self):
@@ -1969,7 +1988,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.locationLineEdit.hide()
 
             ui.campsNameuploaddataComboBox.hide()
-
+        self.openuploaddata()
     def lineEditUploadDataLogic(self):
         for i in range(len(self.lineeditattendance)):
             if len(self.lineeditattendance[i][2].text()) and len(self.lineeditattendance[i][1].text()):
@@ -2053,6 +2072,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
         self.camps = ["NIC", "CATC", "AAC"]
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
+        if selectedDataType=="Select Type":
+            return
         sql11 = "select Enrolment_Number from enrolment where institution='" + selectedInstitutionName + "'"
         verticalheaderdata = ENROLMENT_FORM.enroll().execute(sql11)
         verticalheader = []
@@ -2319,7 +2340,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
 
         print("working")
         text = ui.conditionlistcombobox.currentText()
-        """if text=="Rank" or text=="Institution" or text=="Blood_Group" or text=="Sex" or text=="Enrol_Date" or text=="Date_Of_Birth":"""
         ui.rankqueryComboBox.hide()
         ui.institutionqueryComboBox.hide()
         ui.bloodgroupqueryComboBox.hide()
@@ -2329,6 +2349,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
         ui.certificatequeryComboBox.hide()
         ui.vegitarianqueryComboBox.hide()
         ui.campsattendedqueryComboBox.hide()
+        ui.seniorityqueryComboBox.hide()
         if text == "Rank":
             ui.rankqueryComboBox.show()
         elif text == "Institution":
@@ -2345,6 +2366,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.certificatequeryComboBox.show()
         elif text == "Camps_Attended":
             ui.campsattendedqueryComboBox.show()
+        elif text == "Seniority":
+            ui.seniorityqueryComboBox.show()
         else:
             ui.valuelineEdit.show()
 
@@ -2358,6 +2381,9 @@ These entries are not added to the Database .\nIf you wish to update the databas
             self.showtooltip('Please Enter the Enrolment numbers in the EntryBox.')
             return
         x = ui.entryBox.toPlainText().replace(' ', '')
+        if not len(x):
+            self.showtooltip("Enrolment Entry Box is empty")
+            return ;
 
         enrolnocopy = x.split(',')
         enrolno = list(enrolnocopy)
@@ -2371,6 +2397,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 enrolno.remove(i)
         con.close()
 
+        if not len(enrolno):
+            self.showtooltip("Enrolment numbers are not enrolled.")
         selectedformname = ui.formsComboBox.currentText()
         self.listdata = self.nametolistsql.get(selectedformname)
 
@@ -2412,7 +2440,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
             return
         self.formname = ""
         self.formname = QtGui.QFileDialog.getOpenFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
-                                                          caption="Save the Form file",
+                                                          caption="Select the Form file",
                                                           filter="Excel (*.xlsx);;CSV (*.csv)")
         if self.formname == "":
             return
@@ -2881,42 +2909,58 @@ color:white;
         ui.emailLineEdit.setText(tuple[18])
         ui.mobileLineEdit.setText(str(tuple[19]))
         ui.bloodgroupComboBox.setCurrentIndex(ui.bloodgroupComboBox.findText(tuple[20]))
+        ui.railwaystationLineEdit.setText(str(tuple[21]))
+        ui.policestationLineEdit.setText(tuple[22])
+        ui.educationLineEdit.setText(tuple[23])
+        ui.marksLineEdit.setText(str(tuple[24]))
+        ui.identificationmarksLineEdit.setText(tuple[25])
+        ui.criminalcourtTextEdit.setText(tuple[26])
+        ui.schoolorcollegeLineEdit.setText(tuple[27])
+        ui.enrollpermissionLineEdit.setText(tuple[28])
+        ui.earliercandidateComboBox.setCurrentIndex(ui.earliercandidateComboBox.findText(tuple[29]))
+        ui.earlierenrolmentnumLineEdit.setText(tuple[30])
+        ui.dismissedTextEdit.setText(tuple[31])
 
-        if tuple[21] == "A":
+        if tuple[32] == "A":
             ui.AcertRadioButton.setChecked(True)
-        elif tuple[21] == "B":
+        elif tuple[32] == "B":
             ui.BcertRadioButton.setChecked(True)
-        elif tuple[21] == "C":
+        elif tuple[32] == "C":
             ui.CcertRadioButton.setChecked(True)
         else:
             ui.NullcertRadioButton.setChecked(True)
 
-        camplist = tuple[22].split(',')
+        camplist = tuple[33].split(',')
 
         for i in range(ui.enrol_campsListWidget.count()):
             if ui.enrol_campsListWidget.item(i).text() in camplist:
                 ui.enrol_campsListWidget.item(i).setSelected(True)
 
-        ui.extraactivitiesTextEdit.setText(tuple[23])
-        ui.specialachievementsTextEdit.setText(tuple[24])
+        ui.extraactivitiesTextEdit.setText(tuple[34])
+        ui.specialachievementsTextEdit.setText(tuple[35])
 
-        enroldate = tuple[25].split('/')
+        enroldate = tuple[36].split('/')
         ui.enroldateDateEdit.setDate(QtCore.QDate(int(enroldate[0]), months[enroldate[1]], int(enroldate[2])))
 
-        ui.remarksTextEdit.setText(tuple[26])
-        if tuple[27] == "Veg":
+        ui.remarksTextEdit.setText(tuple[37])
+        if tuple[38] == "Veg":
             ui.vegRadioButton.setChecked(1)
         else:
             ui.nonvegRadioButton.setChecked(1)
 
-        ui.banknameLineEdit.setText(tuple[28])
-        ui.bankbranchLineEdit.setText(tuple[29])
-        ui.accountnameLineEdit.setText(str(tuple[30]))
-        ui.accountnumLineEdit.setText(tuple[31])
-        ui.ifsccodeLineEdit.setText(tuple[32])
-        ui.micrLineEdit.setText(str(tuple[33]))
-        ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[34]))
-        ui.unitLineEdit.setText(tuple[35])
+        ui.banknameLineEdit.setText(tuple[39])
+        ui.bankbranchLineEdit.setText(tuple[40])
+        ui.accountnameLineEdit.setText(tuple[41])
+        ui.accountnumLineEdit.setText(str(tuple[42]))
+        ui.ifsccodeLineEdit.setText(tuple[43])
+        ui.micrLineEdit.setText(str(tuple[44]))
+        ui.pannumLineEdit.setText(str(tuple[45]))
+        ui.institutionenrollComboBox.setCurrentIndex(ui.institutionenrollComboBox.findText(tuple[46]))
+        ui.unitLineEdit.setText(tuple[47])
+        if tuple[48]=="junior":
+            ui.juniorCheckBox.setChecked(True)
+        else:
+            ui.juniorCheckBox.setChecked(False)
 
     def clear_enrolment_form(self):
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
@@ -2975,6 +3019,29 @@ color:white;
 
         bloodgroup = ui.bloodgroupComboBox.currentText()
 
+        railwaystation=ui.railwaystationLineEdit.displayText().strip()
+
+        policestation=ui.policestationLineEdit.displayText().strip()
+
+        education=ui.educationLineEdit.displayText().strip()
+
+        educationmarks=ui.marksLineEdit.displayText().strip()
+
+        identificationmarks=ui.identificationmarksLineEdit.displayText().strip()
+
+        criminalcourt=ui.criminalcourtTextEdit.toPlainText()
+
+        nameofschoolcollege=ui.schoolorcollegeLineEdit.displayText().strip()
+
+        enrolpermission=ui.enrollpermissionLineEdit.displayText().strip()
+
+        earliercandidate=ui.earliercandidateComboBox.currentText()
+
+        earlierenrolmentnum=ui.earlierenrolmentnumLineEdit.displayText().strip()
+
+        dismissed=ui.dismissedTextEdit.toPlainText()
+
+
         bankname = ui.banknameLineEdit.displayText().strip()
 
         bankbranch = ui.bankbranchLineEdit.displayText().strip()
@@ -2984,6 +3051,10 @@ color:white;
         accountnum = ui.accountnumLineEdit.displayText().strip()
 
         ifsccode = ui.ifsccodeLineEdit.displayText().strip()
+
+        micr = ui.micrLineEdit.displayText().strip()
+
+        pannum=ui.pannumLineEdit.displayText().strip()
 
         institutionname = ui.institutionenrollComboBox.currentText()
 
@@ -2996,8 +3067,10 @@ color:white;
         specialachievements = ui.specialachievementsTextEdit.toPlainText()
 
         extracurricularactivities = ui.extraactivitiesTextEdit.toPlainText()
+        seniority="senior"
+        if ui.juniorCheckBox.isChecked():
+            seniority="junior"
 
-        micr = ui.micrLineEdit.displayText().strip()
 
         if self.candidphoto:
             ext = self.candidphoto[self.candidphoto.rfind('.') + 1:]
@@ -3029,18 +3102,14 @@ color:white;
         if ui.updateentryCheckBox.isChecked():
             try:
                 obj.delete_by_Enrolment('enrolment', enrolmentnum)
-                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,
-                                  fathername,
+                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,fathername,
 
-                                  Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,
-                                  sex, dateofbirth, address,
+                  Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,sex, dateofbirth, address,
 
-                                  email, mobilenum, bloodgroup, certificate, campsattended, extracurricularactivities
-
-                                  , specialachievements, enrolldate, remarks, Meal_Preference, bankname, bankbranch,
-                                  accountname,
-
-                                  accountnum, ifsccode, micr, institutionname, unit);
+                  email, mobilenum, bloodgroup, railwaystation, policestation, education, educationmarks,
+                  identificationmarks,criminalcourt,nameofschoolcollege,enrolpermission,earliercandidate,earlierenrolmentnum,
+                  dismissed,certificate, campsattended, extracurricularactivities, specialachievements, enrolldate,
+                  remarks, Meal_Preference, bankname, bankbranch,accountname,accountnum, ifsccode, micr,pannum, institutionname, unit,seniority)
 
 
             except (IntegrityError, OperationalError) as e:
@@ -3056,18 +3125,12 @@ color:white;
 
         else:
             try:
-                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,
-                                  fathername,
-
-                                  Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,
-                                  sex, dateofbirth, address,
-
-                                  email, mobilenum, bloodgroup, certificate, campsattended, extracurricularactivities
-
-                                  , specialachievements, enrolldate, remarks, Meal_Preference, bankname, bankbranch,
-                                  accountname,
-
-                                  accountnum, ifsccode, micr, institutionname, unit)
+                obj.enrol_student(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname, fullname,fathername,
+                      Fmiddlename, Flastname, fathername, mothername, Mmiddlename, Mlastname, mothername,sex, dateofbirth, address,
+                      email, mobilenum, bloodgroup,railwaystation, policestation, education, educationmarks,
+                      identificationmarks,criminalcourt,nameofschoolcollege,enrolpermission,earliercandidate,earlierenrolmentnum,
+                      dismissed, certificate, campsattended, extracurricularactivities,specialachievements, enrolldate, remarks,
+                      Meal_Preference, bankname, bankbranch,accountname,accountnum, ifsccode, micr,pannum, institutionname, unit,seniority)
 
             except (OperationalError, IntegrityError) as e:
                 print(e)
@@ -3091,172 +3154,204 @@ color:white;
         try:
             if Smiddlename == "":
                 Smiddlename = "-"
-            string1 = """<!DOCTYPE html>
-                                <html lang="en" xmlns:class="http://www.w3.org/1999/xhtml">
-                                <head>
-                                <style>
-                                body{
-                                display:block;
-                                background-image: url(b9.png);
-                                background-repeat:y-axis;
-                                width:100%;
-                                height:2530px;
-                                text-align:centre; 
-                                }
-                                .column-three{
-                                    width: 400px;
-                                }
-                                .column-one{
-                                    width: 355px;
-                                }
-                                .column-one1{
-                                    width: 670px;
-                                }
-                                .column-two{
-                                    width: 400px;
-                                }
-                                .photo{
-                                    border-style: groove;
-                                    border-width:4px ;
-                                    border-color: darkgray;
-                                    border-radius: 5px;
-                                }
-                                .photo1{
-                                    border-style: groove;
-                                    border-width:4px ;
-                                    border-color: darkgray;
-                                    border-radius: 5px;
-                                }
-                                .fs{
-                                page-break-before: always;
-                                }
-                                .logo{
-                                height:200px;
-                                width:155px;
-                                margin: auto;
-                                background-image: url(ncc2.png);
-                                background-repeat:no-repeat;
-                                background-size: contain;
-                                }
-                                .heading{
+            im = Image(self.check_if_img_exists(enrolmentnum))
+            im.drawWidth = 100
+            im.drawHeight = 100
+            lis = [
+                ['Enrolment Number', ':',enrolmentnum,'', im],
+                ['Rank', ':',rank],
+                ['Aadhaar Number', ':',aadhaarnum],
+                ['Student Name', ':',fullname,Smiddlename,Slastname],
+                ['Fathers Name', ':',fathername,Fmiddlename,Flastname],
+                ['Mothers Name', ':',mothername,Mmiddlename,Mlastname],
+                ['Sex', ':',sex],
+                ['Date Of Birth', ':',dateofbirth],
+                ['Address', ':',address],
+                ['Email', ':',email],
+                ['Mobile', ':',mobilenum],
+                ['Blood Group', ':',bloodgroup],
+                ['Nearest Railway Station',':',railwaystation],
+                ['Nearest Police Station', ':',policestation],
+                ['Education Qualifications\nand Marks in %', ':',educationmarks],
+                ['Identification Marks', ':',identificationmarks],
+                ['Have you ever been\nconvinced by a criminal\ncourt and if so\nin what circumstances and\nwhat was the sentence?\nAttach relevant documents',':',criminalcourt],
+                ['Name of the School\nor College and Stream', ':',nameofschoolcollege],
+                ['Willing to be enrolled\nand undergo training\nunder the National\nCadet Corps Act. 1948.', ':',enrolpermission],
+                ['Have you been enrolled in\nNCC earlier.If Yes your\nEnrolment Number', ':',earliercandidate,earlierenrolmentnum],
+                ['Have you been dismissed\nfrom NCC/The\nTerritorial Army/\nThe Indian Armed Forces.\nplease provide details',':',dismissed],
+                ['Certificate', ':',certificate],
+                ['Camps Attended', ':',campsattended],
+                ['Extra Activities', ':',extracurricularactivities],
+                ['Achievements', ':',specialachievements],
+                ['Enrol Date', ':',enrolldate],
+                ['Remarks', ':',remarks],
+                ['Meal Preferences', ':',Meal_Preference],
+                ['Bank Name', ':',bankname],
+                ['Branch', ':',bankbranch],
+                ['Account Name', ':',accountname],
+                ['Account Number', ':',accountnum],
+                ['IFSC Code', ':',ifsccode],
+                ['MICR', ':',micr],
+                ['PAN Number\n(if alloted)', ':',pannum],
+                ['Institution', ':',institutionname],
+                ['UNIT', ':',unit],
+                ['Seniority', ':', seniority]
+            ]
 
-                                background-image:url(graywood.png);
-                                color:darkorange;
-                                font-size:60px;
-                                font-family:"longdon decorative";
-                                border:3px double white;
-                                border-radius:10px;
-                                text-align: center;
-                                margin-top:40px;
-                                margin-right:10px;
-                                margin-left:8px;
-                                }
-                                .firstpage{
-                                margin:20px;
 
-                                }
-                                .questions{
-                                color:firebrick;
-                                font-family:simonetta;
-                                font-weight:bold;
-                                font-size:26px;
-                                }
-                                .answers{
-                                color:darkorchid;
-                                font-family:simonetta;
-                                font-weight:bold;
-                                font-size:22px;
-
-                                }
-                                </style>
-                                </head>""" + """
-                                <body>
-                                <div class="heading">ENROLMENT FORM</div><br><br>
-                                <div class="firstpage">
-
-                                <img style="float:right" class="photo" src=\"""" + self.check_if_img_exists(
-                enrolmentnum) + """\" width="160" height="180" />
-
-                                <img style="float:left" class="photo1" src=\"""" + self.check_if_img_exists(
-                enrolmentnum + "_sign") + """\" width="160" height="180" />
-                                <div class="logo"></div><br><br>
-
-                                <table class="fs" width="100%" >
-                                <col class="column-one1">
-                                <col class="column-two">
-                                <col class="column-three">
-                                <tr height="50px"><td class="questions">Enrolment Number</td><td  font style="text-transform: uppercase;"class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Rank</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Aadhaar Number</td><td class="answers">{}</td></tr>
-                                <tr class="questions" height="50px"><td >Student Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}&nbsp;&nbsp;</td><td >{}</td></tr>
-                                <tr class="questions" height="50px"><td >Fathers Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td >{}</td></tr>
-                                <tr class="questions" height="50px"><td >Mothers Name</td></tr>
-                                <tr class="answers" height="50px"><td >{}</td><td>{}</td><td >{}</td></tr>
-                                </table><br><table>
-                                <col class="column-one">
-                                <col class="column-two">
-                                <tr height="50px"><td class="questions">Sex</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Date Of Birth</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Address</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Email</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Mobile</td><td class="answers">{}</td></tr>
-                                <tr height="50px"><td class="questions">Blood Group</td><td class="answers">{}</td></tr>
-                                </table><br><br><br><br><br><br>
-                                <table width="100%">
-                                <col class="column-one">
-                                <col class="column-two">
-                                 <tr height="50px"><td class="questions">Certificate</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Camps Attended</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Extra Activities</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Achievements</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Enrol Date</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Remarks</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Meal Preferences</td><td class="answers">{}</td></tr>
-                                 </table><hr>
-                                 <h1 style="text-align:center;color:deeppink;font-weight:bold;">Bank Details</h1>
-                                 <hr><table width="100%">
-                                 <col class="column-one">
-                                <col class="column-two">
-                                 <tr height="50px"><td class="questions">Bank Name</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Branch</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Account Name</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">Account Number</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">IFSC Code</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">MICR</td><td class="answers">{}</td></tr>
-                                 </table>
-                                 <table width="100%">
-                                 <col class="column-one">
-                                <col class="column-two">
-                                 <tr height="50px"><td class="questions">Institution</td><td class="answers">{}</td></tr>
-                                 <tr height="50px"><td class="questions">UNIT</td><td class="answers">{}</td></tr>
-                                 </table><hr><br><br>
-                                 <div style="float:right;color:purple;font-size:25px;">Signature of the Candidate</div>
-                                 <div style="float:left;color:purple;font-size:25px;">Signature of the Enroling Officer</div>
-                                </body>
-                                </html>""".format(enrolmentnum, rank, aadhaarnum, fullname, Smiddlename, Slastname,
-                                                  fathername, Fmiddlename,
-                                                  Flastname, mothername, Mmiddlename, Mlastname, sex, dateofbirth,
-                                                  address,
-                                                  email, mobilenum, bloodgroup, certificate, campsattended,
-                                                  extracurricularactivities,
-                                                  specialachievements,
-                                                  enrolldate, remarks, Meal_Preference, bankname, bankbranch, accountname,
-                                                  accountnum, ifsccode, micr, institutionname, unit)
             data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
-            self.printer.setOutputFileName("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
+            doc = SimpleDocTemplate("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"), pagesize=letter,
+                                    rightMargin=20, leftMargin=20,
+                                    topMargin=50, bottomMargin=20)
+            Story = []
 
-            def printpdf():
-                self.view.print_(self.printer)
+            from reportlab.pdfbase.ttfonts import TTFont
+            from reportlab.pdfbase import pdfmetrics
+            styles = getSampleStyleSheet()
+            styles.add(ParagraphStyle(name='rightallignment', alignment=TA_RIGHT,fontSize=13))
+            styles.add(ParagraphStyle(name='leftallignment', alignment=TA_LEFT,fontSize=13))
+            styles.add(ParagraphStyle(name='heading', alignment=TA_CENTER))
+            styles.add(ParagraphStyle(name='normal',fontSize=11.5,leading=15))
+            styles.add(ParagraphStyle(name='list',fontSize=11.5))
 
-            f = open('pdf.html', 'w')
-            f.write(string1)
-            f.close()
-            self.view.load(QtCore.QUrl('pdf.html'))
-            self.view.loadFinished.connect(printpdf)
+            t = Table(lis,colWidths=[2*inch,0.1*inch,2*inch,2*inch,2*inch],hAlign='LEFT')
+            t.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
+                                   ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                                   ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
+                                   ]))
+
+            Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["heading"]))
+
+            Story.append(t)
+            Story.append(Spacer(1, 12))
+
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Applcant", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(
+                Paragraph("<font size='15'><u>DECLARATION ON ACCEPTANCCE FOR ENROLMENT</u></font>", styles["heading"]))
+            Story.append(Spacer(1, 20))
+            Story.append(Paragraph(
+                "1. I solemnly declare that the answers I have given to the questions in this form are true and no part of them is false,andthat I am willing to fulfil the engagement made.",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "2. I ___________________________________ promise that I will honestly and faithfully serve my country and abide by the Rules and Regulations of the National Cadet Corps that I will to the best of my ability, attended all parades and camps as may be required by the Commanding Officer from time to time",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "3. I ___________________________________ further promise that after enrolment, I will have no claim on authorities for any compensation and the event of injury or death due to accident during training camps, courses, traveling and while on YEP or any other such NCC events like RDC and IDC",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "4. I hearby certify that I have not been enrolled myself in NCC as a SD/SW.JD/JW cadets in Army/Navy/Air force.Earlier I have not appeared for A,B and C certificte examination.",
+                styles["normal"]))
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Applcant", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(Paragraph("<font size='15'><u>DECLARATION BY PARENT/GAURDIAN</u></font>", styles["heading"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "1. I solemnly declare that the answer given in this form are true and that no part of them is false, and that My Son/Daughter/Ward is willing to fulfil the engagement made.",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "2. I ___________________________________ promise that after enrolment of my Son / Daughter / Ward. I will have no claim on authorities for any compensation in the event of any injury or death due to accident during training camps, courses, travelling and while on YEP or any other such NCC events like RDC and IDC",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(Paragraph("<font size='15'><u>CERTIFICATE</u></font>", styles["heading"]))
+            Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("1. Certified that the applicant understands and agrees to the conditions of enrolment.",
+                          styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "2. Certified that the applicant and his Parent /Gaurdian understand and agree to the condition on enrolment.",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>(Unit seal)",
+                                   styles["leftallignment"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph("* For Minors only. Score out inapplicable portion.",styles["normal"]))
+            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(
+                Paragraph("<font size='15'><u>CERTIFICATE BY PRINCIPAL/HEAD MASTER</u></font>", styles["heading"]))
+            Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Principle / Head Master", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(
+                Paragraph("<font size='15'><u>TO BE COMPLETED BY MEDICAL OFFICER<br/><br/>BEFORE ENROLMENT</u></font>",
+                          styles["heading"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "1. I have examned(Name) _______________________________________________________ on ___________________________________ (date) and consider him/her/fit/unfit for enrolment as a Cadet in the National Cadet Corps",
+                styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("2. He/She has been inoculated and vaccinated aganist the following:", styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(" a. Typhoid(TAB)", styles['list']))
+            Story.append(Paragraph(" b. Tetanus", styles['list']))
+            Story.append(Paragraph(" c. Tuberculosis(BCG)", styles['list']))
+            Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph(
+                "Signature:____________________<br/><br/>Designation:____________________<br/><br/>(Medical Officer)",
+                styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(
+                Paragraph("<font size='15'><u>TO BE USED FOR EXTENSION OF ENROLMENT<br/><br/>(See Rules 13)</u></font>",
+                          styles["heading"]))
+            Story.append(Spacer(1, 10))
+            if not ui.juniorCheckBox.isChecked():
+                Story.append(Paragraph(
+                    "A. I agree to extend my enrolment for one year and am willing to fulfil the engagement made.",
+                    styles["normal"]))
+                Story.append(Spacer(1, 10))
+                Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
+                                       styles["leftallignment"]))
+                Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+                Story.append(Spacer(1, 10))
+                Story.append(
+                    Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+                Story.append(Paragraph("Signature of the Commanding Officer", styles["rightallignment"]))
+                Story.append(Spacer(1, 20))
+                Story.append(Paragraph(
+                    "B. I agree to extend enrolment of my Son/Daughter/Ward for one year and am willing to fulfil the engagement made.",
+                    styles["normal"]))
+            else:
+                Story.append(Paragraph("My Son / Daughter / Ward agrees to extend the enrolment for one year and is willing to fulfill the engagement made.",styles["normal"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
+                                   styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Parent /Gaurdian", styles["rightallignment"]))
+            Story.append(Spacer(1, 10))
+            Story.append(Paragraph(
+                "@<br/><br/>Place:_______________<br/><br/>Date from which extension start:______________<br/><br/>(Unit Seal)",
+                styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Head Master", styles["rightallignment"]))
+            Story.append(Spacer(1, 30))
+            Story.append(Paragraph("NOTE: * This form will be retained in the school in which the unit is loacted",
+                                   styles["normal"]))
+
+            """Story.append(PageBreak())"""
+            doc.build(Story)
+            os.startfile("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
+
+
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
+
 
     def table1(self, res, msg):
 
@@ -3335,31 +3430,17 @@ color:white;
 
         i = 0
 
-        mmsg = ""
+        mmsg = msg1.split(',')
+        for i in mmsg:
+            html3 = html3 + "\n<th>" + str(i) + "</th>\n"
 
-        while (i < len(msg1)):
-
-            if (msg1[i] == ","):
-
-                html3 = html3 + "\n<th>" + mmsg + "</th>\n"
-
-                mmsg = ""
-
-            else:
-
-                mmsg = mmsg + msg1[i]
-
-            i = i + 1;
-
-        html3 = html3 + "\n<th>" + mmsg + "</th>\n"
-
+        l=len(self.settings.value(ui.formsComboBox.currentText().replace(' ','_')+"_sql_fieldslist").split(',,,'))
         html3 = html3 + "\n<thead>\n"
-
         for i in range(len(res)):
 
             html3 = html3 + "<tr>\n"
 
-            for j in range(len(res[i])):
+            for j in range(l):
                 html3 = html3 + "<td>" + str(res[i][j]) + "</td>\n"
 
             html3 = html3 + "</tr>\n"
@@ -3367,6 +3448,7 @@ color:white;
         html3 = html3 + "</table>\n</body>\n</html>"
 
         ui.webView_2.setHtml(html3)
+
 
     def table(self, res, msg):
         html3 = """
@@ -3442,24 +3524,13 @@ color:white;
         print("done")
 
         i = 0
+        mmsg = msg1.split(',')
 
-        mmsg = ""
-        self.queryheading = msg1.split(',')
-        while (i < len(msg1)):
+        self.queryheading = mmsg
 
-            if (msg1[i] == ","):
+        for i in mmsg:
+            html3 = html3 + "\n<th>" + str(i) + "</th>\n"
 
-                html3 = html3 + "\n<th>" + mmsg.replace('_', ' ') + "</th>\n"
-
-                mmsg = ""
-
-            else:
-
-                mmsg = mmsg + msg1[i]
-
-            i = i + 1;
-
-        html3 = html3 + "\n<th>" + mmsg + "</th>\n"
 
         html3 = html3 + "</tr>\n</thead>\n"
 
@@ -3477,7 +3548,9 @@ color:white;
         ui.webView.setHtml(html3)
 
     def casemaker(self, sql2, field):
-        if field == "Address" or field == "Camps_Attended":
+        if field == "Address" or field == "Education" or field == "Identification_mark" or field == "Criminal_Court" or field == "Name_of_School_College" or \
+                        field == "Earlier_candidate" or field == "Earlier_Enrolment_Number" or field == "Camps_Attended" or field == "Dismissed" or\
+                        field == "Nearest_Railway_Station" or field == "Nearest_Police_Station":
             length = 0
             l = 1
             sql33 = sql2
@@ -3539,6 +3612,18 @@ color:white;
 
             if ui.bloodgroupCheckBox.isChecked(): sql += 'Blood_Group,'
 
+            if ui.policestationCheckBox.isChecked():sql+='Nearest_Police_Station,'
+
+            if ui.educationCheckBox.isChecked():sql+="Education,"
+
+            if ui.schoolcollegeCheckBox.isChecked():sql+="Name_of_School_College,"
+
+            if ui.pannumCheckBox.isChecked():sql+="Pan_Number,"
+
+            if ui.earliercandidateCheckBox.isChecked():sql+="Earlier_candidate,"
+
+            if ui.seniorityCheckBox.isChecked():sql+="Seniority,"
+
             if ui.extraCurricularActivitiesCheckBox.isChecked(): sql += 'Extra_Curricular_Activities,'
 
             if ui.specialAchievementsCheckBox.isChecked(): sql += 'Special_Achievements,'
@@ -3588,10 +3673,7 @@ color:white;
 
             if sql1 != "":
 
-                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
-            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
-            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
-            Enrol_Date,Remarks,Meal_Preference,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment where """
+                sql = """select """+self.settings.value('enrolmentfields').replace(',,,',',')+""" from enrolment where """
                 sql2 = ui.conditionsentrylabel.text()
                 sql2 = self.casemaker(sql2, "Camps_Attended")
                 sql2 = self.casemaker(sql2, "Enrolment_Number")
@@ -3604,15 +3686,24 @@ color:white;
                 sql2 = self.casemaker(sql2, "Branch")
                 sql2 = self.casemaker(sql2, "Account_Name")
                 sql2 = self.casemaker(sql2, "Unit")
+                sql2 = self.casemaker(sql2, "Education")
+                sql2 = self.casemaker(sql2, "Identification_mark")
+                sql2 = self.casemaker(sql2, "Criminal_Court")
+                sql2 = self.casemaker(sql2, "Name_of_School_College")
+                sql2 = self.casemaker(sql2, "Earlier_candidate")
+                sql2 = self.casemaker(sql2, "Earlier_Enrolment_Number")
+                sql2 = self.casemaker(sql2, "Dismissed")
+                sql2 = self.casemaker(sql2, "Nearest_Railway_Station")
+                sql2 = self.casemaker(sql2, "Nearest_Police_Station")
+
+
+
 
                 sql = sql + sql2
 
             else:
 
-                sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
-            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
-            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
-            Enrol_Date,Remarks,Meal_Preference,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit from enrolment"""
+                sql = """select """+self.settings.value('enrolmentfields').replace(',,,',',')+""" from enrolment"""
 
 
         else:
@@ -3633,12 +3724,7 @@ color:white;
                 sql2)) if sql1 != "" else "select " + sql + " from enrolment "
 
         if sql[7] == "*":
-            sql = """select Enrolment_Number,Rank,Aadhaar_Number,Student_First_name,Student_Middle_Name,Student_Last_Name,Student_Name,
-            Fathers_First_Name,Fathers_Middle_Name,Fathers_Last_Name,Fathers_Name,Mothers_First_Name,Mothers_Middle_Name,Mothers_Last_Name,Mothers_Name,
-            Sex,Date_Of_Birth,Address,Email,Mobile_Number,Blood_Group,Certificate,Camps_Attended,Extra_Curricular_Activities,Special_Achievements,
-            Enrol_Date,Remarks,Meal_Preference,Bank_Name,Branch,Account_Name,Account_Number,IFSC_Code,MICR,Institution,Unit""" + sql[
-                                                                                                                            9:len(
-                                                                                                                                sql)]
+            sql = """select """+self.settings.value('enrolmentfields').replace(',,,',',') + sql[9:len(sql)]
         print(sql)
         self.querytupple = ENROLMENT_FORM.enroll().execute(sql)
         if len(self.querytupple) < 1:
@@ -3705,6 +3791,8 @@ color:white;
             ch1 = ui.vegitarianqueryComboBox.currentText().replace(' ','_')
         elif ch == "Camps_Attended":
             ch1 = ui.campsattendedqueryComboBox.currentText()
+        elif ch == "Seniority":
+            ch1 = ui.seniorityqueryComboBox.currentText()
         else:
             ch1 = ui.valuelineEdit.text().strip()
 

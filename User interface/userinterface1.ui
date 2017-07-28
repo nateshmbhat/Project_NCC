@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1243</width>
-    <height>827</height>
+    <width>1162</width>
+    <height>879</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../../ADMIN/.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
+    <normaloff>../.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</normaloff>../.designer/.designer/.designer/.designer/.designer/.designer/Documents/CODES/ncc/code/new/Icons/ncc1.jpg</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -92,14 +92,11 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <property name="tabPosition">
-       <enum>QTabWidget::North</enum>
-      </property>
       <property name="tabShape">
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -203,8 +200,8 @@ border-radius:100px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1190</width>
-             <height>2295</height>
+             <width>1109</width>
+             <height>3723</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -245,6 +242,95 @@ background-color:transparent;
                </size>
               </property>
              </spacer>
+            </item>
+            <item row="22" column="0">
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="13" column="0" alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="bankdetailsLabel">
+              <property name="font">
+               <font>
+                <family>Longdon Decorative</family>
+                <pointsize>23</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="acceptDrops">
+               <bool>false</bool>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+#bankdetailsLabel{
+background-color:transparent;
+color:yellow;
+border-width:2px;
+border-color:black;
+border-style:groove;
+margin-bottom:5px;
+}
+
+#bankdetailsLabel:hover
+{
+background-color:transparent;
+color:purple;
+border-width:2px;
+border-color:yellow;
+border-style:groove;
+margin-bottom:5px;
+
+
+}</string>
+              </property>
+              <property name="text">
+               <string>Bank Details</string>
+              </property>
+             </widget>
+            </item>
+            <item row="12" column="0">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="19" column="0" alignment="Qt::AlignHCenter">
+             <widget class="Line" name="line_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>10</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
             </item>
             <item row="1" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -557,6 +643,19 @@ color:white;</string>
               </item>
              </layout>
             </item>
+            <item row="16" column="0">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="6" column="0">
              <spacer name="horizontalSpacer_2">
               <property name="orientation">
@@ -592,110 +691,15 @@ color:white;</string>
               </property>
              </widget>
             </item>
-            <item row="12" column="0">
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="13" column="0" alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="bankdetailsLabel">
-              <property name="font">
-               <font>
-                <family>Longdon Decorative</family>
-                <pointsize>23</pointsize>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="acceptDrops">
-               <bool>false</bool>
-              </property>
-              <property name="autoFillBackground">
-               <bool>false</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-#bankdetailsLabel{
-background-color:transparent;
-color:yellow;
-border-width:2px;
-border-color:black;
-border-style:groove;
-margin-bottom:5px;
-}
-
-#bankdetailsLabel:hover
-{
-background-color:transparent;
-color:purple;
-border-width:2px;
-border-color:yellow;
-border-style:groove;
-margin-bottom:5px;
-
-
-}</string>
-              </property>
-              <property name="text">
-               <string>Bank Details</string>
-              </property>
-             </widget>
-            </item>
-            <item row="19" column="0" alignment="Qt::AlignHCenter">
-             <widget class="Line" name="line_2">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-                <horstretch>0</horstretch>
-                <verstretch>10</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>600</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="21" column="0">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="16" column="0">
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="2" column="0" alignment="Qt::AlignHCenter">
              <widget class="QFrame" name="enrolformFrame">
+              <property name="font">
+               <font>
+                <family>georgia</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">
 #enrolformFrame{
@@ -887,7 +891,7 @@ border:2px groove chartreuse;
                 <widget class="QLabel" name="aadhaarLabel">
                  <property name="font">
                   <font>
-                   <family>georgia</family>
+                   <family>Georgia</family>
                    <pointsize>15</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
@@ -959,6 +963,19 @@ border:2px groove chartreuse;
                  </property>
                 </widget>
                </item>
+               <item row="4" column="0">
+                <spacer name="horizontalSpacer_21">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>1</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item row="5" column="0" colspan="2">
                 <widget class="QLabel" name="fullnameLabel">
                  <property name="font">
@@ -987,6 +1004,287 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
+               <item row="6" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_21">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="fullnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="SmiddlenameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="SlastnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">#fullnameLineEdit:focus
+{
+border:2px groove chartreuse;
+}</string>
+                   </property>
+                   <property name="inputMethodHints">
+                    <set>Qt::ImhDigitsOnly</set>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="7" column="0">
+                <spacer name="horizontalSpacer_22">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="8" column="0" colspan="2">
+                <widget class="QLabel" name="fathernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>fathernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="fathernameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">b</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="FmiddlenameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="FlastnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="11" column="0">
+                <spacer name="horizontalSpacer_23">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="12" column="0" colspan="2">
+                <widget class="QLabel" name="mothernameLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <property name="buddy">
+                  <cstring>mothernameLineEdit</cstring>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0" colspan="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_23">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <item>
+                  <widget class="QLineEdit" name="mothernameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">b</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>First Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="MmiddlenameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Middle Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="MlastnameLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Last Name</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="15" column="0">
+                <spacer name="horizontalSpacer_24">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item row="16" column="0">
                 <widget class="QLabel" name="sexLabel">
                  <property name="font">
@@ -1010,6 +1308,43 @@ color:white;</string>
                  <property name="buddy">
                   <cstring>sexComboBox</cstring>
                  </property>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QComboBox" name="sexComboBox">
+                 <property name="font">
+                  <font>
+                   <family>Caladea</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">width:100px;</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                 <property name="frame">
+                  <bool>false</bool>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string>Male</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Female</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item row="19" column="0">
@@ -1302,6 +1637,298 @@ color:white;</string>
                 </widget>
                </item>
                <item row="26" column="0">
+                <widget class="QLabel" name="policestationLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Nearest Police Station</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="26" column="1">
+                <widget class="QLineEdit" name="policestationLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="0">
+                <widget class="QLabel" name="educationLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Education Qualifications&lt;br&gt;and  Marks in %&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="29" column="0">
+                <widget class="QLabel" name="identificationmarksLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Identification Marks</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="29" column="1">
+                <widget class="QLineEdit" name="identificationmarksLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="placeholderText">
+                  <string>minimum 2 marks</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="30" column="0">
+                <widget class="QLabel" name="criminalcourtLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Have you ever been convicted by  a criminal court and if so in what circumstances and what was the sentence? Attach relevant documents</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="30" column="1">
+                <widget class="QTextEdit" name="criminalcourtTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="32" column="0">
+                <widget class="QLabel" name="schoolorcollegeLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Name of school / College and Stream (Arts/Science/Commerce)</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="32" column="1">
+                <widget class="QLineEdit" name="schoolorcollegeLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="33" column="0">
+                <widget class="QLabel" name="enrollpermissionLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Willing to be enrolled and undergo training under the National Cadet Corps Act. 1948.</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="33" column="1">
+                <widget class="QLineEdit" name="enrollpermissionLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="34" column="0">
+                <widget class="QLabel" name="earliercandidateLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Have you been enrolled in NCC earlier.If yes your Enrolment Number</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="34" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_27">
+                 <item>
+                  <widget class="QComboBox" name="earliercandidateComboBox">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>No</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Yes</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="earlierenrolmentnumLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Older enrolment number</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="36" column="0">
+                <widget class="QLabel" name="dismissedLabel">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Have you been dismissed from NCC/The Territorial Army/The Indian Armed Forces.Please provide details</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="36" column="1">
+                <widget class="QTextEdit" name="dismissedTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="38" column="0">
                 <widget class="QLabel" name="certificateLabel">
                  <property name="font">
                   <font>
@@ -1320,7 +1947,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="26" column="1">
+               <item row="38" column="1">
                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                  <item>
                   <widget class="QRadioButton" name="NullcertRadioButton">
@@ -1402,7 +2029,7 @@ color:white;</string>
                  </item>
                 </layout>
                </item>
-               <item row="28" column="0">
+               <item row="40" column="0">
                 <widget class="QLabel" name="campsattendedLabel">
                  <property name="font">
                   <font>
@@ -1421,397 +2048,7 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="29" column="0">
-                <widget class="QLabel" name="extracurricularactivitiesLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Extra Curricular Activities</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="29" column="1">
-                <widget class="QTextEdit" name="extraactivitiesTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="30" column="0">
-                <widget class="QLabel" name="specialachievementsLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Special Achievements</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="30" column="1">
-                <widget class="QTextEdit" name="specialachievementsTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="31" column="0">
-                <widget class="QLabel" name="enroldateLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Enrol Date</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="31" column="1">
-                <widget class="QDateEdit" name="enroldateDateEdit">
-                 <property name="font">
-                  <font>
-                   <family>Baskerville Old Face</family>
-                   <pointsize>14</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="displayFormat">
-                  <string>dd/MMM/yyyy</string>
-                 </property>
-                 <property name="calendarPopup">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="32" column="0">
-                <widget class="QLabel" name="remarksLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Remarks</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="32" column="1">
-                <widget class="QTextEdit" name="remarksTextEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>14</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-radius:5px;</string>
-                 </property>
-                 <property name="tabChangesFocus">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_21">
-                 <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLineEdit" name="fullnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="SmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="SlastnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">#fullnameLineEdit:focus
-{
-border:2px groove chartreuse;
-}</string>
-                   </property>
-                   <property name="inputMethodHints">
-                    <set>Qt::ImhDigitsOnly</set>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="8" column="0" colspan="2">
-                <widget class="QLabel" name="fathernameLabel">
-                 <property name="font">
-                  <font>
-                   <family>georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Father's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <property name="buddy">
-                  <cstring>fathernameLineEdit</cstring>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_22">
-                 <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLineEdit" name="fathernameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">b</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="FmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="FlastnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="12" column="0" colspan="2">
-                <widget class="QLabel" name="mothernameLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mother's Name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
-                 </property>
-                 <property name="buddy">
-                  <cstring>mothernameLineEdit</cstring>
-                 </property>
-                </widget>
-               </item>
-               <item row="13" column="0" colspan="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_23">
-                 <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLineEdit" name="mothernameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">b</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>First Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="MmiddlenameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Middle Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="MlastnameLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Last Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="28" column="1">
+               <item row="40" column="1">
                 <widget class="QListWidget" name="enrol_campsListWidget">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -1941,94 +2178,221 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
-               <item row="4" column="0">
-                <spacer name="horizontalSpacer_21">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>1</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="7" column="0">
-                <spacer name="horizontalSpacer_22">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="11" column="0">
-                <spacer name="horizontalSpacer_23">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="15" column="0">
-                <spacer name="horizontalSpacer_24">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="16" column="1">
-                <widget class="QComboBox" name="sexComboBox">
+               <item row="41" column="0">
+                <widget class="QLabel" name="extracurricularactivitiesLabel">
                  <property name="font">
                   <font>
-                   <family>Caladea</family>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Extra Curricular Activities</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="41" column="1">
+                <widget class="QTextEdit" name="extraactivitiesTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="42" column="0">
+                <widget class="QLabel" name="specialachievementsLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Special Achievements</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="42" column="1">
+                <widget class="QTextEdit" name="specialachievementsTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="43" column="0">
+                <widget class="QLabel" name="enroldateLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Enrol Date</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="43" column="1">
+                <widget class="QDateEdit" name="enroldateDateEdit">
+                 <property name="font">
+                  <font>
+                   <family>Baskerville Old Face</family>
                    <pointsize>14</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
-                 <property name="layoutDirection">
-                  <enum>Qt::LeftToRight</enum>
+                 <property name="displayFormat">
+                  <string>dd/MMM/yyyy</string>
+                 </property>
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="44" column="0">
+                <widget class="QLabel" name="remarksLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">width:100px;</string>
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
                  </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>16</width>
-                   <height>16</height>
-                  </size>
+                 <property name="text">
+                  <string>Remarks</string>
                  </property>
-                 <property name="frame">
-                  <bool>false</bool>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string>Male</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Female</string>
-                  </property>
-                 </item>
                 </widget>
+               </item>
+               <item row="44" column="1">
+                <widget class="QTextEdit" name="remarksTextEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="0">
+                <widget class="QLabel" name="railwaystationLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Nearest Railway Station</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="1">
+                <widget class="QLineEdit" name="railwaystationLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item row="27" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_28">
+                 <item>
+                  <widget class="QLineEdit" name="educationLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="marksLineEdit">
+                   <property name="maximumSize">
+                    <size>
+                     <width>70</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>marks</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </widget>
@@ -2066,6 +2430,28 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="label">
+                 <property name="font">
+                  <font>
+                   <family>Cambria</family>
+                   <pointsize>16</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unit &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt; *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                </widget>
+               </item>
                <item row="1" column="1">
                 <spacer name="horizontalSpacer_4">
                  <property name="orientation">
@@ -2097,28 +2483,6 @@ color:white;</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLabel" name="label">
-                 <property name="font">
-                  <font>
-                   <family>Cambria</family>
-                   <pointsize>16</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unit &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&quot; color:#ff0000;&quot;&gt; *&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                 </property>
-                 <property name="margin">
-                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -2250,6 +2614,30 @@ border-radius:10px;
                  </property>
                 </widget>
                </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="banknameLineEdit">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="ifsccodeLabel">
                  <property name="font">
@@ -2269,6 +2657,43 @@ color:white;</string>
                  </property>
                  <property name="openExternalLinks">
                   <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="micrLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>MICR CODE</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLineEdit" name="micrLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="maxLength">
+                  <number>9</number>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -2294,68 +2719,8 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="bankbranchLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">b</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="banknameLineEdit">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLineEdit" name="accountnameLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">b</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="micrLabel">
+               <item row="3" column="0" alignment="Qt::AlignHCenter">
+                <widget class="QLabel" name="accountnameLabel">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -2369,7 +2734,10 @@ color:white;</string>
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>MICR CODE</string>
+                  <string>Account name</string>
+                 </property>
+                 <property name="openExternalLinks">
+                  <bool>false</bool>
                  </property>
                 </widget>
                </item>
@@ -2395,6 +2763,42 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="accountnumLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="accountnameLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">b</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="accountnumLabel">
                  <property name="font">
@@ -2417,8 +2821,8 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="1">
-                <widget class="QLineEdit" name="accountnumLineEdit">
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="bankbranchLineEdit">
                  <property name="font">
                   <font>
                    <family>Simonetta</family>
@@ -2435,26 +2839,8 @@ color:white;</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="1">
-                <widget class="QLineEdit" name="micrLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="maxLength">
-                  <number>9</number>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0" alignment="Qt::AlignHCenter">
-                <widget class="QLabel" name="accountnameLabel">
+               <item row="8" column="0">
+                <widget class="QLabel" name="pannumLabel">
                  <property name="font">
                   <font>
                    <family>Georgia</family>
@@ -2468,10 +2854,19 @@ color:white;</string>
 color:white;</string>
                  </property>
                  <property name="text">
-                  <string>Account name</string>
+                  <string>PAN Number</string>
                  </property>
-                 <property name="openExternalLinks">
-                  <bool>false</bool>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QLineEdit" name="pannumLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
                  </property>
                 </widget>
                </item>
@@ -2776,12 +3171,6 @@ font-weight:bold;
                  <height>8</height>
                 </size>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>27</height>
-                </size>
-               </property>
                <property name="font">
                 <font>
                  <family>Caladea</family>
@@ -2908,7 +3297,85 @@ font-weight:bold;
            <property name="verticalSpacing">
             <number>1</number>
            </property>
-           <item row="2" column="0">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_30">
+             <item>
+              <spacer name="horizontalSpacer_32">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QCheckBox" name="juniorCheckBox">
+               <property name="font">
+                <font>
+                 <family>Simonetta</family>
+                 <pointsize>13</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">#juniorCheckBox
+{
+
+	color:white;
+
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Junior</string>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignHCenter">
+              <widget class="QCheckBox" name="updateentryCheckBox">
+               <property name="font">
+                <font>
+                 <family>Simonetta</family>
+                 <pointsize>14</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">#updateentryCheckBox
+{
+
+	color:white;
+
+}
+</string>
+               </property>
+               <property name="text">
+                <string>Update Entry</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_33">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="0" alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="submitPushButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -2989,30 +3456,6 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
              </property>
             </widget>
            </item>
-           <item row="1" column="0" alignment="Qt::AlignHCenter">
-            <widget class="QCheckBox" name="updateentryCheckBox">
-             <property name="font">
-              <font>
-               <family>Simonetta</family>
-               <pointsize>14</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">#updateentryCheckBox
-{
-
-	color:white;
-
-}
-</string>
-             </property>
-             <property name="text">
-              <string>Update Entry</string>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
@@ -3071,294 +3514,6 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
                 <property name="verticalSpacing">
                  <number>9</number>
                 </property>
-                <item row="3" column="1">
-                 <widget class="QCheckBox" name="remarksCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#remarksCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#remarksCheckBox:hover
-{
-	text-decoration:underline;
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Remarks</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QCheckBox" name="selectallCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Longdon Decorative</family>
-                    <pointsize>19</pointsize>
-                    <weight>50</weight>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#selectallCheckBox{
-color:rgb(255, 170, 0);
-}
-
-#selectallCheckBox:hover{
-color:rgb(255, 148, 241);
-
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Select All</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QCheckBox" name="aadhaarCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Aadhaar</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="QCheckBox" name="banknameCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Bank Name</string>
-                  </property>
-                  <property name="checked">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="6">
-                 <widget class="QCheckBox" name="accountnumCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckBox , #ifsccodeCheckBox
-{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckBox:hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Account Num</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="2">
-                 <widget class="QCheckBox" name="addressCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Address</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <widget class="QCheckBox" name="bankbranchCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox:hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Branch Name</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QCheckBox" name="emailCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Email</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QCheckBox" name="micrCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#micrCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#micrCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>MICR</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="5">
-                 <widget class="QCheckBox" name="accountnameCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Account Name</string>
-                  </property>
-                 </widget>
-                </item>
                 <item row="0" column="1">
                  <widget class="QCheckBox" name="enrolmentCheckBox">
                   <property name="font">
@@ -3386,36 +3541,6 @@ color:white;
                   </property>
                   <property name="text">
                    <string>Enrolment</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="sfnameCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Student Name</string>
                   </property>
                  </widget>
                 </item>
@@ -3476,6 +3601,179 @@ color:white;
                   </property>
                  </widget>
                 </item>
+                <item row="1" column="5">
+                 <widget class="QCheckBox" name="accountnameCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Account Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <widget class="QCheckBox" name="bankbranchCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox:hover, #accountnameCheckBox:hover, #accountnumCheckbox:hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Branch Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QCheckBox" name="addressCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Address</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QCheckBox" name="remarksCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#remarksCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#remarksCheckBox:hover
+{
+	text-decoration:underline;
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Remarks</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QCheckBox" name="emailCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Email</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="6">
+                 <widget class="QCheckBox" name="accountnumCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckBox , #ifsccodeCheckBox
+{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckBox:hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Account Num</string>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="6">
                  <widget class="QCheckBox" name="ffnameCheckBox">
                   <property name="font">
@@ -3503,6 +3801,282 @@ color:white;
                   </property>
                   <property name="text">
                    <string>Father Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="5">
+                 <widget class="QCheckBox" name="pannumCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#pannumCheckBox{
+color:white;
+}
+
+#pannumCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Pan_Number</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="4">
+                 <widget class="QCheckBox" name="earliercandidateCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#earliercandidateCheckBox{
+color:white;
+}
+
+#earliercandidateCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Earlier candidate</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QCheckBox" name="sfnameCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Student Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QCheckBox" name="micrCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#micrCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#micrCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>MICR</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QCheckBox" name="selectallCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Longdon Decorative</family>
+                    <pointsize>19</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#selectallCheckBox{
+color:rgb(255, 170, 0);
+}
+
+#selectallCheckBox:hover{
+color:rgb(255, 148, 241);
+
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Select All</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QCheckBox" name="banknameCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Bank Name</string>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QCheckBox" name="aadhaarCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Aadhaar</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="6">
+                 <widget class="QCheckBox" name="seniorityCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#seniorityCheckBox{
+color:white;
+}
+
+#seniorityCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Seniority</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QCheckBox" name="ifsccodeCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <italic>false</italic>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#ifscCheckBox{
+color:white;
+
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#ifscCheckBox:hover{
+	text-decoration:underline;
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>IFSC Code</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="4">
+                 <widget class="QCheckBox" name="enrollDateCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#enrollDateCheckBox{
+color:white;
+}
+
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#enrollDateCheckBox:hover{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Enroll Date</string>
                   </property>
                  </widget>
                 </item>
@@ -3563,8 +4137,8 @@ color:white;
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="3">
-                 <widget class="QCheckBox" name="ifsccodeCheckBox">
+                <item row="3" column="6">
+                 <widget class="QCheckBox" name="institutionCheckBox">
                   <property name="font">
                    <font>
                     <family>Simonetta</family>
@@ -3574,45 +4148,23 @@ color:white;
                     <bold>true</bold>
                    </font>
                   </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
                   <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#ifscCheckBox{
+                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#insitutionCheckBox{
 color:white;
 
 }
 
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#ifscCheckBox:hover{
+#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#insitutionCheckBox:hover{
 	text-decoration:underline;
 	color:yellow;
 }
 </string>
                   </property>
                   <property name="text">
-                   <string>IFSC Code</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="4">
-                 <widget class="QCheckBox" name="enrollDateCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#enrollDateCheckBox{
-color:white;
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#enrollDateCheckBox:hover{
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Enroll Date</string>
+                   <string>Institution</string>
                   </property>
                  </widget>
                 </item>
@@ -3646,37 +4198,6 @@ color:white;
                   </property>
                   <property name="tristate">
                    <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="6">
-                 <widget class="QCheckBox" name="institutionCheckBox">
-                  <property name="font">
-                   <font>
-                    <family>Simonetta</family>
-                    <pointsize>14</pointsize>
-                    <weight>75</weight>
-                    <italic>false</italic>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">#enrolmentCheckBox,#aadhaarCheckBox,#rankCheckBox,#sfnameCheckBox,#ffnameCheckBox,#mfnameCheckBox,#sexCheckBox,#bloodgroupCheckBox,#emailCheckBox,#mobileCheckBox,#addressCheckBox,#dateofbirthCheckBox,#institutionCheckBox,#unitCheckBox,#banknameCheckBox,#bankbranchCheckBox , #accountnameCheckBox, #accountnumCheckbox , #ifsccodeCheckBox,#insitutionCheckBox{
-color:white;
-
-}
-
-#enrolmentCheckBox:hover,#aadhaarCheckBox:hover,#rankCheckBox:hover,#sfnameCheckBox:hover,#ffnameCheckBox:hover,#mfnameCheckBox:hover,#sexCheckBox:hover,#bloodgroupCheckBox:hover,#emailCheckBox:hover,#mobileCheckBox:hover,#addressCheckBox:hover,#dateofbirthCheckBox:hover,#institutionCheckBox:hover,#unitCheckBox:hover,#banknameCheckBox:hover,#bankbranchCheckBox :hover, #accountnameCheckBox:hover, #accountnumCheckbox :hover, #ifsccodeCheckBox:hover,#insitutionCheckBox:hover{
-	text-decoration:underline;
-	color:yellow;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string>Institution</string>
                   </property>
                  </widget>
                 </item>
@@ -3847,6 +4368,90 @@ color:white;
                   </property>
                   <property name="text">
                    <string>Mobile</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QCheckBox" name="policestationCheckBox">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#policestationCheckBox{
+color:white;
+}
+
+#policestationCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Police Station</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QCheckBox" name="educationCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#educationCheckBox{
+color:white;
+}
+
+#educationCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Education</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2" colspan="2">
+                 <widget class="QCheckBox" name="schoolcollegeCheckBox">
+                  <property name="font">
+                   <font>
+                    <family>Simonetta</family>
+                    <pointsize>14</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#schoolcollegeCheckBox{
+color:white;
+}
+
+#schoolcollegeCheckBox:hover
+{
+	color:yellow;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string>Name of School/College</string>
                   </property>
                  </widget>
                 </item>
@@ -4123,6 +4728,12 @@ width:120%;
                   </property>
                   <item>
                    <widget class="QComboBox" name="conditionlistcombobox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4219,6 +4830,51 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
+                      <string>Nearest_Railway_Station</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Nearest_Police_Station</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Education</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Identification_mark</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Criminal_Court</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Name_of_School_College</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Earlier_candidate</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Earlier_Enrolment_Number</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Dismissed</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
                       <string>Certificate</string>
                      </property>
                     </item>
@@ -4259,6 +4915,21 @@ width:130%;
                     </item>
                     <item>
                      <property name="text">
+                      <string>MICR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Pan_Number</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Seniority</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
                       <string>Institution</string>
                      </property>
                     </item>
@@ -4271,6 +4942,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="campsattendedqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4291,25 +4968,16 @@ height:30px;
 width:130%;
 }</string>
                     </property>
-                    <item>
-                     <property name="text">
-                      <string>NIC</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>AAC</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>CATC</string>
-                     </property>
-                    </item>
                    </widget>
                   </item>
                   <item>
                    <widget class="QComboBox" name="vegitarianqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4344,6 +5012,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="bloodgroupqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4408,6 +5082,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="certificatequeryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4441,6 +5121,46 @@ width:130%;
                     <item>
                      <property name="text">
                       <string>C</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="seniorityqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Simonetta</family>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#seniorityqueryComboBox{
+	background-color: rgb(255, 255, 255);
+	color: rgb(85, 0, 0);
+width:130%;
+height:30px;
+}
+#seniorityqueryComboBox:hover{
+		border:1px solid chartreuse;
+width:130%;
+}</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>junior</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>senior</string>
                      </property>
                     </item>
                    </widget>
@@ -4480,6 +5200,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="rankqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4540,6 +5266,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QComboBox" name="sexqueryComboBox">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4574,6 +5306,12 @@ width:130%;
                   </item>
                   <item>
                    <widget class="QDateEdit" name="datequeryDateEdit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <family>Simonetta</family>
@@ -4960,6 +5698,12 @@ background-color:transparent;
                <height>67</height>
               </size>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>58</height>
+              </size>
+             </property>
              <property name="sizeIncrement">
               <size>
                <width>0</width>
@@ -5237,6 +5981,12 @@ p, li { white-space: pre-wrap; }
                <height>20</height>
               </size>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <family>Monotype Corsiva</family>
@@ -5342,6 +6092,9 @@ color: rgb(0, 0, 127);
                 <pointsize>18</pointsize>
                </font>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::ClickFocus</enum>
+              </property>
               <property name="styleSheet">
                <string notr="true">
 border-radius:5px;
@@ -5370,40 +6123,6 @@ padding-left:5px;
 background-image: url(:/icons/close line.png);
 color: rgb(0, 0, 127);
 </string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="openPushButton">
-              <property name="font">
-               <font>
-                <family>Simonetta</family>
-                <pointsize>17</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#openPushButton{
-
-color:white;
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 65, 65, 255), stop:0.368664 rgba(95, 0, 205, 255), stop:0.737327 rgba(165, 205, 0, 255), stop:1 rgba(255, 122, 0, 255));
-border-radius:5px;
-border:0.5px solid white;
-}
-#openPushButton:hover{
-color:white;
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(200, 60, 60, 255), stop:0.368664 rgba(50, 0, 170, 200), stop:0.737327 rgba(110,160, 0, 255), stop:1 rgba(50, 100, 0, 255));
-}
-
-#openPushButton:pressed{
-background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(200, 60, 60, 150), stop:0.368664 rgba(50, 0, 170, 150), stop:0.737327 rgba(110,160, 0, 150), stop:1 rgba(50, 100, 0, 150));
-border-color:green;
-
-}</string>
-              </property>
-              <property name="text">
-               <string>Open Entry Table</string>
               </property>
              </widget>
             </item>
@@ -5482,7 +6201,7 @@ color: rgb(0, 0, 127);</string>
 padding-left:5px;</string>
               </property>
               <property name="text">
-               <string>Eligable</string>
+               <string>Eligible</string>
               </property>
              </widget>
             </item>
@@ -5794,7 +6513,7 @@ background-color:qlineargradient(spread:pad, x1:0.522, y1:1, x2:0.483, y2:0, sto
 }</string>
        </property>
        <attribute name="title">
-        <string>Long Nominal Role</string>
+        <string>Long Nominal Roll</string>
        </attribute>
        <attribute name="toolTip">
         <string>Long Nominal Role</string>
@@ -5881,6 +6600,12 @@ background-position:center;</string>
             </item>
             <item>
              <widget class="QLineEdit" name="unitlongnrLineEdit">
+              <property name="maximumSize">
+               <size>
+                <width>400</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Baskerville Old Face</family>
@@ -6126,8 +6851,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1188</width>
+             <y>-1212</y>
+             <width>1107</width>
              <height>2005</height>
             </rect>
            </property>
@@ -6580,11 +7305,8 @@ border-radius:3px;</string>
 }</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
-               <property name="horizontalSpacing">
+               <property name="spacing">
                 <number>1</number>
-               </property>
-               <property name="verticalSpacing">
-                <number>2</number>
                </property>
                <item row="3" column="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_16">
@@ -7286,16 +8008,13 @@ padding:10px 10px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="Help">
+      <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Help</string>
        </attribute>
-       <attribute name="toolTip">
-        <string>Documentation for the Features and Usage of this software</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_14">
+       <layout class="QHBoxLayout" name="horizontalLayout_31">
         <item>
-         <widget class="QWebView" name="helpWebView">
+         <widget class="QWebView" name="webView_3">
           <property name="url">
            <url>
             <string>about:blank</string>
@@ -7356,7 +8075,6 @@ padding:10px 10px;
   <tabstop>micrLineEdit</tabstop>
   <tabstop>institutionenrollComboBox</tabstop>
   <tabstop>unitLineEdit</tabstop>
-  <tabstop>updateentryCheckBox</tabstop>
   <tabstop>submitPushButton</tabstop>
   <tabstop>enrolmentnumRadioButton</tabstop>
   <tabstop>aadhaarnumRadioButton</tabstop>
@@ -7367,6 +8085,7 @@ padding:10px 10px;
   <tabstop>enrolPushButton</tabstop>
   <tabstop>enrol_signaturePushButton</tabstop>
   <tabstop>selectpicturePushButton</tabstop>
+  <tabstop>mytab</tabstop>
   <tabstop>pushButton_4</tabstop>
   <tabstop>SettingsScrollArea</tabstop>
   <tabstop>selectallCheckBox</tabstop>
@@ -7416,7 +8135,6 @@ padding:10px 10px;
   <tabstop>institutionuploaddatacomboBox</tabstop>
   <tabstop>typecomboBox</tabstop>
   <tabstop>campsNameuploaddataComboBox</tabstop>
-  <tabstop>openPushButton</tabstop>
   <tabstop>certificateComboBox</tabstop>
   <tabstop>eligibilityCheckBox</tabstop>
   <tabstop>yearComboBox</tabstop>
@@ -7475,6 +8193,8 @@ padding:10px 10px;
   <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

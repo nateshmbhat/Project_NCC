@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1162</width>
-    <height>879</height>
+    <width>1170</width>
+    <height>788</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -199,8 +199,8 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1109</width>
+             <y>-3251</y>
+             <width>1117</width>
              <height>3723</height>
             </rect>
            </property>
@@ -431,7 +431,7 @@ background-color:rgba(213, 213, 213,100)</string>
                      </font>
                     </property>
                     <property name="toolTip">
-                     <string>Select the Specimen Signature Picture</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#2b0000;&quot;&gt;Select the Specimen Signature Picture&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">background-color:qlineargradient(spread:pad, x1:0.528409, y1:1, x2:0.494, y2:0, stop:0.0227273 rgba(255, 108, 0, 255), stop:0.857955 rgba(255, 70, 219, 255));
@@ -1636,6 +1636,37 @@ color:white;</string>
                  </item>
                 </widget>
                </item>
+               <item row="25" column="0">
+                <widget class="QLabel" name="railwaystationLabel">
+                 <property name="font">
+                  <font>
+                   <family>Georgia</family>
+                   <pointsize>15</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:transparent;margin:3px;
+color:white;</string>
+                 </property>
+                 <property name="text">
+                  <string>Nearest Railway Station</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="1">
+                <widget class="QLineEdit" name="railwaystationLineEdit">
+                 <property name="font">
+                  <font>
+                   <family>Simonetta</family>
+                   <pointsize>13</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                </widget>
+               </item>
                <item row="26" column="0">
                 <widget class="QLabel" name="policestationLabel">
                  <property name="font">
@@ -1688,6 +1719,43 @@ color:white;</string>
                   <bool>true</bool>
                  </property>
                 </widget>
+               </item>
+               <item row="27" column="1">
+                <layout class="QHBoxLayout" name="horizontalLayout_28">
+                 <item>
+                  <widget class="QLineEdit" name="educationLineEdit">
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="marksLineEdit">
+                   <property name="maximumSize">
+                    <size>
+                     <width>70</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Simonetta</family>
+                     <pointsize>13</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="placeholderText">
+                    <string>marks</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item row="29" column="0">
                 <widget class="QLabel" name="identificationmarksLabel">
@@ -2325,74 +2393,6 @@ color:white;</string>
                   <bool>true</bool>
                  </property>
                 </widget>
-               </item>
-               <item row="25" column="0">
-                <widget class="QLabel" name="railwaystationLabel">
-                 <property name="font">
-                  <font>
-                   <family>Georgia</family>
-                   <pointsize>15</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:transparent;margin:3px;
-color:white;</string>
-                 </property>
-                 <property name="text">
-                  <string>Nearest Railway Station</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="25" column="1">
-                <widget class="QLineEdit" name="railwaystationLineEdit">
-                 <property name="font">
-                  <font>
-                   <family>Simonetta</family>
-                   <pointsize>13</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                </widget>
-               </item>
-               <item row="27" column="1">
-                <layout class="QHBoxLayout" name="horizontalLayout_28">
-                 <item>
-                  <widget class="QLineEdit" name="educationLineEdit">
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="marksLineEdit">
-                   <property name="maximumSize">
-                    <size>
-                     <width>70</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Simonetta</family>
-                     <pointsize>13</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="placeholderText">
-                    <string>marks</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
                </item>
               </layout>
              </widget>
@@ -3297,84 +3297,6 @@ font-weight:bold;
            <property name="verticalSpacing">
             <number>1</number>
            </property>
-           <item row="0" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_30">
-             <item>
-              <spacer name="horizontalSpacer_32">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QCheckBox" name="juniorCheckBox">
-               <property name="font">
-                <font>
-                 <family>Simonetta</family>
-                 <pointsize>13</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">#juniorCheckBox
-{
-
-	color:white;
-
-}
-</string>
-               </property>
-               <property name="text">
-                <string>Junior</string>
-               </property>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QCheckBox" name="updateentryCheckBox">
-               <property name="font">
-                <font>
-                 <family>Simonetta</family>
-                 <pointsize>14</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">#updateentryCheckBox
-{
-
-	color:white;
-
-}
-</string>
-               </property>
-               <property name="text">
-                <string>Update Entry</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_33">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
            <item row="3" column="0" alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="submitPushButton">
              <property name="sizePolicy">
@@ -3459,6 +3381,48 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
           </layout>
          </widget>
         </item>
+        <item row="3" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_30">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QCheckBox" name="juniorCheckBox">
+            <property name="font">
+             <font>
+              <family>Simonetta</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color:transparent;
+color:white;</string>
+            </property>
+            <property name="text">
+             <string>Junior</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QCheckBox" name="updateentryCheckBox">
+            <property name="font">
+             <font>
+              <family>Simonetta</family>
+              <pointsize>14</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color:transparent;
+color:white;</string>
+            </property>
+            <property name="text">
+             <string>Update Entry</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="Query">
@@ -3486,6 +3450,12 @@ background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
               <widget class="QFrame" name="checkboxFrame">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -3826,7 +3796,7 @@ color:white;
 </string>
                   </property>
                   <property name="text">
-                   <string>Pan_Number</string>
+                   <string>Pan Number</string>
                   </property>
                  </widget>
                 </item>
@@ -4223,7 +4193,7 @@ color:white;
 </string>
                   </property>
                   <property name="text">
-                   <string>Extra_Curricular_Activities</string>
+                   <string>Extra Curricular Activities</string>
                   </property>
                  </widget>
                 </item>
@@ -4250,7 +4220,7 @@ color:white;
 </string>
                   </property>
                   <property name="text">
-                   <string>Camps_Attended</string>
+                   <string>Camps Attended</string>
                   </property>
                  </widget>
                 </item>
@@ -4308,7 +4278,7 @@ color:white;
 </string>
                   </property>
                   <property name="text">
-                   <string>Special_Achievements</string>
+                   <string>Special Achievements</string>
                   </property>
                  </widget>
                 </item>
@@ -6851,8 +6821,8 @@ background-position:center;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1212</y>
-             <width>1107</width>
+             <y>0</y>
+             <width>1115</width>
              <height>2005</height>
             </rect>
            </property>
@@ -8191,10 +8161,11 @@ padding:10px 10px;
  </tabstops>
  <resources>
   <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
   <include location="icon_res.qrc"/>
   <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="icon_res.qrc"/>
+  <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections>
   <connection>

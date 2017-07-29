@@ -56,7 +56,11 @@
                 font-family: trajan pro
             }
             .big6{
-                font-size:15pt;
+                font-size:17pt;
+            }
+            
+            .big7{
+                font-size:14pt
             }
             
         </style>
@@ -115,7 +119,7 @@
         <li><a href="#enrolment_form">Enrolment form</a></li>
             <li><a href="#query">Query</a></li>
         <li><a href="#forms">Forms</a></li>
-        <li><a href="#data_enrty">Data Entry</a></li>
+        <li><a href="#data_entry">Data Entry</a></li>
         <li><a href="#long_nominal_roll">Long Nominal Roll</a></li>
         <li><a href="#settings">Settings</a></li>
         <li><a href="#help">Help</a></li>
@@ -134,8 +138,10 @@
         
         
 <!--        ENROLMENT FORM      -->
+        <span  id="enrolment_form"/>
+        
         <hr><hr>
-        <h1 id="enrolment_form" class="long big1">Enrolment Form</h1>
+        <h1 class="long big1">Enrolment Form</h1>
         
         <hr><hr>
         
@@ -151,7 +157,7 @@
             <br /><br /><u class="big6 trajan"><b>Elements of Enrolment form</b></u> :
         </p>
         
-        <div style="font-weight:bold;margin:auto;text-align:left;width:400px;">
+        <div style="font-weight:bold;margin:auto;text-align:left;width:400px;" class="big7">
         <ul>
             <li>Select signature</li>
             <li>Select Picture</li>
@@ -279,19 +285,20 @@
             Submit Button is clicked when all the required fields are filled. After successful submission the  Candidate details will be added to the database and the Candidate photo and signature is added into the <b>Candidate Photos</b> folder including the generated PDF. If the user submits an already present Enrolment Number, error message is shown to check the Update Entry checkbox.
             </span>   
         </p>
-        <br /><br />
-        <hr><hr>
-        
-        
-        
+        <br /><br /><br /><br />
         
         
 <!--        QUERY-->
-        <p id="query" class="big1 long">
+        
+        <span id="query" />
+        
+        <hr><hr>
+        
+        <p class="big1 long">
         QUERY
         </p><hr><hr>
         
-        <img src="missing photo" alt="Missing photo"/><br />
+        <img src="help-images/querytab.PNG" alt="Query" style="width:1000px;"/><br />
         <hr><br />
         <p class="big6">
         Query Tab is used to search and get the details of candidates who have already been enrolled before. The searching can be done in various ways and the results can be filtered as per your choice.<br />
@@ -398,7 +405,7 @@
             <br />
             <img src="help-images/saveresult_filemenu.PNG" style="width:500px"/><br /><br />
             
-            When different Institutions need to send the enrolled candidates details to the NCC office or any other institution, it can be done by checking the <b>Select All</b> checkbox and exporting an Excel file using the <b>Save Results button</b>. The details of candidates from the excel file can then be added to the database using <b>"Append Excel from Database"</b> option in the "Settings" Tab.
+            When different Institutions need to send the enrolled candidates details to the NCC office or any other institution, it can be done by checking the <b>Select All</b> check box and exporting an Excel file using the <b>Save Results button</b>. The details of candidates from the excel file can then be added to the database using <b>"Append Excel from Database"</b> option in the "Settings" Tab.
             
         </p><br /><br /><br />
         
@@ -408,8 +415,8 @@
         
         
         
-<!--        DATA ENTRY      -->
-        
+<!--        FORMS      -->
+        <span id="forms"/>
         
         <hr><hr>
         <h1 id="forms" class="long big1">FORMS</h1>
@@ -503,7 +510,7 @@
             
             <img src="help-images/generateform.png"/><br /><br />
             
-                After Entering the Enrolment Numbers in the Entry Box , clicking the <b>Generate Form</b> button would open the File menu dialog in which user can spcify the name and location for the excel or CSV file to be saved.
+                After Entering the Enrolment Numbers in the Entry Box , clicking the <b>Generate Form</b> button would open the File menu dialog in which user can specify the name and location for the excel or CSV file to be saved.
             <br /><br />
             <img src="help-images/saveresult_filemenu.PNG" style="width:500px;"/>
             
@@ -520,7 +527,7 @@
             
             <img src="help-images/updateform.PNG"/><br /><br />
             
-                If the details of more candidates need to be added or appended to  a previously generated form of same type, then <b>"Update Form"</b> option can be used to do so. Clicking the update form after entering the Enrolment Numbers in the Entry Box again opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After it's specified the details of the specified candidates are added to the specified excel or CSV spreadsheet. 
+                If the details of more candidates need to be added or appended to  a previously generated form of same type, then <b>"Update Form"</b> option can be used to do so. Clicking the update form after entering the Enrolment Numbers in the Entry Box again opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After it s specified the details of the specified candidates are added to the specified excel or CSV spreadsheet. 
             <br /><br />
             
             
@@ -539,25 +546,24 @@
         
         
 <!--     DATA ENTRY       -->
-        
+        <span id="data_entry"/>
         
         
         <hr><hr>
         
-        <h1 class="big1 long" id="data_entry">DATA &nbsp;ENTRY</h1>
+        <h1  class="big1 long" id="data_entry">DATA &nbsp;ENTRY</h1>
         
-        <hr><hr>
+        <hr><hr><br />
+        <img src="help-images/data_entry_full.PNG" style="width:1000px"/>
         
         <p class="big6">
-            This tab is used to Update the details of all the candidates of a particular Institution. It enables for mass updation of candidate details compared to updating each candidate's details in the Enrolment form.
+            This tab is used to Update the details of all the candidates of a particular Institution. It enables for mass updating of candidate details compared to updating each candidate's details in the Enrolment form.
             <br /><br />
             
             <span style="font-size:17pt"><u><b>Elements of Data Entry</b></u>  :</span>
         </p>
         
-        
-        
-        <ul style="font-weight: bold;width:250px;margin: auto;text-align: left;">
+        <ul class="big7" style="font-weight: bold;width:250px;margin: auto;text-align: left;">
             
             <li>Institution Selection box</li>
             <li>Different types of Forms</li>        
@@ -593,25 +599,99 @@
             <li>Camps Attended</li>
             <li>Extra Curricular Activities</li>
             <li>Remarks</li>
-            <li>Attendence</li>
+            <li>Attendance</li>
         </ul>
         <br /><br />
         
-        <p style="font-size:14pt;"> <u><b>A Certificate , B Certificate , C Certificate</b></u> :</p>
+        <p style="font-size:13pt;"> <u><b>A Certificate , B Certificate , C Certificate</b></u> :</p>
         <p>
-        When the User Clicks on either of these certificates, the Data Entry table opens, containing the corresponding fields. The user can enter the data for the candidates of the particular institution in the table provided.
+        When the User Clicks on either of these certificates, the Data Entry table opens, containing the  fields corresponding to the selected certificate. The user can enter the data for the candidates of the particular institution or Unit in the table provided. Checking the <b>"Eligible"</b> checkbox would only show those candidates whose attendance percentage is greater than 75% for both years.<br />
             <br />
-            <img src="Missing image" alt="missing image"/>
-        </p><br /><br /><br /><br />
+            <img src="help-images/dataentrycert.gif" style="width:660px;"/>
+        </p><br /><br />
+        
+        
+        <p style="font-size:13pt;"> <u><b>Camps Attended</b></u> :</p>
+        <p>
+        This option is used to specify the candidates who have attended the selected camps. This is done by writing comma ( , ) separated Enrolment Numbers in the Enrolment Entry box. It also provides fields for entering the location of the Camp and the camp's Start Date and End Date. This is pretty useful in changing the location or Date of a camp directly by specifying the Enrolment Numbers of candidates who have taken part in it, without having to change each date manually in the table for every candidate. The working of this feature is better shown in the below slide.
+            <br />
+            <br />
+            <img src="help-images/dataentrycamps.gif" style="width:660px;"/>
+        </p><br /><br />
+        
+        
+        
+        <p style="font-size:13pt;"> <u><b>Extra Curricular Activities and Remarks</b></u> :</p>
+        <p>
+        The Extra Curricular Activities and Remarks options are given for the purpose of mass editing for many candidates at once. The table shows the Extra curricular activity and remark data if they were entered during the Candidate's enrolment. The details entered or edited in the Data Entry table gets stored in the Enrolment Table of our Database and would replace the already present remarks and Extra curricular activities data from the enrolment table.
+            <br />
+            <br />
+            <img src="help-images/dataentry_extracur.PNG" style="width:500px;"/>
+            <img src="help-images/dataentry_remark.PNG" style="width:500px;"/>
+        </p><br /><br />
+        
+        
+        
+        <p style="font-size:13pt;"> <u><b>Attendance</b></u> :</p>
+        <p>
+        
+            
+<!--             NOT YET DONE NEED TO DO -->
+            
+            
+            
+            <br />
+            <br />
+        </p><br /><br />
+        
+        
+        
+        <p class="big6 trajan"><u><b>Entry Table</b></u> :</p>
+        <img src="help-images/dataentry_table.PNG" style="width:800"/>
+        <p>
+        
+        The Entry table allows the user to edit the candidate details for many candidates at once, unlike in Enrolment form where in the user can only update the details of an enrolled candidate one at a time. Based on the institution selected and the type of certificate , Camps attended , Attendance or Remarks selected, the corresponding columns will be displayed to the user along with the perviously present data entries obtained from the Enrolment table of our database. Out of these :<br />
+        </p>
+        
+        <ul class="left">
+        
+        <li>The <b>Camps attended</b> table is read-only and can't be edited within the table. The editing can be done using the input elements given above the table.</li>
+        
+        <li>A_Certificate, B_Certificate and C_Certificate table can be completely edited from within the table.</li>
+        <li>Remarks and Extra_Curricular_Activities has one editable column</li>
+        <li>In the <b>Attendance</b> table, only the <b>Total days</b> and <b>Days attended</b> can be edited. The attendence percentage and eligibility is automatically calculated and displayed in respective columns.</li>
+        </ul><br /><br /><br /><br />
+        
+        
+        
+        <p class="big6 trajan"><b><u>Generate Excel</u></b> :</p>
+        <img src="help-images/dataentry_generateexcel.PNG" style="width:350;"/>
+        <p>
+        
+        This feature is used to export the table contents to an excel or CSV spreadsheet. Clicking the 'Generate Excel' button would open a file dialog menu in which the user can specify the location and name for the file to be saved. <br />
+            The file dialog menu looks as shown in the image below :<br /><br />
+            <img src="help-images/saveresult_filemenu.PNG" style="width:500px;"/>
+        </p><br /><br /><br />
         
         
         
         
+        <p class="big6 trajan"><b><u>Save to Database</u></b> :</p>
+        <img src="help-images/dataentry_savetodatabase.PNG" style="width:350;"/>
+        <p>
+        
+        If the user wants to save the entered data in the Data Entry table permanently in the corresponding table of the Software's database, it can be done by clicking the above button after entering the details in the table and making sure everything is right.<br />
+            <br /><br />
+        </p><br /><br /><br />
         
         
-<!--        THIS NEEDS TO BE FILLED . ITS EMPTY !!!              -->
         
-    
+        <p class="big6 trajan"><u><b>Working Steps of Data Entry</b></u> :</p>
+        
+        <p>
+            <img src="help-images/dataentry_working.gif" style="width:800"/>
+        
+        </p><br /><br /><br /><br /><br /><br /><br />
         
         
         
@@ -622,11 +702,11 @@
         
 <!--        LONG NOMINAL ROLL-->
         
-        
+        <span id="long_nominal_roll"/>
+        <hr >
         <hr>
-        <hr>
         
-        <h1 id="long_nominal_roll" class="big1 long">Long Nominal Roll</h1>
+        <h1  class="big1 long">Long Nominal Roll</h1>
         
         <hr><hr>
         <img src="help-images/longnominalroll.PNG"  width="1000px;"/>
@@ -639,7 +719,7 @@
             <u><b>Elements of Long Nominal Roll</b></u> :
         </p>
         
-        <ul style="margin: auto;text-align: left;width:250px;font-weight: bold;">
+        <ul style="margin: auto;text-align: left;width:250px;font-weight: bold;" class="big7">
             
             <li>Selection box</li>
             <li>Show button</li>
@@ -764,6 +844,9 @@
             <u><b>Standard fields</b></u> : (Known fields) are the fields which are in the main enrolment form. Whenever any of the form is exported with the candidate details , the standard fields would be automatically filled with the details of the candidate in the exported spreadsheet.
             <br />
             <u><b>Non-Standard fields</b></u> : (Unknown fields) are the fields which are not in the enrolment form and can have any name as the user wants which can be added in Settings. When the form gets exported with the candidate details, these fields would be present in the exported spreadsheet as empty columns which can be filled later externally using Spreadsheet supported softwares like MS Excel.
+            
+            <br /><br />
+            <b>Note:-</b> The fields in A_Certificate , B_Certificate and C_Certificate forms are fixed and hence new fields can't be added to these and present fields can't be removed.
         </p><br /><br /><br />
         
         
@@ -847,7 +930,7 @@
             <b>2. <u>A_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after choosing <b>A_Certificate</b> from the selection box. <br />
             <b>3. <u>B_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>B_Certificate</b> from the selection box.<br />
             <b>4. <u>C_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>C_Certificate</b> from the selection box.<br />
-            <b>5. <u>Attendence</u></b>: This table holds the data about the attendence details which is entered in the Data Entry tab with the <b>Attendence </b> chosen from the selection box.<br />
+            <b>5. <u>Attendance</u></b>: This table holds the data about the attendance details which is entered in the Data Entry tab with the <b>Attendance </b> chosen from the selection box.<br />
             
             <b>6. <u>Camps Attended</u> :</b> This table holds the details of camps , thier location and their start and end dates which can be edited and saved in the database from the Data Entry tab.
             
@@ -872,6 +955,8 @@
         
         <img src="help-images/conflictswindow.gif" style="width:650px;"/>
         <br /><br /><br /><br />
+        
+        
 
         
         

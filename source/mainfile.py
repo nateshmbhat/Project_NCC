@@ -205,6 +205,8 @@ class logic():
 
         ENROLMENT_FORM.enroll().create_table_camps()
 
+        ui.campsNameuploaddataComboBox.currentIndexChanged.connect(self.openuploaddata)
+
         ui.NullcertRadioButton.setChecked(True)
 
         ui.vegRadioButton.setChecked(True)
@@ -1767,7 +1769,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     if flag != 2:
                         for k in range(len(sqldata1)):
                             for l in range(len(enrolnumbers)):
-                                if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][1] == ui.campsNameuploaddataComboBox.currentText():
+                                if sqldata1[k][0] == enrolnumbers[l] and sqldata1[k][
+                                    1] == ui.campsNameuploaddataComboBox.currentText():
                                     flag = 1
                                     break
                             if flag == 1:
@@ -1776,6 +1779,15 @@ These entries are not added to the Database .\nIf you wish to update the databas
                         sql = "insert into camps_details values('" + enrolnumbers[
                             i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
                         cur.execute(sql)
+                        print(enrolnumbers)
+                        presentcamps = ENROLMENT_FORM.enroll().execute(
+                            "select Camps_Attended from enrolment where Enrolment_Number='" + enrolnumbers[i] + "'")
+                        if presentcamps[0][0].find(ui.campsNameuploaddataComboBox.currentText()):
+                            if not len(presentcamps[0][0]):
+                                presentcamps = str(presentcamps[0][0]  + ui.campsNameuploaddataComboBox.currentText())
+                            else:
+                                presentcamps = str(presentcamps[0][0] + "," + ui.campsNameuploaddataComboBox.currentText())
+                            cur.execute("update enrolment set Camps_Attended='"+presentcamps+"' where Enrolment_Number='"+enrolnumbers[i]+"'")
 
                     else:
                         msg = msg + str(enrolnumbers[i]) + ","
@@ -1788,7 +1800,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
                         cur.execute("delete from camps_details where Enrolment_Number='" + eno[
                             i] + "' and Camp_Attended='" + ui.campsNameuploaddataComboBox.currentText() + "'")
 
-                        sql = "insert into camps_details values('" + eno[i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
+                        sql = "insert into camps_details values('" + eno[
+                            i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
                         cur.execute(sql)
 
             if len(duplicate) > 0:
@@ -1852,7 +1865,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 cur.execute(sql1)
             conn.commit()
             self.showtooltip("Sucessfully Inserted")
-
+        self.openuploaddata()
     def saveexceluploadeddata(self):
         data = []
         name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
@@ -2064,6 +2077,11 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 ui.tableWidget.showRow(self.hiderow[i])
 
     def openuploaddata(self):
+        if ui.typecomboBox.currentText()=="Select Type":
+            ui.tableWidget.setStyleSheet("background-color:transparent;")
+        else:
+            ui.tableWidget.setStyleSheet("background-color:white;")
+        ui.tableWidget.setEditTriggers(QtGui.QAbstractItemView.AllEditTriggers)
         ui.tableWidget.setRowCount(0)
         ui.tableWidget.setColumnCount(0)
         self.rankuploadcombobox = []
@@ -2099,7 +2117,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     else:
                         ui.tableWidget.setItem(i, j, QtGui.QTableWidgetItem(""))
             ui.tableWidget.setVerticalHeaderLabels(verticalheader)
-            li = ["C:\\Users\ADMIN\Documents\BlueShades2.jpg", "C:\\Users\ADMIN\Documents\BlueShades2.jpg"]
+            ui.tableWidget.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
         elif selectedDataType == "A certificate" or selectedDataType == "B certificate" or selectedDataType == "C certificate":
             ui.eligibilityCheckBox.setChecked(False)
             certificate = ""
@@ -2833,7 +2851,7 @@ color:white;
         ui.enrol_signaturePushButton.setDisabled(False)
 
     def display(self, obj):  # this executes when the Search button is pressed
-
+        self.clear_enrolment_form()
         if obj.objectName() == 'searchPushButton':
             if ui.searchbyfieldLineEdit.displayText().strip() == '':
                 QtGui.QMessageBox.warning(ui.enrolformFrame, "Warning",
@@ -2961,6 +2979,7 @@ color:white;
             ui.juniorCheckBox.setChecked(True)
         else:
             ui.juniorCheckBox.setChecked(False)
+        self.showtooltip("Sucessfully Searched")
 
     def clear_enrolment_form(self):
         for i in ui.enrolformFrame.findChildren((QtGui.QLineEdit, QtGui.QTextEdit)):
@@ -3151,203 +3170,216 @@ color:white;
 
         con = connect("ncc.db")
         data = pd.read_sql("select * from enrolment", con)
-        try:
-            if Smiddlename == "":
-                Smiddlename = "-"
+        if self.check_if_img_exists(enrolmentnum) == "":
+            im = ""
+        else:
             im = Image(self.check_if_img_exists(enrolmentnum))
             im.drawWidth = 100
             im.drawHeight = 100
-            lis = [
-                ['Enrolment Number', ':',enrolmentnum,'', im],
-                ['Rank', ':',rank],
-                ['Aadhaar Number', ':',aadhaarnum],
-                ['Student Name', ':',fullname,Smiddlename,Slastname],
-                ['Fathers Name', ':',fathername,Fmiddlename,Flastname],
-                ['Mothers Name', ':',mothername,Mmiddlename,Mlastname],
-                ['Sex', ':',sex],
-                ['Date Of Birth', ':',dateofbirth],
-                ['Address', ':',address],
-                ['Email', ':',email],
-                ['Mobile', ':',mobilenum],
-                ['Blood Group', ':',bloodgroup],
-                ['Nearest Railway Station',':',railwaystation],
-                ['Nearest Police Station', ':',policestation],
-                ['Education Qualifications\nand Marks in %', ':',educationmarks],
-                ['Identification Marks', ':',identificationmarks],
-                ['Have you ever been\nconvinced by a criminal\ncourt and if so\nin what circumstances and\nwhat was the sentence?\nAttach relevant documents',':',criminalcourt],
-                ['Name of the School\nor College and Stream', ':',nameofschoolcollege],
-                ['Willing to be enrolled\nand undergo training\nunder the National\nCadet Corps Act. 1948.', ':',enrolpermission],
-                ['Have you been enrolled in\nNCC earlier.If Yes your\nEnrolment Number', ':',earliercandidate,earlierenrolmentnum],
-                ['Have you been dismissed\nfrom NCC/The\nTerritorial Army/\nThe Indian Armed Forces.\nplease provide details',':',dismissed],
-                ['Certificate', ':',certificate],
-                ['Camps Attended', ':',campsattended],
-                ['Extra Activities', ':',extracurricularactivities],
-                ['Achievements', ':',specialachievements],
-                ['Enrol Date', ':',enrolldate],
-                ['Remarks', ':',remarks],
-                ['Meal Preferences', ':',Meal_Preference],
-                ['Bank Name', ':',bankname],
-                ['Branch', ':',bankbranch],
-                ['Account Name', ':',accountname],
-                ['Account Number', ':',accountnum],
-                ['IFSC Code', ':',ifsccode],
-                ['MICR', ':',micr],
-                ['PAN Number\n(if alloted)', ':',pannum],
-                ['Institution', ':',institutionname],
-                ['UNIT', ':',unit],
-                ['Seniority', ':', seniority]
-            ]
+        lis = [
+            ['Enrolment Number', ':', enrolmentnum, '', im],
+            ['Rank', ':', rank],
+            ['Aadhaar Number', ':', aadhaarnum],
+            ['Student Name', ':', fullname, Smiddlename, Slastname],
+            ['Fathers Name', ':', fathername, Fmiddlename, Flastname],
+            ['Mothers Name', ':', mothername, Mmiddlename, Mlastname],
+            ['Sex', ':', sex],
+            ['Date Of Birth', ':', dateofbirth],
+            ['Address', ':', address],
+            ['Email', ':', email],
+            ['Mobile', ':', mobilenum],
+            ['Blood Group', ':', bloodgroup],
+            ['Nearest Railway Station', ':', railwaystation],
+            ['Nearest Police Station', ':', policestation],
+            ['Education Qualifications\nand Marks in %', ':', educationmarks],
+            ['Identification Marks', ':', identificationmarks],
+            [
+                'Have you ever been\nconvinced by a criminal\ncourt and if so\nin what circumstances and\nwhat was the sentence?\nAttach relevant documents',
+                ':', criminalcourt],
+            ['Name of the School\nor College and Stream', ':', nameofschoolcollege],
+            ['Willing to be enrolled\nand undergo training\nunder the National\nCadet Corps Act. 1948.', ':',
+             enrolpermission],
+            ['Have you been enrolled in\nNCC earlier.If Yes your\nEnrolment Number', ':', earliercandidate,
+             earlierenrolmentnum],
+            [
+                'Have you been dismissed\nfrom NCC/The\nTerritorial Army/\nThe Indian Armed Forces.\nplease provide details',
+                ':', dismissed],
+            ['Certificate', ':', certificate],
+            ['Camps Attended', ':', campsattended],
+            ['Extra Activities', ':', extracurricularactivities],
+            ['Achievements', ':', specialachievements],
+            ['Enrol Date', ':', enrolldate],
+            ['Remarks', ':', remarks],
+            ['Meal Preferences', ':', Meal_Preference],
+            ['Bank Name', ':', bankname],
+            ['Branch', ':', bankbranch],
+            ['Account Name', ':', accountname],
+            ['Account Number', ':', accountnum],
+            ['IFSC Code', ':', ifsccode],
+            ['MICR', ':', micr],
+            ['PAN Number\n(if alloted)', ':', pannum],
+            ['Institution', ':', institutionname],
+            ['UNIT', ':', unit],
+            ['Seniority', ':', seniority]
+        ]
 
 
-            data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
-            doc = SimpleDocTemplate("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"), pagesize=letter,
-                                    rightMargin=20, leftMargin=20,
-                                    topMargin=50, bottomMargin=20)
-            Story = []
+        doc = SimpleDocTemplate("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"), pagesize=letter,
+                                rightMargin=20, leftMargin=20,
+                                topMargin=50, bottomMargin=20)
+        Story = []
 
-            from reportlab.pdfbase.ttfonts import TTFont
-            from reportlab.pdfbase import pdfmetrics
-            styles = getSampleStyleSheet()
-            styles.add(ParagraphStyle(name='rightallignment', alignment=TA_RIGHT,fontSize=13))
-            styles.add(ParagraphStyle(name='leftallignment', alignment=TA_LEFT,fontSize=13))
-            styles.add(ParagraphStyle(name='heading', alignment=TA_CENTER))
-            styles.add(ParagraphStyle(name='normal',fontSize=11.5,leading=15))
-            styles.add(ParagraphStyle(name='list',fontSize=11.5))
+        from reportlab.pdfbase.ttfonts import TTFont
+        from reportlab.pdfbase import pdfmetrics
+        styles = getSampleStyleSheet()
+        styles.add(ParagraphStyle(name='rightallignment', alignment=TA_RIGHT, fontSize=13))
+        styles.add(ParagraphStyle(name='leftallignment', alignment=TA_LEFT, fontSize=13))
+        styles.add(ParagraphStyle(name='heading', alignment=TA_CENTER))
+        styles.add(ParagraphStyle(name='normal', fontSize=11.5, leading=15))
+        styles.add(ParagraphStyle(name='list', fontSize=11.5))
 
-            t = Table(lis,colWidths=[2*inch,0.1*inch,2*inch,2*inch,2*inch],hAlign='LEFT')
-            t.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
-                                   ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-                                   ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
-                                   ]))
+        t = Table(lis, colWidths=[2 * inch, 0.1 * inch, 2 * inch, 2 * inch, 2 * inch], hAlign='LEFT')
+        t.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
+                               ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                               ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
+                               ('TOPPADDING', (0, 2), (0, 2), 30),
+                               ]))
 
-            Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["heading"]))
+        Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["heading"]))
 
-            Story.append(t)
-            Story.append(Spacer(1, 12))
+        Story.append(t)
+        Story.append(Spacer(1, 12))
 
-            Story.append(
-                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Applcant", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(
-                Paragraph("<font size='15'><u>DECLARATION ON ACCEPTANCCE FOR ENROLMENT</u></font>", styles["heading"]))
-            Story.append(Spacer(1, 20))
+        Story.append(
+            Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Appilcant", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(
+            Paragraph("<font size='15'><u>DECLARATION ON ACCEPTANCCE FOR ENROLMENT</u></font>", styles["heading"]))
+        Story.append(Spacer(1, 20))
+        Story.append(Paragraph(
+            "1. I solemnly declare that the answers I have given to the questions in this form are true and no part of them is false,andthat I am willing to fulfil the engagement made.",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "2. I ___________________________________ promise that I will honestly and faithfully serve my country and abide by the Rules and Regulations of the National Cadet Corps that I will to the best of my ability, attended all parades and camps as may be required by the Commanding Officer from time to time",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "3. I ___________________________________ further promise that after enrolment, I will have no claim on authorities for any compensation and the event of injury or death due to accident during training camps, courses, traveling and while on YEP or any other such NCC events like RDC and IDC",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "4. I hearby certify that I have not been enrolled myself in NCC as a SD/SW.JD/JW cadets in Army/Navy/Air force.Earlier I have not appeared for A,B and C certificte examination.",
+            styles["normal"]))
+        Story.append(
+            Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Applcant", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(Paragraph("<font size='15'><u>DECLARATION BY PARENT/GAURDIAN</u></font>", styles["heading"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "1. I solemnly declare that the answer given in this form are true and that no part of them is false, and that My Son/Daughter/Ward is willing to fulfil the engagement made.",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "2. I ___________________________________ promise that after enrolment of my Son / Daughter / Ward. I will have no claim on authorities for any compensation in the event of any injury or death due to accident during training camps, courses, travelling and while on YEP or any other such NCC events like RDC and IDC",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(
+            Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(Paragraph("<font size='15'><u>CERTIFICATE</u></font>", styles["heading"]))
+        Story.append(Spacer(1, 10))
+        Story.append(
+            Paragraph("1. Certified that the applicant understands and agrees to the conditions of enrolment.",
+                      styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "2. Certified that the applicant and his Parent /Gaurdian understand and agree to the condition on enrolment.",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>(Unit seal)",
+                               styles["leftallignment"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph("* For Minors only. Score out inapplicable portion.", styles["normal"]))
+        Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(
+            Paragraph("<font size='15'><u>CERTIFICATE BY PRINCIPAL/HEAD MASTER</u></font>", styles["heading"]))
+        Story.append(Spacer(1, 10))
+        Story.append(
+            Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Principal / Head Master", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(
+            Paragraph("<font size='15'><u>TO BE COMPLETED BY MEDICAL OFFICER<br/><br/>BEFORE ENROLMENT</u></font>",
+                      styles["heading"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "1. I have examined(Name) _______________________________________________________ on ___________________________________ (date) and consider him/her/fit/unfit for enrolment as a Cadet in the National Cadet Corps",
+            styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(
+            Paragraph("2. He/She has been inoculated and vaccinated aganist the following:", styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(" a. Typhoid(TAB)", styles['list']))
+        Story.append(Paragraph(" b. Tetanus", styles['list']))
+        Story.append(Paragraph(" c. Tuberculosis(BCG)", styles['list']))
+        Story.append(Spacer(1, 10))
+        Story.append(
+            Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+        Story.append(Paragraph(
+            "Signature:____________________<br/><br/>Designation:____________________<br/><br/>(Medical Officer)",
+            styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(
+            Paragraph("<font size='15'><u>TO BE USED FOR EXTENSION OF ENROLMENT<br/><br/>(See Rules 13)</u></font>",
+                      styles["heading"]))
+        Story.append(Spacer(1, 10))
+        if not ui.juniorCheckBox.isChecked():
             Story.append(Paragraph(
-                "1. I solemnly declare that the answers I have given to the questions in this form are true and no part of them is false,andthat I am willing to fulfil the engagement made.",
+                "A. I agree to extend my enrolment for one year and am willing to fulfil the engagement made.",
                 styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "2. I ___________________________________ promise that I will honestly and faithfully serve my country and abide by the Rules and Regulations of the National Cadet Corps that I will to the best of my ability, attended all parades and camps as may be required by the Commanding Officer from time to time",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "3. I ___________________________________ further promise that after enrolment, I will have no claim on authorities for any compensation and the event of injury or death due to accident during training camps, courses, traveling and while on YEP or any other such NCC events like RDC and IDC",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "4. I hearby certify that I have not been enrolled myself in NCC as a SD/SW.JD/JW cadets in Army/Navy/Air force.Earlier I have not appeared for A,B and C certificte examination.",
-                styles["normal"]))
-            Story.append(
-                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Applcant", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(Paragraph("<font size='15'><u>DECLARATION BY PARENT/GAURDIAN</u></font>", styles["heading"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "1. I solemnly declare that the answer given in this form are true and that no part of them is false, and that My Son/Daughter/Ward is willing to fulfil the engagement made.",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "2. I ___________________________________ promise that after enrolment of my Son / Daughter / Ward. I will have no claim on authorities for any compensation in the event of any injury or death due to accident during training camps, courses, travelling and while on YEP or any other such NCC events like RDC and IDC",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(
-                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(Paragraph("<font size='15'><u>CERTIFICATE</u></font>", styles["heading"]))
-            Story.append(Spacer(1, 10))
-            Story.append(
-                Paragraph("1. Certified that the applicant understands and agrees to the conditions of enrolment.",
-                          styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "2. Certified that the applicant and his Parent /Gaurdian understand and agree to the condition on enrolment.",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>(Unit seal)",
-                                   styles["leftallignment"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph("* For Minors only. Score out inapplicable portion.",styles["normal"]))
-            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(
-                Paragraph("<font size='15'><u>CERTIFICATE BY PRINCIPAL/HEAD MASTER</u></font>", styles["heading"]))
-            Story.append(Spacer(1, 10))
-            Story.append(
-                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Principle / Head Master", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(
-                Paragraph("<font size='15'><u>TO BE COMPLETED BY MEDICAL OFFICER<br/><br/>BEFORE ENROLMENT</u></font>",
-                          styles["heading"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(
-                "1. I have examned(Name) _______________________________________________________ on ___________________________________ (date) and consider him/her/fit/unfit for enrolment as a Cadet in the National Cadet Corps",
-                styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(
-                Paragraph("2. He/She has been inoculated and vaccinated aganist the following:", styles["normal"]))
-            Story.append(Spacer(1, 10))
-            Story.append(Paragraph(" a. Typhoid(TAB)", styles['list']))
-            Story.append(Paragraph(" b. Tetanus", styles['list']))
-            Story.append(Paragraph(" c. Tuberculosis(BCG)", styles['list']))
-            Story.append(Spacer(1, 10))
-            Story.append(
-                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-            Story.append(Paragraph(
-                "Signature:____________________<br/><br/>Designation:____________________<br/><br/>(Medical Officer)",
-                styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(
-                Paragraph("<font size='15'><u>TO BE USED FOR EXTENSION OF ENROLMENT<br/><br/>(See Rules 13)</u></font>",
-                          styles["heading"]))
-            Story.append(Spacer(1, 10))
-            if not ui.juniorCheckBox.isChecked():
-                Story.append(Paragraph(
-                    "A. I agree to extend my enrolment for one year and am willing to fulfil the engagement made.",
-                    styles["normal"]))
-                Story.append(Spacer(1, 10))
-                Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
-                                       styles["leftallignment"]))
-                Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
-                Story.append(Spacer(1, 10))
-                Story.append(
-                    Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-                Story.append(Paragraph("Signature of the Commanding Officer", styles["rightallignment"]))
-                Story.append(Spacer(1, 20))
-                Story.append(Paragraph(
-                    "B. I agree to extend enrolment of my Son/Daughter/Ward for one year and am willing to fulfil the engagement made.",
-                    styles["normal"]))
-            else:
-                Story.append(Paragraph("My Son / Daughter / Ward agrees to extend the enrolment for one year and is willing to fulfill the engagement made.",styles["normal"]))
             Story.append(Spacer(1, 10))
             Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
                                    styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Parent /Gaurdian", styles["rightallignment"]))
+            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
             Story.append(Spacer(1, 10))
+            Story.append(
+                Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
+            Story.append(Paragraph("Signature of the Commanding Officer", styles["rightallignment"]))
+            Story.append(Spacer(1, 20))
             Story.append(Paragraph(
-                "@<br/><br/>Place:_______________<br/><br/>Date from which extension start:______________<br/><br/>(Unit Seal)",
-                styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Head Master", styles["rightallignment"]))
-            Story.append(Spacer(1, 30))
-            Story.append(Paragraph("NOTE: * This form will be retained in the school in which the unit is loacted",
-                                   styles["normal"]))
+                "B. I agree to extend enrolment of my Son/Daughter/Ward for one year and am willing to fulfil the engagement made.",
+                styles["normal"]))
+        else:
+            Story.append(Paragraph(
+                "My Son / Daughter / Ward agrees to extend the enrolment for one year and is willing to fulfill the engagement made.",
+                styles["normal"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
+                               styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Parent /Gaurdian", styles["rightallignment"]))
+        Story.append(Spacer(1, 10))
+        Story.append(Paragraph(
+            "@<br/><br/>Place:_______________<br/><br/>Date from which extension start:______________<br/><br/>(Unit Seal)",
+            styles["leftallignment"]))
+        Story.append(Paragraph("Signature of the Head Master", styles["rightallignment"]))
+        Story.append(Spacer(1, 30))
+        Story.append(Paragraph("NOTE: * This form will be retained in the school in which the unit is located",
+                               styles["normal"]))
 
-            """Story.append(PageBreak())"""
-            doc.build(Story)
-            os.startfile("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
+        """Story.append(PageBreak())"""
+        doc.build(Story)
+        os.startfile("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
 
+        try:
+
+            if Smiddlename == "":
+                Smiddlename = "-"
+            data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
 
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")

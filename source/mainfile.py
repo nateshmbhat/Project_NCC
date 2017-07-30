@@ -190,9 +190,8 @@ class Ui_loginDialog(object):
 
 class logic():
     flag = 0
+
     def __init__(self):
-
-
         ENROLMENT_FORM.enroll().create_table_Attendance()
 
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
@@ -205,7 +204,7 @@ class logic():
 
         ENROLMENT_FORM.enroll().create_table_camps()
 
-        ui.campsNameuploaddataComboBox.currentIndexChanged.connect(self.openuploaddata)
+
 
         ui.NullcertRadioButton.setChecked(True)
 
@@ -217,8 +216,7 @@ class logic():
 
         ui.backcondition.clicked.connect(self.conback)
 
-        ui.andcondition.clicked.connect(
-            lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " and "))
+        ui.andcondition.clicked.connect(lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " and "))
 
         ui.orcondition.clicked.connect(
             lambda: ui.conditionsentrylabel.setText(ui.conditionsentrylabel.text().strip() + " or "))
@@ -240,6 +238,7 @@ class logic():
         self.sql = ''
 
         self.candidphoto = ''
+
         self.signaturephoto = ''
 
         ui.selectpicturePushButton.clicked.connect(lambda: self.picselect(ui.selectpicturePushButton))
@@ -285,6 +284,8 @@ class logic():
         ui.micrLineEdit.setValidator(QtGui.QDoubleValidator())
 
         ui.aadhaarLineEdit.setValidator(QtGui.QDoubleValidator())
+
+        ui.marksLineEdit.setValidator(QtGui.QIntValidator())
 
         ui.vegRadioButton.setChecked(True)
 
@@ -361,7 +362,7 @@ class logic():
 
         ui.selectallCheckBox.stateChanged.connect(self.queryselectall)
 
-        ui.conditionlistcombobox.currentIndexChanged.connect(self.conditionscomboboxlogic)
+
 
         ui.saveExelPushButton.clicked.connect(self.saveExcelfuntion)
 
@@ -391,7 +392,7 @@ class logic():
 
         ui.generateexcelqueryPushButton.clicked.connect(self.generateexcelforquery)
 
-        ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
+
 
         ENROLMENT_FORM.enroll().create_table_camps()
 
@@ -411,7 +412,7 @@ class logic():
 
         ui.showlongnrPushButton.clicked.connect(self.showlongnr)
 
-        ui.typelongnrComboBox.currentIndexChanged.connect(self.typelongNrComboBoxLogic)
+
         ui.institutionlongnrComboBox.hide()
         ui.unitlongnrLineEdit.hide()
         ui.generateexcellongnrPushButton.clicked.connect(self.generateExcelForLongNr)
@@ -419,22 +420,42 @@ class logic():
         ui.certificateComboBox.hide()
 
         ui.yearComboBox.hide()
-
+        ui.earlierenrolmentnumLineEdit.hide()
         ui.eligibilityCheckBox.hide()
         ui.eligibilityCheckBox.stateChanged.connect(self.eligibilitylogic)
         ui.query_backPushButton.clicked.connect(lambda: (self.show_query_elements(), ui.query_backPushButton.hide()))
+
+        ui.helpWebView.load(QtCore.QUrl('Help/help.html'))
 
         self.view = QtWebKit.QWebView()
         self.printer = QPrinter()
         self.printer.setOutputFormat(QPrinter.PdfFormat)
         self.printer.setPageMargins(0.5, 0.5, 0.5, 0.5, QPrinter.Inch)
         self.printer.setPaperSize(QPrinter.A4)
-
-
         self.init_settings()
+        ui.earliercandidateComboBox.currentIndexChanged.connect(self.markslogic)
+        ui.conditionlistcombobox.currentIndexChanged.connect(self.conditionscomboboxlogic)
+        ui.institutionuploaddatacomboBox.currentIndexChanged.connect(self.openuploaddatalogic)
+        ui.certificateComboBox.currentIndexChanged.connect(self.openuploaddatalogic)
+        ui.yearComboBox.currentIndexChanged.connect(self.openuploaddatalogic)
+        ui.campsNameuploaddataComboBox.currentIndexChanged.connect(self.openuploaddata)
+        ui.typelongnrComboBox.currentIndexChanged.connect(self.typelongNrComboBoxLogic)
+        ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
 
 
 
+
+    def openuploaddatalogic(self):
+        if ui.typecomboBox.currentText()=="Select Type":
+            ui.tableWidget.setStyleSheet("background-color:transparent;")
+        else:
+            ui.tableWidget.setStyleSheet("background-color:white;")
+            self.openuploaddata()
+    def markslogic(self):
+        if ui.earliercandidateComboBox.currentText()=="Yes":
+            ui.earlierenrolmentnumLineEdit.show()
+        else:
+            ui.earlierenrolmentnumLineEdit.hide()
     def init_settings(self):
 
         loginui.firstrun = False
@@ -725,14 +746,12 @@ class logic():
 
         for i in range(ui.tableWidget_2.columnCount()):
             columnwidth.append(int(ui.tableWidget_2.columnWidth(i) / 10 + 5))
-        print(columnwidth)
         for i in range(len(columnwidth)):
             sheet.column_dimensions[self.columnnameinexcel[i + 2]].width = columnwidth[i]
         book.save(name)
         book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
         os.startfile(name)
-
 
     def showlongnr(self):
         ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
@@ -792,6 +811,8 @@ class logic():
         myfont = QtGui.QFont()
         myfont.setBold(True)
         myfont.setFamily("georgia")
+        ui.tableWidget_2.resizeColumnsToContents()
+        ui.tableWidget_2.resizeColumnsToContents()
         for i in range(ui.tableWidget_2.rowCount()):
             ui.tableWidget_2.setRowHeight(i, 120)
 
@@ -800,8 +821,9 @@ class logic():
                     ui.tableWidget_2.item(i, j).setBackground(QtGui.QColor(150, 150, 150,200))
                     ui.tableWidget_2.item(i, j).setFont(myfont)
                     ui.tableWidget_2.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
-                ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.Stretch)
+                ui.tableWidget_2.horizontalHeader().setResizeMode(j, QtGui.QHeaderView.ResizeToContents)
             ui.tableWidget_2.verticalHeader().setResizeMode(i, QtGui.QHeaderView.Fixed)
+
         ui.tableWidget_2.showGrid()
 
         ui.tableWidget_2.setStyleSheet(
@@ -811,7 +833,7 @@ class logic():
         ui.tableWidget_2.verticalHeader().setStyleSheet(
             "color:darkorange;width:50px;font-size:30px;font-family:gabriola;border:1px solid black;gridline-color:black;")
         ui.tableWidget_2.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        ui.tableWidget_2.resizeColumnsToContents()
+
 
     def typelongNrComboBoxLogic(self):
         selectiontype = ui.typelongnrComboBox.currentText()
@@ -831,7 +853,6 @@ class logic():
 
     def generateexcelforquery(self):
 
-        print(self.queryheading)
 
         if len(self.querytupple) < 1:
             self.showtooltip("Query Data Not Found")
@@ -891,7 +912,6 @@ class logic():
                     pass;
 
         except Exception as e:
-            print(e)
             if ref == 0:
                 self.showtooltip("BACKUP FAILED")
                 msg = "Database Settings and candidate photos BACKUP FAILED"
@@ -923,7 +943,6 @@ class logic():
         question.buttonClicked.connect(onClicked)
         question.exec()
 
-        print(ch)
 
         # ch = QtGui.QMessageBox.question(ui.Settings, 'Choose the Type of file',
         #                                 'Do you want to Restore DATABASE FILE or Settings or CANDIDATES Photos ?', 'DataBase',
@@ -1147,7 +1166,6 @@ class logic():
                         values = tuple(data.iloc[i].values)
                         cur.execute('''Insert into {} values {}'''.format(tab, values))
                     except(OperationalError, IntegrityError) as e:
-                        print(e)
                         conflicts += 'Enrolment_Number = {} : Aadhaar_Number = {}\n'.format(data.Enrolment_Number[i],
                                                                                             data.Aadhaar_Number[i])
 
@@ -1166,7 +1184,6 @@ class logic():
                     values = tuple(data.iloc[i].values)
                     cur.execute('''Insert into {} values {}'''.format(tab, values))
                 except(OperationalError, IntegrityError) as e:
-                    print(e)
                     conflicts += 'Enrolment_Number = {}\n'.format(data.Enrolment_Number[i])
 
             cmsg = '''
@@ -1276,7 +1293,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             pushButton.setText(_translate("Dialog", "OK", None))
             Dialog.exec()
 
-        print(conflicts)
 
     def set_camps_list(self):
         ui.settings_campslistListWidget.clear()
@@ -1548,7 +1564,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     self.settings.remove(selectedform.replace(' ', '_') + "_sql_fieldslist")
                     self.settings.remove(selectedform.replace(' ', '_') + "_notsql_fieldslist")
                 except:
-                    print('error')
                     pass;
 
                 ui.formsComboBox.clear()
@@ -1779,7 +1794,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                         sql = "insert into camps_details values('" + enrolnumbers[
                             i] + "','" + ui.campsNameuploaddataComboBox.currentText() + "','" + ui.locationLineEdit.text() + "','" + ui.startdateDateEdit.text() + "','" + ui.enddateDateEdit.text() + "','" + ui.institutionuploaddatacomboBox.currentText() + "')"
                         cur.execute(sql)
-                        print(enrolnumbers)
                         presentcamps = ENROLMENT_FORM.enroll().execute(
                             "select Camps_Attended from enrolment where Enrolment_Number='" + enrolnumbers[i] + "'")
                         if presentcamps[0][0].find(ui.campsNameuploaddataComboBox.currentText()):
@@ -1837,7 +1851,48 @@ These entries are not added to the Database .\nIf you wish to update the databas
             self.showtooltip("Saved")
 
         elif selectedDataType == "Attendance":
+            conn=connect("ncc.db")
+            cur=conn.cursor()
             year = ui.yearComboBox.currentText().replace(' ', '_')
+            certificate = ui.certificateComboBox.currentText().replace(' ', '_')
+            s1 = ENROLMENT_FORM.enroll().execute(
+                "select Enrolment_Number,certificate,year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'")
+            s2 = ENROLMENT_FORM.enroll().execute(
+                "select Enrolment_Number from enrolment where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'")
+            sql = "insert into Attendance(Enrolment_Number," + certificate + "_" + year + "_total_days," + certificate + "_" + year + \
+                  "_present_days," + certificate + "_" + year + ",eligability,certificate,institution,year) values("
+            for i in range(ui.tableWidget.rowCount()):
+                if i != 0:
+                    sql = sql + ",("
+                length = len(s1)
+                fl = 0
+                if length < ui.tableWidget.columnCount():
+                    length = ui.tableWidget.columnCount()
+                    fl = 1
+                for j in range(length):
+                    if fl == 1:
+                        if j < len(s1):
+                            if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][
+                                1] and year == s1[j][2]:
+                                cur.execute("delete from Attendance where Enrolment_Number='" + s2[i][0] + "' and certificate='" + ui.certificateComboBox.currentText()[
+                                                                                 0:1] + "' and year='"+year+"'")
+                        sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
+                    if fl == 0:
+                        if s2[i][0] == s1[j][0] and ui.certificateComboBox.currentText()[0:1] == s1[j][1] and year == \
+                                s1[j][2]:
+                            cur.execute("delete from Attendance where Enrolment_Number='" + s2[i][0] + "' and certificate='" +
+                                ui.certificateComboBox.currentText()[0:1] + "' and year='"+year+"'")
+                        if j < ui.tableWidget.columnCount():
+                            sql = sql + "'" + self.lineeditattendance[i][j].text() + "',"
+                sql = sql + "'" + ui.certificateComboBox.currentText()[
+                                  0:1] + "','" + ui.institutionuploaddatacomboBox.currentText() + "','" + year + "')"
+            cur.execute(sql)
+            self.showtooltip("Sucessfully Inserted")
+            conn.commit()
+            conn.close()
+
+
+            """year = ui.yearComboBox.currentText().replace(' ', '_')
             certificate = ui.certificateComboBox.currentText().replace(' ', '_')
             s1 = ENROLMENT_FORM.enroll().execute(
                 "select Enrolment_Number,certificate,year from attendance where institution='" + ui.institutionuploaddatacomboBox.currentText() + "'")
@@ -1855,12 +1910,19 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ENROLMENT_FORM.enroll().insertionexecute(sql)
 
             self.showtooltip("Sucessfully Inserted")
+"""
+
+
+
+
+
+
+
         else:
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             for i in range(len(sqldata)):
-                sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,
-                                                                                               1).text().upper() + "' where Enrolment_Number='" + \
+                sql1 = "update enrolment set " + selectedDataType + "='" + ui.tableWidget.item(i,1).text() + "' where Enrolment_Number='" + \
                        sqldata[i][0] + "'"
                 cur.execute(sql1)
             conn.commit()
@@ -2077,10 +2139,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 ui.tableWidget.showRow(self.hiderow[i])
 
     def openuploaddata(self):
-        if ui.typecomboBox.currentText()=="Select Type":
-            ui.tableWidget.setStyleSheet("background-color:transparent;")
-        else:
-            ui.tableWidget.setStyleSheet("background-color:white;")
+
         ui.tableWidget.setEditTriggers(QtGui.QAbstractItemView.AllEditTriggers)
         ui.tableWidget.setRowCount(0)
         ui.tableWidget.setColumnCount(0)
@@ -2090,8 +2149,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
         self.camps = ["NIC", "CATC", "AAC"]
         selectedInstitutionName = ui.institutionuploaddatacomboBox.currentText()
         selectedDataType = ui.typecomboBox.currentText()
-        if selectedDataType=="Select Type":
-            return
+
         sql11 = "select Enrolment_Number from enrolment where institution='" + selectedInstitutionName + "'"
         verticalheaderdata = ENROLMENT_FORM.enroll().execute(sql11)
         verticalheader = []
@@ -2322,7 +2380,8 @@ These entries are not added to the Database .\nIf you wish to update the databas
             ui.tableWidget.setStyleSheet("background-color:transparent;")
             ui.tableWidget.hideColumn(0)
         else:
-            ui.tableWidget.clearContents()
+            ui.tableWidget.setColumnCount(0)
+            ui.tableWidget.setRowCount(0)
             sql = "select Enrolment_Number," + selectedDataType + " from enrolment where institution='" + selectedInstitutionName + "'"
             sqldata = ENROLMENT_FORM.enroll().execute(sql)
             ui.tableWidget.setColumnCount(2)
@@ -2343,6 +2402,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
                     ui.tableWidget.item(i, j).setBackground(QtGui.QColor(170, 170, 170, 80))
                     ui.tableWidget.item(i, j).setFont(myfont)
                     ui.tableWidget.item(i, j).setTextAlignment(QtCore.Qt.AlignCenter)
+        ui.tableWidget.cellChanged.connect(self.textchanged)
 
         ui.tableWidget.showGrid()
         ui.tableWidget.setStyleSheet(
@@ -2353,10 +2413,11 @@ These entries are not added to the Database .\nIf you wish to update the databas
             "color:darkorange;font-size:20px;font-weight:bold;font-family:caladea;border:1px solid black;gridline-color:black;")
         ui.tableWidget.resizeRowsToContents()
         ui.tableWidget.resizeColumnsToContents()
+    def textchanged(self,i,j):
+        ui.tableWidget.resizeColumnToContents(j)
 
     def conditionscomboboxlogic(self):
 
-        print("working")
         text = ui.conditionlistcombobox.currentText()
         ui.rankqueryComboBox.hide()
         ui.institutionqueryComboBox.hide()
@@ -2449,7 +2510,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
-        print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if len(tup) == 0:
             QtGui.QMessageBox.warning(ui.Enrol, 'Message',
@@ -2537,7 +2597,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
             sql = sql + " Enrolment_Number=\"" + enrolno[i] + "\" "
             if i != len(enrolno) - 1:
                 sql = sql + "or"
-        print(sql)
         tup = ENROLMENT_FORM.enroll().execute(sql)
         if not len(tup):
             self.showtooltip('Make sure that you have entered some data in the Data Entry table .')
@@ -2608,7 +2667,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 tup = ENROLMENT_FORM.enroll().execute(sql)
 
             except Exception as e:
-                print(e)
                 if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
                                               '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
@@ -2663,7 +2721,6 @@ These entries are not added to the Database .\nIf you wish to update the databas
         if proceed:  # This runs only if all the non-null fields are filled.
 
             ui.addressTextEdit.setStyleSheet('')
-            print(len(ui.aadhaarLineEdit.displayText().strip()))
             if len(ui.aadhaarLineEdit.displayText().strip()) != 12:
                 proceed = False;
                 QtGui.QMessageBox.warning(ui.Enrol, 'Warning',
@@ -3152,7 +3209,6 @@ color:white;
                       Meal_Preference, bankname, bankbranch,accountname,accountnum, ifsccode, micr,pannum, institutionname, unit,seniority)
 
             except (OperationalError, IntegrityError) as e:
-                print(e)
                 if 'UNIQUE' in str(e) and 'Enrolment_Number' in str(e):
                     QtGui.QMessageBox.warning(ui.Enrol, 'Please use another enrolment number',
                                               '\nEnrolment number must be unique.\nSomeone already has the same enrolment number. If you want to update the present entry , then check the Update Entry check box.',
@@ -3177,6 +3233,7 @@ color:white;
             im.drawWidth = 100
             im.drawHeight = 100
         lis = [
+            ['','','',''],
             ['Enrolment Number', ':', enrolmentnum, '', im],
             ['Rank', ':', rank],
             ['Aadhaar Number', ':', aadhaarnum],
@@ -3242,7 +3299,6 @@ color:white;
         t.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
                                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
                                ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
-                               ('TOPPADDING', (0, 2), (0, 2), 30),
                                ]))
 
         Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["heading"]))
@@ -3384,7 +3440,6 @@ color:white;
         except(PermissionError):
             print("The csv file is already open. It needs to be closed before updating it.")
 
-
     def table1(self, res, msg):
 
         html3 = """
@@ -3458,7 +3513,6 @@ color:white;
 
         msg1 = msg[7: msg.find('from')]
 
-        print("done")
 
         i = 0
 
@@ -3553,7 +3607,6 @@ color:white;
 
         msg1 = msg[7: msg.find('from')]
 
-        print("done")
 
         i = 0
         mmsg = msg1.split(',')
@@ -3751,13 +3804,21 @@ color:white;
             sql2 = self.casemaker(sql2, "Branch")
             sql2 = self.casemaker(sql2, "Account_Name")
             sql2 = self.casemaker(sql2, "Unit")
+            sql2 = self.casemaker(sql2, "Education")
+            sql2 = self.casemaker(sql2, "Identification_mark")
+            sql2 = self.casemaker(sql2, "Criminal_Court")
+            sql2 = self.casemaker(sql2, "Name_of_School_College")
+            sql2 = self.casemaker(sql2, "Earlier_candidate")
+            sql2 = self.casemaker(sql2, "Earlier_Enrolment_Number")
+            sql2 = self.casemaker(sql2, "Dismissed")
+            sql2 = self.casemaker(sql2, "Nearest_Railway_Station")
+            sql2 = self.casemaker(sql2, "Nearest_Police_Station")
 
             sql = ("select " + sql + " from enrolment where " + str(
                 sql2)) if sql1 != "" else "select " + sql + " from enrolment "
 
         if sql[7] == "*":
             sql = """select """+self.settings.value('enrolmentfields').replace(',,,',',') + sql[9:len(sql)]
-        print(sql)
         self.querytupple = ENROLMENT_FORM.enroll().execute(sql)
         if len(self.querytupple) < 1:
             self.showtooltip("No Data Found")

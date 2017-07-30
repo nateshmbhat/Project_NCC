@@ -20,8 +20,9 @@
             .under{
                 text-decoration: underline;
             }
-            .center{text-align: center;}
-            
+            .center{
+                text-align: center;
+            }
             
             .big1{
                 font-size:55pt;
@@ -60,19 +61,23 @@
             }
             
             .big7{
-                font-size:14pt
+                font-size:15pt
             }
+            
+            .bigfont{font-size:14pt}
+            
+            
+            
             
         </style>
         
     </head>
     
-    
     <body>
         
         
     <center>
-        
+        <span id="help"/>
 <hr>
         <h1 style="font-size:45;font-family:'longdon decorative';color:black;">This Help section contains Documentation , Features and Usage details of this software.</h1>
 <hr>    
@@ -83,34 +88,35 @@
             
             There are two Usernames that a user can enter :            
         </p>
-        <ul style="font-family: simonetta;font-size:15pt;margin:auto;width:200px;text-align: left;">
-            <li><b>ncc_editor</b></li>
-            <li><b>ncc_viewer</b></li>
+        <ul style="font-weight: bold;font-family:century;font-size:17pt;margin:auto;width:200px;text-align: left;">
+            <li>ncc_editor</li>
+            <li>ncc_viewer</li>
         </ul>
         <br />
         
-        <ul>
-        <p style="text-align:left;float:left;">
-            <li class="left">For "ncc_editor" username, user must enter the password to start the program. The user <b>"ncc_editor"</b> has all the permissions of the software which allows him to use all the features that it can provide. The user is allowed to modify the data of Candidates in the main database of the software.</li><br /><br />
+        <ul class='bigfont'>
+        <p  style="text-align:left;float:left;">
+            <li class="left">For "<b>ncc_editor</b>" username, user must enter the password to start the program. The user <b>"ncc_editor"</b> has all the permissions of the software which allows him to use all the features that it can provide. The user is allowed to modify the data of Candidates in the main database of the software.</li><br /><br />
             
-            <li class="left">"ncc_viewer" username has no password and anyone can access the software with this username. The user <b>"ncc_viewer"</b> has the permissions only to view the Candidate details and generate the excel sheets when needed but has no permission to edit the Candidate details in the Software's Database and has no permission to Backup or Restore the database.</li>
+            <li class="left">"<b>ncc_viewer</b>" username has no password and anyone can access the software with this username. The user <b>"ncc_viewer"</b> has the permissions only to view the Candidate details and generate the excel sheets when needed but has no permission to edit the Candidate details in the Software's Database and has no permission to Backup or Restore the database.</li>
             
         </p>
             
         </ul>
-        <p>
+        <p class='big7' style="font-family: simonetta;font-weight: bold">
             After the LOGIN button is pressed , the software starts either in view mode or editing mode corresponding to the Username
         
         </p>
         
         <hr>
         
-        <p style="font-size:16px;font-family:'century';font-weight:bold;" class="first_tab_desc">
+        <p style=";font-family:'century';font-weight:bold;" class="big6">
             There are totally 7 tabs in the software, each of which has its own purpose.<br/>
             
             The Tabs are :<br/>
         </p>
         
+        <hr>
     
         
         <h3 style="margin:auto;width:500px;text-align: left;">
@@ -145,10 +151,10 @@
         
         <hr><hr>
         
-        <img src="help-images/enrol_top.PNG" alt="Enrolment_FORM"/>
+        <img src="help-images/enrolmentform_full.png" alt="Enrolment_FORM" style="width:1000px;"/>
         <br />
         
-        <p>
+        <p class="bigfont">
             <br />
             The Enrolment Tab is used to Enrol new candidates into the Database. It's used to fill all the details of each candidate.<br />
             <br />
@@ -165,6 +171,7 @@
             <li>ENROLL Button</li>
             <li>Various fields and corresponding Entry Boxes</li>
             <li>Update Entry checkbox</li>
+            <li>Junior checkbox</li>
             <li>Submit button</li>
             
         </ul><br />
@@ -172,9 +179,9 @@
         <hr>
         
         
-        <p class='left'>
+        <p class='bigfont'>
         <span class='left big5 trajan' ><u>Select signature</u> :</span><br />
-            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate's signature, while enroling.<br />
+            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate's signature, while enrolling.<br />
             <br />The file dialog menu looks like this.<br />
             <br />
             <img src="help-images/select_sign.png" style="width:500px"/>
@@ -184,7 +191,7 @@
             
             
         <span class='left big5 trajan'><u>Select Picture </u>  :</span><br />
-            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate, while enroling.<br /><br />
+            This is a button which when clicked opens a file browser dialog where in the user can select the picture of the candidate, while enrolling.<br /><br />
             
             The file dialog menu looks like this.<br /><br />
             
@@ -200,7 +207,7 @@
             If there is No result from the search , then the message "No Details found" is shown at the top center of the window.
             <br /><br />
             When the search is successful, the search results are displayed in the respective entry fields. However, the Enrolment form switches to<b> VIEW MODE</b> where the user can't accidentally change the data but can only view it. 
-            <br /><br /><br />
+            <br /><br /><br /><br /><br />
         
         <span class='left big5 trajan'><u>ENROLL Button</u>  :</span><br>
             Whenever the user searches from the search field and if the search becomes successful , then the form goes into <b>View Mode</b> and doesn't allow any modification of the data displayed in the fields. During the <b>View Mode</b>, the ENROLL button would be in released state (not pressed)<br />
@@ -213,9 +220,9 @@
             <img src="help-images/enrol_pressed.png"><br />
             Image of ENROLL button in pressed state
 
-        </p><br /><br />
+        </p><br /><br /><br /><br /><br />
         
-        <p class='left'>
+        <p class='bigfont'>
             <span class='left big5 trajan'><u>Various fields and corresponding Entry Boxes</u>  :</span><br>
             <br />
             The Enrolment form has various fields like Enrolment Number , Name , Date of Birth, Unit,Meal Preference <u>etc</u>
@@ -225,7 +232,7 @@
             Different fields have different types of input boxes namely
             
         </p>
-        <ul style="text-align: left;;margin:auto;">
+        <ul class='bigfont' style="text-align: left;;margin:auto;">
             <li><b><u>Line Entry</u></b> : User can enter a line of text</li><br />
             <img src="help-images/lineedit.png"><br /><br /><br />
             
@@ -257,7 +264,7 @@
             <u>Entry Constraints</u> :
         </h2>
         
-        <ul style="text-align: left;">
+        <ul class="bigfont" style="text-align: left;">
             <li>Enrolment Number, Aadhaar Number, Candidate Name, Address and Unit fields are compulsory</li>
             
             
@@ -266,8 +273,8 @@
             <li>Account Number field can only take Numbers</li>
             <li>IFSC code should be 11 characters</li>
             <li>MICR code can only take Numbers and should be 9 digits</li>
-            <li>Enrolment Number should be unique and shouldn't have another duplicate.If the present details need to be updated, check the "Update Entry" checkbox before clicking submit button. </li>
-            <li>Aadhaar Number should be unique and shouln't contain any duplicate i.e </li>
+            <li>Enrolment Number should be unique and shouldn't have another duplicate.If the present details need to be updated, check the "Update Entry" check box before clicking submit button. </li>
+            <li>Aadhaar Number should be unique and shouldn't contain any duplicate i.e </li>
         
         </ul><br />
         <hr>
@@ -275,7 +282,13 @@
         <p style="font-size:20px;">
             <u style="font-size: 24px;font-family: trajan pro"><b>Update Entry</b></u>  :<br />
             This check Box is used to update the details of a candidate who is already enrolled. To update the details of the candidate, Check the "Update Entry" before clicking the <b>Submit</b> button.
-        </p><br />
+        </p><br /><br /><br />
+        
+        <p style="font-size:20px;">
+            <u style="font-size: 24px;font-family: trajan pro"><b>Junior</b></u>  :<br />
+            This check Box is used to specify if the candidate who is being enrolled is a junior or senior. Senior is specified by not checking the junior button and junior is  by checking it.
+        </p><br /><br /><br />
+        
         
         
         <p>
@@ -284,8 +297,11 @@
             <span class="big6">
             Submit Button is clicked when all the required fields are filled. After successful submission the  Candidate details will be added to the database and the Candidate photo and signature is added into the <b>Candidate Photos</b> folder including the generated PDF. If the user submits an already present Enrolment Number, error message is shown to check the Update Entry checkbox.
             </span>   
-        </p>
-        <br /><br /><br /><br />
+        </p><br /><br /><br />
+        
+        <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
+        <br /><br />
+        <p></p>
         
         
 <!--        QUERY-->
@@ -306,7 +322,7 @@
             <br /><u class="big5"><b>Elements of QUERY tab</b></u> :<br />
         </p>
         
-        <ul style="margin:auto;text-align: left;width:300px;">
+        <ul class='bigfont' style="margin:auto;text-align: left;width:300px;">
             <b>
             <li>Checkboxes of all fields </li>
             <li>Field Selection box</li>
@@ -322,21 +338,21 @@
         <hr><br /><br />
         
         
-        <p class="">
+        <p class="bigfont">
         
             <span class="big6 trajan"><u><b>Checkboxes of All fields</b></u> : </span>
             <br /><br />
-            <img src="help-images/querycheckboxgif.gif" style="width:950">
+            <img src="help-images/query_checkboxes.gif" style="width:1050">
             <br /><br />
             These checkboxes are used to specify which fields must be shown when the Query is successful. In the Query result only these fields which are checked are shown omitting the rest of the fields. If <b>"Select All"</b> is checked , then all fields are shown in the Query result.
             <br /><br /><br />
         </p><br />
         
-        <p class="">
+        <p class="bigfont">
         
             <span class="big6 trajan"><u><b>Field Selection Box</b></u> : </span>
             <br /><br />
-            <img src="help-images/fieldselectgif.gif" style="width:550"/><br /><br />
+            <img src="help-images/queryselectioncombobox.gif" style="width:600"/><br /><br />
             This Selection box is used to search based on a condition of your choice. After selecting the field from the box and Entering the condition data , User clicks on the <b>Insert Button </b> and the condition gets inserted and is shown in the provided blue-pink box.
             
         </p><br /><br /><br />
@@ -363,7 +379,7 @@
             <span class="big6 trajan under"><b>Insert , Back , Query , Clear  :</b></span><br /><br />
         </p>
         
-        <ul style="margin:auto;text-align: left;">
+        <ul class='bigfont' style="margin:auto;text-align: left;">
             <li><b>Insert :</b> is used to insert any condition specified from the Selected field into the label which shows all applied conditions</li>
             <li><b>Back &nbsp;  :</b> is used to remove the last applied condition, which is used in case if multiple conditions are applied and the last one needs to be removed.</li>
         
@@ -372,7 +388,7 @@
         </ul><br /><br /><br />
         
         
-        <p class="">
+        <p class="bigfont">
         
             <span class="big6 trajan"><u><b>Query Results</b></u> : </span>
             <br /><br />
@@ -393,7 +409,7 @@
         
         <img src="help-images/queryfullworking.gif" style="width:1000px;"/>
         <br /><br /><br /><br /><br />
-        <p class="">
+        <p class="bigfont">
         
             <span class="big6 trajan"><u><b>Save Results</b></u> : </span>
             <br />
@@ -408,6 +424,10 @@
             When different Institutions need to send the enrolled candidates details to the NCC office or any other institution, it can be done by checking the <b>Select All</b> check box and exporting an Excel file using the <b>Save Results button</b>. The details of candidates from the excel file can then be added to the database using <b>"Append Excel from Database"</b> option in the "Settings" Tab.
             
         </p><br /><br /><br />
+        
+        <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
+        
+        <br /><br /><br /><br />
         
         
         
@@ -435,7 +455,7 @@
             
             <u class="big5"><b>Elements of FORMS TAB</b></u> &nbsp;:
         </p>
-            <ul style="font-weight: bold;margin:auto;width:300px;text-align: left;">
+            <ul class="bigfont" style="font-weight: bold;margin:auto;width:300px;text-align: left;">
                 <li>Forms Selection</li>
                 <li>Enrolment Entry Box</li>
                 <li>Generate Form</li>
@@ -443,9 +463,9 @@
             </ul>
         
         <br /><br />
-        <p class="">
+        <p class="bigfont">
         
-            <span class="big6 trajan"><u><b>Forms Selection</b></u> : </span>
+            <span class="big6 trajan "><u><b>Forms Selection</b></u> : </span>
             <br /><br />
             
             Here, the user can select the form out of a list of several pre-defined forms. Each forms has its own set of fields. When the User generates an excel sheet of a Form , corresponding fields would be present in the generated excel sheet along with all the details of the candidate if it was previously present in the database.
@@ -456,7 +476,7 @@
             
         </p>
         
-        <ul style="font-weight: bold;margin:auto;text-align:left;width:200px;">
+        <ul class='bigfont' style="margin:auto;text-align:left;width:300px;">
         
             <li>Cadet details</li>
             <li>Yoga Day</li>
@@ -473,7 +493,7 @@
         </ul>
         <ul>
         
-        <p class="left">
+        <p class="left bigfont">
             <li>User can add new forms in the <b>"Forms and Fields management"</b> option in the <b>Settings TAB</b>. Each of these forms consists of many fields. The fields can be <b>standard fields</b> or <b>non-standard fields</b>.</li><br /> <br />
             
         <li><b>The Standard fields or (known fields)</b> are the fields which are in the Enrolment form and has the details of the candidate. Whenever the form gets exported, all those details will be put automatically in the generated excel or CSV sheet.<br /><br />
@@ -490,7 +510,7 @@
             <br />
         </p>
         
-        <p class="center">
+        <p class="center bigfont">
         
         To generate the required forms, the user should specify the Enrolment Numbers of the candidates whose details should be included within the generated form. These Enrolment Numbers are specified in the given Entry Box separated by comma ( , ) as shown below.<br /><br />
             
@@ -520,7 +540,7 @@
         </p>
         
         
-        <p class="">
+        <p class="bigfont">
         
             <span class="big6 trajan"><u><b>Update form</b></u> : </span>
             <br /><br />
@@ -534,9 +554,15 @@
             <img src="help-images/selectform.PNG" style="width:500px"/>
             
             
-            <br/><br/><br/>
+            <br/><br/><br/><br /><br />
             
-        </p>
+            
+            
+        </p><br /><br /><br />
+        
+        <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
+        
+        <br /><br /><br /><br />
 
         
         
@@ -576,7 +602,7 @@
         <br /><br />
         <hr>
         <p class="big6 trajan"> <b><u>Institution Selection Box</u></b> :</p>
-        <p>
+        <p class="bigfont">
             This Selection Box is used to select an institution out of a list of institutions. So, the Candidate details of the selected institution will be displayed for Data Entry.
         
             <br /><br />
@@ -588,11 +614,11 @@
         </p>
         
         
-        <p>
+        <p class="bigfont">
             There are different categories in Data Entry each containing their own pre-defined fields. The different categories in which data entry can be done are namely :
         </p>
         
-        <ul style="margin:auto;text-align: left;width:200px;">
+        <ul class='bigfont' style="margin:auto;text-align: left;width:200px;">
             <li>A Certificate</li>
             <li>B Certificate</li>
             <li>C Certificate</li>
@@ -604,7 +630,7 @@
         <br /><br />
         
         <p style="font-size:13pt;"> <u><b>A Certificate , B Certificate , C Certificate</b></u> :</p>
-        <p>
+        <p class='bigfont'>
         When the User Clicks on either of these certificates, the Data Entry table opens, containing the  fields corresponding to the selected certificate. The user can enter the data for the candidates of the particular institution or Unit in the table provided. Checking the <b>"Eligible"</b> checkbox would only show those candidates whose attendance percentage is greater than 75% for both years.<br />
             <br />
             <img src="help-images/dataentrycert.gif" style="width:660px;"/>
@@ -612,7 +638,7 @@
         
         
         <p style="font-size:13pt;"> <u><b>Camps Attended</b></u> :</p>
-        <p>
+        <p class='bigfont'>
         This option is used to specify the candidates who have attended the selected camps. This is done by writing comma ( , ) separated Enrolment Numbers in the Enrolment Entry box. It also provides fields for entering the location of the Camp and the camp's Start Date and End Date. This is pretty useful in changing the location or Date of a camp directly by specifying the Enrolment Numbers of candidates who have taken part in it, without having to change each date manually in the table for every candidate. The working of this feature is better shown in the below slide.
             <br />
             <br />
@@ -622,7 +648,7 @@
         
         
         <p style="font-size:13pt;"> <u><b>Extra Curricular Activities and Remarks</b></u> :</p>
-        <p>
+        <p class='bigfont'>
         The Extra Curricular Activities and Remarks options are given for the purpose of mass editing for many candidates at once. The table shows the Extra curricular activity and remark data if they were entered during the Candidate's enrolment. The details entered or edited in the Data Entry table gets stored in the Enrolment Table of our Database and would replace the already present remarks and Extra curricular activities data from the enrolment table.
             <br />
             <br />
@@ -633,10 +659,10 @@
         
         
         <p style="font-size:13pt;"> <u><b>Attendance</b></u> :</p>
-        <p>
-        
+        <p class='bigfont'> <img src="help-images/dataentry_attendance.gif" style="width:700px;"/>
+            <br /><br />
             
-<!--             NOT YET DONE NEED TO DO -->
+            As shown above , choosing 'Attendance' from the selection box opens up the attendance table. Here the user can enter the total days and the number of attended days for each candidate and it will automatically calculate percentage of attendance and decide if the candidate is eligible or not for the corresponding exam. Option is given to choose the year for the attendance entry. Based on the attendance percentage of both years , while entering the Data after choosing A Certificate , B Certificate or C Certificate , clicking the eligibility checkbox would only show the candidates who have eligibility based on their attendance percentage.
             
             
             
@@ -659,14 +685,14 @@
         
         <li>A_Certificate, B_Certificate and C_Certificate table can be completely edited from within the table.</li>
         <li>Remarks and Extra_Curricular_Activities has one editable column</li>
-        <li>In the <b>Attendance</b> table, only the <b>Total days</b> and <b>Days attended</b> can be edited. The attendence percentage and eligibility is automatically calculated and displayed in respective columns.</li>
+        <li>In the <b>Attendance</b> table, only the <b>Total days</b> and <b>Days attended</b> can be edited. The attendance percentage and eligibility is automatically calculated and displayed in respective columns.</li>
         </ul><br /><br /><br /><br />
         
         
         
         <p class="big6 trajan"><b><u>Generate Excel</u></b> :</p>
         <img src="help-images/dataentry_generateexcel.PNG" style="width:350;"/>
-        <p>
+        <p class='bigfont'>
         
         This feature is used to export the table contents to an excel or CSV spreadsheet. Clicking the 'Generate Excel' button would open a file dialog menu in which the user can specify the location and name for the file to be saved. <br />
             The file dialog menu looks as shown in the image below :<br /><br />
@@ -678,11 +704,11 @@
         
         <p class="big6 trajan"><b><u>Save to Database</u></b> :</p>
         <img src="help-images/dataentry_savetodatabase.PNG" style="width:350;"/>
-        <p>
+        <p class='bigfont'>
         
         If the user wants to save the entered data in the Data Entry table permanently in the corresponding table of the Software's database, it can be done by clicking the above button after entering the details in the table and making sure everything is right.<br />
             <br /><br />
-        </p><br /><br /><br />
+        </p><br /><br />
         
         
         
@@ -691,7 +717,13 @@
         <p>
             <img src="help-images/dataentry_working.gif" style="width:800"/>
         
-        </p><br /><br /><br /><br /><br /><br /><br />
+        </p><br /><br /><br /><br /><br /><br />
+        
+        
+        <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
+        
+        <br /><br /><br /><br />
+        
         
         
         
@@ -713,7 +745,7 @@
         <br />
         <p class="big6">
         
-            Long Nominal Roll tab is used to generate and export the entire details of the candidates belonding to a particular <b>institution</b> or <b>Unit</b> including the <b>candidate's photo</b> and his <b>signature</b> if present. In this tab the details of the candidates can only be viewed and details can be exported. But it can't be edited. To edit the details, use the <b>Data Entry</b> Tab.
+            Long Nominal Roll tab is used to generate and export the entire details of the candidates belonging to a particular <b>institution</b> or <b>Unit</b> including the <b>candidate's photo</b> and his <b>signature</b> if present. In this tab the details of the candidates can only be viewed and details can be exported. But it can't be edited. To edit the details, use the <b>Data Entry</b> Tab.
             
             <br /><br />
             <u><b>Elements of Long Nominal Roll</b></u> :
@@ -732,7 +764,7 @@
         <p class="trajan big6"><u><b>Selection Box</b></u> : </p><br />
         <img src="help-images/lnr_selectionbox.PNG" style='width:500px'/><br />
         
-        <p> Its used to get the candidate details based on either <u><b>institution</b></u> or <u><b>Unit </b></u> or get <u><b>all</b></u> candidate details </p><br />
+        <p class='bigfont'> Its used to get the candidate details based on either <u><b>institution</b></u> or <u><b>Unit </b></u> or get <u><b>all</b></u> candidate details </p><br />
         
         
         
@@ -740,7 +772,7 @@
         <p class="trajan big6"><u><b>Show button</b></u> : </p>
         <img src="help-images/lnr_showbutton.PNG" style='width:600px'/><br />
         
-        <p>Clicking this button opens up the Long Nominal Roll table which consists of all the candidate details along with candidate's photo and his signature if it was saved during enrolment. </p>
+        <p class='bigfont'>Clicking this button opens up the Long Nominal Roll table which consists of all the candidate details along with candidate's photo and his signature if it was saved during enrolment. </p>
         
         <br/>
         
@@ -748,14 +780,14 @@
         <p class="trajan big6"><u><b>Long Nominal Roll table</b></u> : </p>
         <img src="help-images/lnr_table.PNG" width="1000px;"/><br />
         
-        <p>
+        <p class='bigfont'>
             The Long Nominal Roll table opens up after the user clicks on the show button and has details of all candidates of the selected unit or institution. Here the data cannot only be viewed but can't be edited. For editing , user can make use of the Data Entry Tab.
         </p><br /><br />
         
         
         <p class="trajan big6"><u><b>Generate Form</b></u> : </p>
         <img src="help-images/lnr_generatebutton.PNG" width="600px;"/>
-        <p>
+        <p class='bigfont'>
         
         If the user wants all the details in the Long Nominal Roll table to be exported to an excel or CSV spreadsheet file , he can do so using the Generate Form option which open up a file dialog menu in which the location and of the name of the file can be specified.<br /><br />
             
@@ -766,8 +798,8 @@
         
         <p class="trajan big6"><u><b>Update Form</b></u> : </p>
         <img src="help-images/lnr_updatebutton.PNG" width="600px;"/>
-        <p>
-            If the details of more candidates need to be added or appended to a previously generated form of same type, then "Update Form" option can be used to do so. Clicking the update form  opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After it's specified the details of all candidates visible in the Long Nominal Roll table are added to the specified excel or CSV spreadsheet. 
+        <p class='bigfont'>
+            If the details of more candidates need to be added or appended to a previously generated form of same type, then "Update Form" option can be used to do so. Clicking the update form  opens up a File dialog menu in which user can locate the previously generated excel or CSV file. After its specified the details of all candidates visible in the Long Nominal Roll table are added to the specified excel or CSV spreadsheet. 
         
         <br /><br />
             
@@ -779,8 +811,10 @@
         <p class="trajan big6"><u><b>Working Steps of Long Nominal Roll tab</b></u> :</p>
         <img src="help-images/longnr.gif" style="width:1000px;"/><br /><br /><br />
         
+        <br /><br /><br /><br />
+         <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
         
-        
+        <br /><br /><br /><br />
         
         
         
@@ -794,13 +828,13 @@
         
         <img src="help-images/settingstab.png" style="width:1000px;border-bottom:0px;"/>        
         
-        <p style="font-size:15pt;">
+        <p  style="font-size:15pt;">
                 The Settings Tab is used to control various parts of the software and is used to add forms and fields , Camps and Institutions which would show up in all parts of the software once a new camp or institution is added here. User can also Backup and restore the Database. If an institution sends the details of its candidates in an excel form which is generated in the Query Tab, the details of those candidates can also be added to the main database.
         </p><br /><br />
         
         <p class="big5 " style="font-family:simonetta"><u><b>Elements of Settings Tab</b></u> : </p>
         
-        <ul style="font-weight: bold;font-size:13pt;margin: auto;text-align: left;width:300px;">
+        <ul class='bigfont' style="font-weight: bold;font-size:13pt;margin: auto;text-align: left;width:300px;">
             <li>Login</li>
             <li>Institutions List</li>
             <li>Forms and Fields Management</li>
@@ -815,8 +849,8 @@
         
         
         <p class="trajan big6"><u><b>LOGIN</b></u> : </p>
-        <img src="help-images/login_window.PNG" style="width:500px"/>
-        <p>
+        <img src="help-images/login_window.gif" style="width:500px"/>
+        <p class='bigfont'>
             Clicking the <b>LOGIN</b> button opens up the Login window just like the initial login window. This is useful if a user want to switch between <b>View mode</b> and <b>Editing mode</b> without restarting the software. If the user logs with the <b>ncc_editor</b> username , if the software is in Editor-mode , then it gets switched into View-mode. If the user logs in with the same username as before, no change would occur after login.
         </p><br />
         
@@ -824,25 +858,25 @@
         
         <p class="trajan big6"><u><b>Institutions List</b></u> : </p>
         <img src="help-images/institutionslist.gif" style="width:400px"/>
-        <p>
+        <p class='bigfont'>
             This is a complete list of all the <b>institutions</b> that are registered for NCC and will be displayed in other parts of the program. User can <b>Add</b> new institutions to this list of <b>Remove</b> the present ones from it.
         </p><br /><br /><br />
         
         
         <p class="trajan big6"><u><b>Forms and Fields Management</b></u> : </p>
         <img src="help-images/formsandfieldslist.gif" style="width:600px"/>
-        <p>
+        <p class='bigfont'>
             It is list containing various types of forms used in NCC and each of these forms has its own fields. New fields can be added to these forms (except for Certificates). And the present fields can be removed. When the form gets exported as an excel , all these fields will be present in the exported spreadsheet.<br /><br />
             There two types of fields namely :
         </p>
         <ul style="margin: auto;text-align:left;width:200px;">
-            <li>Standard fields</li>
-            <li>Non-standard fields</li>
+            <li><b>Standard fields</b></li>
+            <li><b>Non-standard fields</b></li>
         </ul>
         
-        <p class="left">
+        <p class="left bigfont">
             <u><b>Standard fields</b></u> : (Known fields) are the fields which are in the main enrolment form. Whenever any of the form is exported with the candidate details , the standard fields would be automatically filled with the details of the candidate in the exported spreadsheet.
-            <br />
+            <br /><br />
             <u><b>Non-Standard fields</b></u> : (Unknown fields) are the fields which are not in the enrolment form and can have any name as the user wants which can be added in Settings. When the form gets exported with the candidate details, these fields would be present in the exported spreadsheet as empty columns which can be filled later externally using Spreadsheet supported softwares like MS Excel.
             
             <br /><br />
@@ -850,25 +884,24 @@
         </p><br /><br /><br />
         
         
-        
         <p class="trajan big6"><u><b>Camps List</b></u> : </p>
         <img src="help-images/campslist.gif" style="width:450px"/>
-        <p>
-            This is a list containing all the <b>Camps</b> that come under NCC. The Camps in this list appear in all other parts of this software. If the user wants to add new camps to the list , it can be done by entring the camp name in the provided entry box and then click the add camp button. The custom added camps can be removed later.
+        <p class='bigfont'>
+            This is a list containing all the <b>Camps</b> that come under NCC. The Camps in this list appear in all other parts of this software. If the user wants to add new camps to the list , it can be done by entering the camp name in the provided entry box and then click the add camp button. The custom added camps can be removed later.
         </p><br /><br /><br />
         
         
         <p class="trajan big6"><u><b>Open Candidates Picture folder</b></u> :</p>
         
         <img src='help-images/opencandidatesfolder.PNG' style="width:350px;"/>
-        <p>
+        <p class='bigfont'>
          When a candidate is enrolled in the Enrolment form , the candidate's photo and signature photo will be saved in a folder named <b>"candidate photos"</b> along with the full <b>PDF</b> document of the Enrolment form for each candidate. If the above button is clicked , then the 'candidate photos" folder would open from which user can get the <b>PDF form </b> and other related files of each candidate.<br /><br /> 
             The files in the candidate photos folder have specific predefined names :
             <br /><br />
             
         </p>
         
-        <ul class="left">
+        <ul class="left bigfont">
          <li><u><b>Candidate's portrait picture</b></u> : will have the candidate's Enrolment Number.</li>
         <li><b><u>Candidate's signature picture</u></b> : will have the candidate's Enrolment Number followed by <b>"_sign"</b>.</li> Example :- If enrolment number is 'kar1' his signature photo will have the name 'kar1_sign' in the candidate photos folder.
             
@@ -881,8 +914,8 @@
         
         <p class="trajan big6"><u><b>Backup All Data</b></u> : <br />
             <img src="help-images/backupalldata.PNG" style="width:200px;margin-right:15px;"/></p>
-        <p>
-            If the user wants to Uninstall the software , he might to backup all the data concerning the candidates who have already enrolled and might want to backup the Enrolment <b>Database</b> in times of need. When the <b>Backup </b>button is clicked, it opens up a file dialog menu to allow the user to specify the location for the data which needs to be backed up.
+        <p class='bigfont'>
+            If the user wants to Uninstall the software , he might want to backup all the data concerning the candidates who have already enrolled and might want to backup the <b>Database</b> file in times of need. When the <b>Backup </b>button is clicked, it opens up a file dialog menu to allow the user to specify the location for the data which needs to be backed up.
             <br /><br />
             <img src="help-images/backupdata_window.PNG" style="width:500px;"/>
             
@@ -893,7 +926,7 @@
         
         <p class="trajan big6"><u><b>Restore Backed up Data</b></u> : <br />
             <img src="help-images/restore.PNG" style="width:250px;margin-right:15px;"/></p>
-        <p>
+        <p class='bigfont'>
             This option is used to Restore the files which have been backed up previously using the <b>"Backup All Data"</b> option or (manual backup of files). Clicking the above button would give rise to a window asking the user to choose the type of file that the user wants to restore.
             <br /><br />
             The choice window is as shown below :
@@ -901,7 +934,7 @@
             <br /><br />
             <img src="help-images/restorechoose.PNG" style="width:400px;"/>
             <br /><br />
-            Based on the option chosen by the user , a file dialog menu would open asking the user to navigate to the backed file or 'candidate photos' folder after which the restore process would start. <br />If the user chooses '<b>candidate photos</b>' option , since this folder contains pictures and PDF form of each candidate , its size would be quite big and hence would require the user to wait for some time till all files in the spcified folder is copied to the software's <b>candidate photos</b> folder.<br /><br />
+            Based on the option chosen by the user , a file dialog menu would open asking the user to navigate to the backed file or 'candidate photos' folder after which the restore process would start. <br />If the user chooses '<b>candidate photos</b>' option , since this folder contains pictures and PDF form of each candidate , its size would be quite big and hence would require the user to wait for some time till all files in the specified folder is copied to the software's <b>candidate photos</b> folder.<br /><br />
             
             <img src="help-images/selectdatabasefile.PNG" style="width:450px;"/>
             
@@ -913,7 +946,7 @@
          <p class="trajan big6"><u><b>Append to Database From Excel</b></u> : <br />
             <img src="help-images/appendfromexcel.PNG" style="width:300px;margin-right:15px;"/></p>
         
-        <p>
+        <p class='bigfont'>
             This option is used to add the candidate details present in an excel or CSV spreadsheet to the software's main database. The excel file <b>must be generated in the Query Tab</b> after checking the <b>Select All </b> checkbox and then saving the Query results to an Excel file. This option is useful when the candidate details from an institution need to be added to the software's main database.<br />
             <br />
             When the above button is clicked, a window as shown below would open asking the user to choose the database table to which the data should be appended corresponding to the generated excel spreadsheet.<br /><br />
@@ -924,15 +957,15 @@
         </p>
         
         
-        <p style="text-align: left;">
+        <p class='bigfont' style="text-align: left;">
             <b style="font-size:15pt;font-family: trajan pro"><u>About our database</u> :-</b> &nbsp;The software's database <b></b> consists of the following tables in the database :<br /><br />
             <b>1. <u>Enrolment</u></b> : Candidate details entered in the enrolment form is stored here.<br />
             <b>2. <u>A_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after choosing <b>A_Certificate</b> from the selection box. <br />
-            <b>3. <u>B_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>B_Certificate</b> from the selection box.<br />
-            <b>4. <u>C_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after chooing <b>C_Certificate</b> from the selection box.<br />
+            <b>3. <u>B_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after choosing <b>B_Certificate</b> from the selection box.<br />
+            <b>4. <u>C_Certificate</u></b>: This table holds the data which is entered in the Data Entry tab after choosing <b>C_Certificate</b> from the selection box.<br />
             <b>5. <u>Attendance</u></b>: This table holds the data about the attendance details which is entered in the Data Entry tab with the <b>Attendance </b> chosen from the selection box.<br />
             
-            <b>6. <u>Camps Attended</u> :</b> This table holds the details of camps , thier location and their start and end dates which can be edited and saved in the database from the Data Entry tab.
+            <b>6. <u>Camps Attended</u> :</b> This table holds the details of camps , their location and their start and end dates which can be edited and saved in the database from the Data Entry tab.
             
             <br /><br />
             Each of these tables contain a fixed number of columns. When the user chooses the table from the window shown in the above image , it is must that only corresponding Excel sheet has to be selected for the excel data to get added to the database.<br />
@@ -940,7 +973,7 @@
             <u style="font-weight: bold;font-size:16px;">Example</u>:- 
         </p>
         
-        <ul class='left'>
+        <ul class='left bigfont'>
         <li >If the user has to add all candidate details to the main enrolment table of software's database, the excel sheet which is to be selected, must be generated in the <b>Query tab </b> with the <b>Select All</b> option <b>checked</b>.
             </li>
             
@@ -949,17 +982,32 @@
         </ul><br />
         
         
-        <p class='left'> <u><b>Note</b></u> :-<br />
+        <p class='left bigfont'> <u><b>Note</b></u> :-<br />
         Once the user chooses the table corresponding to the excel spreadsheet , the data in the excel spreadsheet gets added to the database if the database already doesn't have the same enrolment numbers as in the selected spreadsheet. If the enrolment numbers in the excel sheet are already present in the database ,those enrolment numbers are not added to the database and hence ignored. In such a case, a <b>conflicts window</b> is shown listing all the Enrolment Numbers which are already in the database. The conflicts window looks as shown below.
         </p>
         
         <img src="help-images/conflictswindow.gif" style="width:650px;"/>
-        <br /><br /><br /><br />
+        <br /><br /><br/>
+        <hr>
+        <p class="big2" style="font-family:longdon decorative; color:purple">End of Help</p>
+        <hr>
+        
+        <br />
+        <a href="#help" style="font-family:century;border:1px solid black;padding:5 10">Back to top</a>
         
         
-
+        <br /><br /><br />
+        <hr><hr>
+        <hr><br /><br /><br /><br />
         
+        <p class='big6 trajan'><u>About The Developers</u> :</p>
+        <p class="bigfont">
         
+        <b>Gangadhara Shetty P J</b> and <b>Natesh M Bhat</b> are the developers of this software, who at the time of development of the software were pursuing Engineering at <b>Siddaganga Institute of Technology, Tumkur</b> in the branch of Computer Science and Engineering.
+        
+        </p>
+        
+        <hr>
         
         
         

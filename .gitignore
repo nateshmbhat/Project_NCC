@@ -131,3 +131,4 @@ source/icon_res_rc.py
 *.PNG
 *.pdf
 *.jpg
+User interface/login.ui

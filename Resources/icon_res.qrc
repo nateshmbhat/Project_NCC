@@ -16,6 +16,7 @@
     <file>ncc1.png</file>
   </qresource>
   <qresource prefix="fonts">
+    <file>fonts/HARNGTON.TTF</file>
     <file>fonts/ALGER.TTF</file>
     <file>fonts/BASKVILL.TTF</file>
     <file>fonts/C_BOX.TTF</file>

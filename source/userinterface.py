@@ -404,7 +404,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -3180, 1117, 3723))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1117, 3723))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -513,7 +513,7 @@ class Ui_MainWindow(object):
         self.enrol_signaturePushButton.setMaximumSize(QtCore.QSize(160, 16777215))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
-        font.setPointSize(12)
+        font.setPointSize(11)
         font.setBold(True)
         font.setWeight(75)
         self.enrol_signaturePushButton.setFont(font)
@@ -3349,7 +3349,6 @@ class Ui_MainWindow(object):
         self.gridLayout_17.addWidget(self.entryBox, 9, 0, 1, 2, QtCore.Qt.AlignHCenter)
         self.label_3 = QtGui.QLabel(self.formsframe)
         self.label_3.setMinimumSize(QtCore.QSize(0, 20))
-        self.label_3.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Monotype Corsiva"))
         font.setPointSize(24)
@@ -3358,7 +3357,8 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setStyleSheet(_fromUtf8("\n"
 "background-color:transparent;\n"
-"color:black;"))
+"color:black;\n"
+""))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.gridLayout_17.addWidget(self.label_3, 6, 0, 1, 1, QtCore.Qt.AlignHCenter)
         spacerItem19 = QtGui.QSpacerItem(40, 4, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -4451,7 +4451,7 @@ class Ui_MainWindow(object):
         self.dateofbirthLabel.setBuddy(self.dateofbirthDateEdit)
 
         self.retranslateUi(MainWindow)
-        self.mytab.setCurrentIndex(2)
+        self.mytab.setCurrentIndex(0)
         QtCore.QObject.connect(self.searchbyfieldLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.searchPushButton.click)
         QtCore.QObject.connect(self.valuelineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.insertcondition.click)
         QtCore.QObject.connect(self.settings_addcampsLineEdit, QtCore.SIGNAL(_fromUtf8("returnPressed()")), self.settings_addcampPushButton.click)

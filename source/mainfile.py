@@ -4165,6 +4165,7 @@ def set_up_font():
     fontDB.addApplicationFont(':/fonts/fonts/Zebrawood-Regular-Regular.ttf')
     fontDB.addApplicationFont(':/fonts/fonts/Zimbra-Bold.otf')
     fontDB.addApplicationFont(':/fonts/fonts/Zombie-A.ttf')
+    fontDB.addApplicationFont(':/fonts/fonts/HARNGTON.TTF')
 
 
 if __name__ == "__main__":

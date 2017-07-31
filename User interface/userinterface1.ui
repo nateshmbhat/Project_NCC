@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -679,7 +679,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-3180</y>
+             <y>0</y>
              <width>1117</width>
              <height>3723</height>
             </rect>
@@ -918,7 +918,7 @@ background-color:rgba(213, 213, 213,100)</string>
                     <property name="font">
                      <font>
                       <family>Georgia</family>
-                      <pointsize>12</pointsize>
+                      <pointsize>11</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -5964,12 +5964,6 @@ p, li { white-space: pre-wrap; }
                <height>20</height>
               </size>
              </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>20</height>
-              </size>
-             </property>
              <property name="font">
               <font>
                <family>Monotype Corsiva</family>
@@ -5981,7 +5975,8 @@ p, li { white-space: pre-wrap; }
              <property name="styleSheet">
               <string notr="true">
 background-color:transparent;
-color:black;</string>
+color:black;
+</string>
              </property>
              <property name="text">
               <string>Enter Enrollment numbers</string>
@@ -8188,11 +8183,6 @@ padding:10px 10px;
   <tabstop>scrollArea</tabstop>
  </tabstops>
  <resources>
-  <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
-  <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections>

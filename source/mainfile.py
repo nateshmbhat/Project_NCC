@@ -10,8 +10,9 @@ from PyQt4 import QtCore, QtGui, QtWebKit
 from shutil import copy2
 from tempfile import TemporaryFile
 from reportlab.lib.enums import TA_JUSTIFY,TA_CENTER,TA_LEFT,TA_RIGHT
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image,Table,TableStyle,PageBreak
+from reportlab.lib.pagesizes import letter,A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer,Table,TableStyle,PageBreak
+from reportlab.platypus import Image as pdfImage
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib import colors
@@ -192,6 +193,7 @@ class logic():
     flag = 0
 
     def __init__(self):
+
         ENROLMENT_FORM.enroll().create_table_Attendance()
 
         ENROLMENT_FORM.enroll().create_table_marks_A_cert()
@@ -285,7 +287,7 @@ class logic():
 
         ui.aadhaarLineEdit.setValidator(QtGui.QDoubleValidator())
 
-        ui.marksLineEdit.setValidator(QtGui.QIntValidator())
+        ui.marksLineEdit.setValidator(QtGui.QDoubleValidator())
 
         ui.vegRadioButton.setChecked(True)
 
@@ -435,27 +437,13 @@ class logic():
         self.init_settings()
         ui.earliercandidateComboBox.currentIndexChanged.connect(self.markslogic)
         ui.conditionlistcombobox.currentIndexChanged.connect(self.conditionscomboboxlogic)
-        ui.institutionuploaddatacomboBox.currentIndexChanged.connect(self.openuploaddatalogic)
-        ui.certificateComboBox.currentIndexChanged.connect(self.openuploaddatalogic)
-        ui.yearComboBox.currentIndexChanged.connect(self.openuploaddatalogic)
+        ui.institutionuploaddatacomboBox.currentIndexChanged.connect(self.openuploaddata)
+        ui.certificateComboBox.currentIndexChanged.connect(self.openuploaddata)
+        ui.yearComboBox.currentIndexChanged.connect(self.openuploaddata)
         ui.campsNameuploaddataComboBox.currentIndexChanged.connect(self.openuploaddata)
         ui.typelongnrComboBox.currentIndexChanged.connect(self.typelongNrComboBoxLogic)
         ui.typecomboBox.currentIndexChanged.connect(self.typecomboboxlogic)
 
-
-
-
-
-
-
-
-
-    def openuploaddatalogic(self):
-        if ui.typecomboBox.currentText()=="Select Type":
-            ui.tableWidget.setStyleSheet("background-color:transparent;")
-        else:
-            ui.tableWidget.setStyleSheet("background-color:white;")
-            self.openuploaddata()
     def markslogic(self):
         if ui.earliercandidateComboBox.currentText()=="Yes":
             ui.earlierenrolmentnumLineEdit.show()
@@ -652,10 +640,12 @@ class logic():
 
     columnnameinexcel = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
                          'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AF', 'AG', 'AH', 'AI', 'AJ',
-                         'AK', 'AL', 'AM', 'AN']
+                         'AK', 'AL', 'AM', 'AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BB','BC','BD']
+
+
 
     def generateExcelForLongNr(self):
-        book =Workbook()
+        book = Workbook()
         sheet = book.active
         headingdata = self.settings.value("enrolmentfields").split(',,,')
         headingdata.insert(0, "Photo")
@@ -698,6 +688,10 @@ class logic():
         book.save(TemporaryFile())
         self.showtooltip("Excel file created sucessfully")
         os.startfile(name)
+
+
+
+
 
     def updateExcelForLongNr(self):
 
@@ -758,6 +752,9 @@ class logic():
         self.showtooltip("Excel file created sucessfully")
         os.startfile(name)
 
+
+
+
     def showlongnr(self):
         ui.tableWidget_2.setSelectionMode(QtGui.QAbstractItemView.NoSelection)
         ui.tableWidget_2.setRowCount(0)
@@ -798,7 +795,7 @@ class logic():
                 if j == 0:
                     self.imagePath = self.check_if_img_exists(sqldata[i][j])
                     if self.imagePath:
-                        pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
+                        pixmap = QtGui.QPixmap(self.imagePath).scaled(115, 120)
                         qbimg = QBrush(pixmap)
                         item = QtGui.QTableWidgetItem()
                         item.setBackground(qbimg)
@@ -806,10 +803,10 @@ class logic():
                 elif j == 1:
                     self.imagePath = self.check_if_img_exists(sqldata[i][j - 1] + "_sign")
                     if self.imagePath:
-                        pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
-                        qbimg = QBrush(pixmap)
+                        # pixmap = QtGui.QPixmap(self.imagePath).scaled(135, 120)
+                        # qbimg = QBrush(pixmap)
                         item = QtGui.QTableWidgetItem()
-                        item.setBackground(QBrush(QPixmap(self.imagePath).scaled(135, 120)))
+                        item.setBackground(QBrush(QPixmap(self.imagePath).scaled(115, 120)))
                         ui.tableWidget_2.setItem(i, j, item)
                 else:
                     ui.tableWidget_2.setItem(i, j, QtGui.QTableWidgetItem(sqldata[i][j - 2]))
@@ -1937,7 +1934,7 @@ These entries are not added to the Database .\nIf you wish to update the databas
         data = []
         name = QtGui.QFileDialog.getSaveFileName(directory=r"C:\Users\{}\Documents".format(os.getlogin()),
                                                  caption="Save File",
-                                                 filter=".xlsx")
+                                                 filter="Excel (*.xlsx)")
         horizontalheader = []
         if not len(name):
             return
@@ -2144,7 +2141,13 @@ These entries are not added to the Database .\nIf you wish to update the databas
                 ui.tableWidget.showRow(self.hiderow[i])
 
     def openuploaddata(self):
-
+        if ui.typecomboBox.currentText()=="Select Type":
+            ui.tableWidget.setStyleSheet("background-color:transparent;")
+            ui.tableWidget.setRowCount(0)
+            ui.tableWidget.setColumnCount(0)
+            return
+        else:
+            ui.tableWidget.setStyleSheet("background-color:white;")
         ui.tableWidget.setEditTriggers(QtGui.QAbstractItemView.AllEditTriggers)
         ui.tableWidget.setRowCount(0)
         ui.tableWidget.setColumnCount(0)
@@ -2473,12 +2476,14 @@ These entries are not added to the Database .\nIf you wish to update the databas
         enrolno = list(enrolnocopy)
         con = connect("ncc.db")
         cur = con.cursor()
+        duplicate=""
         # enrollist = ENROLMENT_FORM.enroll().execute("select Enrolment_Number from enrolment")
         for i in enrolnocopy:
             if not cur.execute(
                     "select Exists(select Enrolment_Number from enrolment where Enrolment_Number='{}' Limit 1)".format(
                         i)).fetchone()[0]:
                 enrolno.remove(i)
+                duplicate = duplicate + str(i) + ","
         con.close()
 
         if not len(enrolno):
@@ -2544,7 +2549,14 @@ These entries are not added to the Database .\nIf you wish to update the databas
             finaldata.to_excel(self.formname)
 
         self.table1(tup, sql)
-        self.showtooltip("Form updated sucessfully")
+        if len(duplicate) == 0:
+            self.showtooltip("Form updated sucessfully")
+        else:
+            self.showtooltip("Form generated sucessfully")
+            QtGui.QMessageBox.warning(ui.enrolformFrame, "Message",
+                                      "Form generated sucessfully\n Enrolment numbers : " + duplicate + " are not enrolled.",
+                                      'OK')
+        ui.entryBox.setText("")
         os.startfile(self.formname)
 
     def saveExcelfuntion(self):
@@ -2889,6 +2901,7 @@ color:white;
         ui.enrol_campsListWidget.setDisabled(True)
         ui.selectpicturePushButton.setDisabled(True)
         ui.enrol_signaturePushButton.setDisabled(True)
+        ui.juniorCheckBox.setDisabled(True)
 
     def enable_query_checkbox_elements(self):
 
@@ -2911,6 +2924,7 @@ color:white;
         ui.enrol_campsListWidget.setDisabled(False)
         ui.selectpicturePushButton.setDisabled(False)
         ui.enrol_signaturePushButton.setDisabled(False)
+        ui.juniorCheckBox.setDisabled(False)
 
     def display(self, obj):  # this executes when the Search button is pressed
         self.clear_enrolment_form()
@@ -3152,6 +3166,11 @@ color:white;
         if ui.juniorCheckBox.isChecked():
             seniority="junior"
 
+        if ui.updateentryCheckBox.isChecked():
+            img = self.check_if_img_exists(enrolmentnum)
+            if len(img):
+                os.remove(img)
+
 
         if self.candidphoto:
             ext = self.candidphoto[self.candidphoto.rfind('.') + 1:]
@@ -3234,20 +3253,9 @@ color:white;
         if self.check_if_img_exists(enrolmentnum) == "":
             im = ""
         else:
-            im = Image(self.check_if_img_exists(enrolmentnum))
+            im = pdfImage(self.check_if_img_exists(enrolmentnum))
             im.drawWidth = 100
             im.drawHeight = 100
-
-        try:
-
-            if Smiddlename == "":
-                Smiddlename = "-"
-            data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
-
-        except(PermissionError):
-            print("The csv file is already open. It needs to be closed before updating it.")
-
-
         lis = [
             ['','','',''],
             ['Enrolment Number', ':', enrolmentnum, '', im],
@@ -3268,7 +3276,7 @@ color:white;
             ]
 
         lis1=[
-            ['Education Qualifications\nand Marks in %', ':', educationmarks],
+            ['Education Qualifications\nand Marks in %', ':',education, educationmarks],
             ['Identification Marks', ':', identificationmarks],
             [
                 'Have you ever been\nconvinced by a criminal\ncourt and if so\nin what circumstances and\nwhat was the sentence?\nAttach relevant documents',
@@ -3285,7 +3293,7 @@ color:white;
             ['Camps Attended', ':', campsattended],
             ['Extra Activities', ':', extracurricularactivities],
             ['Achievements', ':', specialachievements],
-            ['Enrol Date', ':', enrolldate]
+            ['Enroll Date', ':', enrolldate]
 
         ]
 
@@ -3300,23 +3308,18 @@ color:white;
             ['Account Number', ':', accountnum],
             ['IFSC Code', ':', ifsccode],
             ['MICR', ':', micr],
-            ['PAN Number\n(if alloted)', ':', pannum],
+            ['PAN Number\n(if allotted)', ':', pannum],
             ['Institution', ':', institutionname],
             ['UNIT', ':', unit],
             ['Seniority', ':', seniority]
         ]
 
-
-        doc = SimpleDocTemplate("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"), pagesize=letter,
-                                rightMargin=20, leftMargin=20,
-                                topMargin=50, bottomMargin=20)
-        Story = []
-
         from reportlab.pdfbase.ttfonts import TTFont
         from reportlab.pdfbase import pdfmetrics
-        styles = getSampleStyleSheet()
-
-
+        doc = SimpleDocTemplate("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"), pagesize=A4,
+                                rightMargin=20, leftMargin=20,
+                                topMargin=45, bottomMargin=20)
+        Story = []
         pdfmetrics.registerFont(TTFont('longdon',os.path._getfullpathname('Longdon_Decorative.ttf')))
         pdfmetrics.registerFont(TTFont('caladea', os.path._getfullpathname('CALADEA-REGULAR.ttf')))
         pdfmetrics.registerFont(TTFont('caladea-bold', os.path._getfullpathname('CALADEA-BOLD.ttf')))
@@ -3328,6 +3331,7 @@ color:white;
         styles.add(ParagraphStyle(name='normal', fontSize=11.5, leading=15, fontName='caladea'))
         styles.add(ParagraphStyle(name='list', fontSize=11.5, fontName='caladea'))
         styles.add(ParagraphStyle(name='mainheading', fontSize=11.5, fontName='longdon' , alignment=TA_CENTER))
+        styles.add(ParagraphStyle(name='header', fontSize=9, alignment=TA_RIGHT))
 
         t = Table(lis, colWidths=[2 * inch, 0.1 * inch, 2 * inch, 2 * inch, 2 * inch], hAlign='LEFT')
         t.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
@@ -3350,24 +3354,39 @@ color:white;
                                 ('FONT', (0, 0), (-1, -1), 'caladea')
                                 ]))
 
-        Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["mainheading"]))
+        Story.append(Paragraph(enrolmentnum + " ~ Page - 1", styles["header"]))
+        Story.append(Paragraph(
+            "____________________________________________________________________________________________________________",
+            styles["header"]))
 
+        Story.append(Paragraph("<font size='25'>ENROLMENT FORM</font>", styles["mainheading"]))
         Story.append(t)
         Story.append(PageBreak())
+        Story.append(Paragraph(enrolmentnum+" ~ Page - 2",styles["header"]))
+        Story.append(Paragraph("____________________________________________________________________________________________________________", styles["header"]))
         Story.append(t1)
         Story.append(PageBreak())
+        Story.append(Paragraph(enrolmentnum + " ~ Page - 3", styles["header"]))
+        Story.append(Paragraph("____________________________________________________________________________________________________________",styles["header"]))
+
         Story.append(t2)
         Story.append(Spacer(1, 12))
 
         Story.append(
             Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-        Story.append(Paragraph("Signature of the Appilcant", styles["rightallignment"]))
+        Story.append(Paragraph("Signature of the Applicant", styles["rightallignment"]))
         Story.append(PageBreak())
+        Story.append(Paragraph(enrolmentnum + " ~ Page - 4", styles["header"]))
+        Story.append(Paragraph(
+            "____________________________________________________________________________________________________________",
+            styles["header"]))
+
+
         Story.append(
-            Paragraph("<font size='15'><u>DECLARATION ON ACCEPTANCCE FOR ENROLMENT</u></font>", styles["heading"]))
+            Paragraph("<font size='15'><u>DECLARATION ON ACCEPTANCE FOR ENROLMENT</u></font>", styles["heading"]))
         Story.append(Spacer(1, 40))
         Story.append(Paragraph(
-            "1. I solemnly declare that the answers I have given to the questions in this form are true and no part of them is false, and that I am willing to fulfil the engagement made.",
+            "1. I solemnly declare that the answers I have given to the questions in this form are true and no part of them is false, and that I am willing to fulfill the engagement made.",
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph(
@@ -3379,7 +3398,7 @@ color:white;
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph(
-            "4. I hearby certify that I have not been enrolled myself in NCC as a SD / SW, JD / JW cadets in Army /Navy / Air force.Earlier I have not appeared for A, B and C certificte examination.",
+            "4. I hereby certify that I have not been enrolled myself in NCC as a SD / SW, JD / JW cadets in Army /Navy / Air force.Earlier I have not appeared for A, B and C certificate examination.",
             styles["normal"]))
         Story.append(
             Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
@@ -3387,20 +3406,25 @@ color:white;
         Story.append(Spacer(1, 80))
 
 
-        Story.append(Paragraph("<font size='15'><u>DECLARATION BY PARENT/GAURDIAN</u></font>", styles["heading"]))
+        Story.append(Paragraph("<font size='15'><u>DECLARATION BY PARENT/GUARDIAN</u></font>", styles["heading"]))
         Story.append(Spacer(1, 40))
         Story.append(Paragraph(
-            "1. I solemnly declare that the answer given in this form are true and that no part of them is false, and that My Son / Daughter / Ward is willing to fulfil the engagement made.",
+            "1. I solemnly declare that the answer given in this form are true and that no part of them is false, and that My Son / Daughter / Ward is willing to fulfill the engagement made.",
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph(
-            "2. I ___________________________________ promise that after enrolment of my Son / Daughter / Ward. I will have no claim on authorities for any compensation in the event of any injury or death due to accident during training camps, courses, travelling and while on YEP or any other such NCC events like RDC and IDC",
+            "2. I ___________________________________ promise that after enrolment of my Son / Daughter / Ward. I will have no claim on authorities for any compensation in the event of any injury or death due to accident during training camps, courses, traveling and while on YEP or any other such NCC events like RDC and IDC",
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(
             Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
-        Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+        Story.append(Paragraph("Signature of the Parent / GUARDIAN", styles["rightallignment"]))
         Story.append(PageBreak())
+        Story.append(Paragraph(enrolmentnum + " ~ Page - 5", styles["header"]))
+        Story.append(Paragraph(
+            "____________________________________________________________________________________________________________",
+            styles["header"]))
+
         Story.append(Paragraph("<font size='15'><u>CERTIFICATE</u></font>", styles["heading"]))
         Story.append(Spacer(1, 20))
         Story.append(
@@ -3408,19 +3432,19 @@ color:white;
                       styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph(
-            "2. Certified that the applicant and his Parent / Gaurdian understand and agree to the condition on enrolment.",
+            "2. Certified that the applicant and his Parent / Guardian understand and agree to the condition on enrolment.",
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>(Unit seal)",
                                styles["leftallignment"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph("* For Minors only. Score out inapplicable portion.", styles["normal"]))
-        Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+        Story.append(Paragraph("Signature of the Parent / Guardian", styles["rightallignment"]))
         Story.append(Spacer(1, 20))
         Story.append(
             Paragraph("<font size='15'><u>CERTIFICATE BY PRINCIPAL / HEAD MASTER</u></font>", styles["heading"]))
         Story.append(Spacer(1, 10))
-        Story.append(Paragraph("I am satisfied that the applicant is in orderand the application fulfils the condition of enrolment and that he / she is suitable for enrolment in the unit, may be medically examined.",styles["normal"]))
+        Story.append(Paragraph("I am satisfied that the applicant is in order and the application fulfills the condition of enrolment and that he / she is suitable for enrolment in the unit, may be medically examined.",styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(
             Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
@@ -3435,7 +3459,7 @@ color:white;
             styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(
-            Paragraph("2. He / She has been inoculated and vaccinated aganist the following:", styles["normal"]))
+            Paragraph("2. He / She has been inoculated and vaccinated against the following:", styles["normal"]))
         Story.append(Spacer(1, 10))
         Story.append(Paragraph(" a. Typhoid(TAB)", styles['list']))
         Story.append(Paragraph(" b. Tetanus", styles['list']))
@@ -3447,25 +3471,30 @@ color:white;
             "Signature:____________________<br/><br/>Designation:____________________<br/><br/>(Medical Officer)",
             styles["rightallignment"]))
         Story.append(PageBreak())
+        Story.append(Paragraph(enrolmentnum + " ~ Page - 6", styles["header"]))
+        Story.append(Paragraph(
+            "____________________________________________________________________________________________________________",
+            styles["header"]))
+
         Story.append(
             Paragraph("<font size='15'><u>TO BE USED FOR EXTENSION OF ENROLMENT<br/><br/>(See Rules 13)</u></font>",
                       styles["heading"]))
         Story.append(Spacer(1, 40))
         if not ui.juniorCheckBox.isChecked():
             Story.append(Paragraph(
-                "A. I agree to extend my enrolment for one year and am willing to fulfil the engagement made.",
+                "A. I agree to extend my enrolment for one year and am willing to fulfill the engagement made.",
                 styles["normal"]))
             Story.append(Spacer(1, 10))
             Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
                                    styles["leftallignment"]))
-            Story.append(Paragraph("Signature of the Parent / Gaurdian", styles["rightallignment"]))
+            Story.append(Paragraph("Signature of the Parent / Guardian", styles["rightallignment"]))
             Story.append(Spacer(1, 30))
             Story.append(
                 Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________", styles["leftallignment"]))
             Story.append(Paragraph("Signature of the Commanding Officer", styles["rightallignment"]))
             Story.append(Spacer(1, 60))
             Story.append(Paragraph(
-                "B. I agree to extend enrolment of my Son / Daughter / Ward for one year and am willing to fulfil the engagement made.",
+                "B. I agree to extend enrolment of my Son / Daughter / Ward for one year and am willing to fulfill the engagement made.",
                 styles["normal"]))
         else:
             Story.append(Paragraph(
@@ -3474,7 +3503,7 @@ color:white;
         Story.append(Spacer(1, 30))
         Story.append(Paragraph("@<br/><br/>Place:_______________<br/><br/>Date:______________<br/><br/>Confirmed",
                                styles["leftallignment"]))
-        Story.append(Paragraph("Signature of the Parent /Gaurdian", styles["rightallignment"]))
+        Story.append(Paragraph("Signature of the Parent /Guardian", styles["rightallignment"]))
         Story.append(Spacer(1, 30))
         Story.append(Paragraph(
             "@<br/><br/>Place:_______________<br/><br/>Date from which extension start:______________<br/><br/>(Unit Seal)",
@@ -3486,9 +3515,15 @@ color:white;
 
         """Story.append(PageBreak())"""
         doc.build(Story)
-        os.startfile("candidate photos\{}_pdf.{}".format(enrolmentnum, "pdf"))
 
+        try:
 
+            if Smiddlename == "":
+                Smiddlename = "-"
+            data.to_csv(r'All candidate details.csv', float_format="%s", index=False)
+
+        except(PermissionError):
+            print("The csv file is already open. It needs to be closed before updating it.")
 
     def table1(self, res, msg):
 
@@ -4158,8 +4193,8 @@ if __name__ == "__main__":
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
 
-        username= 'ncc_editor'
-        password='nccindia'
+        # username= 'ncc_editor'
+        # password='nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"

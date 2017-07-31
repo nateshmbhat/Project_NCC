@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1170</width>
-    <height>788</height>
+    <height>836</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -96,7 +96,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -679,7 +679,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-3180</y>
              <width>1117</width>
              <height>3723</height>
             </rect>
@@ -2306,6 +2306,9 @@ color:white;</string>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
                  </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="32" column="0">
@@ -2473,6 +2476,9 @@ color:white;</string>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">border-radius:5px;</string>
+                 </property>
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
@@ -5708,10 +5714,16 @@ color:darkgreen;</string>
            </item>
            <item row="3" column="0" alignment="Qt::AlignHCenter">
             <widget class="QComboBox" name="formsComboBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="minimumSize">
               <size>
-               <width>300</width>
-               <height>28</height>
+               <width>393</width>
+               <height>33</height>
               </size>
              </property>
              <property name="font">
@@ -5732,12 +5744,7 @@ border-radius:2px;
              </property>
              <item>
               <property name="text">
-               <string>New Item</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>New Item</string>
+               <string>adsfdasfdsfsfdsdsfsfsdfasfdsfdsfdasfs</string>
               </property>
              </item>
              <item>
@@ -8026,6 +8033,16 @@ padding:10px 10px;
   <tabstop>emailLineEdit</tabstop>
   <tabstop>mobileLineEdit</tabstop>
   <tabstop>bloodgroupComboBox</tabstop>
+  <tabstop>railwaystationLineEdit</tabstop>
+  <tabstop>policestationLineEdit</tabstop>
+  <tabstop>educationLineEdit</tabstop>
+  <tabstop>identificationmarksLineEdit</tabstop>
+  <tabstop>criminalcourtTextEdit</tabstop>
+  <tabstop>schoolorcollegeLineEdit</tabstop>
+  <tabstop>enrollpermissionLineEdit</tabstop>
+  <tabstop>earliercandidateComboBox</tabstop>
+  <tabstop>earlierenrolmentnumLineEdit</tabstop>
+  <tabstop>dismissedTextEdit</tabstop>
   <tabstop>NullcertRadioButton</tabstop>
   <tabstop>AcertRadioButton</tabstop>
   <tabstop>BcertRadioButton</tabstop>
@@ -8043,20 +8060,22 @@ padding:10px 10px;
   <tabstop>accountnumLineEdit</tabstop>
   <tabstop>ifsccodeLineEdit</tabstop>
   <tabstop>micrLineEdit</tabstop>
+  <tabstop>pannumLineEdit</tabstop>
   <tabstop>institutionenrollComboBox</tabstop>
   <tabstop>unitLineEdit</tabstop>
+  <tabstop>juniorCheckBox</tabstop>
+  <tabstop>updateentryCheckBox</tabstop>
+  <tabstop>submitPushButton</tabstop>
+  <tabstop>marksLineEdit</tabstop>
+  <tabstop>mytab</tabstop>
   <tabstop>enrolmentnumRadioButton</tabstop>
   <tabstop>aadhaarnumRadioButton</tabstop>
   <tabstop>searchbyfieldLineEdit</tabstop>
   <tabstop>searchPushButton</tabstop>
-  <tabstop>scrollArea</tabstop>
-  <tabstop>pushButton</tabstop>
   <tabstop>enrolPushButton</tabstop>
   <tabstop>enrol_signaturePushButton</tabstop>
   <tabstop>selectpicturePushButton</tabstop>
-  <tabstop>mytab</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>SettingsScrollArea</tabstop>
+  <tabstop>pushButton_3</tabstop>
   <tabstop>selectallCheckBox</tabstop>
   <tabstop>enrolmentCheckBox</tabstop>
   <tabstop>sfnameCheckBox</tabstop>
@@ -8084,12 +8103,23 @@ padding:10px 10px;
   <tabstop>mobileCheckBox</tabstop>
   <tabstop>dateofbirthCheckBox</tabstop>
   <tabstop>specialAchievementsCheckBox</tabstop>
+  <tabstop>policestationCheckBox</tabstop>
+  <tabstop>educationCheckBox</tabstop>
+  <tabstop>schoolcollegeCheckBox</tabstop>
+  <tabstop>earliercandidateCheckBox</tabstop>
+  <tabstop>pannumCheckBox</tabstop>
+  <tabstop>seniorityCheckBox</tabstop>
   <tabstop>andcondition</tabstop>
   <tabstop>orcondition</tabstop>
   <tabstop>openbracecondition</tabstop>
   <tabstop>closebracecondition</tabstop>
   <tabstop>backcondition</tabstop>
+  <tabstop>conditionlistcombobox</tabstop>
+  <tabstop>campsattendedqueryComboBox</tabstop>
+  <tabstop>vegitarianqueryComboBox</tabstop>
   <tabstop>bloodgroupqueryComboBox</tabstop>
+  <tabstop>certificatequeryComboBox</tabstop>
+  <tabstop>seniorityqueryComboBox</tabstop>
   <tabstop>institutionqueryComboBox</tabstop>
   <tabstop>rankqueryComboBox</tabstop>
   <tabstop>sexqueryComboBox</tabstop>
@@ -8098,11 +8128,13 @@ padding:10px 10px;
   <tabstop>insertcondition</tabstop>
   <tabstop>clearcondition</tabstop>
   <tabstop>querycondition</tabstop>
-  <tabstop>webView</tabstop>
+  <tabstop>query_backPushButton</tabstop>
+  <tabstop>generateexcelqueryPushButton</tabstop>
   <tabstop>formsComboBox</tabstop>
   <tabstop>entryBox</tabstop>
+  <tabstop>saveExelPushButton</tabstop>
+  <tabstop>updateExelPushButton</tabstop>
   <tabstop>institutionuploaddatacomboBox</tabstop>
-  <tabstop>typecomboBox</tabstop>
   <tabstop>campsNameuploaddataComboBox</tabstop>
   <tabstop>certificateComboBox</tabstop>
   <tabstop>eligibilityCheckBox</tabstop>
@@ -8111,6 +8143,7 @@ padding:10px 10px;
   <tabstop>locationLineEdit</tabstop>
   <tabstop>startdateDateEdit</tabstop>
   <tabstop>enddateDateEdit</tabstop>
+  <tabstop>save_data_excelPushButton</tabstop>
   <tabstop>savedataPushButton</tabstop>
   <tabstop>typelongnrComboBox</tabstop>
   <tabstop>institutionlongnrComboBox</tabstop>
@@ -8118,6 +8151,7 @@ padding:10px 10px;
   <tabstop>showlongnrPushButton</tabstop>
   <tabstop>generateexcellongnrPushButton</tabstop>
   <tabstop>updateexcellongnrPushButton</tabstop>
+  <tabstop>settings_loginPushButton</tabstop>
   <tabstop>settings_institutionListWidget</tabstop>
   <tabstop>settings_addinstitutionPushButton</tabstop>
   <tabstop>removeinstitutionPushButton</tabstop>
@@ -8125,10 +8159,10 @@ padding:10px 10px;
   <tabstop>settings_addPushButton</tabstop>
   <tabstop>settings_backinstPushButton</tabstop>
   <tabstop>settings_formsListWidget</tabstop>
+  <tabstop>settings_fieldsListWidget</tabstop>
   <tabstop>settings_addformLineEdit</tabstop>
   <tabstop>settings_addformPushButton</tabstop>
   <tabstop>settings_removeformPushButton</tabstop>
-  <tabstop>settings_fieldsListWidget</tabstop>
   <tabstop>settings_addfieldLineEdit</tabstop>
   <tabstop>settings_fieldsComboBox</tabstop>
   <tabstop>settings_fieldsknownRadioButton</tabstop>
@@ -8143,27 +8177,22 @@ padding:10px 10px;
   <tabstop>settings_backupdataPushButton</tabstop>
   <tabstop>settings_restoredataPushButton</tabstop>
   <tabstop>exceltodatabasePushButton</tabstop>
-  <tabstop>tableWidget_2</tabstop>
-  <tabstop>campsattendedqueryComboBox</tabstop>
-  <tabstop>generateexcelqueryPushButton</tabstop>
-  <tabstop>vegitarianqueryComboBox</tabstop>
   <tabstop>webView_2</tabstop>
+  <tabstop>helpWebView</tabstop>
+  <tabstop>SettingsScrollArea</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>tableWidget_2</tabstop>
+  <tabstop>webView</tabstop>
   <tabstop>tableWidget</tabstop>
-  <tabstop>certificatequeryComboBox</tabstop>
-  <tabstop>pushButton_3</tabstop>
-  <tabstop>conditionlistcombobox</tabstop>
-  <tabstop>query_backPushButton</tabstop>
-  <tabstop>saveExelPushButton</tabstop>
-  <tabstop>updateExelPushButton</tabstop>
-  <tabstop>save_data_excelPushButton</tabstop>
-  <tabstop>settings_loginPushButton</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>scrollArea</tabstop>
  </tabstops>
  <resources>
   <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
-  <include location="icon_res.qrc"/>
+  <include location="../Resources/icon_res.qrc"/>
   <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections>

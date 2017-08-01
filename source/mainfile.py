@@ -634,7 +634,7 @@ class logic():
         elif os.path.exists(r'candidate photos\{}.PNG'.format(imagename)):
             img = r'candidate photos\{}.PNG'.format(imagename)
         else:
-            img = self.candidphoto
+            img = ''
 
         return img
 
@@ -3166,10 +3166,27 @@ color:white;
         if ui.juniorCheckBox.isChecked():
             seniority="junior"
 
+
+
         if ui.updateentryCheckBox.isChecked():
-            img = self.check_if_img_exists(enrolmentnum)
-            if len(img):
-                os.remove(img)
+            img = self.check_if_img_exists(enrolmentnum);
+            imgsign = self.check_if_img_exists(enrolmentnum+'_sign')
+            if len(img) and len(self.candidphoto):
+                try:
+                    os.remove(img);
+                except(FileNotFoundError):
+                    if img.endswith('.png'):
+                        os.remove(img.replace('png', 'PNG'))
+                    elif img.endswith('.jpg'):
+                        os.remove(img.replace('jpg', 'JPG'));
+            if len(imgsign) and len(self.signaturephoto):
+                try:
+                    os.remove(img) ;
+                except(FileNotFoundError):
+                    if imgsign.endswith('.png'):
+                        os.remove(imgsign.replace('png','PNG'))
+                    elif imgsign.endswith('.jpg'):
+                        os.remove(imgsign.replace('jpg','JPG')) ;
 
 
         if self.candidphoto:
@@ -3341,13 +3358,13 @@ color:white;
                                ]))
 
 
-        t1 = Table(lis1, colWidths=[2 * inch, 0.1 * inch], hAlign='LEFT')
+        t1 = Table(lis1, colWidths=[2 * inch, 0.1 * inch, 2 * inch, 2 * inch, 2 * inch], hAlign='LEFT')
         t1.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
                                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
                                ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
                                 ('FONT', (0, 0), (-1, -1), 'caladea')
                                 ]))
-        t2 = Table(lis2, colWidths=[2 * inch, 0.1 * inch], hAlign='LEFT')
+        t2 = Table(lis2, colWidths=[2 * inch, 0.1 * inch, 2 * inch, 2 * inch, 2 * inch], hAlign='LEFT')
         t2.setStyle(TableStyle([('TOPPADDING', (0, 0), (-1, -1), 20),
                                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
                                ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
@@ -4194,8 +4211,8 @@ if __name__ == "__main__":
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
 
-        # username= 'ncc_editor'
-        # password='nccindia'
+        username= 'ncc_editor'
+        password='nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>616</width>
-    <height>298</height>
+    <height>309</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -31,11 +31,19 @@
     <height>411</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Centaur</family>
+    <pointsize>10</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>LOGIN</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../Icons/icon_res.qrc">
+   <iconset resource="../Resources/icon_res.qrc">
     <normaloff>:/icons/ncc2.png</normaloff>:/icons/ncc2.png</iconset>
   </property>
   <property name="styleSheet">
@@ -61,7 +69,7 @@ background-position:center;
        <property name="minimumSize">
         <size>
          <width>250</width>
-         <height>0</height>
+         <height>96</height>
         </size>
        </property>
        <property name="font">
@@ -74,8 +82,7 @@ background-position:center;
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 20pt &quot;Centaur&quot;;
-font-weight:bold;
+        <string notr="true">
 color:white;</string>
        </property>
        <property name="text">
@@ -125,7 +132,7 @@ margin-right:10px;</string>
        <property name="minimumSize">
         <size>
          <width>250</width>
-         <height>0</height>
+         <height>96</height>
         </size>
        </property>
        <property name="styleSheet">
@@ -169,12 +176,12 @@ margin-right:10px;</string>
      </item>
     </layout>
    </item>
-   <item>
+   <item alignment="Qt::AlignBottom">
     <widget class="QPushButton" name="loginPushButton">
      <property name="font">
       <font>
-       <family>Century</family>
-       <pointsize>22</pointsize>
+       <family>Longdon Decorative</family>
+       <pointsize>29</pointsize>
        <weight>50</weight>
        <bold>false</bold>
       </font>
@@ -187,7 +194,7 @@ color:white;
 border-radius:10px;
 border-top:1px solid yellow;
 border-bottom:1px solid black;
-padding:3px 0px;
+padding:0px 0px;
 }
 
 #loginPushButton:hover{
@@ -210,10 +217,41 @@ color:black;
      </property>
     </widget>
    </item>
+   <item alignment="Qt::AlignBottom">
+    <widget class="QLabel" name="label_3">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Developed by 4Karnataka Battalion, NCC  [ by Natesh M Bhat and Gangadhara Shetty P J ]</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>
-  <include location="../Icons/icon_res.qrc"/>
+  <include location="../Resources/icon_res.qrc"/>
  </resources>
  <connections/>
 </ui>

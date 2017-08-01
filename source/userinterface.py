@@ -404,7 +404,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1117, 3723))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, -1077, 1117, 3723))
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -3819,7 +3819,7 @@ class Ui_MainWindow(object):
         self.SettingsScrollArea.setWidgetResizable(True)
         self.SettingsScrollArea.setObjectName(_fromUtf8("SettingsScrollArea"))
         self.settingsscrollAreaWidgetContents = QtGui.QWidget()
-        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1115, 2005))
+        self.settingsscrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 960, 2006))
         self.settingsscrollAreaWidgetContents.setStyleSheet(_fromUtf8("#settingsscrollAreaWidgetContents\n"
 "{\n"
 "    background-color:transparent;\n"
@@ -4479,7 +4479,8 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.bloodgroupComboBox, self.railwaystationLineEdit)
         MainWindow.setTabOrder(self.railwaystationLineEdit, self.policestationLineEdit)
         MainWindow.setTabOrder(self.policestationLineEdit, self.educationLineEdit)
-        MainWindow.setTabOrder(self.educationLineEdit, self.identificationmarksLineEdit)
+        MainWindow.setTabOrder(self.educationLineEdit, self.marksLineEdit)
+        MainWindow.setTabOrder(self.marksLineEdit, self.identificationmarksLineEdit)
         MainWindow.setTabOrder(self.identificationmarksLineEdit, self.criminalcourtTextEdit)
         MainWindow.setTabOrder(self.criminalcourtTextEdit, self.schoolorcollegeLineEdit)
         MainWindow.setTabOrder(self.schoolorcollegeLineEdit, self.enrollpermissionLineEdit)
@@ -4509,8 +4510,7 @@ class Ui_MainWindow(object):
         MainWindow.setTabOrder(self.unitLineEdit, self.juniorCheckBox)
         MainWindow.setTabOrder(self.juniorCheckBox, self.updateentryCheckBox)
         MainWindow.setTabOrder(self.updateentryCheckBox, self.submitPushButton)
-        MainWindow.setTabOrder(self.submitPushButton, self.marksLineEdit)
-        MainWindow.setTabOrder(self.marksLineEdit, self.mytab)
+        MainWindow.setTabOrder(self.submitPushButton, self.mytab)
         MainWindow.setTabOrder(self.mytab, self.enrolmentnumRadioButton)
         MainWindow.setTabOrder(self.enrolmentnumRadioButton, self.aadhaarnumRadioButton)
         MainWindow.setTabOrder(self.aadhaarnumRadioButton, self.searchbyfieldLineEdit)

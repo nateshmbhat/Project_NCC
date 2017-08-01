@@ -3181,7 +3181,7 @@ color:white;
                         os.remove(img.replace('jpg', 'JPG'));
             if len(imgsign) and len(self.signaturephoto):
                 try:
-                    os.remove(img) ;
+                    os.remove(imgsign) ;
                 except(FileNotFoundError):
                     if imgsign.endswith('.png'):
                         os.remove(imgsign.replace('png','PNG'))
@@ -4211,8 +4211,8 @@ if __name__ == "__main__":
         username = loginui.login_usernameLineEdit.displayText().strip()
         password = loginui.login_passwordLineEdit.text().strip()
 
-        username= 'ncc_editor'
-        password='nccindia'
+        # username= 'ncc_editor'
+        # password='nccindia'
 
         if username == 'ncc_editor' and password == 'nccindia':
             loginui.username = "ncc_editor"

@@ -679,7 +679,7 @@ border-radius:100px;
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1077</y>
              <width>1117</width>
              <height>3723</height>
             </rect>
@@ -6830,8 +6830,8 @@ background-position:center;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1115</width>
-             <height>2005</height>
+             <width>960</width>
+             <height>2006</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -8031,6 +8031,7 @@ padding:10px 10px;
   <tabstop>railwaystationLineEdit</tabstop>
   <tabstop>policestationLineEdit</tabstop>
   <tabstop>educationLineEdit</tabstop>
+  <tabstop>marksLineEdit</tabstop>
   <tabstop>identificationmarksLineEdit</tabstop>
   <tabstop>criminalcourtTextEdit</tabstop>
   <tabstop>schoolorcollegeLineEdit</tabstop>
@@ -8061,7 +8062,6 @@ padding:10px 10px;
   <tabstop>juniorCheckBox</tabstop>
   <tabstop>updateentryCheckBox</tabstop>
   <tabstop>submitPushButton</tabstop>
-  <tabstop>marksLineEdit</tabstop>
   <tabstop>mytab</tabstop>
   <tabstop>enrolmentnumRadioButton</tabstop>
   <tabstop>aadhaarnumRadioButton</tabstop>
